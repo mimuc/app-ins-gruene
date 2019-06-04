@@ -1,3 +1,4 @@
 <resources>
     <string name="welcome_text">Hello World!</string>
+    <string name="qr_button_text">Start QR Code Reading</string>
 </resources>
