@@ -29,8 +29,10 @@ android {
             resValue "string", "app_name", "Tree App Deb."
         }
         release {
+            testCoverageEnabled true
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "string", "app_name", "Tree App"
         }
     }
 }
