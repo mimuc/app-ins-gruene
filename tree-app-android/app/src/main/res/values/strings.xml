@@ -1,3 +1,3 @@
 <resources>
-    <string name="app_name">Tree  App</string>
+    <string name="welcome_text">Hello World!</string>
 </resources>

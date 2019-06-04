@@ -1,4 +1,16 @@
+plugins {
+    id 'net.researchgate.release' version '2.6.0'
+}
+
 apply plugin: 'com.android.application'
+def appName = rootProject.name
+
+release {
+    tagTemplate =  appName + '-${version}'
+    git {
+        requireBranch = 'master'
+    }
+}
 
 android {
     compileSdkVersion 28
@@ -6,11 +18,16 @@ android {
         applicationId "de.lmu.treeapp"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode System.getenv("BUILD_NUMBER") as Integer ?: 9999
+        versionName version
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            testCoverageEnabled true
+            applicationIdSuffix '.debug'
+            resValue "string", "app_name", "Tree App Deb."
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
