@@ -7,9 +7,7 @@ This Android Project is used to manage the source code of a biodidactic tree app
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
+### What do you need to run the project?
 
 - [Android Studio](https://developer.android.com/studio)
 - [Git](https://git-scm.com/)
@@ -27,24 +25,35 @@ git clone https://gitlab.lrz.de/lmu-design-workshop/tree-app-android.git
 - Now you are able to open the project in Android Studio.
 
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-
-## Deployment
-
- We release our apk with [Gradle release plugin](https://github.com/researchgate/gradle-release).
- Standard gradle release call is:
+## How to run tests?
 
 ```
-  gradle release -Prelease.useAutomaticVersion=true -Prelease.releaseVersion=1.0.0 -Prelease.newVersion=1.1.0-SNAPSHOT
+./gradlew clean test
+```
+
+
+## How to Tag and Release the projectß
+
+ We release our Build and APK with [Gradle release plugin](https://github.com/researchgate/gradle-release).
+ Release Call for specific Version is:
+ 
+```
+  ./gradlew clean release -Prelease.useAutomaticVersion=true -Prelease.releaseVersion=1.0.0 -Prelease.newVersion=1.1.0-SNAPSHOT
+```
+
+ Release Call for Standard Version Increase is:
+```
+  ./gradlew clean release
+```
+
+If you just want to build an unsigned APK File, call:
+```
+  ./gradlew clean assemble
 ```
 
 ## Built With
 
 * [Gradle](https://gradle.org/) 
-
 
 ## Versioning
 
