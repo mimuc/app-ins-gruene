@@ -37,6 +37,8 @@ public class CameraSourcePreview extends ViewGroup {
     private boolean mStartRequested;
     private boolean mSurfaceAvailable;
     private CameraSource mCameraSource;
+    private int previewHeight;
+    private int previewWidth;
 
     public CameraSourcePreview(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -109,8 +111,8 @@ public class CameraSourcePreview extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        int previewWidth = 320;
-        int previewHeight = 240;
+        previewWidth = 320;
+        previewHeight = 240;
         if (mCameraSource != null) {
             Size size = mCameraSource.getPreviewSize();
             if (size != null) {
@@ -119,12 +121,7 @@ public class CameraSourcePreview extends ViewGroup {
             }
         }
 
-        // Swap width and height sizes when in portrait, since it will be rotated 90 degrees
-        if (isPortraitMode()) {
-            int tmp = previewWidth;
-            previewWidth = previewHeight;
-            previewHeight = tmp;
-        }
+        switchSizesForPortraitMode();
 
         final int viewWidth = right - left;
         final int viewHeight = bottom - top;
@@ -164,6 +161,14 @@ public class CameraSourcePreview extends ViewGroup {
             Log.e(TAG, "Could not start camera source.", e);
         } catch (SecurityException se) {
             Log.e(TAG, "Does not have permission to start the camera.", se);
+        }
+    }
+
+    private void switchSizesForPortraitMode() {
+        if (isPortraitMode()) {
+            int tmp = previewWidth;
+            previewWidth = previewHeight;
+            previewHeight = tmp;
         }
     }
 
