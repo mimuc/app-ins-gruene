@@ -14,14 +14,14 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         android:fullBackupContent="true">
-        <activity android:name=".MainActivity" >
+        <activity android:name=".activities.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".barcode.BarcodeCaptureActivity"
+            android:name=".activities.BarcodeCaptureActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
     </application>
 

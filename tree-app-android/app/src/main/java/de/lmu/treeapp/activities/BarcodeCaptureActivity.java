@@ -16,7 +16,7 @@
  * This file and all BarcodeXXX and CameraXXX files in this project edited by
  * Daniell Algar (included due to copyright reason)
  */
-package de.lmu.treeapp.barcode;
+package de.lmu.treeapp.activities;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -29,12 +29,13 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -46,6 +47,8 @@ import com.google.android.gms.vision.barcode.BarcodeDetector;
 import java.io.IOException;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.barcode.BarcodeTracker;
+import de.lmu.treeapp.barcode.BarcodeTrackerFactory;
 import de.lmu.treeapp.camera.CameraSource;
 import de.lmu.treeapp.camera.CameraSourcePreview;
 
@@ -215,7 +218,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity
 
         if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "Camera permission granted - initialize the camera source");
-            // we have permission, so create the camerasource
+            // we have permission, so create the camera source
             boolean autoFocus = true;
             boolean useFlash = false;
             createCameraSource(autoFocus, useFlash);

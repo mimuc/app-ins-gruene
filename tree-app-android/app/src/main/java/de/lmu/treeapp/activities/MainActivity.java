@@ -1,19 +1,21 @@
-package de.lmu.treeapp;
+package de.lmu.treeapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import de.lmu.treeapp.barcode.BarcodeCaptureActivity;
+import de.lmu.treeapp.R;
 
 
 public class MainActivity extends AppCompatActivity {
