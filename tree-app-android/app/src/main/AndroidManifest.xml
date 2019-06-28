@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".barcode.BarcodeCaptureActivity"
+            android:name=".activities.BarcodeCaptureActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
     </application>
 
