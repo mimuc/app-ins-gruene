@@ -1,4 +1,4 @@
-package de.lmu.treeapp;
+package de.lmu.treeapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
 
+import de.lmu.treeapp.R;
 import de.lmu.treeapp.barcode.BarcodeCaptureActivity;
 
 
