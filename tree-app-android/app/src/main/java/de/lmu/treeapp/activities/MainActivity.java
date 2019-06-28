@@ -4,15 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import de.lmu.treeapp.R;
@@ -31,6 +34,24 @@ public class MainActivity extends AppCompatActivity {
         welcomeTextView = findViewById(R.id.textView);
 
         qrCodeButton.setOnClickListener(getQrCodeButtonOnClickListener());
+
+
+        BottomNavigationView bottomNavigationView =  findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_overview:
+                        Toast.makeText(MainActivity.this, "Overview", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_tree_selection:
+                        Toast.makeText(MainActivity.this, "Tree selection", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return true;
+            }
+        });
+
     }
 
     private Button.OnClickListener getQrCodeButtonOnClickListener() {
