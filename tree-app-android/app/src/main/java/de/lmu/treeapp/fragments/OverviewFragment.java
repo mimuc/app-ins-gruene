@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -16,7 +15,6 @@ import de.lmu.treeapp.activities.WantedPosterActivity;
 
 public class OverviewFragment extends Fragment {
 
-    private TextView overviewTextView;
     private Button overviewWantedPosterButton;
 
     public OverviewFragment() {
@@ -27,7 +25,6 @@ public class OverviewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_overview, container, false);
-        overviewTextView =  view.findViewById(R.id.textView_overview);
         overviewWantedPosterButton = view.findViewById(R.id.overview_wanted_poster_button);
 
         overviewWantedPosterButton.setOnClickListener(new Button.OnClickListener() {

@@ -20,6 +20,10 @@ public class WantedPosterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wanted_poster);
 
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
         wantedPosterDetailsButton = findViewById(R.id.wanted_poster_button);
         wantedPosterDetailsButton.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -31,5 +35,11 @@ public class WantedPosterActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }
