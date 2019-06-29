@@ -2,7 +2,6 @@ package de.lmu.treeapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -22,6 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.Service.FragmentManagerService;
 import de.lmu.treeapp.fragments.OverviewFragment;
 import de.lmu.treeapp.fragments.TreeSelectionFragment;
 
@@ -30,13 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
     private final int BARCODE_READER_REQUEST_CODE = 1;
     private TextView welcomeTextView;
-    private BottomNavigationView bottomNavigationView;
 
-
-    private final Fragment fragment1 = new OverviewFragment();
-    private final Fragment fragment2 = new TreeSelectionFragment();
-    private final FragmentManager fragmentManager = getSupportFragmentManager();
-    private Fragment active = fragment1;
+    FragmentManagerService fragmentManager = FragmentManagerService.getInstance(getSupportFragmentManager());
+    private final Fragment treeSelectionFragment = new TreeSelectionFragment();
+    private final Fragment overviewFragment = new OverviewFragment(fragmentManager, treeSelectionFragment);
+    //private Fragment activeFragment = overviewFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
         qrCodeButton.setOnClickListener(getQrCodeButtonOnClickListener());
 
 
-        bottomNavigationView = this.findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = this.findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(getOnNavigationItemSelectedListener());
 
-        fragmentManager.beginTransaction().add(R.id.main_container, fragment2, "2").hide(fragment2).commit();
-        fragmentManager.beginTransaction().add(R.id.main_container,fragment1, "1").commit();
+        Fragment[] bottomNavigationFragments = new Fragment[] { overviewFragment, treeSelectionFragment};
+        fragmentManager.registerTransactions(bottomNavigationFragments);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener getOnNavigationItemSelectedListener() {
@@ -65,13 +62,11 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_overview:
-                        fragmentManager.beginTransaction().hide(active).show(fragment1).commit();
-                        active = fragment1;
+                        fragmentManager.showFragment(overviewFragment);
                         Toast.makeText(MainActivity.this, "Overview", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_tree_selection:
-                        fragmentManager.beginTransaction().hide(active).show(fragment2).commit();
-                        active = fragment2;
+                        fragmentManager.showFragment(treeSelectionFragment);
                         Toast.makeText(MainActivity.this, "Tree selection", Toast.LENGTH_SHORT).show();
                         break;
                 }

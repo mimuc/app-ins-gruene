@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.activities.WantedPosterActivity;
+import de.lmu.treeapp.activities.WantedPosterDetailsActivity;
 
 public class TreeSelectionFragment extends Fragment {
 
@@ -33,7 +33,7 @@ public class TreeSelectionFragment extends Fragment {
                 Toast qrToast = Toast.makeText(getContext(), "Wanted Poster Button clicked", Toast.LENGTH_LONG );
                 qrToast.show();
 
-                Intent intent = new Intent(getContext(), WantedPosterActivity.class);
+                Intent intent = new Intent(getContext(), WantedPosterDetailsActivity.class);
                 startActivity(intent);
             }
         });

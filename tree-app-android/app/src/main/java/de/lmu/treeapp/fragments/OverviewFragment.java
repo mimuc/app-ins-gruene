@@ -1,6 +1,5 @@
 package de.lmu.treeapp.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,14 +10,17 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.activities.WantedPosterActivity;
+import de.lmu.treeapp.Service.FragmentManagerService;
 
 public class OverviewFragment extends Fragment {
 
+    private FragmentManagerService fragmentManager;
     private Button overviewWantedPosterButton;
+    private Fragment selectedTreeFragment;
 
-    public OverviewFragment() {
-
+    public OverviewFragment(FragmentManagerService fragmentManager, Fragment selectedTreeFragment) {
+        this.fragmentManager = fragmentManager;
+        this.selectedTreeFragment = selectedTreeFragment;
     }
 
     @Override
@@ -30,11 +32,10 @@ public class OverviewFragment extends Fragment {
         overviewWantedPosterButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast qrToast = Toast.makeText(getContext(), "Wanted Poster Button clicked", Toast.LENGTH_LONG );
+                Toast qrToast = Toast.makeText(getContext(), "Show Tree Selection Fragment Button clicked", Toast.LENGTH_LONG );
                 qrToast.show();
 
-                Intent intent = new Intent(getContext(), WantedPosterActivity.class);
-                startActivity(intent);
+                fragmentManager.showFragment(selectedTreeFragment);
             }
         });
 
