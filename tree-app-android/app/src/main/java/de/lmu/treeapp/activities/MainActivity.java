@@ -43,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if(getSupportActionBar() != null ) {
+            getSupportActionBar().hide();
+        }
+
         FloatingActionButton qrCodeButton = this.findViewById(R.id.qr_code_button);
         welcomeTextView = findViewById(R.id.textView);
         qrCodeButton.setOnClickListener(getQrCodeButtonOnClickListener());

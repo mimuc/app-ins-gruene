@@ -22,6 +22,7 @@ public class WantedPosterActivity extends AppCompatActivity {
 
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(R.string.wanted_poster_title_text);
         }
 
         wantedPosterDetailsButton = findViewById(R.id.wanted_poster_button);

@@ -15,6 +15,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
 
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(R.string.wanted_poster_details_title_text);
         }
     }
 

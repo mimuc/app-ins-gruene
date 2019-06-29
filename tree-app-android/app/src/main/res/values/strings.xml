@@ -16,4 +16,6 @@
     <string name="wanted_poster_details_button_text">DETAILS</string>
     <string name="overview_button_text">WANTED POSTER</string>
     <string name="wanted_poster_details_text_view_text">Wanted Poster Details Activity</string>
+    <string name="wanted_poster_title_text">Wanted Poster</string>
+    <string name="wanted_poster_details_title_text">Wanted Poster Details</string>
 </resources>
