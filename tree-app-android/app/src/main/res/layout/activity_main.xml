@@ -14,6 +14,11 @@
         android:layout_gravity="center"
         android:text="@string/welcome_text"/>
 
+    <include
+        layout="@layout/tab_bar_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_bar_content_height" />
+
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
@@ -21,7 +26,6 @@
         android:layout_gravity="bottom"
         app:backgroundTint="@color/colorPrimary"
         app:fabAlignmentMode="center" />
-
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -37,7 +41,6 @@
             app:itemTextColor="@color/white"
             app:menu="@menu/bottom_app_bar_menu" />
     </FrameLayout>
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/qr_code_button"

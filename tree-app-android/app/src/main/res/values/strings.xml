@@ -8,4 +8,6 @@
     <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
     <string name="bottom_app_bar_overview">Übersicht</string>
     <string name="bottom_app_bar_tree_selection">Bäume</string>
+    <string name="fragment_overview_start_text">OverviewFragment</string>
+    <string name="fragment_tree_selection_start_text">TreeSelectionFragment</string>
 </resources>

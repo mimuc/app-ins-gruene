@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="bottom_app_bar_height">48dp</dimen>
+    <dimen name="bottom_app_bar_height">56dp</dimen>
+    <dimen name="tab_bar_content_height">675dp</dimen>
 </resources>
