@@ -1,9 +1,21 @@
 <resources>
-    <string name="welcome_text">Hello World!</string>
+    <string name="ok">OK</string>
+
     <string name="no_barcode_captured">No barcode captured</string>
     <string name="barcode_error_format">"Error reading barcode: %1$s"</string>
-
-    <string name="ok">OK</string>
     <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
     <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
+
+    <string name="bottom_app_bar_overview">Übersicht</string>
+    <string name="bottom_app_bar_tree_selection">Bäume</string>
+
+    <string name="welcome_text">Herzlich Willkomen!</string>
+    <string name="fragment_overview_start_text">OverviewFragment</string>
+    <string name="fragment_tree_selection_start_text">TreeSelectionFragment</string>
+    <string name="wanted_poster_text_view_text">WantedPosterActivity</string>
+    <string name="overview_button_text">BAUM ANZEIGEN</string>
+    <string name="wanted_poster_details_text_view_text">Hier werden die Informationen über jeden Baum stehen!</string>
+    <string name="wanted_poster_title_text">Wanted Poster</string>
+    <string name="wanted_poster_details_title_text">Steckbrief Informationen</string>
+    <string name="tree_selection_fragment_button_text">DETAILS ANZEIGEN</string>
 </resources>

@@ -23,6 +23,7 @@
         <activity
             android:name=".activities.BarcodeCaptureActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".activities.WantedPosterDetailsActivity" />
     </application>
 
 </manifest>

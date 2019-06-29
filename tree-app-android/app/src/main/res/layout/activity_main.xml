@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,19 +11,43 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcome_text"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:text="@string/welcome_text"/>
 
+    <include
+        layout="@layout/tab_bar_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_bar_content_height" />
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_app_bar_height"
+        android:layout_gravity="bottom"
+        app:backgroundTint="@color/colorPrimary"
+        app:fabAlignmentMode="center" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_app_bar_height"
+        android:layout_gravity="bottom">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            app:menu="@menu/bottom_app_bar_menu" />
+    </FrameLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/qr_code_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#009688"
-        android:clickable="true"
-        android:focusable="true"
-        android:layout_margin="16dp"
         android:src="@drawable/ic_camera_alt_white_24dp"
-        android:layout_gravity="end|bottom"/>
+        android:backgroundTint="@color/colorPrimary"
+        app:layout_anchor="@id/bottom_app_bar" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
