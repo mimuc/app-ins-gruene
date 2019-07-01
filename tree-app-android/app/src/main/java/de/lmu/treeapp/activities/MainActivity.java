@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -30,10 +29,9 @@ public class MainActivity extends AppCompatActivity {
     private final int BARCODE_READER_REQUEST_CODE = 1;
     private TextView welcomeTextView;
 
-    FragmentManagerService fragmentManager = FragmentManagerService.getInstance(getSupportFragmentManager());
+    private FragmentManagerService fragmentManager = FragmentManagerService.getInstance(getSupportFragmentManager());
     private final Fragment treeSelectionFragment = new TreeSelectionFragment();
     private final Fragment overviewFragment = new OverviewFragment(fragmentManager, treeSelectionFragment);
-    //private Fragment activeFragment = overviewFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
