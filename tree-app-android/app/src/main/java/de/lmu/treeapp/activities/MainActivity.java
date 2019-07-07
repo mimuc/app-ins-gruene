@@ -18,8 +18,12 @@ import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.List;
+
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.Service.FragmentManagerService;
+import de.lmu.treeapp.database.AppDatabase;
+import de.lmu.treeapp.database.entities.TreeModel;
 import de.lmu.treeapp.fragments.OverviewFragment;
 import de.lmu.treeapp.fragments.TreeSelectionFragment;
 
@@ -52,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
         Fragment[] bottomNavigationFragments = new Fragment[] { overviewFragment, treeSelectionFragment};
         fragmentManager.registerTransactions(bottomNavigationFragments);
+
+        TestTreeModels();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener getOnNavigationItemSelectedListener() {
@@ -84,6 +90,43 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, BARCODE_READER_REQUEST_CODE);
             }
         };
+    }
+
+    // The next 3 functions are used to Test the database_feature;
+    private void TestTreeModels(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                List<TreeModel> trees = AppDatabase.getInstance(getApplicationContext()).treeDao().getAll();
+                if (trees.isEmpty()) {
+                    AddTrees();
+                } else {
+                    ShowTrees(trees);
+                }
+            }
+        }).start();
+    }
+    private void AddTrees(){
+        TreeModel newTree = new TreeModel();
+        int[] leafG = {0,1,2};
+        int[] fruitG = {3,4,5};
+        int[] trunkG = {6,7,8};
+        int[] otherG = {9,10,11};
+        newTree.FirstInit(0,"Ahorn",0, leafG, fruitG, trunkG, otherG);
+        AppDatabase.getInstance(getApplicationContext()).treeDao().InsertOne(newTree);
+    }
+    private void ShowTrees(List<TreeModel> trees){
+        String testText = trees.get(0).name;
+        ShowToast(testText);
+    }
+
+    // Helper-Function -> Show a Toast from any Thread
+    private void ShowToast(final String toastText){
+        runOnUiThread(new Runnable(){
+            public void run(){
+                Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
