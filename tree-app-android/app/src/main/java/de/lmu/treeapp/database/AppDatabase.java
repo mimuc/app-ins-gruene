@@ -8,16 +8,18 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
 import de.lmu.treeapp.database.daos.TreeDao;
+import de.lmu.treeapp.database.daos.TreeProfileDao;
 import de.lmu.treeapp.database.entities.TreeModel;
 import de.lmu.treeapp.database.entities.TreeProfileModel;
 
-@Database(entities = {TreeModel.class, TreeProfileModel.class}, version = 1)
+@Database(entities = {TreeModel.class, TreeProfileModel.class}, version = 1, exportSchema = false)
 @TypeConverters({TypeConversion.class})
 public abstract class AppDatabase extends RoomDatabase {
     private  static AppDatabase INSTANCE;
     private static final Object sLock = new Object();
 
     public abstract TreeDao treeDao();
+    public abstract TreeProfileDao treeProfileDao();
 
     public static AppDatabase getInstance(Context context) {
         synchronized (sLock) {
