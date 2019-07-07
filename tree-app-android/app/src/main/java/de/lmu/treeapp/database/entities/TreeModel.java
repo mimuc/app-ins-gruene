@@ -25,6 +25,7 @@ public class TreeModel {
     public Boolean[] trunkGamesCompleted;
     public Boolean[] otherGamesCompleted;
 
+    @Ignore
     public void FirstInit(int _uid, String _name, int _profileId, int[] _leafGamesIds, int[] _fruitGamesIds, int[] _trunkGamesIds, int[] _otherGamesIds){
         this.uid = _uid;
         this.name = _name;
@@ -32,10 +33,7 @@ public class TreeModel {
         this.AddGames(_leafGamesIds,_fruitGamesIds,_trunkGamesIds,_otherGamesIds);
     }
 
-    public enum GameCategories {
-        leaf, fruit, trunk, other, total
-    }
-
+    @Ignore
     private void AddGames(int[] _leafGames, int[] _fruitGames, int[] _trunkGames, int[] _otherGames){
         if (_leafGames != null && _leafGames.length > 0){
             leafGamesIds = _leafGames;
@@ -57,6 +55,44 @@ public class TreeModel {
             otherGamesCompleted = new Boolean[_otherGames.length];
             Arrays.fill(otherGamesCompleted,false);
         }
+    }
+
+    public enum GameCategories {
+        leaf, fruit, trunk, other, total
+    }
+    @Ignore
+    public float GetGameProgressionPercent(GameCategories category){
+        switch (category){
+            case leaf:
+                return GetGamesProgression(leafGamesCompleted) * 100;
+            case fruit:
+                return GetGamesProgression(fruitGamesCompleted) * 100;
+            case trunk:
+                return GetGamesProgression(trunkGamesCompleted) * 100;
+            case other:
+                return GetGamesProgression(otherGamesCompleted) * 100;
+            case total:
+                float valLeaf = GetGamesProgression(leafGamesCompleted);
+                float valFruit = GetGamesProgression(fruitGamesCompleted);
+                float valTrunk = GetGamesProgression(trunkGamesCompleted);
+                float valOther = GetGamesProgression(otherGamesCompleted);
+                float valTotal = (valLeaf + valFruit + valTrunk + valOther)/4;
+                return valTotal * 100;
+            default:
+                return 0;
+        }
+    }
+    @Ignore
+    private float GetGamesProgression(Boolean[] gamesCompleted){
+        int completed = 0;
+        int total = gamesCompleted.length;
+        for (int i = 0; i < total; i++){
+            if (gamesCompleted[i] == true){
+                completed++;
+            }
+        }
+        float value = completed/total;
+        return value;
     }
 
 
