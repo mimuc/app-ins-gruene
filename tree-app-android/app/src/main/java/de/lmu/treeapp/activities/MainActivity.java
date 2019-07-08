@@ -18,14 +18,10 @@ import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.List;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.Service.FragmentManagerService;
-import de.lmu.treeapp.cms.ContentManager;
-import de.lmu.treeapp.database.AppDatabase;
-import de.lmu.treeapp.database.entities.TreeModel;
-import de.lmu.treeapp.database.entities.TreeProfileModel;
+import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.fragments.OverviewFragment;
 import de.lmu.treeapp.fragments.TreeSelectionFragment;
 
@@ -74,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_tree_selection:
                         fragmentManager.showFragment(treeSelectionFragment);
                         Toast.makeText(MainActivity.this, "Tree selection", Toast.LENGTH_SHORT).show();
+                        // A toast to test if trees actually are filled correclty:
+                        ShowToast(DataManager.getInstance(getApplicationContext()).trees.get(2).name);
                         break;
                 }
                 return true;
@@ -90,11 +88,13 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), BarcodeCaptureActivity.class);
                 startActivityForResult(intent, BARCODE_READER_REQUEST_CODE);
+
             }
         };
     }
 
     private void GetContent(){
+        DataManager dm = DataManager.getInstance(getApplicationContext());
     }
 
     // Helper-Function -> Show a Toast from any Thread
