@@ -35,25 +35,38 @@ public class TreeModel {
 
     @Ignore
     private void AddGames(int[] _leafGames, int[] _fruitGames, int[] _trunkGames, int[] _otherGames){
-        if (_leafGames != null && _leafGames.length > 0){
-            leafGamesIds = _leafGames;
-            leafGamesCompleted = new Boolean[_leafGames.length];
-            Arrays.fill(leafGamesCompleted,false);
-        }
-        if (_fruitGames != null && _fruitGames.length > 0){
-            fruitGamesIds = _fruitGames;
-            fruitGamesCompleted = new Boolean[_fruitGames.length];
-            Arrays.fill(fruitGamesCompleted,false);
-        }
-        if (_trunkGames != null && _trunkGames.length > 0){
-            trunkGamesIds = _trunkGames;
-            trunkGamesCompleted = new Boolean[_trunkGames.length];
-            Arrays.fill(trunkGamesCompleted,false);
-        }
-        if (_otherGames != null && _otherGames.length > 0){
-            otherGamesIds = _otherGames;
-            otherGamesCompleted = new Boolean[_otherGames.length];
-            Arrays.fill(otherGamesCompleted,false);
+        setGameIds(GameCategories.leaf, _leafGames);
+        setGameIds(GameCategories.fruit, _fruitGames);
+        setGameIds(GameCategories.trunk, _trunkGames);
+        setGameIds(GameCategories.other, _otherGames);
+    }
+
+    public void setGameIds(GameCategories category, int[] ids){
+        if (ids != null && ids.length > 0){
+            switch (category){
+                case leaf:
+                    leafGamesIds = ids;
+                    leafGamesCompleted = new Boolean[ids.length];
+                    Arrays.fill(leafGamesCompleted, false);
+                    break;
+                case fruit:
+                    fruitGamesIds = ids;
+                    fruitGamesCompleted = new Boolean[ids.length];
+                    Arrays.fill(fruitGamesCompleted,false);
+                    break;
+                case trunk:
+                    trunkGamesIds = ids;
+                    trunkGamesCompleted = new Boolean[ids.length];
+                    Arrays.fill(trunkGamesCompleted,false);
+                    break;
+                case other:
+                    otherGamesIds = ids;
+                    otherGamesCompleted = new Boolean[ids.length];
+                    Arrays.fill(otherGamesCompleted,false);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
