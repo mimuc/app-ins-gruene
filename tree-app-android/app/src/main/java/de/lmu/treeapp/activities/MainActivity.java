@@ -95,46 +95,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void GetContent(){
-        final List<TreeModel> CMS_trees = ContentManager.getInstance(getApplicationContext()).getTrees();
-        List<TreeProfileModel> CMS_treeProfiles = ContentManager.getInstance(getApplicationContext()).getTreeProfiles();
-        new Thread(new Runnable() {
-            @Override
-            public void run(){
-                List<TreeModel> rightTrees;
-                List<TreeModel> DB_trees = AppDatabase.getInstance(getApplicationContext()).treeDao().getAll();
-                if (DB_trees.isEmpty()){
-                    AppDatabase.getInstance(getApplicationContext()).treeDao().InsertAll(CMS_trees);
-                    rightTrees = CMS_trees;
-                }
-                else if (DB_trees.size() < CMS_trees.size()){
-                    rightTrees = DB_trees;
-                    for (int i = 0; i < CMS_trees.size(); i++){
-                        Boolean exists = false;
-                        for (int j = 0; j < DB_trees.size(); j++){
-                            if (CMS_trees.get(i).uid == DB_trees.get(j).uid){
-                                exists = true;
-                                break;
-                            }
-                        }
-                        if (!exists){
-                            rightTrees.add(CMS_trees.get(i));
-                            AppDatabase.getInstance(getApplicationContext()).treeDao().InsertOne(CMS_trees.get(i));
-                        }
-                    }
-                }
-                else {
-                    rightTrees = DB_trees;
-                }
-
-
-                String testToastText = "";
-                for (int i = 0; i < rightTrees.size(); i++){
-                    testToastText += rightTrees.get(i).name + " ";
-                }
-
-                ShowToast(testToastText);
-            }
-        }).start();
     }
 
     // Helper-Function -> Show a Toast from any Thread

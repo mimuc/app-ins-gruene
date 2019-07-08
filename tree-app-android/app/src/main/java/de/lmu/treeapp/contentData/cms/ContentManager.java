@@ -1,21 +1,20 @@
-package de.lmu.treeapp.cms;
+package de.lmu.treeapp.contentData.cms;
 
 import android.content.Context;
 
-import java.io.IOException;
 import java.util.List;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.database.entities.TreeModel;
-import de.lmu.treeapp.database.entities.TreeProfileModel;
+import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.contentClasses.trees.TreeProfile;
 
 
 public class ContentManager {
     private  static ContentManager INSTANCE;
     private static final Object sLock = new Object();
     private Context context;
-    private List<TreeModel> trees;
-    private List<TreeProfileModel> treeProfiles;
+    private List<Tree> trees;
+    private List<TreeProfile> treeProfiles;
 
     public static ContentManager getInstance(Context _context) {
         synchronized (sLock) {
@@ -30,21 +29,21 @@ public class ContentManager {
     }
 
     private void init(){
-        List<TreeModel> _trees = null;
+        List<Tree> _trees = null;
         treeParser parser = new treeParser();
         _trees = parser.parse(context.getResources().getXml(R.xml.trees));
         this.trees = _trees;
 
-        List<TreeProfileModel> _treeProfiles = null;
+        List<TreeProfile> _treeProfiles = null;
         treeProfileParser parser2 = new treeProfileParser();
         _treeProfiles = parser2.parse(context.getResources().getXml(R.xml.treeprofiles));
         this.treeProfiles = _treeProfiles;
     }
 
-    public List<TreeModel> getTrees(){
+    public List<Tree> getTrees(){
         return trees;
     }
-    public List<TreeProfileModel> getTreeProfiles(){
+    public List<TreeProfile> getTreeProfiles(){
         return treeProfiles;
     }
 

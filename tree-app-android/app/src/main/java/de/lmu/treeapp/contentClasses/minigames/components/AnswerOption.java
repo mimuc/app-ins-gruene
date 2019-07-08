@@ -1,4 +1,4 @@
-package de.lmu.treeapp.minigames.components;
+package de.lmu.treeapp.contentClasses.minigames.components;
 
 public class AnswerOption {
 

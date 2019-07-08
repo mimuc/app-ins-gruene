@@ -1,4 +1,4 @@
-package de.lmu.treeapp.database.daos;
+package de.lmu.treeapp.contentData.database.daos;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -8,7 +8,7 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import de.lmu.treeapp.database.entities.TreeProfileModel;
+import de.lmu.treeapp.contentData.database.entities.TreeProfileModel;
 
 @Dao
 public interface TreeProfileDao {

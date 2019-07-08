@@ -1,29 +1,27 @@
-package de.lmu.treeapp.cms;
+package de.lmu.treeapp.contentData.cms;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
 
-import de.lmu.treeapp.database.entities.TreeProfileModel;
+import de.lmu.treeapp.contentClasses.trees.TreeProfile;
 
 public class treeProfileParser {
 
-    List<TreeProfileModel> treeProfiles;
-    private TreeProfileModel treeProfile;
+    List<TreeProfile> treeProfiles;
+    private TreeProfile treeProfile;
     private String text;
 
     public treeProfileParser() {
-        treeProfiles = new ArrayList<TreeProfileModel>();
+        treeProfiles = new ArrayList<TreeProfile>();
     }
 
-    public List<TreeProfileModel> getTrees() {
+    public List<TreeProfile> getTrees() {
         return treeProfiles;
     }
 
-    public List<TreeProfileModel> parse(XmlPullParser parser) {
+    public List<TreeProfile> parse(XmlPullParser parser) {
         try {
             int eventType = parser.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
@@ -32,7 +30,7 @@ public class treeProfileParser {
                     case XmlPullParser.START_TAG:
                         if (tagname.equalsIgnoreCase("treeProfile")) {
                             // create a new instance of employee
-                            treeProfile = new TreeProfileModel();
+                            treeProfile = new TreeProfile();
                         }
                         break;
 

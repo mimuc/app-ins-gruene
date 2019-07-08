@@ -1,38 +1,28 @@
-package de.lmu.treeapp.cms;
+package de.lmu.treeapp.contentData.cms;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
 
-import de.lmu.treeapp.database.entities.TreeModel;
+import de.lmu.treeapp.contentClasses.trees.Tree;
 
 public class treeParser {
 
-    List<TreeModel> trees;
-    private TreeModel tree;
+    List<Tree> trees;
+    private Tree tree;
     private String text;
 
     public treeParser() {
-        trees = new ArrayList<TreeModel>();
+        trees = new ArrayList<Tree>();
     }
 
-    public List<TreeModel> getTrees() {
+    public List<Tree> getTrees() {
         return trees;
     }
 
-    public List<TreeModel> parse(XmlPullParser parser) {
-        //XmlPullParserFactory factory = null;
-        //XmlPullParser parser = null;
+    public List<Tree> parse(XmlPullParser parser) {
         try {
-            //factory = XmlPullParserFactory.newInstance();
-            //factory.setNamespaceAware(true);
-            //parser = factory.newPullParser();
-
-            //parser.setInput(is, null);
-
             int eventType = parser.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 String tagname = parser.getName();
@@ -40,7 +30,7 @@ public class treeParser {
                     case XmlPullParser.START_TAG:
                         if (tagname.equalsIgnoreCase("tree")) {
                             // create a new instance of employee
-                            tree = new TreeModel();
+                            tree = new Tree();
                         }
                         break;
 
@@ -58,13 +48,13 @@ public class treeParser {
                         } else if (tagname.equalsIgnoreCase("profileId")) {
                             tree.profileId = Integer.parseInt(text);
                         } else if (tagname.equalsIgnoreCase("leafGames")) {
-                            tree.setGameIds(TreeModel.GameCategories.leaf, getGamesIds(text));
+                            tree.setGameIds(Tree.GameCategories.leaf, getGamesIds(text));
                         } else if (tagname.equalsIgnoreCase("fruitGames")) {
-                            tree.setGameIds(TreeModel.GameCategories.fruit, getGamesIds(text));
+                            tree.setGameIds(Tree.GameCategories.fruit, getGamesIds(text));
                         } else if (tagname.equalsIgnoreCase("trunkGames")) {
-                            tree.setGameIds(TreeModel.GameCategories.trunk, getGamesIds(text));
+                            tree.setGameIds(Tree.GameCategories.trunk, getGamesIds(text));
                         } else if (tagname.equalsIgnoreCase("otherGames")) {
-                            tree.setGameIds(TreeModel.GameCategories.other, getGamesIds(text));
+                            tree.setGameIds(Tree.GameCategories.other, getGamesIds(text));
                         }
                         break;
 
@@ -84,11 +74,11 @@ public class treeParser {
     }
 
 
-    private int[] getGamesIds(String _text){
+    private List<Integer> getGamesIds(String _text){
         String[] nums = _text.split(",");
-        int[] gameIds = new int[nums.length];
+        List<Integer> gameIds = new ArrayList<>();
         for (int i = 0; i < nums.length; i++){
-            gameIds[i] = Integer.parseInt(nums[i]);
+            gameIds.add(Integer.parseInt(nums[i]));
         }
         return gameIds;
     }
