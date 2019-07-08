@@ -1,6 +1,6 @@
-package de.lmu.treeapp.minigames;
+package de.lmu.treeapp.contentClasses.minigames;
 
-import de.lmu.treeapp.minigames.components.AnswerOption;
+import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
 
 public class Minigame_ChooseAnswer extends Minigame_Base {
 

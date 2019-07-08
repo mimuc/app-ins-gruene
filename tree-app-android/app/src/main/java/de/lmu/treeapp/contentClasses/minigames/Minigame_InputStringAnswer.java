@@ -1,4 +1,4 @@
-package de.lmu.treeapp.minigames;
+package de.lmu.treeapp.contentClasses.minigames;
 
 public class Minigame_InputStringAnswer extends Minigame_Base {
 

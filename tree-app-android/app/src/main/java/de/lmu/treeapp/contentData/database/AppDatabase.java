@@ -1,4 +1,4 @@
-package de.lmu.treeapp.database;
+package de.lmu.treeapp.contentData.database;
 
 import android.content.Context;
 
@@ -7,10 +7,10 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import de.lmu.treeapp.database.daos.TreeDao;
-import de.lmu.treeapp.database.daos.TreeProfileDao;
-import de.lmu.treeapp.database.entities.TreeModel;
-import de.lmu.treeapp.database.entities.TreeProfileModel;
+import de.lmu.treeapp.contentData.database.daos.TreeDao;
+import de.lmu.treeapp.contentData.database.daos.TreeProfileDao;
+import de.lmu.treeapp.contentData.database.entities.TreeModel;
+import de.lmu.treeapp.contentData.database.entities.TreeProfileModel;
 
 @Database(entities = {TreeModel.class, TreeProfileModel.class}, version = 1, exportSchema = false)
 @TypeConverters({TypeConversion.class})
