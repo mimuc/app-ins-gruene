@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <treeProfiles>
+        <treeProfile>
+            <id>0</id>
+        </treeProfile>
+        <treeProfile>
+            <id>1</id>
+        </treeProfile>
+    </treeProfiles>
+</resources>

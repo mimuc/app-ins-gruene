@@ -28,6 +28,9 @@ public interface TreeDao {
     @Insert
     void InsertAll(TreeModel... models);
 
+    @Insert
+    void InsertAll(List<TreeModel> models);
+
     @Update
     void UpdateOne(TreeModel model);
 

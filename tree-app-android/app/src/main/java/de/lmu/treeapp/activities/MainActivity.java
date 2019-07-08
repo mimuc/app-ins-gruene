@@ -22,8 +22,10 @@ import java.util.List;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.Service.FragmentManagerService;
+import de.lmu.treeapp.cms.ContentManager;
 import de.lmu.treeapp.database.AppDatabase;
 import de.lmu.treeapp.database.entities.TreeModel;
+import de.lmu.treeapp.database.entities.TreeProfileModel;
 import de.lmu.treeapp.fragments.OverviewFragment;
 import de.lmu.treeapp.fragments.TreeSelectionFragment;
 
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment[] bottomNavigationFragments = new Fragment[] { overviewFragment, treeSelectionFragment};
         fragmentManager.registerTransactions(bottomNavigationFragments);
 
-        TestTreeModels();
+        GetContent();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener getOnNavigationItemSelectedListener() {
@@ -92,32 +94,47 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    // The next 3 functions are used to Test the database_feature;
-    private void TestTreeModels(){
+    private void GetContent(){
+        final List<TreeModel> CMS_trees = ContentManager.getInstance(getApplicationContext()).getTrees();
+        List<TreeProfileModel> CMS_treeProfiles = ContentManager.getInstance(getApplicationContext()).getTreeProfiles();
         new Thread(new Runnable() {
             @Override
-            public void run() {
-                List<TreeModel> trees = AppDatabase.getInstance(getApplicationContext()).treeDao().getAll();
-                if (trees.isEmpty()) {
-                    AddTrees();
-                } else {
-                    ShowTrees(trees);
+            public void run(){
+                List<TreeModel> rightTrees;
+                List<TreeModel> DB_trees = AppDatabase.getInstance(getApplicationContext()).treeDao().getAll();
+                if (DB_trees.isEmpty()){
+                    AppDatabase.getInstance(getApplicationContext()).treeDao().InsertAll(CMS_trees);
+                    rightTrees = CMS_trees;
                 }
+                else if (DB_trees.size() < CMS_trees.size()){
+                    rightTrees = DB_trees;
+                    for (int i = 0; i < CMS_trees.size(); i++){
+                        Boolean exists = false;
+                        for (int j = 0; j < DB_trees.size(); j++){
+                            if (CMS_trees.get(i).uid == DB_trees.get(j).uid){
+                                exists = true;
+                                break;
+                            }
+                        }
+                        if (!exists){
+                            rightTrees.add(CMS_trees.get(i));
+                            AppDatabase.getInstance(getApplicationContext()).treeDao().InsertOne(CMS_trees.get(i));
+                        }
+                    }
+                }
+                else {
+                    rightTrees = DB_trees;
+                }
+
+
+                String testToastText = "";
+                for (int i = 0; i < rightTrees.size(); i++){
+                    testToastText += rightTrees.get(i).name + " ";
+                }
+
+                ShowToast(testToastText);
             }
         }).start();
-    }
-    private void AddTrees(){
-        TreeModel newTree = new TreeModel();
-        int[] leafG = {0,1,2};
-        int[] fruitG = {3,4,5};
-        int[] trunkG = {6,7,8};
-        int[] otherG = {9,10,11};
-        newTree.FirstInit(0,"Ahorn",0, leafG, fruitG, trunkG, otherG);
-        AppDatabase.getInstance(getApplicationContext()).treeDao().InsertOne(newTree);
-    }
-    private void ShowTrees(List<TreeModel> trees){
-        String testText = trees.get(0).name;
-        ShowToast(testText);
     }
 
     // Helper-Function -> Show a Toast from any Thread
