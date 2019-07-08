@@ -4,7 +4,7 @@ public class Minigame_InputStringAnswer extends Minigame_Base {
 
     private String rightAnswer;
 
-    private void FillRightAnswer(String _rightAnswer){
+    public void FillRightAnswer(String _rightAnswer){
         rightAnswer = _rightAnswer.trim().toLowerCase();
     }
 

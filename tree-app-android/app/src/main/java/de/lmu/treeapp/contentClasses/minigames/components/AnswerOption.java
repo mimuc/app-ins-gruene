@@ -10,12 +10,15 @@ public class AnswerOption {
     public String content;
     public Boolean right;
 
-    AnswerOption(OptionTypes _type, String _content, Boolean _right){
+    public AnswerOption(){
+
+    }
+    public AnswerOption(OptionTypes _type, String _content, Boolean _right){
         type = _type;
         content = _content;
         right = _right;
     }
-    AnswerOption(OptionTypes _type, String _content){
+    public AnswerOption(OptionTypes _type, String _content){
         type = _type;
         content = _content;
         right = false;

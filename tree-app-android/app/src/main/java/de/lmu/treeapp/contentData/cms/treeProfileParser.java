@@ -17,7 +17,7 @@ public class treeProfileParser {
         treeProfiles = new ArrayList<TreeProfile>();
     }
 
-    public List<TreeProfile> getTrees() {
+    public List<TreeProfile> getTreeProfiles() {
         return treeProfiles;
     }
 
