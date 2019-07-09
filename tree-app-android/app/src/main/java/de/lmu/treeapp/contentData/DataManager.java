@@ -82,9 +82,10 @@ public class DataManager {
         return null;
     }
     public Tree GetTreeByQR(String _qrCode){
+        _qrCode = _qrCode.trim();
         if (trees == null) return null;
         for (int i = 0; i < trees.size(); i++){
-            if (trees.get(i).qrCode == _qrCode){
+            if (_qrCode.equalsIgnoreCase(trees.get(i).qrCode)){
                 return trees.get(i);
             }
         }
