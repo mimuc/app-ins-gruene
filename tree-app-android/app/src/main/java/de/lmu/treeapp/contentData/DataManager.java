@@ -1,11 +1,6 @@
 package de.lmu.treeapp.contentData;
 
 import android.content.Context;
-import android.provider.ContactsContract;
-import android.widget.Toast;
-
-import androidx.lifecycle.Observer;
-
 import java.util.List;
 
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
@@ -20,7 +15,10 @@ public class DataManager {
     private static final Object sLock = new Object();
     private Context context;
 
+    public Boolean loaded = false;
     public List<Tree> trees;
+    public List<TreeProfile> treeProfiles;
+    public List<Minigame_Base> miniGames;
 
     public static DataManager getInstance(Context _context) {
         synchronized (sLock) {
@@ -34,8 +32,11 @@ public class DataManager {
         }
     }
 
-    private void SetData(List<Tree> _trees){
+    private void SetData(List<Tree> _trees, List<TreeProfile> _treeProfiles, List<Minigame_Base> _minigames){
         this.trees = _trees;
+        this.treeProfiles = _treeProfiles;
+        this.miniGames = _minigames;
+        this.loaded = true;
     }
 
     private void Init(){
@@ -43,6 +44,8 @@ public class DataManager {
             @Override
             public void run(){
                 List<Tree> CMS_trees = ContentManager.getInstance(context).getTrees();
+                List<TreeProfile> CMS_treeProfiles = ContentManager.getInstance(context).getTreeProfiles();
+                List<Minigame_Base> CMS_miniGames = ContentManager.getInstance(context).getMinigames();
                 List<TreeModel> DB_trees = AppDatabase.getInstance(context).treeDao().getAll();
                 for (int i = 0; i < CMS_trees.size(); i++) {
                     Tree cmsTree = CMS_trees.get(i);
@@ -62,12 +65,49 @@ public class DataManager {
                         AppDatabase.getInstance(context).treeDao().InsertOne(newDBTree);
                     }
                 }
-                DataManager.getInstance(context).SetData(CMS_trees);
+                DataManager.getInstance(context).SetData(CMS_trees, CMS_treeProfiles, CMS_miniGames);
             }
         }).start();
     }
 
 
+    // Get something
+    public Minigame_Base GetMinigame(int id){
+        if (miniGames == null) return null;
+        for (int i = 0; i < miniGames.size(); i++){
+            if (miniGames.get(i).uid == id){
+                return miniGames.get(i);
+            }
+        }
+        return null;
+    }
+    public Tree GetTreeByQR(String _qrCode){
+        if (trees == null) return null;
+        for (int i = 0; i < trees.size(); i++){
+            if (trees.get(i).qrCode == _qrCode){
+                return trees.get(i);
+            }
+        }
+        return null;
+    }
+    public Tree GetTree(int id){
+        if (trees == null) return null;
+        for (int i = 0; i < trees.size(); i++){
+            if (trees.get(i).uid == id){
+                return trees.get(i);
+            }
+        }
+        return null;
+    }
+    public TreeProfile GetTreeProfile(int id){
+        if (treeProfiles == null) return null;
+        for (int i = 0; i < treeProfiles.size(); i++){
+            if (treeProfiles.get(i).uid == id){
+                return treeProfiles.get(i);
+            }
+        }
+        return null;
+    }
 
     // GameCompleted overloaded Functions
     public void GameCompleted(Tree.GameCategories _category, Minigame_Base _game, Tree _tree){

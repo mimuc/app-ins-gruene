@@ -9,6 +9,7 @@ public class Tree {
 
     public String name;
     public int profileId;
+    public String qrCode;
 
     public List<Integer> leafGamesIds;
     public List<Integer> fruitGamesIds;

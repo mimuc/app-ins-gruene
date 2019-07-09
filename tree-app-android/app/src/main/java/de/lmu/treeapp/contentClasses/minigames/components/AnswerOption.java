@@ -1,14 +1,16 @@
 package de.lmu.treeapp.contentClasses.minigames.components;
 
+import android.graphics.Path;
+
 public class AnswerOption {
 
     public enum OptionTypes {
         text, image
     }
 
-    public OptionTypes type;
+    public OptionTypes type = OptionTypes.text;
     public String content;
-    public Boolean right;
+    public Boolean right = false;
 
     public AnswerOption(){
 
@@ -23,5 +25,18 @@ public class AnswerOption {
         content = _content;
         right = false;
     }
+
+    public void SetType(OptionTypes _type){
+        this.type = _type;
+    }
+    public void SetType(String _type){
+        if (_type.trim().toLowerCase() == "image"){
+            this.type = OptionTypes.image;
+        }
+        else {
+            this.type = OptionTypes.text;
+        }
+    }
+
 
 }

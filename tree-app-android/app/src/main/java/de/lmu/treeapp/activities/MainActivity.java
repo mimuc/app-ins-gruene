@@ -21,6 +21,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.Service.FragmentManagerService;
+import de.lmu.treeapp.contentClasses.minigames.Minigame_InputStringAnswer;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.fragments.OverviewFragment;
 import de.lmu.treeapp.fragments.TreeSelectionFragment;
@@ -70,8 +71,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_tree_selection:
                         fragmentManager.showFragment(treeSelectionFragment);
                         Toast.makeText(MainActivity.this, "Tree selection", Toast.LENGTH_SHORT).show();
-                        // A toast to test if trees actually are filled correclty:
-                        ShowToast(DataManager.getInstance(getApplicationContext()).trees.get(2).name);
                         break;
                 }
                 return true;
@@ -95,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void GetContent(){
         DataManager dm = DataManager.getInstance(getApplicationContext());
+        while (dm.loaded == false){} //Wait for everything to be loaded --> A Future/Promise/Callback may be better in the future
+
+        //All Trees, TreeProfiles and Minigames Loaded --> Now start
     }
 
     // Helper-Function -> Show a Toast from any Thread
