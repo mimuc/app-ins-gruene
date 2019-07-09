@@ -5,6 +5,7 @@
             <id>0</id>
             <name>Ahorn</name>
             <profileId>0</profileId>
+            <qrCode>Ahorn</qrCode>
             <leafGames>0,1,2</leafGames>
             <fruitGames>3,4,5</fruitGames>
             <trunkGames>6,7,8</trunkGames>
@@ -14,6 +15,7 @@
             <id>1</id>
             <name>Birke</name>
             <profileId>1</profileId>
+            <qrCode>Birke</qrCode>
             <leafGames>0,1,2</leafGames>
             <fruitGames>3,4,5</fruitGames>
             <trunkGames>6,7,8</trunkGames>
@@ -23,6 +25,7 @@
             <id>2</id>
             <name>Fichte</name>
             <profileId>2</profileId>
+            <qrCode>Fichte</qrCode>
             <leafGames>0,1,2</leafGames>
             <fruitGames>3,4,5</fruitGames>
             <trunkGames>6,7,8</trunkGames>

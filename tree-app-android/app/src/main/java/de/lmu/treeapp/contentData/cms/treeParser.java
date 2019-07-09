@@ -47,6 +47,8 @@ public class treeParser {
                             tree.uid = Integer.parseInt(text);
                         } else if (tagname.equalsIgnoreCase("profileId")) {
                             tree.profileId = Integer.parseInt(text);
+                        } else if (tagname.equalsIgnoreCase("qrCode")) {
+                            tree.qrCode = text;
                         } else if (tagname.equalsIgnoreCase("leafGames")) {
                             tree.setGameIds(Tree.GameCategories.leaf, getGamesIds(text));
                         } else if (tagname.equalsIgnoreCase("fruitGames")) {

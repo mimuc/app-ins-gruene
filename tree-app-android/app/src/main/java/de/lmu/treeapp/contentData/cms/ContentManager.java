@@ -5,6 +5,7 @@ import android.content.Context;
 import java.util.List;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.TreeProfile;
 
@@ -15,6 +16,7 @@ public class ContentManager {
     private Context context;
     private List<Tree> trees;
     private List<TreeProfile> treeProfiles;
+    private List<Minigame_Base> minigames;
 
     public static ContentManager getInstance(Context _context) {
         synchronized (sLock) {
@@ -29,15 +31,20 @@ public class ContentManager {
     }
 
     private void init(){
-        List<Tree> _trees = null;
         treeParser parser = new treeParser();
-        _trees = parser.parse(context.getResources().getXml(R.xml.trees));
-        this.trees = _trees;
+        this.trees = parser.parse(context.getResources().getXml(R.xml.trees));
 
-        List<TreeProfile> _treeProfiles = null;
         treeProfileParser parser2 = new treeProfileParser();
-        _treeProfiles = parser2.parse(context.getResources().getXml(R.xml.treeprofiles));
-        this.treeProfiles = _treeProfiles;
+        this.treeProfiles = parser2.parse(context.getResources().getXml(R.xml.treeprofiles));
+
+        this.minigames = parseAllMinigames();
+    }
+
+    private List<Minigame_Base> parseAllMinigames(){
+        miniGameParser gameParser = new miniGameParser();
+        gameParser.parse_ChooseAnswer(context.getResources().getXml(R.xml.minigames_chooseanswer));
+        gameParser.parse_InputString(context.getResources().getXml(R.xml.minigames_inputstring));
+        return gameParser.getMiniGames();
     }
 
     public List<Tree> getTrees(){
@@ -46,5 +53,6 @@ public class ContentManager {
     public List<TreeProfile> getTreeProfiles(){
         return treeProfiles;
     }
+    public List<Minigame_Base> getMinigames() {return minigames;}
 
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <minigames>
+        <minigame_chooseAnswer>
+            <id>0</id>
+            <name>Blätterform</name>
+            <description>Wähle die richtige Blattform aus!</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>imagePathHere</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>imagePath2Here</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>imagePath3Here</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer>
+        <minigame_chooseAnswer>
+            <id>1</id>
+            <name>Wie hoch?</name>
+            <description>Wie hoch wird so ein Ahorn?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>8-10 Meter</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>10-15 Meter</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>15-20 Meter</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer>
+    </minigames>
+</resources>
