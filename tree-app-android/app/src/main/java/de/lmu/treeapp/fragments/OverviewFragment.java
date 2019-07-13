@@ -5,13 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Objects;
+
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.Service.FragmentManagerService;
+import de.lmu.treeapp.service.FragmentManagerService;
 
 public class OverviewFragment extends Fragment {
 
@@ -32,13 +35,15 @@ public class OverviewFragment extends Fragment {
         overviewWantedPosterButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast qrToast = Toast.makeText(getContext(), "Show Tree Selection Fragment Button clicked", Toast.LENGTH_LONG );
-                qrToast.show();
-
                 fragmentManager.showFragment(selectedTreeFragment);
+                switchNavigationButtonToTreeSelection();
             }
         });
 
         return view;
+    }
+
+    private void switchNavigationButtonToTreeSelection() {
+        ((BottomNavigationView) Objects.requireNonNull(getActivity()).findViewById(R.id.bottom_navigation)).setSelectedItemId(R.id.action_tree_selection);
     }
 }
