@@ -1,6 +1,7 @@
 package de.lmu.treeapp.fragments;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.adapter.OverviewRecyclerViewAdapter;
+import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.service.FragmentManagerService;
 
 public class OverviewFragment extends Fragment {
@@ -63,15 +65,14 @@ public class OverviewFragment extends Fragment {
         RecyclerView.LayoutManager recyclerViewLayoutManager = new GridLayoutManager(getContext(), gridColumns);
         overviewRecyclerView.setLayoutManager(recyclerViewLayoutManager);
 
-        List<String> testInput = new ArrayList<>();
-        for (int i = 0; i < 9; i++) {
-            testInput.add("Test" + i);
-        }
-        RecyclerView.Adapter recyclerViewAdapter = new OverviewRecyclerViewAdapter(testInput);
+        List<Tree> trees = DataManager.getInstance(getContext()).trees;
+        RecyclerView.Adapter recyclerViewAdapter = new OverviewRecyclerViewAdapter(trees, fragmentManager, selectedTreeFragment);
         overviewRecyclerView.setAdapter(recyclerViewAdapter);
     }
+
 
     private void switchNavigationButtonToTreeSelection() {
         ((BottomNavigationView) Objects.requireNonNull(getActivity()).findViewById(R.id.bottom_navigation)).setSelectedItemId(R.id.action_tree_selection);
     }
+
 }
