@@ -10,16 +10,24 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.WantedPosterDetailsActivity;
+import de.lmu.treeapp.adapter.DetailRecyclerViewAdapter;
+import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.contentData.DataManager;
 
 public class TreeSelectionFragment extends Fragment {
+    private RecyclerView detailRecyclerView;
+    private int offset;
 
     public TreeSelectionFragment() {
-
+        this.offset = 0;
     }
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,6 +45,19 @@ public class TreeSelectionFragment extends Fragment {
             }
         });
 
+        detailRecyclerView = view.findViewById(R.id.detail_recycler_view);
+        setupOverviewRecyclerView();
+
+
         return view;
+    }
+
+    private void setupOverviewRecyclerView() {
+        RecyclerView.LayoutManager recyclerViewLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        detailRecyclerView.setLayoutManager(recyclerViewLayoutManager);
+
+        List<Tree> trees = DataManager.getInstance(getContext()).trees;
+        RecyclerView.Adapter recyclerViewAdapter = new DetailRecyclerViewAdapter(trees);
+        detailRecyclerView.setAdapter(recyclerViewAdapter);
     }
 }
