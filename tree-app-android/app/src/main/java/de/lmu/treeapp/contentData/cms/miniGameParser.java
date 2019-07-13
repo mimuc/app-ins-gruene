@@ -11,7 +11,6 @@ import de.lmu.treeapp.contentClasses.minigames.Minigame_InputStringAnswer;
 import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
 
 
-// TODO: Create own XML for each type of miniGame --> one Parse-function for each --> combine them --> OR: In parse, first check for modes and go into other methods depending on that.
 public class miniGameParser {
 
     List<Minigame_Base> miniGames;

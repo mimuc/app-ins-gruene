@@ -56,10 +56,12 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = this.findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(getOnNavigationItemSelectedListener());
 
+
+        GetContent();
+
         Fragment[] bottomNavigationFragments = new Fragment[] { overviewFragment, treeSelectionFragment};
         fragmentManager.registerTransactions(bottomNavigationFragments);
 
-        GetContent();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener getOnNavigationItemSelectedListener() {
