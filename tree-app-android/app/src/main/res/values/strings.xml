@@ -18,4 +18,9 @@
     <string name="wanted_poster_title_text">Wanted Poster</string>
     <string name="wanted_poster_details_title_text">Steckbrief Informationen</string>
     <string name="tree_selection_fragment_button_text">DETAILS ANZEIGEN</string>
+    <string name="overview_fragment_headline">Deine Waldübersicht</string>
+    <string name="overview_fragment_description_text">Scan den QR Code des Baums, den du zu deinem Wald hinzufügen möchtest!</string>
+    <string name="overview_single_tree_placeholder_text">overview_single_tree_text</string>
+    <string name="overview_single_tree_state_image_content_description">overview_single_tree_state_image</string>
+    <string name="overview_single_tree_image_content_description">overview_single_tree_image</string>
 </resources>
