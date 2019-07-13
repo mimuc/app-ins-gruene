@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <minigames>
+        <minigame_inputString>
+            <id>0</id>
+            <name>Wie heißt dieser Baum?</name>
+            <description>Hey Brudi, wie heißt Baum?</description>
+            <image></image>
+            <rightAnswer>Ahorn</rightAnswer>
+        </minigame_inputString>
+    </minigames>
+</resources>
