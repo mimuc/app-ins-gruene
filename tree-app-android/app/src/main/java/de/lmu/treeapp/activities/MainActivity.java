@@ -16,7 +16,10 @@ import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.fragments.OverviewFragment;
 import de.lmu.treeapp.fragments.TreeSelectionFragment;
 import de.lmu.treeapp.service.FragmentManagerService;
@@ -26,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     private final int BARCODE_READER_REQUEST_CODE = 1;
     private TextView welcomeTextView;
+
+    private DataManager dm;
 
     private FragmentManagerService fragmentManager = FragmentManagerService.getInstance(getSupportFragmentManager());
     private final Fragment treeSelectionFragment = new TreeSelectionFragment();
@@ -48,8 +53,12 @@ public class MainActivity extends AppCompatActivity {
         qrCodeButton.setOnClickListener(getQrCodeButtonOnClickListener());
         bottomNavigationView.setOnNavigationItemSelectedListener(fragmentManager.getOnNavigationItemSelectedListener(overviewFragment, treeSelectionFragment));
 
+
+        GetContent();
+
         Fragment[] bottomNavigationFragments = new Fragment[] { overviewFragment, treeSelectionFragment};
         fragmentManager.registerTransactions(bottomNavigationFragments);
+
     }
 
     private Button.OnClickListener getQrCodeButtonOnClickListener() {
@@ -61,8 +70,23 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), BarcodeCaptureActivity.class);
                 startActivityForResult(intent, BARCODE_READER_REQUEST_CODE);
+
             }
         };
+    }
+
+    private void GetContent(){
+        dm = DataManager.getInstance(getApplicationContext());
+        while (dm.loaded == false){} //Wait for everything to be loaded --> A Future/Promise/Callback may be better in the future
+    }
+
+    // Helper-Function -> Show a Toast from any Thread
+    private void ShowToast(final String toastText){
+        runOnUiThread(new Runnable(){
+            public void run(){
+                Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
@@ -82,6 +106,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
-        welcomeTextView.setText(barcode.displayValue);
+        Tree tree = dm.GetTreeByQR(barcode.displayValue);
+        if (tree != null)
+            welcomeTextView.setText(tree.name);
+        else
+            welcomeTextView.setText("Kein Baum mit diesem QR-Code: "+ barcode.displayValue);
     }
 }

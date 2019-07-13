@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <trees>
+        <tree>
+            <id>0</id>
+            <name>Ahorn</name>
+            <profileId>0</profileId>
+            <qrCode>Ahorn</qrCode>
+            <leafGames>0,1,2</leafGames>
+            <fruitGames>3,4,5</fruitGames>
+            <trunkGames>6,7,8</trunkGames>
+            <otherGames>9,10,11</otherGames>
+        </tree>
+        <tree>
+            <id>1</id>
+            <name>Birke</name>
+            <profileId>1</profileId>
+            <qrCode>Birke</qrCode>
+            <leafGames>0,1,2</leafGames>
+            <fruitGames>3,4,5</fruitGames>
+            <trunkGames>6,7,8</trunkGames>
+            <otherGames>9,10,11</otherGames>
+        </tree>
+        <tree>
+            <id>2</id>
+            <name>Fichte</name>
+            <profileId>2</profileId>
+            <qrCode>4388844177314</qrCode>
+            <leafGames>0,1,2</leafGames>
+            <fruitGames>3,4,5</fruitGames>
+            <trunkGames>6,7,8</trunkGames>
+            <otherGames>9,10,11</otherGames>
+        </tree>
+    </trees>
+</resources>
