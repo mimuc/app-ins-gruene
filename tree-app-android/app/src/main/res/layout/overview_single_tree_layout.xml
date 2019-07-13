@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="16dp">
 
-    <ImageView
+    <ImageButton
         android:id="@+id/overview_single_tree_image"
         android:layout_width="64dp"
         android:layout_height="64dp"
@@ -22,7 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_local_florist_white_24dp" />
+        app:srcCompat="@drawable/ic_local_florist_white_24dp"  />
 
     <TextView
         android:id="@+id/overview_single_tree_text"
@@ -50,4 +50,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/checkbox_on_background" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
