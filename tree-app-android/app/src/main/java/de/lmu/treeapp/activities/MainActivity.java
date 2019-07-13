@@ -12,15 +12,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.Service.FragmentManagerService;
+import de.lmu.treeapp.contentClasses.minigames.Minigame_InputStringAnswer;
+import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.fragments.OverviewFragment;
 import de.lmu.treeapp.fragments.TreeSelectionFragment;
 
@@ -30,10 +33,11 @@ public class MainActivity extends AppCompatActivity {
     private final int BARCODE_READER_REQUEST_CODE = 1;
     private TextView welcomeTextView;
 
-    FragmentManagerService fragmentManager = FragmentManagerService.getInstance(getSupportFragmentManager());
+    private DataManager dm;
+
+    private FragmentManagerService fragmentManager = FragmentManagerService.getInstance(getSupportFragmentManager());
     private final Fragment treeSelectionFragment = new TreeSelectionFragment();
     private final Fragment overviewFragment = new OverviewFragment(fragmentManager, treeSelectionFragment);
-    //private Fragment activeFragment = overviewFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +56,12 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = this.findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(getOnNavigationItemSelectedListener());
 
+
+        GetContent();
+
         Fragment[] bottomNavigationFragments = new Fragment[] { overviewFragment, treeSelectionFragment};
         fragmentManager.registerTransactions(bottomNavigationFragments);
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener getOnNavigationItemSelectedListener() {
@@ -68,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_tree_selection:
                         fragmentManager.showFragment(treeSelectionFragment);
                         Toast.makeText(MainActivity.this, "Tree selection", Toast.LENGTH_SHORT).show();
+                        // A toast to test if trees actually are filled correclty:
+                        ShowToast(DataManager.getInstance(getApplicationContext()).trees.get(2).name);
                         break;
                 }
                 return true;
@@ -84,8 +94,23 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), BarcodeCaptureActivity.class);
                 startActivityForResult(intent, BARCODE_READER_REQUEST_CODE);
+
             }
         };
+    }
+
+    private void GetContent(){
+        dm = DataManager.getInstance(getApplicationContext());
+        while (dm.loaded == false){} //Wait for everything to be loaded --> A Future/Promise/Callback may be better in the future
+    }
+
+    // Helper-Function -> Show a Toast from any Thread
+    private void ShowToast(final String toastText){
+        runOnUiThread(new Runnable(){
+            public void run(){
+                Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
@@ -105,6 +130,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
-        welcomeTextView.setText(barcode.displayValue);
+        Tree tree = dm.GetTreeByQR(barcode.displayValue);
+        if (tree != null)
+            welcomeTextView.setText(tree.name);
+        else
+            welcomeTextView.setText("Kein Baum mit diesem QR-Code: "+ barcode.displayValue);
     }
 }
