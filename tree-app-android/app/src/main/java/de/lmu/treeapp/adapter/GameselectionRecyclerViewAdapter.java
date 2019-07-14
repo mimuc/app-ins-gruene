@@ -13,12 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.activities.minigames.GameActivity_ChooseAnswer;
+import de.lmu.treeapp.activities.minigames.GameActivity_InputString;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
+import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
 
 public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<GameselectionRecyclerViewAdapter.ViewHolder> {
 
     List<Integer> games;
+    int treeId;
+    Tree.GameCategories category;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView gameName;
@@ -38,8 +43,10 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
         notifyItemRemoved(position);
     }
 
-    public GameselectionRecyclerViewAdapter(List<Integer> gameIds) {
+    public GameselectionRecyclerViewAdapter(List<Integer> gameIds, int treeId, Tree.GameCategories category) {
         this.games = gameIds;
+        this.treeId = treeId;
+        this.category = category;
     }
 
     @Override
@@ -64,9 +71,24 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
 
             @Override
             public void onClick(View arg0) {
-               /* Intent intent = new Intent(context,WantedPosterDetailsActivity.class);
-                intent.putExtra("GameId",game.uid);
-                context.startActivity(intent);*/
+                switch(game.type){
+                    case ChooseAnswer:
+                        Intent intent = new Intent(context, GameActivity_ChooseAnswer.class);
+                        intent.putExtra("TreeId",treeId);
+                        intent.putExtra("Category", category);
+                        intent.putExtra("GameId",game.uid);
+                        context.startActivity(intent);
+                        break;
+                    case InputString:
+                        Intent intent2 = new Intent(context, GameActivity_InputString.class);
+                        intent2.putExtra("TreeId",treeId);
+                        intent2.putExtra("Category", category);
+                        intent2.putExtra("GameId",game.uid);
+                        context.startActivity(intent2);
+                        break;
+                    default:
+                        break;
+                }
             }
 
         });

@@ -6,7 +6,7 @@ apply plugin: 'com.android.application'
 def appName = rootProject.name
 
 release {
-    tagTemplate =  appName + '-${version}'
+    tagTemplate = appName + '-${version}'
     git {
         requireBranch = 'master'
     }
