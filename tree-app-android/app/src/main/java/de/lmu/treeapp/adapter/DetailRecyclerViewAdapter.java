@@ -1,8 +1,12 @@
 package de.lmu.treeapp.adapter;
 
+import android.content.Context;
+import android.content.Intent;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.activities.GameSelectionActivity;
+import de.lmu.treeapp.activities.WantedPosterDetailsActivity;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 
 public class DetailRecyclerViewAdapter extends RecyclerView.Adapter<DetailRecyclerViewAdapter.ViewHolder> {
@@ -25,10 +31,18 @@ public class DetailRecyclerViewAdapter extends RecyclerView.Adapter<DetailRecycl
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView treeName;
         public final ImageView treeImage;
+        public final Button treeProfileButton;
+        public final ImageButton leafButton;
+        public final ImageButton fruitButton;
+        public final ImageButton trunkButton;
         ViewHolder(View v) {
             super(v);
             treeName = v.findViewById(R.id.detail_single_tree_text);
             treeImage = v.findViewById(R.id.detail_single_tree_image);
+            treeProfileButton = v.findViewById(R.id.detail_single_tree_profileButton);
+            leafButton = v.findViewById(R.id.detail_single_tree_leafButton);
+            fruitButton = v.findViewById(R.id.detail_single_tree_fruitButton);
+            trunkButton = v.findViewById(R.id.detail_single_tree_trunkButton);
         }
     }
     public void add(int position, Tree item) {
@@ -59,10 +73,40 @@ public class DetailRecyclerViewAdapter extends RecyclerView.Adapter<DetailRecycl
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(DetailRecyclerViewAdapter.ViewHolder holder, final int position) {
-        Tree tree = treeValues.get(position);
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
+        final Tree tree = treeValues.get(position);
         holder.treeName.setText(tree.name);
+        final Context context = holder.treeProfileButton.getContext();
+
+        holder.treeProfileButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,WantedPosterDetailsActivity.class);
+                intent.putExtra("TreeId",tree.uid);
+                context.startActivity(intent);
+            }
+        });
+        holder.leafButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, GameSelectionActivity.class);
+                intent.putExtra("TreeId",tree.uid);
+                intent.putExtra("Category", Tree.GameCategories.leaf);
+                context.startActivity(intent);
+            }
+        });
+        holder.fruitButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        holder.trunkButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)

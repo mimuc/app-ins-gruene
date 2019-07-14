@@ -23,30 +23,19 @@ import de.lmu.treeapp.contentData.DataManager;
 
 public class TreeSelectionFragment extends Fragment {
     private RecyclerView detailRecyclerView;
-    private int offset;
 
     public TreeSelectionFragment() {
-        this.offset = 0;
+
     }
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tree_selection, container, false);
-        Button treeSelectionWantedPosterButton = view.findViewById(R.id.tree_selection_wanted_poster_button);
-
-        treeSelectionWantedPosterButton.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast qrToast = Toast.makeText(getContext(), "Wanted Poster Button clicked", Toast.LENGTH_LONG );
-                qrToast.show();
-
-                Intent intent = new Intent(getContext(), WantedPosterDetailsActivity.class);
-                startActivity(intent);
-            }
-        });
 
         detailRecyclerView = view.findViewById(R.id.detail_recycler_view);
+
         setupOverviewRecyclerView();
+
 
 
         return view;
@@ -54,6 +43,7 @@ public class TreeSelectionFragment extends Fragment {
 
     private void setupOverviewRecyclerView() {
         RecyclerView.LayoutManager recyclerViewLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+
         detailRecyclerView.setLayoutManager(recyclerViewLayoutManager);
 
         List<Tree> trees = DataManager.getInstance(getContext()).trees;

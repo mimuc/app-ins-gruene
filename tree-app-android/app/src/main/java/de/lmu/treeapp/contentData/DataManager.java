@@ -81,7 +81,7 @@ public class DataManager {
 
 
     // Player-Stuff
-    public String getPlayerName(){
+    public String GetPlayerName(){
         return player.name;
     }
     public String SetPlayerName(String _name){
@@ -127,6 +127,12 @@ public class DataManager {
             }
         }
         return null;
+    }
+
+    // Unlocked a Tree
+    public void UnlockTree(Tree _tree){
+        _tree.changeable.unlocked = true;
+        AppDatabase.getInstance(context).treeDao().Update(_tree.changeable);
     }
 
     // GameCompleted overloaded Functions
