@@ -86,7 +86,12 @@ public class DataManager {
     }
     public String SetPlayerName(String _name){
         player.name = _name;
-        AppDatabase.getInstance(context).playerDao().UpdateOne(player);
+        new Thread(new Runnable() {
+            @Override
+            public void run(){
+                AppDatabase.getInstance(context).playerDao().UpdateOne(player);
+            }
+        }).start();
         return player.name;
     }
 
@@ -131,8 +136,14 @@ public class DataManager {
 
     // Unlocked a Tree
     public void UnlockTree(Tree _tree){
-        _tree.changeable.unlocked = true;
-        AppDatabase.getInstance(context).treeDao().Update(_tree.changeable);
+        final TreeModel model = _tree.changeable;
+        model.unlocked = true;
+        new Thread(new Runnable() {
+            @Override
+            public void run(){
+                AppDatabase.getInstance(context).treeDao().Update(model);
+            }
+        }).start();
     }
 
     // GameCompleted overloaded Functions
@@ -156,7 +167,7 @@ public class DataManager {
         }
     }
     public void GameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree){
-        TreeModel model = _tree.changeable;
+        final TreeModel model = _tree.changeable;
         switch (_category){
             case leaf:
                 model.leafGamesCompleted.add(_gameId);
@@ -173,6 +184,11 @@ public class DataManager {
             default:
                 break;
         }
-        AppDatabase.getInstance(context).treeDao().Update(model);
+        new Thread(new Runnable() {
+            @Override
+            public void run(){
+                AppDatabase.getInstance(context).treeDao().Update(model);
+            }
+        }).start();
     }
 }
