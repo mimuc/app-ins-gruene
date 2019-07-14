@@ -64,8 +64,12 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
     public void onBindViewHolder(GameselectionRecyclerViewAdapter.ViewHolder holder, final int position) {
         final Context context = holder.gameName.getContext();
         final Minigame_Base game = DataManager.getInstance(context).GetMinigame(games.get(position));
-        holder.gameName.setText(game.name);
-
+        final Tree tree = DataManager.getInstance(context).GetTree(treeId);
+        if (tree.changeable.IsGameCompleted(category, game.uid)){
+            holder.gameName.setText("Completed");
+        }
+        else
+            holder.gameName.setText(game.name);
 
         holder.gameIcon.setOnClickListener(new View.OnClickListener() {
 

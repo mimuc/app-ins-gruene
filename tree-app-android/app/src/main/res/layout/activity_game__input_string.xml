@@ -37,6 +37,7 @@
         app:layout_constraintVertical_bias="0.055" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
         android:layout_width="316dp"
         android:layout_height="106dp"
         android:layout_marginStart="8dp"
@@ -51,8 +52,24 @@
         app:layout_constraintVertical_bias="0.398">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/game_inputString_inputField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="Antwort" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/game_inputString_sendButton"
+        android:layout_width="146dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Senden"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintVertical_bias="0.05" />
 </androidx.constraintlayout.widget.ConstraintLayout>
