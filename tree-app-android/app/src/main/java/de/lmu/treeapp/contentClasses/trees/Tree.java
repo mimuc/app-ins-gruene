@@ -64,6 +64,21 @@ public class Tree {
         }
     }
 
+    public List<Integer> GetGameIds(GameCategories category){
+        switch (category){
+            case leaf:
+                return leafGamesIds;
+            case fruit:
+                return fruitGamesIds;
+            case trunk:
+                return trunkGamesIds;
+            case other:
+                return otherGamesIds;
+                default:
+                    return null;
+        }
+    }
+
     public float GetGameProgressionPercent(GameCategories category){
         switch (category){
             case leaf:

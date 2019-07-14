@@ -107,8 +107,10 @@ public class MainActivity extends AppCompatActivity {
 
         Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
         Tree tree = dm.GetTreeByQR(barcode.displayValue);
-        if (tree != null)
+        if (tree != null){
+            dm.UnlockTree(tree);
             welcomeTextView.setText(tree.name);
+        }
         else
             welcomeTextView.setText("Kein Baum mit diesem QR-Code: "+ barcode.displayValue);
     }

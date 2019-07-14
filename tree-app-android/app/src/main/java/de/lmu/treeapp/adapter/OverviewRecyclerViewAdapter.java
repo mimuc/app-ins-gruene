@@ -1,5 +1,6 @@
 package de.lmu.treeapp.adapter;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import java.util.Objects;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.fragments.TreeSelectionFragment;
 
 public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRecyclerViewAdapter.ViewHolder> {
     private List<Tree> treeValues;
@@ -77,7 +79,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
         holder.treeName.setText(tree.name);
         if (tree.changeable.unlocked){
             // Change to Unlocked-Symbol
-            //holder.treeUnlockedStatus.setImageResource(R.drawable.ic_local_florist_white_24dp);
+            holder.treeUnlockedStatus.setImageResource(R.drawable.ic_local_florist_white_24dp);
         }
         else if (Math.round(tree.GetGameProgressionPercent(Tree.GameCategories.total)) >= 100){
             // Set the icon to completed
