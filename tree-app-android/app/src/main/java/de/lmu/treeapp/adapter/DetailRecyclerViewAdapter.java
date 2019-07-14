@@ -97,13 +97,19 @@ public class DetailRecyclerViewAdapter extends RecyclerView.Adapter<DetailRecycl
         holder.fruitButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(context, GameSelectionActivity.class);
+                intent.putExtra("TreeId",tree.uid);
+                intent.putExtra("Category", Tree.GameCategories.fruit);
+                context.startActivity(intent);
             }
         });
         holder.trunkButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(context, GameSelectionActivity.class);
+                intent.putExtra("TreeId",tree.uid);
+                intent.putExtra("Category", Tree.GameCategories.trunk);
+                context.startActivity(intent);
             }
         });
 

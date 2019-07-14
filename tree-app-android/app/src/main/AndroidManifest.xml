@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.GameSelectionActivity"></activity>
+        <activity android:name=".activities.minigames.GameActivity_ChooseAnswer"></activity>
+        <activity android:name=".activities.minigames.GameActivity_InputString"></activity>
+        <activity android:name=".activities.GameSelectionActivity" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
