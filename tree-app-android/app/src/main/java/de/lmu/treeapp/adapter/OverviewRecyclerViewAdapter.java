@@ -1,6 +1,5 @@
 package de.lmu.treeapp.adapter;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,17 +8,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.util.List;
-import java.util.Objects;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.contentClasses.trees.Tree;
-import de.lmu.treeapp.fragments.TreeSelectionFragment;
 
 public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRecyclerViewAdapter.ViewHolder> {
     private List<Tree> treeValues;
