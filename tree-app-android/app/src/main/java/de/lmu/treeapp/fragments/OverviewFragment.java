@@ -1,21 +1,16 @@
 package de.lmu.treeapp.fragments;
 
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.util.List;
-import java.util.Objects;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.adapter.OverviewRecyclerViewAdapter;
@@ -42,15 +37,6 @@ public class OverviewFragment extends Fragment {
         overviewRecyclerView = view.findViewById(R.id.overview_recycler_view);
         setupOverviewRecyclerView();
 
-        Button overviewWantedPosterButton = view.findViewById(R.id.overview_wanted_poster_button);
-        overviewWantedPosterButton.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragmentManager.showFragment(selectedTreeFragment);
-                switchNavigationButtonToTreeSelection();
-            }
-        });
-
         return view;
     }
 
@@ -69,10 +55,4 @@ public class OverviewFragment extends Fragment {
         RecyclerView.Adapter recyclerViewAdapter = new OverviewRecyclerViewAdapter(trees, fragmentManager, selectedTreeFragment);
         overviewRecyclerView.setAdapter(recyclerViewAdapter);
     }
-
-
-    private void switchNavigationButtonToTreeSelection() {
-        ((BottomNavigationView) Objects.requireNonNull(getActivity()).findViewById(R.id.bottom_navigation)).setSelectedItemId(R.id.action_tree_selection);
-    }
-
 }
