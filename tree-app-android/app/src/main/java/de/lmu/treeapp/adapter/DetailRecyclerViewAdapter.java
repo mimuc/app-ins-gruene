@@ -28,13 +28,13 @@ public class DetailRecyclerViewAdapter extends RecyclerView.Adapter<DetailRecycl
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public final TextView treeName;
-        public final ImageView treeImage;
-        public final Button treeProfileButton;
-        public final ImageButton leafButton;
-        public final ImageButton fruitButton;
-        public final ImageButton trunkButton;
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        final TextView treeName;
+        final ImageView treeImage;
+        final Button treeProfileButton;
+        final ImageButton leafButton;
+        final ImageButton fruitButton;
+        final ImageButton trunkButton;
         ViewHolder(View v) {
             super(v);
             treeName = v.findViewById(R.id.detail_single_tree_text);

@@ -6,30 +6,42 @@
             <name>Ahorn</name>
             <profileId>0</profileId>
             <qrCode>Ahorn</qrCode>
-            <leafGames>100,101,200</leafGames>
-            <fruitGames>3,4,5</fruitGames>
-            <trunkGames>6,7,8</trunkGames>
-            <otherGames>9,10,11</otherGames>
+            <leafGames>100,101,201</leafGames>
+            <fruitGames>100,101,200</fruitGames>
+            <trunkGames>100,101,200</trunkGames>
+            <otherGames>100,101,200</otherGames>
+            <imageTree>ic_launcher</imageTree>
+            <imageLeaf>ic_launcher_round</imageLeaf>
+            <imageFruit>ic_launcher_round</imageFruit>
+            <imageTrunk>ic_launcher_round</imageTrunk>
         </tree>
         <tree>
             <id>1</id>
             <name>Birke</name>
             <profileId>1</profileId>
             <qrCode>Birke</qrCode>
-            <leafGames>0,1,2</leafGames>
-            <fruitGames>3,4,5</fruitGames>
-            <trunkGames>6,7,8</trunkGames>
-            <otherGames>9,10,11</otherGames>
+            <leafGames>100,101,200</leafGames>
+            <fruitGames>100,101,200</fruitGames>
+            <trunkGames>100,101,200</trunkGames>
+            <otherGames>100,101,200</otherGames>
+            <imageTree>ic_launcher_round</imageTree>
+            <imageLeaf></imageLeaf>
+            <imageFruit></imageFruit>
+            <imageTrunk></imageTrunk>
         </tree>
         <tree>
             <id>2</id>
             <name>Fichte</name>
             <profileId>2</profileId>
             <qrCode>4388844177314</qrCode>
-            <leafGames>0,1,2</leafGames>
-            <fruitGames>3,4,5</fruitGames>
-            <trunkGames>6,7,8</trunkGames>
-            <otherGames>9,10,11</otherGames>
+            <leafGames>100,101,200</leafGames>
+            <fruitGames>100,101,200</fruitGames>
+            <trunkGames>100,101,200</trunkGames>
+            <otherGames>100,101,200</otherGames>
+            <imageTree>ic_launcher</imageTree>
+            <imageLeaf></imageLeaf>
+            <imageFruit></imageFruit>
+            <imageTrunk></imageTrunk>
         </tree>
     </trees>
 </resources>

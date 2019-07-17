@@ -16,6 +16,11 @@ public class Tree {
     public List<Integer> trunkGamesIds;
     public List<Integer> otherGamesIds;
 
+    public String imageTree = "";
+    public String imageLeaf = "";
+    public String imageFruit = "";
+    public String imageTrunk = "";
+
     public TreeModel changeable;
 
 
