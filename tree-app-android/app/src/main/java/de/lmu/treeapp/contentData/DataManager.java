@@ -170,16 +170,20 @@ public class DataManager {
         final TreeModel model = _tree.changeable;
         switch (_category){
             case leaf:
-                model.leafGamesCompleted.add(_gameId);
+                if (!model.leafGamesCompleted.contains(_gameId))
+                    model.leafGamesCompleted.add(_gameId);
                 break;
             case fruit:
-                model.fruitGamesCompleted.add(_gameId);
+                if (!model.fruitGamesCompleted.contains(_gameId))
+                    model.fruitGamesCompleted.add(_gameId);
                 break;
             case trunk:
-                model.trunkGamesCompleted.add(_gameId);
+                if (!model.trunkGamesCompleted.contains(_gameId))
+                    model.trunkGamesCompleted.add(_gameId);
                 break;
             case other:
-                model.otherGamesCompleted.add(_gameId);
+                if (!model.otherGamesCompleted.contains(_gameId))
+                    model.otherGamesCompleted.add(_gameId);
                 break;
             default:
                 break;

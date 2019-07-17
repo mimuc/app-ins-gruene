@@ -36,9 +36,9 @@ public class miniGameParser {
                         if (tagname.equalsIgnoreCase("minigame_chooseAnswer")) {
                             miniGameChooseAnswer = new Minigame_ChooseAnswer();
                             miniGameChooseAnswer.type = Minigame_Base.MinigameTypes.ChooseAnswer;
+                            miniGameChooseAnswer.options = new ArrayList<>();
                         }
                         else if (tagname.equalsIgnoreCase("option")){
-                            miniGameChooseAnswer.options = new ArrayList<>();
                             answerOption = new AnswerOption();
                         }
                         break;
