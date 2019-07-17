@@ -26,7 +26,7 @@ public class Tree {
 
 
     public enum GameCategories {
-        leaf, fruit, trunk, other, total
+        leaf, fruit, trunk, other, total, none
     }
 
 

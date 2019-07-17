@@ -16,7 +16,7 @@
     <string name="overview_button_text">BAUM ANZEIGEN</string>
     <string name="wanted_poster_details_text_view_text">Hier werden die Informationen über jeden Baum stehen!</string>
     <string name="wanted_poster_title_text">Wanted Poster</string>
-    <string name="wanted_poster_details_title_text">Steckbrief Informationen</string>
+    <string name="wanted_poster_details_title_text">Steckbrief</string>
     <string name="tree_selection_fragment_button_text">DETAILS ANZEIGEN</string>
     <string name="overview_fragment_headline">Deine Waldübersicht</string>
     <string name="overview_fragment_description_text">Scan den QR Code des Baums, den du zu deinem Wald hinzufügen möchtest!</string>
