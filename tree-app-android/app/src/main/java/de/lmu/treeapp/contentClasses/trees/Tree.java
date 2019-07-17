@@ -85,6 +85,7 @@ public class Tree {
     }
 
     public float GetGameProgressionPercent(GameCategories category){
+
         switch (category){
             case leaf:
                 return GetGamesProgression(leafGamesIds, changeable.leafGamesCompleted) * 100;
@@ -110,13 +111,13 @@ public class Tree {
         int completed = 0;
         for (int i = 0; i < gamesCompleted.size(); i++){
             for (int j = 0; j < gamesTotal.size(); j++){
-                if (gamesTotal.get(j) == gamesCompleted.get(i)){
+                if (gamesTotal.get(j).intValue() == gamesCompleted.get(i).intValue()){
                     completed++;
                     break;
                 }
             }
         }
-        float value = completed/gamesTotal.size();
+        float value = (float)completed/(float)gamesTotal.size();
         return value;
     }
 

@@ -31,8 +31,10 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         String content = "";
         for (int i = 0; i < treeProfile.cards.size(); i++){
             TreeProfileCard card = treeProfile.cards.get(i);
-            content += card.name + "\n";
-            content += card.content + "\n";
+            if (card.unlockedBy == Tree.GameCategories.none || tree.GetGameProgressionPercent(card.unlockedBy) > 90){
+                content += card.name + "\n";
+                content += card.content + "\n";
+            }
         }
         contentPlaceholder.setText(content);
 
