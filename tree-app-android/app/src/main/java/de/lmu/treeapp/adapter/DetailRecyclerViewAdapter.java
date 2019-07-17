@@ -76,6 +76,14 @@ public class DetailRecyclerViewAdapter extends RecyclerView.Adapter<DetailRecycl
         final Tree tree = treeValues.get(position);
         holder.treeName.setText(tree.name);
         final Context context = holder.treeProfileButton.getContext();
+        int imageTreeId = context.getResources().getIdentifier(tree.imageTree, "mipmap", context.getPackageName());
+        int imageLeafId = context.getResources().getIdentifier(tree.imageLeaf, "mipmap", context.getPackageName());
+        int imageFruitId = context.getResources().getIdentifier(tree.imageFruit, "mipmap", context.getPackageName());
+        int imageTrunkId = context.getResources().getIdentifier(tree.imageTrunk, "mipmap", context.getPackageName());
+        holder.treeImage.setImageResource(imageTreeId);
+        holder.leafButton.setImageResource(imageLeafId);
+        holder.fruitButton.setImageResource(imageFruitId);
+        holder.trunkButton.setImageResource(imageTrunkId);
 
         holder.treeProfileButton.setOnClickListener(new Button.OnClickListener() {
             @Override
