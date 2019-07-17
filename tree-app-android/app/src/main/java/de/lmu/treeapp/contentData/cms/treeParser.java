@@ -57,6 +57,14 @@ public class treeParser {
                             tree.setGameIds(Tree.GameCategories.trunk, getGamesIds(text));
                         } else if (tagname.equalsIgnoreCase("otherGames")) {
                             tree.setGameIds(Tree.GameCategories.other, getGamesIds(text));
+                        } else if (tagname.equalsIgnoreCase("imageTree")) {
+                            tree.imageTree = text.trim();
+                        } else if (tagname.equalsIgnoreCase("imageLeaf")) {
+                            tree.imageLeaf = text.trim();
+                        } else if (tagname.equalsIgnoreCase("imageFruit")) {
+                            tree.imageFruit = text.trim();
+                        } else if (tagname.equalsIgnoreCase("imageTrunk")) {
+                            tree.imageTrunk = text.trim();
                         }
                         break;
 

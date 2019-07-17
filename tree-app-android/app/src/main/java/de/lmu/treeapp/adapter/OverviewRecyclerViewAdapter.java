@@ -1,5 +1,6 @@
 package de.lmu.treeapp.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,11 +80,13 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
             // Set the icon to completed
         }
         else {
-            // Change to Locked-Symbol
+            // Locked-Symbol
             //holder.treeUnlockedStatus.setImageResource(R.drawable.ic_local_florist_white_24dp);
         }
         // Set Tree-Image here:
-        holder.treeImage.setImageResource(R.drawable.ic_local_florist_white_24dp);
+        Context context = holder.treeImage.getContext();
+        int imageTreeId = context.getResources().getIdentifier(tree.imageTree, "mipmap", context.getPackageName());
+        holder.treeImage.setImageResource(imageTreeId);
         holder.treeImage.setOnClickListener(new View.OnClickListener() {
 
             @Override
