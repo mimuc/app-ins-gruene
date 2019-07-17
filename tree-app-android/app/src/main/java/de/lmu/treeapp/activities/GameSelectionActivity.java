@@ -30,6 +30,11 @@ public class GameSelectionActivity extends AppCompatActivity {
         category = (Tree.GameCategories) b.get("Category");
         this.gameIds = DataManager.getInstance(getApplicationContext()).GetTree(treeId).GetGameIds(category);
 
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(R.string.game_selection_title);
+        }
+
         gameSelectionRecyclerView = findViewById(R.id.gameselection_recyclerview);
         setupOverviewRecyclerView();
     }
@@ -41,5 +46,11 @@ public class GameSelectionActivity extends AppCompatActivity {
         gameSelectionRecyclerView.setLayoutManager(recyclerViewLayoutManager);
         RecyclerView.Adapter recyclerViewAdapter = new GameselectionRecyclerViewAdapter(this.gameIds, this.treeId, this.category);
         gameSelectionRecyclerView.setAdapter(recyclerViewAdapter);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }
