@@ -23,4 +23,5 @@
     <string name="overview_single_tree_placeholder_text">overview_single_tree_text</string>
     <string name="overview_single_tree_state_image_content_description">overview_single_tree_state_image</string>
     <string name="overview_single_tree_image_content_description">overview_single_tree_image</string>
+    <string name="game_selection_title">Minispiele</string>
 </resources>
