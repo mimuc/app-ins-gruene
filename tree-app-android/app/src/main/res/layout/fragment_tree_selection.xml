@@ -6,8 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.TreeSelectionFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/detail_recycler_view"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/tree_selection_view_pager"
         android:layout_width="403dp"
         android:layout_height="507dp"
         android:layout_marginTop="8dp"
