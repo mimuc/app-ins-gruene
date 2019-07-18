@@ -7,39 +7,49 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.adapter.DetailRecyclerViewAdapter;
+import de.lmu.treeapp.adapter.TreeSlidePagerAdapter;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
 
 public class TreeSelectionFragment extends Fragment {
-    private RecyclerView detailRecyclerView;
+
+    private ViewPager pager;
+    private PagerAdapter adapter;
 
     public TreeSelectionFragment() {
 
     }
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tree_selection, container, false);
-        detailRecyclerView = view.findViewById(R.id.detail_recycler_view);
-        setupOverviewRecyclerView();
+
+        pager = view.findViewById(R.id.tree_selection_view_pager);
+        adapter = new TreeSlidePagerAdapter(getFragmentManager(), getDetailSingleTreeFragments(DataManager.getInstance(getContext()).trees));
+
+        pager.setClipToPadding(false);
+        pager.setPadding(100, 0, 100, 0);
+        pager.setPageMargin(24);
+        pager.setAdapter(adapter);
 
         return view;
     }
 
-    private void setupOverviewRecyclerView() {
-        RecyclerView.LayoutManager recyclerViewLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+    private List<DetailSingleTreeFragment> getDetailSingleTreeFragments(List<Tree> trees) {
+        List<DetailSingleTreeFragment> detailSingleTreeFragments = new ArrayList<>();
+        for (Tree tree : trees) {
+            detailSingleTreeFragments.add(new DetailSingleTreeFragment(tree));
 
-        detailRecyclerView.setLayoutManager(recyclerViewLayoutManager);
+        }
 
-        List<Tree> trees = DataManager.getInstance(getContext()).trees;
-        RecyclerView.Adapter recyclerViewAdapter = new DetailRecyclerViewAdapter(trees);
-        detailRecyclerView.setAdapter(recyclerViewAdapter);
+        return  detailSingleTreeFragments;
     }
 }
