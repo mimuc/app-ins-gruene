@@ -43,7 +43,7 @@ public class GameActivity_ChooseAnswer extends AppCompatActivity {
         int columns = 2;
         RecyclerView.LayoutManager recyclerViewLayoutManager = new GridLayoutManager(getApplicationContext(), columns);
         optionsRecyclerView.setLayoutManager(recyclerViewLayoutManager);
-        RecyclerView.Adapter recyclerViewAdapter = new ChooseAnswer_Options_RecyclerViewAdapter(gameContent, getApplicationContext());
+        RecyclerView.Adapter recyclerViewAdapter = new ChooseAnswer_Options_RecyclerViewAdapter(gameContent, getApplicationContext(), parentTree, parentCategory);
         optionsRecyclerView.setAdapter(recyclerViewAdapter);
     }
 }
