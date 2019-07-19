@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.activities.minigames.GameActivity_ChooseAnswer;
-import de.lmu.treeapp.activities.minigames.GameActivity_InputString;
+import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
+import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;

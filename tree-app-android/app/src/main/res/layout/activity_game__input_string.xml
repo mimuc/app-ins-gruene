@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.lmu.treeapp.activities.minigames.GameActivity_InputString">
+    tools:context="de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString">
 
     <TextView
         android:id="@+id/game_inputString_title"

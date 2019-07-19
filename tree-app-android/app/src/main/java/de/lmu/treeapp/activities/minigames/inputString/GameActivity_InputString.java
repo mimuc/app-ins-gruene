@@ -1,4 +1,4 @@
-package de.lmu.treeapp.activities.minigames;
+package de.lmu.treeapp.activities.minigames.inputString;
 
 
 import android.os.Bundle;
