@@ -21,5 +21,8 @@
         <treeProfile>
             <id>1</id>
         </treeProfile>
+        <treeProfile>
+            <id>2</id>
+        </treeProfile>
     </treeProfiles>
 </resources>
