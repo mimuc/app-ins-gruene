@@ -18,6 +18,7 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
 
     private List<AnswerOption> options;
     private Minigame_ChooseAnswer game;
+    private Context context;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final Button button;
@@ -37,9 +38,10 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
         notifyItemRemoved(position);
     }
 
-    public ChooseAnswer_Options_RecyclerViewAdapter(Minigame_ChooseAnswer _game) {
+    public ChooseAnswer_Options_RecyclerViewAdapter(Minigame_ChooseAnswer _game, Context _context) {
         this.options = _game.options;
         this.game = _game;
+        this.context = _context;
     }
 
     @Override
@@ -48,14 +50,15 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
         LayoutInflater inflater = LayoutInflater.from(
                 parent.getContext());
 
-        View v = inflater.inflate(R.layout.overview_single_tree_layout, parent, false);
+        View v = inflater.inflate(R.layout.activity_game__choose_answer__option, parent, false);
         return new ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder holder, final int position) {
         AnswerOption option = options.get(position);
-        Context context = holder.button.getContext();
+
+        System.out.println(holder.button);
 
         if (option.type == AnswerOption.OptionTypes.text){
             holder.button.setText(option.content);
@@ -66,14 +69,6 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
             holder.button.setText("");
         }
 
-        holder.button.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-            }
-
-        });
     }
 
     @Override
