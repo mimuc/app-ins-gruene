@@ -85,7 +85,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
         }
         // Set Tree-Image here:
         Context context = holder.treeImage.getContext();
-        int imageTreeId = context.getResources().getIdentifier(tree.imageTree, "mipmap", context.getPackageName());
+        int imageTreeId = context.getResources().getIdentifier(tree.imageTree, "drawable", context.getPackageName());
         holder.treeImage.setImageResource(imageTreeId);
         holder.treeImage.setOnClickListener(new View.OnClickListener() {
 
