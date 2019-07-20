@@ -17,12 +17,13 @@
         android:contentDescription="@string/overview_single_tree_image_content_description"
         android:clickable="true"
         android:focusable="true"
+        android:scaleType="fitCenter"
         app:layout_constrainedHeight="false"
         app:layout_constraintBottom_toTopOf="@+id/overview_single_tree_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_local_florist_white_24dp"  />
+        app:srcCompat="@drawable/ic_ahorn_baum"  />
 
     <TextView
         android:id="@+id/overview_single_tree_text"
