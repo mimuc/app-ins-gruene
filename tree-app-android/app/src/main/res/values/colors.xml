@@ -14,4 +14,7 @@
     <color name="red">#B00020</color>
     <color name="lightestBlue">#EBFDFF</color>
     <color name="lightBlue">#DFF6F8</color>
+    <color name="lightGrey">#C4C4C4</color>
+    <color name="mediumGrey">#E0E0E0</color>
+    <color name="darkerGrey">#9F9F9F</color>
 </resources>
