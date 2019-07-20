@@ -49,10 +49,10 @@ public class DetailSingleTreeFragment extends Fragment {
         treeName.setText(tree.name);
 
         if(getContext() != null) {
-            int imageTreeId = getContext().getResources().getIdentifier(tree.imageTree, "mipmap", getContext().getPackageName());
-            int imageLeafId = getContext().getResources().getIdentifier(tree.imageLeaf, "mipmap", getContext().getPackageName());
-            int imageFruitId = getContext().getResources().getIdentifier(tree.imageFruit, "mipmap", getContext().getPackageName());
-            int imageTrunkId = getContext().getResources().getIdentifier(tree.imageTrunk, "mipmap", getContext().getPackageName());
+            int imageTreeId = getContext().getResources().getIdentifier(tree.imageTree, "drawable", getContext().getPackageName());
+            int imageLeafId = getContext().getResources().getIdentifier(tree.imageLeaf, "drawable", getContext().getPackageName());
+            int imageFruitId = getContext().getResources().getIdentifier(tree.imageFruit, "drawable", getContext().getPackageName());
+            int imageTrunkId = getContext().getResources().getIdentifier(tree.imageTrunk, "drawable", getContext().getPackageName());
             treeImage.setImageResource(imageTreeId);
             leafButton.setImageResource(imageLeafId);
             fruitButton.setImageResource(imageFruitId);
