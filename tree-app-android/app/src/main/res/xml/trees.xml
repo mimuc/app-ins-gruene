@@ -17,23 +17,23 @@
         </tree>
         <tree>
             <id>1</id>
-            <name>Birke</name>
+            <name>Rot-Buche</name>
             <profileId>1</profileId>
-            <qrCode>Birke</qrCode>
+            <qrCode>Rot-Buche</qrCode>
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
             <otherGames>100,101,200</otherGames>
-            <imageTree>ic_rot_buche_baum</imageTree>
-            <imageLeaf>ic_rot_buche_blatt</imageLeaf>
-            <imageFruit>ic_rot_buche_frucht</imageFruit>
-            <imageTrunk>ic_rot_buche_stamm</imageTrunk>
+            <imageTree>ic_rotbuche_baum</imageTree>
+            <imageLeaf>ic_rotbuche_blatt</imageLeaf>
+            <imageFruit>ic_rotbuche_frucht</imageFruit>
+            <imageTrunk>ic_rotbuche_stamm</imageTrunk>
         </tree>
         <tree>
             <id>2</id>
-            <name>Fichte</name>
+            <name>Linde</name>
             <profileId>2</profileId>
-            <qrCode>Fichte</qrCode>
+            <qrCode>Linde</qrCode>
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
