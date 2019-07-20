@@ -19,4 +19,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <com.afollestad.viewpagerdots.DotsIndicator
+        android:id="@+id/tree_selection_dots_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:dot_tint="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tree_selection_view_pager" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

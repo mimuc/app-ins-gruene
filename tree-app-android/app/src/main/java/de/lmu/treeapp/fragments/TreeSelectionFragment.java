@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.afollestad.viewpagerdots.DotsIndicator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +24,7 @@ public class TreeSelectionFragment extends Fragment {
 
     private ViewPager pager;
     private PagerAdapter adapter;
+    private DotsIndicator dotsIndicator;
 
     public TreeSelectionFragment() {
 
@@ -33,12 +36,16 @@ public class TreeSelectionFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tree_selection, container, false);
 
         pager = view.findViewById(R.id.tree_selection_view_pager);
+        dotsIndicator = view.findViewById(R.id.tree_selection_dots_indicator);
+
         adapter = new TreeSlidePagerAdapter(getFragmentManager(), getDetailSingleTreeFragments(DataManager.getInstance(getContext()).trees));
 
         pager.setClipToPadding(false);
         pager.setPadding(100, 0, 100, 0);
         pager.setPageMargin(24);
         pager.setAdapter(adapter);
+
+        dotsIndicator.attachViewPager(pager);
 
         return view;
     }
