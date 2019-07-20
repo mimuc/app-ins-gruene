@@ -4,4 +4,14 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="white">#FFFFFF</color>
+    <color name="asphalt">#3C4B46</color>
+    <color name="light">#FFFFFF</color>
+    <color name="darkLight">#F5F5f5</color>
+    <color name="beton">#9CA4A1</color>
+    <color name="lightAsphalt">#65706C</color>
+    <color name="forest">#5E7E1D</color>
+    <color name="darkForest">#435A14</color>
+    <color name="red">#B00020</color>
+    <color name="lightestBlue">#EBFDFF</color>
+    <color name="lightBlue">#DFF6F8</color>
 </resources>
