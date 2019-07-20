@@ -10,10 +10,10 @@
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
             <otherGames>100,101,200</otherGames>
-            <imageTree>ic_launcher</imageTree>
-            <imageLeaf>ic_launcher_round</imageLeaf>
-            <imageFruit>ic_launcher_round</imageFruit>
-            <imageTrunk>ic_launcher_round</imageTrunk>
+            <imageTree>ic_ahorn_baum</imageTree>
+            <imageLeaf>ic_ahorn_blatt</imageLeaf>
+            <imageFruit>ic_ahorn_frucht</imageFruit>
+            <imageTrunk>ic_ahorn_stamm</imageTrunk>
         </tree>
         <tree>
             <id>1</id>
@@ -24,24 +24,38 @@
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
             <otherGames>100,101,200</otherGames>
-            <imageTree>ic_launcher_round</imageTree>
-            <imageLeaf></imageLeaf>
-            <imageFruit></imageFruit>
-            <imageTrunk></imageTrunk>
+            <imageTree>ic_rot_buche_baum</imageTree>
+            <imageLeaf>ic_rot_buche_blatt</imageLeaf>
+            <imageFruit>ic_rot_buche_frucht</imageFruit>
+            <imageTrunk>ic_rot_buche_stamm</imageTrunk>
         </tree>
         <tree>
             <id>2</id>
             <name>Fichte</name>
             <profileId>2</profileId>
-            <qrCode>4388844177314</qrCode>
+            <qrCode>Fichte</qrCode>
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
             <otherGames>100,101,200</otherGames>
-            <imageTree>ic_launcher</imageTree>
-            <imageLeaf></imageLeaf>
-            <imageFruit></imageFruit>
-            <imageTrunk></imageTrunk>
+            <imageTree>ic_linde_baum</imageTree>
+            <imageLeaf>ic_linde_blatt</imageLeaf>
+            <imageFruit>ic_linde_frucht</imageFruit>
+            <imageTrunk>ic_linde_stamm</imageTrunk>
+        </tree>
+        <tree>
+            <id>3</id>
+            <name>Waldkiefer</name>
+            <profileId>2</profileId>
+            <qrCode>Waldkiefer</qrCode>
+            <leafGames>100,101,200</leafGames>
+            <fruitGames>100,101,200</fruitGames>
+            <trunkGames>100,101,200</trunkGames>
+            <otherGames>100,101,200</otherGames>
+            <imageTree>ic_waldkiefer_baum</imageTree>
+            <imageLeaf>ic_waldkiefer_blatt</imageLeaf>
+            <imageFruit>ic_waldkiefer_frucht</imageFruit>
+            <imageTrunk>ic_waldkiefer_stamm</imageTrunk>
         </tree>
     </trees>
 </resources>
