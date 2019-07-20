@@ -24,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottom_app_bar_height"
         android:layout_gravity="bottom"
+        android:backgroundTint="@color/forest"
         app:backgroundTint="@color/colorPrimary"
         app:fabAlignmentMode="center" />
 
@@ -37,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="false"
+            app:itemBackground="@color/forest"
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
             app:menu="@menu/bottom_app_bar_menu" />
@@ -46,8 +48,10 @@
         android:id="@+id/qr_code_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_camera_alt_white_24dp"
-        android:backgroundTint="@color/colorPrimary"
-        app:layout_anchor="@id/bottom_app_bar" />
+        android:backgroundTint="@color/forest"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/forest"
+        app:layout_anchor="@id/bottom_app_bar"
+        app:rippleColor="@color/forest" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
