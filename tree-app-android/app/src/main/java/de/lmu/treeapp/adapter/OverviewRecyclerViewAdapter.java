@@ -1,5 +1,6 @@
 package de.lmu.treeapp.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,10 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.List;
+import java.util.Objects;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.contentClasses.trees.Tree;
@@ -21,6 +25,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
 
     private de.lmu.treeapp.service.FragmentManagerService fragmentManager;
     private Fragment selectedTreeFragment;
+    private Activity currentActivity;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -29,6 +34,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
         public final TextView treeName;
         public final ImageButton treeImage;
         public final ImageView treeUnlockedStatus;
+
         ViewHolder(View v) {
             super(v);
             treeName = v.findViewById(R.id.overview_single_tree_text);
@@ -92,9 +98,14 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
             @Override
             public void onClick(View arg0) {
                 fragmentManager.showFragment(selectedTreeFragment);
+                ((BottomNavigationView) Objects.requireNonNull(currentActivity).findViewById(R.id.bottom_navigation)).setSelectedItemId(R.id.action_tree_selection);
             }
 
         });
+    }
+
+    public void setActivity(Activity currentActivity) {
+        this.currentActivity = currentActivity;
     }
 
     // Return the size of your dataset (invoked by the layout manager)

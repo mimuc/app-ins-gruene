@@ -53,6 +53,7 @@ public class OverviewFragment extends Fragment {
 
         List<Tree> trees = DataManager.getInstance(getContext()).trees;
         RecyclerView.Adapter recyclerViewAdapter = new OverviewRecyclerViewAdapter(trees, fragmentManager, selectedTreeFragment);
+        ((OverviewRecyclerViewAdapter) recyclerViewAdapter).setActivity(this.getActivity());
         overviewRecyclerView.setAdapter(recyclerViewAdapter);
     }
 }
