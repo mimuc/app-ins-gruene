@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottom_app_bar_height"
         android:layout_gravity="bottom"
-        android:backgroundTint="@color/forest"
+        android:backgroundTint="@color/white"
         app:backgroundTint="@color/colorPrimary"
         app:fabAlignmentMode="center" />
 
@@ -38,9 +38,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="false"
-            app:itemBackground="@color/forest"
-            app:itemIconTint="@color/white"
-            app:itemTextColor="@color/white"
+            app:itemBackground="@color/white"
+            app:itemIconSize="@android:dimen/app_icon_size"
+            app:itemIconTint="@color/forest"
+            app:itemTextColor="@color/asphalt"
             app:menu="@menu/bottom_app_bar_menu" />
     </FrameLayout>
 

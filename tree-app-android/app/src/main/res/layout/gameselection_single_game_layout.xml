@@ -30,6 +30,7 @@
         android:layout_height="23dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="388dp"
+        android:fontFamily="@font/freude"
         android:text="@string/overview_single_tree_placeholder_text"
         android:textAlignment="center"
         android:textSize="12sp"
