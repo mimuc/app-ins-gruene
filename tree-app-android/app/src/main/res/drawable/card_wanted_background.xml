@@ -10,7 +10,11 @@
 
             <solid android:color="#ccc" />
 
-            <corners android:radius="10dp" />
+            <corners
+                android:bottomLeftRadius="64dp"
+                android:bottomRightRadius="10dp"
+                android:topLeftRadius="64dp"
+                android:topRightRadius="10dp" />
 
         </shape>
 
@@ -24,7 +28,13 @@
 
             <solid android:color="#FFFFFF" />
 
-            <corners android:radius="10dp" />
+            <corners
+                android:bottomLeftRadius="64dp"
+                android:bottomRightRadius="10dp"
+                android:topLeftRadius="64dp"
+                android:topRightRadius="10dp" />
+
+
 
         </shape>
 

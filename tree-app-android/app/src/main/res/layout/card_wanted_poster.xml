@@ -7,17 +7,21 @@
     android:layout_marginLeft="24dp"
     android:layout_marginTop="16dp"
     android:layout_marginRight="24dp"
-    android:background="@drawable/button_background"
+    android:background="@drawable/card_wanted_background"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:id="@+id/card_wanted_poster_circle_image"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:background="@drawable/card_wantend_circle_icon"
+            android:elevation="4dp"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/ic_ahorn_baum"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -76,9 +80,10 @@
 
         <LinearLayout
             android:id="@+id/card_wanted_poster_expander"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_wanted_poster_circle_image">
@@ -87,9 +92,10 @@
                 android:id="@+id/card_wanted_poster_description_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="32dp"
                 android:fontFamily="@font/hind_medium"
                 android:text="69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang "
                 android:textColor="@color/asphalt"

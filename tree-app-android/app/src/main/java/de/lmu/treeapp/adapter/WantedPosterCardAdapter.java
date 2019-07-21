@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.fragments.WantedPosterCard;
 
@@ -28,7 +27,7 @@ public class WantedPosterCardAdapter extends RecyclerView.Adapter<WantedPosterCa
     class WantedPosterCardViewHolder extends RecyclerView.ViewHolder {
         TextView header;
         TextView subHeader;
-        CircleImageView picture;
+        ImageView picture;
         TextView infoText;
         ImageView collapseArrow;
         LinearLayout expander;
@@ -82,7 +81,7 @@ public class WantedPosterCardAdapter extends RecyclerView.Adapter<WantedPosterCa
                     if(holder.collapseArrow.getRotation() == 90.0f){
                         holder.collapseArrow.setRotation(0);
                     } else {
-                        holder.collapseArrow.setRotation(90.0f);
+                        holder.collapseArrow.setRotation(-90.0f);
                     }
                     expandedPosition = isExpanded ? -1 : position;
                     notifyDataSetChanged();
