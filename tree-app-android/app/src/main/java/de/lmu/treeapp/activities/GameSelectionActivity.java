@@ -41,7 +41,7 @@ public class GameSelectionActivity extends AppCompatActivity {
 
     private void setupOverviewRecyclerView() {
         gameSelectionRecyclerView.setHasFixedSize(true);
-        int gridColumns = 3;
+        int gridColumns = 2;
         RecyclerView.LayoutManager recyclerViewLayoutManager = new GridLayoutManager(getApplicationContext(), gridColumns);
         gameSelectionRecyclerView.setLayoutManager(recyclerViewLayoutManager);
         RecyclerView.Adapter recyclerViewAdapter = new GameselectionRecyclerViewAdapter(this.gameIds, this.treeId, this.category);
