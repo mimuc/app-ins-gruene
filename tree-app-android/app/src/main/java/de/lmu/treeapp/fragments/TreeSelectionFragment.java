@@ -23,38 +23,38 @@ import de.lmu.treeapp.contentData.DataManager;
 public class TreeSelectionFragment extends Fragment {
 
     private ViewPager pager;
-    private PagerAdapter adapter;
     private DotsIndicator dotsIndicator;
 
-    public TreeSelectionFragment() {
-
-    }
+    public TreeSelectionFragment() {}
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tree_selection, container, false);
+        this.findViewsById(view);
+        this.setupViewPager();
 
+        return view;
+    }
+
+    private void findViewsById(View view) {
         pager = view.findViewById(R.id.tree_selection_view_pager);
         dotsIndicator = view.findViewById(R.id.tree_selection_dots_indicator);
+    }
 
-        adapter = new TreeSlidePagerAdapter(getFragmentManager(), getDetailSingleTreeFragments(DataManager.getInstance(getContext()).trees));
-
+    private void setupViewPager() {
+        PagerAdapter adapter = new TreeSlidePagerAdapter(getFragmentManager(), getDetailSingleTreeFragments(DataManager.getInstance(getContext()).trees));
         pager.setClipToPadding(false);
         pager.setPadding(100, 0, 100, 0);
         pager.setPageMargin(24);
         pager.setAdapter(adapter);
-
         dotsIndicator.attachViewPager(pager);
-
-        return view;
     }
 
     private List<DetailSingleTreeFragment> getDetailSingleTreeFragments(List<Tree> trees) {
         List<DetailSingleTreeFragment> detailSingleTreeFragments = new ArrayList<>();
         for (Tree tree : trees) {
             detailSingleTreeFragments.add(new DetailSingleTreeFragment(tree));
-
         }
 
         return  detailSingleTreeFragments;
