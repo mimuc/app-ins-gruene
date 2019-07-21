@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +15,6 @@ import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.contentClasses.trees.Tree;
@@ -29,13 +27,14 @@ import de.lmu.treeapp.service.FragmentManagerService;
 public class MainActivity extends AppCompatActivity {
 
     private final int BARCODE_READER_REQUEST_CODE = 1;
-    private TextView welcomeTextView;
 
     private DataManager dm;
 
     private FragmentManagerService fragmentManager = FragmentManagerService.getInstance(getSupportFragmentManager());
     private final Fragment treeSelectionFragment = new TreeSelectionFragment();
     private final Fragment overviewFragment = new OverviewFragment(fragmentManager, treeSelectionFragment);
+    private FloatingActionButton qrCodeButton;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,27 +43,10 @@ public class MainActivity extends AppCompatActivity {
 
         this.setStatusBarTextColor();
         this.hideActionBar();
-
-        FloatingActionButton qrCodeButton = this.findViewById(R.id.qr_code_button);
-        welcomeTextView = findViewById(R.id.textView);
-        BottomNavigationView bottomNavigationView = this.findViewById(R.id.bottom_navigation);
-
-
-        qrCodeButton.setOnClickListener(getQrCodeButtonOnClickListener());
-        bottomNavigationView.setOnNavigationItemSelectedListener(fragmentManager.getOnNavigationItemSelectedListener(overviewFragment, treeSelectionFragment));
-
-
-        getContentFromDataManager();
-
-        Fragment[] bottomNavigationFragments = new Fragment[] { overviewFragment, treeSelectionFragment};
-        fragmentManager.registerTransactions(bottomNavigationFragments);
-
-    }
-
-    private void hideActionBar() {
-        if (getSupportActionBar() != null ) {
-            getSupportActionBar().hide();
-        }
+        this.findViewsById();
+        this.setOnClickListener();
+        this.getContentFromDataManager();
+        this.registerFragmentManagerTransactions();
     }
 
     private void setStatusBarTextColor() {
@@ -73,23 +55,42 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void hideActionBar() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+    }
+
+    private void findViewsById() {
+        this.qrCodeButton = this.findViewById(R.id.qr_code_button);
+        this.bottomNavigationView = this.findViewById(R.id.bottom_navigation);
+    }
+
+    private void setOnClickListener() {
+        this.qrCodeButton.setOnClickListener(this.getQrCodeButtonOnClickListener());
+        this.bottomNavigationView.setOnNavigationItemSelectedListener(fragmentManager.getOnNavigationItemSelectedListener(overviewFragment, treeSelectionFragment));
+    }
+
+    private void registerFragmentManagerTransactions() {
+        Fragment[] bottomNavigationFragments = new Fragment[]{ this.overviewFragment, this.treeSelectionFragment };
+        fragmentManager.registerTransactions(bottomNavigationFragments);
+    }
+
     private Button.OnClickListener getQrCodeButtonOnClickListener() {
         return new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast qrToast = Toast.makeText(getApplicationContext(), "QR Code Button clicked", Toast.LENGTH_LONG );
-                qrToast.show();
-
+                showToast("QR Code Button clicked");
                 Intent intent = new Intent(getApplicationContext(), BarcodeCaptureActivity.class);
                 startActivityForResult(intent, BARCODE_READER_REQUEST_CODE);
-
             }
         };
     }
 
-    private void getContentFromDataManager(){
+    private void getContentFromDataManager() {
         dm = DataManager.getInstance(getApplicationContext());
-        while (!dm.loaded){} //Wait for everything to be loaded --> A Future/Promise/Callback may be better in the future
+        while (!dm.loaded) {
+        } //Wait for everything to be loaded --> A Future/Promise/Callback may be better in the future
     }
 
     @Override
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         if (data == null) {
-            welcomeTextView.setText(R.string.no_barcode_captured);
+            this.showToast(getString(R.string.no_barcode_captured));
             return;
         }
 
@@ -112,9 +113,18 @@ public class MainActivity extends AppCompatActivity {
         Tree tree = dm.GetTreeByQR(barcode.displayValue);
         if (tree != null) {
             dm.UnlockTree(tree);
-            welcomeTextView.setText(tree.name);
-        }
-        else
-            welcomeTextView.setText(String.format("%s%s", getString(R.string.main_activity_qr_code_no_tree_found_text), barcode.displayValue));
+            this.showToast(tree.name);
+        } else
+            this.showToast(String.format("%s%s", getString(R.string.main_activity_qr_code_no_tree_found_text), barcode.displayValue));
+    }
+
+    // Helper-Function -> Show a Toast from any Thread
+    private void showToast(final String toastText) {
+        runOnUiThread(new Runnable() {
+            public void run() {
+                Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 }
