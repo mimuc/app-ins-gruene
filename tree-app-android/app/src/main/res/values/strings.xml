@@ -24,4 +24,5 @@
     <string name="overview_single_tree_state_image_content_description">overview_single_tree_state_image</string>
     <string name="overview_single_tree_image_content_description">overview_single_tree_image</string>
     <string name="game_selection_title">Minispiele</string>
+    <string name="main_activity_qr_code_no_tree_found_text">Kein Baum mit diesem QR-Code:</string>
 </resources>

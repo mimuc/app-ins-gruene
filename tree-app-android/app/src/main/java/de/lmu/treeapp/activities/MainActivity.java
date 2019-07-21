@@ -1,6 +1,7 @@
 package de.lmu.treeapp.activities;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,9 +42,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (getSupportActionBar() != null ) {
-            getSupportActionBar().hide();
-        }
+        this.setStatusBarTextColor();
+        this.hideActionBar();
 
         FloatingActionButton qrCodeButton = this.findViewById(R.id.qr_code_button);
         welcomeTextView = findViewById(R.id.textView);
@@ -54,11 +54,23 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(fragmentManager.getOnNavigationItemSelectedListener(overviewFragment, treeSelectionFragment));
 
 
-        GetContent();
+        getContentFromDataManager();
 
         Fragment[] bottomNavigationFragments = new Fragment[] { overviewFragment, treeSelectionFragment};
         fragmentManager.registerTransactions(bottomNavigationFragments);
 
+    }
+
+    private void hideActionBar() {
+        if (getSupportActionBar() != null ) {
+            getSupportActionBar().hide();
+        }
+    }
+
+    private void setStatusBarTextColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            this.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
     }
 
     private Button.OnClickListener getQrCodeButtonOnClickListener() {
@@ -75,18 +87,9 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    private void GetContent(){
+    private void getContentFromDataManager(){
         dm = DataManager.getInstance(getApplicationContext());
-        while (dm.loaded == false){} //Wait for everything to be loaded --> A Future/Promise/Callback may be better in the future
-    }
-
-    // Helper-Function -> Show a Toast from any Thread
-    private void ShowToast(final String toastText){
-        runOnUiThread(new Runnable(){
-            public void run(){
-                Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_LONG).show();
-            }
-        });
+        while (!dm.loaded){} //Wait for everything to be loaded --> A Future/Promise/Callback may be better in the future
     }
 
     @Override
@@ -112,6 +115,6 @@ public class MainActivity extends AppCompatActivity {
             welcomeTextView.setText(tree.name);
         }
         else
-            welcomeTextView.setText("Kein Baum mit diesem QR-Code: "+ barcode.displayValue);
+            welcomeTextView.setText(String.format("%s%s", getString(R.string.main_activity_qr_code_no_tree_found_text), barcode.displayValue));
     }
 }
