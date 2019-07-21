@@ -3,9 +3,13 @@ package de.lmu.treeapp.contentClasses.minigames;
 public class Minigame_Base {
     public int uid;
     public String name;
-    public String type;
+    public MinigameTypes type;
     public String description;
     public String image;
+
+    public enum MinigameTypes {
+        ChooseAnswer, InputString
+    }
 
     public void FillBaseData(Minigame_Base miniGame){
         this.uid = miniGame.uid;

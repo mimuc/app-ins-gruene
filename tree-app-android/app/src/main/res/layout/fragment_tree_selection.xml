@@ -1,40 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.TreeSelectionFragment">
 
-
-    <TextView
-        android:id="@+id/textView_tree_selection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/tree_selection_view_pager"
+        android:layout_width="403dp"
+        android:layout_height="507dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/fragment_tree_selection_start_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.536" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/tree_selection_wanted_poster_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="224dp"
-        android:text="@string/tree_selection_fragment_button_text"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.afollestad.viewpagerdots.DotsIndicator
+        android:id="@+id/tree_selection_dots_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:dot_tint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_tree_selection"
-        app:layout_constraintVertical_bias="0.611" />
+        app:layout_constraintTop_toBottomOf="@+id/tree_selection_view_pager" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
