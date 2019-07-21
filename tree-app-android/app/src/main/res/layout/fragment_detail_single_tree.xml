@@ -61,6 +61,7 @@
         android:fontFamily="@font/freude"
         android:stateListAnimator="@null"
         android:text="Steckbrief"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
         android:textColor="@color/forest"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
