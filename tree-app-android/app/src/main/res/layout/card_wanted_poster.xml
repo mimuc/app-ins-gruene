@@ -2,9 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="24dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginRight="24dp"
+    android:background="@drawable/button_background"
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -12,34 +16,31 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/card_wanted_poster_circle_image"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/ic_ahorn_baum"
-            app:civ_border_color="@color/colorPrimaryDark"
-            app:civ_border_width="2dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="338dp"
-            android:layout_height="127dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/card_wanted_poster_header"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="36dp"
                 android:fontFamily="@font/freude"
                 android:text="Ahorn"
-                android:textSize="25sp"
+                android:textColor="@color/asphalt"
+                android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
@@ -47,28 +48,30 @@
 
             <TextView
                 android:id="@+id/card_wanted_poster_sub_header"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/hind_regular"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="36dp"
+                android:fontFamily="@font/hind_medium"
                 android:text="Bereits freigespielt"
-                android:textSize="20sp"
+                android:textColor="@color/asphalt"
+                android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_wanted_poster_header" />
 
             <ImageView
                 android:id="@+id/card_wanted_poster_collapse_arrow"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="44dp"
-                android:layout_marginEnd="8dp"
-                android:rotation="90"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/asphalt"
+                android:rotation="0"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/arrow_down_float" />
+                app:srcCompat="@drawable/ic_arrow_left" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
@@ -84,11 +87,13 @@
                 android:id="@+id/card_wanted_poster_description_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/hind_medium"
                 android:text="69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang "
-                android:textSize="20sp"
+                android:textColor="@color/asphalt"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent" />

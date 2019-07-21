@@ -4,13 +4,13 @@
     <item
         android:id="@+id/action_overview"
         android:enabled="true"
-        android:icon="@drawable/ic_forest_navigation_colored"
-        app:showAsAction="ifRoom"
-        android:title="" />
+        android:icon="@drawable/ic_navigation_forest_outline"
+        android:title=""
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_tree_selection"
         android:enabled="true"
-        android:icon="@drawable/ic_tree_navigation_colored"
-        app:showAsAction="ifRoom"
-        android:title="" />
+        android:icon="@drawable/ic_navigation_tree_outline"
+        android:title=""
+        app:showAsAction="ifRoom" />
 </menu>
