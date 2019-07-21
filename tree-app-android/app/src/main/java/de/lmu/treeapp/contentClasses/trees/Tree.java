@@ -16,12 +16,17 @@ public class Tree {
     public List<Integer> trunkGamesIds;
     public List<Integer> otherGamesIds;
 
+    public String imageTree = "";
+    public String imageLeaf = "";
+    public String imageFruit = "";
+    public String imageTrunk = "";
+
     public TreeModel changeable;
 
 
 
     public enum GameCategories {
-        leaf, fruit, trunk, other, total
+        leaf, fruit, trunk, other, total, none
     }
 
 
@@ -64,7 +69,23 @@ public class Tree {
         }
     }
 
+    public List<Integer> GetGameIds(GameCategories category){
+        switch (category){
+            case leaf:
+                return leafGamesIds;
+            case fruit:
+                return fruitGamesIds;
+            case trunk:
+                return trunkGamesIds;
+            case other:
+                return otherGamesIds;
+                default:
+                    return null;
+        }
+    }
+
     public float GetGameProgressionPercent(GameCategories category){
+
         switch (category){
             case leaf:
                 return GetGamesProgression(leafGamesIds, changeable.leafGamesCompleted) * 100;
@@ -90,13 +111,13 @@ public class Tree {
         int completed = 0;
         for (int i = 0; i < gamesCompleted.size(); i++){
             for (int j = 0; j < gamesTotal.size(); j++){
-                if (gamesTotal.get(j) == gamesCompleted.get(i)){
+                if (gamesTotal.get(j).intValue() == gamesCompleted.get(i).intValue()){
                     completed++;
                     break;
                 }
             }
         }
-        float value = completed/gamesTotal.size();
+        float value = (float)completed/(float)gamesTotal.size();
         return value;
     }
 

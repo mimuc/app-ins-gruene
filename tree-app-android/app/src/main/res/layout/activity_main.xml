@@ -7,13 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/welcome_text"/>
-
     <include
         layout="@layout/tab_bar_content"
         android:layout_width="match_parent"
@@ -24,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottom_app_bar_height"
         android:layout_gravity="bottom"
+        android:backgroundTint="@color/white"
         app:backgroundTint="@color/colorPrimary"
         app:fabAlignmentMode="center" />
 
@@ -37,8 +31,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="false"
-            app:itemIconTint="@color/white"
-            app:itemTextColor="@color/white"
+            app:itemBackground="@color/white"
+            app:itemIconSize="@android:dimen/app_icon_size"
+            app:itemIconTint="@color/forest"
+            app:itemTextColor="@color/asphalt"
             app:menu="@menu/bottom_app_bar_menu" />
     </FrameLayout>
 
@@ -46,8 +42,10 @@
         android:id="@+id/qr_code_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_camera_alt_white_24dp"
-        android:backgroundTint="@color/colorPrimary"
-        app:layout_anchor="@id/bottom_app_bar" />
+        android:backgroundTint="@color/forest"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/forest"
+        app:layout_anchor="@id/bottom_app_bar"
+        app:rippleColor="@color/forest" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

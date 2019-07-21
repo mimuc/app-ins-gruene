@@ -9,17 +9,17 @@
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>imagePathHere</option_content>
+                    <option_content>ic_launcher</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>imagePath2Here</option_content>
+                    <option_content>ic_launcher_round</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>imagePath3Here</option_content>
+                    <option_content>ic_launcher</option_content>
                     <option_right>true</option_right>
                 </option>
             </selection>

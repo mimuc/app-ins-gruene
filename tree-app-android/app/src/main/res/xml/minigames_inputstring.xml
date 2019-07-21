@@ -8,5 +8,12 @@
             <image></image>
             <rightAnswer>Ahorn</rightAnswer>
         </minigame_inputString>
+        <minigame_inputString>
+            <id>1</id>
+            <name>Wie heißt dieser Baum?</name>
+            <description>Hier könnte ihre Webung stehen!</description>
+            <image></image>
+            <rightAnswer>Ahorn</rightAnswer>
+        </minigame_inputString>
     </minigames>
 </resources>
