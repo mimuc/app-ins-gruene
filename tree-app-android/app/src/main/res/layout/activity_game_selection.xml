@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.lmu.treeapp.activities.GameSelectionActivity">
+    tools:context="de.lmu.treeapp.activities.GameSelectionActivity"
+    android:background="@drawable/sky_blue_gradient">
 
 
     <androidx.recyclerview.widget.RecyclerView
