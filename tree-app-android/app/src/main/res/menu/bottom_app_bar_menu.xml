@@ -5,10 +5,12 @@
         android:id="@+id/action_overview"
         android:enabled="true"
         android:icon="@drawable/ic_forest_navigation_colored"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        android:title="" />
     <item
         android:id="@+id/action_tree_selection"
         android:enabled="true"
         android:icon="@drawable/ic_tree_navigation_colored"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        android:title="" />
 </menu>
