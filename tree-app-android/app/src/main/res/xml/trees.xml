@@ -9,7 +9,6 @@
             <leafGames>100,101,201</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
-            <otherGames>100,101,200</otherGames>
             <imageTree>ic_ahorn_baum</imageTree>
             <imageLeaf>ic_ahorn_blatt</imageLeaf>
             <imageFruit>ic_ahorn_frucht</imageFruit>
@@ -23,7 +22,6 @@
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
-            <otherGames>100,101,200</otherGames>
             <imageTree>ic_rotbuche_baum</imageTree>
             <imageLeaf>ic_rotbuche_blatt</imageLeaf>
             <imageFruit>ic_rotbuche_frucht</imageFruit>
@@ -37,7 +35,6 @@
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
-            <otherGames>100,101,200</otherGames>
             <imageTree>ic_linde_baum</imageTree>
             <imageLeaf>ic_linde_blatt</imageLeaf>
             <imageFruit>ic_linde_frucht</imageFruit>
@@ -51,7 +48,6 @@
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
-            <otherGames>100,101,200</otherGames>
             <imageTree>ic_waldkiefer_baum</imageTree>
             <imageLeaf>ic_waldkiefer_blatt</imageLeaf>
             <imageFruit>ic_waldkiefer_frucht</imageFruit>

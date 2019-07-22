@@ -29,11 +29,13 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
             android:clickable="false"
-            app:itemBackground="@color/white"
+            app:elevation="16dp"
             app:itemIconSize="@android:dimen/app_icon_size"
-            app:itemTextColor="@color/asphalt"
+            app:itemIconTint="@drawable/bottom_navigation_icon_color_selector"
+            app:itemTextColor="@drawable/bottom_navigation_icon_color_selector"
             app:menu="@menu/bottom_app_bar_menu" />
     </FrameLayout>
 

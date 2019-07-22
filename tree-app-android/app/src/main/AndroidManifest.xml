@@ -8,16 +8,17 @@
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_rec_new"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_new"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.minigames.chooseAnswer.GameActivity_ChooseAnswer"></activity>
-        <activity android:name=".activities.minigames.inputString.GameActivity_InputString"></activity>
+        <activity android:name=".activities.minigames.chooseAnswer.GameActivity_ChooseAnswer" />
+        <activity android:name=".activities.minigames.inputString.GameActivity_InputString" />
         <activity android:name=".activities.GameSelectionActivity" />
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activities.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

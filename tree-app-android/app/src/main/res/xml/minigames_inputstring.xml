@@ -4,13 +4,13 @@
         <minigame_inputString>
             <id>0</id>
             <name>Wie heißt dieser Baum?</name>
-            <description>Hey Brudi, wie heißt Baum?</description>
+            <description>Kannst du uns verraten, wie dieser Baum heißt?</description>
             <image></image>
             <rightAnswer>Ahorn</rightAnswer>
         </minigame_inputString>
         <minigame_inputString>
             <id>1</id>
-            <name>Wie heißt dieser Baum?</name>
+            <name>Werbung?</name>
             <description>Hier könnte ihre Webung stehen!</description>
             <image></image>
             <rightAnswer>Ahorn</rightAnswer>

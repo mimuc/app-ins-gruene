@@ -74,6 +74,7 @@ public class WantedPosterCardAdapter extends RecyclerView.Adapter<WantedPosterCa
         final boolean isExpanded = position==expandedPosition;
         holder.expander.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
         holder.itemView.setActivated(isExpanded);
+        holder.collapseArrow.setImageDrawable(card.getCollapse());
         if(card.isUnlocked()){
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -89,7 +90,6 @@ public class WantedPosterCardAdapter extends RecyclerView.Adapter<WantedPosterCa
             });
         } else {
             holder.collapseArrow.setRotation(0);
-            holder.collapseArrow.setImageDrawable(card.getCollapse());
         }
     }
 

@@ -6,19 +6,61 @@
             <card>
                 <card_name>Allgemein</card_name>
                 <card_image>ic_ahorn_baum</card_image>
-                <card_content>Wine plus Dinner equals Winner!</card_content>
+                <card_content>Weltweit gibt es mehr als 100 verschiedene Ahorn-Arten. Alle zeigen eine ähnliche Blattform und verbreiten ihre Samen mit geflügelten Früchten.</card_content>
             </card>
             <card>
                 <card_name>Blatt</card_name>
                 <card_image>ic_ahorn_blatt</card_image>
                 <card_unlockedBy>leaf</card_unlockedBy>
-                <card_content>Krosse Krabbe Pizza ist die Pizza für dich unnnnndd mich!</card_content>
+                <card_content>
+                    Blattform: Die Blätter der Ahornbäume sind gelappte und erinnern somit an die Form einer Hand. Sie wachsen gegenständig an den Ästen.
+                    Die Blätter des Feldahorns haben einen glatten Rand und sind grün. Sie werden bis zu 7 cm lang und bis zu 10 cm breit.
+                    Die Blätter des Bergahorns haben einen gesägten Rand. Ihre Oberseite ist dunkelgrün und die Unterseite ist grau-grün. Die Blätter werden bis zu 20 cm lang und bis zu 15 cm breit.
+                    Die Blätter des Spitzahorns haben ausgeprägte Spitzen. Sie sind hellgrün, werden bis zu 18 cm lang und bis zu 15 cm breit.
+                </card_content>
             </card>
             <card>
                 <card_name>Frucht</card_name>
                 <card_image>ic_ahorn_frucht</card_image>
                 <card_unlockedBy>fruit</card_unlockedBy>
-                <card_content>Einfach Schwimmen! Einfach Schwimmen!</card_content>
+                <card_content>
+                    Die Teilfrüchte des Feldahorns stehen beinahe waagerecht ab und färben sich rötlich. Die Teilfrüchte des Bergahorns stehen zueinander und färben sich gelblich bis rötlich. Die Teilfrüchte des Spitzahorns bilden einen stumpfen Winkel und sind leicht nach oben gebogen. Bei allen Arten findet die Fruchtreife im September und Oktober statt.
+                </card_content>
+            </card>
+            <card>
+                <card_name>Rinde</card_name>
+                <card_image>ic_ahorn_stamm</card_image>
+                <card_unlockedBy>trunk</card_unlockedBy>
+                <card_content>
+                    Die Rinde des Feldahorns ist braun-grau und netzrissig. Die Rinde des Bergahorns ist glatt und graubraun bis graugelb und bekommt später rötliche Flecken.Die Rinde des Spitzahorns ist zunächst grau und glatt, später dunkelgrau und längsrissig.
+                </card_content>
+            </card>
+            <card>
+                <card_name>Verbreitungsgebiet</card_name>
+                <card_image>ic_globe</card_image>
+                <card_content>
+                    Das Holz des Feldahorns ist rötlich. Das Holz des Bergahorns ist hellbraun. Das Holz des Spitzahorns ist gelblich und manchmal leicht grau.
+                </card_content>
+            </card>
+            <card>
+                <card_name>Standort</card_name>
+                <card_image>ic_location</card_image>
+                <card_content>
+                    Der Feldahorn hat einen aufrechten Blütenstand. Der Bergahorn hat einen hängenden Blütenstand. Der Spitzahorn hat einen aufrechten Blütenstand. Blütezeit ist bei allen Ahornarten im April.
+                </card_content>
+            </card>
+            <card>
+                <card_name>Fun Fact</card_name>
+                <card_image>ic_fun_fact</card_image>
+                <card_content>In Nordamerika gewinnt man süßen Ahornsirup aus dem Zucker-Ahorn. Dafür öffnet man die Rinde des Baums an einer Stelle, um den auslaufenden Saft aufzufangen. Pro Woche erhält man so aus jedem Ahornbaum etwa 25 Liter Sirup. Für Kanada stellt der Ahornbaum ein nationales Symbol dar. Auf der Nationalflagge ist ein rotes Ahornblatt abgebildet, welches für die weitläufige Natur Nordamerikas steht.</card_content>
+            </card>
+            <card>
+                <card_name>Mach ein Foto!</card_name>
+                <card_image>ic_camera</card_image>
+                <card_content>
+Feldahorn: Der Feldahorn wird bis zu 15 Meter hoch. Bergahorn: Der Bergahorn wird bis zu 40 Meter hoch. Spitzahorn: Der Spitzahorn wird bis zu 25 Meter hoch.
+Feldahorn: Der Feldahorn wird bis zu 200 Jahre alt. Bergahorn: Der Bergahorn wird bis zu 500 Jahre alt. Spitzahorn: Der Spitzahorn wird bis zu 150 Jahre alt.
+                </card_content>
             </card>
         </treeProfile>
         <treeProfile>
