@@ -78,12 +78,13 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.treeName.setText(tree.name);
-        if (tree.changeable.unlocked){
+
+        if (Math.round(tree.GetGameProgressionPercent(Tree.GameCategories.total)) >= 100){
+            holder.treeUnlockedStatus.setImageResource(R.drawable.ic_checked_mark);
+        }
+        else if (tree.changeable.unlocked){
             // Change to Unlocked-Symbol
             holder.treeUnlockedStatus.setImageResource(R.drawable.ic_question_mark);
-        }
-        else if (Math.round(tree.GetGameProgressionPercent(Tree.GameCategories.total)) >= 100){
-            holder.treeUnlockedStatus.setImageResource(R.drawable.ic_checked_mark);
         }
         else {
             holder.treeUnlockedStatus.setImageResource(R.drawable.ic_locked_mark);
