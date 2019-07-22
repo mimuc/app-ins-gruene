@@ -66,7 +66,7 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
         final Minigame_Base game = DataManager.getInstance(context).GetMinigame(games.get(position));
         final Tree tree = DataManager.getInstance(context).GetTree(treeId);
         if (tree.changeable.IsGameCompleted(category, game.uid)){
-            holder.gameIcon.setImageResource(R.drawable.ic_completed);
+            holder.gameIcon.setImageResource(R.drawable.ic_quiz_checked);
         }
         holder.gameName.setText(game.name);
 
