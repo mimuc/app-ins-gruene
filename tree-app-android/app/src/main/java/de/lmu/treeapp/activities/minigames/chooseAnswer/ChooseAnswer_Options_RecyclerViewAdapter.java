@@ -71,7 +71,7 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
             holder.button.setText(option.content);
         }
         else if (option.type == AnswerOption.OptionTypes.image){
-            int imageId = context.getResources().getIdentifier(option.content, "mipmap", context.getPackageName());
+            int imageId = context.getResources().getIdentifier(option.content, "drawable", context.getPackageName());
             holder.button.setBackgroundResource(imageId);
             holder.button.setText("");
         }
