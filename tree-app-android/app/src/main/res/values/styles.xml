@@ -4,6 +4,7 @@
         <item name="actionBarTheme">@style/WhiteActionbarTheme</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/light</item>
+        <item name="colorControlHighlight">@color/colorPrimaryRipple</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textSize">18dp</item>
         <item name="android:fontFamily">@font/freude</item>
