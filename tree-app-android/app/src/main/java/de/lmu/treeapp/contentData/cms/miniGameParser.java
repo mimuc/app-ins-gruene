@@ -35,10 +35,10 @@ public class miniGameParser {
                     case XmlPullParser.START_TAG:
                         if (tagname.equalsIgnoreCase("minigame_chooseAnswer")) {
                             miniGameChooseAnswer = new Minigame_ChooseAnswer();
-                            miniGameChooseAnswer.type = "ChooseAnswer";
+                            miniGameChooseAnswer.type = Minigame_Base.MinigameTypes.ChooseAnswer;
+                            miniGameChooseAnswer.options = new ArrayList<>();
                         }
                         else if (tagname.equalsIgnoreCase("option")){
-                            miniGameChooseAnswer.options = new ArrayList<>();
                             answerOption = new AnswerOption();
                         }
                         break;
@@ -91,7 +91,7 @@ public class miniGameParser {
                     case XmlPullParser.START_TAG:
                         if (tagname.equalsIgnoreCase("minigame_inputString")) {
                             miniGameInputStringAnswer = new Minigame_InputStringAnswer();
-                            miniGameInputStringAnswer.type = "InputString";
+                            miniGameInputStringAnswer.type = Minigame_Base.MinigameTypes.InputString;
                         }
                         break;
                     case XmlPullParser.TEXT:
