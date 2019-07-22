@@ -99,8 +99,7 @@ public class Tree {
                 float valLeaf = GetGamesProgression(leafGamesIds, changeable.leafGamesCompleted);
                 float valFruit = GetGamesProgression(fruitGamesIds, changeable.fruitGamesCompleted);
                 float valTrunk = GetGamesProgression(trunkGamesIds, changeable.trunkGamesCompleted);
-                float valOther = GetGamesProgression(otherGamesIds, changeable.otherGamesCompleted);
-                float valTotal = (valLeaf + valFruit + valTrunk + valOther)/4;
+                float valTotal = (valLeaf + valFruit + valTrunk)/3;
                 return valTotal * 100;
             default:
                 return 0;
@@ -108,6 +107,9 @@ public class Tree {
     }
 
     private float GetGamesProgression(List<Integer> gamesTotal, List<Integer> gamesCompleted){
+        if (gamesTotal.isEmpty() || gamesTotal.size() == 0){
+            return 1;
+        }
         int completed = 0;
         for (int i = 0; i < gamesCompleted.size(); i++){
             for (int j = 0; j < gamesTotal.size(); j++){
