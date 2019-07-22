@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="bottom_app_bar_height">56dp</dimen>
+    <dimen name="bottom_app_bar_height">64dp</dimen>
     <dimen name="tab_bar_content_height">675dp</dimen>
+    <dimen name="game_selection_headline_text_size">24sp</dimen>
+    <dimen name="detail_single_tree_layout_margin">16dp</dimen>
 </resources>
