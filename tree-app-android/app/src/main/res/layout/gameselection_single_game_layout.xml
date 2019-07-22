@@ -3,8 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content" >
 
     <TextView
         android:id="@+id/gameselection_single_game_name"
@@ -35,7 +34,6 @@
         android:focusable="true"
         android:padding="8dp"
         app:layout_constrainedHeight="false"
-        app:layout_constraintBottom_toTopOf="@+id/overview_single_tree_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

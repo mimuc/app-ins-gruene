@@ -1,33 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp">
-
-    <ImageView
-        android:id="@+id/detail_single_tree_image"
-        android:layout_width="320dp"
-        android:layout_height="460dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/sky_blue_gradient"
-        android:clickable="true"
-        android:contentDescription="@string/overview_single_tree_image_content_description"
-        android:elevation="4dp"
-        android:focusable="true"
-        android:padding="16dp"
-        android:scaleType="fitCenter"
-        app:layout_constrainedHeight="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/overview_single_tree_text"
-        app:layout_constraintTop_toBottomOf="@+id/overview_single_tree_text"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_ahorn_baum" />
+    android:layout_margin="@dimen/detail_single_tree_layout_margin">
 
     <TextView
         android:id="@+id/detail_single_tree_text"
@@ -48,6 +26,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/detail_single_tree_image"
+        android:layout_width="320dp"
+        android:layout_height="460dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/sky_blue_gradient"
+        android:clickable="true"
+        android:contentDescription="@string/overview_single_tree_image_content_description"
+        android:elevation="4dp"
+        android:focusable="true"
+        android:padding="16dp"
+        android:scaleType="fitCenter"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_ahorn_baum" />
+
     <Button
         android:id="@+id/detail_single_tree_profileButton"
         android:layout_width="256dp"
@@ -60,7 +60,7 @@
         android:elevation="4dp"
         android:fontFamily="@font/freude"
         android:stateListAnimator="@null"
-        android:text="Steckbrief"
+        android:text="@string/detail_single_tree_profile_button_text"
         android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
         android:textColor="@color/forest"
         android:textSize="30sp"
@@ -82,6 +82,7 @@
         android:elevation="4dp"
         android:padding="16dp"
         android:scaleType="fitCenter"
+        android:contentDescription="@string/detail_single_tree_leaf_button_content_description"
         app:layout_constraintBottom_toTopOf="@+id/detail_single_tree_profileButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.697"
@@ -102,7 +103,7 @@
         android:elevation="4dp"
         android:padding="16dp"
         android:scaleType="fitCenter"
-
+        android:contentDescription="@string/detail_single_tree_fruit_button_content_description"
         app:layout_constraintBottom_toTopOf="@+id/detail_single_tree_profileButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.185"
@@ -123,6 +124,7 @@
         android:elevation="4dp"
         android:padding="16dp"
         android:scaleType="fitCenter"
+        android:contentDescription="@string/detail_single_tree_trunk_button_content_description"
         app:layout_constraintBottom_toTopOf="@+id/detail_single_tree_profileButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.697"
@@ -130,6 +132,5 @@
         app:layout_constraintTop_toTopOf="@+id/detail_single_tree_image"
         app:layout_constraintVertical_bias="0.842"
         tools:srcCompat="@drawable/ic_ahorn_stamm" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
