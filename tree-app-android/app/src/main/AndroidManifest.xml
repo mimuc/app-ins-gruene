@@ -14,10 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.minigames.chooseAnswer.GameActivity_ChooseAnswer"></activity>
-        <activity android:name=".activities.minigames.inputString.GameActivity_InputString"></activity>
+        <activity android:name=".activities.minigames.chooseAnswer.GameActivity_ChooseAnswer" />
+        <activity android:name=".activities.minigames.inputString.GameActivity_InputString" />
         <activity android:name=".activities.GameSelectionActivity" />
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activities.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
