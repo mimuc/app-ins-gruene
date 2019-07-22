@@ -17,7 +17,7 @@
                 <card_name>Kennzeichen</card_name>
                 <card_image>ic_ahorn_baum</card_image>
                 <card_content>
-                    Feldahorn: Der Feldahorn wird bis zu 15 Meter hoch. Bergahorn: Der Bergahorn wird bis zu 40 Meter hoch. Spitzahorn: Der Spitzahorn wird bis zu 25 Meter hoch.
+Feldahorn: Der Feldahorn wird bis zu 15 Meter hoch. Bergahorn: Der Bergahorn wird bis zu 40 Meter hoch. Spitzahorn: Der Spitzahorn wird bis zu 25 Meter hoch.
 Feldahorn: Der Feldahorn wird bis zu 200 Jahre alt. Bergahorn: Der Bergahorn wird bis zu 500 Jahre alt. Spitzahorn: Der Spitzahorn wird bis zu 150 Jahre alt.
                 </card_content>
             </card>
@@ -26,10 +26,10 @@ Feldahorn: Der Feldahorn wird bis zu 200 Jahre alt. Bergahorn: Der Bergahorn wir
                 <card_image>ic_ahorn_blatt</card_image>
                 <card_unlockedBy>leaf</card_unlockedBy>
                 <card_content>
-                    Blattform: Die Blätter der Ahornbäume sind gelappte und erinnern somit an die Form einer Hand. Sie wachsen gegenständig an den Ästen.
-                    Die Blätter des Feldahorns haben einen glatten Rand und sind grün. Sie werden bis zu 7 cm lang und bis zu 10 cm breit.
-                    Die Blätter des Bergahorns haben einen gesägten Rand. Ihre Oberseite ist dunkelgrün und die Unterseite ist grau-grün. Die Blätter werden bis zu 20 cm lang und bis zu 15 cm breit.
-                    Die Blätter des Spitzahorns haben ausgeprägte Spitzen. Sie sind hellgrün, werden bis zu 18 cm lang und bis zu 15 cm breit.
+Blattform: Die Blätter der Ahornbäume sind gelappte und erinnern somit an die Form einer Hand. Sie wachsen gegenständig an den Ästen.
+Die Blätter des Feldahorns haben einen glatten Rand und sind grün. Sie werden bis zu 7 cm lang und bis zu 10 cm breit.
+Die Blätter des Bergahorns haben einen gesägten Rand. Ihre Oberseite ist dunkelgrün und die Unterseite ist grau-grün. Die Blätter werden bis zu 20 cm lang und bis zu 15 cm breit.
+Die Blätter des Spitzahorns haben ausgeprägte Spitzen. Sie sind hellgrün, werden bis zu 18 cm lang und bis zu 15 cm breit.
                 </card_content>
             </card>
             <card>
