@@ -28,6 +28,7 @@ public class WantedPosterCard {
         if(unlocked){
             //TODO: collapse arrow here to be safe
             subHeader = "Bereits freigespielt";
+            collapse = context.getDrawable(R.drawable.ic_arrow_left);
 
         } else {
             subHeader = "Nicht freigespielt";
