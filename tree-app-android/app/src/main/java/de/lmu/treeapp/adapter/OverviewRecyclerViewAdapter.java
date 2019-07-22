@@ -80,13 +80,13 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
         holder.treeName.setText(tree.name);
         if (tree.changeable.unlocked){
             // Change to Unlocked-Symbol
-            holder.treeUnlockedStatus.setImageResource(R.drawable.ic_question);
+            holder.treeUnlockedStatus.setImageResource(R.drawable.ic_question_mark);
         }
         else if (Math.round(tree.GetGameProgressionPercent(Tree.GameCategories.total)) >= 100){
-            holder.treeUnlockedStatus.setImageResource(R.drawable.ic_completed);
+            holder.treeUnlockedStatus.setImageResource(R.drawable.ic_checked_mark);
         }
         else {
-            holder.treeUnlockedStatus.setImageResource(R.drawable.ic_locked);
+            holder.treeUnlockedStatus.setImageResource(R.drawable.ic_locked_mark);
         }
         // Set Tree-Image here:
         Context context = holder.treeImage.getContext();
