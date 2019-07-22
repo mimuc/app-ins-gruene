@@ -9,18 +9,23 @@
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_launcher</option_content>
+                    <option_content>ic_waldkiefer_blatt</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_launcher_round</option_content>
+                    <option_content>ic_linde_blatt</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_launcher</option_content>
+                    <option_content>ic_ahorn_blatt</option_content>
                     <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer>
