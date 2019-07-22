@@ -14,13 +14,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:fontFamily="@font/freude"
         android:text="@string/overview_single_tree_placeholder_text"
         android:textAlignment="center"
         android:textColor="@color/asphalt"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/detail_single_tree_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +43,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_single_tree_text"
         app:srcCompat="@drawable/ic_ahorn_baum" />
 
     <Button
