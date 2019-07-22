@@ -3,9 +3,26 @@
     <treeProfiles>
         <treeProfile>
             <id>0</id>
+            <card>
+                <card_name>Allgemein</card_name>
+                <card_content>Wine plus Dinner equals Winner!</card_content>
+            </card>
+            <card>
+                <card_name>Blatt</card_name>
+                <card_unlockedBy>leaf</card_unlockedBy>
+                <card_content>Krosse Krabbe Pizza ist die Pizza für dich unnnnndd mich!</card_content>
+            </card>
+            <card>
+            <card_name>Frucht</card_name>
+            <card_unlockedBy>fruit</card_unlockedBy>
+            <card_content>Einfach Schwimmen! Einfach Schwimmen!</card_content>
+        </card>
         </treeProfile>
         <treeProfile>
             <id>1</id>
+        </treeProfile>
+        <treeProfile>
+            <id>2</id>
         </treeProfile>
     </treeProfiles>
 </resources>

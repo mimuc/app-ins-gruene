@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-    android:id="@+id/action_overview"
-    android:enabled="true"
-    android:icon="@drawable/ic_home_white_24dp"
-    android:title="@string/bottom_app_bar_overview"
-    app:showAsAction="ifRoom" />
+        android:id="@+id/action_overview"
+        android:enabled="true"
+        android:icon="@drawable/ic_navigation_forest_outline"
+        android:title=""
+        app:showAsAction="ifRoom" />
     <item
-    android:id="@+id/action_tree_selection"
-    android:enabled="true"
-    android:icon="@drawable/ic_local_florist_white_24dp"
-    android:title="@string/bottom_app_bar_tree_selection"
-    app:showAsAction="ifRoom" />
+        android:id="@+id/action_tree_selection"
+        android:enabled="true"
+        android:icon="@drawable/ic_navigation_tree_outline"
+        android:title=""
+        app:showAsAction="ifRoom" />
 </menu>

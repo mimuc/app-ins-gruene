@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="0dp">
+
+    <ImageButton
+        android:id="@+id/overview_single_tree_image"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="124dp"
+        android:background="@drawable/sky_blue_gradient"
+        android:clickable="true"
+        android:contentDescription="@string/overview_single_tree_image_content_description"
+        android:elevation="4dp"
+        android:focusable="true"
+        android:scaleType="fitCenter"
+        android:padding="6dp"
+        app:layout_constrainedHeight="false"
+        app:layout_constraintBottom_toTopOf="@+id/overview_single_tree_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_ahorn_baum" />
+
+    <TextView
+        android:id="@+id/overview_single_tree_text"
+        android:layout_width="211dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/freude"
+        android:text="@string/overview_single_tree_placeholder_text"
+        android:textAlignment="center"
+        android:textColor="@color/asphalt"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/overview_single_tree_image" />
+
+    <ImageView
+        android:id="@+id/overview_single_tree_state_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="96dp"
+        android:contentDescription="@string/overview_single_tree_state_image_content_description"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_checked_mark" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

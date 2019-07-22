@@ -81,12 +81,17 @@ public class DataManager {
 
 
     // Player-Stuff
-    public String getPlayerName(){
+    public String GetPlayerName(){
         return player.name;
     }
     public String SetPlayerName(String _name){
         player.name = _name;
-        AppDatabase.getInstance(context).playerDao().UpdateOne(player);
+        new Thread(new Runnable() {
+            @Override
+            public void run(){
+                AppDatabase.getInstance(context).playerDao().UpdateOne(player);
+            }
+        }).start();
         return player.name;
     }
 
@@ -129,6 +134,18 @@ public class DataManager {
         return null;
     }
 
+    // Unlocked a Tree
+    public void UnlockTree(Tree _tree){
+        final TreeModel model = _tree.changeable;
+        model.unlocked = true;
+        new Thread(new Runnable() {
+            @Override
+            public void run(){
+                AppDatabase.getInstance(context).treeDao().Update(model);
+            }
+        }).start();
+    }
+
     // GameCompleted overloaded Functions
     public void GameCompleted(Tree.GameCategories _category, Minigame_Base _game, Tree _tree){
         GameCompleted(_category, _game.uid, _tree);
@@ -150,23 +167,32 @@ public class DataManager {
         }
     }
     public void GameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree){
-        TreeModel model = _tree.changeable;
+        final TreeModel model = _tree.changeable;
         switch (_category){
             case leaf:
-                model.leafGamesCompleted.add(_gameId);
+                if (!model.leafGamesCompleted.contains(_gameId))
+                    model.leafGamesCompleted.add(_gameId);
                 break;
             case fruit:
-                model.fruitGamesCompleted.add(_gameId);
+                if (!model.fruitGamesCompleted.contains(_gameId))
+                    model.fruitGamesCompleted.add(_gameId);
                 break;
             case trunk:
-                model.trunkGamesCompleted.add(_gameId);
+                if (!model.trunkGamesCompleted.contains(_gameId))
+                    model.trunkGamesCompleted.add(_gameId);
                 break;
             case other:
-                model.otherGamesCompleted.add(_gameId);
+                if (!model.otherGamesCompleted.contains(_gameId))
+                    model.otherGamesCompleted.add(_gameId);
                 break;
             default:
                 break;
         }
-        AppDatabase.getInstance(context).treeDao().Update(model);
+        new Thread(new Runnable() {
+            @Override
+            public void run(){
+                AppDatabase.getInstance(context).treeDao().Update(model);
+            }
+        }).start();
     }
 }
