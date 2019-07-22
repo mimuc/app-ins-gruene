@@ -33,7 +33,8 @@
             android:clickable="false"
             app:itemBackground="@color/white"
             app:itemIconSize="@android:dimen/app_icon_size"
-            app:itemTextColor="@color/asphalt"
+            app:itemIconTint="@drawable/bottom_navigation_icon_color_selector"
+            app:itemTextColor="@drawable/bottom_navigation_icon_color_selector"
             app:menu="@menu/bottom_app_bar_menu" />
     </FrameLayout>
 
