@@ -58,14 +58,15 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
 
     private List<WantedPosterCard> getCards() {
         List<WantedPosterCard> wantedPosterCards = new ArrayList<>();
-        Drawable picture = getDrawable(R.drawable.ic_ahorn_blatt); //TODO: add correct pictures
 
         for (int i = 0; i < treeProfile.cards.size(); i++){
             TreeProfileCard card = treeProfile.cards.get(i);
             boolean unlocked = card.unlockedBy == Tree.GameCategories.none || tree.GetGameProgressionPercent(card.unlockedBy) > 90;
+            int drawableId = getApplicationContext().getResources().getIdentifier(card.image, "drawable", getApplicationContext().getPackageName());
+            Drawable image = getDrawable(drawableId);
             WantedPosterCard posterCard = new WantedPosterCard(unlocked,
                     card.name,
-                    picture,
+                    image,
                     card.content,
                     getBaseContext());
 

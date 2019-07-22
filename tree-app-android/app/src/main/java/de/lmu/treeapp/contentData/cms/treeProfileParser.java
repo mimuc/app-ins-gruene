@@ -66,6 +66,8 @@ public class treeProfileParser {
                             }
                         } else if (tagname.equalsIgnoreCase("card_content")){
                             treeProfileCard.content = text;
+                        } else if (tagname.equalsIgnoreCase("card_image")){
+                            treeProfileCard.image = text;
                         } else if (tagname.equalsIgnoreCase("card")){
                             treeProfile.cards.add(treeProfileCard);
                         }
