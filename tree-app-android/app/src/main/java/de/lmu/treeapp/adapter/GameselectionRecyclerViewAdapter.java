@@ -15,6 +15,7 @@ import java.util.List;
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
 import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
+import de.lmu.treeapp.activities.minigames.takePicture.GameActivity_TakePicture;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
@@ -89,6 +90,13 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
                         intent2.putExtra("Category", category);
                         intent2.putExtra("GameId",game.uid);
                         context.startActivity(intent2);
+                        break;
+                    case TakePicture:
+                        Intent intent3 = new Intent(context, GameActivity_TakePicture.class);
+                        intent3.putExtra("TreeId",treeId);
+                        intent3.putExtra("Category", category);
+                        intent3.putExtra("GameId",game.uid);
+                        context.startActivity(intent3);
                         break;
                     default:
                         break;

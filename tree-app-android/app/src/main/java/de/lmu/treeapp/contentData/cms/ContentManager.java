@@ -42,9 +42,7 @@ public class ContentManager {
 
     private List<Minigame_Base> parseAllMinigames(){
         miniGameParser gameParser = new miniGameParser();
-        gameParser.parse_ChooseAnswer(context.getResources().getXml(R.xml.minigames_chooseanswer));
-        gameParser.parse_InputString(context.getResources().getXml(R.xml.minigames_inputstring));
-        return gameParser.getMiniGames();
+        return gameParser.getMiniGames(context);
     }
 
     public List<Tree> getTrees(){

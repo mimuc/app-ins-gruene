@@ -30,13 +30,12 @@
     <string name="card_wanted_poster_sub_header_placeholder">Bereits freigespielt</string>
     <string name="card_wanted_poster_collapse_arrow">Card wanted poster collapse arrow</string>
     <string name="card_wanted_poster_description_text_placeholder">69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang</string>
-    <string name="game_chooseAnswer_title_placeholder">TextView</string>
-    <string name="game_choose_answer_description_placeholder">TextView</string>
-    <string name="game_choose_answer_option_button_placholder_text">Button</string>
-    <string name="game_input_string_title_placeholder">TextView</string>
-    <string name="game_input_string_description_placeholder">TextView</string>
+    <string name="game_choose_answer_option_button_placeholder_text">Button</string>
+    <string name="game_title_placeholder">TextView</string>
+    <string name="game_description_placeholder">TextView</string>
     <string name="game_input_string_input_text_field_hint_text">Antwort</string>
     <string name="game_input_string_send_button_placeholder_text">Senden</string>
+    <string name="game_take_picture_send_button_placeholder_text">Senden</string>
     <string name="game_selection_headline_placholder">Wähle ein Spiel aus</string>
     <string name="game_selection_description_placeholder">Hier findest du Minigames und Quizzes zu Rinde und Holz der Waldkiefer. Starte jetzt mit einem Spiel!</string>
     <string name="detail_single_tree_profile_button_text">Steckbrief</string>
