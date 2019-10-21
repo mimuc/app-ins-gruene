@@ -65,7 +65,6 @@ public class FragmentManagerService implements Serializable {
                         showFragment(overviewFragment);
                         break;
                     case R.id.action_tree_selection:
-                        Log.d("Navigation", "Tree selection clicked");
                         showFragment(treeSelectionFragment);
                         break;
                 }

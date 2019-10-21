@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Objects;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.Service.MainActivityViewModel;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 
 public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRecyclerViewAdapter.ViewHolder> {
@@ -26,6 +27,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
     private de.lmu.treeapp.service.FragmentManagerService fragmentManager;
     private Fragment selectedTreeFragment;
     private Activity currentActivity;
+    private MainActivityViewModel viewModel;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -54,10 +56,11 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public OverviewRecyclerViewAdapter(List<Tree> treeData, de.lmu.treeapp.service.FragmentManagerService fragmentManager, Fragment selectedTreeFragment) {
+    public OverviewRecyclerViewAdapter(List<Tree> treeData, de.lmu.treeapp.service.FragmentManagerService fragmentManager, Fragment selectedTreeFragment, MainActivityViewModel viewModel) {
         this.treeValues = treeData;
         this.fragmentManager = fragmentManager;
         this.selectedTreeFragment = selectedTreeFragment;
+        this.viewModel = viewModel;
     }
 
     // Create new views (invoked by the layout manager)
@@ -97,6 +100,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
 
             @Override
             public void onClick(View arg0) {
+                viewModel.setCurrentPagerIndex(position);
                 fragmentManager.showFragment(selectedTreeFragment);
                 ((BottomNavigationView) Objects.requireNonNull(currentActivity).findViewById(R.id.bottom_navigation)).setSelectedItemId(R.id.action_tree_selection);
             }
