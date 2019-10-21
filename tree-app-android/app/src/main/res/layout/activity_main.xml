@@ -39,6 +39,7 @@
             app:menu="@menu/bottom_app_bar_menu" />
     </FrameLayout>
 
+    <!--
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/qr_code_button"
         android:layout_width="wrap_content"
@@ -48,5 +49,6 @@
         app:backgroundTint="@color/forest"
         app:layout_anchor="@id/bottom_app_bar"
         app:rippleColor="@color/forest" />
+    -->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

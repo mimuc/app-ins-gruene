@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManagerService fragmentManager = FragmentManagerService.getInstance(getSupportFragmentManager());
     private final Fragment treeSelectionFragment = new TreeSelectionFragment();
     private final Fragment overviewFragment = new OverviewFragment(fragmentManager, treeSelectionFragment);
-    private FloatingActionButton qrCodeButton;
+    //private FloatingActionButton qrCodeButton;
     private BottomNavigationView bottomNavigationView;
 
     @Override
@@ -62,12 +62,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void findViewsById() {
-        this.qrCodeButton = this.findViewById(R.id.qr_code_button);
+        //this.qrCodeButton = this.findViewById(R.id.qr_code_button);
         this.bottomNavigationView = this.findViewById(R.id.bottom_navigation);
     }
 
     private void setOnClickListener() {
-        this.qrCodeButton.setOnClickListener(this.getQrCodeButtonOnClickListener());
+        //this.qrCodeButton.setOnClickListener(this.getQrCodeButtonOnClickListener());
         this.bottomNavigationView.setOnNavigationItemSelectedListener(fragmentManager.getOnNavigationItemSelectedListener(overviewFragment, treeSelectionFragment));
     }
 
