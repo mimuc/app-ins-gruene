@@ -6,7 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -16,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.Service.MainActivityViewModel;
 import de.lmu.treeapp.adapter.TreeSlidePagerAdapter;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
@@ -24,6 +28,7 @@ public class TreeSelectionFragment extends Fragment {
 
     private ViewPager pager;
     private DotsIndicator dotsIndicator;
+    private MainActivityViewModel viewModel;
 
     public TreeSelectionFragment() {}
 
@@ -33,7 +38,7 @@ public class TreeSelectionFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tree_selection, container, false);
         this.findViewsById(view);
         this.setupViewPager();
-
+        this.setupViewModelObserving();
         return view;
     }
 
@@ -50,6 +55,19 @@ public class TreeSelectionFragment extends Fragment {
         pager.setAdapter(adapter);
         dotsIndicator.attachViewPager(pager);
     }
+
+    private void setupViewModelObserving(){
+
+        final Observer<Integer> indexObserver = new Observer<Integer>() {
+            @Override
+            public void onChanged(@Nullable final Integer newIndex) {
+                pager.setCurrentItem(newIndex,false);
+            }
+        };
+        viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
+        viewModel.getCurrentPagerIndex().observe(this,indexObserver);
+    }
+
 
     private List<DetailSingleTreeFragment> getDetailSingleTreeFragments(List<Tree> trees) {
         List<DetailSingleTreeFragment> detailSingleTreeFragments = new ArrayList<>();

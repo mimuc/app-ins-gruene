@@ -7,12 +7,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.Service.MainActivityViewModel;
 import de.lmu.treeapp.adapter.OverviewRecyclerViewAdapter;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
@@ -23,6 +25,7 @@ public class OverviewFragment extends Fragment {
     private FragmentManagerService fragmentManager;
     private Fragment selectedTreeFragment;
     private RecyclerView overviewRecyclerView;
+    private MainActivityViewModel viewModel;
 
     public OverviewFragment(FragmentManagerService fragmentManager, Fragment selectedTreeFragment) {
         this.fragmentManager = fragmentManager;
@@ -35,8 +38,9 @@ public class OverviewFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_overview, container, false);
 
         overviewRecyclerView = view.findViewById(R.id.overview_recycler_view);
-        setupOverviewRecyclerView();
 
+        viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
+        setupOverviewRecyclerView();
         return view;
     }
 
@@ -52,7 +56,7 @@ public class OverviewFragment extends Fragment {
         overviewRecyclerView.setLayoutManager(recyclerViewLayoutManager);
 
         List<Tree> trees = DataManager.getInstance(getContext()).trees;
-        RecyclerView.Adapter recyclerViewAdapter = new OverviewRecyclerViewAdapter(trees, fragmentManager, selectedTreeFragment);
+        RecyclerView.Adapter recyclerViewAdapter = new OverviewRecyclerViewAdapter(trees, fragmentManager, selectedTreeFragment, viewModel);
         ((OverviewRecyclerViewAdapter) recyclerViewAdapter).setActivity(this.getActivity());
         overviewRecyclerView.setAdapter(recyclerViewAdapter);
     }

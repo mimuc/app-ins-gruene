@@ -24,10 +24,9 @@
 
     <ImageButton
         android:id="@+id/gameselection_single_game_icon"
-        android:layout_width="144dp"
-        android:layout_height="144dp"
+        android:layout_width="123dp"
+        android:layout_height="125dp"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
         android:background="@drawable/dark_grey_gradient"
         android:clickable="true"
         android:contentDescription="@string/overview_single_tree_image_content_description"

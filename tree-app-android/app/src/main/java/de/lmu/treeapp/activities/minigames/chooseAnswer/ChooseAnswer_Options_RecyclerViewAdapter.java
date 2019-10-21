@@ -24,6 +24,11 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
     private Context context;
     private Tree tree;
     private Tree.GameCategories category;
+    public interface OptionClickInterface
+    {
+        void optionClicked(AnswerOption option);
+    }
+    private final OptionClickInterface mOnClickListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final Button button;
@@ -43,7 +48,8 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
         notifyItemRemoved(position);
     }
 
-    public ChooseAnswer_Options_RecyclerViewAdapter(Minigame_ChooseAnswer _game, Context _context, Tree _tree, Tree.GameCategories _category) {
+    public ChooseAnswer_Options_RecyclerViewAdapter(OptionClickInterface mOnClickListener, Minigame_ChooseAnswer _game, Context _context, Tree _tree, Tree.GameCategories _category) {
+        this.mOnClickListener = mOnClickListener;
         this.options = _game.options;
         this.game = _game;
         this.context = _context;
@@ -80,13 +86,7 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
 
             @Override
             public void onClick(View arg0) {
-                if (option.right){
-                    Toast.makeText(context, "Richtig!", Toast.LENGTH_LONG).show();
-                    DataManager.getInstance(context).GameCompleted(category, game.uid, tree);
-                }
-                else {
-                    Toast.makeText(context, "Falsch", Toast.LENGTH_LONG).show();
-                }
+                mOnClickListener.optionClicked(option);
             }
 
         });
