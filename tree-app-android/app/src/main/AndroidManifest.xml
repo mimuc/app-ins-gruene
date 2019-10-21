@@ -20,6 +20,9 @@
         <activity android:name=".activities.minigames.inputString.GameActivity_InputString" android:parentActivityName="activities.GameSelectionActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="activities.MainActivity" />
         </activity>
+        <activity android:name=".activities.minigames.takePicture.GameActivity_TakePicture" android:parentActivityName="activities.GameSelectionActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="activities.MainActivity" />
+        </activity>
         <activity android:name=".activities.GameSelectionActivity" android:parentActivityName="activities.MainActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="activities.MainActivity" />
         </activity>
