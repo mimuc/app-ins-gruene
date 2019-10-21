@@ -13,13 +13,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import java.util.Objects;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.GameSelectionActivity;
 import de.lmu.treeapp.activities.WantedPosterDetailsActivity;
 import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.contentData.DataManager;
 
 public class DetailSingleTreeFragment extends Fragment {
 
@@ -31,6 +31,7 @@ public class DetailSingleTreeFragment extends Fragment {
     private ImageButton trunkButton;
 
     private Tree tree;
+
 
     DetailSingleTreeFragment(Tree tree) {
         this.tree = tree;
@@ -45,6 +46,13 @@ public class DetailSingleTreeFragment extends Fragment {
         this.setupSingleTreeContent();
 
         return rootView;
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        this.tree = DataManager.getInstance(getContext()).GetTree(tree.uid);
+        this.updateTreeView();
     }
 
     private void findViewsById(ViewGroup rootView) {
@@ -63,6 +71,10 @@ public class DetailSingleTreeFragment extends Fragment {
             this.setupImageResources();
             this.setupOnClickListener();
         }
+    }
+
+    private void updateTreeView(){
+        // Update View Stuff here
     }
 
     private void setupImageResources() {
