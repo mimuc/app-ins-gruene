@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,6 +30,9 @@ public class DetailSingleTreeFragment extends Fragment {
     private ImageButton leafButton;
     private ImageButton fruitButton;
     private ImageButton trunkButton;
+    private ProgressBar leafProgressBar;
+    private ProgressBar fruitProgressBar;
+    private ProgressBar trunkProgressBar;
 
     private Tree tree;
 
@@ -62,6 +66,9 @@ public class DetailSingleTreeFragment extends Fragment {
         leafButton = rootView.findViewById(R.id.detail_single_tree_leafButton);
         fruitButton = rootView.findViewById(R.id.detail_single_tree_fruitButton);
         trunkButton = rootView.findViewById(R.id.detail_single_tree_trunkButton);
+        leafProgressBar = rootView.findViewById(R.id.detail_single_tree_circularProgressbar_leaf);
+        fruitProgressBar = rootView.findViewById(R.id.detail_single_tree_circularProgressbar_fruit);
+        trunkProgressBar = rootView.findViewById(R.id.detail_single_tree_circularProgressbar_trunk);
     }
 
     private void setupSingleTreeContent() {
@@ -74,7 +81,9 @@ public class DetailSingleTreeFragment extends Fragment {
     }
 
     private void updateTreeView(){
-        // Update View Stuff here
+        leafProgressBar.setProgress((int)this.tree.GetGameProgressionPercent(Tree.GameCategories.leaf));
+        fruitProgressBar.setProgress((int)this.tree.GetGameProgressionPercent(Tree.GameCategories.fruit));
+        trunkProgressBar.setProgress((int)this.tree.GetGameProgressionPercent(Tree.GameCategories.trunk));
     }
 
     private void setupImageResources() {
