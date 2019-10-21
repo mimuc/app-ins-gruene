@@ -23,11 +23,9 @@ public class miniGameParser {
         miniGames = new ArrayList<Minigame_Base>();
     }
     public List<Minigame_Base> getMiniGames(Context context) {
-
         parse_ChooseAnswer(context.getResources().getXml(R.xml.minigames_chooseanswer));
         parse_InputString(context.getResources().getXml(R.xml.minigames_inputstring));
         parse_TakePicture(context.getResources().getXml(R.xml.minigames_takepicture));
-
         return miniGames;
     }
 
@@ -155,7 +153,7 @@ public class miniGameParser {
                         break;
                     case XmlPullParser.END_TAG:
                         if (tagname.equalsIgnoreCase("minigame_takePicture")) {
-                            miniGames.add(miniGameInputStringAnswer);
+                            miniGames.add(miniGameTakePicture);
                         } else if (tagname.equalsIgnoreCase("id")) {
                             miniGameTakePicture.uid = Integer.parseInt(text) + 300;
                         } else if (tagname.equalsIgnoreCase("name")) {
