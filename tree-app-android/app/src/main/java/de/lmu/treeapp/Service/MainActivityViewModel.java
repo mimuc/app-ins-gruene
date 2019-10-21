@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class MainActivityViewModel extends ViewModel {
-    private MutableLiveData<Integer> currentPagerIndex = new MutableLiveData<Integer>();
+    private MutableLiveData<Integer> currentPagerIndex = new MutableLiveData<>();
 
     public LiveData<Integer> getCurrentPagerIndex() {
         return currentPagerIndex;
@@ -13,5 +13,7 @@ public class MainActivityViewModel extends ViewModel {
     public void setCurrentPagerIndex(int index){
         currentPagerIndex.setValue(index);
     }
+
+
 
 }
