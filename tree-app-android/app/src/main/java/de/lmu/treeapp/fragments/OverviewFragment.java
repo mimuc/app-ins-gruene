@@ -44,17 +44,18 @@ public class OverviewFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        updateOverviewRecyclerView();
+    }
     private void setupOverviewRecyclerView() {
-        // use this setting to
-        // improve performance if you know that changes
-        // in content do not change the layout size
-        // of the RecyclerView
         overviewRecyclerView.setHasFixedSize(true);
-
         int gridColumns = 3;
         RecyclerView.LayoutManager recyclerViewLayoutManager = new GridLayoutManager(getContext(), gridColumns);
         overviewRecyclerView.setLayoutManager(recyclerViewLayoutManager);
-
+    }
+    private void updateOverviewRecyclerView(){
         List<Tree> trees = DataManager.getInstance(getContext()).trees;
         RecyclerView.Adapter recyclerViewAdapter = new OverviewRecyclerViewAdapter(trees, fragmentManager, selectedTreeFragment, viewModel);
         ((OverviewRecyclerViewAdapter) recyclerViewAdapter).setActivity(this.getActivity());
