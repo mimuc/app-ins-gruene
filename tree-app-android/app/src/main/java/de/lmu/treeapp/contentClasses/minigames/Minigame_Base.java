@@ -8,7 +8,7 @@ public class Minigame_Base {
     public String image;
 
     public enum MinigameTypes {
-        ChooseAnswer, InputString, TakePicture
+        ChooseAnswer, InputString, TakePicture, DragDrop
     }
 
     public void FillBaseData(Minigame_Base miniGame){

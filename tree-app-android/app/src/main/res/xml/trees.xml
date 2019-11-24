@@ -6,7 +6,7 @@
             <name>Ahorn</name>
             <profileId>0</profileId>
             <qrCode>Ahorn</qrCode>
-            <leafGames>100,101,201,300</leafGames>
+            <leafGames>100,101,201,300,400</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
             <imageTree>ic_ahorn_baum</imageTree>
