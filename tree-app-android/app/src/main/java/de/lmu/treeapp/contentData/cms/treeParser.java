@@ -88,7 +88,7 @@ public class treeParser {
         String[] nums = _text.split(",");
         List<Integer> gameIds = new ArrayList<>();
         for (int i = 0; i < nums.length; i++){
-            gameIds.add(Integer.parseInt(nums[i]));
+            gameIds.add(Integer.parseInt(nums[i].trim()));
         }
         return gameIds;
     }

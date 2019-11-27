@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <minigames>
+        <minigame_onlyDescription>
+            <id>0</id>
+            <name>Zapfen-Bseball?</name>
+            <description>blablabla bla bla description bla bla?</description>
+            <image></image>
+        </minigame_onlyDescription>
+        <minigame_onlyDescription>
+            <id>1</id>
+            <name>Description only</name>
+            <description>Hier könnte ihre Webung stehen!</description>
+            <image></image>
+        </minigame_onlyDescription>
+    </minigames>
+</resources>
