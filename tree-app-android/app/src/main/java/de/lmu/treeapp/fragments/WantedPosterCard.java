@@ -2,6 +2,7 @@ package de.lmu.treeapp.fragments;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 
 import de.lmu.treeapp.R;
 
@@ -14,16 +15,18 @@ public class WantedPosterCard {
     private final String header;
     private final String subHeader;
     private final Drawable picture;
+    private final Uri gamePicture;
     private final String infotext;
     private final boolean unlocked;
     private Drawable collapse;
 
 
-    public WantedPosterCard(boolean unlocked, String header, Drawable picture, String infoText, Context context) {
+    public WantedPosterCard(boolean unlocked, String header, Drawable picture, String infoText, Uri gamePicture, Context context) {
         this.header = header;
         this.picture = picture;
         this.infotext = infoText;
         this.unlocked = unlocked;
+        this.gamePicture = gamePicture;
 
         if(unlocked){
             //TODO: collapse arrow here to be safe
@@ -48,6 +51,8 @@ public class WantedPosterCard {
     public Drawable getPicture() {
         return picture;
     }
+
+    public Uri getGamePicture() {return gamePicture;}
 
     public String getInfotext() {
         return infotext;

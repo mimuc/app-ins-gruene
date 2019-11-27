@@ -18,6 +18,7 @@
                     Die Blätter des Bergahorns haben einen gesägten Rand. Ihre Oberseite ist dunkelgrün und die Unterseite ist grau-grün. Die Blätter werden bis zu 20 cm lang und bis zu 15 cm breit.
                     Die Blätter des Spitzahorns haben ausgeprägte Spitzen. Sie sind hellgrün, werden bis zu 18 cm lang und bis zu 15 cm breit.
                 </card_content>
+                <card_picture>BaumUndIch</card_picture>
             </card>
             <card>
                 <card_name>Frucht</card_name>
@@ -41,6 +42,7 @@
                 <card_content>
                     Das Holz des Feldahorns ist rötlich. Das Holz des Bergahorns ist hellbraun. Das Holz des Spitzahorns ist gelblich und manchmal leicht grau.
                 </card_content>
+                <card_picture>NameName</card_picture>
             </card>
             <card>
                 <card_name>Standort</card_name>

@@ -1,14 +1,20 @@
 package de.lmu.treeapp.activities;
 
 import android.graphics.drawable.Drawable;
+import android.media.ExifInterface;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.ContactsContract;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,10 +70,17 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
             boolean unlocked = card.unlockedBy == Tree.GameCategories.none || tree.GetGameProgressionPercent(card.unlockedBy) > 90;
             int drawableId = getApplicationContext().getResources().getIdentifier(card.image, "drawable", getApplicationContext().getPackageName());
             Drawable image = getDrawable(drawableId);
+
+            Uri imageUri = null;
+            if (!card.picture.equalsIgnoreCase("")){
+                imageUri = getImageUri(card.picture);
+            }
+
             WantedPosterCard posterCard = new WantedPosterCard(unlocked,
                     card.name,
                     image,
                     card.content,
+                    imageUri,
                     getBaseContext());
 
             wantedPosterCards.add(posterCard);
@@ -81,4 +94,19 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         finish();
         return true;
     }
+
+    private Uri getImageUri(String name) {
+        String imageFileName = "AppInsGruene_" + name.trim().toLowerCase();
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File mediaFile = new File(storageDir + File.separator + imageFileName +".jpg");
+
+        if (!mediaFile.exists()) return null;
+
+        Uri photoURI = FileProvider.getUriForFile(this,
+                "de.lmu.treeapp.fileprovider",
+                mediaFile);
+        return photoURI;
+    }
+
+
 }

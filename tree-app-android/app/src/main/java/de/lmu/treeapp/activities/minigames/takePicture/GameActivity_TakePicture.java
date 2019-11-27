@@ -82,23 +82,24 @@ public class GameActivity_TakePicture extends GameActivity_Base {
         }
     }
     private File createImageFile() throws IOException {
+        System.out.println("________________________" + takePictureGame.GetPictureName());
         String imageFileName = "AppInsGruene_" + takePictureGame.GetPictureName();
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
-        );
+        File image = new File(storageDir + File.separator + imageFileName + ".jpg");
+        if (!image.exists()){
+            image.createNewFile();
+        }
 
         // Save a file: path for use with ACTION_VIEW intents
         currentPhotoPath = image.getAbsolutePath();
+        System.out.println(image.getAbsolutePath());
+        System.out.println(image.toURI());
         return image;
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode,resultCode,data);
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
-
             previewPicture.setImageURI(photoURI);
         }
     }
