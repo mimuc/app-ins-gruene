@@ -58,7 +58,7 @@ public class DataManager {
                 List<TreeModel> DB_trees = AppDatabase.getInstance(context).treeDao().getAll();
                 for (int i = 0; i < CMS_trees.size(); i++) {
                     Tree cmsTree = CMS_trees.get(i);
-                    Boolean initByDB = false;
+                    boolean initByDB = false;
                     for (int j = 0; j < DB_trees.size(); j++) {
                         TreeModel dbTree = DB_trees.get(j);
                         if (cmsTree.uid == dbTree.uid) {
@@ -67,7 +67,7 @@ public class DataManager {
                             break;
                         }
                     }
-                    if (initByDB == false) {
+                    if (!initByDB) {
                         TreeModel newDBTree = new TreeModel();
                         newDBTree.InitDefault(cmsTree.uid);
                         cmsTree.InitFromDB(newDBTree);

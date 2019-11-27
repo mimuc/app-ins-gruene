@@ -28,6 +28,7 @@ public class WantedPosterCardAdapter extends RecyclerView.Adapter<WantedPosterCa
         TextView header;
         TextView subHeader;
         ImageView picture;
+        ImageView gamePicture;
         TextView infoText;
         ImageView collapseArrow;
         LinearLayout expander;
@@ -40,6 +41,7 @@ public class WantedPosterCardAdapter extends RecyclerView.Adapter<WantedPosterCa
             infoText  = itemView.findViewById(R.id.card_wanted_poster_description_text);
             collapseArrow = itemView.findViewById(R.id.card_wanted_poster_collapse_arrow);
             expander = itemView.findViewById(R.id.card_wanted_poster_expander);
+            gamePicture = itemView.findViewById(R.id.card_wanted_poster_description_picture);
 
 
         }
@@ -69,6 +71,9 @@ public class WantedPosterCardAdapter extends RecyclerView.Adapter<WantedPosterCa
 
         if(card.getPicture() != null){
             holder.picture.setImageDrawable(card.getPicture());
+        }
+        if(card.getGamePicture() != null) {
+            holder.gamePicture.setImageURI(card.getGamePicture());
         }
 
         final boolean isExpanded = position==expandedPosition;

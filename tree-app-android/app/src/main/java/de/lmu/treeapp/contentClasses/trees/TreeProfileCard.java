@@ -5,4 +5,5 @@ public class TreeProfileCard {
     public Tree.GameCategories unlockedBy = Tree.GameCategories.none;
     public String content = "";
     public String image = "";
+    public String picture = "";
 }
