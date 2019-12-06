@@ -9,12 +9,14 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
+import de.lmu.treeapp.contentClasses.minigames.Minigame_Baumory;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_ChooseAnswer;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_DragDrop;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_InputStringAnswer;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_OnlyDescription;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_TakePicture;
 import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
+import de.lmu.treeapp.contentClasses.minigames.components.BaumoryCard;
 import de.lmu.treeapp.contentClasses.minigames.components.DragDropItem;
 import de.lmu.treeapp.contentClasses.minigames.components.DragDropZone;
 
@@ -32,6 +34,7 @@ public class miniGameParser {
         parse_TakePicture(context.getResources().getXml(R.xml.minigames_takepicture), 300);
         parse_DragDrop(context.getResources().getXml(R.xml.minigames_dragdrop),400);
         parse_OnlyDescription(context.getResources().getXml(R.xml.minigames_onlydescription),500);
+        parse_Baumory(context.getResources().getXml(R.xml.minigames_baumory),600);
         return miniGames;
     }
 
@@ -234,15 +237,25 @@ public class miniGameParser {
                         } else if (tagname.equalsIgnoreCase("dragItem_match")) {
                             dragDropItem.match = Integer.parseInt(text);
                         } else if (tagname.equalsIgnoreCase("dragItem_x")){
-                                dragDropItem.x = Float.parseFloat(text);
-                        } else if (tagname.equalsIgnoreCase("dragItem_y")){
+                            dragDropItem.x = Float.parseFloat(text);
+                        } else if (tagname.equalsIgnoreCase("dragItem_y")) {
                             dragDropItem.y = Float.parseFloat(text);
+                        } else if (tagname.equalsIgnoreCase("dragItem_w")){
+                            dragDropItem.w = Integer.parseInt(text);
+                        } else if (tagname.equalsIgnoreCase("dragItem_h")){
+                            dragDropItem.h = Integer.parseInt(text);
                         } else if (tagname.equalsIgnoreCase("dropItem_match")){
                             dragDropZone.match = Integer.parseInt(text);
+                        } else if (tagname.equalsIgnoreCase("dropItem_content")){
+                            dragDropZone.content = (text);
                         } else if (tagname.equalsIgnoreCase("dropItem_x")){
                             dragDropZone.x = Float.parseFloat(text);
                         } else if (tagname.equalsIgnoreCase("dropItem_y")){
                             dragDropZone.y = Float.parseFloat(text);
+                        } else if (tagname.equalsIgnoreCase("dropItem_w")){
+                            dragDropZone.w = Integer.parseInt(text);
+                        } else if (tagname.equalsIgnoreCase("dropItem_h")){
+                            dragDropZone.h = Integer.parseInt(text);
                         } else if (tagname.equalsIgnoreCase("dragItem")){
                             miniGameDragDrop.items.add(dragDropItem);
                         } else if (tagname.equalsIgnoreCase("dropItem")){
@@ -292,6 +305,62 @@ public class miniGameParser {
                             miniGameOnlyDescription.description = text;
                         } else if (tagname.equalsIgnoreCase("image")){
                             miniGameOnlyDescription.image = text;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                eventType = parser.next();
+            }
+
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // MiniGame_Baumory
+    private Minigame_Baumory minigameBaumory;
+    private BaumoryCard card;
+
+    public void parse_Baumory(XmlPullParser parser, int prefix) {
+        try {
+            int eventType = parser.getEventType();
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                String tagname = parser.getName();
+                switch (eventType) {
+                    case XmlPullParser.START_TAG:
+                        if (tagname.equalsIgnoreCase("minigame_baumory")) {
+                            minigameBaumory = new Minigame_Baumory();
+                            minigameBaumory.type = Minigame_Base.MinigameTypes.Baumory;
+                            minigameBaumory.cards = new ArrayList<>();
+                        }
+                        else if (tagname.equalsIgnoreCase("card")){
+                            card = new BaumoryCard();
+                        }
+                        break;
+                    case XmlPullParser.TEXT:
+                        text = parser.getText();
+                        break;
+                    case XmlPullParser.END_TAG:
+                        if (tagname.equalsIgnoreCase("minigame_baumory")) {
+                            miniGames.add(minigameBaumory);
+                        } else if (tagname.equalsIgnoreCase("id")) {
+                            minigameBaumory.uid = Integer.parseInt(text) + prefix;
+                        } else if (tagname.equalsIgnoreCase("name")) {
+                            minigameBaumory.name = text;
+                        } else if (tagname.equalsIgnoreCase("description")){
+                            minigameBaumory.description = text;
+                        } else if (tagname.equalsIgnoreCase("image")){
+                            minigameBaumory.image = text;
+                        }  else if (tagname.equalsIgnoreCase("card_image")){
+                            card.content = (text);
+                        } else if (tagname.equalsIgnoreCase("card_match")){
+                            card.match = Integer.parseInt(text);
+                        } else if (tagname.equalsIgnoreCase("card")){
+                            minigameBaumory.cards.add(card);
                         }
                         break;
                     default:
