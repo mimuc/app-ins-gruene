@@ -3,8 +3,8 @@
     <minigames>
         <minigame_chooseAnswer>
             <id>0</id>
-            <name>Blätterform</name>
-            <description>Wähle die richtige Blattform aus!</description>
+            <name>Blattform</name>
+            <description>Schau dir die Blätter des Baumes genau an. Welche Form haben sie?</description>
             <image></image>
             <selection>
                 <option>
