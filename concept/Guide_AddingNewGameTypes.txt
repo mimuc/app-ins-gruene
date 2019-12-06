@@ -1,7 +1,7 @@
 1.) Create CMS-XML
 2.) Create DataClass
-3.) Add function in miniGameParser
-4.) Add type to enum in Minigame_Base
+3.) Add type to enum in Minigame_Base
+4.) Add function in miniGameParser
 5.) Create Game_Activity
 6.) Create Layout-XML
 7.) Add Activity in Manifest

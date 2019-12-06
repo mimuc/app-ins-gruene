@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <minigames>
+        <minigame_baumory>
+            <id>0</id>
+            <name>Baumory</name>
+            <description>Finde passende Paare von Früchten und Blättern verschiedener Bäume.</description>
+            <image></image>
+            <cards>
+                <card>
+                    <card_image>ic_waldkiefer_blatt</card_image>
+                    <card_match>0</card_match>
+                </card>
+                <card>
+                    <card_image>ic_waldkiefer_frucht</card_image>
+                    <card_match>0</card_match>
+                </card>
+                <card>
+                    <card_image>ic_ahorn_blatt</card_image>
+                    <card_match>1</card_match>
+                </card>
+                <card>
+                    <card_image>ic_ahorn_frucht</card_image>
+                    <card_match>1</card_match>
+                </card>
+                <card>
+                    <card_image>ic_rotbuche_blatt</card_image>
+                    <card_match>2</card_match>
+                </card>
+                <card>
+                    <card_image>ic_rotbuche_frucht</card_image>
+                    <card_match>2</card_match>
+                </card>
+                <card>
+                    <card_image>ic_linde_blatt</card_image>
+                    <card_match>3</card_match>
+                </card>
+                <card>
+                    <card_image>ic_linde_frucht</card_image>
+                    <card_match>3</card_match>
+                </card>
+            </cards>
+        </minigame_baumory>
+    </minigames>
+</resources>

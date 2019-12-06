@@ -29,6 +29,10 @@ public class GameActivity_DragDrop extends GameActivity_Base {
     private ConstraintLayout layout;
     private int contentBoxId;
     private List<ImageView> itemViews = new ArrayList<>();
+
+    private int zoneNormalColor = 0;
+    private int zoneDroppableColor = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -37,6 +41,9 @@ public class GameActivity_DragDrop extends GameActivity_Base {
         dragDropGame = (Minigame_DragDrop) gameContent;
         layout = findViewById(R.id.cl);
         layout.setOnDragListener(new FreeDropListener());
+
+        zoneNormalColor = getResources().getColor(R.color.white);
+        zoneDroppableColor = getResources().getColor(R.color.droppable);
 
         ImageView contentBox = findViewById(R.id.game_dragdrop_content);
         int backgroundImage = getResources().getIdentifier(dragDropGame.image, "drawable", getPackageName());
@@ -48,7 +55,6 @@ public class GameActivity_DragDrop extends GameActivity_Base {
             int imageId = getResources().getIdentifier(item.content, "drawable", getPackageName());
             iv.setImageResource(imageId);
             iv.setTag(item.match);
-            iv.setBackgroundColor(getResources().getColor(R.color.lightGrey));
 
             SetItemStartPosition(iv,item);
             itemViews.add(iv);
@@ -57,10 +63,10 @@ public class GameActivity_DragDrop extends GameActivity_Base {
 
         for (DragDropZone zone : dragDropGame.zones){
             LinearLayout ll = new LinearLayout(this);
-            ll.setBackgroundResource(R.drawable.button_background);
+            ll.setBackgroundColor(zoneNormalColor);
             LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-            lp.width = 200;
-            lp.height = 200;
+            lp.width = zone.w;
+            lp.height = zone.h;
             lp.topToTop = contentBoxId;
             lp.leftToLeft = contentBoxId;
             lp.rightToRight = contentBoxId;
@@ -104,8 +110,8 @@ public class GameActivity_DragDrop extends GameActivity_Base {
     private void SetItemStartPosition(ImageView _iv, DragDropItem _item){
         ClearOtherZones(_item);
         LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        lp.width = 200;
-        lp.height = 200;
+        lp.width = _item.w;
+        lp.height = _item.h;
         lp.topToTop = contentBoxId;
         lp.leftToLeft = contentBoxId;
         lp.rightToRight = contentBoxId;
@@ -146,8 +152,8 @@ public class GameActivity_DragDrop extends GameActivity_Base {
 
 
     class DropZoneListener implements View.OnDragListener {
-        Drawable enterShape = getResources().getDrawable(R.drawable.ic_completed);
-        Drawable normalShape = getResources().getDrawable(R.drawable.button_background);
+        //Drawable enterShape = getResources().getDrawable(R.drawable.ic_completed);
+        //Drawable normalShape = getResources().getDrawable(R.drawable.button_background);
 
         @Override
         public boolean onDrag(View v, DragEvent event) {
@@ -162,11 +168,11 @@ public class GameActivity_DragDrop extends GameActivity_Base {
                     // do nothing
                     break;
                 case DragEvent.ACTION_DRAG_ENTERED:
-                    v.setBackground(enterShape);
+                    v.setBackgroundColor(zoneDroppableColor);
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
                     zone.currentItem = null;
-                    v.setBackground(normalShape);
+                    v.setBackgroundColor(zoneNormalColor);
                     break;
                 case DragEvent.ACTION_DROP:
                     // Dropped, reassign View to ViewGroup
@@ -180,7 +186,7 @@ public class GameActivity_DragDrop extends GameActivity_Base {
                     break;
                 case DragEvent.ACTION_DRAG_ENDED:
                     view.setVisibility(View.VISIBLE);
-                    v.setBackground(normalShape);
+                    v.setBackgroundColor(zoneNormalColor);
                 default:
                     break;
             }

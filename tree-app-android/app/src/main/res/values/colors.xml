@@ -18,4 +18,5 @@
     <color name="lightGrey">#C4C4C4</color>
     <color name="mediumGrey">#E0E0E0</color>
     <color name="darkerGrey">#9F9F9F</color>
+    <color name="droppable">#DDFDBD</color>
 </resources>
