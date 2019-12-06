@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,18 +19,17 @@ import de.lmu.treeapp.contentClasses.trees.Tree;
 public class Baumory_Cards_RecyclerViewAdapter extends RecyclerView.Adapter<Baumory_Cards_RecyclerViewAdapter.ViewHolder>  {
 
     private List<BaumoryCard> options;
-    private Minigame_Baumory game;
     private Context context;
     private Tree tree;
     private Tree.GameCategories category;
     public interface OptionClickInterface
     {
-        void optionClicked(BaumoryCard option);
+        void optionClicked(BaumoryCard option, ViewHolder holder);
     }
     private final OptionClickInterface mOnClickListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public final Button button;
+        public final ImageButton button;
         ViewHolder(View v) {
             super(v);
             button = v.findViewById(R.id.game_baumory_card_button);
@@ -46,47 +46,35 @@ public class Baumory_Cards_RecyclerViewAdapter extends RecyclerView.Adapter<Baum
         notifyItemRemoved(position);
     }
 
-    public Baumory_Cards_RecyclerViewAdapter(OptionClickInterface mOnClickListener, Minigame_Baumory _game, Context _context, Tree _tree, Tree.GameCategories _category) {
+    public Baumory_Cards_RecyclerViewAdapter(OptionClickInterface mOnClickListener, List<BaumoryCard> _cards, Context _context, Tree _tree, Tree.GameCategories _category) {
         this.mOnClickListener = mOnClickListener;
-        this.options = _game.cards;
-        this.game = _game;
+        this.options = _cards;
         this.context = _context;
         this.tree = _tree;
         this.category = _category;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                                                                                                   int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(
-                parent.getContext());
-
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View v = inflater.inflate(R.layout.activity_game__baumory__card, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         final BaumoryCard option = options.get(position);
 
-        System.out.println(holder.button);
-
-
-        int imageId = context.getResources().getIdentifier(option.content, "drawable", context.getPackageName());
-        holder.button.setBackgroundResource(imageId);
-        holder.button.setText("");
-
-
+        holder.button.setImageResource(R.drawable.ic_question_big);
+        holder.button.setBackgroundResource(R.drawable.dark_grey_gradient);
         holder.button.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View arg0) {
-                mOnClickListener.optionClicked(option);
+                mOnClickListener.optionClicked(option, holder);
             }
-
         });
-
     }
+
 
     @Override
     public int getItemCount() {
