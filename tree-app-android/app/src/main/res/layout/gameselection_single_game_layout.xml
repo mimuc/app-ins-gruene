@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/gameselection_single_game_name"
-        android:layout_width="0dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
@@ -24,9 +24,9 @@
 
     <ImageButton
         android:id="@+id/gameselection_single_game_icon"
-        android:layout_width="123dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/dark_grey_gradient"
         android:clickable="true"
         android:contentDescription="@string/overview_single_tree_image_content_description"
@@ -34,7 +34,6 @@
         android:padding="8dp"
         app:layout_constrainedHeight="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_question_big" />
