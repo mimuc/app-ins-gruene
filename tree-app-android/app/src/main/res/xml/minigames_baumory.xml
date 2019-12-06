@@ -3,7 +3,7 @@
     <minigames>
         <minigame_baumory>
             <id>0</id>
-            <name>Baumory</name>
+            <name>Baumory - Mittel</name>
             <description>Finde passende Paare von Früchten und Blättern verschiedener Bäume.</description>
             <image></image>
             <cards>
@@ -38,6 +38,78 @@
                 <card>
                     <card_image>ic_linde_frucht</card_image>
                     <card_match>3</card_match>
+                </card>
+            </cards>
+        </minigame_baumory>
+        <minigame_baumory>
+            <id>1</id>
+            <name>Baumory - Einfach</name>
+            <description>Finde passende Paare.</description>
+            <image></image>
+            <cards>
+                <card>
+                    <card_image>ic_waldkiefer_blatt</card_image>
+                    <card_match>0</card_match>
+                </card>
+                <card>
+                    <card_image>ic_waldkiefer_frucht</card_image>
+                    <card_match>1</card_match>
+                </card>
+                <card>
+                    <card_image>ic_ahorn_blatt</card_image>
+                    <card_match>2</card_match>
+                </card>
+                <card>
+                    <card_image>ic_ahorn_frucht</card_image>
+                    <card_match>3</card_match>
+                </card>
+                <card>
+                    <card_image>ic_rotbuche_blatt</card_image>
+                    <card_match>4</card_match>
+                </card>
+                <card>
+                    <card_image>ic_rotbuche_frucht</card_image>
+                    <card_match>5</card_match>
+                </card>
+                <card>
+                    <card_image>ic_linde_blatt</card_image>
+                    <card_match>6</card_match>
+                </card>
+                <card>
+                    <card_image>ic_linde_frucht</card_image>
+                    <card_match>7</card_match>
+                </card>
+                <card>
+                    <card_image>ic_waldkiefer_blatt</card_image>
+                    <card_match>0</card_match>
+                </card>
+                <card>
+                    <card_image>ic_waldkiefer_frucht</card_image>
+                    <card_match>1</card_match>
+                </card>
+                <card>
+                    <card_image>ic_ahorn_blatt</card_image>
+                    <card_match>2</card_match>
+                </card>
+                <card>
+                    <card_image>ic_ahorn_frucht</card_image>
+                    <card_match>3</card_match>
+                </card>
+                <card>
+                    <card_image>ic_rotbuche_blatt</card_image>
+                    <card_match>4</card_match>
+                </card>
+                <card>
+                    <card_image>ic_rotbuche_frucht</card_image>
+                    <card_match>5</card_match>
+                </card>
+                <card>
+                    <card_image>ic_linde_blatt</card_image>
+                    <card_match>6</card_match>
+                </card>
+                <card>
+                    <card_image>ic_linde_frucht</card_image>
+                    <card_match>7</card_match>
                 </card>
             </cards>
         </minigame_baumory>
