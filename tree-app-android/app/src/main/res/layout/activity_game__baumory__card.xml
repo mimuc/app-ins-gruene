@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp">
+    android:layout_margin="1dp">
 
 
     <ImageButton
         android:id="@+id/game_baumory_card_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:background="@drawable/dark_grey_gradient"
         android:clickable="true"
         android:focusable="true"
