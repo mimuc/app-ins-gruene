@@ -56,16 +56,9 @@ public final class BarcodeCaptureActivity extends AppCompatActivity
         implements BarcodeTracker.BarcodeGraphicTrackerCallback {
 
     private static final String TAG = "Barcode-reader";
-
-    // Intent request code to handle updating play services if needed.
-    private static final int RC_HANDLE_GMS = 9001;
-
-    // Permission request codes need to be < 256
-    private static final int RC_HANDLE_CAMERA_PERM = 2;
-
-    // Constants used to pass extra data in the intent
-    public static final String BarcodeObject = "Barcode";
-
+    private static final int RC_HANDLE_GMS = 9001; // Intent request code to handle updating play services if needed.
+    private static final int RC_HANDLE_CAMERA_PERM = 2; // Permission request codes need to be < 256
+    public static final String BarcodeObject = "Barcode"; // Constants used to pass extra data in the intent
     private CameraSource mCameraSource;
     private CameraSourcePreview mPreview;
 
