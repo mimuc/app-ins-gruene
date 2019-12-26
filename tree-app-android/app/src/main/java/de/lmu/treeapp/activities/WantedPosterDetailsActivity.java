@@ -26,21 +26,24 @@ import de.lmu.treeapp.contentClasses.trees.TreeProfileCard;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.fragments.WantedPosterCard;
 
+/**
+ * Activity showing the profiles of the trees.
+ */
 public class WantedPosterDetailsActivity extends AppCompatActivity {
+    private Tree tree;  // Data of our tree (from CMS and Database)
+    private TreeProfile treeProfile;    // Data of our profile (from CMS)
 
-    private Tree tree;
-    private TreeProfile treeProfile;
-
+    /**
+     * On creating the activity, we generate a RecyclerView with our custom WantedPosterCardAdapter for all the profile-cards
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wanted_poster_details);
 
-
         tree = DataManager.getInstance(getApplicationContext()).GetTree(getIntent().getExtras().getInt("TreeId"));
         treeProfile = DataManager.getInstance(getApplicationContext()).GetTreeProfile(tree.profileId);
 
-        // The following should be replaced by a RecyclerView or something similar for the cards
         RecyclerView recyclerView = findViewById(R.id.wanted_poster_recycler_view);
         WantedPosterCardAdapter adapter = new WantedPosterCardAdapter(getCards());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -62,6 +65,10 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Gets the Profile-Cards.
+     * @return A List of the Class WantedPosterCard, which includes whether its unlocked, the icon, name, content, etc.
+     */
     private List<WantedPosterCard> getCards() {
         List<WantedPosterCard> wantedPosterCards = new ArrayList<>();
 
@@ -95,6 +102,11 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Gets the URI of an Image based on a name.
+     * @param name String of the image-name (coming from the CMS).
+     * @return The Uri of the respective image. Returns null if it does not exist.
+     */
     private Uri getImageUri(String name) {
         String imageFileName = "AppInsGruene_" + name.trim().toLowerCase();
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
