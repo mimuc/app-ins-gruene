@@ -55,7 +55,7 @@
         </minigame_chooseAnswer> -->
         <minigame_chooseAnswer>
             <id>1</id> <!-- Quiz: Rot-Buche leaves -->
-            <name>Blattform/name>
+            <name>Blattform</name>
             <description>Welche Blattform?</description>
             <image></image>
             <selection>
@@ -81,9 +81,10 @@
                 </option>
             </selection>
         </minigame_chooseAnswer>
+
         <minigame_chooseAnswer>
             <id>2</id> <!-- Quiz: Linde leaves -->
-            <name>Blattform/name>
+            <name>Blattform</name>
             <description>Welche Blattform?</description>
             <image></image>
             <selection>
@@ -111,7 +112,7 @@
         </minigame_chooseAnswer>
         <minigame_chooseAnswer>
             <id>3</id> <!-- Quiz: Waldkiefer leaves -->
-            <name>Blattform/name>
+            <name>Blattform</name>
             <description>Welche Blattform?</description>
             <image></image>
             <selection>
@@ -139,7 +140,7 @@
         </minigame_chooseAnswer>
         <minigame_chooseAnswer>
             <id>4</id> <!-- Quiz: Eiche leaves -->
-            <name>Blattform/name>
+            <name>Blattform</name>
             <description>Welche Blattform?</description>
             <image></image>
             <selection>
@@ -167,7 +168,7 @@
         </minigame_chooseAnswer>
         <minigame_chooseAnswer>
             <id>5</id> <!-- Quiz: Hasel leaves -->
-            <name>Blattform/name>
+            <name>Blattform</name>
             <description>Welche Blattform?</description>
             <image></image>
             <selection>
@@ -195,7 +196,7 @@
         </minigame_chooseAnswer>
         <minigame_chooseAnswer>
             <id>6</id> <!-- Quiz: Hängebirke leaves -->
-            <name>Blattform/name>
+            <name>Blattform</name>
             <description>Welche Blattform?</description>
             <image></image>
             <selection>
@@ -223,7 +224,7 @@
         </minigame_chooseAnswer>
         <minigame_chooseAnswer>
             <id>7</id> <!-- Quiz: Eberesche leaves -->
-            <name>Blattform/name>
+            <name>Blattform</name>
             <description>Welche Blattform?</description>
             <image></image>
             <selection>
@@ -251,7 +252,7 @@
         </minigame_chooseAnswer>
         <minigame_chooseAnswer>
             <id>8</id> <!-- Quiz: Tanne leaves -->
-            <name>Blattform/name>
+            <name>Blattform</name>
             <description>Welche Blattform?</description>
             <image></image>
             <selection>
@@ -279,7 +280,7 @@
         </minigame_chooseAnswer>
         <minigame_chooseAnswer>
             <id>9</id> <!-- Quiz: Fichte leaves -->
-            <name>Blattform/name>
+            <name>Blattform</name>
             <description>Welche Blattform?</description>
             <image></image>
             <selection>
