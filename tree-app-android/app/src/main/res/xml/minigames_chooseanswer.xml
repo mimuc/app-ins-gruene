@@ -52,7 +52,7 @@
                     <option_right>true</option_right>
                 </option>
             </selection>
-        </minigame_chooseAnswer>-->
+        </minigame_chooseAnswer> -->
         <minigame_chooseAnswer>
             <id>1</id> <!-- Quiz: Rot-Buche leaves -->
             <name>Blattform/name>
