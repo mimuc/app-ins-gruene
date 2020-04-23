@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?> <!-- ID-Number is 100 + id -->
 <resources>
     <minigames>
+        <!-- Quiz: Questions about the shape of the leaves -->
         <minigame_chooseAnswer>
-            <id>0</id> <!-- Quiz: Ahorn leaves -->
+            <id>0</id>
             <name>Blattform</name>
-            <description>Schau dir die Blätter des Baumes genau an. Welche Form haben sie?</description>
+            <description>Schau dir die Blätter des Baumes genau an. Welche Form passt am besten?</description>
             <image></image>
             <selection>
                 <option>
@@ -28,8 +29,729 @@
                     <option_right>false</option_right>
                 </option>
             </selection>
-        </minigame_chooseAnswer>
-       <!-- old game of Yannik, maybe delete it -->
+        </minigame_chooseAnswer> <!-- Ahorn -->
+        <minigame_chooseAnswer>
+            <id>1</id>
+            <name>Blattform</name>
+            <description>Schau dir die Blätter des Baumes genau an. Welche Form passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Rot-Buche -->
+        <minigame_chooseAnswer>
+            <id>2</id>
+            <name>Blattform</name>
+            <description>Schau dir die Blätter des Baumes genau an. Welche Form passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Linde -->
+        <minigame_chooseAnswer>
+            <id>3</id>
+            <name>Blattform</name>
+            <description>Schau dir die Blätter des Baumes genau an. Welche Form passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Waldkiefer -->
+        <minigame_chooseAnswer>
+            <id>4</id>
+            <name>Blattform</name>
+            <description>Schau dir die Blätter des Baumes genau an. Welche Form passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Eiche -->
+        <minigame_chooseAnswer>
+            <id>5</id>
+            <name>Blattform</name>
+            <description>Schau dir die Blätter des Baumes genau an. Welche Form passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Hasel -->
+        <minigame_chooseAnswer>
+            <id>6</id>
+            <name>Blattform</name>
+            <description>Schau dir die Blätter des Baumes genau an. Welche Form passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Hängebirke -->
+        <minigame_chooseAnswer>
+            <id>7</id>
+            <name>Blattform</name>
+            <description>Schau dir die Blätter des Baumes genau an. Welche Form passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Eberesche -->
+        <minigame_chooseAnswer>
+            <id>8</id>
+            <name>Blattform</name>
+            <description>Schau dir die Blätter des Baumes genau an. Welche Form passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Tanne -->
+        <minigame_chooseAnswer>
+            <id>9</id>
+            <name>Blattform</name>
+            <description>Schau dir die Blätter des Baumes genau an. Welche Form passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Fichte -->
+
+        /---------------------------------------------------------------
+
+        <!-- Quiz: Questions about the border type of the leaves -->
+        <minigame_chooseAnswer>
+            <id>10</id>
+            <name>Blattrand</name>
+            <description>Welcher Blattrand passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Ahorn -->
+        <minigame_chooseAnswer>
+            <id>11</id>
+            <name>Blattrand</name>
+            <description>Welcher Blattrand passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Rot-Buche -->
+        <minigame_chooseAnswer>
+            <id>12</id>
+            <name>Blattrand</name>
+            <description>Welcher Blattrand passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Linde -->
+        <minigame_chooseAnswer>
+            <id>13</id>
+            <name>Blattrand</name>
+            <description>Welcher Blattrand passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Waldkiefer -->
+        <minigame_chooseAnswer>
+            <id>14</id>
+            <name>Blattrand</name>
+            <description>Welcher Blattrand passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Eiche -->
+        <minigame_chooseAnswer>
+            <id>15</id>
+            <name>Blattrand</name>
+            <description>Welcher Blattrand passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Hasel -->
+        <minigame_chooseAnswer>
+            <id>16</id>
+            <name>Blattrand</name>
+            <description>Welcher Blattrand passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Hängebirke -->
+        <minigame_chooseAnswer>
+            <id>17</id>
+            <name>Blattrand</name>
+            <description>Welcher Blattrand passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Eberesche -->
+        <minigame_chooseAnswer>
+            <id>18</id>
+            <name>Blattrand</name>
+            <description>Welcher Blattrand passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Tanne -->
+        <minigame_chooseAnswer>
+            <id>19</id>
+            <name>Blattrand</name>
+            <description>Welcher Blattrand passt am besten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_linde_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Fichte -->
+
+        /---------------------------------------------------------------
+
+        <!-- Quiz: Wechselstaendig vs Gegenstaendig -->
+        <minigame_chooseAnswer>
+            <id>20</id>
+            <name>Blattrand</name>
+            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_wechselstaendig</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gegenstaendig</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Ahorn -->
+        <minigame_chooseAnswer>
+            <id>21</id>
+            <name>Blattrand</name>
+            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_wechselstaendig</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gegenstaendig</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Rot-Buche -->
+        <minigame_chooseAnswer>
+            <id>22</id>
+            <name>Blattrand</name>
+            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_wechselstaendig</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gegenstaendig</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Linde -->
+        <minigame_chooseAnswer>
+            <id>23</id>
+            <name>Blattrand</name>
+            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_wechselstaendig</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gegenstaendig</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Waldkiefer -->
+        <minigame_chooseAnswer>
+            <id>24</id>
+            <name>Blattrand</name>
+            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_wechselstaendig</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gegenstaendig</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Eiche -->
+        <minigame_chooseAnswer>
+            <id>25</id>
+            <name>Blattrand</name>
+            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_wechselstaendig</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gegenstaendig</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Hasel -->
+        <minigame_chooseAnswer>
+            <id>26</id>
+            <name>Blattrand</name>
+            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_wechselstaendig</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gegenstaendig</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Hängebirke -->
+        <minigame_chooseAnswer>
+            <id>27</id>
+            <name>Blattrand</name>
+            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_wechselstaendig</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gegenstaendig</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Eberesche -->
+        <minigame_chooseAnswer>
+            <id>28</id>
+            <name>Blattrand</name>
+            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_wechselstaendig</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gegenstaendig</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Tanne -->
+        <minigame_chooseAnswer>
+            <id>29</id>
+            <name>Blattrand</name>
+            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_wechselstaendig</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gegenstaendig</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Fichte -->
+
+        <!-- old game of Yannik, maybe delete it: -->
         <!--<minigame_chooseAnswer>
             <id>1</id>
             <name>Wie hoch?</name>
@@ -53,258 +775,5 @@
                 </option>
             </selection>
         </minigame_chooseAnswer> -->
-        <minigame_chooseAnswer>
-            <id>1</id> <!-- Quiz: Rot-Buche leaves -->
-            <name>Blattform</name>
-            <description>Welche Blattform?</description>
-            <image></image>
-            <selection>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_stamm</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-            </selection>
-        </minigame_chooseAnswer>
-
-        <minigame_chooseAnswer>
-            <id>2</id> <!-- Quiz: Linde leaves -->
-            <name>Blattform</name>
-            <description>Welche Blattform?</description>
-            <image></image>
-            <selection>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_stamm</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-            </selection>
-        </minigame_chooseAnswer>
-        <minigame_chooseAnswer>
-            <id>3</id> <!-- Quiz: Waldkiefer leaves -->
-            <name>Blattform</name>
-            <description>Welche Blattform?</description>
-            <image></image>
-            <selection>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_stamm</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-            </selection>
-        </minigame_chooseAnswer>
-        <minigame_chooseAnswer>
-            <id>4</id> <!-- Quiz: Eiche leaves -->
-            <name>Blattform</name>
-            <description>Welche Blattform?</description>
-            <image></image>
-            <selection>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_stamm</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-            </selection>
-        </minigame_chooseAnswer>
-        <minigame_chooseAnswer>
-            <id>5</id> <!-- Quiz: Hasel leaves -->
-            <name>Blattform</name>
-            <description>Welche Blattform?</description>
-            <image></image>
-            <selection>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_stamm</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-            </selection>
-        </minigame_chooseAnswer>
-        <minigame_chooseAnswer>
-            <id>6</id> <!-- Quiz: Hängebirke leaves -->
-            <name>Blattform</name>
-            <description>Welche Blattform?</description>
-            <image></image>
-            <selection>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_stamm</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-            </selection>
-        </minigame_chooseAnswer>
-        <minigame_chooseAnswer>
-            <id>7</id> <!-- Quiz: Eberesche leaves -->
-            <name>Blattform</name>
-            <description>Welche Blattform?</description>
-            <image></image>
-            <selection>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_stamm</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-            </selection>
-        </minigame_chooseAnswer>
-        <minigame_chooseAnswer>
-            <id>8</id> <!-- Quiz: Tanne leaves -->
-            <name>Blattform</name>
-            <description>Welche Blattform?</description>
-            <image></image>
-            <selection>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_stamm</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-            </selection>
-        </minigame_chooseAnswer>
-        <minigame_chooseAnswer>
-            <id>9</id> <!-- Quiz: Fichte leaves -->
-            <name>Blattform</name>
-            <description>Welche Blattform?</description>
-            <image></image>
-            <selection>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_stamm</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-            </selection>
-        </minigame_chooseAnswer>
     </minigames>
 </resources>
