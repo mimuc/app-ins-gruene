@@ -1854,28 +1854,28 @@
         /---------------------------------------------------------------
         <!-- Quiz: Questions about the fruits (2) -->
         <minigame_chooseAnswer>
-            <id>81</id>
-            <name>Frucht</name>
-            <description>Wie verbreiten sich die Buchen?</description>
-            <image></image>
-            <selection>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>A: Menschen haben die angepflanzt.</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>B: Die Bucheckern werden vom Wind davon geweht.</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>C: Tiere vergraben Bucheckern als Reserve für den Winter und vergessen sie in der Erde.</option_content>
-                    <option_right>true</option_right>
-                </option>
-            </selection>
-        </minigame_chooseAnswer> <!-- Rot-Buche -->
+        <id>81</id>
+        <name>Frucht</name>
+        <description>Wie verbreiten sich die Buchen?</description>
+        <image></image>
+        <selection>
+            <option>
+                <option_type>Text</option_type>
+                <option_content>A: Menschen haben die angepflanzt.</option_content>
+                <option_right>false</option_right>
+            </option>
+            <option>
+                <option_type>Text</option_type>
+                <option_content>B: Die Bucheckern werden vom Wind davon geweht.</option_content>
+                <option_right>false</option_right>
+            </option>
+            <option>
+                <option_type>Text</option_type>
+                <option_content>C: Tiere vergraben Bucheckern als Reserve für den Winter und vergessen sie in der Erde.</option_content>
+                <option_right>true</option_right>
+            </option>
+        </selection>
+    </minigame_chooseAnswer> <!-- Rot-Buche -->
         <minigame_chooseAnswer>
             <id>84</id>
             <name>Frucht</name>
