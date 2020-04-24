@@ -1901,7 +1901,236 @@
         </minigame_chooseAnswer> <!-- Hasel -->
         /---------------------------------------------------------------------------
         /---------------------------------------------------------------------------
-
-
+        <!-- Superpower -->
+        <minigame_chooseAnswer>
+            <id>90</id>
+            <name>Superkraft</name>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Aus dem Saft, der austritt, wenn man den Baum anschneidet, kann man einen süßen Saft gewinnen.</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Ahornbäume können sogar in der Arktis wachsen.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Ahornbäume können bis zu 1000 Jahre alt werden.</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Ahorn -->
+        <minigame_chooseAnswer>
+            <id>91</id>
+            <name>Superkraft</name>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Die Rot-Buche ist der häufigste Laubbaum in Deutschland.</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Ihre Rinde ist so glatt, dass kaum Tiere Unterschlupf finden.</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Sie bekommt niemals Krankheiten.</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Rot-Buche -->
+        <minigame_chooseAnswer>
+            <id>92</id>
+            <name>Superkraft</name>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Linden können bis zu 1000 Jahre alt werden.</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Lindenblüten stinken. So werden sie nicht von Insekten befallen.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Der dickste Baum Deutschlands ist eine Linde.</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Linde -->
+        <minigame_chooseAnswer>
+            <id>93</id>
+            <name>Superkraft</name>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Kiefern können auch an sehr schattigen Plätzen wachsen.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Das Harz der Kiefern wurde früher als Kaugummi genutzt.</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Mit ihren langen Wurzeln holen sie das Wasser noch aus 6m Tiefe.</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Waldkiefer -->
+        <minigame_chooseAnswer>
+            <id>94</id>
+            <name>Superkraft</name>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Viele Häuser Venedigs stehen auf Eichenstämmen im Wasser.</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Auf den deutschen Cent-Münzen sind Eichenblätter abgebildet.</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Der älteste Baum Deutschlands ist eine Eiche.</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Eiche -->
+        <minigame_chooseAnswer>
+            <id>95</id>
+            <name>Superkraft</name>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Fast alle Möbel werden aus Haselnussholz gebaut.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Die Kohle des verbrannten Holzes wird als Schießpulver verwendet.</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Aus den Nüssen wird Nutella hergestellt.</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Hasel -->
+        <minigame_chooseAnswer>
+            <id>96</id>
+            <name>Superkraft</name>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Aus „Birkenpech“ kann man Klebstoff machen.</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Die Kohle des verbrannten Holzes der Birke wird Zeichenkohle verwendet.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Die weiße Rinde schützt die Bäume gegen Austrocknung.</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Hängebirke -->
+        <minigame_chooseAnswer>
+            <id>97</id>
+            <name>Superkraft</name>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Die roten Früchte sind für Vöge giftig, damit sie nicht gefressen werden.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Aus dem wertvollen Holz lassen sich Tische und Stühle fertigen.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Durch ihren widerlichen Geruch locken die Blüten Bestäuber an.</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Eberesche -->
+        <minigame_chooseAnswer>
+            <id>98</id>
+            <name>Superkraft</name>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Der höchste einheimische Baum ist eine Tanne.</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Orgelpfeifen werden oft aus Tannenholz gemacht.</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Ihre weichen Nadenln schützen Sie im Winter vor Wildverbiss, weil z. B. Rehe sie nicht mögen.</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Tanne -->
+        <minigame_chooseAnswer>
+            <id>99</id>
+            <name>Superkraft</name>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Der älteste Baum der Welt ist eine Fichte und wächst in Schweden.</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Die auffälligen Blüten der Fichte locken zahlreiche Insekten zu Bestäubung an.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Die Fichte ist der häufigste Nadelbaum in Deutschland.</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Fichte -->
     </minigames>
 </resources>
