@@ -9,12 +9,14 @@
             <leafGames>100,101,201,300,400, 500, 600</leafGames>
             <fruitGames>100,101,200, 501, 601</fruitGames>
             <trunkGames>100,101,200</trunkGames>
+            <otherGames>190,190,200</otherGames>
             <imageTree>ic_ahorn_baum</imageTree>
             <imageLeaf>ic_ahorn_blatt</imageLeaf>
             <imageFruit>ic_ahorn_frucht</imageFruit>
             <imageTrunk>ic_ahorn_stamm</imageTrunk>
+            <imageOther>ic_ahorn_stamm</imageOther>
         </tree>
-        <tree>
+       <!--- <tree>
             <id>1</id>
             <name>Rot-Buche</name>
             <profileId>1</profileId>
@@ -130,6 +132,6 @@
             <imageLeaf>ic_fichte_blatt</imageLeaf>
             <imageFruit>ic_fichte_frucht</imageFruit>
             <imageTrunk>ic_fichte_stamm</imageTrunk>
-        </tree>
+        </tree>-->
     </trees>
 </resources>

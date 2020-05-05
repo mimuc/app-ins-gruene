@@ -39,7 +39,8 @@
     <string name="game_selection_headline_placholder">Wähle ein Spiel aus</string>
     <string name="game_selection_description_placeholder">Hier findest du Minigames und Quizzes zu Rinde und Holz der Waldkiefer. Starte jetzt mit einem Spiel!</string>
     <string name="detail_single_tree_profile_button_text">Steckbrief</string>
-    <string name="detail_single_tree_leaf_button_content_description">TODO</string>
-    <string name="detail_single_tree_fruit_button_content_description">single tree fruit button</string>
-    <string name="detail_single_tree_trunk_button_content_description">TODO</string>
+    <string name="detail_single_tree_leaf_button_content_description">leaf games button</string>
+    <string name="detail_single_tree_fruit_button_content_description">fruit games button</string>
+    <string name="detail_single_tree_trunk_button_content_description">trunk games button</string>
+    <string name="detail_single_tree_other_button_content_description">other games button</string>
 </resources>
