@@ -20,6 +20,7 @@ public class Tree {
     public String imageLeaf = "";
     public String imageFruit = "";
     public String imageTrunk = "";
+    public String imageOther = "";
 
     public TreeModel changeable;
 
@@ -79,8 +80,8 @@ public class Tree {
                 return trunkGamesIds;
             case other:
                 return otherGamesIds;
-                default:
-                    return null;
+            default:
+                return null;
         }
     }
 
@@ -99,7 +100,8 @@ public class Tree {
                 float valLeaf = GetGamesProgression(leafGamesIds, changeable.leafGamesCompleted);
                 float valFruit = GetGamesProgression(fruitGamesIds, changeable.fruitGamesCompleted);
                 float valTrunk = GetGamesProgression(trunkGamesIds, changeable.trunkGamesCompleted);
-                float valTotal = (valLeaf + valFruit + valTrunk)/3;
+                float valOther = GetGamesProgression(otherGamesIds, changeable.otherGamesCompleted);
+                float valTotal = (valLeaf + valFruit + valTrunk + valOther)/4;
                 return valTotal * 100;
             default:
                 return 0;
