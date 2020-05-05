@@ -30,9 +30,11 @@ public class DetailSingleTreeFragment extends Fragment {
     private ImageButton leafButton;
     private ImageButton fruitButton;
     private ImageButton trunkButton;
+    private ImageButton otherButton;
     private ProgressBar leafProgressBar;
     private ProgressBar fruitProgressBar;
     private ProgressBar trunkProgressBar;
+    private ProgressBar otherProgressBar;
 
     private Tree tree;
 
@@ -66,9 +68,11 @@ public class DetailSingleTreeFragment extends Fragment {
         leafButton = rootView.findViewById(R.id.detail_single_tree_leafButton);
         fruitButton = rootView.findViewById(R.id.detail_single_tree_fruitButton);
         trunkButton = rootView.findViewById(R.id.detail_single_tree_trunkButton);
+        otherButton = rootView.findViewById(R.id.detail_single_tree_otherButton);
         leafProgressBar = rootView.findViewById(R.id.detail_single_tree_circularProgressbar_leaf);
         fruitProgressBar = rootView.findViewById(R.id.detail_single_tree_circularProgressbar_fruit);
         trunkProgressBar = rootView.findViewById(R.id.detail_single_tree_circularProgressbar_trunk);
+        otherProgressBar = rootView.findViewById(R.id.detail_single_tree_circularProgressbar_other);
     }
 
     private void setupSingleTreeContent() {
@@ -84,6 +88,7 @@ public class DetailSingleTreeFragment extends Fragment {
         leafProgressBar.setProgress((int)this.tree.GetGameProgressionPercent(Tree.GameCategories.leaf));
         fruitProgressBar.setProgress((int)this.tree.GetGameProgressionPercent(Tree.GameCategories.fruit));
         trunkProgressBar.setProgress((int)this.tree.GetGameProgressionPercent(Tree.GameCategories.trunk));
+        otherProgressBar.setProgress((int)this.tree.GetGameProgressionPercent(Tree.GameCategories.other));
     }
 
     private void setupImageResources() {
@@ -91,10 +96,12 @@ public class DetailSingleTreeFragment extends Fragment {
         int imageLeafId = getContext().getResources().getIdentifier(tree.imageLeaf, "drawable", getContext().getPackageName());
         int imageFruitId = getContext().getResources().getIdentifier(tree.imageFruit, "drawable", getContext().getPackageName());
         int imageTrunkId = getContext().getResources().getIdentifier(tree.imageTrunk, "drawable", getContext().getPackageName());
+        int imageOtherId = getContext().getResources().getIdentifier(tree.imageOther, "drawable", getContext().getPackageName());
         treeImage.setImageResource(imageTreeId);
         leafButton.setImageResource(imageLeafId);
         fruitButton.setImageResource(imageFruitId);
         trunkButton.setImageResource(imageTrunkId);
+        otherButton.setImageResource(imageOtherId);
     }
 
     private void setupOnClickListener() {
@@ -109,6 +116,7 @@ public class DetailSingleTreeFragment extends Fragment {
         leafButton.setOnClickListener(this.getCategoryButtonOnClickListener(Tree.GameCategories.leaf));
         fruitButton.setOnClickListener(this.getCategoryButtonOnClickListener(Tree.GameCategories.fruit));
         trunkButton.setOnClickListener(this.getCategoryButtonOnClickListener(Tree.GameCategories.trunk));
+        otherButton.setOnClickListener(this.getCategoryButtonOnClickListener(Tree.GameCategories.other));
     }
 
     private Button.OnClickListener getCategoryButtonOnClickListener(final Tree.GameCategories category ) {

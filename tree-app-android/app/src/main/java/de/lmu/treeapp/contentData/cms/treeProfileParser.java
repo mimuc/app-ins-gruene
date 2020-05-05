@@ -63,6 +63,9 @@ public class treeProfileParser {
                                 case "trunk":
                                     treeProfileCard.unlockedBy = Tree.GameCategories.trunk;
                                     break;
+                                case "other":
+                                    treeProfileCard.unlockedBy = Tree.GameCategories.other;
+                                    break;
                             }
                         } else if (tagname.equalsIgnoreCase("card_content")){
                             treeProfileCard.content = text;
