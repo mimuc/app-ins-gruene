@@ -20,9 +20,9 @@
         android:textColor="@color/asphalt"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:id="@+id/detail_single_tree_image"
@@ -42,10 +42,11 @@
         app:layout_constrainedHeight="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_single_tree_text"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_ahorn_baum" />
-
 
     <Button
         android:id="@+id/detail_single_tree_profileButton"
@@ -78,16 +79,16 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/ic_button_background"
+        android:contentDescription="@string/detail_single_tree_leaf_button_content_description"
         android:elevation="4dp"
         android:padding="16dp"
         android:scaleType="fitCenter"
-        android:contentDescription="@string/detail_single_tree_leaf_button_content_description"
         app:layout_constraintBottom_toTopOf="@+id/detail_single_tree_profileButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.697"
+        app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/detail_single_tree_image"
-        app:layout_constraintVertical_bias="0.259"
+        app:layout_constraintVertical_bias="0.329"
         tools:srcCompat="@drawable/ic_ahorn_blatt" />
 
     <ImageButton
@@ -99,16 +100,16 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/ic_button_background"
+        android:contentDescription="@string/detail_single_tree_fruit_button_content_description"
         android:elevation="4dp"
         android:padding="16dp"
         android:scaleType="fitCenter"
-        android:contentDescription="@string/detail_single_tree_fruit_button_content_description"
         app:layout_constraintBottom_toTopOf="@+id/detail_single_tree_profileButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/detail_single_tree_image"
-        app:layout_constraintVertical_bias="0.492"
+        app:layout_constraintVertical_bias="0.534"
         tools:srcCompat="@drawable/ic_ahorn_frucht" />
 
     <ImageButton
@@ -126,11 +127,32 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/detail_single_tree_profileButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.697"
+        app:layout_constraintHorizontal_bias="0.635"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/detail_single_tree_image"
-        app:layout_constraintVertical_bias="0.842"
+        app:layout_constraintVertical_bias="0.937"
         tools:srcCompat="@drawable/ic_ahorn_stamm" />
+
+    <ImageButton
+        android:id="@+id/detail_single_tree_otherButton"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/ic_button_background"
+        android:contentDescription="@string/detail_single_tree_other_button_content_description"
+        android:elevation="4dp"
+        android:padding="16dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/detail_single_tree_profileButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/detail_single_tree_image"
+        app:layout_constraintVertical_bias="0.088"
+        tools:srcCompat="@drawable/ic_ahorn_stamm"/>
 
     <ProgressBar
         android:id="@+id/detail_single_tree_circularProgressbar_leaf"
@@ -146,8 +168,10 @@
         android:secondaryProgress="100"
         app:layout_constraintBottom_toBottomOf="@+id/detail_single_tree_leafButton"
         app:layout_constraintEnd_toEndOf="@+id/detail_single_tree_leafButton"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/detail_single_tree_leafButton"
-        app:layout_constraintTop_toTopOf="@+id/detail_single_tree_leafButton" />
+        app:layout_constraintTop_toTopOf="@+id/detail_single_tree_leafButton"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ProgressBar
         android:id="@+id/detail_single_tree_circularProgressbar_fruit"
@@ -163,8 +187,10 @@
         android:secondaryProgress="100"
         app:layout_constraintBottom_toBottomOf="@+id/detail_single_tree_fruitButton"
         app:layout_constraintEnd_toEndOf="@+id/detail_single_tree_fruitButton"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/detail_single_tree_fruitButton"
-        app:layout_constraintTop_toTopOf="@+id/detail_single_tree_fruitButton" />
+        app:layout_constraintTop_toTopOf="@+id/detail_single_tree_fruitButton"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
         android:id="@+id/detail_single_tree_circularProgressbar_trunk"
@@ -182,6 +208,25 @@
         app:layout_constraintEnd_toEndOf="@+id/detail_single_tree_trunkButton"
         app:layout_constraintStart_toStartOf="@+id/detail_single_tree_trunkButton"
         app:layout_constraintTop_toTopOf="@+id/detail_single_tree_trunkButton" />
+
+    <ProgressBar
+        android:id="@+id/detail_single_tree_circularProgressbar_other"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:elevation="4dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/minigame_progressbar_circular"
+        android:secondaryProgress="100"
+        app:layout_constraintBottom_toBottomOf="@+id/detail_single_tree_otherButton"
+        app:layout_constraintEnd_toEndOf="@+id/detail_single_tree_otherButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/detail_single_tree_otherButton"
+        app:layout_constraintTop_toTopOf="@+id/detail_single_tree_otherButton"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
