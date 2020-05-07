@@ -746,34 +746,9 @@
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Fichte -->
-        <!-- old game of Yannik, maybe delete it: -->
-        <!--<minigame_chooseAnswer>
-            <id>1</id>
-            <name>Wie hoch?</name>
-            <description>Wie hoch wird so ein Ahorn?</description>
-            <image></image>
-            <selection>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>8-10 Meter</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>10-15 Meter</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>15-20 Meter</option_content>
-                    <option_right>true</option_right>
-                </option>
-            </selection>
-        </minigame_chooseAnswer>
-        -->
         /---------------------------------------------------------------------------
         /---------------------------------------------------------------------------
-        <!-- Quiz: Look of the bark -->
+        <!-- Quiz: Picture of the bark -->
         <minigame_chooseAnswer>
             <id>30</id>
             <name>Stamm</name>
@@ -943,7 +918,7 @@
             </selection>
         </minigame_chooseAnswer> <!-- Hasel -->
         <minigame_chooseAnswer>
-            <id>37</id>
+            <id>36</id>
             <name>Stamm</name>
             <description>Schau dir die Rinde genau an. Welches Bild passt am besten?</description>
             <image></image>
@@ -971,7 +946,7 @@
             </selection>
         </minigame_chooseAnswer> <!-- Hängebirke -->
         <minigame_chooseAnswer>
-            <id>38</id>
+            <id>37</id>
             <name>Stamm</name>
             <description>Schau dir die Rinde genau an. Welches Bild passt am besten?</description>
             <image></image>
@@ -999,7 +974,7 @@
             </selection>
         </minigame_chooseAnswer> <!-- Eberesche -->
         <minigame_chooseAnswer>
-            <id>39</id>
+            <id>38</id>
             <name>Stamm</name>
             <description>Schau dir die Rinde genau an. Welches Bild passt am besten?</description>
             <image></image>
@@ -1055,7 +1030,7 @@
             </selection>
         </minigame_chooseAnswer> <!-- Fichte -->
         /---------------------------------------------------------------
-        <!-- Quiz:  Questions about the wood (1) -->
+        <!-- Quiz:  Question about the wood (1) -->
         <minigame_chooseAnswer>
             <id>40</id>
             <name>Stamm</name>
@@ -1103,7 +1078,7 @@
             </selection>
         </minigame_chooseAnswer> <!-- Rot-Buche -->
         <minigame_chooseAnswer>
-            <id>40</id>
+            <id>42</id>
             <name>Stamm</name>
             <description>Lindenholz splittert nicht und lässt sich leicht durchbrechen. Für was glaubst du lässt sich Lindenholz am besten nutzen?</description>
             <image></image>
@@ -1126,53 +1101,53 @@
             </selection>
         </minigame_chooseAnswer> <!-- Linde -->
         <minigame_chooseAnswer>
+            <id>43</id>
+            <name>Stamm</name>
+            <description>Welche Aussage zur Rinde der Kiefer ist richtig?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Die Rinde ist außergewöhnlich dunkel.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Sie reflektiert Sonnenlicht (Spiegelrinde).</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Die Rinde lässt sich wie eine Haut vom Baum abziehen.</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Waldkiefer -->
+        <minigame_chooseAnswer>
             <id>44</id>
             <name>Stamm</name>
-            <description>Lindenholz splittert nicht und lässt sich leicht durchbrechen. Für was glaubst du lässt sich Lindenholz am besten nutzen?</description>
+            <description>Für welche Fertigung eignet sich das harte Eichenholz besonders gut?</description>
             <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Für Gartenmöbel</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>B: Zum Schnitzen von Spielzeug-Figuren </option_content>
+                    <option_content>A: Möbel</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Als Dachbalken</option_content>
+                    <option_content>B: Musikinstrumente</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Bogen (Waffe)</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
-        </minigame_chooseAnswer>
+        </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
             <id>45</id>
-            <name>Stamm</name>
-            <description>Lindenholz splittert nicht und lässt sich leicht durchbrechen. Für was glaubst du lässt sich Lindenholz am besten nutzen?</description>
-            <image></image>
-            <selection>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>A: Für Gartenmöbel</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>B: Zum Schnitzen von Spielzeug-Figuren </option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>C: Als Dachbalken</option_content>
-                    <option_right>false</option_right>
-                </option>
-            </selection>
-        </minigame_chooseAnswer>
-        <minigame_chooseAnswer>
-            <id>46</id>
             <name>Stamm</name>
             <description>Was denkst du stimmt?</description>
             <image></image>
@@ -1194,8 +1169,31 @@
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Hasel -->
+        <!--- <minigame_chooseAnswer>
+            <id>45</id>
+            <name>Stamm</name>
+            <description>Welche Eigenschaft besitzt das Holz der Hasel?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Es ist äußerst biegsam und elastisch.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Es ist witterungsbeständig und resistent.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Es ist besonders hart und schwer.</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> -->
         <minigame_chooseAnswer>
-            <id>47</id>
+            <id>46</id>
             <name>Stamm</name>
             <description>Birkenholz findet sich an vielen Besen. Was meinst du, wo?</description>
             <image></image>
@@ -1213,53 +1211,99 @@
             </selection>
         </minigame_chooseAnswer> <!-- Hängebirke -->
         <minigame_chooseAnswer>
+            <id>47</id>
+            <name>Stamm</name>
+            <description>Was kann man aus dem Holz der Eberesche machen?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Wagenräder</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Essstäbchen</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Pfeifenköpfe</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Eberesche -->
+        <minigame_chooseAnswer>
             <id>48</id>
             <name>Stamm</name>
-            <description>Lindenholz splittert nicht und lässt sich leicht durchbrechen. Für was glaubst du lässt sich Lindenholz am besten nutzen?</description>
+            <description>Im Wald werden kleine Weiß-Tannen besonders gern von...</description>
             <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Für Gartenmöbel</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>B: Zum Schnitzen von Spielzeug-Figuren </option_content>
+                    <option_content>A: Wildtieren angefressen.</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Als Dachbalken</option_content>
+                    <option_content>B: Füchsen zum Markieren ihres Reviers genutzt.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Spechten als Brutbaum verwendet.</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
-        </minigame_chooseAnswer>
+        </minigame_chooseAnswer> <!-- Tanne -->
         <minigame_chooseAnswer>
             <id>49</id>
-            <name>Stamm</name>
-            <description>Lindenholz splittert nicht und lässt sich leicht durchbrechen. Für was glaubst du lässt sich Lindenholz am besten nutzen?</description>
+            <name>Frucht</name>
+            <description>Die Fichte wird gern in Wälder angepflanzt, weil : </description>
             <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Für Gartenmöbel</option_content>
+                    <option_content>A: sie die Heimat vieler Tiere sind.</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Zum Schnitzen von Spielzeug-Figuren </option_content>
+                    <option_content>B: ihr Anblick schön ist.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: ihre Stämme schnell und gerade wachsen.</option_content>
                     <option_right>true</option_right>
                 </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Fichte -->
+        /---------------------------------------------------------------
+        <!-- Quiz: Question about the wood (2) -->
+        <minigame_chooseAnswer>
+            <id>50</id>
+            <name>Stamm</name>
+            <description>Woraus wird das typische Süßungsmittel Ahornsirup gewonnen?</description>
+            <image></image>
+            <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Als Dachbalken</option_content>
+                    <option_content>A: Süße Früchte</option_content>
                     <option_right>false</option_right>
                 </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Obere Blätter</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Pflanzensaft im Stamm</option_content>
+                    <option_right>true</option_right>
+                </option>
             </selection>
-        </minigame_chooseAnswer>
-        /---------------------------------------------------------------
-        <!-- Quiz: Questions about the wood (2) -->
+        </minigame_chooseAnswer> <!-- Ahorn -->
         <minigame_chooseAnswer>
             <id>51</id>
             <name>Stamm</name>
@@ -1284,7 +1328,99 @@
             </selection>
         </minigame_chooseAnswer> <!-- Rot-Buche -->
         <minigame_chooseAnswer>
-            <id>57</id>
+            <id>52</id>
+            <name>Stamm</name>
+            <description>In die Krone eines Lindenbaumes haben die Menschen früher...</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Tanzflächen gebaut.</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: ein Karussell gezimmert.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Stühle und Bänke für gemeinsame Essen gestellt.</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Linde -->
+        <minigame_chooseAnswer>
+            <id>53</id>
+            <name>Stamm</name>
+            <description>Was hilft Kiefern oft dabei an genügend Nährstoffe zu kommen?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Waldbrände</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Bakterien in den Blättern</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Insekten an der Rindenoberfläche</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Waldkiefer -->
+        <minigame_chooseAnswer>
+            <id>54</id>
+            <name>Stamm</name>
+            <description>Welche Käfer leben besonders gerne auf den Zweigen der Eiche?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Marienkäfer</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Hirschkäfer</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Maikäfer</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Eiche -->
+        <minigame_chooseAnswer>
+            <id>55</id>
+            <name>Stamm</name>
+            <description>Wofür kann man die Äste der Hasel verwenden?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Pfeifenköpfe</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Spazierstöcke</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Holzschuhe</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Hasel -->
+        <minigame_chooseAnswer>
+            <id>56</id>
             <name>Stamm</name>
             <description>Birkenholz ist sehr stabil. Welche Aussage stimmt? Vielleicht stimmen ja sogar alle. Was glaubst du?</description>
             <image></image>
@@ -1306,9 +1442,78 @@
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Hängebirke -->
+        <minigame_chooseAnswer>
+            <id>57</id>
+            <name>Stamm</name>
+            <description>Was kann man aus dem Holz der Eberesche machen?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Wagenräder</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Essstäbchen</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Pfeifenköpfe</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Eberesche -->
+        <minigame_chooseAnswer>
+            <id>58</id>
+            <name>Stamm</name>
+            <description>Das klebrige Tannenharz lässt sich verwenden um...</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Fahrradreifen zu flicken.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Kunststoff zu produzieren.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Kaugummis herzustellen.</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Tanne -->
+        <minigame_chooseAnswer>
+            <id>59</id>
+            <name>Frucht</name>
+            <description>Besonders wertvolles Fichtenholz ist:</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: astrein</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: lupenrein</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: besenrein</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Fichte -->
         /---------------------------------------------------------------------------
         /---------------------------------------------------------------------------
-        <!-- Quiz: Look of the fruit -->
+        <!-- Quiz: Picture of the fruit -->
         <minigame_chooseAnswer>
             <id>60</id>
             <name>Frucht</name>
@@ -1590,26 +1795,26 @@
             </selection>
         </minigame_chooseAnswer> <!-- Fichte -->
         /---------------------------------------------------------------
-        <!-- Quiz: Questions about the fruits (1) -->
+        <!-- Quiz: Question about the fruits (1) -->
         <minigame_chooseAnswer>
             <id>70</id>
             <name>Frucht</name>
-            <description>Wirf eine Ahornfrucht in die Luft. Was kannst du beobachten?</description>
+            <description>Wie wird im Volksmund die Frucht des Ahorns auch genannt?</description>
             <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Die Frucht dreht sich ganz schnell um sich selbst.</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>B: Die Frucht gleitet langsam herunter.</option_content>
+                    <option_content>A: Buchecker</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Die Frucht fällt gerade zum Boden.</option_content>
+                    <option_content>B: Nasenzwicker</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Rosskastanie</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -1660,51 +1865,74 @@
         <minigame_chooseAnswer>
             <id>72</id>
             <name>Frucht</name>
-            <description>Wirf eine Ahornfrucht in die Luft. Was kannst du beobachten?</description>
+            <description>Die Lindenfrüchte besitzen alle ein längliches Hochblatt. Welche Aufgabe hat dieses Hochblatt?</description>
             <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Die Frucht dreht sich ganz schnell um sich selbst.</option_content>
+                    <option_content>A: Es sieht schön aus.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Es ist eine Art Flugsegel, damit die Lindenfrucht in “ferne Gebiete” kommt.</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Die Frucht gleitet langsam herunter.</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>C: Die Frucht fällt gerade zum Boden.</option_content>
+                    <option_content>C: Schutz vor Fraßfeinden.</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
-        </minigame_chooseAnswer>
+        </minigame_chooseAnswer> <!-- Linde -->
         <minigame_chooseAnswer>
             <id>73</id>
-            <name>Frucht</name>
-            <description>Wirf eine Ahornfrucht in die Luft. Was kannst du beobachten?</description>
+            <name>Stamm</name>
+            <description>Was ist die Besonderheit bei den weiblichen Kiefern-Zapfen?</description>
             <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Die Frucht dreht sich ganz schnell um sich selbst.</option_content>
+                    <option_content>A: Sie sind größer als die männlichen Zapfen.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Sie beinhalten die Samen.</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Die Frucht gleitet langsam herunter.</option_content>
+                    <option_content>C: Weibliche Kiefern haben keine Zapfen.</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Waldkiefer -->
+        <minigame_chooseAnswer>
+            <id>74</id>
+            <name>Frucht</name>
+            <description>Was kann man aus Eicheln machen?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>Zickzack-Gelee</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Die Frucht fällt gerade zum Boden.</option_content>
+                    <option_content>Huckepack-Tee</option_content>
                     <option_right>false</option_right>
                 </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>Muckefuck-Kaffee</option_content>
+                    <option_right>true</option_right>
+                </option>
             </selection>
-        </minigame_chooseAnswer>
+        </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
-            <id>74</id>
+            <id>75</id>
             <name>Frucht</name>
             <description>Welche Tiere haben die Haselnüsse zum Fressen gerne? Es könnten mehrere Tiere sein!</description>
             <image></image>
@@ -1737,100 +1965,102 @@
             </selection>
         </minigame_chooseAnswer> <!-- Hasel, eventuell Bubble-Auswahl statt Textantworten?-->
         <minigame_chooseAnswer>
-            <id>75</id>
-            <name>Frucht</name>
-            <description>Hatschi! Im Frühling müssen viele Menschen niesen, weil sie allergisch auf Birken-Pollen sind. Kennst du vielleicht jemanden? Wie verbeiten sich die Pollenkörner eigentlich?</description>
-            <image></image>
-            <selection>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>A: Die Pollen werden durch den Wind verbreitet.</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>B: Insekten verteilen die Pollen.</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>C: Die Pollen bleiben am Fell von Tieren hängen.</option_content>
-                    <option_right>false</option_right>
-                </option>
-            </selection>
-        </minigame_chooseAnswer>
-        <minigame_chooseAnswer>
             <id>76</id>
             <name>Frucht</name>
-            <description>Wirf eine Ahornfrucht in die Luft. Was kannst du beobachten?</description>
+            <description>Wie werden die Blüten der Birken bestäubt?</description>
             <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Die Frucht dreht sich ganz schnell um sich selbst.</option_content>
+                    <option_content>A: Sie bestäuben sich selbst.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Bienen übertragen die Pollenkörner.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Die Pollenkörner werden mit dem Wind verteilt.</option_content>
                     <option_right>true</option_right>
                 </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>B: Die Frucht gleitet langsam herunter.</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>C: Die Frucht fällt gerade zum Boden.</option_content>
-                    <option_right>false</option_right>
-                </option>
             </selection>
-        </minigame_chooseAnswer>
+        </minigame_chooseAnswer> <!-- Hängebirke -->
         <minigame_chooseAnswer>
             <id>77</id>
             <name>Frucht</name>
-            <description>Wirf eine Ahornfrucht in die Luft. Was kannst du beobachten?</description>
+            <description>Wie werden die Früchte der Eberesche genannt?</description>
             <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Die Frucht dreht sich ganz schnell um sich selbst.</option_content>
+                    <option_content>A: Eberbeeren</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Vogelbeeren</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Die Frucht gleitet langsam herunter.</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>C: Die Frucht fällt gerade zum Boden.</option_content>
+                    <option_content>C: Johannisbeeren</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
-        </minigame_chooseAnswer>
+        </minigame_chooseAnswer> <!-- Eberesche -->
         <minigame_chooseAnswer>
             <id>78</id>
-            <name>Frucht</name>
-            <description>Wirf eine Ahornfrucht in die Luft. Was kannst du beobachten?</description>
+            <name>Stamm</name>
+            <description>Wie alt muss eine Tanne sein, bevor sie das erste Mal blüht?</description>
             <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Die Frucht dreht sich ganz schnell um sich selbst.</option_content>
+                    <option_content>A: 10-20 Jahre</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: 60-70 Jahre</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Die Frucht gleitet langsam herunter.</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>C: Die Frucht fällt gerade zum Boden.</option_content>
+                    <option_content>C: mehr als 100 Jahre</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
-        </minigame_chooseAnswer>
+        </minigame_chooseAnswer> <!-- Tanne -->
         <minigame_chooseAnswer>
             <id>79</id>
             <name>Frucht</name>
+            <description>Welche Form haben die Blütenstände der Fichte?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: traubenartig</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: zapfenartig</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: glockenartig</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Fichte -->
+        /---------------------------------------------------------------
+        <!-- Quiz: Question about the fruits (2) -->
+        <minigame_chooseAnswer>
+            <id>80</id>
+            <name>Frucht</name>
             <description>Wirf eine Ahornfrucht in die Luft. Was kannst du beobachten?</description>
             <image></image>
             <selection>
@@ -1850,9 +2080,7 @@
                     <option_right>false</option_right>
                 </option>
             </selection>
-        </minigame_chooseAnswer>
-        /---------------------------------------------------------------
-        <!-- Quiz: Questions about the fruits (2) -->
+        </minigame_chooseAnswer> <!-- Ahorn -->
         <minigame_chooseAnswer>
         <id>81</id>
         <name>Frucht</name>
@@ -1877,28 +2105,189 @@
         </selection>
     </minigame_chooseAnswer> <!-- Rot-Buche -->
         <minigame_chooseAnswer>
-            <id>84</id>
+            <id>82</id>
             <name>Frucht</name>
-            <description>Aus den Nüssen der Hasel kann ein neuer Strauch wachsen. Wie werden sie verteilt?</description>
+            <description>Welche Wirkung hat Tee aus Lindenblüten?</description>
             <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Eichhörnchen vergraben die Nüsse im Boden und vergessen sie dann.</option_content>
+                    <option_content>A: Heilende Wirkung bei Knochenbrüchen.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Gut gegen Erkältung und Halsschmerzen.</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Der Wind verteilt die Nüsse im Wald.</option_content>
+                    <option_content>C: Hilft bei Durchfall und Übelkeit.</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Linde -->
+        <minigame_chooseAnswer>
+            <id>83</id>
+            <name>Stamm</name>
+            <description>Was kann ein Kiefernzapfen?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Im Dunkeln leuchten.</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Sie werden alle von Menschen angepflanzt.</option_content>
+                    <option_content>B: Insekten anlocken.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Wetter vorhersagen.</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Waldkiefer -->
+        <minigame_chooseAnswer>
+            <id>84</id>
+            <name>Frucht</name>
+            <description>In welchem Monat blüht die Eiche?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>Im März</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>Im Juli</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>Im Mai</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Eiche -->
+        <minigame_chooseAnswer>
+            <id>85</id>
+            <name>Frucht</name>
+            <description>Wie heißt der männliche Blütenstand der Hasel?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Kätzchen</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Häschen</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Hündchen</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Hasel -->
+        <minigame_chooseAnswer>
+            <id>86</id>
+            <name>Frucht</name>
+            <description>Hatschi! Im Frühling müssen viele Menschen niesen, weil sie allergisch sind auf...</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Birkenblätter.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Birken-Kätzchen.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Birken-Pollen.</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Hängebirke -->
+        <minigame_chooseAnswer>
+            <id>87</id>
+            <name>Frucht</name>
+            <description>Wonach riechen die rund 1cm großen Blüten?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: altem Fisch</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Zitrone</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Hustenbonobons</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Eberesche -->
+        <minigame_chooseAnswer>
+            <id>88</id>
+            <name>Stamm</name>
+            <description>Wenn man im Wald einen Zapfen auf dem Boden findet, ist es...</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: immer ein Fichtenzapfen.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: immer ein Tannenzapfen.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: nie ein Tannenzapfen.</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Tanne -->
+        <minigame_chooseAnswer>
+            <id>89</id>
+            <name>Frucht</name>
+            <description>In welche Richtung zeigen die ausgewachsenen Zapfen der Fichte vom Ast aus?</description>
+            <image></image>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Sie sitzen oben auf dem Ast.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Sie stehen seitlich ab.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Sie hängen herab.</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Fichte -->
         /---------------------------------------------------------------------------
         /---------------------------------------------------------------------------
         <!-- Superpower -->
