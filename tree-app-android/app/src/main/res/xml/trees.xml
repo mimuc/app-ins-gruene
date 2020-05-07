@@ -16,7 +16,7 @@
             <imageTrunk>ic_ahorn_stamm</imageTrunk>
             <imageOther>ic_ahorn_stamm</imageOther>
         </tree>
-       <!--- <tree>
+        <tree>
             <id>1</id>
             <name>Rot-Buche</name>
             <profileId>1</profileId>
@@ -24,10 +24,12 @@
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
+            <otherGames>190,190,200</otherGames>
             <imageTree>ic_rotbuche_baum</imageTree>
             <imageLeaf>ic_rotbuche_blatt</imageLeaf>
             <imageFruit>ic_rotbuche_frucht</imageFruit>
             <imageTrunk>ic_rotbuche_stamm</imageTrunk>
+            <imageOther>ic_ahorn_stamm</imageOther>
         </tree>
         <tree>
             <id>2</id>
@@ -37,10 +39,12 @@
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
+            <otherGames>190,190,200</otherGames>
             <imageTree>ic_linde_baum</imageTree>
             <imageLeaf>ic_linde_blatt</imageLeaf>
             <imageFruit>ic_linde_frucht</imageFruit>
             <imageTrunk>ic_linde_stamm</imageTrunk>
+            <imageOther>ic_ahorn_stamm</imageOther>
         </tree>
         <tree>
             <id>3</id>
@@ -50,10 +54,12 @@
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
+            <otherGames>190,190,200</otherGames>
             <imageTree>ic_waldkiefer_baum</imageTree>
             <imageLeaf>ic_waldkiefer_blatt</imageLeaf>
             <imageFruit>ic_waldkiefer_frucht</imageFruit>
             <imageTrunk>ic_waldkiefer_stamm</imageTrunk>
+            <imageOther>ic_ahorn_stamm</imageOther>
         </tree>
         <tree>
             <id>4</id>
@@ -63,10 +69,12 @@
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
+            <otherGames>190,190,200</otherGames>
             <imageTree>ic_eiche_baum</imageTree>
             <imageLeaf>ic_eiche_blatt</imageLeaf>
             <imageFruit>ic_eiche_frucht</imageFruit>
             <imageTrunk>ic_eiche_stamm</imageTrunk>
+            <imageOther>ic_ahorn_stamm</imageOther>
         </tree>
         <tree>
             <id>5</id>
@@ -76,23 +84,27 @@
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
+            <otherGames>190,190,200</otherGames>
             <imageTree>ic_hasel_baum</imageTree>
             <imageLeaf>ic_hasel_blatt</imageLeaf>
             <imageFruit>ic_hasel_frucht</imageFruit>
             <imageTrunk>ic_hasel_stamm</imageTrunk>
+            <imageOther>ic_ahorn_stamm</imageOther>
         </tree>
         <tree>
             <id>6</id>
             <name>Hängebirke</name>
             <profileId>6</profileId>
-            <qrCode>Hängebirke</qrCode>
+            <qrCode>Haengebirke</qrCode>
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
-            <imageTree>ic_hängebirke_baum</imageTree>
-            <imageLeaf>ic_hängebirke_blatt</imageLeaf>
-            <imageFruit>ic_hängebirke_frucht</imageFruit>
-            <imageTrunk>ic_hängebirke_stamm</imageTrunk>
+            <otherGames>190,190,200</otherGames>
+            <imageTree>ic_haengebirke_baum</imageTree>
+            <imageLeaf>ic_haengebirke_blatt</imageLeaf>
+            <imageFruit>ic_haengebirke_frucht</imageFruit>
+            <imageTrunk>ic_haengebirke_stamm</imageTrunk>
+            <imageOther>ic_ahorn_stamm</imageOther>
         </tree>
         <tree>
             <id>7</id>
@@ -102,10 +114,12 @@
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
+            <otherGames>190,190,200</otherGames>
             <imageTree>ic_eberesche_baum</imageTree>
             <imageLeaf>ic_eberesche_blatt</imageLeaf>
             <imageFruit>ic_eberesche_frucht</imageFruit>
             <imageTrunk>ic_eberesche_stamm</imageTrunk>
+            <imageOther>ic_ahorn_stamm</imageOther>
         </tree>
         <tree>
             <id>8</id>
@@ -115,10 +129,12 @@
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
+            <otherGames>190,190,200</otherGames>
             <imageTree>ic_tanne_baum</imageTree>
             <imageLeaf>ic_tanne_blatt</imageLeaf>
             <imageFruit>ic_tanne_frucht</imageFruit>
             <imageTrunk>ic_tanne_stamm</imageTrunk>
+            <imageOther>ic_ahorn_stamm</imageOther>
         </tree>
         <tree>
             <id>9</id>
@@ -128,10 +144,12 @@
             <leafGames>100,101,200</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
+            <otherGames>190,190,200</otherGames>
             <imageTree>ic_fichte_baum</imageTree>
             <imageLeaf>ic_fichte_blatt</imageLeaf>
             <imageFruit>ic_fichte_frucht</imageFruit>
             <imageTrunk>ic_fichte_stamm</imageTrunk>
-        </tree>-->
+            <imageOther>ic_ahorn_stamm</imageOther>
+        </tree>
     </trees>
 </resources>
