@@ -10,22 +10,22 @@
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_content>ic_gefingert</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_content>ic_gelappt</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_content>ic_gefiedert</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rundlich</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -292,22 +292,22 @@
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_content>ic_ganzrandig</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
+                    <option_content>ic_gekerbt</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_content>ic_gesaegt</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_content>ic_gebuchtet</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
