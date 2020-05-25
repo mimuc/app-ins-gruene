@@ -19,7 +19,7 @@
     <string name="wanted_poster_details_title_text">Steckbrief</string>
     <string name="tree_selection_fragment_button_text">DETAILS ANZEIGEN</string>
     <string name="overview_fragment_headline">Deine Waldübersicht</string>
-    <string name="overview_fragment_description_text">Scan den QR Code des Baums, den du zu deinem Wald hinzufügen möchtest!</string>
+    <string name="overview_fragment_description_text">Klicke auf einen Baum um mehr über ihn zu erfahren!</string>
     <string name="overview_single_tree_placeholder_text">overview_single_tree_text</string>
     <string name="overview_single_tree_state_image_content_description">overview_single_tree_state_image</string>
     <string name="overview_single_tree_image_content_description">overview_single_tree_image</string>
@@ -37,7 +37,7 @@
     <string name="game_input_string_send_button_placeholder_text">Senden</string>
     <string name="game_take_picture_send_button_placeholder_text">Senden</string>
     <string name="game_selection_headline_placholder">Wähle ein Spiel aus</string>
-    <string name="game_selection_description_placeholder">Hier findest du Minigames und Quizzes zu Rinde und Holz der Waldkiefer. Starte jetzt mit einem Spiel!</string>
+    <string name="game_selection_description_placeholder">Hier findest du Minigames zu Rinde und Holz der Waldkiefer. Starte jetzt mit einem Spiel!</string>
     <string name="detail_single_tree_profile_button_text">Steckbrief</string>
     <string name="detail_single_tree_leaf_button_content_description">leaf games button</string>
     <string name="detail_single_tree_fruit_button_content_description">fruit games button</string>

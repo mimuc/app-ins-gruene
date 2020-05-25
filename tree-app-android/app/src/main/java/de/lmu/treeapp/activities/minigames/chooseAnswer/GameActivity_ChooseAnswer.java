@@ -1,15 +1,19 @@
 package de.lmu.treeapp.activities.minigames.chooseAnswer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.activities.GameSelectionActivity;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
+import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_ChooseAnswer;
 import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
 import de.lmu.treeapp.contentClasses.trees.Tree;
@@ -26,7 +30,6 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         setupOptionRecyclerView();
     }
 
-
     private void setupOptionRecyclerView(){
         optionsRecyclerView = findViewById(R.id.game_chooseAnswer_recyclerView);
         optionsRecyclerView.setHasFixedSize(true);
@@ -37,7 +40,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         optionsRecyclerView.setAdapter(recyclerViewAdapter);
     }
 
-    @Override
+    /* @Override
     public void optionClicked(AnswerOption option){
         if (option.right){
             onSuccess();
@@ -45,5 +48,25 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         else {
             onFail();
         }
+    }*/
+
+
+    @Override
+    public void optionClicked(AnswerOption option){
+            if (option.right) {
+                Toast.makeText(getApplicationContext(), "Richtig", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), GameActivity_ChooseAnswer.class);
+                intent.putExtra("TreeId", this.treeId);
+                intent.putExtra("Category", this.parentCategory);
+                intent.putExtra("GameId", getNext());
+                startActivity(intent);
+            } else {
+                Toast.makeText(getApplicationContext(), "Falsch", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, GameActivity_ChooseAnswer.class);
+                intent.putExtra("TreeId", this.treeId);
+                intent.putExtra("Category", this.parentCategory);
+                intent.putExtra("GameId", getNext());
+                startActivity(intent);
+            }
     }
 }

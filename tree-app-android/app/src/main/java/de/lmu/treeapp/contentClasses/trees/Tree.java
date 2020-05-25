@@ -22,12 +22,16 @@ public class Tree {
     public String imageTrunk = "";
     public String imageOther = "";
 
+
+
     public TreeModel changeable;
-
-
 
     public enum GameCategories {
         leaf, fruit, trunk, other, total, none
+    }
+
+    public enum QuestionType {
+        Blattform, Blattrand, Blattstellung, none
     }
 
 

@@ -6,7 +6,7 @@
             <name>Ahorn</name>
             <profileId>0</profileId>
             <qrCode>Ahorn</qrCode>
-            <leafGames>100,110, 120, 101,201</leafGames>
+            <leafGames>100, 110, 120, 500,600</leafGames>
             <fruitGames>100,101,200, 501, 601</fruitGames>
             <trunkGames>100,101,200</trunkGames>
             <otherGames>190,190,200</otherGames>
@@ -21,7 +21,7 @@
             <name>Rot-Buche</name>
             <profileId>1</profileId>
             <qrCode>Rot-Buche</qrCode>
-            <leafGames>100,101,200</leafGames>
+            <leafGames>101,200,600</leafGames>
             <fruitGames>100,101,200</fruitGames>
             <trunkGames>100,101,200</trunkGames>
             <otherGames>190,190,200</otherGames>

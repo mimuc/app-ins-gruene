@@ -12,6 +12,7 @@ import de.lmu.treeapp.activities.GameSelectionActivity;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.contentData.cms.ContentManager;
 
 public class GameActivity_Base extends AppCompatActivity {
 
@@ -57,5 +58,9 @@ public class GameActivity_Base extends AppCompatActivity {
 
     protected void onFail(){
         Toast.makeText(getApplicationContext(), "Falsch", Toast.LENGTH_LONG).show();
+    }
+
+   protected int getNext(){
+        return DataManager.getInstance(getApplicationContext()).GetNextGame(gameContent.uid).uid;
     }
 }

@@ -24,6 +24,7 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
     private Context context;
     private Tree tree;
     private Tree.GameCategories category;
+
     public interface OptionClickInterface
     {
         void optionClicked(AnswerOption option);

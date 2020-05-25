@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_new"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning,LockedOrientationActivity">
         <activity android:name=".activities.minigames.chooseAnswer.GameActivity_ChooseAnswer" android:parentActivityName="activities.GameSelectionActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="activities.MainActivity" />
         </activity>
