@@ -105,6 +105,17 @@ public class DataManager {
         }
         return null;
     }
+
+    public Minigame_Base GetNextGame(int id) {
+        if (miniGames == null) return null;
+        for (int i=0; i<miniGames.size(); i++){
+            if (miniGames.get(i).uid == id){
+                return miniGames.get(i+1);
+            }
+        }
+        return null;
+    }
+
     public Tree GetTreeByQR(String _qrCode){
         _qrCode = _qrCode.trim();
         if (trees == null) return null;

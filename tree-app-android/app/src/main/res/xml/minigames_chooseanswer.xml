@@ -4,9 +4,8 @@
         <!-- Quiz: Shape of the leaves -->
         <minigame_chooseAnswer>
             <id>0</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Blätter des Baumes genau an. Welche Form passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -21,7 +20,7 @@
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_gefiedert</option_content>
-                    <option_right>true</option_right>
+                    <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
@@ -29,7 +28,7 @@
                     <option_right>false</option_right>
                 </option>
             </selection>
-        </minigame_chooseAnswer> <!-- Ahorn -->
+        </minigame_chooseAnswer>  <!-- Ahorn -->
         <minigame_chooseAnswer>
             <id>1</id>
             <name>Blattform</name>
@@ -567,22 +566,22 @@
         /---------------------------------------------------------------
         <!-- Quiz: Leaves position -->
         <minigame_chooseAnswer>
-            <id>20</id>
-            <name>Position</name>
-            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
-            <image></image>
-            <selection>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_wechselstaendig</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_gegenstaendig</option_content>
-                    <option_right>true</option_right>
-                </option>
-            </selection>
+        <id>20</id>
+        <name>Position</name>
+        <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
+        <image></image>
+        <selection>
+            <option>
+                <option_type>Image</option_type>
+                <option_content>ic_wechselstaendig</option_content>
+                <option_right>false</option_right>
+            </option>
+            <option>
+                <option_type>Image</option_type>
+                <option_content>ic_gegenstaendig</option_content>
+                <option_right>true</option_right>
+            </option>
+        </selection>
         </minigame_chooseAnswer> <!-- Ahorn -->
         <minigame_chooseAnswer>
             <id>21</id>

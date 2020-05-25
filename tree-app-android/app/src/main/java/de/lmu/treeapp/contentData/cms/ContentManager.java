@@ -18,6 +18,7 @@ public class ContentManager {
     private List<TreeProfile> treeProfiles;
     private List<Minigame_Base> minigames;
 
+
     public static ContentManager getInstance(Context _context) {
         synchronized (sLock) {
             if (INSTANCE == null) {
@@ -52,5 +53,6 @@ public class ContentManager {
         return treeProfiles;
     }
     public List<Minigame_Base> getMinigames() {return minigames;}
+
 
 }
