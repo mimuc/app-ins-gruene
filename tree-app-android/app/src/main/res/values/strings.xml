@@ -31,6 +31,7 @@
     <string name="card_wanted_poster_collapse_arrow">Card wanted poster collapse arrow</string>
     <string name="card_wanted_poster_description_text_placeholder">69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang</string>
     <string name="game_choose_answer_option_button_placeholder_text">Button</string>
+    <string name="game_choose_answer_popup_text">Richtig :-)</string>
     <string name="game_title_placeholder">TextView</string>
     <string name="game_description_placeholder">TextView</string>
     <string name="game_input_string_input_text_field_hint_text">Antwort</string>
