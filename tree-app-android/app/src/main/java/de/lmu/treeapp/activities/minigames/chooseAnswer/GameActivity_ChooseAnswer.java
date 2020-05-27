@@ -3,6 +3,11 @@ package de.lmu.treeapp.activities.minigames.chooseAnswer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,15 +56,16 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
     }*/
 
 
-    @Override
+     @Override
     public void optionClicked(AnswerOption option){
             if (option.right) {
-                Toast.makeText(getApplicationContext(), "Richtig", Toast.LENGTH_LONG).show();
+                /*Toast.makeText(getApplicationContext(), "Richtig", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), GameActivity_ChooseAnswer.class);
                 intent.putExtra("TreeId", this.treeId);
                 intent.putExtra("Category", this.parentCategory);
                 intent.putExtra("GameId", getNext());
-                startActivity(intent);
+                startActivity(intent);*/
+                showNextGame ();
             } else {
                 Toast.makeText(getApplicationContext(), "Falsch", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, GameActivity_ChooseAnswer.class);
@@ -69,4 +75,29 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
                 startActivity(intent);
             }
     }
+
+   /* @Override
+    public void optionClicked(AnswerOption option) {
+        if (option.right) {
+            Toast.makeText(getApplicationContext(), "Richtig", Toast.LENGTH_LONG).show();
+            //showPopup
+            PopUp popUpObject = new PopUp();
+            popUpObject.showPopupWindow(optionsRecyclerView);
+        } else{
+                Toast.makeText(getApplicationContext(), "Falsch", Toast.LENGTH_LONG).show();
+                //showPopup
+                PopUp popUpObject = new PopUp();
+                popUpObject.showPopupWindow(optionsRecyclerView);
+            }
+        }*/
+
+        public void showNextGame () {
+            Intent intent = new Intent(getApplicationContext(), GameActivity_ChooseAnswer.class);
+            intent.putExtra("TreeId", this.treeId);
+            intent.putExtra("Category", this.parentCategory);
+            intent.putExtra("GameId", getNext());
+            startActivity(intent);
+        }
+
+
 }

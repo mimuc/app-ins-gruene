@@ -110,7 +110,7 @@ public class DataManager {
         if (miniGames == null) return null;
         for (int i=0; i<miniGames.size(); i++){
             if (miniGames.get(i).uid == id){
-                return miniGames.get(i+1);
+                return miniGames.get(i+10);
             }
         }
         return null;
