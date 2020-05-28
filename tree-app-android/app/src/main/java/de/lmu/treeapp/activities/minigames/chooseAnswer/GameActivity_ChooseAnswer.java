@@ -65,14 +65,11 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
                 intent.putExtra("Category", this.parentCategory);
                 intent.putExtra("GameId", getNext());
                 startActivity(intent);*/
-                showNextGame ();
+                showNextGame();
             } else {
                 Toast.makeText(getApplicationContext(), "Falsch", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(this, GameActivity_ChooseAnswer.class);
-                intent.putExtra("TreeId", this.treeId);
-                intent.putExtra("Category", this.parentCategory);
-                intent.putExtra("GameId", getNext());
-                startActivity(intent);
+                PopUp popUpObject = new PopUp();
+                popUpObject.showPopupWindow(optionsRecyclerView);
             }
     }
 
@@ -91,7 +88,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
             }
         }*/
 
-        public void showNextGame () {
+        public void showNextGame() {
             Intent intent = new Intent(getApplicationContext(), GameActivity_ChooseAnswer.class);
             intent.putExtra("TreeId", this.treeId);
             intent.putExtra("Category", this.parentCategory);

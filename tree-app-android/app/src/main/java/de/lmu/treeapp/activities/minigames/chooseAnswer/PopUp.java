@@ -43,8 +43,8 @@ public class PopUp extends GameActivity_ChooseAnswer {
             public void onClick(View v) {
                 //Go to the next view
                 Toast.makeText(view.getContext(), "Wow, popup action button", Toast.LENGTH_SHORT).show();
-                popupWindow.dismiss();
                 showNextGame();
+                popupWindow.dismiss();
             }
         });
 
