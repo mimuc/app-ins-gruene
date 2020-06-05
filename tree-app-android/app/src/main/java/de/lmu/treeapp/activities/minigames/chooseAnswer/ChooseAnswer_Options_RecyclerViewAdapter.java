@@ -6,13 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_ChooseAnswer;
 import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
 import de.lmu.treeapp.contentClasses.trees.Tree;
@@ -69,10 +69,10 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
         return new ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder(v);
     }
 
+    public static int count=1;
     @Override
     public void onBindViewHolder(ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder holder, final int position) {
         final AnswerOption option = options.get(position);
-
         System.out.println(holder.button);
 
         if (option.type == AnswerOption.OptionTypes.text){
@@ -85,19 +85,16 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
         }
 
         holder.button.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View arg0) {
+                count=count+1;
                 mOnClickListener.optionClicked(option);
             }
-
         });
-
     }
 
     @Override
     public int getItemCount() {
         return options.size();
     }
-
 }

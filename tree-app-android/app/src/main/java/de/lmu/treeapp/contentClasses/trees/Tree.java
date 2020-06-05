@@ -30,10 +30,6 @@ public class Tree {
         leaf, fruit, trunk, other, total, none
     }
 
-    public enum QuestionType {
-        Blattform, Blattrand, Blattstellung, none
-    }
-
 
     public void InitFromCMS(int _uid, String _name, int _profileId, List<Integer>  _leafGamesIds, List<Integer>  _fruitGamesIds, List<Integer>  _trunkGamesIds, List<Integer> _otherGamesIds){
         this.uid = _uid;

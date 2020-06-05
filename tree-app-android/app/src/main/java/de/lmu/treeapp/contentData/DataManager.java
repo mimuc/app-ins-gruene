@@ -106,6 +106,7 @@ public class DataManager {
         return null;
     }
 
+    // Get next quiz game which is always the current id + 10 (see minigames_chooseanswer.xml)
     public Minigame_Base GetNextGame(int id) {
         if (miniGames == null) return null;
         for (int i=0; i<miniGames.size(); i++){
@@ -177,6 +178,33 @@ public class DataManager {
             }
         }
     }
+
+    public boolean IsGameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree){
+        final TreeModel model = _tree.changeable;
+        boolean gameCompleted=false;
+        switch (_category){
+            case leaf:
+                if (model.leafGamesCompleted.contains(_gameId))
+                    gameCompleted=true;
+                break;
+            case fruit:
+                if (model.fruitGamesCompleted.contains(_gameId))
+                    gameCompleted=true;
+                break;
+            case trunk:
+                if (!model.trunkGamesCompleted.contains(_gameId))
+                    gameCompleted=true;
+                break;
+            case other:
+                if (!model.otherGamesCompleted.contains(_gameId))
+                    gameCompleted=true;
+                break;
+            default:
+                break;
+        }
+        return gameCompleted;
+    }
+
     public void GameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree){
         final TreeModel model = _tree.changeable;
         switch (_category){

@@ -1,7 +1,6 @@
 package de.lmu.treeapp.contentClasses.minigames;
 
 import java.util.List;
-
 import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
 
 public class Minigame_ChooseAnswer extends Minigame_Base {

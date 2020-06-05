@@ -30,8 +30,6 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
     List<Integer> games;
     int treeId;
     Tree.GameCategories category;
-    /*Minigame_Base currentGame;
-    int currentID;*/
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView gameName;
@@ -87,8 +85,6 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
                 switch(game.type){
                     case ChooseAnswer:
                         Intent intent = new Intent(context, GameActivity_ChooseAnswer.class);
-                        /* currentGame = game;
-                        currentID = currentGame.getUid(currentGame); */
                         intent.putExtra("TreeId",treeId);
                         intent.putExtra("Category", category);
                         intent.putExtra("GameId",game.uid);
@@ -143,21 +139,4 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
     public int getItemCount() {
         return games.size();
     }
-
-   /* // Return the current game
-    public Minigame_Base getCurrentGame(GameselectionRecyclerViewAdapter.ViewHolder holder, final int position){
-        final Context context = holder.gameName.getContext();
-        final Minigame_Base game = DataManager.getInstance(context).GetMinigame(games.get(position));
-        return game;
-    }
- */
-
-   /*// Return the current game id
-    public int currentGameID(Minigame_Base currentGame){
-        return currentGame.getUid(currentGame);
-    }*/
-
-   /* public int getNextID(int currentID){
-        return currentID+1;
-    }*/
 }

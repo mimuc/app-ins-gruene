@@ -1,7 +1,5 @@
 package de.lmu.treeapp.contentClasses.minigames.components;
 
-import android.graphics.Path;
-
 public class AnswerOption {
 
   public enum OptionTypes {
@@ -12,9 +10,7 @@ public class AnswerOption {
   public String content;
   public Boolean right = false;
 
-  public AnswerOption(){
-
-  }
+  public AnswerOption(){}
   public AnswerOption(OptionTypes _type, String _content, Boolean _right){
     type = _type;
     content = _content;
@@ -37,6 +33,4 @@ public class AnswerOption {
       this.type = OptionTypes.text;
     }
   }
-
-
 }

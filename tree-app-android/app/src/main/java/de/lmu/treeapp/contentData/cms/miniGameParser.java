@@ -19,12 +19,14 @@ import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
 import de.lmu.treeapp.contentClasses.minigames.components.BaumoryCard;
 import de.lmu.treeapp.contentClasses.minigames.components.DragDropItem;
 import de.lmu.treeapp.contentClasses.minigames.components.DragDropZone;
+import de.lmu.treeapp.contentClasses.minigames.components.PopupComponent;
 
 
 public class miniGameParser {
 
     List<Minigame_Base> miniGames;
     private String text;
+
     public miniGameParser() {
         miniGames = new ArrayList<Minigame_Base>();
     }
@@ -37,6 +39,53 @@ public class miniGameParser {
         parse_Baumory(context.getResources().getXml(R.xml.minigames_baumory),600);
         return miniGames;
     }
+
+    // MiniGame_Popup
+    /*private Minigame_ChooseAnswer miniGamePopup;
+    private PopupComponent popupComponent;
+
+    public void parse_Popup(XmlPullParser parser, int prefix) {
+        try {
+            int eventType = parser.getEventType();
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                String tagname = parser.getName();
+                switch (eventType) {
+                    case XmlPullParser.START_TAG:
+                        if (tagname.equalsIgnoreCase("popup")) {
+                            PopupComponent = new PopupComponent();
+                            PopupComponent.type = Minigame_Base.MinigameTypes.InputString;
+                        }
+                        break;
+                    case XmlPullParser.TEXT:
+                        text = parser.getText();
+                        break;
+                    case XmlPullParser.END_TAG:
+                        if (tagname.equalsIgnoreCase("popup")) {
+                            miniGames.add(miniGameInputStringAnswer);
+                        } else if (tagname.equalsIgnoreCase("id")) {
+                            miniGameInputStringAnswer.uid = Integer.parseInt(text) + prefix;
+                        } else if (tagname.equalsIgnoreCase("name")) {
+                            miniGameInputStringAnswer.name = text;
+                        } else if (tagname.equalsIgnoreCase("description")){
+                            miniGameInputStringAnswer.description = text;
+                        } else if (tagname.equalsIgnoreCase("image")){
+                            miniGameInputStringAnswer.image = text;
+                        } else if (tagname.equalsIgnoreCase("rightAnswer")){
+                            miniGameInputStringAnswer.FillRightAnswer(text);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                eventType = parser.next();
+            }
+
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }*/
 
     // MiniGame_ChooseAnswer
     private Minigame_ChooseAnswer miniGameChooseAnswer;
