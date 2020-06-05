@@ -155,8 +155,6 @@ public class GameActivity_TakePicture extends GameActivity_Base {
         return rotate;
     }
 
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode,resultCode,data);
