@@ -46,12 +46,13 @@ public class GameActivity_Base extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp(){
         if(gameContent.type.name().equalsIgnoreCase("ChooseAnswer")) {
+            ChooseAnswer_Options_RecyclerViewAdapter.count=1; //reset: quiz game can be started again from the beginning
             Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
             intent.putExtra("TreeId", treeId);
             intent.putExtra("Category", parentCategory);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-            ChooseAnswer_Options_RecyclerViewAdapter.count=1;
+
         }else{
             finish();
         }
@@ -63,12 +64,13 @@ public class GameActivity_Base extends AppCompatActivity {
     @Override
     public void onBackPressed(){
         if(gameContent.type.name().equalsIgnoreCase("ChooseAnswer")) {
+            ChooseAnswer_Options_RecyclerViewAdapter.count=1; //reset: quiz game can be started again from the beginning
             Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
             intent.putExtra("TreeId", treeId);
             intent.putExtra("Category", parentCategory);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-            ChooseAnswer_Options_RecyclerViewAdapter.count=1;
+
         }else {
             super.onBackPressed();
         }
@@ -92,11 +94,7 @@ public class GameActivity_Base extends AppCompatActivity {
         intent.putExtra("TreeId", treeId);
         intent.putExtra("Category", parentCategory);
         startActivity(intent);
-        //Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
-        //intent.putExtra("TreeId", treeId);
-        //intent.putExtra("Category", parentCategory);
-       // intent.putExtra("GameId", getNextGameID());
-       // startActivity(intent);
+        ChooseAnswer_Options_RecyclerViewAdapter.count=1; //reset: quiz game can be started again from the beginning
     }
 
     protected void onFail(){
