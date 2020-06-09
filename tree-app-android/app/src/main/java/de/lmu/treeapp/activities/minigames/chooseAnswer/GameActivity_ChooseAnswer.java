@@ -17,7 +17,7 @@ import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_ChooseAnswer;
 import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
-import de.lmu.treeapp.contentData.DataManager;
+
 
 public class GameActivity_ChooseAnswer extends GameActivity_Base implements ChooseAnswer_Options_RecyclerViewAdapter.OptionClickInterface {
 
@@ -85,11 +85,11 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         //Set the location of the window on the screen
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
 
-        //Initialize the elements of our window (Text and Button)
+        //Initialize the elements of the popup window (text and button)
         TextView popUpText = popupView.findViewById(R.id.text_result);
         Button forwardButton = popupView.findViewById(R.id.forward_next_game);
 
-        // Set the text of the popup based on the given answer
+        //Set the text of the popup based on the given answer
         if(option.right){
             if(count!=3){
                 popUpText.setText("Super!");
@@ -108,14 +108,13 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
             }
         }
 
-        //Go to the next question of the quiz game. If all 3 questions are done, go back to the game selection activity.
+        //Go to the next question of the quiz game. If all 3 questions are done, go back to the game selection overview.
         forwardButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if(count>=3){
                     Toast.makeText(v.getContext(), "Fertig!!!", Toast.LENGTH_SHORT).show();
                     onQuizSuccess();
                 } else {
-                   // onQuizSuccess();
                     Toast.makeText(v.getContext(), "Weiter wurde geklickt", Toast.LENGTH_SHORT).show();
                     Intent nextQuestion = new Intent(getApplicationContext(), GameActivity_ChooseAnswer.class);
                     nextQuestion.putExtra("TreeId", treeId);
