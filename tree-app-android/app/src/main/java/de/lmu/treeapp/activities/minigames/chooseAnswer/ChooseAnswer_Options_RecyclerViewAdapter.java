@@ -81,6 +81,8 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
         else if (option.type == AnswerOption.OptionTypes.image){
             int imageId = context.getResources().getIdentifier(option.content, "drawable", context.getPackageName());
             holder.button.setBackgroundResource(imageId);
+           // holder.button.getLayoutParams().width =
+            //holder.button.getLayoutParams().height = 125;
             holder.button.setText("");
         }
 
