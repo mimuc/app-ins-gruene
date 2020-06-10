@@ -89,8 +89,12 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                count=count+1;
-                mOnClickListener.optionClicked(option);
+                if(option.right){
+                    count=count+1;
+                    mOnClickListener.optionClicked(option);
+                }else{
+                    mOnClickListener.optionClicked(option);
+                }
             }
         });
     }
