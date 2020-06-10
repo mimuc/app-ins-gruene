@@ -1,6 +1,10 @@
 package de.lmu.treeapp.activities.minigames.chooseAnswer;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -64,64 +68,66 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         showPopupWindow(option, optionsRecyclerView);
     }
 
-    /*protected void showNextGame(){
-        Intent nextQuestion = new Intent(getApplicationContext(), GameActivity_ChooseAnswer.class);
-        nextQuestion.putExtra("TreeId", treeId);
-        nextQuestion.putExtra("Category", parentCategory);
-        nextQuestion.putExtra("GameId", getNextGameID());
-        startActivity(nextQuestion);
-    }*/
-
     // Create a PopupWindow after an option was clicked: Gives feedback to the user's answer
     protected void showPopupWindow(AnswerOption option, View view) {
 
         //Create a View object through inflater
-        LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(view.getContext().LAYOUT_INFLATER_SERVICE);
-        final View popupView = inflater.inflate(R.layout.activity_popup, null);
+        //LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(view.getContext().LAYOUT_INFLATER_SERVICE);
+        //final View popupView = inflater.inflate(R.layout.activity_popup, null);
 
         //Create a window with our parameters
-        final PopupWindow popupWindow = new PopupWindow(popupView, view.getWidth(), view.getHeight(), false);
+        //final PopupWindow popupWindow = new PopupWindow(popupView, view.getWidth(), view.getHeight(), false);
+        final Dialog popupWindow = new Dialog(this);
+        popupWindow.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         //Set the location of the window on the screen
-        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+        //popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
+        popupWindow.setContentView(findViewById(R.id.cardview_popup));
 
         //Initialize the elements of the popup window (text and button)
-        TextView popUpText = popupView.findViewById(R.id.text_result);
-        Button forwardButton = popupView.findViewById(R.id.forward_next_game);
+        //TextView popUpText = popupView.findViewById(R.id.text_result);
+       // final Button forwardButton = popupView.findViewById(R.id.forward_next_game);
+        TextView popUpText = findViewById(R.id.text_result);
+        final Button forwardButton = findViewById(R.id.forward_next_game);
 
-        //Set the text of the popup based on the given answer
-        if(option.right){
-            if(count!=3){
+        //Set the text of the popup based on answer and process within the quiz
+        if (option.right) {
+            if (count != 3) {
                 popUpText.setText("Super!");
                 forwardButton.setText("Weiter");
             } else {
                 popUpText.setText("Super!");
-                forwardButton.setText("Fertig!");
+                forwardButton.setText("Fertig");
             }
-        }else {
-            if(count!=3){
+        } else {
+            if (count != 3) {
                 popUpText.setText("Leider Falsch");
-                forwardButton.setText("Weiter");
+                forwardButton.setText("Nochmal");
             } else {
                 popUpText.setText("Leider falsch");
                 forwardButton.setText("Fertig!");
             }
         }
 
-        //Go to the next question of the quiz game. If all 3 questions are done, go back to the game selection overview.
+        //Go to the next question of the quiz game or repeat the current one. By finishing all questions go back to the game selection overview.
         forwardButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(count>=3){
-                    Toast.makeText(v.getContext(), "Fertig!!!", Toast.LENGTH_SHORT).show();
-                    onQuizSuccess();
-                } else {
-                    Toast.makeText(v.getContext(), "Weiter wurde geklickt", Toast.LENGTH_SHORT).show();
+                if(forwardButton.getText()=="Nochmal"){
+                    popupWindow.dismiss();
+                }
+                else if(forwardButton.getText()=="Weiter"){
                     Intent nextQuestion = new Intent(getApplicationContext(), GameActivity_ChooseAnswer.class);
                     nextQuestion.putExtra("TreeId", treeId);
                     nextQuestion.putExtra("Category", parentCategory);
                     nextQuestion.putExtra("GameId", getNextGameID());
                     popupWindow.dismiss();
+                    finish();
                     startActivity(nextQuestion);
+                    overridePendingTransition(0,0);
+                    nextQuestion.addFlags(nextQuestion.FLAG_ACTIVITY_NO_ANIMATION);
+                }
+                else {
+                    onQuizSuccess();
                 }
             }
         });

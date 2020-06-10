@@ -47,21 +47,19 @@ public class GameActivity_Base extends AppCompatActivity {
     public boolean onSupportNavigateUp(){
         if(gameContent.type.name().equalsIgnoreCase("ChooseAnswer")) {
             ChooseAnswer_Options_RecyclerViewAdapter.count=1; //reset: quiz game can be started again from the beginning
-            Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
-            intent.putExtra("TreeId", treeId);
-            intent.putExtra("Category", parentCategory);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-
-        }else{
-            finish();
+            //Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
+            //intent.putExtra("TreeId", treeId);
+            //intent.putExtra("Category", parentCategory);
+            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            //startActivity(intent);
         }
+        finish();
         return true;
     }
 
     // In case of the android hardware back button is pressed,
     // the handling within a quiz game should be the same as navigate up using the action bar
-    @Override
+    /*@Override
     public void onBackPressed(){
         if(gameContent.type.name().equalsIgnoreCase("ChooseAnswer")) {
             ChooseAnswer_Options_RecyclerViewAdapter.count=1; //reset: quiz game can be started again from the beginning
@@ -74,7 +72,7 @@ public class GameActivity_Base extends AppCompatActivity {
         }else {
             super.onBackPressed();
         }
-    }
+    }*/
 
     // Save the game process and go back to the game selection activity
     protected void onSuccess(){
@@ -93,6 +91,7 @@ public class GameActivity_Base extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
         intent.putExtra("TreeId", treeId);
         intent.putExtra("Category", parentCategory);
+        finish();
         startActivity(intent);
         ChooseAnswer_Options_RecyclerViewAdapter.count=1; //reset: quiz game can be started again from the beginning
     }
