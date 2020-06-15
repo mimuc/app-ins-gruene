@@ -32,7 +32,7 @@
         <minigame_chooseAnswer>
             <id>1</id>
             <name>Blattform</name>
-            <description>Schau dir die Blätter der Rot-Buche genau an. Welche Form passt am besten?</description>
+            <description>Schau dir die Blätter der Rotbuche genau an. Welche Form passt am besten?</description>
             <image></image>
             <selection>
                 <option>
@@ -286,7 +286,7 @@
         <minigame_chooseAnswer>
             <id>10</id>
             <name>Blattrand</name>
-            <description>Welcher Blattrand passt am besten?</description>
+            <description>Welcher Blattrand passt am besten zum Blatt des Ahorns?</description>
             <image></image>
             <selection>
                 <option>
@@ -568,8 +568,7 @@
         <minigame_chooseAnswer>
         <id>20</id>
         <name>Blattstellung</name>
-        <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
-        <image></image>
+        <description>Wie sind die Blätter an den Zweigen des Ahorns angeordnet?</description>
         <selection>
             <option>
                 <option_type>Image</option_type>
@@ -586,143 +585,135 @@
         <minigame_chooseAnswer>
             <id>21</id>
             <name>Blattstellung</name>
-            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
-            <image></image>
+            <description>Wie sind die Blätter an den Zweigen der Rotbuche angeordnet?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_wechselstaendig</option_content>
-                    <option_right>false</option_right>
+                    <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_gegenstaendig</option_content>
-                    <option_right>true</option_right>
+                    <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Rot-Buche -->
         <minigame_chooseAnswer>
             <id>22</id>
             <name>Blattstellung</name>
-            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
-            <image></image>
+            <description>Wie sind die Blätter an den Zweigen der Linde angeordnet?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_wechselstaendig</option_content>
-                    <option_right>false</option_right>
+                    <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_gegenstaendig</option_content>
-                    <option_right>true</option_right>
+                    <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Linde -->
         <minigame_chooseAnswer>
             <id>23</id>
             <name>Blattstellung</name>
-            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
-            <image></image>
+            <description>Wie sind die Nadeln an den Zweigen der Waldkiefer angeordnet?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_wechselstaendig</option_content>
-                    <option_right>false</option_right>
+                    <option_content>ic_paarig</option_content>
+                    <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_gegenstaendig</option_content>
-                    <option_right>true</option_right>
+                    <option_content>ic_einzeln</option_content>
+                    <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Waldkiefer -->
         <minigame_chooseAnswer>
             <id>24</id>
             <name>Blattstellung</name>
-            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
-            <image></image>
+            <description>Wie sind die Blätter an den Zweigen der Eiche angeordnet?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_wechselstaendig</option_content>
-                    <option_right>false</option_right>
+                    <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_gegenstaendig</option_content>
-                    <option_right>true</option_right>
+                    <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
             <id>25</id>
             <name>Position</name>
-            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
-            <image></image>
+            <description>Wie sind die Blätter an den Zweigen der Hasel angeordnet?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_wechselstaendig</option_content>
-                    <option_right>false</option_right>
+                    <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_gegenstaendig</option_content>
-                    <option_right>true</option_right>
+                    <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Hasel -->
         <minigame_chooseAnswer>
             <id>26</id>
             <name>Blattstellung</name>
-            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
-            <image></image>
+            <description>Wie sind die Blätter an den Zweigen der Hängebirke angeordnet?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_wechselstaendig</option_content>
-                    <option_right>false</option_right>
+                    <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_gegenstaendig</option_content>
-                    <option_right>true</option_right>
+                    <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Hängebirke -->
         <minigame_chooseAnswer>
             <id>27</id>
             <name>Blattstellung</name>
-            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
-            <image></image>
+            <description>Wie sind die Blätter an den Zweigen der Eberesche angeordnet?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_wechselstaendig</option_content>
-                    <option_right>false</option_right>
+                    <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_gegenstaendig</option_content>
-                    <option_right>true</option_right>
+                    <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Eberesche -->
         <minigame_chooseAnswer>
             <id>28</id>
             <name>Blattstellung</name>
-            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
-            <image></image>
+            <description>Wie sind die Nadeln an den Zweigen der Tanne angeordnet?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_wechselstaendig</option_content>
+                    <option_content>ic_paarig</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_gegenstaendig</option_content>
+                    <option_content>ic_einzeln</option_content>
                     <option_right>true</option_right>
                 </option>
             </selection>
@@ -730,17 +721,16 @@
         <minigame_chooseAnswer>
             <id>29</id>
             <name>Blattstellung</name>
-            <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
-            <image></image>
+            <description>Wie sind die Nadeln an den Zweigen der Fichte angeordnet?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_wechselstaendig</option_content>
+                    <option_content>ic_paarig</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_gegenstaendig</option_content>
+                    <option_content>ic_einzeln</option_content>
                     <option_right>true</option_right>
                 </option>
             </selection>
