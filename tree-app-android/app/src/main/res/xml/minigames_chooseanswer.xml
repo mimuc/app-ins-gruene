@@ -5,7 +5,7 @@
         <minigame_chooseAnswer>
             <id>0</id>
             <name>Quiz</name>
-            <description>Schau dir die Blätter des Baumes genau an. Welches der abgebildeten Blätter passt am besten zum Ahorn?</description>
+            <description>Schau dir die Blätter des Ahorns genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -32,7 +32,7 @@
         <minigame_chooseAnswer>
             <id>1</id>
             <name>Blattform</name>
-            <description>Schau dir die Blätter des Baumes genau an. Welches der abgebildeten Blätter passt am besten zur Rotbuche?</description>
+            <description>Schau dir die Blätter der Rotbuche genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -59,7 +59,7 @@
         <minigame_chooseAnswer>
             <id>2</id>
             <name>Blattform</name>
-            <description>Schau dir die Blätter des Baumes genau an. Welches der abgebildeten Blätter passt am besten zur Linde?</description>
+            <description>Schau dir die Blätter der Linde genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -86,7 +86,7 @@
         <minigame_chooseAnswer>
             <id>3</id>
             <name>Blattform</name>
-            <description>Schau dir die Blätter des Baumes genau an. Welches der abgebildeten Blätter passt am besten zur Waldkiefer?</description>
+            <description>Schau dir die Nadeln der Waldkiefer genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -113,7 +113,7 @@
         <minigame_chooseAnswer>
             <id>4</id>
             <name>Blattform</name>
-            <description>Schau dir die Blätter des Baumes genau an. Welches der abgebildeten Blätter passt am besten zur Eiche?</description>
+            <description>Schau dir die Blätter der Eiche genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -140,7 +140,7 @@
         <minigame_chooseAnswer>
             <id>5</id>
             <name>Blattform</name>
-            <description>Schau dir die Blätter des Baumes genau an. Welches der abgebildeten Blätter passt am besten zur Hasel?</description>
+            <description>Schau dir die Blätter der Hasel genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -167,7 +167,7 @@
         <minigame_chooseAnswer>
             <id>6</id>
             <name>Blattform</name>
-            <description>Schau dir die Blätter des Baumes genau an. Welches der abgebildeten Blätter passt am besten zur Haengebirke?</description>
+            <description>Schau dir die Blätter der Hängebirke genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -194,7 +194,7 @@
         <minigame_chooseAnswer>
             <id>7</id>
             <name>Blattform</name>
-            <description>Schau dir die Blätter des Baumes genau an. Welches der abgebildeten Blätter passt am besten zur Eberesche?</description>
+            <description>Schau dir die Blätter der Eberesche genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -221,7 +221,7 @@
         <minigame_chooseAnswer>
             <id>8</id>
             <name>Blattform</name>
-            <description>Schau dir die Blätter des Baumes genau an. Welches der abgebildeten Blätter passt am besten zur Tanne?</description>
+            <description>Schau dir die Nadeln der Tanne genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -248,7 +248,7 @@
         <minigame_chooseAnswer>
             <id>9</id>
             <name>Blattform</name>
-            <description>Schau dir die Blätter des Baumes genau an. Welches der abgebildeten Blätter passt am besten zur Fichte?</description>
+            <description>Schau dir die Nadeln der Fichte genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -708,26 +708,25 @@
             <id>30</id>
             <name>Stamm</name>
             <description>Schau dir die Rinde des Ahorns genau an. Welches Bild passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_rinde</option_content>
+                    <option_content>ic_fichte_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_rinde</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_rinde</option_content>
+                    <option_content>ic_ahorn_stamm</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_rinde</option_content>
+                    <option_content>ic_linde_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -735,28 +734,27 @@
         <minigame_chooseAnswer>
             <id>31</id>
             <name>Stamm</name>
-            <description>Schau dir die Rinde der Rot-Buche genau an. Welches Bild passt am besten?</description>
-            <image></image>
+            <description>Schau dir die Rinde der Rotbuche genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_rinde</option_content>
+                    <option_content>ic_eiche_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_rinde</option_content>
+                    <option_content>ic_haengebirke_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_rinde</option_content>
+                    <option_content>ic_hasel_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_stamm</option_content>
                     <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_rinde</option_content>
-                    <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Rot-Buche -->
@@ -764,26 +762,25 @@
             <id>32</id>
             <name>Stamm</name>
             <description>Schau dir die Rinde der Linde genau an. Welches Bild passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_rinde</option_content>
+                    <option_content>ic_fichte_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_rinde</option_content>
+                    <option_content>ic_haengebirke_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_rinde</option_content>
+                    <option_content>ic_linde_stamm</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_rinde</option_content>
+                    <option_content>ic_tanne_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -792,27 +789,26 @@
             <id>33</id>
             <name>Stamm</name>
             <description>Schau dir die Rinde der Waldkiefer genau an. Welches Bild passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_rinde</option_content>
+                    <option_content>ic_ahorn_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_rinde</option_content>
+                    <option_content>ic_hasel_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_rinde</option_content>
+                    <option_content>ic_rotbuche_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_stamm</option_content>
                     <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_rinde</option_content>
-                    <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Waldkiefer -->
@@ -820,26 +816,25 @@
             <id>34</id>
             <name>Stamm</name>
             <description>Schau dir die Rinde der Eiche genau an. Welches Bild passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_rinde</option_content>
+                    <option_content>ic_eberesche_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_rinde</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_rinde</option_content>
+                    <option_content>ic_eiche_stamm</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_rinde</option_content>
+                    <option_content>ic_haengebirke_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -848,26 +843,25 @@
             <id>35</id>
             <name>Stamm</name>
             <description>Schau dir die Rinde der Hasel genau an. Welches Bild passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_rinde</option_content>
+                    <option_content>ic_ahorn_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_rinde</option_content>
+                    <option_content>ic_fichte_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_rinde</option_content>
+                    <option_content>ic_hasel_stamm</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_rinde</option_content>
+                    <option_content>ic_waldkiefer_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -876,26 +870,25 @@
             <id>36</id>
             <name>Stamm</name>
             <description>Schau dir die Rinde der Hängebirke genau an. Welches Bild passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_rinde</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_rinde</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_rinde</option_content>
+                    <option_content>ic_haengebirke_stamm</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_rinde</option_content>
+                    <option_content>ic_eberesche_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_eiche_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_rotbuche_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -904,26 +897,25 @@
             <id>37</id>
             <name>Stamm</name>
             <description>Schau dir die Rinde der Eberesche genau an. Welches Bild passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_rinde</option_content>
+                    <option_content>ic_hasel_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_rinde</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_rinde</option_content>
+                    <option_content>ic_eberesche_stamm</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_rinde</option_content>
+                    <option_content>ic_rotbuche_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -932,27 +924,26 @@
             <id>38</id>
             <name>Stamm</name>
             <description>Schau dir die Rinde der Tanne genau an. Welches Bild passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_rinde</option_content>
+                    <option_content>ic_eiche_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_rinde</option_content>
+                    <option_content>ic_haengebirke_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_rinde</option_content>
+                    <option_content>ic_linde_stamm</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_tanne_stamm</option_content>
                     <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_rinde</option_content>
-                    <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Tanne -->
@@ -960,26 +951,25 @@
             <id>39</id>
             <name>Stamm</name>
             <description>Schau dir die Rinde der Fichte genau an. Welches Bild passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_rinde</option_content>
+                    <option_content>ic_ahorn_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_rinde</option_content>
+                    <option_content>ic_eiche_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_rinde</option_content>
+                    <option_content>ic_fichte_stamm</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_rinde</option_content>
+                    <option_content>ic_fichte_stamm</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -990,7 +980,6 @@
             <id>40</id>
             <name>Stamm</name>
             <description>Menschen nutzen das Ahorn-Holz für viele Sachen. Für was eignet sich das Holz NICHT? Was glaubst du?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1013,7 +1002,6 @@
             <id>41</id>
             <name>Stamm</name>
             <description>Was ist an der Rot-Buche eigentlich rot?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1036,7 +1024,6 @@
             <id>42</id>
             <name>Stamm</name>
             <description>Lindenholz splittert nicht und lässt sich leicht durchbrechen. Für was glaubst du lässt sich Lindenholz am besten nutzen?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1059,7 +1046,6 @@
             <id>43</id>
             <name>Stamm</name>
             <description>Welche Aussage zur Rinde der Kiefer ist richtig?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1082,7 +1068,6 @@
             <id>44</id>
             <name>Stamm</name>
             <description>Für welche Fertigung eignet sich das harte Eichenholz besonders gut?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1105,7 +1090,6 @@
             <id>45</id>
             <name>Stamm</name>
             <description>Was denkst du stimmt?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1151,7 +1135,6 @@
             <id>46</id>
             <name>Stamm</name>
             <description>Birkenholz findet sich an vielen Besen. Was meinst du, wo?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1169,7 +1152,6 @@
             <id>47</id>
             <name>Stamm</name>
             <description>Was kann man aus dem Holz der Eberesche machen?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1191,9 +1173,7 @@
         <minigame_chooseAnswer>
             <id>48</id>
             <name>Stamm</name>
-            <description>Im Wald werden kleine Weiß-Tannen besonders gern von...</description>
-            <image></image>
-            <selection>
+            <description>Im Wald werden kleine Weiß-Tannen besonders gern von...</description><selection>
                 <option>
                     <option_type>Text</option_type>
                     <option_content>A: Wildtieren angefressen.</option_content>
@@ -1215,7 +1195,6 @@
             <id>49</id>
             <name>Frucht</name>
             <description>Die Fichte wird gern in Wälder angepflanzt, weil : </description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1240,7 +1219,6 @@
             <id>50</id>
             <name>Stamm</name>
             <description>Woraus wird das typische Süßungsmittel Ahornsirup gewonnen?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1263,7 +1241,6 @@
             <id>51</id>
             <name>Stamm</name>
             <description>Wofür wird das meiste Buchenholz verwendet? Was glaubst du?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1286,7 +1263,6 @@
             <id>52</id>
             <name>Stamm</name>
             <description>In die Krone eines Lindenbaumes haben die Menschen früher...</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1309,7 +1285,6 @@
             <id>53</id>
             <name>Stamm</name>
             <description>Was hilft Kiefern oft dabei an genügend Nährstoffe zu kommen?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1332,7 +1307,6 @@
             <id>54</id>
             <name>Stamm</name>
             <description>Welche Käfer leben besonders gerne auf den Zweigen der Eiche?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1355,7 +1329,6 @@
             <id>55</id>
             <name>Stamm</name>
             <description>Wofür kann man die Äste der Hasel verwenden?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1378,7 +1351,6 @@
             <id>56</id>
             <name>Stamm</name>
             <description>Birkenholz ist sehr stabil. Welche Aussage stimmt? Vielleicht stimmen ja sogar alle. Was glaubst du?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1401,7 +1373,6 @@
             <id>57</id>
             <name>Stamm</name>
             <description>Was kann man aus dem Holz der Eberesche machen?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1424,7 +1395,6 @@
             <id>58</id>
             <name>Stamm</name>
             <description>Das klebrige Tannenharz lässt sich verwenden um...</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1447,7 +1417,6 @@
             <id>59</id>
             <name>Frucht</name>
             <description>Besonders wertvolles Fichtenholz ist:</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1473,7 +1442,6 @@
             <id>60</id>
             <name>Frucht</name>
             <description>Schau dir die Früchte des Ahorns genau an. Welche Zeichnung passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1500,12 +1468,16 @@
         <minigame_chooseAnswer>
             <id>61</id>
             <name>Frucht</name>
-            <description>Schau dir die Früchte der Rot-Buche genau an. Welche Zeichnung passt am besten?</description>
-            <image></image>
+            <description>Schau dir die Früchte der Rotbuche genau an. Welche Zeichnung passt am besten?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_frucht</option_content>
+                    <option_content>ic_eiche_frucht</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_hasel_frucht</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
@@ -1515,13 +1487,8 @@
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_frucht</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
                     <option_content>ic_rotbuche_frucht</option_content>
-                    <option_right>false</option_right>
+                    <option_right>true</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Rot-Buche -->
@@ -1529,21 +1496,20 @@
             <id>62</id>
             <name>Frucht</name>
             <description>Schau dir die Früchte der Linde genau an. Welche Zeichnung passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_frucht</option_content>
+                    <option_content>ic_fichte_frucht</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_hasel_frucht</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_linde_frucht</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_frucht</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
@@ -1557,27 +1523,26 @@
             <id>63</id>
             <name>Frucht</name>
             <description>Schau dir die Früchte der Waldkiefer genau an. Welche Zeichnung passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
+                    <option_content>ic_fichte_frucht</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_tanne_frucht</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_hasel_frucht</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
                     <option_content>ic_waldkiefer_frucht</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_frucht</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_frucht</option_content>
                     <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_frucht</option_content>
-                    <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Waldkiefer -->
@@ -1585,26 +1550,25 @@
             <id>64</id>
             <name>Frucht</name>
             <description>Schau dir die Früchte der Eiche genau an. Welche Zeichnung passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_frucht</option_content>
+                    <option_content>ic_ahorn_frucht</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_eiche_frucht</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_hasel_frucht</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_linde_frucht</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_frucht</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_frucht</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -1613,26 +1577,25 @@
             <id>65</id>
             <name>Frucht</name>
             <description>Schau dir die Früchte der Hasel genau an. Welche Zeichnung passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_frucht</option_content>
+                    <option_content>ic_eiche_frucht</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_frucht</option_content>
+                    <option_content>ic_fichte_frucht</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_frucht</option_content>
+                    <option_content>ic_hasel_frucht</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_frucht</option_content>
+                    <option_content>ic_waldkiefer_frucht</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -1641,22 +1604,21 @@
             <id>66</id>
             <name>Frucht</name>
             <description>Schau dir die Früchte der Hängebirke genau an. Welche Zeichnung passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_frucht</option_content>
+                    <option_content>ic_eberesche_frucht</option_content>
                     <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_haengebirke_frucht</option_content>
+                    <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
                     <option_content>ic_linde_frucht</option_content>
                     <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_frucht</option_content>
-                    <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
@@ -1669,12 +1631,16 @@
             <id>67</id>
             <name>Frucht</name>
             <description>Schau dir die Früchte der Eberesche genau an. Welche Zeichnung passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_frucht</option_content>
+                    <option_content>ic_ahorn_frucht</option_content>
                     <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_eberesche_frucht</option_content>
+                    <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
@@ -1683,12 +1649,7 @@
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_frucht</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_frucht</option_content>
+                    <option_content>ic_waldkiefer_frucht</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -1697,7 +1658,6 @@
             <id>68</id>
             <name>Frucht</name>
             <description>Schau dir die Früchte der Tanne genau an. Welche Zeichnung passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1711,13 +1671,13 @@
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_frucht</option_content>
-                    <option_right>true</option_right>
+                    <option_content>ic_fichte_frucht</option_content>
+                    <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_frucht</option_content>
-                    <option_right>false</option_right>
+                    <option_content>ic_tanne_frucht</option_content>
+                    <option_right>true</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Tanne -->
@@ -1725,26 +1685,25 @@
             <id>69</id>
             <name>Frucht</name>
             <description>Schau dir die Früchte der Fichte genau an. Welche Zeichnung passt am besten?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_frucht</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_frucht</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_frucht</option_content>
+                    <option_content>ic_fichte_frucht</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_frucht</option_content>
+                    <option_content>ic_tanne_frucht</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_tanne_frucht</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_waldkiefer_frucht</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
