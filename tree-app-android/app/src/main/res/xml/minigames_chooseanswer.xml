@@ -278,7 +278,6 @@
             <id>10</id>
             <name>Blattrand</name>
             <description>Welcher Blattrand passt am besten zum Blatt des Ahorns?</description>
-            <image></image>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -305,27 +304,26 @@
         <minigame_chooseAnswer>
             <id>11</id>
             <name>Blattrand</name>
-            <description>Welcher Blattrand passt am besten?</description>
-            <image></image>
+            <description>Welcher Blattrand passt am besten zum Blatt der Rotbuche?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_content>ic_ganzrandig</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_content>ic_gekerbt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gesaegt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gebuchtet</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -333,27 +331,26 @@
         <minigame_chooseAnswer>
             <id>12</id>
             <name>Blattrand</name>
-            <description>Welcher Blattrand passt am besten?</description>
-            <image></image>
+            <description>Welcher Blattrand passt am besten zum Blatt der Linde?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_content>ic_ganzrandig</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
+                    <option_content>ic_gekerbt</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_content>ic_gesaegt</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_content>ic_gebuchtet</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -361,27 +358,21 @@
         <minigame_chooseAnswer>
             <id>13</id>
             <name>Blattrand</name>
-            <description>Welcher Blattrand passt am besten?</description>
-            <image></image>
+            <description>Welcher Blattrand passt am besten zur Nadel der Waldkiefer?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_content>ic_abgerundet</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_content>ic_doppeltabgerundet</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_stachelig</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -389,55 +380,53 @@
         <minigame_chooseAnswer>
             <id>14</id>
             <name>Blattrand</name>
-            <description>Welcher Blattrand passt am besten?</description>
-            <image></image>
+            <description>Welcher Blattrand passt am besten zum Blatt der Eiche?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_content>ic_ganzrandig</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
+                    <option_content>ic_gekerbt</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_content>ic_gesaegt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gebuchtet</option_content>
                     <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
-                    <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
             <id>15</id>
             <name>Blattrand</name>
-            <description>Welcher Blattrand passt am besten?</description>
-            <image></image>
+            <description>Welcher Blattrand passt am besten zum Blatt der Hasel?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_content>ic_ganzrandig</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
+                    <option_content>ic_gekerbt</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_content>ic_gesaegt</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_content>ic_gebuchtet</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -445,27 +434,26 @@
         <minigame_chooseAnswer>
             <id>16</id>
             <name>Blattrand</name>
-            <description>Welcher Blattrand passt am besten?</description>
-            <image></image>
+            <description>Welcher Blattrand passt am besten zum Blatt der Hängebirke?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_content>ic_ganzrandig</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
+                    <option_content>ic_gekerbt</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_content>ic_gesaegt</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_content>ic_gebuchtet</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -473,27 +461,26 @@
         <minigame_chooseAnswer>
             <id>17</id>
             <name>Blattrand</name>
-            <description>Welcher Blattrand passt am besten?</description>
-            <image></image>
+            <description>Welcher Blattrand passt am besten zum Blatt der Eberesche?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_content>ic_ganzrandig</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_content>ic_gekerbt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gesaegt</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gebuchtet</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -501,27 +488,21 @@
         <minigame_chooseAnswer>
             <id>18</id>
             <name>Blattrand</name>
-            <description>Welcher Blattrand passt am besten?</description>
-            <image></image>
+            <description>Welcher Blattrand passt am besten zur Nadel der Tanne?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_content>ic_abgerundet</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_content>ic_doppeltabgerundet</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
+                    <option_content>ic_stachelig</option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -529,28 +510,22 @@
         <minigame_chooseAnswer>
             <id>19</id>
             <name>Blattrand</name>
-            <description>Welcher Blattrand passt am besten?</description>
-            <image></image>
+            <description>Welcher Blattrand passt am besten zur Nadel der Waldkiefer?</description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_waldkiefer_blatt</option_content>
+                    <option_content>ic_abgerundet</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_linde_blatt</option_content>
+                    <option_content>ic_doppeltabgerundet</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Image</option_type>
-                    <option_content>ic_ahorn_blatt</option_content>
+                    <option_content>ic_stachelig</option_content>
                     <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Image</option_type>
-                    <option_content>ic_rotbuche_blatt</option_content>
-                    <option_right>false</option_right>
                 </option>
             </selection>
         </minigame_chooseAnswer> <!-- Fichte -->
