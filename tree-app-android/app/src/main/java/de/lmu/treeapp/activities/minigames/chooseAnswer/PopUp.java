@@ -59,7 +59,7 @@ public class PopUp extends GameActivity_ChooseAnswer{
                     Intent nextQuestion = new Intent(context, GameActivity_ChooseAnswer.class);
                     nextQuestion.putExtra("TreeId", treeId);
                     nextQuestion.putExtra("Category", parentCategory);
-                    nextQuestion.putExtra("GameId", getNextGameID());
+                    nextQuestion.putExtra("GameId", getNextQuizID());
                     startActivity(nextQuestion);
                     popupWindow.dismiss();
 

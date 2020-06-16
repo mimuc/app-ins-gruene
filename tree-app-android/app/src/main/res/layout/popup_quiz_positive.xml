@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    tools:context="de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/popupTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/popupLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/popupRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.98" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/popupBot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.98" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/popupMid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_popup"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="@color/lightBlue"
+        app:layout_constraintBottom_toTopOf="@id/popupBot"
+        app:layout_constraintTop_toBottomOf="@id/popupMid"
+        app:layout_constraintStart_toEndOf="@id/popupLeft"
+        app:layout_constraintEnd_toStartOf="@id/popupRight">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/popup_insideMid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.7" />
+
+            <TextView
+                android:id="@+id/popup_positive_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:fontFamily="@font/freude"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="@string/popup_quiz_positive_title"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/popup_mascot_positive"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/popup_insideMid"/>
+
+            <ImageView
+                android:id="@+id/popup_mascot_positive"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="25dp"
+                android:src="@drawable/ic_ahorn_baum"
+                app:layout_constraintBottom_toTopOf="@id/popup_insideMid"
+                app:layout_constraintEnd_toStartOf="@id/popup_positive_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/forward_next_game_positive"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_background"
+                android:elevation="4dp"
+                android:fontFamily="@font/freude"
+                android:stateListAnimator="@null"
+                android:text="Nochmal"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+                android:textColor="@color/forest"
+                android:textSize="30sp"
+                android:alpha="0.0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/popup_insideMid"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintWidth_percent="0.65"
+                app:layout_constraintHeight_percent="0.15"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
