@@ -42,37 +42,26 @@ public class GameActivity_Base extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
-    // Within a quiz go back to the game selection activity and finish all previous activities
+    // Within a quiz go back to the game selection activity and finish all previous activities, the game process is not saved
     @Override
     public boolean onSupportNavigateUp(){
         if(gameContent.type.name().equalsIgnoreCase("ChooseAnswer")) {
-            ChooseAnswer_Options_RecyclerViewAdapter.count=1; //reset: quiz game can be started again from the beginning
-            //Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
-            //intent.putExtra("TreeId", treeId);
-            //intent.putExtra("Category", parentCategory);
-            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            //startActivity(intent);
+            ChooseAnswer_Options_RecyclerViewAdapter.current=1; //reset: quiz game can be started again from the beginning
+            //ChooseAnswer_Options_RecyclerViewAdapter.getAnwer=1; //reset: quiz game can be started again from the beginning
         }
         finish();
         return true;
     }
 
     // In case of the android hardware back button is pressed,
-    // the handling within a quiz game should be the same as navigate up using the action bar
-    /*@Override
+    // the handling within a quiz game should be the same as using the navigate up button
+    @Override
     public void onBackPressed(){
         if(gameContent.type.name().equalsIgnoreCase("ChooseAnswer")) {
-            ChooseAnswer_Options_RecyclerViewAdapter.count=1; //reset: quiz game can be started again from the beginning
-            Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
-            intent.putExtra("TreeId", treeId);
-            intent.putExtra("Category", parentCategory);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-
-        }else {
-            super.onBackPressed();
+            ChooseAnswer_Options_RecyclerViewAdapter.current=1; //reset: quiz game can be started again from the beginning
         }
-    }*/
+        super.onBackPressed();
+    }
 
     // Save the game process and go back to the game selection activity
     protected void onSuccess(){
@@ -93,14 +82,14 @@ public class GameActivity_Base extends AppCompatActivity {
         intent.putExtra("Category", parentCategory);
         finish();
         startActivity(intent);
-        ChooseAnswer_Options_RecyclerViewAdapter.count=1; //reset: quiz game can be started again from the beginning
+        ChooseAnswer_Options_RecyclerViewAdapter.current=1; //reset: quiz game can be started again from the beginning
     }
 
     protected void onFail(){
         Toast.makeText(getApplicationContext(), "Falsch", Toast.LENGTH_LONG).show();
     }
 
-   public int getNextGameID(){
-        return DataManager.getInstance(getApplicationContext()).GetNextGame(gameContent.uid).uid;
+   public int getNextQuizID(){
+        return DataManager.getInstance(getApplicationContext()).GetNextQuiz(gameContent.uid).uid;
     }
 }

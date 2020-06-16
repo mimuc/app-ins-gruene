@@ -107,7 +107,7 @@ public class DataManager {
     }
 
     // Get next quiz game which is always the current id + 10 (see minigames_chooseanswer.xml)
-    public Minigame_Base GetNextGame(int id) {
+    public Minigame_Base GetNextQuiz(int id) {
         if (miniGames == null) return null;
         for (int i=0; i<miniGames.size(); i++){
             if (miniGames.get(i).uid == id){
