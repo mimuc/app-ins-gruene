@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,11 +21,16 @@ import de.lmu.treeapp.contentData.DataManager;
 
 public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapter<ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder>  {
 
-    private List<AnswerOption> options;
+    public static List<AnswerOption> options;
     private Minigame_ChooseAnswer game;
     private Context context;
     private Tree tree;
     private Tree.GameCategories category;
+
+    public static int current=1;
+    //protected static int getAnswer=0;
+    private static int resultImageId;
+    protected static String resultText;
 
     public interface OptionClickInterface
     {
@@ -50,6 +56,15 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
         notifyItemRemoved(position);
     }
 
+    public static AnswerOption findResult(List<AnswerOption> options){
+        for (AnswerOption option : options) {
+            if (option.right) {
+                return option;
+            }
+        }
+        return null;
+    }
+
     public ChooseAnswer_Options_RecyclerViewAdapter(OptionClickInterface mOnClickListener, Minigame_ChooseAnswer _game, Context _context, Tree _tree, Tree.GameCategories _category) {
         this.mOnClickListener = mOnClickListener;
         this.options = _game.options;
@@ -69,32 +84,37 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
         return new ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder(v);
     }
 
-    public static int count=1;
     @Override
     public void onBindViewHolder(ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder holder, final int position) {
         final AnswerOption option = options.get(position);
         System.out.println(holder.button);
 
-        if (option.type == AnswerOption.OptionTypes.text){
+        //resultText = option.content;
+        //resultImage = context.getResources().getIdentifier(option.content, "drawable", context.getPackageName());
+
+        if(option.type == AnswerOption.OptionTypes.text){
             holder.button.setText(option.content);
         }
-        else if (option.type == AnswerOption.OptionTypes.image){
+        else if(option.type == AnswerOption.OptionTypes.image){
             int imageId = context.getResources().getIdentifier(option.content, "drawable", context.getPackageName());
+            if(option.right){
+                resultImageId = imageId;
+            }
             holder.button.setBackgroundResource(imageId);
-           // holder.button.getLayoutParams().width =
-            //holder.button.getLayoutParams().height = 125;
             holder.button.setText("");
+            //resultImageId = context.getResources().getIdentifier(option.content, "drawable", context.getPackageName());
         }
+        //resultImageId = context.getResources().getIdentifier(findResult(this.options).content, "drawable", context.getPackageName());
 
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 if(option.right){
-                    count=count+1;
-                    mOnClickListener.optionClicked(option);
+                    current=current+1;
                 }else{
-                    mOnClickListener.optionClicked(option);
+                    GameActivity_ChooseAnswer.resultImage = resultImageId;
                 }
+                mOnClickListener.optionClicked(option);
             }
         });
     }

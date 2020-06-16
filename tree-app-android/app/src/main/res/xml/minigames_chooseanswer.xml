@@ -657,7 +657,7 @@
         </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
             <id>25</id>
-            <name>Position</name>
+            <name>Blattstellung</name>
             <description>Wie sind die Blätter an den Zweigen angeordnet?</description>
             <image></image>
             <selection>
