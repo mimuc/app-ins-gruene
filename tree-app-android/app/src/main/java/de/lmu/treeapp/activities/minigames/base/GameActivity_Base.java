@@ -47,7 +47,6 @@ public class GameActivity_Base extends AppCompatActivity {
     public boolean onSupportNavigateUp(){
         if(gameContent.type.name().equalsIgnoreCase("ChooseAnswer")) {
             ChooseAnswer_Options_RecyclerViewAdapter.current=1; //reset: quiz game can be started again from the beginning
-            //ChooseAnswer_Options_RecyclerViewAdapter.getAnwer=1; //reset: quiz game can be started again from the beginning
         }
         finish();
         return true;

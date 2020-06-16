@@ -1,30 +1,21 @@
 package de.lmu.treeapp.activities.minigames.chooseAnswer;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.List;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
@@ -34,15 +25,14 @@ import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
 public class GameActivity_ChooseAnswer extends GameActivity_Base implements ChooseAnswer_Options_RecyclerViewAdapter.OptionClickInterface {
 
     RecyclerView optionsRecyclerView;
-    private Dialog popupWindow;
-    private Button btnAccept;
-    private TextView popupTitle, popupText, popup_result_text;
-    private ImageView popup_result_image;
+    Dialog popupWindow;
+    Button btnAccept;
+    TextView popupTitle, popupText, popup_result_text;
+    ImageView popup_result_image;
     private int current = ChooseAnswer_Options_RecyclerViewAdapter.current;
-    private int getAnswer = 0; //ChooseAnswer_Options_RecyclerViewAdapter.getAnswer;
     protected static String resultText = ChooseAnswer_Options_RecyclerViewAdapter.resultText;
     protected static int resultImage;
-    //private int resultImage = ChooseAnswer_Options_RecyclerViewAdapter.resultImageId;
+    private int getAnswer = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
