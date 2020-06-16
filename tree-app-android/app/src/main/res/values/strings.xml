@@ -44,4 +44,7 @@
     <string name="detail_single_tree_fruit_button_content_description">fruit games button</string>
     <string name="detail_single_tree_trunk_button_content_description">trunk games button</string>
     <string name="detail_single_tree_other_button_content_description">other games button</string>
+    <string name="popup_quiz_positive_title">Richtig!</string>
+    <string name="popup_quiz_negative_title">Leider falsch!</string>
+    <string name="popup_quiz_negative_text">Die richtige Antwort ist:</string>
 </resources>
