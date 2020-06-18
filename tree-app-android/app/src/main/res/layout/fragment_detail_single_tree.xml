@@ -217,7 +217,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                tools:srcCompat="@drawable/ic_ahorn_stamm" />
+                tools:srcCompat="@drawable/ic_tree_other" />
 
 
             <ProgressBar
