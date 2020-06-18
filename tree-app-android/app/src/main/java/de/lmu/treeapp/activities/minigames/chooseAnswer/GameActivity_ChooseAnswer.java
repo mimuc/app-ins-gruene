@@ -93,7 +93,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
             btnAccept.setText("Fertig!");
         }
 
-        ViewCompat.animate(btnAccept).setStartDelay(300).alpha(1).setDuration(400).setInterpolator(new DecelerateInterpolator(1.2f)).start();
+        ViewCompat.animate(btnAccept).setStartDelay(600).alpha(1).setDuration(500).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
         //Close the popup or finish the game and go back to the overview
         btnAccept.setOnClickListener(new View.OnClickListener() {
@@ -127,7 +127,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
             popup_result_text.setVisibility(View.VISIBLE);
 
             ViewCompat.animate(popup_result_text).setStartDelay(900).alpha(1).setDuration(900).setInterpolator(new DecelerateInterpolator(1.2f)).start();
-            ViewCompat.animate(btnAccept).setStartDelay(100).alpha(1).setDuration(900).setInterpolator(new DecelerateInterpolator(1.2f)).start();
+            ViewCompat.animate(btnAccept).setStartDelay(900).alpha(1).setDuration(900).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
         }else{
 

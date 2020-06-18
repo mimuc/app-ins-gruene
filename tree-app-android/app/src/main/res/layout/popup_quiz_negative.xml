@@ -31,30 +31,30 @@
         app:layout_constraintGuide_percent="0.98" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/popupBot"
+        android:id="@+id/popupMid1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.98" />
+        app:layout_constraintGuide_percent="0.2" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/popupMid"
+        android:id="@+id/popupMid2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.8" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_popup"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginBottom="2dp"
-        app:cardCornerRadius="20dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="0dp"
+        app:cardCornerRadius="25dp"
         app:cardBackgroundColor="@color/lightBlue"
-        app:layout_constraintBottom_toTopOf="@id/popupBot"
-        app:layout_constraintTop_toBottomOf="@id/popupMid"
+        app:layout_constraintBottom_toTopOf="@id/popupMid2"
+        app:layout_constraintTop_toBottomOf="@id/popupMid1"
         app:layout_constraintStart_toEndOf="@id/popupLeft"
         app:layout_constraintEnd_toStartOf="@id/popupRight">
 
@@ -107,6 +107,7 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:text="@string/popup_quiz_negative_text"
+            android:visibility="invisible"
             app:layout_constraintTop_toBottomOf="@id/popup_insideMid"/>
 
         <TextView
