@@ -58,7 +58,7 @@
         app:layout_constraintGuide_percent="0.98" />
 
     <de.lmu.treeapp.activities.minigames.chooseAnswer.AutofitRecyclerView
-        android:id="@+id/game_chooseAnswer_recyclerView"
+        android:id="@+id/auto_fit_recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
@@ -66,7 +66,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="20dp"
         android:clipToPadding="false"
-        android:columnWidth="@dimen/column_width"
+        android:columnWidth="150dp"
         android:numColumns="auto_fit"
         app:layout_constraintBottom_toBottomOf="@id/guideline_bot"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
@@ -76,5 +76,7 @@
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 <!--
+<de.lmu.treeapp.activities.minigames.chooseAnswer.AutofitRecyclerView
 android:columnWidth="@dimen/column_width"
+android:numColumns="auto_fit"
 -->

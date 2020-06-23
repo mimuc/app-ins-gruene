@@ -87,9 +87,6 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
 
         View v = inflater.inflate(R.layout.activity_game__choose_answer__option, parent, false);
 
-
-
-
         return new ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder(v);
     }
 

@@ -91,7 +91,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/ic_ahorn_baum"
+            android:src="@drawable/ic_mascot_false"
             app:layout_constraintBottom_toTopOf="@id/popup_insideMid"
             app:layout_constraintEnd_toStartOf="@id/popup_negative_title"
             app:layout_constraintStart_toStartOf="parent"
