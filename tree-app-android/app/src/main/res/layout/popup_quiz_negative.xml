@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.5" />
+            app:layout_constraintGuide_percent="0.47" />
 
         <TextView
             android:id="@+id/popup_negative_title"
@@ -90,7 +90,7 @@
             android:id="@+id/popup_mascot_negative"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="20dp"
             android:src="@drawable/ic_ahorn_baum"
             app:layout_constraintBottom_toTopOf="@id/popup_insideMid"
             app:layout_constraintEnd_toStartOf="@id/popup_negative_title"
@@ -107,7 +107,7 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:text="@string/popup_quiz_negative_text"
-            android:visibility="invisible"
+            android:alpha="0.0"
             app:layout_constraintTop_toBottomOf="@id/popup_insideMid"/>
 
         <TextView
@@ -117,11 +117,12 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="30dp"
             android:textAlignment="center"
             android:textSize="20sp"
             android:text="Antwort"
             android:visibility="invisible"
+            android:alpha="0.0"
             app:layout_constraintBottom_toTopOf="@id/repeat_game"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -131,9 +132,10 @@
             android:id="@+id/popup_right_answer_picture"
             android:layout_width="125dp"
             android:layout_height="125dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="20dp"
             android:visibility="invisible"
+            android:alpha="0.0"
             app:layout_constraintBottom_toTopOf="@id/repeat_game"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -145,12 +147,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="6dp"
             android:background="@drawable/button_background"
             android:elevation="4dp"
             android:fontFamily="@font/freude"
             android:stateListAnimator="@null"
             android:text="Okay"
+            android:visibility="invisible"
             android:alpha="0.0"
             android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
             android:textColor="@color/forest"

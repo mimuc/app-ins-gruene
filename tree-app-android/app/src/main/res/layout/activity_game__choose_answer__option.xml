@@ -1,27 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp">
+    android:layout_margin="14dp">
 
-
-    <Button
-        android:id="@+id/game_chooseAnswer_option_button"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_imgButton"
         android:layout_width="125dp"
         android:layout_height="125dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:text="@string/game_choose_answer_option_button_placeholder_text"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_gravity="fill_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <Button
+            android:id="@+id/game_chooseAnswer_option_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/game_choose_answer_option_button_placeholder_text"
+            app:layout_constraintBottom_toBottomOf="@id/constraintLayout_imgButton"
+            app:layout_constraintEnd_toEndOf="@id/constraintLayout_imgButton"
+            app:layout_constraintStart_toStartOf="@id/constraintLayout_imgButton"
+            app:layout_constraintTop_toTopOf="@id/constraintLayout_imgButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_txtButton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_gravity="fill_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/game_chooseAnswer_option_textButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/button_background"
+            android:elevation="4dp"
+            android:fontFamily="@font/freude"
+            android:stateListAnimator="@null"
+            android:text="@string/game_choose_answer_option_button_placeholder_text"
+            android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+            android:textColor="@color/forest"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/constraintLayout_txtButton"
+            app:layout_constraintEnd_toEndOf="@id/constraintLayout_txtButton"
+            app:layout_constraintStart_toStartOf="@id/constraintLayout_txtButton"
+            app:layout_constraintTop_toTopOf="@id/constraintLayout_txtButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--
+app:layout_constraintHorizontal_bias="1.0"
+app:layout_constraintVertical_bias="1.0"
+-->

@@ -1,11 +1,13 @@
 package de.lmu.treeapp.activities.minigames.chooseAnswer;
 
+import android.app.AutomaticZenRule;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,9 +30,9 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
     private Tree.GameCategories category;
 
     public static int current=1;
-    //protected static int getAnswer=0;
+    //protected static int columnNumber;
     private static int resultImageId;
-    protected static String resultText;
+    private static String resultText;
 
     public interface OptionClickInterface
     {
@@ -39,10 +41,13 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
     private final OptionClickInterface mOnClickListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        public static boolean imgButton;
         public final Button button;
+        public final Button textButton;
         ViewHolder(View v) {
             super(v);
             button = v.findViewById(R.id.game_chooseAnswer_option_button);
+            textButton = v.findViewById(R.id.game_chooseAnswer_option_textButton);
         }
     }
 
@@ -81,6 +86,10 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
                 parent.getContext());
 
         View v = inflater.inflate(R.layout.activity_game__choose_answer__option, parent, false);
+
+
+
+
         return new ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder(v);
     }
 
@@ -88,23 +97,25 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
     public void onBindViewHolder(ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder holder, final int position) {
         final AnswerOption option = options.get(position);
         System.out.println(holder.button);
-
-        //resultText = option.content;
-        //resultImage = context.getResources().getIdentifier(option.content, "drawable", context.getPackageName());
+        System.out.println(holder.textButton);
 
         if(option.type == AnswerOption.OptionTypes.text){
-            holder.button.setText(option.content);
-        }
-        else if(option.type == AnswerOption.OptionTypes.image){
+            //GameActivity_ChooseAnswer.columnNumber = 1;
+            holder.button.setVisibility(View.INVISIBLE);
+            holder.textButton.setText(option.content);
+            if(option.right){
+                resultText = holder.textButton.getText().toString();
+            }
+        }else if(option.type == AnswerOption.OptionTypes.image){
+            GameActivity_ChooseAnswer.columnNumber = 2;
+            holder.textButton.setVisibility(View.INVISIBLE);
             int imageId = context.getResources().getIdentifier(option.content, "drawable", context.getPackageName());
             if(option.right){
                 resultImageId = imageId;
             }
             holder.button.setBackgroundResource(imageId);
             holder.button.setText("");
-            //resultImageId = context.getResources().getIdentifier(option.content, "drawable", context.getPackageName());
         }
-        //resultImageId = context.getResources().getIdentifier(findResult(this.options).content, "drawable", context.getPackageName());
 
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,6 +124,18 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
                     current=current+1;
                 }else{
                     GameActivity_ChooseAnswer.resultImage = resultImageId;
+                }
+                mOnClickListener.optionClicked(option);
+            }
+        });
+
+        holder.textButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                if(option.right){
+                    current=current+1;
+                }else{
+                    GameActivity_ChooseAnswer.resultText = resultText;
                 }
                 mOnClickListener.optionClicked(option);
             }
