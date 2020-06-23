@@ -46,11 +46,11 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
     }
 
     private void setupOptionRecyclerView(){
-        optionsRecyclerView = findViewById(R.id.game_chooseAnswer_recyclerView);
+        optionsRecyclerView = findViewById(R.id.auto_fit_recycler_view); //(R.id.game_chooseAnswer_recyclerView);
         optionsRecyclerView.setHasFixedSize(true);
         //int columns = 2;
         //if(ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder.button)
-        //RecyclerView.LayoutManager recyclerViewLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        //RecyclerView.LayoutManager recyclerViewLayoutManager = new GridLayoutManager(getApplicationContext());
         //optionsRecyclerView.setLayoutManager(recyclerViewLayoutManager);
         /*((GridLayoutManager) recyclerViewLayoutManager).setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
@@ -61,6 +61,17 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
 
         RecyclerView.Adapter recyclerViewAdapter = new ChooseAnswer_Options_RecyclerViewAdapter(this,(Minigame_ChooseAnswer) gameContent, getApplicationContext(), parentTree, parentCategory);
         optionsRecyclerView.setAdapter(recyclerViewAdapter);
+
+        /*recyclerViewAdapter.getItemViewType(int position){
+            switch (recyclerViewAdapter.getItemViewType(position)){
+                case recyclerViewAdapter.Button:
+                    return 1;
+                case recyclerViewAdapter.TYPE_ITEM:
+                    return 2;
+                default:
+                    return -1;
+            }
+        }*/
     }
 
     @Override

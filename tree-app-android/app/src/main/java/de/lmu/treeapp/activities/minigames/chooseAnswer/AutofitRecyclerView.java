@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 public class AutofitRecyclerView extends RecyclerView {
 
-    /*private GridLayoutManager manager;
+    private GridLayoutManager manager;
     private int columnWidth = -1;
 
     public AutofitRecyclerView(Context context) {
@@ -38,7 +38,7 @@ public class AutofitRecyclerView extends RecyclerView {
             array.recycle();
         }
 
-        manager = new GridLayoutManager(getContext(), 1);
+        manager = new CenteredGridLayoutManager(getContext(), 1);
         setLayoutManager(manager);
     }
 
@@ -49,10 +49,41 @@ public class AutofitRecyclerView extends RecyclerView {
             int spanCount = Math.max(1, getMeasuredWidth() / columnWidth);
             manager.setSpanCount(spanCount);
         }
-    }*/
+    }
 
 
-    private StaggeredGridLayoutManager manager;
+    private class CenteredGridLayoutManager extends GridLayoutManager {
+
+        public CenteredGridLayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+            super(context, attrs, defStyleAttr, defStyleRes);
+        }
+
+        public CenteredGridLayoutManager(Context context, int spanCount) {
+            super(context, spanCount);
+        }
+
+        public CenteredGridLayoutManager(Context context, int spanCount, int orientation, boolean reverseLayout) {
+            super(context, spanCount, orientation, reverseLayout);
+        }
+
+        @Override
+        public int getPaddingLeft() {
+            final int totalItemWidth = columnWidth * getSpanCount();
+            if (totalItemWidth >= AutofitRecyclerView.this.getMeasuredWidth()) {
+                return super.getPaddingLeft(); // do nothing
+            } else {
+                return Math.round((AutofitRecyclerView.this.getMeasuredWidth() / (1f + getSpanCount())) - (totalItemWidth / (1f + getSpanCount())));
+            }
+        }
+
+        @Override
+        public int getPaddingRight() {
+            return getPaddingLeft();
+        }
+    }
+
+
+    /*private StaggeredGridLayoutManager manager;
     private int columnWidth = -1;
 
     public AutofitRecyclerView(Context context) {
@@ -91,7 +122,15 @@ public class AutofitRecyclerView extends RecyclerView {
         if (columnWidth > 0) {
             int spanCount = Math.max(1, getMeasuredWidth() / columnWidth);
             manager.setSpanCount(spanCount);
+
+            manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup(){
+                @Override
+                public int getSpanSize(int position){
+                    return (position%3==0? 2:1);
+                }
+            });
+
         }
-    }
+    }*/
 }
 
