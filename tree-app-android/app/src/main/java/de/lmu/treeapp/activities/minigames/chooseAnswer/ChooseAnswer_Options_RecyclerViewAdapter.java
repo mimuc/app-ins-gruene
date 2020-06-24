@@ -46,8 +46,8 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
         public final Button textButton;
         ViewHolder(View v) {
             super(v);
-            button = v.findViewById(R.id.game_chooseAnswer_option_button);
-            textButton = v.findViewById(R.id.game_chooseAnswer_option_textButton);
+            button = v.findViewById(R.id.button_img);
+            textButton = v.findViewById(R.id.button_txt);
         }
     }
 
