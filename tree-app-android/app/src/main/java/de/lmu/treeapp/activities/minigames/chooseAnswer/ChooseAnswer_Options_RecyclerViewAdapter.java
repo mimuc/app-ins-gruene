@@ -1,25 +1,20 @@
 package de.lmu.treeapp.activities.minigames.chooseAnswer;
 
-import android.app.AutomaticZenRule;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.FrameLayout;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_ChooseAnswer;
 import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
 import de.lmu.treeapp.contentClasses.trees.Tree;
-import de.lmu.treeapp.contentData.DataManager;
 
 public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapter<ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder>  {
 
@@ -28,9 +23,7 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
     private Context context;
     private Tree tree;
     private Tree.GameCategories category;
-
     public static int current=1;
-    //protected static int columnNumber;
     private static int resultImageId;
     private static String resultText;
 
@@ -41,13 +34,12 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
     private final OptionClickInterface mOnClickListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public static boolean imgButton;
-        public final Button button;
-        public final Button textButton;
+        public final Button button_img;
+        public final Button button_txt;
         ViewHolder(View v) {
             super(v);
-            button = v.findViewById(R.id.button_img);
-            textButton = v.findViewById(R.id.button_txt);
+            button_img = v.findViewById(R.id.button_img);
+            button_txt = v.findViewById(R.id.button_txt);
         }
     }
 
@@ -68,6 +60,13 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
             }
         }
         return null;
+    }
+
+    public static boolean isImage(List<AnswerOption> options){
+        AnswerOption option = options.get(0);
+        if(option.type == AnswerOption.OptionTypes.image){
+            return true;
+        }else return false;
     }
 
     public ChooseAnswer_Options_RecyclerViewAdapter(OptionClickInterface mOnClickListener, Minigame_ChooseAnswer _game, Context _context, Tree _tree, Tree.GameCategories _category) {
@@ -93,28 +92,23 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
     @Override
     public void onBindViewHolder(ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder holder, final int position) {
         final AnswerOption option = options.get(position);
-        System.out.println(holder.button);
-        System.out.println(holder.textButton);
 
         if(option.type == AnswerOption.OptionTypes.text){
-            //GameActivity_ChooseAnswer.columnNumber = 1;
-            holder.button.setVisibility(View.INVISIBLE);
-            holder.textButton.setText(option.content);
+            holder.button_txt.setVisibility(View.VISIBLE);
+            holder.button_txt.setText(option.content);
             if(option.right){
-                resultText = holder.textButton.getText().toString();
+                resultText = holder.button_txt.getText().toString();
             }
         }else if(option.type == AnswerOption.OptionTypes.image){
-            GameActivity_ChooseAnswer.columnNumber = 2;
-            holder.textButton.setVisibility(View.INVISIBLE);
+            holder.button_img.setVisibility(View.VISIBLE);
             int imageId = context.getResources().getIdentifier(option.content, "drawable", context.getPackageName());
             if(option.right){
                 resultImageId = imageId;
             }
-            holder.button.setBackgroundResource(imageId);
-            holder.button.setText("");
+            holder.button_img.setBackgroundResource(imageId);
         }
 
-        holder.button.setOnClickListener(new View.OnClickListener() {
+        holder.button_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 if(option.right){
@@ -126,7 +120,7 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
             }
         });
 
-        holder.textButton.setOnClickListener(new View.OnClickListener() {
+        holder.button_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 if(option.right){

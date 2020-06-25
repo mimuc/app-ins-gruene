@@ -1,5 +1,7 @@
 package de.lmu.treeapp.contentClasses.minigames.components;
 
+import java.util.List;
+
 public class AnswerOption {
 
   public enum OptionTypes {
@@ -31,6 +33,14 @@ public class AnswerOption {
     }
     else {
       this.type = OptionTypes.text;
+    }
+  }
+
+  public OptionTypes getOptionType(AnswerOption option){
+    if(option.type==OptionTypes.image){
+      return OptionTypes.image;
+    } else{
+      return OptionTypes.text;
     }
   }
 }
