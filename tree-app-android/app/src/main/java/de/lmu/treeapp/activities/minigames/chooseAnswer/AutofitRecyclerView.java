@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 public class AutofitRecyclerView extends RecyclerView {
 
@@ -37,8 +36,7 @@ public class AutofitRecyclerView extends RecyclerView {
             columnWidth = array.getDimensionPixelSize(0, -1);
             array.recycle();
         }
-
-        manager = new CenteredGridLayoutManager(getContext(), 1);
+        manager = new GridLayoutManager(getContext(), 1);
         setLayoutManager(manager);
     }
 
@@ -46,91 +44,13 @@ public class AutofitRecyclerView extends RecyclerView {
     protected void onMeasure(int widthSpec, int heightSpec) {
         super.onMeasure(widthSpec, heightSpec);
         if (columnWidth > 0) {
-            int spanCount = Math.max(1, getMeasuredWidth() / columnWidth);
+            int spanCount;
+            if(ChooseAnswer_Options_RecyclerViewAdapter.isImage(ChooseAnswer_Options_RecyclerViewAdapter.options)){
+                spanCount = 2;
+            } else spanCount = 1;
+
             manager.setSpanCount(spanCount);
         }
     }
-
-
-    private class CenteredGridLayoutManager extends GridLayoutManager {
-
-        public CenteredGridLayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-            super(context, attrs, defStyleAttr, defStyleRes);
-        }
-
-        public CenteredGridLayoutManager(Context context, int spanCount) {
-            super(context, spanCount);
-        }
-
-        public CenteredGridLayoutManager(Context context, int spanCount, int orientation, boolean reverseLayout) {
-            super(context, spanCount, orientation, reverseLayout);
-        }
-
-        @Override
-        public int getPaddingLeft() {
-            final int totalItemWidth = columnWidth * getSpanCount();
-            if (totalItemWidth >= AutofitRecyclerView.this.getMeasuredWidth()) {
-                return super.getPaddingLeft(); // do nothing
-            } else {
-                return Math.round((AutofitRecyclerView.this.getMeasuredWidth() / (1f + getSpanCount())) - (totalItemWidth / (1f + getSpanCount())));
-            }
-        }
-
-        @Override
-        public int getPaddingRight() {
-            return getPaddingLeft();
-        }
-    }
-
-
-    /*private StaggeredGridLayoutManager manager;
-    private int columnWidth = -1;
-
-    public AutofitRecyclerView(Context context) {
-        super(context);
-        init(context, null);
-    }
-
-    public AutofitRecyclerView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context, attrs);
-    }
-
-    public AutofitRecyclerView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init(context, attrs);
-    }
-
-    private void init(Context context, AttributeSet attrs) {
-        if (attrs != null) {
-            int[] attrsArray = {
-                    android.R.attr.columnWidth
-            };
-            TypedArray array = context.obtainStyledAttributes(attrs, attrsArray);
-            columnWidth = array.getDimensionPixelSize(0, -1);
-            array.recycle();
-        }
-
-        manager = new StaggeredGridLayoutManager(1, GridLayoutManager.VERTICAL);
-        setLayoutManager(manager);
-
-    }
-
-    @Override
-    protected void onMeasure(int widthSpec, int heightSpec) {
-        super.onMeasure(widthSpec, heightSpec);
-        if (columnWidth > 0) {
-            int spanCount = Math.max(1, getMeasuredWidth() / columnWidth);
-            manager.setSpanCount(spanCount);
-
-            manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup(){
-                @Override
-                public int getSpanSize(int position){
-                    return (position%3==0? 2:1);
-                }
-            });
-
-        }
-    }*/
 }
 

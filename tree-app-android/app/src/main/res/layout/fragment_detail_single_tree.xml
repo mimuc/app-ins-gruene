@@ -158,7 +158,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guidelineInsideView1"
             app:layout_constraintVertical_bias="1.0"
-            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintWidth_percent="0.25"
             app:layout_constraintDimensionRatio="1:1"
             tools:srcCompat="@drawable/ic_ahorn_blatt" />
 
@@ -177,7 +177,7 @@
             app:layout_constraintHorizontal_bias="0.141"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guidelineInsideView2"
-            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintWidth_percent="0.25"
             app:layout_constraintDimensionRatio="1:1"
             tools:srcCompat="@drawable/ic_ahorn_frucht" />
 
@@ -200,7 +200,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/guidelineInsideView3"
             app:layout_constraintVertical_bias="0.25"
-            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintWidth_percent="0.25"
             app:layout_constraintDimensionRatio="1:1"
             tools:srcCompat="@drawable/ic_ahorn_stamm" />
 
@@ -223,7 +223,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
-            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintWidth_percent="0.25"
             app:layout_constraintDimensionRatio="1:1"
             tools:srcCompat="@drawable/ic_tree_other" />
 

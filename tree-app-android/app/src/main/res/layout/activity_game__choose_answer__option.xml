@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="14dp">
+    android:layout_margin="14dp"
+    android:id="@+id/option_frame_layout">
 
     <Button
         android:id="@+id/button_img"
@@ -28,7 +28,15 @@
         android:layout_marginBottom="1dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:background="@drawable/button_background"
+        android:elevation="4dp"
+        android:fontFamily="@font/freude"
+        android:stateListAnimator="@null"
         android:text="@string/game_choose_answer_option_button_placeholder_text"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+        android:textColor="@color/forest"
+        android:textSize="20sp"
         android:visibility="gone" />
-
 </FrameLayout>
+
+<!-- android:foregroundGravity="center" -->

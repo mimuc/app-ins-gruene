@@ -66,17 +66,11 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="20dp"
         android:clipToPadding="false"
-        android:columnWidth="150dp"
+        android:columnWidth="160dp"
         android:numColumns="auto_fit"
         app:layout_constraintBottom_toBottomOf="@id/guideline_bot"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/guideline_mid" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--
-<de.lmu.treeapp.activities.minigames.chooseAnswer.AutofitRecyclerView
-android:columnWidth="@dimen/column_width"
-android:numColumns="auto_fit"
--->
