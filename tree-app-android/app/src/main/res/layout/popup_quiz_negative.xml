@@ -112,7 +112,7 @@
                 app:layout_constraintTop_toBottomOf="@id/popup_insideMid" />
 
             <TextView
-                android:id="@+id/popup_right_answer_text"
+                android:id="@+id/popup_answer_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -130,7 +130,7 @@
                 app:layout_constraintTop_toBottomOf="@id/popup_negative_text" />
 
             <ImageView
-                android:id="@+id/popup_right_answer_picture"
+                android:id="@+id/popup_answer_picture"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:layout_marginTop="20dp"

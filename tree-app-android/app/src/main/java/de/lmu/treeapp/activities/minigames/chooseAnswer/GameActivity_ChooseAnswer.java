@@ -81,7 +81,6 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
             @Override
             public void onClick(View v){
                 if(current<4){
-                    //ChooseAnswer_Options_RecyclerViewAdapter.current++;
                     showNextQuestion();
                 }else{
                     onQuizSuccess();
@@ -122,7 +121,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
                 ViewCompat.animate(popup_result_text).setStartDelay(600).alpha(1).setDuration(400).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
             }else if(option.type == AnswerOption.OptionTypes.image){
-                popup_result_image = popupWindow.findViewById(R.id.popup_right_answer_picture);
+                popup_result_image = popupWindow.findViewById(R.id.popup_answer_picture);
                 popup_result_image.setBackgroundResource(resultImage);
                 popup_result_image.setVisibility(View.VISIBLE);
 
