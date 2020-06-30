@@ -27,14 +27,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.02" />
+        app:layout_constraintGuide_percent="0.03" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.98" />
+        app:layout_constraintGuide_percent="0.97" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_top"
@@ -55,22 +55,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.98" />
+        app:layout_constraintGuide_percent="0.95" />
 
     <de.lmu.treeapp.activities.minigames.chooseAnswer.AutofitRecyclerView
-        android:id="@+id/auto_fit_recycler_view"
+        android:id="@+id/game_chooseAnswer_recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="20dp"
         android:clipToPadding="false"
-        android:columnWidth="160dp"
+        android:foregroundGravity="center"
+        android:columnWidth="@dimen/column_width"
         android:numColumns="auto_fit"
         app:layout_constraintBottom_toBottomOf="@id/guideline_bot"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/guideline_mid" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--
+android:layout_marginBottom="20dp"
+android:layout_marginStart="10dp"
+android:layout_marginEnd="10dp"
+-->
 

@@ -30,7 +30,7 @@ public class miniGameParser {
         miniGames = new ArrayList<Minigame_Base>();
     }
     public List<Minigame_Base> getMiniGames(Context context) {
-        parse_ChooseAnswer(context.getResources().getXml(R.xml.minigames_chooseanswer),100);
+        parse_ChooseAnswer(context.getResources().getXml(R.xml.minigames_chooseanswer), 100);
         parse_InputString(context.getResources().getXml(R.xml.minigames_inputstring), 200);
         parse_TakePicture(context.getResources().getXml(R.xml.minigames_takepicture), 300);
         parse_DragDrop(context.getResources().getXml(R.xml.minigames_dragdrop),400);
