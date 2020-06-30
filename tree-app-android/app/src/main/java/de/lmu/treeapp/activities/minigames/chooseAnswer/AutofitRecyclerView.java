@@ -47,8 +47,9 @@ public class AutofitRecyclerView extends RecyclerView {
             int spanCount;
             if(ChooseAnswer_Options_RecyclerViewAdapter.isImage(ChooseAnswer_Options_RecyclerViewAdapter.options)){
                 spanCount = 2;
-            } else spanCount = 1;
-
+            }else{
+                spanCount = 1;
+            }
             manager.setSpanCount(spanCount);
         }
     }
