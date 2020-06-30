@@ -64,9 +64,7 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
 
     public static boolean isImage(List<AnswerOption> options){
         AnswerOption option = options.get(0);
-        if(option.type == AnswerOption.OptionTypes.image){
-            return true;
-        }else return false;
+        return option.type == AnswerOption.OptionTypes.image;
     }
 
     public ChooseAnswer_Options_RecyclerViewAdapter(OptionClickInterface mOnClickListener, Minigame_ChooseAnswer _game, Context _context, Tree _tree, Tree.GameCategories _category) {
@@ -106,13 +104,14 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
                 resultImageId = imageId;
             }
             holder.button_img.setBackgroundResource(imageId);
+            holder.button_img.setText("");
         }
 
         holder.button_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 if(option.right){
-                    current=current+1;
+                    current++;
                 }else{
                     GameActivity_ChooseAnswer.resultImage = resultImageId;
                 }
@@ -124,7 +123,7 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
             @Override
             public void onClick(View arg0) {
                 if(option.right){
-                    current=current+1;
+                    current++;
                 }else{
                     GameActivity_ChooseAnswer.resultText = resultText;
                 }

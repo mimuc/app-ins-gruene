@@ -42,10 +42,10 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
     }
 
     private void setupOptionRecyclerView(){
-        optionsRecyclerView = findViewById(R.id.auto_fit_recycler_view); //(R.id.game_chooseAnswer_recyclerView);
+        optionsRecyclerView = findViewById(R.id.game_chooseAnswer_recyclerView);
         optionsRecyclerView.setHasFixedSize(true);
 
-        //RecyclerView.LayoutManager recyclerViewLayoutManager = new GridLayoutManager(getApplicationContext(), columnCount);
+        //RecyclerView.LayoutManager recyclerViewLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         //optionsRecyclerView.setLayoutManager(recyclerViewLayoutManager);
 
         RecyclerView.Adapter recyclerViewAdapter = new ChooseAnswer_Options_RecyclerViewAdapter(this,(Minigame_ChooseAnswer) gameContent, getApplicationContext(), parentTree, parentCategory);
@@ -65,10 +65,10 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
     //create popup which gives feedback to the user's answer
     private void showPositivePopup() {
         popupWindow.setContentView(R.layout.popup_quiz_positive);
-        btnAccept = (Button) popupWindow.findViewById(R.id.forward_next_game_positive);
-        popupTitle = (TextView) popupWindow.findViewById(R.id.popup_positive_title);
+        btnAccept = popupWindow.findViewById(R.id.forward_next_game_positive);
+        popupTitle = popupWindow.findViewById(R.id.popup_positive_title);
 
-        if(current<5) {
+        if(current<4) {
             btnAccept.setText("Weiter");
         }else{
             btnAccept.setText("Fertig!");
@@ -76,12 +76,12 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
 
         ViewCompat.animate(btnAccept).setStartDelay(200).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
-        //Close the popup or finish the game and go back to the overview
+        //close the popup to repeat the question or finish the game and go back to the overview
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                if(current<5){
-                    ChooseAnswer_Options_RecyclerViewAdapter.current++;
+                if(current<4){
+                    //ChooseAnswer_Options_RecyclerViewAdapter.current++;
                     showNextQuestion();
                 }else{
                     onQuizSuccess();
@@ -96,7 +96,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         window.setLayout(CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
     }
 
-    //create popup which gives feedback to the user's answer: After 2 wrong answers the result is shown
+    //create popup which gives feedback to the user's answer: the right answer is shown after 2 wrong given answers
     private void showNegativePopup(AnswerOption option) {
         popupWindow.setContentView(R.layout.popup_quiz_negative);
         btnAccept = popupWindow.findViewById(R.id.repeat_game);
@@ -104,7 +104,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         popupText = popupWindow.findViewById(R.id.popup_negative_text);
 
         if(showAnswer<2){
-            popup_result_text = popupWindow.findViewById(R.id.popup_right_answer_text);
+            popup_result_text = popupWindow.findViewById(R.id.popup_answer_text);
             popup_result_text.setText("Probier's doch noch einmal...einen Versuch hast du übrig!");
             popup_result_text.setVisibility(View.VISIBLE);
             btnAccept.setVisibility(View.VISIBLE);
@@ -115,7 +115,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         }else{
 
             if(option.type == AnswerOption.OptionTypes.text) {
-                popup_result_text = popupWindow.findViewById(R.id.popup_right_answer_text);
+                popup_result_text = popupWindow.findViewById(R.id.popup_answer_text);
                 popup_result_text.setText(resultText);
                 popup_result_text.setVisibility(View.VISIBLE);
 
@@ -129,7 +129,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
                 ViewCompat.animate(popup_result_image).setStartDelay(600).alpha(1).setDuration(400).setInterpolator(new DecelerateInterpolator(1.2f)).start();
             }
 
-            if(current<5){
+            if(current<4){
                 btnAccept.setText("Weiter");
             } else {
                 btnAccept.setText("Fertig");
@@ -140,14 +140,14 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
             ViewCompat.animate(btnAccept).setStartDelay(900).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
         }
 
-        //Close the popup to repeat the question or show the next question
+        //close the popup to repeat the question or show the next question
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 if(showAnswer<2){
                     popupWindow.dismiss();
                 } else {
-                    if(current<5){
+                    if(current<4){
                         ChooseAnswer_Options_RecyclerViewAdapter.current++;
                         showNextQuestion();
                     }else{

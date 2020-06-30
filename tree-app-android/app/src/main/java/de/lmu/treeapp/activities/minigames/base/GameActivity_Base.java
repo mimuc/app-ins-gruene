@@ -76,6 +76,7 @@ public class GameActivity_Base extends AppCompatActivity {
         DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid, parentTree);
         DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid-10, parentTree);
         DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid-20, parentTree);
+        DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid-30, parentTree);
         Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
         intent.putExtra("TreeId", treeId);
         intent.putExtra("Category", parentCategory);
