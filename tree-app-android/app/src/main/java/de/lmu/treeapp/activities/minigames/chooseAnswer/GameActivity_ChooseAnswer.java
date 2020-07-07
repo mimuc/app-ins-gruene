@@ -20,6 +20,7 @@ import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_ChooseAnswer;
 import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
+import de.lmu.treeapp.contentData.DataManager;
 
 public class GameActivity_ChooseAnswer extends GameActivity_Base implements ChooseAnswer_Options_RecyclerViewAdapter.OptionClickInterface {
 
@@ -68,7 +69,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         btnAccept = popupWindow.findViewById(R.id.forward_next_game_positive);
         popupTitle = popupWindow.findViewById(R.id.popup_positive_title);
 
-        if(current<4) {
+        if(current>0) {
             btnAccept.setText("Weiter");
         }else{
             btnAccept.setText("Fertig!");
@@ -80,9 +81,10 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                if(current<4){
+                if(current>0){
                     showNextQuestion();
                 }else{
+                    DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid, parentTree);
                     onQuizSuccess();
                 }
             }
@@ -128,7 +130,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
                 ViewCompat.animate(popup_result_image).setStartDelay(600).alpha(1).setDuration(400).setInterpolator(new DecelerateInterpolator(1.2f)).start();
             }
 
-            if(current<4){
+            if(current>0){
                 btnAccept.setText("Weiter");
             } else {
                 btnAccept.setText("Fertig");
@@ -146,10 +148,11 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
                 if(showAnswer<2){
                     popupWindow.dismiss();
                 } else {
-                    if(current<4){
-                        ChooseAnswer_Options_RecyclerViewAdapter.current++;
+                    if(current>0){
+                        ChooseAnswer_Options_RecyclerViewAdapter.current--;
                         showNextQuestion();
                     }else{
+                        DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid, parentTree);
                         onQuizSuccess();
                     }
                 }
@@ -169,7 +172,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         nextQuestion.putExtra("Category", parentCategory);
         nextQuestion.putExtra("GameId", getNextQuizID());
         popupWindow.dismiss();
-        finish();
+        finish(); // Removes the current quiz activity from the stack
         startActivity(nextQuestion);
     }
 }

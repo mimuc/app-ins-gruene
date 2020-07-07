@@ -73,16 +73,16 @@ public class GameActivity_Base extends AppCompatActivity {
 
     // Save the game process and display the next quiz game in this category
     protected void onQuizSuccess(){
-        DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid, parentTree);
-        DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid-10, parentTree);
-        DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid-20, parentTree);
-        DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid-30, parentTree);
+        //DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid, parentTree);
+        //DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid-10, parentTree);
+        //DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid-20, parentTree);
+        //DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid-30, parentTree);
         Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
         intent.putExtra("TreeId", treeId);
         intent.putExtra("Category", parentCategory);
-        finish();
+        finish(); // Removes the last quiz activity from the stack
         startActivity(intent);
-        ChooseAnswer_Options_RecyclerViewAdapter.current=1; //reset: quiz game can be started again from the beginning
+        ChooseAnswer_Options_RecyclerViewAdapter.current=3; // Reset: quiz game can be started again from the beginning
     }
 
     protected void onFail(){

@@ -16,16 +16,24 @@ import de.lmu.treeapp.contentClasses.minigames.Minigame_ChooseAnswer;
 import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 
-public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapter<ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder>  {
+public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapter<ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder> {
 
     public static List<AnswerOption> options;
     private Minigame_ChooseAnswer game;
     private Context context;
     private Tree tree;
     private Tree.GameCategories category;
-    public static int current=1;
+    public static int current=3;
     private static int resultImageId;
     private static String resultText;
+
+    public void checkCurrent() {
+        if(game.name=="Superkraft"){
+            current=1;
+        }else if(game.name=="Blatt"){
+            current=4;
+        }
+    }
 
     public interface OptionClickInterface
     {
@@ -96,24 +104,28 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
             holder.button_txt.setText(option.content);
             if(option.right){
                 resultText = holder.button_txt.getText().toString();
+                GameActivity_ChooseAnswer.resultText = resultText;
             }
         }else if(option.type == AnswerOption.OptionTypes.image){
             holder.button_img.setVisibility(View.VISIBLE);
             int imageId = context.getResources().getIdentifier(option.content, "drawable", context.getPackageName());
+
             if(option.right){
                 resultImageId = imageId;
+                GameActivity_ChooseAnswer.resultImage = resultImageId;
             }
             holder.button_img.setBackgroundResource(imageId);
             holder.button_img.setText("");
         }
 
+
+
         holder.button_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
+                checkCurrent();
                 if(option.right){
-                    current++;
-                }else{
-                    GameActivity_ChooseAnswer.resultImage = resultImageId;
+                    current--;
                 }
                 mOnClickListener.optionClicked(option);
             }
@@ -122,13 +134,25 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
         holder.button_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
+                checkCurrent();
                 if(option.right){
-                    current++;
+                    current--;
+                }
+                mOnClickListener.optionClicked(option);
+            }
+                /*if(game.name=="Superkraft"){
+                    current=1;
+                }else if(game.name=="Blatt"){
+                    current=4;
+                }
+
+                if(option.right){
+                    current--;
                 }else{
                     GameActivity_ChooseAnswer.resultText = resultText;
                 }
                 mOnClickListener.optionClicked(option);
-            }
+            }*/
         });
     }
 
