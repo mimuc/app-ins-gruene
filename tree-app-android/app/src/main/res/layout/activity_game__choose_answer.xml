@@ -16,10 +16,11 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:text="@string/game_description_placeholder"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="@+id/guideline_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_mid"
         app:layout_constraintVertical_bias="0.04" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -27,14 +28,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.03" />
+        app:layout_constraintGuide_percent="0.07" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.97" />
+        app:layout_constraintGuide_percent="0.93" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_top"
@@ -48,14 +49,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.26" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_bot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.95" />
+        app:layout_constraintGuide_percent="0.97" />
 
     <de.lmu.treeapp.activities.minigames.chooseAnswer.AutofitRecyclerView
         android:id="@+id/game_chooseAnswer_recyclerView"
@@ -63,7 +64,6 @@
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
         android:clipToPadding="false"
-        android:foregroundGravity="center"
         android:columnWidth="@dimen/column_width"
         android:numColumns="auto_fit"
         app:layout_constraintBottom_toBottomOf="@id/guideline_bot"
@@ -76,5 +76,6 @@
 android:layout_marginBottom="20dp"
 android:layout_marginStart="10dp"
 android:layout_marginEnd="10dp"
+android:foregroundGravity="center"
 -->
 

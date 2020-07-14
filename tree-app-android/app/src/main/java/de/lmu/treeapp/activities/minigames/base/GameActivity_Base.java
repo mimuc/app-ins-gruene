@@ -6,16 +6,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NavUtils;
+
+import java.util.ArrayList;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.GameSelectionActivity;
-import de.lmu.treeapp.activities.minigames.chooseAnswer.ChooseAnswer_Options_RecyclerViewAdapter;
 import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
-import de.lmu.treeapp.contentData.cms.ContentManager;
 
 public class GameActivity_Base extends AppCompatActivity {
 
@@ -42,25 +41,26 @@ public class GameActivity_Base extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
-    // Within a quiz go back to the game selection activity and finish all previous activities, the game process is not saved
+    // Remove the current activity from the stack to switch to the previous one
     @Override
     public boolean onSupportNavigateUp(){
-        if(gameContent.type.name().equalsIgnoreCase("ChooseAnswer")) {
-            ChooseAnswer_Options_RecyclerViewAdapter.current=1; //reset: quiz game can be started again from the beginning
+        if(gameContent.type.name().equalsIgnoreCase("ChooseAnswer")){
+            GameActivity_ChooseAnswer.quizIDs.clear();
         }
         finish();
         return true;
     }
 
-    // In case of the android hardware back button is pressed,
-    // the handling within a quiz game should be the same as using the navigate up button
+
+    // Android hardware back button is pressed
     @Override
     public void onBackPressed(){
         if(gameContent.type.name().equalsIgnoreCase("ChooseAnswer")) {
-            ChooseAnswer_Options_RecyclerViewAdapter.current=1; //reset: quiz game can be started again from the beginning
+            GameActivity_ChooseAnswer.quizIDs.clear();
         }
         super.onBackPressed();
     }
+
 
     // Save the game process and go back to the game selection activity
     protected void onSuccess(){
@@ -72,17 +72,32 @@ public class GameActivity_Base extends AppCompatActivity {
     }
 
     // Save the game process and display the next quiz game in this category
-    protected void onQuizSuccess(){
+    protected void onQuizSuccess(ArrayList<Integer> quizIDs){
+        if (quizIDs == null || quizIDs.isEmpty()) return;
+        System.out.println(quizIDs);
+
+        for(int i=0; i<quizIDs.size(); i++){
+            DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, quizIDs.get(i), parentTree);
+        }
+
+        quizIDs.clear();
+        System.out.println(quizIDs);
+        if (quizIDs == null){
+            System.out.println("null");
+        }else if (quizIDs.isEmpty()){
+            System.out.println("empty");
+            System.out.println(quizIDs.size());
+        }
         //DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid, parentTree);
         //DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid-10, parentTree);
         //DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid-20, parentTree);
         //DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid-30, parentTree);
+
         Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
         intent.putExtra("TreeId", treeId);
         intent.putExtra("Category", parentCategory);
         finish(); // Removes the last quiz activity from the stack
         startActivity(intent);
-        ChooseAnswer_Options_RecyclerViewAdapter.current=3; // Reset: quiz game can be started again from the beginning
     }
 
     protected void onFail(){

@@ -4,30 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/choose_answer_option_layout_margin"
-    android:id="@+id/option_frame_layout">
+    android:id="@+id/option_frame_layout"
+    android:gravity="center">
 
     <Button
         android:id="@+id/button_img"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="@string/game_choose_answer_option_button_placeholder_text"
-        android:foregroundGravity="center"
-        android:visibility="gone" />
+        android:layout_marginBottom="3dp"
+        android:padding="2dp"
+        android:text="@string/game_choose_answer_option_button_placeholder_text" />
 
     <Button
         android:id="@+id/button_txt"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:padding="14dp"
         android:background="@drawable/button_background"
         android:elevation="4dp"
         android:stateListAnimator="@null"
@@ -36,12 +33,11 @@
         android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
         android:textColor="@color/forest"
         android:textSize="20sp"
-        android:foregroundGravity="center"
         android:visibility="gone" />
-
 </FrameLayout>
 
-<!-- android:foregroundGravity="center"
+<!--android:layout_gravity="center"
+ android:foregroundGravity="center"
 android:visibility="gone"
 
  <FrameLayout

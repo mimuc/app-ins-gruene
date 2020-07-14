@@ -16,11 +16,12 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_ChooseAnswer;
 import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
-import de.lmu.treeapp.contentData.DataManager;
 
 public class GameActivity_ChooseAnswer extends GameActivity_Base implements ChooseAnswer_Options_RecyclerViewAdapter.OptionClickInterface {
 
@@ -29,10 +30,11 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
     Button btnAccept;
     TextView popupTitle, popupText, popup_result_text;
     ImageView popup_result_image;
-    private int current = ChooseAnswer_Options_RecyclerViewAdapter.current;
     protected static String resultText;
     protected static int resultImage;
+    public static int current;
     private int showAnswer = 0;
+    public static ArrayList<Integer> quizIDs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +55,24 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         optionsRecyclerView.setAdapter(recyclerViewAdapter);
     }
 
+    private void showNextQuestion(){
+        Intent nextQuestion = new Intent(getApplicationContext(), GameActivity_ChooseAnswer.class);
+        nextQuestion.putExtra("TreeId", treeId);
+        nextQuestion.putExtra("Category", parentCategory);
+        nextQuestion.putExtra("GameId", getNextQuizID());
+        popupWindow.dismiss();
+        finish(); // Removes the current quiz activity from the stack
+        startActivity(nextQuestion);
+    }
+
     @Override
     public void optionClicked(AnswerOption option){
+        //quizIDs.add(gameContent.uid);
+
         if(option.right) {
             showPositivePopup();
         } else {
-            showAnswer=showAnswer+1;
+            showAnswer++;
             showNegativePopup(option);
         }
     }
@@ -69,11 +83,10 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         btnAccept = popupWindow.findViewById(R.id.forward_next_game_positive);
         popupTitle = popupWindow.findViewById(R.id.popup_positive_title);
 
-        if(current>0) {
+        // Checks if the current activity is last one
+        if(current>1) {
             btnAccept.setText("Weiter");
-        }else{
-            btnAccept.setText("Fertig!");
-        }
+        } else btnAccept.setText("Fertig!");
 
         ViewCompat.animate(btnAccept).setStartDelay(200).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
@@ -81,11 +94,13 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                if(current>0){
+                quizIDs.add(gameContent.uid);
+                if(current>1){
                     showNextQuestion();
-                }else{
-                    DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid, parentTree);
-                    onQuizSuccess();
+                    current--;
+                } else {
+                    popupWindow.dismiss();
+                    onQuizSuccess(quizIDs);
                 }
             }
         });
@@ -114,7 +129,6 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
             ViewCompat.animate(btnAccept).setStartDelay(800).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
         }else{
-
             if(option.type == AnswerOption.OptionTypes.text) {
                 popup_result_text = popupWindow.findViewById(R.id.popup_answer_text);
                 popup_result_text.setText(resultText);
@@ -130,11 +144,10 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
                 ViewCompat.animate(popup_result_image).setStartDelay(600).alpha(1).setDuration(400).setInterpolator(new DecelerateInterpolator(1.2f)).start();
             }
 
-            if(current>0){
+            // Checks if the current activity is last one
+            if(current>1){
                 btnAccept.setText("Weiter");
-            } else {
-                btnAccept.setText("Fertig");
-            }
+            } else btnAccept.setText("Fertig");
 
             btnAccept.setVisibility(View.VISIBLE);
             ViewCompat.animate(popupText).setStartDelay(500).alpha(1).setDuration(200).setInterpolator(new DecelerateInterpolator(1.2f)).start();
@@ -147,13 +160,14 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
             public void onClick(View v){
                 if(showAnswer<2){
                     popupWindow.dismiss();
-                } else {
-                    if(current>0){
-                        ChooseAnswer_Options_RecyclerViewAdapter.current--;
+                }else{
+                    quizIDs.add(gameContent.uid);
+                    if(current>1){
                         showNextQuestion();
-                    }else{
-                        DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid, parentTree);
-                        onQuizSuccess();
+                        current--;
+                    } else {
+                        popupWindow.dismiss();
+                        onQuizSuccess(quizIDs);
                     }
                 }
             }
@@ -164,16 +178,6 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
 
         Window window = popupWindow.getWindow();
         window.setLayout(CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
-    }
-
-    private void showNextQuestion(){
-        Intent nextQuestion = new Intent(getApplicationContext(), GameActivity_ChooseAnswer.class);
-        nextQuestion.putExtra("TreeId", treeId);
-        nextQuestion.putExtra("Category", parentCategory);
-        nextQuestion.putExtra("GameId", getNextQuizID());
-        popupWindow.dismiss();
-        finish(); // Removes the current quiz activity from the stack
-        startActivity(nextQuestion);
     }
 }
 

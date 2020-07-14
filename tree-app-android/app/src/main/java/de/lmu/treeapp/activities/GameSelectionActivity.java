@@ -17,7 +17,7 @@ import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
 
 /**
- * This Activity is displayed, when the user click on a category inside a tree-card. It contains the different games in this category.
+ * This Activity is displayed, when the user clicks on a category inside a tree-card. It contains the different games in this category.
  * The layout and functionality of the game-previews is handled in the RecyclerViewAdapter (see "adapter/GameselectionRecyclerViewAdapter").
  */
 public class GameSelectionActivity extends AppCompatActivity {
