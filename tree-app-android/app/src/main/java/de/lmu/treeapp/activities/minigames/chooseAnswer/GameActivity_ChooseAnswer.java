@@ -120,12 +120,11 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         popupText = popupWindow.findViewById(R.id.popup_negative_text);
 
         if(showAnswer<2){
-            popup_result_text = popupWindow.findViewById(R.id.popup_answer_text);
-            popup_result_text.setText("Probier's doch noch einmal...einen Versuch hast du übrig!");
-            popup_result_text.setVisibility(View.VISIBLE);
+            popupText.setText("Probier's doch noch einmal...einen Versuch hast du übrig!");
+            popupText.setVisibility(View.VISIBLE);
             btnAccept.setVisibility(View.VISIBLE);
 
-            ViewCompat.animate(popup_result_text).setStartDelay(400).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
+            ViewCompat.animate(popupText).setStartDelay(400).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
             ViewCompat.animate(btnAccept).setStartDelay(800).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
         }else{
