@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/choose_answer_option_layout_margin"
-    android:id="@+id/option_frame_layout"
-    android:gravity="center">
+    android:id="@+id/option_frame_layout" >
 
     <Button
         android:id="@+id/button_img"
@@ -16,8 +15,9 @@
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="3dp"
         android:padding="2dp"
+        android:layout_gravity="center"
         android:text="@string/game_choose_answer_option_button_placeholder_text"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/button_txt"
@@ -28,6 +28,7 @@
         android:padding="14dp"
         android:background="@drawable/button_background"
         android:elevation="4dp"
+        android:layout_gravity="center"
         android:stateListAnimator="@null"
         android:fontFamily="@font/freude"
         android:text="@string/game_choose_answer_option_button_placeholder_text"
