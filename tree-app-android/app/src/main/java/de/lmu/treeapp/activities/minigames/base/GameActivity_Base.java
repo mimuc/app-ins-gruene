@@ -79,15 +79,12 @@ public class GameActivity_Base extends AppCompatActivity {
         for(int i=0; i<quizIDs.size(); i++){
             DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, quizIDs.get(i), parentTree);
         }
-
         quizIDs.clear();
+
+
         System.out.println(quizIDs);
-        if (quizIDs == null){
-            System.out.println("null");
-        }else if (quizIDs.isEmpty()){
-            System.out.println("empty");
-            System.out.println(quizIDs.size());
-        }
+        if (quizIDs.isEmpty()) System.out.println("The list is empty");
+
         //DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid, parentTree);
         //DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid-10, parentTree);
         //DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid-20, parentTree);
