@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?> <!-- ID-Number is 100 + id -->
+<?xml version="1.0" encoding="utf-8"?> <!-- ID-Number is 0 + id -->
 <resources>
     <minigames>
         <!-- Quiz:  Choose the right leaf id:0-9 -->
@@ -31,7 +31,7 @@
         </minigame_chooseAnswer>  <!-- Ahorn -->
         <minigame_chooseAnswer>
             <id>1</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Blätter der Rotbuche genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -58,7 +58,7 @@
         </minigame_chooseAnswer> <!-- Rot-Buche -->
         <minigame_chooseAnswer>
             <id>2</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Blätter der Linde genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -85,7 +85,7 @@
         </minigame_chooseAnswer> <!-- Linde -->
         <minigame_chooseAnswer>
             <id>3</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Nadeln der Waldkiefer genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -112,7 +112,7 @@
         </minigame_chooseAnswer> <!-- Waldkiefer -->
         <minigame_chooseAnswer>
             <id>4</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Blätter der Eiche genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -139,7 +139,7 @@
         </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
             <id>5</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Blätter der Hasel genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -166,7 +166,7 @@
         </minigame_chooseAnswer> <!-- Hasel -->
         <minigame_chooseAnswer>
             <id>6</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Blätter der Hängebirke genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -193,7 +193,7 @@
         </minigame_chooseAnswer> <!-- Hängebirke -->
         <minigame_chooseAnswer>
             <id>7</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Blätter der Eberesche genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -220,7 +220,7 @@
         </minigame_chooseAnswer> <!-- Eberesche -->
         <minigame_chooseAnswer>
             <id>8</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Nadeln der Tanne genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -247,7 +247,7 @@
         </minigame_chooseAnswer> <!-- Tanne -->
         <minigame_chooseAnswer>
             <id>9</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Nadeln der Fichte genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -276,7 +276,7 @@
         <!-- Quiz: Border type of the leaves id:10-19 -->
         <minigame_chooseAnswer>
             <id>10</id>
-            <name>Blattrand</name>
+            <name>Quiz</name>
             <description>Welcher Blattrand passt am besten zum Blatt des Ahorns?</description>
             <selection>
                 <option>
@@ -303,7 +303,7 @@
         </minigame_chooseAnswer> <!-- Ahorn -->
         <minigame_chooseAnswer>
             <id>11</id>
-            <name>Blattrand</name>
+            <name>Quiz</name>
             <description>Welcher Blattrand passt am besten zum Blatt der Rotbuche?</description>
             <selection>
                 <option>
@@ -330,7 +330,7 @@
         </minigame_chooseAnswer> <!-- Rot-Buche -->
         <minigame_chooseAnswer>
             <id>12</id>
-            <name>Blattrand</name>
+            <name>Quiz</name>
             <description>Welcher Blattrand passt am besten zum Blatt der Linde?</description>
             <selection>
                 <option>
@@ -357,7 +357,7 @@
         </minigame_chooseAnswer> <!-- Linde -->
         <minigame_chooseAnswer>
             <id>13</id>
-            <name>Blattrand</name>
+            <name>Quiz</name>
             <description>Welcher Blattrand passt am besten zur Nadel der Waldkiefer?</description>
             <selection>
                 <option>
@@ -379,7 +379,7 @@
         </minigame_chooseAnswer> <!-- Waldkiefer -->
         <minigame_chooseAnswer>
             <id>14</id>
-            <name>Blattrand</name>
+            <name>Quiz</name>
             <description>Welcher Blattrand passt am besten zum Blatt der Eiche?</description>
             <selection>
                 <option>
@@ -406,7 +406,7 @@
         </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
             <id>15</id>
-            <name>Blattrand</name>
+            <name>Quiz</name>
             <description>Welcher Blattrand passt am besten zum Blatt der Hasel?</description>
             <selection>
                 <option>
@@ -433,7 +433,7 @@
         </minigame_chooseAnswer> <!-- Hasel -->
         <minigame_chooseAnswer>
             <id>16</id>
-            <name>Blattrand</name>
+            <name>Quiz</name>
             <description>Welcher Blattrand passt am besten zum Blatt der Hängebirke?</description>
             <selection>
                 <option>
@@ -460,7 +460,7 @@
         </minigame_chooseAnswer> <!-- Hängebirke -->
         <minigame_chooseAnswer>
             <id>17</id>
-            <name>Blattrand</name>
+            <name>Quiz</name>
             <description>Welcher Blattrand passt am besten zum Blatt der Eberesche?</description>
             <selection>
                 <option>
@@ -487,7 +487,7 @@
         </minigame_chooseAnswer> <!-- Eberesche -->
         <minigame_chooseAnswer>
             <id>18</id>
-            <name>Blattrand</name>
+            <name>Quiz</name>
             <description>Welcher Blattrand passt am besten zur Nadel der Tanne?</description>
             <selection>
                 <option>
@@ -509,7 +509,7 @@
         </minigame_chooseAnswer> <!-- Tanne -->
         <minigame_chooseAnswer>
             <id>19</id>
-            <name>Blattrand</name>
+            <name>Quiz</name>
             <description>Welcher Blattrand passt am besten zur Nadel der Waldkiefer?</description>
             <selection>
                 <option>
@@ -532,25 +532,25 @@
         /---------------------------------------------------------------
         <!-- Quiz: Position of the leaves id:20-29 -->
         <minigame_chooseAnswer>
-        <id>20</id>
-        <name>Blattstellung</name>
-        <description>Wie sind die Blätter an den Zweigen des Ahorns angeordnet?</description>
-        <selection>
-            <option>
-                <option_type>Image</option_type>
-                <option_content>ic_wechselstaendig</option_content>
-                <option_right>false</option_right>
-            </option>
-            <option>
-                <option_type>Image</option_type>
-                <option_content>ic_gegenstaendig</option_content>
-                <option_right>true</option_right>
-            </option>
-        </selection>
+            <id>20</id>
+            <name>Quiz</name>
+            <description>Wie sind die Blätter an den Zweigen des Ahorns angeordnet?</description>
+            <selection>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_wechselstaendig</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Image</option_type>
+                    <option_content>ic_gegenstaendig</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
         </minigame_chooseAnswer> <!-- Ahorn -->
         <minigame_chooseAnswer>
             <id>21</id>
-            <name>Blattstellung</name>
+            <name>Quiz</name>
             <description>Wie sind die Blätter an den Zweigen der Rotbuche angeordnet?</description>
             <selection>
                 <option>
@@ -567,7 +567,7 @@
         </minigame_chooseAnswer> <!-- Rot-Buche -->
         <minigame_chooseAnswer>
             <id>22</id>
-            <name>Blattstellung</name>
+            <name>Quiz</name>
             <description>Wie sind die Blätter an den Zweigen der Linde angeordnet?</description>
             <selection>
                 <option>
@@ -584,7 +584,7 @@
         </minigame_chooseAnswer> <!-- Linde -->
         <minigame_chooseAnswer>
             <id>23</id>
-            <name>Blattstellung</name>
+            <name>Quiz</name>
             <description>Wie sind die Nadeln an den Zweigen der Waldkiefer angeordnet?</description>
             <selection>
                 <option>
@@ -601,7 +601,7 @@
         </minigame_chooseAnswer> <!-- Waldkiefer -->
         <minigame_chooseAnswer>
             <id>24</id>
-            <name>Blattstellung</name>
+            <name>Quiz</name>
             <description>Wie sind die Blätter an den Zweigen der Eiche angeordnet?</description>
             <selection>
                 <option>
@@ -618,7 +618,7 @@
         </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
             <id>25</id>
-            <name>Position</name>
+            <name>Quiz</name>
             <description>Wie sind die Blätter an den Zweigen der Hasel angeordnet?</description>
             <selection>
                 <option>
@@ -635,7 +635,7 @@
         </minigame_chooseAnswer> <!-- Hasel -->
         <minigame_chooseAnswer>
             <id>26</id>
-            <name>Blattstellung</name>
+            <name>Quiz</name>
             <description>Wie sind die Blätter an den Zweigen der Hängebirke angeordnet?</description>
             <selection>
                 <option>
@@ -652,7 +652,7 @@
         </minigame_chooseAnswer> <!-- Hängebirke -->
         <minigame_chooseAnswer>
             <id>27</id>
-            <name>Blattstellung</name>
+            <name>Quiz</name>
             <description>Wie sind die Blätter an den Zweigen der Eberesche angeordnet?</description>
             <selection>
                 <option>
@@ -669,7 +669,7 @@
         </minigame_chooseAnswer> <!-- Eberesche -->
         <minigame_chooseAnswer>
             <id>28</id>
-            <name>Blattstellung</name>
+            <name>Quiz</name>
             <description>Wie sind die Nadeln an den Zweigen der Tanne angeordnet?</description>
             <selection>
                 <option>
@@ -686,7 +686,7 @@
         </minigame_chooseAnswer> <!-- Tanne -->
         <minigame_chooseAnswer>
             <id>29</id>
-            <name>Blattstellung</name>
+            <name>Quiz</name>
             <description>Wie sind die Nadeln an den Zweigen der Fichte angeordnet?</description>
             <selection>
                 <option>
@@ -705,7 +705,7 @@
         <!-- Quiz: Shape of the leaves id:30-39 -->
         <minigame_chooseAnswer>
             <id>30</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Blätter des Ahorns genau an. Welche Form passt am besten?</description>
             <selection>
                 <option>
@@ -732,7 +732,7 @@
         </minigame_chooseAnswer> <!-- Ahorn -->
         <minigame_chooseAnswer>
             <id>31</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Blätter der Rotbuche genau an. Welche Form passt am besten?</description>
             <selection>
                 <option>
@@ -759,7 +759,7 @@
         </minigame_chooseAnswer> <!-- Rot-Buche -->
         <minigame_chooseAnswer>
             <id>32</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>SSchau dir die Blätter der Linde genau an. Welche Form passt am besten?</description>
             <selection>
                 <option>
@@ -786,7 +786,7 @@
         </minigame_chooseAnswer> <!-- Linde -->
         <minigame_chooseAnswer>
             <id>33</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Nadeln der Waldkiefer genau an. Welche Form passt am besten?</description>
             <selection>
                 <option>
@@ -813,7 +813,7 @@
         </minigame_chooseAnswer> <!-- Waldkiefer -->
         <minigame_chooseAnswer>
             <id>34</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Blätter der Eiche genau an. Welche Form passt am besten?</description>
             <selection>
                 <option>
@@ -840,7 +840,7 @@
         </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
             <id>35</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Blätter der Hasel genau an. Welche Form passt am besten?</description>
             <selection>
                 <option>
@@ -867,7 +867,7 @@
         </minigame_chooseAnswer> <!-- Hasel -->
         <minigame_chooseAnswer>
             <id>36</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Blätter der Hängebirke genau an. Welche Form passt am besten?</description>
             <selection>
                 <option>
@@ -894,7 +894,7 @@
         </minigame_chooseAnswer> <!-- Hängebirke -->
         <minigame_chooseAnswer>
             <id>37</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Blätter der Eberesche genau an. Welche Form passt am besten?</description>
             <selection>
                 <option>
@@ -921,7 +921,7 @@
         </minigame_chooseAnswer> <!-- Eberesche -->
         <minigame_chooseAnswer>
             <id>38</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Nadeln der Tanne genau an. Welche Form passt am besten?</description>
             <selection>
                 <option>
@@ -948,7 +948,7 @@
         </minigame_chooseAnswer> <!-- Tanne -->
         <minigame_chooseAnswer>
             <id>39</id>
-            <name>Blattform</name>
+            <name>Quiz</name>
             <description>Schau dir die Nadeln der Fichte genau an. Welche Form passt am besten?</description>
             <selection>
                 <option>
@@ -979,7 +979,7 @@
         <!-- Quiz: Picture of the bark id:40-49 -->
         <minigame_chooseAnswer>
             <id>40</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Schau dir die Rinde des Ahorns genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -1006,7 +1006,7 @@
         </minigame_chooseAnswer> <!-- Ahorn -->
         <minigame_chooseAnswer>
             <id>41</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Schau dir die Rinde der Rotbuche genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -1033,7 +1033,7 @@
         </minigame_chooseAnswer> <!-- Rot-Buche -->
         <minigame_chooseAnswer>
             <id>42</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Schau dir die Rinde der Linde genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -1060,7 +1060,7 @@
         </minigame_chooseAnswer> <!-- Linde -->
         <minigame_chooseAnswer>
             <id>43</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Schau dir die Rinde der Waldkiefer genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -1087,7 +1087,7 @@
         </minigame_chooseAnswer> <!-- Waldkiefer -->
         <minigame_chooseAnswer>
             <id>44</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Schau dir die Rinde der Eiche genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -1114,7 +1114,7 @@
         </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
             <id>45</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Schau dir die Rinde der Hasel genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -1141,7 +1141,7 @@
         </minigame_chooseAnswer> <!-- Hasel -->
         <minigame_chooseAnswer>
             <id>46</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Schau dir die Rinde der Hängebirke genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -1168,7 +1168,7 @@
         </minigame_chooseAnswer> <!-- Hängebirke -->
         <minigame_chooseAnswer>
             <id>47</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Schau dir die Rinde der Eberesche genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -1195,7 +1195,7 @@
         </minigame_chooseAnswer> <!-- Eberesche -->
         <minigame_chooseAnswer>
             <id>48</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Schau dir die Rinde der Tanne genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -1222,7 +1222,7 @@
         </minigame_chooseAnswer> <!-- Tanne -->
         <minigame_chooseAnswer>
             <id>49</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Schau dir die Rinde der Fichte genau an. Welches Bild passt am besten?</description>
             <selection>
                 <option>
@@ -1251,7 +1251,7 @@
         <!-- Quiz:  Question about the wood (1) id:50-59 -->
         <minigame_chooseAnswer>
             <id>50</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Menschen nutzen das Ahorn-Holz für viele Sachen. Für was eignet sich das Holz NICHT? Was glaubst du?</description>
             <selection>
                 <option>
@@ -1273,7 +1273,7 @@
         </minigame_chooseAnswer> <!-- Ahorn -->
         <minigame_chooseAnswer>
             <id>51</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Was ist an der Rot-Buche eigentlich rot?</description>
             <selection>
                 <option>
@@ -1295,7 +1295,7 @@
         </minigame_chooseAnswer> <!-- Rot-Buche -->
         <minigame_chooseAnswer>
             <id>52</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Lindenholz splittert nicht und lässt sich leicht durchbrechen. Für was glaubst du lässt sich Lindenholz am besten nutzen?</description>
             <selection>
                 <option>
@@ -1317,7 +1317,7 @@
         </minigame_chooseAnswer> <!-- Linde -->
         <minigame_chooseAnswer>
             <id>53</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Welche Aussage zur Rinde der Kiefer ist richtig?</description>
             <selection>
                 <option>
@@ -1339,7 +1339,7 @@
         </minigame_chooseAnswer> <!-- Waldkiefer -->
         <minigame_chooseAnswer>
             <id>54</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Für welche Fertigung eignet sich das harte Eichenholz besonders gut?</description>
             <selection>
                 <option>
@@ -1361,7 +1361,7 @@
         </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
             <id>55</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Was denkst du stimmt?</description>
             <selection>
                 <option>
@@ -1406,7 +1406,7 @@
         </minigame_chooseAnswer> -->
         <minigame_chooseAnswer>
             <id>56</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Birkenholz findet sich an vielen Besen. Was meinst du, wo?</description>
             <selection>
                 <option>
@@ -1423,7 +1423,7 @@
         </minigame_chooseAnswer> <!-- Hängebirke -->
         <minigame_chooseAnswer>
             <id>57</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Was kann man aus dem Holz der Eberesche machen?</description>
             <selection>
                 <option>
@@ -1445,28 +1445,28 @@
         </minigame_chooseAnswer> <!-- Eberesche -->
         <minigame_chooseAnswer>
             <id>58</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Im Wald werden kleine Weiß-Tannen besonders gern von...</description><selection>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>A: Wildtieren angefressen.</option_content>
-                    <option_right>true</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>B: Füchsen zum Markieren ihres Reviers genutzt.</option_content>
-                    <option_right>false</option_right>
-                </option>
-                <option>
-                    <option_type>Text</option_type>
-                    <option_content>C: Spechten als Brutbaum verwendet.</option_content>
-                    <option_right>false</option_right>
-                </option>
-            </selection>
+            <option>
+                <option_type>Text</option_type>
+                <option_content>A: Wildtieren angefressen.</option_content>
+                <option_right>true</option_right>
+            </option>
+            <option>
+                <option_type>Text</option_type>
+                <option_content>B: Füchsen zum Markieren ihres Reviers genutzt.</option_content>
+                <option_right>false</option_right>
+            </option>
+            <option>
+                <option_type>Text</option_type>
+                <option_content>C: Spechten als Brutbaum verwendet.</option_content>
+                <option_right>false</option_right>
+            </option>
+        </selection>
         </minigame_chooseAnswer> <!-- Tanne -->
         <minigame_chooseAnswer>
             <id>59</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Die Fichte wird gern in Wälder angepflanzt, weil : </description>
             <selection>
                 <option>
@@ -1490,7 +1490,7 @@
         <!-- Quiz: Question about the wood (2) id:60-69 -->
         <minigame_chooseAnswer>
             <id>60</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Woraus wird das typische Süßungsmittel Ahornsirup gewonnen?</description>
             <selection>
                 <option>
@@ -1512,7 +1512,7 @@
         </minigame_chooseAnswer> <!-- Ahorn -->
         <minigame_chooseAnswer>
             <id>61</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Wofür wird das meiste Buchenholz verwendet? Was glaubst du?</description>
             <selection>
                 <option>
@@ -1534,7 +1534,7 @@
         </minigame_chooseAnswer> <!-- Rot-Buche -->
         <minigame_chooseAnswer>
             <id>62</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>In die Krone eines Lindenbaumes haben die Menschen früher...</description>
             <selection>
                 <option>
@@ -1556,7 +1556,7 @@
         </minigame_chooseAnswer> <!-- Linde -->
         <minigame_chooseAnswer>
             <id>63</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Was hilft Kiefern oft dabei an genügend Nährstoffe zu kommen?</description>
             <selection>
                 <option>
@@ -1578,7 +1578,7 @@
         </minigame_chooseAnswer> <!-- Waldkiefer -->
         <minigame_chooseAnswer>
             <id>64</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Welche Käfer leben besonders gerne auf den Zweigen der Eiche?</description>
             <selection>
                 <option>
@@ -1600,7 +1600,7 @@
         </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
             <id>65</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Wofür kann man die Äste der Hasel verwenden?</description>
             <selection>
                 <option>
@@ -1622,7 +1622,7 @@
         </minigame_chooseAnswer> <!-- Hasel -->
         <minigame_chooseAnswer>
             <id>66</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Birkenholz ist sehr stabil. Welche Aussage stimmt? Vielleicht stimmen ja sogar alle. Was glaubst du?</description>
             <selection>
                 <option>
@@ -1644,7 +1644,7 @@
         </minigame_chooseAnswer> <!-- Hängebirke -->
         <minigame_chooseAnswer>
             <id>67</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Was kann man aus dem Holz der Eberesche machen?</description>
             <selection>
                 <option>
@@ -1666,7 +1666,7 @@
         </minigame_chooseAnswer> <!-- Eberesche -->
         <minigame_chooseAnswer>
             <id>68</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Das klebrige Tannenharz lässt sich verwenden um...</description>
             <selection>
                 <option>
@@ -1688,7 +1688,7 @@
         </minigame_chooseAnswer> <!-- Tanne -->
         <minigame_chooseAnswer>
             <id>69</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Besonders wertvolles Fichtenholz ist:</description>
             <selection>
                 <option>
@@ -1713,7 +1713,7 @@
         <!-- Quiz: Picture of the fruit id:70-79 -->
         <minigame_chooseAnswer>
             <id>70</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Schau dir die Früchte des Ahorns genau an. Welche Zeichnung passt am besten?</description>
             <selection>
                 <option>
@@ -1740,7 +1740,7 @@
         </minigame_chooseAnswer> <!-- Ahorn -->
         <minigame_chooseAnswer>
             <id>71</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Schau dir die Früchte der Rotbuche genau an. Welche Zeichnung passt am besten?</description>
             <selection>
                 <option>
@@ -1767,7 +1767,7 @@
         </minigame_chooseAnswer> <!-- Rot-Buche -->
         <minigame_chooseAnswer>
             <id>72</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Schau dir die Früchte der Linde genau an. Welche Zeichnung passt am besten?</description>
             <selection>
                 <option>
@@ -1794,7 +1794,7 @@
         </minigame_chooseAnswer> <!-- Linde -->
         <minigame_chooseAnswer>
             <id>73</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Schau dir die Früchte der Waldkiefer genau an. Welche Zeichnung passt am besten?</description>
             <selection>
                 <option>
@@ -1821,7 +1821,7 @@
         </minigame_chooseAnswer> <!-- Waldkiefer -->
         <minigame_chooseAnswer>
             <id>74</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Schau dir die Früchte der Eiche genau an. Welche Zeichnung passt am besten?</description>
             <selection>
                 <option>
@@ -1848,7 +1848,7 @@
         </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
             <id>75</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Schau dir die Früchte der Hasel genau an. Welche Zeichnung passt am besten?</description>
             <selection>
                 <option>
@@ -1875,7 +1875,7 @@
         </minigame_chooseAnswer> <!-- Hasel -->
         <minigame_chooseAnswer>
             <id>76</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Schau dir die Früchte der Hängebirke genau an. Welche Zeichnung passt am besten?</description>
             <selection>
                 <option>
@@ -1902,7 +1902,7 @@
         </minigame_chooseAnswer> <!-- Hängebirke -->
         <minigame_chooseAnswer>
             <id>77</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Schau dir die Früchte der Eberesche genau an. Welche Zeichnung passt am besten?</description>
             <selection>
                 <option>
@@ -1929,7 +1929,7 @@
         </minigame_chooseAnswer> <!-- Eberesche -->
         <minigame_chooseAnswer>
             <id>78</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Schau dir die Früchte der Tanne genau an. Welche Zeichnung passt am besten?</description>
             <selection>
                 <option>
@@ -1956,7 +1956,7 @@
         </minigame_chooseAnswer> <!-- Tanne -->
         <minigame_chooseAnswer>
             <id>79</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Schau dir die Früchte der Fichte genau an. Welche Zeichnung passt am besten?</description>
             <selection>
                 <option>
@@ -1985,7 +1985,7 @@
         <!-- Quiz: Question about the fruits (1) id:80-89 -->
         <minigame_chooseAnswer>
             <id>80</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Wie wird im Volksmund die Frucht des Ahorns auch genannt?</description>
             <selection>
                 <option>
@@ -2007,7 +2007,7 @@
         </minigame_chooseAnswer> <!-- Ahorn -->
         <minigame_chooseAnswer>
             <id>81</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>In den Bucheckern verstecken sich kleine "Nüsschen". Welche Tiere finden diese ungemein lecker?</description>
             <selection>
                 <option>
@@ -2049,7 +2049,7 @@
         </minigame_chooseAnswer> <!-- Rot-Buche, eventuell Bubble-Auswahl statt Textantworten?-->
         <minigame_chooseAnswer>
             <id>82</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Die Lindenfrüchte besitzen alle ein längliches Hochblatt. Welche Aufgabe hat dieses Hochblatt?</description>
             <selection>
                 <option>
@@ -2071,7 +2071,7 @@
         </minigame_chooseAnswer> <!-- Linde -->
         <minigame_chooseAnswer>
             <id>83</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Was ist die Besonderheit bei den weiblichen Kiefern-Zapfen?</description>
             <selection>
                 <option>
@@ -2093,7 +2093,7 @@
         </minigame_chooseAnswer> <!-- Waldkiefer -->
         <minigame_chooseAnswer>
             <id>84</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Was kann man aus Eicheln machen?</description>
             <selection>
                 <option>
@@ -2115,7 +2115,7 @@
         </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
             <id>85</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Welche Tiere haben die Haselnüsse zum Fressen gerne? Es könnten mehrere Tiere sein!</description>
             <selection>
                 <option>
@@ -2147,7 +2147,7 @@
         </minigame_chooseAnswer> <!-- Hasel, eventuell Bubble-Auswahl statt Textantworten?-->
         <minigame_chooseAnswer>
             <id>86</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Wie werden die Blüten der Birken bestäubt?</description>
             <selection>
                 <option>
@@ -2169,7 +2169,7 @@
         </minigame_chooseAnswer> <!-- Hängebirke -->
         <minigame_chooseAnswer>
             <id>87</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Wie werden die Früchte der Eberesche genannt?</description>
             <selection>
                 <option>
@@ -2191,7 +2191,7 @@
         </minigame_chooseAnswer> <!-- Eberesche -->
         <minigame_chooseAnswer>
             <id>88</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Wie alt muss eine Tanne sein, bevor sie das erste Mal blüht?</description>
             <selection>
                 <option>
@@ -2213,7 +2213,7 @@
         </minigame_chooseAnswer> <!-- Tanne -->
         <minigame_chooseAnswer>
             <id>89</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Welche Form haben die Blütenstände der Fichte?</description>
             <selection>
                 <option>
@@ -2237,7 +2237,7 @@
         <!-- Quiz: Question about the fruits (2) id:90-99 -->
         <minigame_chooseAnswer>
             <id>90</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Wirf eine Ahornfrucht in die Luft. Was kannst du beobachten?</description>
             <selection>
                 <option>
@@ -2258,30 +2258,30 @@
             </selection>
         </minigame_chooseAnswer> <!-- Ahorn -->
         <minigame_chooseAnswer>
-        <id>91</id>
-        <name>Frucht</name>
-        <description>Wie verbreiten sich die Buchen?</description>
-        <selection>
-            <option>
-                <option_type>Text</option_type>
-                <option_content>A: Menschen haben die angepflanzt.</option_content>
-                <option_right>false</option_right>
-            </option>
-            <option>
-                <option_type>Text</option_type>
-                <option_content>B: Die Bucheckern werden vom Wind davon geweht.</option_content>
-                <option_right>false</option_right>
-            </option>
-            <option>
-                <option_type>Text</option_type>
-                <option_content>C: Tiere vergraben Bucheckern als Reserve für den Winter und vergessen sie in der Erde.</option_content>
-                <option_right>true</option_right>
-            </option>
-        </selection>
-    </minigame_chooseAnswer> <!-- Rot-Buche -->
+            <id>91</id>
+            <name>Quiz</name>
+            <description>Wie verbreiten sich die Buchen?</description>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Menschen haben die angepflanzt.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Die Bucheckern werden vom Wind davon geweht.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Tiere vergraben Bucheckern als Reserve für den Winter und vergessen sie in der Erde.</option_content>
+                    <option_right>true</option_right>
+                </option>
+            </selection>
+        </minigame_chooseAnswer> <!-- Rot-Buche -->
         <minigame_chooseAnswer>
             <id>92</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Welche Wirkung hat Tee aus Lindenblüten?</description>
             <selection>
                 <option>
@@ -2303,7 +2303,7 @@
         </minigame_chooseAnswer> <!-- Linde -->
         <minigame_chooseAnswer>
             <id>93</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Was kann ein Kiefernzapfen?</description>
             <selection>
                 <option>
@@ -2325,7 +2325,7 @@
         </minigame_chooseAnswer> <!-- Waldkiefer -->
         <minigame_chooseAnswer>
             <id>94</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>In welchem Monat blüht die Eiche?</description>
             <selection>
                 <option>
@@ -2347,7 +2347,7 @@
         </minigame_chooseAnswer> <!-- Eiche -->
         <minigame_chooseAnswer>
             <id>95</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Wie heißt der männliche Blütenstand der Hasel?</description>
             <selection>
                 <option>
@@ -2369,7 +2369,7 @@
         </minigame_chooseAnswer> <!-- Hasel -->
         <minigame_chooseAnswer>
             <id>96</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Hatschi! Im Frühling müssen viele Menschen niesen, weil sie allergisch sind auf...</description>
             <selection>
                 <option>
@@ -2391,7 +2391,7 @@
         </minigame_chooseAnswer> <!-- Hängebirke -->
         <minigame_chooseAnswer>
             <id>97</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>Wonach riechen die rund 1cm großen Blüten?</description>
             <selection>
                 <option>
@@ -2413,7 +2413,7 @@
         </minigame_chooseAnswer> <!-- Eberesche -->
         <minigame_chooseAnswer>
             <id>98</id>
-            <name>Stamm</name>
+            <name>Quiz</name>
             <description>Wenn man im Wald einen Zapfen auf dem Boden findet, ist es...</description>
             <selection>
                 <option>
@@ -2435,7 +2435,7 @@
         </minigame_chooseAnswer> <!-- Tanne -->
         <minigame_chooseAnswer>
             <id>99</id>
-            <name>Frucht</name>
+            <name>Quiz</name>
             <description>In welche Richtung zeigen die ausgewachsenen Zapfen der Fichte vom Ast aus?</description>
             <selection>
                 <option>

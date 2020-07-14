@@ -11,10 +11,13 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.baumory.GameActivity_Baumory;
+import de.lmu.treeapp.activities.minigames.chooseAnswer.ChooseAnswer_Options_RecyclerViewAdapter;
 import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
 import de.lmu.treeapp.activities.minigames.dragDrop.GameActivity_DragDrop;
 import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
@@ -30,6 +33,7 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
     List<Integer> games;
     int treeId;
     Tree.GameCategories category;
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView gameName;
@@ -84,6 +88,18 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
             public void onClick(View arg0) {
                 switch(game.type){
                     case ChooseAnswer:
+
+                        if(game.uid>=100){
+                            GameActivity_ChooseAnswer.current=1;
+                        } else if(game.uid<40){
+                            GameActivity_ChooseAnswer.current=4;
+                        } else {
+                            GameActivity_ChooseAnswer.current=3;
+                        }
+
+
+
+
                         Intent intent = new Intent(context, GameActivity_ChooseAnswer.class);
                         intent.putExtra("TreeId",treeId);
                         intent.putExtra("Category", category);
