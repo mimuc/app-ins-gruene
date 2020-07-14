@@ -4,7 +4,7 @@
         <minigame_takePicture>
             <id>0</id>
             <name>Mein Baum und ich</name>
-            <description>Mache ein Bild von dir und dem Baum</description>
+            <description>Mache ein Bild von dir und dem Baum!</description>
             <image></image>
             <pictureName>BaumUndIch</pictureName>
         </minigame_takePicture>
