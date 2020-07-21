@@ -35,9 +35,7 @@ public class DetailSingleTreeFragment extends Fragment {
     private ProgressBar fruitProgressBar;
     private ProgressBar trunkProgressBar;
     private ProgressBar otherProgressBar;
-
     private Tree tree;
-
 
     DetailSingleTreeFragment(Tree tree) {
         this.tree = tree;
@@ -96,12 +94,13 @@ public class DetailSingleTreeFragment extends Fragment {
         int imageLeafId = getContext().getResources().getIdentifier(tree.imageLeaf, "drawable", getContext().getPackageName());
         int imageFruitId = getContext().getResources().getIdentifier(tree.imageFruit, "drawable", getContext().getPackageName());
         int imageTrunkId = getContext().getResources().getIdentifier(tree.imageTrunk, "drawable", getContext().getPackageName());
-        int imageOtherId = getContext().getResources().getIdentifier(tree.imageOther, "drawable", getContext().getPackageName());
+        //int imageOtherId = getContext().getResources().getIdentifier(tree.imageOther, "drawable", getContext().getPackageName());
         treeImage.setImageResource(imageTreeId);
         leafButton.setImageResource(imageLeafId);
         fruitButton.setImageResource(imageFruitId);
         trunkButton.setImageResource(imageTrunkId);
-        otherButton.setImageResource(imageOtherId);
+        //otherButton.setImageResource(imageOtherId);
+        otherButton.setImageResource(R.drawable.ic_tree_other);
     }
 
     private void setupOnClickListener() {
@@ -126,10 +125,8 @@ public class DetailSingleTreeFragment extends Fragment {
                 Intent intent = new Intent(getContext(), GameSelectionActivity.class);
                 intent.putExtra("TreeId", tree.uid);
                 intent.putExtra("Category", category);
-
                 startActivity(intent);
             }
         };
     }
-
 }
