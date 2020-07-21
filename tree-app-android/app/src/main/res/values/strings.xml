@@ -33,9 +33,11 @@
     <string name="game_choose_answer_option_button_placeholder_text">Button</string>
     <string name="game_choose_answer_popup_text">Richtig :-)</string>
     <string name="game_title_placeholder">TextView</string>
-    <string name="game_description_placeholder">TextView</string>
+    <string name="game_description_placeholder">Foto-Challenge!</string>
     <string name="game_input_string_input_text_field_hint_text">Antwort</string>
     <string name="game_input_string_send_button_placeholder_text">Senden</string>
+    <string name="game_take_picture_example">Beispielbild</string>
+    <string name="game_take_picture_own_foto">Vorschau deines Fotos</string>
     <string name="game_take_picture_send_button_placeholder_text">Senden</string>
     <string name="game_selection_headline_placholder">Wähle ein Spiel aus</string>
     <string name="game_selection_description_placeholder">Hier findest du Minigames zu Rinde und Holz der Waldkiefer. Starte jetzt mit einem Spiel!</string>
@@ -45,6 +47,10 @@
     <string name="detail_single_tree_trunk_button_content_description">trunk games button</string>
     <string name="detail_single_tree_other_button_content_description">other games button</string>
     <string name="popup_quiz_positive_title">Richtig!</string>
+    <string name="popup_quiz_positive_text">Dein Foto erscheint jetzt auch im Steckbrief!</string>
     <string name="popup_quiz_negative_title">Leider falsch!</string>
     <string name="popup_quiz_negative_text">Die richtige Antwort ist:</string>
+    <string name="popup_neutral_btn_wiki">Steckbrief</string>
+    <string name="popup_neutral_btn_forward">Fertig!</string>
+    <string name="popup_neutral_title">Prima!</string>
 </resources>

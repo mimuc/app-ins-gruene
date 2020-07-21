@@ -1,12 +1,10 @@
 package de.lmu.treeapp.activities.minigames.takePicture;
 
-import android.content.ContentValues;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,11 +12,17 @@ import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.Window;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.FileProvider;
+import androidx.core.view.ViewCompat;
 
 import java.io.File;
 import java.io.FileDescriptor;
@@ -27,15 +31,22 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.activities.WantedPosterDetailsActivity;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
+import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_TakePicture;
+import de.lmu.treeapp.contentData.DataManager;
 
 public class GameActivity_TakePicture extends GameActivity_Base {
 
     private Minigame_TakePicture takePictureGame;
-
     private Button sendButton;
-    private ImageButton previewPicture;
+    private ImageView previewPicture;
+    private ImageButton imageExample;
+    // PopUp:
+    Dialog popupWindow;
+    Button btnAccept, btnWiki;
+    TextView popupTitle, popupText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,36 +54,39 @@ public class GameActivity_TakePicture extends GameActivity_Base {
         setContentView(R.layout.activity_game__take_picture);
         super.onCreate(savedInstanceState);
 
-
+        popupWindow = new Dialog(this);
         takePictureGame = (Minigame_TakePicture) gameContent;
         sendButton = findViewById(R.id.game_takePicture_sendButton);
-
         previewPicture = findViewById(R.id.game_takePicture_previewPicture);
+        imageExample = findViewById(R.id.game_takePicture_imageExample);
 
-        previewPicture.setOnClickListener(new Button.OnClickListener() {
+        sendButton.setEnabled(false);
+
+        imageExample.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
+                imageExample.setVisibility(View.GONE);
                 dispatchTakePictureIntent();
+                sendButton.setEnabled(true);
             }
         });
 
         sendButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onSuccess();
+                showPositivePopup();
             }
         });
-
     }
 
     String currentPhotoPath;
     Uri photoURI;
 
-
     static final int REQUEST_TAKE_PHOTO = 1;
 
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
         // Ensure that there's a camera activity to handle the intent
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             // Create the File where the photo should go
@@ -81,6 +95,7 @@ public class GameActivity_TakePicture extends GameActivity_Base {
                 photoFile = createImageFile();
             } catch (IOException ex) {
                 // Error occurred while creating the File
+                Toast.makeText(getApplicationContext(), "Foto kann nicht aufgenommen werden.", Toast.LENGTH_SHORT).show();
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
@@ -91,7 +106,9 @@ public class GameActivity_TakePicture extends GameActivity_Base {
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
             }
         }
+        sendButton.setAlpha(1);
     }
+
     private File createImageFile() throws IOException {
         String imageFileName = "AppInsGruene_" + takePictureGame.GetPictureName();
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
@@ -163,9 +180,45 @@ public class GameActivity_TakePicture extends GameActivity_Base {
             System.out.println("___________________" + ori);
             // TODO: Rotate now. Portrait gives 90, Landscape gives 0.
             previewPicture.setImageURI(photoURI);
+            previewPicture.setVisibility(View.VISIBLE);
         }
     }
 
+    private void showPositivePopup() {
+        popupWindow.setContentView(R.layout.popup_neutral);
+        btnAccept = popupWindow.findViewById(R.id.btn_forward);
+        btnWiki = popupWindow.findViewById(R.id.btn_wiki);
+        popupTitle = popupWindow.findViewById(R.id.popup_title);
+        popupText = popupWindow.findViewById(R.id.popup_text);
 
+        btnAccept.setVisibility(View.VISIBLE);
+        btnWiki.setVisibility(View.VISIBLE);
+        ViewCompat.animate(popupText).setStartDelay(150).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
+        ViewCompat.animate(btnAccept).setStartDelay(300).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
+        ViewCompat.animate(btnWiki).setStartDelay(300).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
+        //close the popup and open the tree profile
+        btnWiki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                popupWindow.dismiss();
+                showTreeProfile();
+            }
+        });
+
+        //close the popup and finish the game
+        btnAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                popupWindow.dismiss();
+                onSuccess();
+            }
+        });
+
+        popupWindow.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        popupWindow.show();
+
+        Window window = popupWindow.getWindow();
+        window.setLayout(CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
+    }
 }

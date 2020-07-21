@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.GameSelectionActivity;
+import de.lmu.treeapp.activities.WantedPosterDetailsActivity;
 import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.trees.Tree;
@@ -94,6 +95,12 @@ public class GameActivity_Base extends AppCompatActivity {
         intent.putExtra("TreeId", treeId);
         intent.putExtra("Category", parentCategory);
         finish(); // Removes the last quiz activity from the stack
+        startActivity(intent);
+    }
+
+    public void showTreeProfile(){
+        Intent intent = new Intent(getApplicationContext(), WantedPosterDetailsActivity.class);
+        intent.putExtra("TreeId", treeId);
         startActivity(intent);
     }
 

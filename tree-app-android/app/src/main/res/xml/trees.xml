@@ -7,9 +7,9 @@
             <profileId>0</profileId>
             <qrCode>Ahorn</qrCode>
             <leafGames>0,10,20,30,300,400</leafGames>
-            <fruitGames>70,101,300,50</fruitGames>
-            <trunkGames>40,300,400,500</trunkGames>
-            <otherGames>100,400,500,600,</otherGames>
+            <fruitGames>70,101,301,50</fruitGames>
+            <trunkGames>40,400,302,500</trunkGames>
+            <otherGames>100,400,303,500,600,</otherGames>
             <imageTree>ic_ahorn_baum</imageTree>
             <imageLeaf>ic_ahorn_blatt</imageLeaf>
             <imageFruit>ic_ahorn_frucht</imageFruit>
