@@ -3,12 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="de.lmu.treeapp">
 
-    <!--
-    <uses-permission android:name="android.permission.CAMERA" />
-    -->
     <uses-feature android:name="android.hardware.camera" android:required="true" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
-
 
     <application
         android:allowBackup="true"
