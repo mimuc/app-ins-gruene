@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,LockedOrientationActivity">
+
         <activity android:name=".activities.minigames.chooseAnswer.GameActivity_ChooseAnswer" android:parentActivityName="activities.GameSelectionActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="activities.MainActivity" />
         </activity>
@@ -40,9 +41,11 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activities.Imprint" android:parentActivityName="activities.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="activities.MainActivity" />
         </activity>
         <activity android:name=".activities.BarcodeCaptureActivity" android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activities.WantedPosterDetailsActivity" />

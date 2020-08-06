@@ -19,6 +19,7 @@
     <string name="wanted_poster_details_title_text">Steckbrief</string>
     <string name="tree_selection_fragment_button_text">DETAILS ANZEIGEN</string>
     <string name="overview_fragment_headline">Deine Waldübersicht</string>
+    <string name="overview_fragment_btn_imprint">Impressum</string>
     <string name="overview_fragment_description_text">Klicke auf einen Baum um mehr über ihn zu erfahren!</string>
     <string name="overview_single_tree_placeholder_text">overview_single_tree_text</string>
     <string name="overview_single_tree_state_image_content_description">overview_single_tree_state_image</string>
@@ -53,4 +54,5 @@
     <string name="popup_neutral_btn_wiki">Steckbrief</string>
     <string name="popup_neutral_btn_forward">Fertig!</string>
     <string name="popup_neutral_title">Prima!</string>
+
 </resources>

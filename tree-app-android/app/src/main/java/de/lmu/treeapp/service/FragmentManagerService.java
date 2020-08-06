@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.io.Serializable;
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.adapter.OverviewRecyclerViewAdapter;
 
 /**
  * The FragmentManagerService is a Singleton used to prepare and launch the fragments (The overview and detail views of the trees in the MainActivity).
@@ -49,11 +50,19 @@ public class FragmentManagerService implements Serializable {
         for (Fragment fragment: fragmentsToShow) {
             if(fragment == fragmentsToShow[0]) {
                 this.fragmentManager.beginTransaction().add(R.id.main_container, fragment, fragment.getTag()).commit();
+                //this.fragmentManager.beginTransaction().replace(R.id.main_container, fragment).addToBackStack("my_fragment").commit();
                 this.currentActiveFragment = fragment;
                 continue;
             }
             this.fragmentManager.beginTransaction().add(R.id.main_container, fragment, fragment.getTag()).hide(fragment).commit();
+            //this.fragmentManager.beginTransaction().replace(R.id.main_container, fragment).addToBackStack("my_fragment").commit();
         }
+    }
+
+    // Show overview and reset the isImprint variable to show columns of overview correctly
+    public void showOverview(Fragment[] fragmentsToShow) {
+        showFragment(fragmentsToShow[0]);
+        OverviewRecyclerViewAdapter.isImprint = false;
     }
 
     /**
@@ -70,7 +79,7 @@ public class FragmentManagerService implements Serializable {
     /**
      * Functionality for the BottomNavigation which contains the overview and detail buttons.
      * @param overviewFragment The fragment of the trees-overview.
-     * @param treeSelectionFragment Te fragment of the trees-detail.
+     * @param treeSelectionFragment The fragment of the trees-detail.
      * @return
      */
     public BottomNavigationView.OnNavigationItemSelectedListener getOnNavigationItemSelectedListener(final Fragment overviewFragment, final Fragment treeSelectionFragment) {
@@ -91,4 +100,6 @@ public class FragmentManagerService implements Serializable {
             }
         };
     }
+
+
 }
