@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.Service.MainActivityViewModel;
+import de.lmu.treeapp.service.MainActivityViewModel;
 import de.lmu.treeapp.adapter.TreeSlidePagerAdapter;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;

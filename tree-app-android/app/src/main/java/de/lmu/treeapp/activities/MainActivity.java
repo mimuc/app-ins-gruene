@@ -1,5 +1,6 @@
 package de.lmu.treeapp.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -17,6 +20,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import de.lmu.treeapp.R;
+
+import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
+import de.lmu.treeapp.adapter.OverviewRecyclerViewAdapter;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.fragments.OverviewFragment;
@@ -29,11 +35,12 @@ import de.lmu.treeapp.service.FragmentManagerService;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private DataManager dm; // The Singleton holding all the data of teh CMS and Database
+    private DataManager dm; // The Singleton holding all the data of the CMS and Database
     private FragmentManagerService fragmentManager = FragmentManagerService.getInstance(getSupportFragmentManager()); // The FragmentManager we need to register and launch fragments
     private final Fragment treeSelectionFragment = new TreeSelectionFragment(); // The Trees-Detail-Fragment (The one were we can see the trees in big and click on games or the profile)
     private final Fragment overviewFragment = new OverviewFragment(fragmentManager, treeSelectionFragment); // The Trees-Overview-Fragment (The one which all the trees in small squares on one screen)
     private BottomNavigationView bottomNavigationView;  // The NavigationBar on the bottom
+    public static Context mainContext;
 
     // QR-Code Stuff (Disabled)
     private FloatingActionButton qrCodeButton;  // The Button to start the QR-Code/Camera-Functionality
@@ -49,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         this.setOnClickListener();
         this.getContentFromDataManager();
         this.registerFragmentManagerTransactions();
+        mainContext = getApplicationContext();
     }
 
     /**
@@ -90,10 +98,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Register the Fragments with out custom FragementManager.
+     * Register the Fragments with the custom FragmentManager.
      */
+    Fragment[] bottomNavigationFragments;
     private void registerFragmentManagerTransactions() {
-        Fragment[] bottomNavigationFragments = new Fragment[]{ this.overviewFragment, this.treeSelectionFragment };
+        bottomNavigationFragments = new Fragment[]{ this.overviewFragment, this.treeSelectionFragment };
         fragmentManager.registerTransactions(bottomNavigationFragments);
     }
 
@@ -161,6 +170,11 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_LONG).show();
             }
         });
+    }
 
+    // Android hardware back button is pressed
+    @Override
+    public void onBackPressed() {
+        fragmentManager.showOverview(bottomNavigationFragments);
     }
 }

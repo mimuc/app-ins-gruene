@@ -1,4 +1,4 @@
-package de.lmu.treeapp.Service;
+package de.lmu.treeapp.service;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

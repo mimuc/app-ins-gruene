@@ -33,25 +33,49 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/overview_fragment_headline_text" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <de.lmu.treeapp.activities.Overview_AutofitRecyclerView
         android:id="@+id/overview_recycler_view"
-        android:layout_width="413dp"
-        android:layout_height="468dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
+        android:clipToPadding="false"
+        android:paddingBottom="200dp"
+        android:columnWidth="@dimen/column_width"
+        android:numColumns="auto_fit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/overview_fragment_description_text"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/overview_fragment_description_text" />
+
+    <!--
+
+    <androidx.recyclerview.widget.RecyclerView
+    <de.lmu.treeapp.activities.Overview_AutofitRecyclerView
 
     <Button
-        android:id="@+id/button_imprint"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_imprint"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_background"
+        android:elevation="4dp"
+        android:fontFamily="@font/freude"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"
+        android:stateListAnimator="@null"
+        android:text="@string/overview_fragment_btn_imprint"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+        android:textColor="@color/forest"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/overview_recycler_view"
-        tools:layout_editor_absoluteX="163dp" />
+        app:layout_constraintWidth_percent="0.6" />
+        -->
+
+
+    <!--
+    tools:layout_editor_absoluteX="163dp"
+    -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

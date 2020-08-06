@@ -8,13 +8,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.Service.MainActivityViewModel;
+import de.lmu.treeapp.service.MainActivityViewModel;
 import de.lmu.treeapp.adapter.OverviewRecyclerViewAdapter;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
@@ -51,10 +50,14 @@ public class OverviewFragment extends Fragment {
     }
     private void setupOverviewRecyclerView() {
         overviewRecyclerView.setHasFixedSize(true);
+        // Replaced by Overview_AutofitRecyclerView:
+        /*
         int gridColumns = 3;
         RecyclerView.LayoutManager recyclerViewLayoutManager = new GridLayoutManager(getContext(), gridColumns);
         overviewRecyclerView.setLayoutManager(recyclerViewLayoutManager);
+        */
     }
+
     private void updateOverviewRecyclerView(){
         List<Tree> trees = DataManager.getInstance(getContext()).trees;
         RecyclerView.Adapter recyclerViewAdapter = new OverviewRecyclerViewAdapter(trees, fragmentManager, selectedTreeFragment, viewModel);
