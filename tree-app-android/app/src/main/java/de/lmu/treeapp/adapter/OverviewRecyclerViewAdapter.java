@@ -10,7 +10,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import de.lmu.treeapp.R;
+import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.service.MainActivityViewModel;
+import de.lmu.treeapp.activities.Imprint;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,12 +24,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.List;
 import java.util.Objects;
 
-import de.lmu.treeapp.R;
-import de.lmu.treeapp.service.MainActivityViewModel;
-import de.lmu.treeapp.activities.Imprint;
-import de.lmu.treeapp.activities.MainActivity;
-import de.lmu.treeapp.contentClasses.trees.Tree;
-
 public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRecyclerViewAdapter.ViewHolder> {
     private List<Tree> treeValues;
     private de.lmu.treeapp.service.FragmentManagerService fragmentManager;
@@ -33,6 +31,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
     private Activity currentActivity;
     private MainActivityViewModel viewModel;
     public static boolean isImprint = false;
+    private Context context;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -42,6 +41,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
         public final ImageButton treeImage;
         public final ImageView treeUnlockedStatus;
         public final Button btn_imprint;
+
 
         ViewHolder(View v) {
             super(v);
@@ -86,7 +86,12 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
         } else {
             v = inflater.inflate(R.layout.overview_button_imprint, parent, false);
         }
+        context = v.getContext();
+
+
         return new ViewHolder(v);
+
+
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -98,11 +103,8 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
             holder.btn_imprint.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent imprint = new Intent(MainActivity.mainContext, Imprint.class);
-                    //finish();
-                    //startActivity(new Intent(OverviewRecyclerViewAdapter.this, Imprint.class));
-                    //startActivity(imprint);
-                    Toast.makeText(MainActivity.mainContext, "Button Clicked", Toast.LENGTH_LONG).show();
+                    Intent intent_imprint = new Intent(context, Imprint.class);
+                    context.startActivity(intent_imprint);
                 }
             });
 

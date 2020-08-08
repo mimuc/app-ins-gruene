@@ -177,4 +177,12 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         fragmentManager.showOverview(bottomNavigationFragments);
     }
+
+    public void showImprint(){
+        Intent intent = new Intent(getApplicationContext(), Imprint.class);
+        //finish();
+        startActivity(intent);
+    }
+
+
 }

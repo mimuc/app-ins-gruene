@@ -13,7 +13,7 @@
         app:auto_cycle="true"
         app:delay="0"
         app:period="1000"
-        app:error_image="@drawable/dark_blue_gradient"
+        app:error_image="@drawable/sky_blue_gradient"
         app:placeholder="@drawable/dark_grey_gradient"
         app:corner_radius="20"
         android:layout_height="200dp"
