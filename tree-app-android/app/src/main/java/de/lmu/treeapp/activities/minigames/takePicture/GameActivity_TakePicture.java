@@ -24,18 +24,21 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.FileProvider;
 import androidx.core.view.ViewCompat;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.models.SlideModel;
+
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.activities.WantedPosterDetailsActivity;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
-import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_TakePicture;
-import de.lmu.treeapp.contentData.DataManager;
+
 
 public class GameActivity_TakePicture extends GameActivity_Base {
 
@@ -95,7 +98,7 @@ public class GameActivity_TakePicture extends GameActivity_Base {
                 photoFile = createImageFile();
             } catch (IOException ex) {
                 // Error occurred while creating the File
-                Toast.makeText(getApplicationContext(), "Foto kann nicht aufgenommen werden.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Fehler", Toast.LENGTH_SHORT).show();
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
@@ -104,6 +107,7 @@ public class GameActivity_TakePicture extends GameActivity_Base {
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+                List<SlideModel> slideModels=new ArrayList<>();
             }
         }
         sendButton.setAlpha(1);
@@ -179,6 +183,10 @@ public class GameActivity_TakePicture extends GameActivity_Base {
             int ori = getOrientation(getApplicationContext(),photoURI);
             System.out.println("___________________" + ori);
             // TODO: Rotate now. Portrait gives 90, Landscape gives 0.
+            Uri imageTaken = data.getData();
+            ImageSlider imageSlider=findViewById(R.id.slider);
+            List<SlideModel> slideModels=new ArrayList<>();
+            slideModels.add(new SlideModel("https://picsum.photos/id/894/300/200", "string", 1));
             previewPicture.setImageURI(photoURI);
             previewPicture.setVisibility(View.VISIBLE);
         }
