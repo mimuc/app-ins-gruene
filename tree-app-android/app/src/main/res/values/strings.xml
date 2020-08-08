@@ -57,7 +57,7 @@
     <string name="imprint_headline1_placeholder">IMPRESSUM</string>
     <string name="imprint_description1_placeholder">Informationen gemäß § 5 Telemediengesetz und § 55 Rundfunkstaatsvertrag. Die Ludwig-Maximilians-Universität München ist eine Körperschaft des öffentlichen Rechts. Sie wird durch den Präsidenten Prof. Dr. Bernd Huber gesetzlich vertreten.</string>
     <string name="imprint_headline2_placeholder">Herausgeber</string>
-    <string name="imprint_description2_placeholder">
+    <string name="imprint_publisher_description">
         Ludwig-Maximilians-Universität München&#10;
         Geschwister-Scholl-Platz 1&#10;
         80539 München&#10;

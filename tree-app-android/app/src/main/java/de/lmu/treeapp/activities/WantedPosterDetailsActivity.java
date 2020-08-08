@@ -76,7 +76,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
             String titlePre = getResources().getString(R.string.wanted_poster_details_title_text);
             getSupportActionBar().setTitle( titlePre + " "+ tree.name);
         }
-
+        /*
         // Slide-Show:
         pager = findViewById(R.id.view_pager);
         prepareSlide();
@@ -93,7 +93,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
             // slideList.add(new Slide(imgId[count], title.get(count), subTitles.get(count)));
             slideList.add(new Slide(imgId[count]));
         }
-    }
+    }:
 
     // Create a slide show for the photos of the Foto-Challenge
     private void createSlideShow(){
@@ -113,7 +113,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
             public void run() {
                 handler.post(runnable);
             }
-        },250, 25000);
+        },250, 25000);*/
     }
 
     /**
