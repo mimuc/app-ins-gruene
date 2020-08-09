@@ -24,16 +24,11 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.FileProvider;
 import androidx.core.view.ViewCompat;
 
-import com.denzcoskun.imageslider.ImageSlider;
-import com.denzcoskun.imageslider.models.SlideModel;
-
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
@@ -107,7 +102,6 @@ public class GameActivity_TakePicture extends GameActivity_Base {
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-                List<SlideModel> slideModels=new ArrayList<>();
             }
         }
         sendButton.setAlpha(1);
