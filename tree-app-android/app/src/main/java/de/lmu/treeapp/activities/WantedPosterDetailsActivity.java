@@ -1,12 +1,15 @@
 package de.lmu.treeapp.activities;
 
+import android.graphics.ComposePathEffect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.transition.Slide;
+import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,18 +17,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
-import com.denzcoskun.imageslider.ImageSlider;
-import com.denzcoskun.imageslider.models.SlideModel;
+import androidx.viewpager2.widget.CompositePageTransformer;
+import androidx.viewpager2.widget.MarginPageTransformer;
+import androidx.viewpager2.widget.ViewPager2;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.adapter.SliderAdapter;
 import de.lmu.treeapp.adapter.WantedPosterCardAdapter;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.TreeProfile;
@@ -45,6 +48,10 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
     private PagerAdapter pagerAdapter;
     private Timer timer;
     private int current_position = 0;
+
+    // ViewPager2
+    private ViewPager2 viewPager2;
+    private Handler sliderHandler = new Handler();
 
     /**
      * On creating the activity, we generate a RecyclerView with our custom WantedPosterCardAdapter for all the profile-cards
@@ -76,24 +83,50 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
             String titlePre = getResources().getString(R.string.wanted_poster_details_title_text);
             getSupportActionBar().setTitle( titlePre + " "+ tree.name);
         }
-        /*
-        // Slide-Show:
-        pager = findViewById(R.id.view_pager);
-        prepareSlide();
-        pagerAdapter = new PagerAdapter(slideList, this);
-        pager.setAdapter(pagerAdapter);
-        createSlideShow();
+
+        // ViewPage2
+        viewPager2 = findViewById(R.id.viewPagerImageSlider);
+        List<SliderItem> sliderItems = new ArrayList<>();
+        sliderItems.add(new SliderItem(R.drawable.ic_ahorn_frucht));
+        sliderItems.add(new SliderItem(R.drawable.ic_ahorn_blatt));
+        sliderItems.add(new SliderItem(R.drawable.ic_ahorn_baum));
+
+        viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
+
+        viewPager2.setClipToPadding(false);
+        viewPager2.setClipChildren(false);
+        viewPager2.setOffscreenPageLimit(3);
+        viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+
+        // Animation during sliding
+        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
+        compositePageTransformer.addTransformer(new MarginPageTransformer(40));
+        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
+            @Override
+            public void transformPage(@NonNull View page, float position) {
+                float r = 1 - Math.abs(position);
+                page.setScaleY(0.85f + r * 0.15f);
+            }
+        });
+        viewPager2.setPageTransformer(compositePageTransformer);
+
+        // Automatic slideshow of the photos
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                sliderHandler.removeCallbacks(sliderRunnable);
+                sliderHandler.postDelayed(sliderRunnable, 3000); // Slide duration 3 sec
+            }
+        });
     }
 
-    private void prepareSlide(){
-        int[] imgId = (R., R.drawable.dark_blue_gradient);
-        // List<String> titles = Arrays.asList(getResources().getStringArray(R.array.main_title));
-        // List<String> subTitles = Arrays.asList(getResources().getStringArray(R.array.sub_title));
-        for (int count = 0; count < imgId.length; count++){
-            // slideList.add(new Slide(imgId[count], title.get(count), subTitles.get(count)));
-            slideList.add(new Slide(imgId[count]));
+    private Runnable sliderRunnable = new Runnable() {
+        @Override
+        public void run() {
+            viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1);
         }
-    }:
+    };
 
     // Create a slide show for the photos of the Foto-Challenge
     private void createSlideShow(){
@@ -113,7 +146,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
             public void run() {
                 handler.post(runnable);
             }
-        },250, 25000);*/
+        },250, 25000);
     }
 
     /**
@@ -171,5 +204,16 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         return photoURI;
     }
 
+    // Slideshow paused if App is minimized
+    @Override
+    protected void onPause(){
+        super.onPause();
+        sliderHandler.removeCallbacks(sliderRunnable);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sliderHandler.postDelayed(sliderRunnable, 3000);
+    }
 }
