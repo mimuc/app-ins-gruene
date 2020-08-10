@@ -87,4 +87,8 @@ Der Haftungsausschluss gilt nicht für Informationen, die in den Anwendungsberei
 Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie dürfen nur zum privaten und sonstigen eigenen Gebrauch im Rahmen des §53 Urheberrechtsgesetz (UrhG) verwendet werden. Eine anderweitige Verwendung ist nur nach vorheriger Genehmigung gestattet.</string>
     <string name="imprint_privacy_title">Datenschutzerklärung</string>
     <string name="imprint_privacy_text">Rechtsgrundlagen der Datenverarbeitung, Empfänger der personenbezogenen Daten, Rechte der betroffenen Person, Widerrufsrecht bei Einwilligung, Erhebung von Daten</string>
+    <string name="splash_screen_image_appinsgruene">image_appinsgruene</string>
+    <string name="splash_screen_image_logos">image_logos</string>
+    <string name="splash_screen_text">Entstanden in Zusammenarbeit mit:</string>
+
 </resources>
