@@ -34,6 +34,10 @@ public class Imprint extends AppCompatActivity {
         TextView graphics_text = findViewById(R.id.graphics_text);
         TextView disclaimer_title = findViewById(R.id.disclaimer_title);
         TextView disclaimer_text = findViewById(R.id.disclaimer_text);
+        TextView copyright_title = findViewById(R.id.copyright_title);
+        TextView copyright_text = findViewById(R.id.copyright_text);
+        TextView privacy_title = findViewById(R.id.privacy_title);
+        TextView privacy_text = findViewById(R.id.privacy_text);
 
         // Close the last activity on the stack (the imprint) to come back to the tree overview page
         /*
