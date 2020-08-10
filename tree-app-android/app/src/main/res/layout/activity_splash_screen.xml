@@ -35,7 +35,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="60dp"
         android:contentDescription="@string/splash_screen_text"
         android:text="@string/splash_screen_text"
