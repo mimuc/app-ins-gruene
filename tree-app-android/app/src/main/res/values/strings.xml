@@ -54,15 +54,33 @@
     <string name="popup_neutral_btn_wiki">Steckbrief</string>
     <string name="popup_neutral_btn_forward">Fertig!</string>
     <string name="popup_neutral_title">Prima!</string>
-    <string name="imprint_headline1_placeholder">IMPRESSUM</string>
-    <string name="imprint_description1_placeholder">Informationen gemäß § 5 Telemediengesetz und § 55 Rundfunkstaatsvertrag. Die Ludwig-Maximilians-Universität München ist eine Körperschaft des öffentlichen Rechts. Sie wird durch den Präsidenten Prof. Dr. Bernd Huber gesetzlich vertreten.</string>
-    <string name="imprint_headline2_placeholder">Herausgeber</string>
-    <string name="imprint_publisher_description">
-        Ludwig-Maximilians-Universität München&#10;
-        Geschwister-Scholl-Platz 1&#10;
-        80539 München&#10;
-        Telefon: +49 (0) 89 / 2180 - 0&#10;
-        Kontakt: Poststelle@Verwaltung.Uni-Muenchen.de&#10;
+    <string name="imprint_imprint_title">IMPRESSUM</string>
+    <string name="imprint_imprint_text">Informationen gemäß § 5 Telemediengesetz und § 55 Rundfunkstaatsvertrag. Die Ludwig-Maximilians-Universität München ist eine Körperschaft des öffentlichen Rechts. Sie wird durch den Präsidenten Prof. Dr. Bernd Huber gesetzlich vertreten.</string>
+    <string name="imprint_publisher_title">Herausgeber</string>
+    <string name="imprint_publisher_text">
+        Ludwig-Maximilians-Universität München
+        Geschwister-Scholl-Platz 1
+        80539 München
+        Telefon: +49 (0) 89 / 2180 - 0
+        Kontakt: Poststelle@Verwaltung.Uni-Muenchen.de
         Vertretungsberechtigter: Vorname Nachname</string>
-
+    <string name="imprint_authority_title">Zuständige Aufsichtsbehörde</string>
+    <string name="imprint_authority_text">Bayerisches Staatsministerium für Wissenschaft und Kunst
+        Salvatorstraße 2
+        80327 München
+        Webauftritt: https://www.km.bayern.de/index_wm.html</string>
+    <string name="imprint_tax_id_title">Umsatzsteuer-Identifikationsnummer der LMU</string>
+    <string name="imprint_tax_id_text">Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE811205325</string>
+    <string name="imprint_tec_implementation_title">Verantwortlich für die technische Umsetzung</string>
+    <string name="imprint_tec_implementation_text">Malin Eiband, Yannick Weiss, Lisa Görtz, Cara Emberger</string>
+    <string name="imprint_text_title">Texte</string>
+    <string name="imprint_text_text">Thomas Gerl, Marie, Lisa Görtz</string>
+    <string name="imprint_graphics_title">Grafiken</string>
+    <string name="imprint_graphics_text">Cara Emberger, Maya Czupor, Fabienne Lengweiler</string>
+    <string name="imprint_disclaimer_title">Freistellungserklärung</string>
+    <string name="imprint_disclaimer_text">Die Angaben wurden nach bestem Wissen erstellt, Fehler können jedoch nicht mit letzter Sicherheit ausgeschlossen werden. Rechtlich verbindlich sind ausschließlich die Festlegungen in den einschlägigen Rechtsgrundlagen (Gesetze, Verordnungen, Satzungen).
+Eine Gewähr für die jederzeitige Aktualität, Richtigkeit, Vollständigkeit und Verfügbarkeit der bereitgestellten Informationen können wir nicht übernehmen.
+Wir haften nicht für Schäden, die durch die Nutzung dieses Appangebots entstehen. Dieser Haftungsausschluss gilt nicht, soweit die Vorschriften des § 839 BGB (Haftung bei Amtspflichtverletzung) einschlägig sind. Für etwaige Schäden, die beim Aufrufen oder Herunterladen von Daten durch Schadsoftware oder der Installation oder Nutzung von Software verursacht werden, wird nicht gehaftet.
+Der Haftungsausschluss gilt nicht für Informationen, die in den Anwendungsbereich der Verordnung (EU) 2016/679 des Europäischen Parlaments und des Rates vom 27. April 2016 (Datenschutz-Grundverordnung) fallen. Für diese Informationen wird die Richtigkeit und Aktualität gewährleistet.
+</string>
 </resources>
