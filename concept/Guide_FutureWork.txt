@@ -1,19 +1,36 @@
-Guide for future work:
+Future work:
 
-- Better positioning of the imprint button (currently in the recyclerview of the overview fragment)
-- Adding the correct game ids in the "tree.xml" for all trees (only "Ahorn" is representative at the moment, all other trees are filled with random ids. See "ZusammenfassungMinigames.pdf")
-- Creation of a database for the entire content of the minigames (e.g. the quiz questions and answers -> they are all in the minigames_chooseanswer-xml a.t.m)
-- Make up text for games like "input_string" and "only_description" -> use database
-- Adding content of all games for all trees, e.g. the puzzle images (currently just "Ahorn") -> use database
+
+Features:
+- Implementing a "help-button" 
+- Links to videos of bisa 
+- Let popup window be displayed in every minigame (currently just in "Quiz" and "Foto-Challenge"). Maybe create a new popup-class to handle all popups?
 - Improving the slideshow in "Steckbrief" (currently there are predefined pictures displayed, but the goal is to show fotos which are taken during the game "Foto-Challenge")
 - Fotos of "Foto-Challenge" also have to show up inside the cards of "Steckbrief"
+- Creation of not implemented minigames of "ZusammenfassungMinigames.pdf"
+
+Content:
+- Creation of a database for the entire content of the minigames (e.g. the quiz questions and answers -> they are all in the minigames_chooseanswer-xml a.t.m)
+- Adding the correct game ids in the "tree.xml" for all trees (only "Ahorn" is representative at the moment, all other trees are filled with random ids. See "ZusammenfassungMinigames.pdf")
+- Make up text for games like "input_string" and "only_description" -> use database
+- Adding content of all games for all trees, e.g. the puzzle images (currently just "Ahorn") -> use database
 - Information given in "Steckbrief" has to be checked for correctness, maybe there are details missing?
-- Creation of not implemented minigames of "ZusammenfassungMinigames.pdf" 
-- Let popup window be shown in every minigame (currently just in "Quiz" and "Foto-Challenge"). Maybe create a new popup-class to handle all popups?
+
+Front-End:
+- Better positioning of the imprint button (currently in the recyclerview of the overview fragment)
+
+Known bugs: 
+- "Steckbrief" arrow not working correctly
+- "TakePicture": foto has to scale and rotate correctly
+
+
+Finalization:
 - Check if the app is shown correctly for different screen sizes, portrait mode etc.
 - Adding cosmetic features like little animation for icons (wiggle, shake, etc.)
 - Testing app and handle bugs
 - Maybe testing the app with children of the target group for getting feedback
+
+
 
 -> Finally, publish the app in the google play store an GG!
 
