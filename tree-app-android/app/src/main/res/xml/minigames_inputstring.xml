@@ -3,15 +3,15 @@
     <minigames>
         <minigame_inputString>
             <id>0</id>
-            <name>Wie heißt dieser Baum?</name>
-            <description>Kannst du uns verraten, wie dieser Baum heißt?</description>
+            <name>Reim</name>
+            <description>Überlege dir einen Reim zu den Früchten des Ahorns. Tippe ihn unten in das Feld ein!</description>
             <image></image>
-            <rightAnswer>Ahorn</rightAnswer>
+            <rightAnswer></rightAnswer>
         </minigame_inputString>
         <minigame_inputString>
             <id>1</id>
-            <name>Werbung?</name>
-            <description>Hier könnte ihre Webung stehen!</description>
+            <name>Frage</name>
+            <description>Frage, die genau eine Antwort zulässt.</description>
             <image></image>
             <rightAnswer>Ahorn</rightAnswer>
         </minigame_inputString>

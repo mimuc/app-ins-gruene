@@ -87,7 +87,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         // ViewPage2
         viewPager2 = findViewById(R.id.viewPagerImageSlider);
         List<SliderItem> sliderItems = new ArrayList<>();
-        sliderItems.add(new SliderItem(R.drawable.ic_ahorn_frucht));
+        sliderItems.add(new SliderItem(R.drawable.ic_ahorn_frucht)); // TODO: photos of smartphone gallery should be taken instead of predefined images ;)
         sliderItems.add(new SliderItem(R.drawable.ic_ahorn_blatt));
         sliderItems.add(new SliderItem(R.drawable.ic_ahorn_baum));
 

@@ -81,7 +81,9 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="12dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="4dp"
             android:background="@drawable/white_background"
             android:scaleType="fitCenter"
             android:elevation="4dp"
@@ -92,7 +94,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/guideline_inside_1"
             app:layout_constraintWidth_percent="0.64"
-            android:src="@drawable/ic_ahorn_blatt" />
+            android:src="@drawable/ic_camera" />
 
         <ImageView
             android:id="@+id/game_takePicture_previewPicture"
@@ -110,14 +112,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/guideline_inside_1"
             app:layout_constraintWidth_percent="0.7" />
-
-        <!--
-        tools:srcCompat="@tools:sample/avatars"
-        android:maxWidth="330dp"
-        android:minWidth="100dp"
-        android:minHeight="100dp"
-        android:background="@drawable/white_background"
-        -->
 
         <Button
             android:id="@+id/game_takePicture_sendButton"

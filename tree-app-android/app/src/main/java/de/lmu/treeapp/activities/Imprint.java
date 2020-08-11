@@ -1,11 +1,15 @@
 package de.lmu.treeapp.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.service.FragmentManagerService;
 
 
 public class Imprint extends AppCompatActivity {
@@ -15,8 +19,6 @@ public class Imprint extends AppCompatActivity {
 
         setContentView(R.layout.activity_imprint);
         super.onCreate(savedInstanceState);
-
-        //Button btn_forward = findViewById(R.id.game_onlyDescription_sendButton);
 
         TextView imprint_title = findViewById(R.id.imprint_title);
         TextView imprint_text = findViewById(R.id.imprint_text);
@@ -38,16 +40,6 @@ public class Imprint extends AppCompatActivity {
         TextView copyright_text = findViewById(R.id.copyright_text);
         TextView privacy_title = findViewById(R.id.privacy_title);
         TextView privacy_text = findViewById(R.id.privacy_text);
-
-        // Close the last activity on the stack (the imprint) to come back to the tree overview page
-        /*
-        btn_forward.setOnClickListener(new Button.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });*/
     }
 
     // Remove the current activity from the stack to switch to the previous one

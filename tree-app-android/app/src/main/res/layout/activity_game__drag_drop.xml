@@ -25,35 +25,43 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.055" />
 
-    <Button
-        android:id="@+id/game_dragdrop_sendButton"
-        android:layout_width="321dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/game_take_picture_send_button_placeholder_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.974" />
 
     <ImageView
         android:id="@+id/game_dragdrop_content"
-        android:layout_width="335dp"
-        android:layout_height="472dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/game_dragdrop_sendButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/game_description"
-        app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@drawable/ic_ahorn_baum" />
+
+    <Button
+        android:id="@+id/game_dragdrop_sendButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_background"
+        android:elevation="4dp"
+        android:fontFamily="@font/freude"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"
+        android:stateListAnimator="@null"
+        android:text="Fertig!"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+        android:textColor="@color/forest"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game_dragdrop_content"
+        app:layout_constraintVertical_bias="0.8"
+        app:layout_constraintWidth_percent="0.6" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

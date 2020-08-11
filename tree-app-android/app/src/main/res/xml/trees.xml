@@ -6,10 +6,10 @@
             <name>Ahorn</name>
             <profileId>0</profileId>
             <qrCode>Ahorn</qrCode>
-            <leafGames>0,10,20,30,300,400</leafGames>
-            <fruitGames>70,101,301,50</fruitGames>
-            <trunkGames>40,400,302,500</trunkGames>
-            <otherGames>100,400,303,500,600,</otherGames>
+            <leafGames>0,300</leafGames>
+            <fruitGames>70,301,200</fruitGames>
+            <trunkGames>40,302,600</trunkGames>
+            <otherGames>100,303,400,601</otherGames>
             <imageTree>ic_ahorn_baum</imageTree>
             <imageLeaf>ic_ahorn_blatt</imageLeaf>
             <imageFruit>ic_ahorn_frucht</imageFruit>
@@ -23,8 +23,8 @@
             <qrCode>Rot-Buche</qrCode>
             <leafGames>101,200,601</leafGames>
             <fruitGames>100,101,200</fruitGames>
-            <trunkGames>100,101,200</trunkGames>
-            <otherGames>190,190,200</otherGames>
+            <trunkGames>100,200</trunkGames>
+            <otherGames>190,200</otherGames>
             <imageTree>ic_rotbuche_baum</imageTree>
             <imageLeaf>ic_rotbuche_blatt</imageLeaf>
             <imageFruit>ic_rotbuche_frucht</imageFruit>

@@ -13,6 +13,7 @@ public class Overview_AutofitRecyclerView extends RecyclerView {
 
     private GridLayoutManager manager;
     private int columnWidth = -1;
+    protected static int spanCount;
 
     public Overview_AutofitRecyclerView(Context context) {
         super(context);
@@ -34,11 +35,12 @@ public class Overview_AutofitRecyclerView extends RecyclerView {
             int[] attrsArray = {
                     android.R.attr.columnWidth
             };
+            spanCount = 3;
             TypedArray array = context.obtainStyledAttributes(attrs, attrsArray);
             columnWidth = array.getDimensionPixelSize(0, -1);
             array.recycle();
         }
-        manager = new GridLayoutManager(getContext(), 3);
+        manager = new GridLayoutManager(getContext(), spanCount);
         setLayoutManager(manager);
     }
 

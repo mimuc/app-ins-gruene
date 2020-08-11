@@ -177,13 +177,7 @@ public class GameActivity_TakePicture extends GameActivity_Base {
             int ori = getOrientation(getApplicationContext(),photoURI);
             System.out.println("___________________" + ori);
             // TODO: Rotate now. Portrait gives 90, Landscape gives 0.
-            /*
-            Uri imageTaken = data.getData();
-            ImageSlider imageSlider=findViewById(R.id.slider);
-            List<SlideModel> slideModels=new ArrayList<>();
-            slideModels.add(new SlideModel("https://picsum.photos/id/894/300/200", "string", 1));
-            previewPicture.setImageURI(photoURI);
-            previewPicture.setVisibility(View.VISIBLE);*/
+
         }
     }
 

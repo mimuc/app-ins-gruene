@@ -11,8 +11,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -21,8 +19,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import de.lmu.treeapp.R;
 
-import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
-import de.lmu.treeapp.adapter.OverviewRecyclerViewAdapter;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.fragments.OverviewFragment;
@@ -177,12 +173,4 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         fragmentManager.showOverview(bottomNavigationFragments);
     }
-
-    public void showImprint(){
-        Intent intent = new Intent(getApplicationContext(), Imprint.class);
-        //finish();
-        startActivity(intent);
-    }
-
-
 }
