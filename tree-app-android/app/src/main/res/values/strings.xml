@@ -89,6 +89,6 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="imprint_privacy_text">Rechtsgrundlagen der Datenverarbeitung, Empfänger der personenbezogenen Daten, Rechte der betroffenen Person, Widerrufsrecht bei Einwilligung, Erhebung von Daten</string>
     <string name="splash_screen_image_appinsgruene">image_appinsgruene</string>
     <string name="splash_screen_image_logos">image_logos</string>
-    <string name="splash_screen_text">Entstanden in Zusammenarbeit mit:</string>
+    <string name="splash_screen_text">entstanden in Zusammenarbeit mit:</string>
 
 </resources>
