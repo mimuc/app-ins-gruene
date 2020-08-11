@@ -25,6 +25,9 @@ git clone https://gitlab.lrz.de/lmu-design-workshop/tree-app-android.git
 - Now you are able to open the project in Android Studio.
 
 
+### Which branch should I use?
+- The final version is on the FinalVersion branch. Pls use this branch ;) ("Delevop" was used during the SoSe20, but is not up to date.)
+
 ## How to run tests?
 
 ```
@@ -62,6 +65,7 @@ We use [Git](http://git.org/) for versioning.
 ## Authors
 
 **The Design Workshop II Team SS2019 from Ludwig-Maximilians-University**
+**SoSe20: Lisa Görtz (lisagoertz95@gmx.de) and Cara Emberger**
 
 ## Notes
 
