@@ -34,12 +34,12 @@
     <string name="game_choose_answer_option_button_placeholder_text">Button</string>
     <string name="game_choose_answer_popup_text">Richtig :-)</string>
     <string name="game_title_placeholder">TextView</string>
-    <string name="game_description_placeholder">Foto-Challenge!</string>
+    <string name="game_description_placeholder">Spiel-Beschreibung</string>
     <string name="game_input_string_input_text_field_hint_text">Antwort</string>
-    <string name="game_input_string_send_button_placeholder_text">Senden</string>
+    <string name="game_input_string_send_button_placeholder_text">Fertig!</string>
     <string name="game_take_picture_example">Beispielbild</string>
     <string name="game_take_picture_own_foto">Vorschau deines Fotos</string>
-    <string name="game_take_picture_send_button_placeholder_text">Senden</string>
+    <string name="game_take_picture_send_button_placeholder_text">Fertig!</string>
     <string name="game_selection_headline_placholder">Wähle ein Spiel aus</string>
     <string name="game_selection_description_placeholder">Hier findest du Minigames zu Rinde und Holz der Waldkiefer. Starte jetzt mit einem Spiel!</string>
     <string name="detail_single_tree_profile_button_text">Steckbrief</string>

@@ -46,19 +46,28 @@
             android:hint="@string/game_input_string_input_text_field_hint_text" />
     </com.google.android.material.textfield.TextInputLayout>
 
+
+
     <Button
         android:id="@+id/game_inputString_sendButton"
-        android:layout_width="146dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/button_background"
+        android:elevation="4dp"
+        android:fontFamily="@font/freude"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"
+        android:stateListAnimator="@null"
         android:text="@string/game_input_string_send_button_placeholder_text"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+        android:textColor="@color/forest"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.8"
+        app:layout_constraintWidth_percent="0.6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

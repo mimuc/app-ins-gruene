@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -50,12 +51,11 @@ public class OverviewFragment extends Fragment {
     }
     private void setupOverviewRecyclerView() {
         overviewRecyclerView.setHasFixedSize(true);
-        // Replaced by Overview_AutofitRecyclerView:
-        /*
+        // Also possible to use Overview_AutofitRecyclerView.java:
         int gridColumns = 3;
         RecyclerView.LayoutManager recyclerViewLayoutManager = new GridLayoutManager(getContext(), gridColumns);
         overviewRecyclerView.setLayoutManager(recyclerViewLayoutManager);
-        */
+
     }
 
     private void updateOverviewRecyclerView(){

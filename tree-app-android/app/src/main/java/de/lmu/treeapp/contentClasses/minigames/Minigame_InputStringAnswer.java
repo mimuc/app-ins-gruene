@@ -9,9 +9,13 @@ public class Minigame_InputStringAnswer extends Minigame_Base {
     }
 
     public Boolean CheckAnswer(String givenAnswer){
+        // If specific answer is expected:
+        /*
         if (givenAnswer.trim().equalsIgnoreCase(rightAnswer) || rightAnswer == ""){
             return true;
         }
         else return false;
+        */
+        return true;
     }
 }
