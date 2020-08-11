@@ -9,6 +9,9 @@ Guide for future work:
 - Fotos of "Foto-Challenge" also have to show up inside the cards of "Steckbrief"
 - Information given in "Steckbrief" has to be checked for correctness, maybe there are details missing?
 - Creation of not implemented minigames of "ZusammenfassungMinigames.pdf" 
+- Let popup window be shown in every minigame (currently just in "Quiz" and "Foto-Challenge"). Maybe create a new popup-class to handle all popups?
+- Check if the app is shown correctly for different screen sizes, portrait mode etc.
+- Adding cosmetic features like little animation for icons (wiggle, shake, etc.)
 - Testing app and handle bugs
 - Maybe testing the app with children of the target group for getting feedback
 
