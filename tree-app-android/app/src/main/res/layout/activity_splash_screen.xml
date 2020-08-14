@@ -20,10 +20,12 @@
 
     <ImageView
         android:id="@+id/image_logos"
-        android:layout_width="230dp"
+        android:layout_width="240dp"
         android:layout_height="287dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
         android:contentDescription="@string/splash_screen_image_logos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -60,6 +60,13 @@ public class GameActivity_TakePicture extends GameActivity_Base {
 
         sendButton.setEnabled(false);
 
+        previewPicture.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dispatchTakePictureIntent();
+            }
+        });
+
         imageExample.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -177,7 +184,8 @@ public class GameActivity_TakePicture extends GameActivity_Base {
             int ori = getOrientation(getApplicationContext(),photoURI);
             System.out.println("___________________" + ori);
             // TODO: Rotate now. Portrait gives 90, Landscape gives 0.
-
+            previewPicture.setImageURI(photoURI);
+            previewPicture.setVisibility(View.VISIBLE);
         }
     }
 
@@ -199,6 +207,7 @@ public class GameActivity_TakePicture extends GameActivity_Base {
             @Override
             public void onClick(View v){
                 popupWindow.dismiss();
+                finish();
                 showTreeProfile();
             }
         });
