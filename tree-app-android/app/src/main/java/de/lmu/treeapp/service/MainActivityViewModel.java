@@ -10,10 +10,11 @@ import androidx.lifecycle.ViewModel;
  * Note that horizontal-scrolling through the trees does not change the Index, since the scroll-state is saved automatically by Android.
  */
 public class MainActivityViewModel extends ViewModel {
-    private MutableLiveData<Integer> currentPagerIndex = new MutableLiveData<>();
+    private final MutableLiveData<Integer> currentPagerIndex = new MutableLiveData<>();
 
     /**
      * Gets the Index of the current tree-card, that we should scroll to.
+     *
      * @return An LiveData-Object of type Integer as the index -> this data may change asynchronously and has to be observed.
      */
     public LiveData<Integer> getCurrentPagerIndex() {
@@ -22,12 +23,12 @@ public class MainActivityViewModel extends ViewModel {
 
     /**
      * Sets the Index of the current tree-card.
+     *
      * @param index The index of the the tree-card which should now be active.
      */
-    public void setCurrentPagerIndex(int index){
+    public void setCurrentPagerIndex(int index) {
         currentPagerIndex.setValue(index);
     }
-
 
 
 }

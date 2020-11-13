@@ -12,20 +12,12 @@ public class DragDropZone {
 
     public DragDropItem currentItem = null;
 
-    public boolean IsMatchedRight(){
+    public boolean IsMatchedRight() {
         if (currentItem == null) return false;
-        else if (currentItem.match == match && currentItem.match >= 0){
-            return true;
-        }
-        else {
-            return false;
-        }
+        else return currentItem.match == match && currentItem.match >= 0;
     }
 
-    public boolean IsFilled(){
-        if (currentItem != null){
-            return true;
-        }
-        return false;
+    public boolean IsFilled() {
+        return currentItem != null;
     }
 }

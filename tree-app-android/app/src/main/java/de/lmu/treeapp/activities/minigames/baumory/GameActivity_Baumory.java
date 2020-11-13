@@ -16,7 +16,7 @@ import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Baumory;
 import de.lmu.treeapp.contentClasses.minigames.components.BaumoryCard;
 
-public class GameActivity_Baumory extends GameActivity_Base implements Baumory_Cards_RecyclerViewAdapter.OptionClickInterface{
+public class GameActivity_Baumory extends GameActivity_Base implements Baumory_Cards_RecyclerViewAdapter.OptionClickInterface {
 
     private Minigame_Baumory game;
     private RecyclerView cardsRecyclerView;
@@ -38,12 +38,12 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         finishedCards = new ArrayList<>();
         game = (Minigame_Baumory) gameContent;
         baumoryCards = game.cards;
-        maxMatches = baumoryCards.size()/2;
+        maxMatches = baumoryCards.size() / 2;
         Collections.shuffle(baumoryCards);
         setupCardsRecyclerView();
     }
 
-    private void setupCardsRecyclerView(){
+    private void setupCardsRecyclerView() {
         cardsRecyclerView = findViewById(R.id.game_baumory_recyclerView);
         cardsRecyclerView.setHasFixedSize(false);
         int columns = 4;
@@ -54,15 +54,15 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
     }
 
     @Override
-    public void optionClicked(BaumoryCard _card, Baumory_Cards_RecyclerViewAdapter.ViewHolder _viewHolder){
-        if ((firstCard != null && secondCard != null) || finishedCards.contains(_card.match)) return;
+    public void optionClicked(BaumoryCard _card, Baumory_Cards_RecyclerViewAdapter.ViewHolder _viewHolder) {
+        if ((firstCard != null && secondCard != null) || finishedCards.contains(_card.match))
+            return;
         int imageId = getResources().getIdentifier(_card.content, "drawable", getPackageName());
         _viewHolder.button.setImageResource(imageId);
-        if (firstCard == null){
+        if (firstCard == null) {
             firstCardButton = _viewHolder.button;
             firstCard = _card;
-        }
-        else if (secondCard == null && _card != firstCard){
+        } else if (secondCard == null && _card != firstCard) {
             secondCardButton = _viewHolder.button;
             secondCard = _card;
         }
@@ -70,10 +70,10 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
     }
 
 
-    private void Evaluate(){
+    private void Evaluate() {
         if (firstCard == null || secondCard == null) return;
 
-        if (firstCard.match == secondCard.match){
+        if (firstCard.match == secondCard.match) {
             finishedCards.add(firstCard.match);
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -82,8 +82,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
                     SuccessfulMatch();
                 }
             }, 1000);
-        }
-        else {
+        } else {
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -96,7 +95,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
     }
 
 
-    private void SuccessfulMatch(){
+    private void SuccessfulMatch() {
         firstCardButton.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         secondCardButton.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         firstCard = null;
@@ -104,7 +103,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         if (finishedCards.size() >= maxMatches) onSuccess();
     }
 
-    private void FailedMatch(){
+    private void FailedMatch() {
         firstCardButton.setBackgroundResource(R.drawable.dark_grey_gradient);
         secondCardButton.setBackgroundResource(R.drawable.dark_grey_gradient);
         firstCardButton.setImageResource(R.drawable.ic_question_big);

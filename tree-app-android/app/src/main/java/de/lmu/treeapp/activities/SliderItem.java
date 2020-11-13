@@ -1,13 +1,13 @@
 package de.lmu.treeapp.activities;
 
 public class SliderItem {
-    private int image;
+    private final int image;
 
-    SliderItem(int image){
+    SliderItem(int image) {
         this.image = image;
     }
 
-    public int getImage(){
+    public int getImage() {
         return image;
     }
 }

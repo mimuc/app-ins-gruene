@@ -27,12 +27,12 @@ public class GameActivity_Base extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Bundle b = getIntent().getExtras();
-        parentCategory = (Tree.GameCategories)b.get("Category");
+        parentCategory = (Tree.GameCategories) b.get("Category");
         treeId = b.getInt("TreeId");
         parentTree = DataManager.getInstance(getApplicationContext()).GetTree(treeId);
         gameContent = DataManager.getInstance(getApplicationContext()).GetMinigame(b.getInt("GameId"));
 
-        if(getSupportActionBar() != null) {
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle(gameContent.name);
         }
@@ -44,8 +44,8 @@ public class GameActivity_Base extends AppCompatActivity {
 
     // Remove the current activity from the stack to switch to the previous one
     @Override
-    public boolean onSupportNavigateUp(){
-        if(gameContent.type.name().equalsIgnoreCase("ChooseAnswer")){
+    public boolean onSupportNavigateUp() {
+        if (gameContent.type.name().equalsIgnoreCase("ChooseAnswer")) {
             GameActivity_ChooseAnswer.quizIDs.clear();
         }
         finish();
@@ -55,8 +55,8 @@ public class GameActivity_Base extends AppCompatActivity {
 
     // Android hardware back button is pressed
     @Override
-    public void onBackPressed(){
-        if(gameContent.type.name().equalsIgnoreCase("ChooseAnswer")) {
+    public void onBackPressed() {
+        if (gameContent.type.name().equalsIgnoreCase("ChooseAnswer")) {
             GameActivity_ChooseAnswer.quizIDs.clear();
         }
         finish();
@@ -65,7 +65,7 @@ public class GameActivity_Base extends AppCompatActivity {
 
 
     // Save the game process and go back to the game selection activity
-    protected void onSuccess(){
+    protected void onSuccess() {
         DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid, parentTree);
         Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
         intent.putExtra("TreeId", treeId);
@@ -74,16 +74,15 @@ public class GameActivity_Base extends AppCompatActivity {
     }
 
     // Save the game process and display the next quiz game in this category
-    protected void onQuizSuccess(ArrayList<Integer> quizIDs){
+    protected void onQuizSuccess(ArrayList<Integer> quizIDs) {
         if (quizIDs == null || quizIDs.isEmpty()) return;
         System.out.println(quizIDs);
 
-        for(int i=0; i<quizIDs.size(); i++){
+        for (int i = 0; i < quizIDs.size(); i++) {
             DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, quizIDs.get(i), parentTree);
         }
         quizIDs.clear();
         System.out.println(quizIDs);
-
 
 
         Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
@@ -93,17 +92,17 @@ public class GameActivity_Base extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void showTreeProfile(){
+    public void showTreeProfile() {
         Intent intent = new Intent(getApplicationContext(), WantedPosterDetailsActivity.class);
         intent.putExtra("TreeId", treeId);
         startActivity(intent);
     }
 
-    protected void onFail(){
+    protected void onFail() {
         Toast.makeText(getApplicationContext(), "Falsch", Toast.LENGTH_LONG).show();
     }
 
-   public int getNextQuizID(){
+    public int getNextQuizID() {
         return DataManager.getInstance(getApplicationContext()).GetNextQuiz(gameContent.uid).uid;
     }
 }

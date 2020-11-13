@@ -1,4 +1,4 @@
-package de.lmu.treeapp.activities; 
+package de.lmu.treeapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,7 +29,8 @@ public class GameSelectionActivity extends AppCompatActivity {
 
     /**
      * On creation of this Activity, get the current tree and category we need to display and set-up the RecyclerView and Actionbar.
-     * @param savedInstanceState    Bundle containing the tree and category ids.
+     *
+     * @param savedInstanceState Bundle containing the tree and category ids.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class GameSelectionActivity extends AppCompatActivity {
         category = (Tree.GameCategories) b.get("Category");
         this.gameIds = DataManager.getInstance(getApplicationContext()).GetTree(treeId).GetGameIds(category);
         // Set ActionBar-Content
-        if(getSupportActionBar() != null) {
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle(R.string.game_selection_title);
         }
@@ -64,7 +65,8 @@ public class GameSelectionActivity extends AppCompatActivity {
 
     /**
      * Handle the Back/Home-Button -> Go back to MainActivity.
-     * @param item  The item of the menu, which was clicked. We are only interested in the home-item.
+     *
+     * @param item The item of the menu, which was clicked. We are only interested in the home-item.
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

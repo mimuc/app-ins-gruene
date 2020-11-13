@@ -14,11 +14,10 @@ public class DragDropItem {
     public int w = 0;
     public int h = 0;
 
-    public void SetType(String _type){
-        if (_type.trim().equalsIgnoreCase("image")){
+    public void SetType(String _type) {
+        if (_type.trim().equalsIgnoreCase("image")) {
             this.type = Types.image;
-        }
-        else {
+        } else {
             this.type = Types.text;
         }
     }

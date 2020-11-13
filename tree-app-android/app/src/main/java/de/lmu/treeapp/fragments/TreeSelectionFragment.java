@@ -19,10 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.service.MainActivityViewModel;
 import de.lmu.treeapp.adapter.TreeSlidePagerAdapter;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.service.MainActivityViewModel;
 
 public class TreeSelectionFragment extends Fragment {
 
@@ -30,7 +30,8 @@ public class TreeSelectionFragment extends Fragment {
     private DotsIndicator dotsIndicator;
     private MainActivityViewModel viewModel;
 
-    public TreeSelectionFragment() {}
+    public TreeSelectionFragment() {
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -56,16 +57,16 @@ public class TreeSelectionFragment extends Fragment {
         dotsIndicator.attachViewPager(pager);
     }
 
-    private void setupViewModelObserving(){
+    private void setupViewModelObserving() {
 
         final Observer<Integer> indexObserver = new Observer<Integer>() {
             @Override
             public void onChanged(@Nullable final Integer newIndex) {
-                pager.setCurrentItem(newIndex,false);
+                pager.setCurrentItem(newIndex, false);
             }
         };
         viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
-        viewModel.getCurrentPagerIndex().observe(this,indexObserver);
+        viewModel.getCurrentPagerIndex().observe(this, indexObserver);
     }
 
 
@@ -75,6 +76,6 @@ public class TreeSelectionFragment extends Fragment {
             detailSingleTreeFragments.add(new DetailSingleTreeFragment(tree));
         }
 
-        return  detailSingleTreeFragments;
+        return detailSingleTreeFragments;
     }
 }

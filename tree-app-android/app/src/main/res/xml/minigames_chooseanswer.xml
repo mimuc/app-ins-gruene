@@ -5,7 +5,8 @@
         <minigame_chooseAnswer>
             <id>0</id>
             <name>Quiz</name>
-            <description>Schau dir die Blätter des Ahorns genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Blätter des Ahorns genau an. Welches Bild passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -32,7 +33,9 @@
         <minigame_chooseAnswer>
             <id>1</id>
             <name>Quiz</name>
-            <description>Schau dir die Blätter der Rotbuche genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Blätter der Rotbuche genau an. Welches Bild passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -59,7 +62,8 @@
         <minigame_chooseAnswer>
             <id>2</id>
             <name>Quiz</name>
-            <description>Schau dir die Blätter der Linde genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Blätter der Linde genau an. Welches Bild passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -86,7 +90,9 @@
         <minigame_chooseAnswer>
             <id>3</id>
             <name>Quiz</name>
-            <description>Schau dir die Nadeln der Waldkiefer genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Nadeln der Waldkiefer genau an. Welches Bild passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -113,7 +119,8 @@
         <minigame_chooseAnswer>
             <id>4</id>
             <name>Quiz</name>
-            <description>Schau dir die Blätter der Eiche genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Blätter der Eiche genau an. Welches Bild passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -140,7 +147,8 @@
         <minigame_chooseAnswer>
             <id>5</id>
             <name>Quiz</name>
-            <description>Schau dir die Blätter der Hasel genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Blätter der Hasel genau an. Welches Bild passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -167,7 +175,9 @@
         <minigame_chooseAnswer>
             <id>6</id>
             <name>Quiz</name>
-            <description>Schau dir die Blätter der Hängebirke genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Blätter der Hängebirke genau an. Welches Bild passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -194,7 +204,9 @@
         <minigame_chooseAnswer>
             <id>7</id>
             <name>Quiz</name>
-            <description>Schau dir die Blätter der Eberesche genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Blätter der Eberesche genau an. Welches Bild passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -221,7 +233,8 @@
         <minigame_chooseAnswer>
             <id>8</id>
             <name>Quiz</name>
-            <description>Schau dir die Nadeln der Tanne genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Nadeln der Tanne genau an. Welches Bild passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -248,7 +261,8 @@
         <minigame_chooseAnswer>
             <id>9</id>
             <name>Quiz</name>
-            <description>Schau dir die Nadeln der Fichte genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Nadeln der Fichte genau an. Welches Bild passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -636,7 +650,8 @@
         <minigame_chooseAnswer>
             <id>26</id>
             <name>Quiz</name>
-            <description>Wie sind die Blätter an den Zweigen der Hängebirke angeordnet?</description>
+            <description>Wie sind die Blätter an den Zweigen der Hängebirke angeordnet?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -706,7 +721,8 @@
         <minigame_chooseAnswer>
             <id>30</id>
             <name>Quiz</name>
-            <description>Schau dir die Blätter des Ahorns genau an. Welche Form passt am besten?</description>
+            <description>Schau dir die Blätter des Ahorns genau an. Welche Form passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -733,7 +749,8 @@
         <minigame_chooseAnswer>
             <id>31</id>
             <name>Quiz</name>
-            <description>Schau dir die Blätter der Rotbuche genau an. Welche Form passt am besten?</description>
+            <description>Schau dir die Blätter der Rotbuche genau an. Welche Form passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -760,7 +777,8 @@
         <minigame_chooseAnswer>
             <id>32</id>
             <name>Quiz</name>
-            <description>SSchau dir die Blätter der Linde genau an. Welche Form passt am besten?</description>
+            <description>SSchau dir die Blätter der Linde genau an. Welche Form passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -787,7 +805,9 @@
         <minigame_chooseAnswer>
             <id>33</id>
             <name>Quiz</name>
-            <description>Schau dir die Nadeln der Waldkiefer genau an. Welche Form passt am besten?</description>
+            <description>Schau dir die Nadeln der Waldkiefer genau an. Welche Form passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -814,7 +834,8 @@
         <minigame_chooseAnswer>
             <id>34</id>
             <name>Quiz</name>
-            <description>Schau dir die Blätter der Eiche genau an. Welche Form passt am besten?</description>
+            <description>Schau dir die Blätter der Eiche genau an. Welche Form passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -841,7 +862,8 @@
         <minigame_chooseAnswer>
             <id>35</id>
             <name>Quiz</name>
-            <description>Schau dir die Blätter der Hasel genau an. Welche Form passt am besten?</description>
+            <description>Schau dir die Blätter der Hasel genau an. Welche Form passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -868,7 +890,9 @@
         <minigame_chooseAnswer>
             <id>36</id>
             <name>Quiz</name>
-            <description>Schau dir die Blätter der Hängebirke genau an. Welche Form passt am besten?</description>
+            <description>Schau dir die Blätter der Hängebirke genau an. Welche Form passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -895,7 +919,9 @@
         <minigame_chooseAnswer>
             <id>37</id>
             <name>Quiz</name>
-            <description>Schau dir die Blätter der Eberesche genau an. Welche Form passt am besten?</description>
+            <description>Schau dir die Blätter der Eberesche genau an. Welche Form passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -922,7 +948,8 @@
         <minigame_chooseAnswer>
             <id>38</id>
             <name>Quiz</name>
-            <description>Schau dir die Nadeln der Tanne genau an. Welche Form passt am besten?</description>
+            <description>Schau dir die Nadeln der Tanne genau an. Welche Form passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -949,7 +976,8 @@
         <minigame_chooseAnswer>
             <id>39</id>
             <name>Quiz</name>
-            <description>Schau dir die Nadeln der Fichte genau an. Welche Form passt am besten?</description>
+            <description>Schau dir die Nadeln der Fichte genau an. Welche Form passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -980,7 +1008,8 @@
         <minigame_chooseAnswer>
             <id>40</id>
             <name>Quiz</name>
-            <description>Schau dir die Rinde des Ahorns genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Rinde des Ahorns genau an. Welches Bild passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1007,7 +1036,8 @@
         <minigame_chooseAnswer>
             <id>41</id>
             <name>Quiz</name>
-            <description>Schau dir die Rinde der Rotbuche genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Rinde der Rotbuche genau an. Welches Bild passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1034,7 +1064,8 @@
         <minigame_chooseAnswer>
             <id>42</id>
             <name>Quiz</name>
-            <description>Schau dir die Rinde der Linde genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Rinde der Linde genau an. Welches Bild passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1061,7 +1092,9 @@
         <minigame_chooseAnswer>
             <id>43</id>
             <name>Quiz</name>
-            <description>Schau dir die Rinde der Waldkiefer genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Rinde der Waldkiefer genau an. Welches Bild passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1088,7 +1121,8 @@
         <minigame_chooseAnswer>
             <id>44</id>
             <name>Quiz</name>
-            <description>Schau dir die Rinde der Eiche genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Rinde der Eiche genau an. Welches Bild passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1115,7 +1149,8 @@
         <minigame_chooseAnswer>
             <id>45</id>
             <name>Quiz</name>
-            <description>Schau dir die Rinde der Hasel genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Rinde der Hasel genau an. Welches Bild passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1142,7 +1177,9 @@
         <minigame_chooseAnswer>
             <id>46</id>
             <name>Quiz</name>
-            <description>Schau dir die Rinde der Hängebirke genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Rinde der Hängebirke genau an. Welches Bild passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1169,7 +1206,8 @@
         <minigame_chooseAnswer>
             <id>47</id>
             <name>Quiz</name>
-            <description>Schau dir die Rinde der Eberesche genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Rinde der Eberesche genau an. Welches Bild passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1196,7 +1234,8 @@
         <minigame_chooseAnswer>
             <id>48</id>
             <name>Quiz</name>
-            <description>Schau dir die Rinde der Tanne genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Rinde der Tanne genau an. Welches Bild passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1223,7 +1262,8 @@
         <minigame_chooseAnswer>
             <id>49</id>
             <name>Quiz</name>
-            <description>Schau dir die Rinde der Fichte genau an. Welches Bild passt am besten?</description>
+            <description>Schau dir die Rinde der Fichte genau an. Welches Bild passt am besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1252,7 +1292,9 @@
         <minigame_chooseAnswer>
             <id>50</id>
             <name>Quiz</name>
-            <description>Menschen nutzen das Ahorn-Holz für viele Sachen. Für was eignet sich das Holz NICHT? Was glaubst du?</description>
+            <description>Menschen nutzen das Ahorn-Holz für viele Sachen. Für was eignet sich das
+                Holz NICHT? Was glaubst du?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1261,7 +1303,7 @@
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Musikinstrumente </option_content>
+                    <option_content>B: Musikinstrumente</option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
@@ -1296,7 +1338,9 @@
         <minigame_chooseAnswer>
             <id>52</id>
             <name>Quiz</name>
-            <description>Lindenholz splittert nicht und lässt sich leicht durchbrechen. Für was glaubst du lässt sich Lindenholz am besten nutzen?</description>
+            <description>Lindenholz splittert nicht und lässt sich leicht durchbrechen. Für was
+                glaubst du lässt sich Lindenholz am besten nutzen?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1305,7 +1349,7 @@
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Zum Schnitzen von Spielzeug-Figuren </option_content>
+                    <option_content>B: Zum Schnitzen von Spielzeug-Figuren</option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
@@ -1332,7 +1376,8 @@
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Die Rinde lässt sich wie eine Haut vom Baum abziehen.</option_content>
+                    <option_content>C: Die Rinde lässt sich wie eine Haut vom Baum abziehen.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -1340,7 +1385,8 @@
         <minigame_chooseAnswer>
             <id>54</id>
             <name>Quiz</name>
-            <description>Für welche Fertigung eignet sich das harte Eichenholz besonders gut?</description>
+            <description>Für welche Fertigung eignet sich das harte Eichenholz besonders gut?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1366,17 +1412,23 @@
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Das Holz der Hasel ist das wichtigste Holz zur Möbelherstellung.</option_content>
+                    <option_content>A: Das Holz der Hasel ist das wichtigste Holz zur
+                        Möbelherstellung.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Das Holz der Hasel ist so zerbrechlich, dass es für nichts verwendet werden kann. </option_content>
+                    <option_content>B: Das Holz der Hasel ist so zerbrechlich, dass es für nichts
+                        verwendet werden kann.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Die starken Ruten der Hasel kann man prima als Wanderstöcke benutzen.</option_content>
+                    <option_content>C: Die starken Ruten der Hasel kann man prima als Wanderstöcke
+                        benutzen.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
             </selection>
@@ -1411,7 +1463,8 @@
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Die dünnen Zweige werden für den unteren Teil verwendet.</option_content>
+                    <option_content>A: Die dünnen Zweige werden für den unteren Teil verwendet.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
@@ -1446,28 +1499,29 @@
         <minigame_chooseAnswer>
             <id>58</id>
             <name>Quiz</name>
-            <description>Im Wald werden kleine Weiß-Tannen besonders gern von...</description><selection>
-            <option>
-                <option_type>Text</option_type>
-                <option_content>A: Wildtieren angefressen.</option_content>
-                <option_right>true</option_right>
-            </option>
-            <option>
-                <option_type>Text</option_type>
-                <option_content>B: Füchsen zum Markieren ihres Reviers genutzt.</option_content>
-                <option_right>false</option_right>
-            </option>
-            <option>
-                <option_type>Text</option_type>
-                <option_content>C: Spechten als Brutbaum verwendet.</option_content>
-                <option_right>false</option_right>
-            </option>
-        </selection>
+            <description>Im Wald werden kleine Weiß-Tannen besonders gern von...</description>
+            <selection>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>A: Wildtieren angefressen.</option_content>
+                    <option_right>true</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>B: Füchsen zum Markieren ihres Reviers genutzt.</option_content>
+                    <option_right>false</option_right>
+                </option>
+                <option>
+                    <option_type>Text</option_type>
+                    <option_content>C: Spechten als Brutbaum verwendet.</option_content>
+                    <option_right>false</option_right>
+                </option>
+            </selection>
         </minigame_chooseAnswer> <!-- Tanne -->
         <minigame_chooseAnswer>
             <id>59</id>
             <name>Quiz</name>
-            <description>Die Fichte wird gern in Wälder angepflanzt, weil : </description>
+            <description>Die Fichte wird gern in Wälder angepflanzt, weil :</description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -1549,7 +1603,8 @@
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Stühle und Bänke für gemeinsame Essen gestellt.</option_content>
+                    <option_content>C: Stühle und Bänke für gemeinsame Essen gestellt.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -1623,16 +1678,20 @@
         <minigame_chooseAnswer>
             <id>66</id>
             <name>Quiz</name>
-            <description>Birkenholz ist sehr stabil. Welche Aussage stimmt? Vielleicht stimmen ja sogar alle. Was glaubst du?</description>
+            <description>Birkenholz ist sehr stabil. Welche Aussage stimmt? Vielleicht stimmen ja
+                sogar alle. Was glaubst du?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Aus Birkenholz kann man Musikinstrumente machen.</option_content>
+                    <option_content>A: Aus Birkenholz kann man Musikinstrumente machen.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Früher wurde Birkenholz zum Flugzeugbau eingesetzt.</option_content>
+                    <option_content>B: Früher wurde Birkenholz zum Flugzeugbau eingesetzt.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
@@ -1714,7 +1773,9 @@
         <minigame_chooseAnswer>
             <id>70</id>
             <name>Quiz</name>
-            <description>Schau dir die Früchte des Ahorns genau an. Welche Zeichnung passt am besten?</description>
+            <description>Schau dir die Früchte des Ahorns genau an. Welche Zeichnung passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1741,7 +1802,9 @@
         <minigame_chooseAnswer>
             <id>71</id>
             <name>Quiz</name>
-            <description>Schau dir die Früchte der Rotbuche genau an. Welche Zeichnung passt am besten?</description>
+            <description>Schau dir die Früchte der Rotbuche genau an. Welche Zeichnung passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1768,7 +1831,9 @@
         <minigame_chooseAnswer>
             <id>72</id>
             <name>Quiz</name>
-            <description>Schau dir die Früchte der Linde genau an. Welche Zeichnung passt am besten?</description>
+            <description>Schau dir die Früchte der Linde genau an. Welche Zeichnung passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1795,7 +1860,9 @@
         <minigame_chooseAnswer>
             <id>73</id>
             <name>Quiz</name>
-            <description>Schau dir die Früchte der Waldkiefer genau an. Welche Zeichnung passt am besten?</description>
+            <description>Schau dir die Früchte der Waldkiefer genau an. Welche Zeichnung passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1822,7 +1889,9 @@
         <minigame_chooseAnswer>
             <id>74</id>
             <name>Quiz</name>
-            <description>Schau dir die Früchte der Eiche genau an. Welche Zeichnung passt am besten?</description>
+            <description>Schau dir die Früchte der Eiche genau an. Welche Zeichnung passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1849,7 +1918,9 @@
         <minigame_chooseAnswer>
             <id>75</id>
             <name>Quiz</name>
-            <description>Schau dir die Früchte der Hasel genau an. Welche Zeichnung passt am besten?</description>
+            <description>Schau dir die Früchte der Hasel genau an. Welche Zeichnung passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1876,7 +1947,9 @@
         <minigame_chooseAnswer>
             <id>76</id>
             <name>Quiz</name>
-            <description>Schau dir die Früchte der Hängebirke genau an. Welche Zeichnung passt am besten?</description>
+            <description>Schau dir die Früchte der Hängebirke genau an. Welche Zeichnung passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1903,7 +1976,9 @@
         <minigame_chooseAnswer>
             <id>77</id>
             <name>Quiz</name>
-            <description>Schau dir die Früchte der Eberesche genau an. Welche Zeichnung passt am besten?</description>
+            <description>Schau dir die Früchte der Eberesche genau an. Welche Zeichnung passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1930,7 +2005,9 @@
         <minigame_chooseAnswer>
             <id>78</id>
             <name>Quiz</name>
-            <description>Schau dir die Früchte der Tanne genau an. Welche Zeichnung passt am besten?</description>
+            <description>Schau dir die Früchte der Tanne genau an. Welche Zeichnung passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -1957,7 +2034,9 @@
         <minigame_chooseAnswer>
             <id>79</id>
             <name>Quiz</name>
-            <description>Schau dir die Früchte der Fichte genau an. Welche Zeichnung passt am besten?</description>
+            <description>Schau dir die Früchte der Fichte genau an. Welche Zeichnung passt am
+                besten?
+            </description>
             <selection>
                 <option>
                     <option_type>Image</option_type>
@@ -2008,7 +2087,9 @@
         <minigame_chooseAnswer>
             <id>81</id>
             <name>Quiz</name>
-            <description>In den Bucheckern verstecken sich kleine "Nüsschen". Welche Tiere finden diese ungemein lecker?</description>
+            <description>In den Bucheckern verstecken sich kleine "Nüsschen". Welche Tiere finden
+                diese ungemein lecker?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -2050,7 +2131,9 @@
         <minigame_chooseAnswer>
             <id>82</id>
             <name>Quiz</name>
-            <description>Die Lindenfrüchte besitzen alle ein längliches Hochblatt. Welche Aufgabe hat dieses Hochblatt?</description>
+            <description>Die Lindenfrüchte besitzen alle ein längliches Hochblatt. Welche Aufgabe
+                hat dieses Hochblatt?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -2059,7 +2142,9 @@
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Es ist eine Art Flugsegel, damit die Lindenfrucht in “ferne Gebiete” kommt.</option_content>
+                    <option_content>B: Es ist eine Art Flugsegel, damit die Lindenfrucht in “ferne
+                        Gebiete” kommt.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
@@ -2116,7 +2201,9 @@
         <minigame_chooseAnswer>
             <id>85</id>
             <name>Quiz</name>
-            <description>Welche Tiere haben die Haselnüsse zum Fressen gerne? Es könnten mehrere Tiere sein!</description>
+            <description>Welche Tiere haben die Haselnüsse zum Fressen gerne? Es könnten mehrere
+                Tiere sein!
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -2162,7 +2249,8 @@
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Die Pollenkörner werden mit dem Wind verteilt.</option_content>
+                    <option_content>C: Die Pollenkörner werden mit dem Wind verteilt.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
             </selection>
@@ -2242,7 +2330,8 @@
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Die Frucht dreht sich ganz schnell um sich selbst.</option_content>
+                    <option_content>A: Die Frucht dreht sich ganz schnell um sich selbst.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
@@ -2274,7 +2363,9 @@
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Tiere vergraben Bucheckern als Reserve für den Winter und vergessen sie in der Erde.</option_content>
+                    <option_content>C: Tiere vergraben Bucheckern als Reserve für den Winter und
+                        vergessen sie in der Erde.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
             </selection>
@@ -2370,7 +2461,9 @@
         <minigame_chooseAnswer>
             <id>96</id>
             <name>Quiz</name>
-            <description>Hatschi! Im Frühling müssen viele Menschen niesen, weil sie allergisch sind auf...</description>
+            <description>Hatschi! Im Frühling müssen viele Menschen niesen, weil sie allergisch sind
+                auf...
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -2436,7 +2529,9 @@
         <minigame_chooseAnswer>
             <id>99</id>
             <name>Quiz</name>
-            <description>In welche Richtung zeigen die ausgewachsenen Zapfen der Fichte vom Ast aus?</description>
+            <description>In welche Richtung zeigen die ausgewachsenen Zapfen der Fichte vom Ast
+                aus?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -2461,21 +2556,27 @@
         <minigame_chooseAnswer>
             <id>100</id>
             <name>Superkraft</name>
-            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt.
+                Welche Superkraft hat der Baum tatsächlich? Was glaubst du?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Aus dem Saft, der austritt, wenn man den Baum anschneidet, kann man einen süßen Saft gewinnen.</option_content>
+                    <option_content>A: Aus dem Saft, der austritt, wenn man den Baum anschneidet,
+                        kann man einen süßen Saft gewinnen.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Ahornbäume können sogar in der Arktis wachsen.</option_content>
+                    <option_content>B: Ahornbäume können sogar in der Arktis wachsen.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Ahornbäume können bis zu 1000 Jahre alt werden.</option_content>
+                    <option_content>C: Ahornbäume können bis zu 1000 Jahre alt werden.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -2483,16 +2584,21 @@
         <minigame_chooseAnswer>
             <id>101</id>
             <name>Superkraft</name>
-            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt.
+                Welche Superkraft hat der Baum tatsächlich? Was glaubst du?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Die Rot-Buche ist der häufigste Laubbaum in Deutschland.</option_content>
+                    <option_content>A: Die Rot-Buche ist der häufigste Laubbaum in Deutschland.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Ihre Rinde ist so glatt, dass kaum Tiere Unterschlupf finden.</option_content>
+                    <option_content>B: Ihre Rinde ist so glatt, dass kaum Tiere Unterschlupf
+                        finden.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
@@ -2505,7 +2611,9 @@
         <minigame_chooseAnswer>
             <id>102</id>
             <name>Superkraft</name>
-            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt.
+                Welche Superkraft hat der Baum tatsächlich? Was glaubst du?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -2514,12 +2622,15 @@
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Lindenblüten stinken. So werden sie nicht von Insekten befallen.</option_content>
+                    <option_content>B: Lindenblüten stinken. So werden sie nicht von Insekten
+                        befallen.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Der dickste Baum Deutschlands ist eine Linde.</option_content>
+                    <option_content>C: Der dickste Baum Deutschlands ist eine Linde.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
             </selection>
@@ -2527,21 +2638,27 @@
         <minigame_chooseAnswer>
             <id>103</id>
             <name>Superkraft</name>
-            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt.
+                Welche Superkraft hat der Baum tatsächlich? Was glaubst du?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Kiefern können auch an sehr schattigen Plätzen wachsen.</option_content>
+                    <option_content>A: Kiefern können auch an sehr schattigen Plätzen wachsen.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Das Harz der Kiefern wurde früher als Kaugummi genutzt.</option_content>
+                    <option_content>B: Das Harz der Kiefern wurde früher als Kaugummi genutzt.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Mit ihren langen Wurzeln holen sie das Wasser noch aus 6m Tiefe.</option_content>
+                    <option_content>C: Mit ihren langen Wurzeln holen sie das Wasser noch aus 6m
+                        Tiefe.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
             </selection>
@@ -2549,21 +2666,27 @@
         <minigame_chooseAnswer>
             <id>104</id>
             <name>Superkraft</name>
-            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt.
+                Welche Superkraft hat der Baum tatsächlich? Was glaubst du?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Viele Häuser Venedigs stehen auf Eichenstämmen im Wasser.</option_content>
+                    <option_content>A: Viele Häuser Venedigs stehen auf Eichenstämmen im Wasser.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Auf den deutschen Cent-Münzen sind Eichenblätter abgebildet.</option_content>
+                    <option_content>B: Auf den deutschen Cent-Münzen sind Eichenblätter
+                        abgebildet.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Der älteste Baum Deutschlands ist eine Eiche.</option_content>
+                    <option_content>C: Der älteste Baum Deutschlands ist eine Eiche.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -2571,16 +2694,21 @@
         <minigame_chooseAnswer>
             <id>105</id>
             <name>Superkraft</name>
-            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt.
+                Welche Superkraft hat der Baum tatsächlich? Was glaubst du?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Fast alle Möbel werden aus Haselnussholz gebaut.</option_content>
+                    <option_content>A: Fast alle Möbel werden aus Haselnussholz gebaut.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Die Kohle des verbrannten Holzes wird als Schießpulver verwendet.</option_content>
+                    <option_content>B: Die Kohle des verbrannten Holzes wird als Schießpulver
+                        verwendet.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
@@ -2593,7 +2721,9 @@
         <minigame_chooseAnswer>
             <id>106</id>
             <name>Superkraft</name>
-            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt.
+                Welche Superkraft hat der Baum tatsächlich? Was glaubst du?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
@@ -2602,12 +2732,15 @@
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Die Kohle des verbrannten Holzes der Birke wird Zeichenkohle verwendet.</option_content>
+                    <option_content>B: Die Kohle des verbrannten Holzes der Birke wird Zeichenkohle
+                        verwendet.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Die weiße Rinde schützt die Bäume gegen Austrocknung.</option_content>
+                    <option_content>C: Die weiße Rinde schützt die Bäume gegen Austrocknung.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
             </selection>
@@ -2615,21 +2748,29 @@
         <minigame_chooseAnswer>
             <id>107</id>
             <name>Superkraft</name>
-            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt.
+                Welche Superkraft hat der Baum tatsächlich? Was glaubst du?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Die roten Früchte sind für Vöge giftig, damit sie nicht gefressen werden.</option_content>
+                    <option_content>A: Die roten Früchte sind für Vöge giftig, damit sie nicht
+                        gefressen werden.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Aus dem wertvollen Holz lassen sich Tische und Stühle fertigen.</option_content>
+                    <option_content>B: Aus dem wertvollen Holz lassen sich Tische und Stühle
+                        fertigen.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Durch ihren widerlichen Geruch locken die Blüten Bestäuber an.</option_content>
+                    <option_content>C: Durch ihren widerlichen Geruch locken die Blüten Bestäuber
+                        an.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
             </selection>
@@ -2637,21 +2778,27 @@
         <minigame_chooseAnswer>
             <id>108</id>
             <name>Superkraft</name>
-            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt.
+                Welche Superkraft hat der Baum tatsächlich? Was glaubst du?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Der höchste einheimische Baum ist eine Tanne.</option_content>
+                    <option_content>A: Der höchste einheimische Baum ist eine Tanne.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Orgelpfeifen werden oft aus Tannenholz gemacht.</option_content>
+                    <option_content>B: Orgelpfeifen werden oft aus Tannenholz gemacht.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Ihre weichen Nadenln schützen Sie im Winter vor Wildverbiss, weil z. B. Rehe sie nicht mögen.</option_content>
+                    <option_content>C: Ihre weichen Nadenln schützen Sie im Winter vor Wildverbiss,
+                        weil z. B. Rehe sie nicht mögen.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
             </selection>
@@ -2659,21 +2806,28 @@
         <minigame_chooseAnswer>
             <id>109</id>
             <name>Superkraft</name>
-            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt. Welche Superkraft hat der Baum tatsächlich? Was glaubst du?</description>
+            <description>Boah. Das kann ich gar nicht glauben. Da hat wohl jemand geschwindelt.
+                Welche Superkraft hat der Baum tatsächlich? Was glaubst du?
+            </description>
             <selection>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>A: Der älteste Baum der Welt ist eine Fichte und wächst in Schweden.</option_content>
+                    <option_content>A: Der älteste Baum der Welt ist eine Fichte und wächst in
+                        Schweden.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>B: Die auffälligen Blüten der Fichte locken zahlreiche Insekten zu Bestäubung an.</option_content>
+                    <option_content>B: Die auffälligen Blüten der Fichte locken zahlreiche Insekten
+                        zu Bestäubung an.
+                    </option_content>
                     <option_right>false</option_right>
                 </option>
                 <option>
                     <option_type>Text</option_type>
-                    <option_content>C: Die Fichte ist der häufigste Nadelbaum in Deutschland.</option_content>
+                    <option_content>C: Die Fichte ist der häufigste Nadelbaum in Deutschland.
+                    </option_content>
                     <option_right>true</option_right>
                 </option>
             </selection>

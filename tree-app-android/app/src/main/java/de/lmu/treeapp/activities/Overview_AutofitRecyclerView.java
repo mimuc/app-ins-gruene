@@ -50,10 +50,9 @@ public class Overview_AutofitRecyclerView extends RecyclerView {
         super.onMeasure(widthSpec, heightSpec);
         if (columnWidth > 0) {
             int spanCount;
-            if(OverviewRecyclerViewAdapter.isImprint==true){
+            if (OverviewRecyclerViewAdapter.isImprint == true) {
                 spanCount = 1;
-            }
-            else{
+            } else {
                 spanCount = 3;
             }
             manager.setSpanCount(spanCount);

@@ -1,7 +1,6 @@
 package de.lmu.treeapp.activities.minigames.dragDrop;
 
 import android.content.ClipData;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.MotionEvent;
@@ -13,7 +12,6 @@ import android.widget.LinearLayout;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +26,7 @@ public class GameActivity_DragDrop extends GameActivity_Base {
     private Minigame_DragDrop dragDropGame;
     private ConstraintLayout layout;
     private int contentBoxId;
-    private List<ImageView> itemViews = new ArrayList<>();
+    private final List<ImageView> itemViews = new ArrayList<>();
 
     private int zoneNormalColor = 0;
     private int zoneDroppableColor = 0;
@@ -50,18 +48,18 @@ public class GameActivity_DragDrop extends GameActivity_Base {
         contentBox.setImageResource(backgroundImage);
         contentBoxId = contentBox.getId();
 
-        for (DragDropItem item : dragDropGame.items){
+        for (DragDropItem item : dragDropGame.items) {
             ImageView iv = new ImageView(this);
             int imageId = getResources().getIdentifier(item.content, "drawable", getPackageName());
             iv.setImageResource(imageId);
             iv.setTag(item.match);
 
-            SetItemStartPosition(iv,item);
+            SetItemStartPosition(iv, item);
             itemViews.add(iv);
             iv.setOnTouchListener(new DragDropItemTouchListener());
         }
 
-        for (DragDropZone zone : dragDropGame.zones){
+        for (DragDropZone zone : dragDropGame.zones) {
             LinearLayout ll = new LinearLayout(this);
             ll.setBackgroundColor(zoneNormalColor);
             LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
@@ -87,8 +85,8 @@ public class GameActivity_DragDrop extends GameActivity_Base {
         sendButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                for (DragDropZone zone : dragDropGame.zones){
-                    if (!zone.IsMatchedRight()){
+                for (DragDropZone zone : dragDropGame.zones) {
+                    if (!zone.IsMatchedRight()) {
                         onFail();
                         Reset();
                         return;
@@ -100,14 +98,14 @@ public class GameActivity_DragDrop extends GameActivity_Base {
         });
     }
 
-    private void ClearOtherZones(DragDropItem _item){
-        for (DragDropZone zone : dragDropGame.zones){
+    private void ClearOtherZones(DragDropItem _item) {
+        for (DragDropZone zone : dragDropGame.zones) {
             if (zone.currentItem == _item)
                 zone.currentItem = null;
         }
     }
 
-    private void SetItemStartPosition(ImageView _iv, DragDropItem _item){
+    private void SetItemStartPosition(ImageView _iv, DragDropItem _item) {
         ClearOtherZones(_item);
         LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         lp.width = _item.w;
@@ -124,13 +122,13 @@ public class GameActivity_DragDrop extends GameActivity_Base {
         layout.addView(_iv);
     }
 
-    private void Reset(){
-        for (ImageView itemView : itemViews){
+    private void Reset() {
+        for (ImageView itemView : itemViews) {
             ViewGroup owner = (ViewGroup) itemView.getParent();
             owner.removeView(itemView);
             SetItemStartPosition(itemView, dragDropGame.items.get(Integer.parseInt(itemView.getTag().toString())));
         }
-        for (DragDropZone zone : dragDropGame.zones){
+        for (DragDropZone zone : dragDropGame.zones) {
             zone.currentItem = null;
         }
     }
@@ -140,7 +138,7 @@ public class GameActivity_DragDrop extends GameActivity_Base {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                ClipData data = ClipData.newPlainText("","");
+                ClipData data = ClipData.newPlainText("", "");
                 View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
                 view.startDrag(data, shadowBuilder, view, 0);
                 view.setVisibility(View.INVISIBLE);
@@ -225,7 +223,5 @@ public class GameActivity_DragDrop extends GameActivity_Base {
             return true;
         }
     }
-
-
 
 }

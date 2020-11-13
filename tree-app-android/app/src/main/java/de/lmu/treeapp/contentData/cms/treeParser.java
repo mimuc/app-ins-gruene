@@ -1,9 +1,11 @@
 package de.lmu.treeapp.contentData.cms;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
 
 import de.lmu.treeapp.contentClasses.trees.Tree;
 
@@ -84,10 +86,10 @@ public class treeParser {
     }
 
 
-    private List<Integer> getGamesIds(String _text){
+    private List<Integer> getGamesIds(String _text) {
         String[] nums = _text.split(",");
         List<Integer> gameIds = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++){
+        for (int i = 0; i < nums.length; i++) {
             gameIds.add(Integer.parseInt(nums[i].trim()));
         }
         return gameIds;

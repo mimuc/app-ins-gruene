@@ -10,7 +10,7 @@ import de.lmu.treeapp.fragments.DetailSingleTreeFragment;
 
 public class TreeSlidePagerAdapter extends FragmentStatePagerAdapter {
 
-    private List<DetailSingleTreeFragment> detailSingleTreeFragments;
+    private final List<DetailSingleTreeFragment> detailSingleTreeFragments;
 
     public TreeSlidePagerAdapter(FragmentManager fm, List<DetailSingleTreeFragment> detailSingleTreeFragments) {
         super(fm);

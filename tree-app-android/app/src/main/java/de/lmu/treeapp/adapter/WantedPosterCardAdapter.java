@@ -38,7 +38,7 @@ public class WantedPosterCardAdapter extends RecyclerView.Adapter<WantedPosterCa
             header = itemView.findViewById(R.id.card_wanted_poster_header);
             subHeader = itemView.findViewById(R.id.card_wanted_poster_sub_header);
             picture = itemView.findViewById(R.id.card_wanted_poster_circle_image);
-            infoText  = itemView.findViewById(R.id.card_wanted_poster_description_text);
+            infoText = itemView.findViewById(R.id.card_wanted_poster_description_text);
             collapseArrow = itemView.findViewById(R.id.card_wanted_poster_collapse_arrow);
             expander = itemView.findViewById(R.id.card_wanted_poster_expander);
             gamePicture = itemView.findViewById(R.id.card_wanted_poster_description_picture);
@@ -46,6 +46,7 @@ public class WantedPosterCardAdapter extends RecyclerView.Adapter<WantedPosterCa
 
         }
     }
+
     @NonNull
     @Override
     public WantedPosterCardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -57,34 +58,34 @@ public class WantedPosterCardAdapter extends RecyclerView.Adapter<WantedPosterCa
     public void onBindViewHolder(@NonNull final WantedPosterCardViewHolder holder, final int position) {
 
         final WantedPosterCard card = wantedPosterCards.get(position);
-        if(!card.getHeader().isEmpty()){
+        if (!card.getHeader().isEmpty()) {
             holder.header.setText(card.getHeader());
         }
 
-        if(!card.getSubHeader().isEmpty()){
+        if (!card.getSubHeader().isEmpty()) {
             holder.subHeader.setText(card.getSubHeader());
         }
 
-        if (!card.getInfotext().isEmpty()){
+        if (!card.getInfotext().isEmpty()) {
             holder.infoText.setText(card.getInfotext());
         }
 
-        if(card.getPicture() != null){
+        if (card.getPicture() != null) {
             holder.picture.setImageDrawable(card.getPicture());
         }
-        if(card.getGamePicture() != null) {
+        if (card.getGamePicture() != null) {
             holder.gamePicture.setImageURI(card.getGamePicture());
         }
 
-        final boolean isExpanded = position==expandedPosition;
+        final boolean isExpanded = position == expandedPosition;
         holder.expander.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
         holder.itemView.setActivated(isExpanded);
         holder.collapseArrow.setImageDrawable(card.getCollapse());
-        if(card.isUnlocked()){
+        if (card.isUnlocked()) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(holder.collapseArrow.getRotation() == 90.0f){
+                    if (holder.collapseArrow.getRotation() == 90.0f) {
                         holder.collapseArrow.setRotation(0);
                     } else {
                         holder.collapseArrow.setRotation(-90.0f);

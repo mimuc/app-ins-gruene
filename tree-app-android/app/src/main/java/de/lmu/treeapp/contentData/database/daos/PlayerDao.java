@@ -22,5 +22,4 @@ public interface PlayerDao {
     void UpdateOne(PlayerModel model);
 
 
-
 }

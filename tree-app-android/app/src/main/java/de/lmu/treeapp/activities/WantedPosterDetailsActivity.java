@@ -1,6 +1,5 @@
 package de.lmu.treeapp.activities;
 
-import android.graphics.ComposePathEffect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.CompositePageTransformer;
@@ -43,7 +41,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
     private Tree tree;  // Data of our tree (from CMS and Database)
     private TreeProfile treeProfile;    // Data of our profile (from CMS)
     // Slide-Show (view pager):
-    private List<Slide> slideList = new ArrayList<>();
+    private final List<Slide> slideList = new ArrayList<>();
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
     private Timer timer;
@@ -51,7 +49,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
 
     // ViewPager2
     private ViewPager2 viewPager2;
-    private Handler sliderHandler = new Handler();
+    private final Handler sliderHandler = new Handler();
 
     /**
      * On creating the activity, we generate a RecyclerView with our custom WantedPosterCardAdapter for all the profile-cards
@@ -70,18 +68,18 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         String content = "";
-        for (int i = 0; i < treeProfile.cards.size(); i++){
+        for (int i = 0; i < treeProfile.cards.size(); i++) {
             TreeProfileCard card = treeProfile.cards.get(i);
-            if (card.unlockedBy == Tree.GameCategories.none || tree.GetGameProgressionPercent(card.unlockedBy) > 90){
+            if (card.unlockedBy == Tree.GameCategories.none || tree.GetGameProgressionPercent(card.unlockedBy) > 90) {
                 content += card.name + "\n";
                 content += card.content + "\n";
             }
         }
 
-        if(getSupportActionBar() != null) {
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             String titlePre = getResources().getString(R.string.wanted_poster_details_title_text);
-            getSupportActionBar().setTitle( titlePre + " "+ tree.name);
+            getSupportActionBar().setTitle(titlePre + " " + tree.name);
         }
 
         // ViewPage2
@@ -121,7 +119,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         });
     }
 
-    private Runnable sliderRunnable = new Runnable() {
+    private final Runnable sliderRunnable = new Runnable() {
         @Override
         public void run() {
             viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1);
@@ -129,12 +127,12 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
     };
 
     // Create a slide show for the photos of the Foto-Challenge
-    private void createSlideShow(){
+    private void createSlideShow() {
         final Handler handler = new Handler();
         final Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                if(current_position == slideList.size()){
+                if (current_position == slideList.size()) {
                     current_position = 0;
                 }
                 pager.setCurrentItem(current_position++, true);
@@ -146,24 +144,25 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
             public void run() {
                 handler.post(runnable);
             }
-        },250, 25000);
+        }, 250, 25000);
     }
 
     /**
      * Gets the Profile-Cards.
+     *
      * @return A List of the Class WantedPosterCard, which includes whether its unlocked, the icon, name, content, etc.
      */
     private List<WantedPosterCard> getCards() {
         List<WantedPosterCard> wantedPosterCards = new ArrayList<>();
 
-        for (int i = 0; i < treeProfile.cards.size(); i++){
+        for (int i = 0; i < treeProfile.cards.size(); i++) {
             TreeProfileCard card = treeProfile.cards.get(i);
             boolean unlocked = card.unlockedBy == Tree.GameCategories.none || tree.GetGameProgressionPercent(card.unlockedBy) > 90;
             int drawableId = getApplicationContext().getResources().getIdentifier(card.image, "drawable", getApplicationContext().getPackageName());
             Drawable image = getDrawable(drawableId);
 
             Uri imageUri = null;
-            if (!card.picture.equalsIgnoreCase("")){
+            if (!card.picture.equalsIgnoreCase("")) {
                 imageUri = getImageUri(card.picture);
             }
 
@@ -181,20 +180,21 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onSupportNavigateUp(){
+    public boolean onSupportNavigateUp() {
         finish();
         return true;
     }
 
     /**
      * Gets the URI of an Image based on a name.
+     *
      * @param name String of the image-name (coming from the CMS).
      * @return The Uri of the respective image. Returns null if it does not exist.
      */
     private Uri getImageUri(String name) {
         String imageFileName = "AppInsGruene_" + name.trim().toLowerCase();
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File mediaFile = new File(storageDir + File.separator + imageFileName +".jpg");
+        File mediaFile = new File(storageDir + File.separator + imageFileName + ".jpg");
 
         if (!mediaFile.exists()) return null;
 
@@ -206,7 +206,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
 
     // Slideshow paused if App is minimized
     @Override
-    protected void onPause(){
+    protected void onPause() {
         super.onPause();
         sliderHandler.removeCallbacks(sliderRunnable);
     }

@@ -1,11 +1,13 @@
 package de.lmu.treeapp.contentData.cms;
+
 import android.content.Context;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
@@ -29,13 +31,14 @@ public class miniGameParser {
     public miniGameParser() {
         miniGames = new ArrayList<Minigame_Base>();
     }
+
     public List<Minigame_Base> getMiniGames(Context context) {
         parse_ChooseAnswer(context.getResources().getXml(R.xml.minigames_chooseanswer), 0);
         parse_InputString(context.getResources().getXml(R.xml.minigames_inputstring), 200);
         parse_TakePicture(context.getResources().getXml(R.xml.minigames_takepicture), 300);
-        parse_DragDrop(context.getResources().getXml(R.xml.minigames_dragdrop),400);
-        parse_OnlyDescription(context.getResources().getXml(R.xml.minigames_onlydescription),500);
-        parse_Baumory(context.getResources().getXml(R.xml.minigames_baumory),600);
+        parse_DragDrop(context.getResources().getXml(R.xml.minigames_dragdrop), 400);
+        parse_OnlyDescription(context.getResources().getXml(R.xml.minigames_onlydescription), 500);
+        parse_Baumory(context.getResources().getXml(R.xml.minigames_baumory), 600);
         return miniGames;
     }
 
@@ -54,8 +57,7 @@ public class miniGameParser {
                             miniGameChooseAnswer = new Minigame_ChooseAnswer();
                             miniGameChooseAnswer.type = Minigame_Base.MinigameTypes.ChooseAnswer;
                             miniGameChooseAnswer.options = new ArrayList<>();
-                        }
-                        else if (tagname.equalsIgnoreCase("option")){
+                        } else if (tagname.equalsIgnoreCase("option")) {
                             answerOption = new AnswerOption();
                         }
                         break;
@@ -69,17 +71,17 @@ public class miniGameParser {
                             miniGameChooseAnswer.uid = Integer.parseInt(text) + prefix;
                         } else if (tagname.equalsIgnoreCase("name")) {
                             miniGameChooseAnswer.name = text;
-                        } else if (tagname.equalsIgnoreCase("description")){
+                        } else if (tagname.equalsIgnoreCase("description")) {
                             miniGameChooseAnswer.description = text;
-                        } else if (tagname.equalsIgnoreCase("image")){
+                        } else if (tagname.equalsIgnoreCase("image")) {
                             miniGameChooseAnswer.image = text;
-                        } else if (tagname.equalsIgnoreCase("option_type")){
+                        } else if (tagname.equalsIgnoreCase("option_type")) {
                             answerOption.SetType(text);
-                        } else if (tagname.equalsIgnoreCase("option_content")){
+                        } else if (tagname.equalsIgnoreCase("option_content")) {
                             answerOption.content = (text);
-                        } else if (tagname.equalsIgnoreCase("option_right")){
+                        } else if (tagname.equalsIgnoreCase("option_right")) {
                             answerOption.right = Boolean.parseBoolean(text);
-                        } else if (tagname.equalsIgnoreCase("option")){
+                        } else if (tagname.equalsIgnoreCase("option")) {
                             miniGameChooseAnswer.options.add(answerOption);
                         }
                         break;
@@ -121,11 +123,11 @@ public class miniGameParser {
                             miniGameInputStringAnswer.uid = Integer.parseInt(text) + prefix;
                         } else if (tagname.equalsIgnoreCase("name")) {
                             miniGameInputStringAnswer.name = text;
-                        } else if (tagname.equalsIgnoreCase("description")){
+                        } else if (tagname.equalsIgnoreCase("description")) {
                             miniGameInputStringAnswer.description = text;
-                        } else if (tagname.equalsIgnoreCase("image")){
+                        } else if (tagname.equalsIgnoreCase("image")) {
                             miniGameInputStringAnswer.image = text;
-                        } else if (tagname.equalsIgnoreCase("rightAnswer")){
+                        } else if (tagname.equalsIgnoreCase("rightAnswer")) {
                             miniGameInputStringAnswer.FillRightAnswer(text);
                         }
                         break;
@@ -168,11 +170,11 @@ public class miniGameParser {
                             miniGameTakePicture.uid = Integer.parseInt(text) + prefix;
                         } else if (tagname.equalsIgnoreCase("name")) {
                             miniGameTakePicture.name = text;
-                        } else if (tagname.equalsIgnoreCase("description")){
+                        } else if (tagname.equalsIgnoreCase("description")) {
                             miniGameTakePicture.description = text;
-                        } else if (tagname.equalsIgnoreCase("image")){
+                        } else if (tagname.equalsIgnoreCase("image")) {
                             miniGameTakePicture.image = text;
-                        } else if (tagname.equalsIgnoreCase("pictureName")){
+                        } else if (tagname.equalsIgnoreCase("pictureName")) {
                             miniGameTakePicture.FillPictureName(text);
                         }
                         break;
@@ -207,11 +209,9 @@ public class miniGameParser {
                             miniGameDragDrop.type = Minigame_Base.MinigameTypes.DragDrop;
                             miniGameDragDrop.items = new ArrayList<>();
                             miniGameDragDrop.zones = new ArrayList<>();
-                        }
-                        else if (tagname.equalsIgnoreCase("dragItem")){
+                        } else if (tagname.equalsIgnoreCase("dragItem")) {
                             dragDropItem = new DragDropItem();
-                        }
-                        else if (tagname.equalsIgnoreCase("dropItem")){
+                        } else if (tagname.equalsIgnoreCase("dropItem")) {
                             dragDropZone = new DragDropZone();
                         }
                         break;
@@ -225,41 +225,41 @@ public class miniGameParser {
                             miniGameDragDrop.uid = Integer.parseInt(text) + prefix;
                         } else if (tagname.equalsIgnoreCase("name")) {
                             miniGameDragDrop.name = text;
-                        } else if (tagname.equalsIgnoreCase("description")){
+                        } else if (tagname.equalsIgnoreCase("description")) {
                             miniGameDragDrop.description = text;
-                        } else if (tagname.equalsIgnoreCase("image")){
+                        } else if (tagname.equalsIgnoreCase("image")) {
                             miniGameDragDrop.image = text;
-                        } else if (tagname.equalsIgnoreCase("layout")){
+                        } else if (tagname.equalsIgnoreCase("layout")) {
                             miniGameDragDrop.layout = text;
-                        } else if (tagname.equalsIgnoreCase("dragItem_type")){
+                        } else if (tagname.equalsIgnoreCase("dragItem_type")) {
                             dragDropItem.SetType(text);
-                        } else if (tagname.equalsIgnoreCase("dragItem_content")){
+                        } else if (tagname.equalsIgnoreCase("dragItem_content")) {
                             dragDropItem.content = (text);
                         } else if (tagname.equalsIgnoreCase("dragItem_match")) {
                             dragDropItem.match = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("dragItem_x")){
+                        } else if (tagname.equalsIgnoreCase("dragItem_x")) {
                             dragDropItem.x = Float.parseFloat(text);
                         } else if (tagname.equalsIgnoreCase("dragItem_y")) {
                             dragDropItem.y = Float.parseFloat(text);
-                        } else if (tagname.equalsIgnoreCase("dragItem_w")){
+                        } else if (tagname.equalsIgnoreCase("dragItem_w")) {
                             dragDropItem.w = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("dragItem_h")){
+                        } else if (tagname.equalsIgnoreCase("dragItem_h")) {
                             dragDropItem.h = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("dropItem_match")){
+                        } else if (tagname.equalsIgnoreCase("dropItem_match")) {
                             dragDropZone.match = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("dropItem_content")){
+                        } else if (tagname.equalsIgnoreCase("dropItem_content")) {
                             dragDropZone.content = (text);
-                        } else if (tagname.equalsIgnoreCase("dropItem_x")){
+                        } else if (tagname.equalsIgnoreCase("dropItem_x")) {
                             dragDropZone.x = Float.parseFloat(text);
-                        } else if (tagname.equalsIgnoreCase("dropItem_y")){
+                        } else if (tagname.equalsIgnoreCase("dropItem_y")) {
                             dragDropZone.y = Float.parseFloat(text);
-                        } else if (tagname.equalsIgnoreCase("dropItem_w")){
+                        } else if (tagname.equalsIgnoreCase("dropItem_w")) {
                             dragDropZone.w = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("dropItem_h")){
+                        } else if (tagname.equalsIgnoreCase("dropItem_h")) {
                             dragDropZone.h = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("dragItem")){
+                        } else if (tagname.equalsIgnoreCase("dragItem")) {
                             miniGameDragDrop.items.add(dragDropItem);
-                        } else if (tagname.equalsIgnoreCase("dropItem")){
+                        } else if (tagname.equalsIgnoreCase("dropItem")) {
                             miniGameDragDrop.zones.add(dragDropZone);
                         }
                         break;
@@ -302,9 +302,9 @@ public class miniGameParser {
                             miniGameOnlyDescription.uid = Integer.parseInt(text) + prefix;
                         } else if (tagname.equalsIgnoreCase("name")) {
                             miniGameOnlyDescription.name = text;
-                        } else if (tagname.equalsIgnoreCase("description")){
+                        } else if (tagname.equalsIgnoreCase("description")) {
                             miniGameOnlyDescription.description = text;
-                        } else if (tagname.equalsIgnoreCase("image")){
+                        } else if (tagname.equalsIgnoreCase("image")) {
                             miniGameOnlyDescription.image = text;
                         }
                         break;
@@ -337,8 +337,7 @@ public class miniGameParser {
                             minigameBaumory = new Minigame_Baumory();
                             minigameBaumory.type = Minigame_Base.MinigameTypes.Baumory;
                             minigameBaumory.cards = new ArrayList<>();
-                        }
-                        else if (tagname.equalsIgnoreCase("card")){
+                        } else if (tagname.equalsIgnoreCase("card")) {
                             card = new BaumoryCard();
                         }
                         break;
@@ -352,15 +351,15 @@ public class miniGameParser {
                             minigameBaumory.uid = Integer.parseInt(text) + prefix;
                         } else if (tagname.equalsIgnoreCase("name")) {
                             minigameBaumory.name = text;
-                        } else if (tagname.equalsIgnoreCase("description")){
+                        } else if (tagname.equalsIgnoreCase("description")) {
                             minigameBaumory.description = text;
-                        } else if (tagname.equalsIgnoreCase("image")){
+                        } else if (tagname.equalsIgnoreCase("image")) {
                             minigameBaumory.image = text;
-                        }  else if (tagname.equalsIgnoreCase("card_image")){
+                        } else if (tagname.equalsIgnoreCase("card_image")) {
                             card.content = (text);
-                        } else if (tagname.equalsIgnoreCase("card_match")){
+                        } else if (tagname.equalsIgnoreCase("card_match")) {
                             card.match = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("card")){
+                        } else if (tagname.equalsIgnoreCase("card")) {
                             minigameBaumory.cards.add(card);
                         }
                         break;

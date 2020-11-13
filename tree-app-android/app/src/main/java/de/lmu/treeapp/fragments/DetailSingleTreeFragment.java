@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import java.util.Objects;
 
 import de.lmu.treeapp.R;
@@ -53,7 +54,7 @@ public class DetailSingleTreeFragment extends Fragment {
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         this.tree = DataManager.getInstance(getContext()).GetTree(tree.uid);
         this.updateTreeView();
@@ -76,17 +77,17 @@ public class DetailSingleTreeFragment extends Fragment {
     private void setupSingleTreeContent() {
         treeName.setText(tree.name);
 
-        if(getContext() != null) {
+        if (getContext() != null) {
             this.setupImageResources();
             this.setupOnClickListener();
         }
     }
 
-    private void updateTreeView(){
-        leafProgressBar.setProgress((int)this.tree.GetGameProgressionPercent(Tree.GameCategories.leaf));
-        fruitProgressBar.setProgress((int)this.tree.GetGameProgressionPercent(Tree.GameCategories.fruit));
-        trunkProgressBar.setProgress((int)this.tree.GetGameProgressionPercent(Tree.GameCategories.trunk));
-        otherProgressBar.setProgress((int)this.tree.GetGameProgressionPercent(Tree.GameCategories.other));
+    private void updateTreeView() {
+        leafProgressBar.setProgress((int) this.tree.GetGameProgressionPercent(Tree.GameCategories.leaf));
+        fruitProgressBar.setProgress((int) this.tree.GetGameProgressionPercent(Tree.GameCategories.fruit));
+        trunkProgressBar.setProgress((int) this.tree.GetGameProgressionPercent(Tree.GameCategories.trunk));
+        otherProgressBar.setProgress((int) this.tree.GetGameProgressionPercent(Tree.GameCategories.other));
     }
 
     private void setupImageResources() {
@@ -118,7 +119,7 @@ public class DetailSingleTreeFragment extends Fragment {
         otherButton.setOnClickListener(this.getCategoryButtonOnClickListener(Tree.GameCategories.other));
     }
 
-    private Button.OnClickListener getCategoryButtonOnClickListener(final Tree.GameCategories category ) {
+    private Button.OnClickListener getCategoryButtonOnClickListener(final Tree.GameCategories category) {
         return new Button.OnClickListener() {
             @Override
             public void onClick(View v) {

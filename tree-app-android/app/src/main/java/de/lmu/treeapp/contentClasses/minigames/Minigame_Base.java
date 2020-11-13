@@ -11,7 +11,7 @@ public class Minigame_Base {
         ChooseAnswer, InputString, TakePicture, DragDrop, OnlyDescription, Baumory
     }
 
-    public void FillBaseData(Minigame_Base miniGame){
+    public void FillBaseData(Minigame_Base miniGame) {
         this.uid = miniGame.uid;
         this.name = miniGame.name;
         this.type = miniGame.type;

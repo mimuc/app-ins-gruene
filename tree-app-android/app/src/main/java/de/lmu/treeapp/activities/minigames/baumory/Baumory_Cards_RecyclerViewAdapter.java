@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,24 +11,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.contentClasses.minigames.Minigame_Baumory;
 import de.lmu.treeapp.contentClasses.minigames.components.BaumoryCard;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 
-public class Baumory_Cards_RecyclerViewAdapter extends RecyclerView.Adapter<Baumory_Cards_RecyclerViewAdapter.ViewHolder>  {
+public class Baumory_Cards_RecyclerViewAdapter extends RecyclerView.Adapter<Baumory_Cards_RecyclerViewAdapter.ViewHolder> {
 
-    private List<BaumoryCard> options;
-    private Context context;
-    private Tree tree;
-    private Tree.GameCategories category;
-    public interface OptionClickInterface
-    {
+    private final List<BaumoryCard> options;
+    private final Context context;
+    private final Tree tree;
+    private final Tree.GameCategories category;
+
+    public interface OptionClickInterface {
         void optionClicked(BaumoryCard option, ViewHolder holder);
     }
+
     private final OptionClickInterface mOnClickListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final ImageButton button;
+
         ViewHolder(View v) {
             super(v);
             button = v.findViewById(R.id.game_baumory_card_button);

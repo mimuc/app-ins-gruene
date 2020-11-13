@@ -30,6 +30,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/imprint_text"
                 android:layout_width="match_parent"
@@ -231,7 +232,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/graphics_title"  />
+                app:layout_constraintTop_toBottomOf="@id/graphics_title" />
 
             <TextView
                 android:id="@+id/disclaimer_title"
@@ -295,7 +296,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/copyright_title"/>
+                app:layout_constraintTop_toBottomOf="@id/copyright_title" />
 
             <TextView
                 android:id="@+id/privacy_title"
@@ -334,5 +335,5 @@
 
     </ScrollView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 

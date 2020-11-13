@@ -3,8 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="de.lmu.treeapp">
 
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
 
     <application
         android:allowBackup="true"
@@ -16,42 +20,80 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,LockedOrientationActivity">
 
-        <activity android:name=".activities.minigames.chooseAnswer.GameActivity_ChooseAnswer" android:parentActivityName="activities.GameSelectionActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="activities.MainActivity" />
+        <activity
+            android:name=".activities.minigames.chooseAnswer.GameActivity_ChooseAnswer"
+            android:parentActivityName="activities.GameSelectionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="activities.MainActivity" />
         </activity>
-        <activity android:name=".activities.minigames.inputString.GameActivity_InputString" android:parentActivityName="activities.GameSelectionActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="activities.MainActivity" />
+        <activity
+            android:name=".activities.minigames.inputString.GameActivity_InputString"
+            android:parentActivityName="activities.GameSelectionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="activities.MainActivity" />
         </activity>
-        <activity android:name=".activities.minigames.takePicture.GameActivity_TakePicture" android:parentActivityName="activities.GameSelectionActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="activities.MainActivity" />
+        <activity
+            android:name=".activities.minigames.takePicture.GameActivity_TakePicture"
+            android:parentActivityName="activities.GameSelectionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="activities.MainActivity" />
         </activity>
-        <activity android:name=".activities.minigames.dragDrop.GameActivity_DragDrop" android:parentActivityName="activities.GameSelectionActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="activities.MainActivity" />
+        <activity
+            android:name=".activities.minigames.dragDrop.GameActivity_DragDrop"
+            android:parentActivityName="activities.GameSelectionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="activities.MainActivity" />
         </activity>
-        <activity android:name=".activities.minigames.onlyDescription.GameActivity_OnlyDescription" android:parentActivityName="activities.GameSelectionActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="activities.MainActivity" />
+        <activity
+            android:name=".activities.minigames.onlyDescription.GameActivity_OnlyDescription"
+            android:parentActivityName="activities.GameSelectionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="activities.MainActivity" />
         </activity>
-        <activity android:name=".activities.minigames.baumory.GameActivity_Baumory" android:parentActivityName="activities.GameSelectionActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="activities.MainActivity" />
+        <activity
+            android:name=".activities.minigames.baumory.GameActivity_Baumory"
+            android:parentActivityName="activities.GameSelectionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="activities.MainActivity" />
         </activity>
-        <activity android:name=".activities.GameSelectionActivity" android:parentActivityName="activities.MainActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="activities.MainActivity" />
+        <activity
+            android:name=".activities.GameSelectionActivity"
+            android:parentActivityName="activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="activities.MainActivity" />
         </activity>
-        <activity android:name=".activities.MainActivity" android:launchMode="singleTop"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity android:name=".activities.SplashScreen" android:launchMode="singleTop"
+        <activity
+            android:name=".activities.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activities.SplashScreen"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.Imprint" android:parentActivityName="activities.MainActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="activities.MainActivity" />
+        <activity
+            android:name=".activities.Imprint"
+            android:parentActivityName="activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="activities.MainActivity" />
         </activity>
-        <activity android:name=".activities.BarcodeCaptureActivity" android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".activities.BarcodeCaptureActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activities.WantedPosterDetailsActivity" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="de.lmu.treeapp.fileprovider"

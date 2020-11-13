@@ -4,11 +4,11 @@ public class Minigame_InputStringAnswer extends Minigame_Base {
 
     private String rightAnswer = "";
 
-    public void FillRightAnswer(String _rightAnswer){
+    public void FillRightAnswer(String _rightAnswer) {
         rightAnswer = _rightAnswer.trim().toLowerCase();
     }
 
-    public Boolean CheckAnswer(String givenAnswer){
+    public Boolean CheckAnswer(String givenAnswer) {
         // If specific answer is expected:
         /*
         if (givenAnswer.trim().equalsIgnoreCase(rightAnswer) || rightAnswer == ""){
