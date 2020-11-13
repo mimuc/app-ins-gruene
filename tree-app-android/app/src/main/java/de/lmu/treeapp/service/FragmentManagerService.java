@@ -1,11 +1,15 @@
 package de.lmu.treeapp.service;
 
 import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.io.Serializable;
+
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.adapter.OverviewRecyclerViewAdapter;
 
@@ -15,14 +19,14 @@ import de.lmu.treeapp.adapter.OverviewRecyclerViewAdapter;
  */
 public class FragmentManagerService implements Serializable {
     private static volatile FragmentManagerService sSoleInstance;
-    private FragmentManager fragmentManager;
+    private final FragmentManager fragmentManager;
     private Fragment currentActiveFragment;
 
     /**
      * Set the FragmentManager.
      */
-    private FragmentManagerService(FragmentManager supportFragmentManager){
-        if (sSoleInstance != null){
+    private FragmentManagerService(FragmentManager supportFragmentManager) {
+        if (sSoleInstance != null) {
             throw new RuntimeException("FragmentManagerService - Use getInstance() method to get the single instance of this class.");
         }
         this.fragmentManager = supportFragmentManager;
@@ -30,13 +34,15 @@ public class FragmentManagerService implements Serializable {
 
     /**
      * Set up our FragmentManagerService-Singleton
+     *
      * @param supportFragmentManager The reference to the supportFragmentManager (gotten in any Activity by getSupportFragmentManager())
-     * @return  The instance of our class.
+     * @return The instance of our class.
      */
     public static FragmentManagerService getInstance(FragmentManager supportFragmentManager) {
         if (sSoleInstance == null) {
             synchronized (FragmentManagerService.class) {
-                if (sSoleInstance == null) sSoleInstance = new FragmentManagerService(supportFragmentManager);
+                if (sSoleInstance == null)
+                    sSoleInstance = new FragmentManagerService(supportFragmentManager);
             }
         }
         return sSoleInstance;
@@ -44,11 +50,12 @@ public class FragmentManagerService implements Serializable {
 
     /**
      * Set-Up the fragments and their transactions.
-     * @param fragmentsToShow   The array containing all the fragments to show (as of now -> only 2).
+     *
+     * @param fragmentsToShow The array containing all the fragments to show (as of now -> only 2).
      */
     public void registerTransactions(Fragment[] fragmentsToShow) {
-        for (Fragment fragment: fragmentsToShow) {
-            if(fragment == fragmentsToShow[0]) {
+        for (Fragment fragment : fragmentsToShow) {
+            if (fragment == fragmentsToShow[0]) {
                 this.fragmentManager.beginTransaction().add(R.id.main_container, fragment, fragment.getTag()).commit();
                 //this.fragmentManager.beginTransaction().replace(R.id.main_container, fragment).addToBackStack("my_fragment").commit();
                 this.currentActiveFragment = fragment;
@@ -67,10 +74,11 @@ public class FragmentManagerService implements Serializable {
 
     /**
      * Activate and show a fragment.
+     *
      * @param fragment The fragment to activate.
      */
     public void showFragment(Fragment fragment) {
-        if(fragment != this.currentActiveFragment) {
+        if (fragment != this.currentActiveFragment) {
             fragmentManager.beginTransaction().hide(this.currentActiveFragment).show(fragment).commit();
             this.currentActiveFragment = fragment;
         }
@@ -78,7 +86,8 @@ public class FragmentManagerService implements Serializable {
 
     /**
      * Functionality for the BottomNavigation which contains the overview and detail buttons.
-     * @param overviewFragment The fragment of the trees-overview.
+     *
+     * @param overviewFragment      The fragment of the trees-overview.
      * @param treeSelectionFragment The fragment of the trees-detail.
      * @return
      */

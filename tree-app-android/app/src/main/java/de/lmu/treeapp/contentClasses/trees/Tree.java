@@ -23,7 +23,6 @@ public class Tree {
     public String imageOther = "";
 
 
-
     public TreeModel changeable;
 
     public enum GameCategories {
@@ -31,27 +30,27 @@ public class Tree {
     }
 
 
-    public void InitFromCMS(int _uid, String _name, int _profileId, List<Integer>  _leafGamesIds, List<Integer>  _fruitGamesIds, List<Integer>  _trunkGamesIds, List<Integer> _otherGamesIds){
+    public void InitFromCMS(int _uid, String _name, int _profileId, List<Integer> _leafGamesIds, List<Integer> _fruitGamesIds, List<Integer> _trunkGamesIds, List<Integer> _otherGamesIds) {
         this.uid = _uid;
         this.name = _name;
         this.profileId = _profileId;
-        this.AddGames(_leafGamesIds,_fruitGamesIds,_trunkGamesIds,_otherGamesIds);
+        this.AddGames(_leafGamesIds, _fruitGamesIds, _trunkGamesIds, _otherGamesIds);
     }
 
-    public void InitFromDB(TreeModel treeModel){
+    public void InitFromDB(TreeModel treeModel) {
         changeable = treeModel;
     }
 
-    private void AddGames(List<Integer> _leafGames, List<Integer>  _fruitGames, List<Integer>  _trunkGames, List<Integer>  _otherGames){
+    private void AddGames(List<Integer> _leafGames, List<Integer> _fruitGames, List<Integer> _trunkGames, List<Integer> _otherGames) {
         setGameIds(GameCategories.leaf, _leafGames);
         setGameIds(GameCategories.fruit, _fruitGames);
         setGameIds(GameCategories.trunk, _trunkGames);
         setGameIds(GameCategories.other, _otherGames);
     }
 
-    public void setGameIds(GameCategories category, List<Integer> ids){
-        if (ids != null && ids.size() > 0){
-            switch (category){
+    public void setGameIds(GameCategories category, List<Integer> ids) {
+        if (ids != null && ids.size() > 0) {
+            switch (category) {
                 case leaf:
                     leafGamesIds = ids;
                     break;
@@ -70,8 +69,8 @@ public class Tree {
         }
     }
 
-    public List<Integer> GetGameIds(GameCategories category){
-        switch (category){
+    public List<Integer> GetGameIds(GameCategories category) {
+        switch (category) {
             case leaf:
                 return leafGamesIds;
             case fruit:
@@ -85,9 +84,9 @@ public class Tree {
         }
     }
 
-    public float GetGameProgressionPercent(GameCategories category){
+    public float GetGameProgressionPercent(GameCategories category) {
 
-        switch (category){
+        switch (category) {
             case leaf:
                 return GetGamesProgression(leafGamesIds, changeable.leafGamesCompleted) * 100;
             case fruit:
@@ -101,27 +100,27 @@ public class Tree {
                 float valFruit = GetGamesProgression(fruitGamesIds, changeable.fruitGamesCompleted);
                 float valTrunk = GetGamesProgression(trunkGamesIds, changeable.trunkGamesCompleted);
                 float valOther = GetGamesProgression(otherGamesIds, changeable.otherGamesCompleted);
-                float valTotal = (valLeaf + valFruit + valTrunk + valOther)/4;
+                float valTotal = (valLeaf + valFruit + valTrunk + valOther) / 4;
                 return valTotal * 100;
             default:
                 return 0;
         }
     }
 
-    private float GetGamesProgression(List<Integer> gamesTotal, List<Integer> gamesCompleted){
-        if (gamesTotal.isEmpty() || gamesTotal.size() == 0){
+    private float GetGamesProgression(List<Integer> gamesTotal, List<Integer> gamesCompleted) {
+        if (gamesTotal.isEmpty() || gamesTotal.size() == 0) {
             return 1;
         }
         int completed = 0;
-        for (int i = 0; i < gamesCompleted.size(); i++){
-            for (int j = 0; j < gamesTotal.size(); j++){
-                if (gamesTotal.get(j).intValue() == gamesCompleted.get(i).intValue()){
+        for (int i = 0; i < gamesCompleted.size(); i++) {
+            for (int j = 0; j < gamesTotal.size(); j++) {
+                if (gamesTotal.get(j).intValue() == gamesCompleted.get(i).intValue()) {
                     completed++;
                     break;
                 }
             }
         }
-        float value = (float)completed/(float)gamesTotal.size();
+        float value = (float) completed / (float) gamesTotal.size();
         return value;
     }
 

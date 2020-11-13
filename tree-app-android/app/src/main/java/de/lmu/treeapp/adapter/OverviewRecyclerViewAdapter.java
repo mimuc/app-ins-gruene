@@ -11,11 +11,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import de.lmu.treeapp.R;
-import de.lmu.treeapp.contentClasses.trees.Tree;
-import de.lmu.treeapp.service.MainActivityViewModel;
-import de.lmu.treeapp.activities.Imprint;
-
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,12 +19,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.List;
 import java.util.Objects;
 
+import de.lmu.treeapp.R;
+import de.lmu.treeapp.activities.Imprint;
+import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.service.MainActivityViewModel;
+
 public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRecyclerViewAdapter.ViewHolder> {
-    private List<Tree> treeValues;
-    private de.lmu.treeapp.service.FragmentManagerService fragmentManager;
-    private Fragment selectedTreeFragment;
+    private final List<Tree> treeValues;
+    private final de.lmu.treeapp.service.FragmentManagerService fragmentManager;
+    private final Fragment selectedTreeFragment;
     private Activity currentActivity;
-    private MainActivityViewModel viewModel;
+    private final MainActivityViewModel viewModel;
     public static boolean isImprint = false;
     private Context context;
 
@@ -62,7 +62,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
         notifyItemRemoved(position);
     }
 
-    public static void isImprint(){
+    public static void isImprint() {
         isImprint = true;
     }
 
@@ -77,11 +77,11 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
     // Create new views (invoked by the layout manager)
     @Override
     public OverviewRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
+                                                                     int viewType) {
         View v;
         LayoutInflater inflater = LayoutInflater.from(
                 parent.getContext());
-        if(viewType == R.layout.overview_single_tree_layout){
+        if (viewType == R.layout.overview_single_tree_layout) {
             v = inflater.inflate(R.layout.overview_single_tree_layout, parent, false);
         } else {
             v = inflater.inflate(R.layout.overview_button_imprint, parent, false);
@@ -98,7 +98,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
-        if(position == treeValues.size()) {
+        if (position == treeValues.size()) {
 
             holder.btn_imprint.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -152,6 +152,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
 
     // Check if the current position is past the last item in the list, if so then it will return the button layout value
     String viewType;
+
     @Override
     public int getItemViewType(int position) {
         //return (position == treeValues.size()) ? R.layout.overview_button_imprint : R.layout.overview_single_tree_layout;

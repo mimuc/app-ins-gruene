@@ -11,7 +11,7 @@ import de.lmu.treeapp.contentClasses.trees.TreeProfile;
 
 
 public class ContentManager {
-    private  static ContentManager INSTANCE;
+    private static ContentManager INSTANCE;
     private static final Object sLock = new Object();
     private Context context;
     private List<Tree> trees;
@@ -31,7 +31,7 @@ public class ContentManager {
         }
     }
 
-    private void init(){
+    private void init() {
         treeParser parser = new treeParser();
         this.trees = parser.parse(context.getResources().getXml(R.xml.trees));
 
@@ -41,18 +41,22 @@ public class ContentManager {
         this.minigames = parseAllMinigames();
     }
 
-    private List<Minigame_Base> parseAllMinigames(){
+    private List<Minigame_Base> parseAllMinigames() {
         miniGameParser gameParser = new miniGameParser();
         return gameParser.getMiniGames(context);
     }
 
-    public List<Tree> getTrees(){
+    public List<Tree> getTrees() {
         return trees;
     }
-    public List<TreeProfile> getTreeProfiles(){
+
+    public List<TreeProfile> getTreeProfiles() {
         return treeProfiles;
     }
-    public List<Minigame_Base> getMinigames() {return minigames;}
+
+    public List<Minigame_Base> getMinigames() {
+        return minigames;
+    }
 
 
 }

@@ -109,7 +109,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity
 
     /**
      * Creates and starts the camera.
-     *
+     * <p>
      * Suppressing InlinedApi since there is a check that the minimum version is met before using
      * the constant.
      */
@@ -222,6 +222,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity
                 " Result code = " + (grantResults.length > 0 ? grantResults[0] : "(empty)"));
 
         DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+            @Override
             public void onClick(DialogInterface dialog, int id) {
                 finish();
             }

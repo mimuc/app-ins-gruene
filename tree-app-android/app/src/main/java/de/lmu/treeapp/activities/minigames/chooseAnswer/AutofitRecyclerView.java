@@ -45,9 +45,9 @@ public class AutofitRecyclerView extends RecyclerView {
         super.onMeasure(widthSpec, heightSpec);
         if (columnWidth > 0) {
             int spanCount;
-            if(ChooseAnswer_Options_RecyclerViewAdapter.isImage(ChooseAnswer_Options_RecyclerViewAdapter.options)){
+            if (ChooseAnswer_Options_RecyclerViewAdapter.isImage(ChooseAnswer_Options_RecyclerViewAdapter.options)) {
                 spanCount = 2;
-            }else{
+            } else {
                 spanCount = 1;
             }
             manager.setSpanCount(spanCount);

@@ -4,7 +4,8 @@
         <minigame_baumory>
             <id>0</id>
             <name>Baumory - Mittel</name>
-            <description>Finde passende Paare von Früchten und Blättern verschiedener Bäume.</description>
+            <description>Finde passende Paare von Früchten und Blättern verschiedener Bäume.
+            </description>
             <image></image>
             <cards>
                 <card>

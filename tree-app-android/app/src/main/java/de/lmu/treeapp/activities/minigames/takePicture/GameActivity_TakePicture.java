@@ -104,7 +104,7 @@ public class GameActivity_TakePicture extends GameActivity_Base {
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
-                 photoURI = FileProvider.getUriForFile(this,
+                photoURI = FileProvider.getUriForFile(this,
                         "de.lmu.treeapp.fileprovider",
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
@@ -118,7 +118,7 @@ public class GameActivity_TakePicture extends GameActivity_Base {
         String imageFileName = "AppInsGruene_" + takePictureGame.GetPictureName();
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = new File(storageDir + File.separator + imageFileName + ".jpg");
-        if (!image.exists()){
+        if (!image.exists()) {
             image.createNewFile();
         }
         currentPhotoPath = image.getAbsolutePath();
@@ -179,9 +179,9 @@ public class GameActivity_TakePicture extends GameActivity_Base {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode,resultCode,data);
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
-            int ori = getOrientation(getApplicationContext(),photoURI);
+            int ori = getOrientation(getApplicationContext(), photoURI);
             System.out.println("___________________" + ori);
             // TODO: Rotate now. Portrait gives 90, Landscape gives 0.
             previewPicture.setImageURI(photoURI);
@@ -205,7 +205,7 @@ public class GameActivity_TakePicture extends GameActivity_Base {
         //close the popup and open the tree profile
         btnWiki.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 popupWindow.dismiss();
                 finish();
                 showTreeProfile();
@@ -215,7 +215,7 @@ public class GameActivity_TakePicture extends GameActivity_Base {
         //close the popup and finish the game
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 popupWindow.dismiss();
                 onSuccess();
             }

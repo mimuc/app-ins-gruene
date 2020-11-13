@@ -8,7 +8,7 @@ import de.lmu.treeapp.R;
 
 public class WantedPosterCard {
 
-    public enum CardTypes{
+    public enum CardTypes {
         //Different layout types of cards can be entered here and handled differently in future
     }
 
@@ -18,7 +18,7 @@ public class WantedPosterCard {
     private final Uri gamePicture;
     private final String infotext;
     private final boolean unlocked;
-    private Drawable collapse;
+    private final Drawable collapse;
 
 
     public WantedPosterCard(boolean unlocked, String header, Drawable picture, String infoText, Uri gamePicture, Context context) {
@@ -28,7 +28,7 @@ public class WantedPosterCard {
         this.unlocked = unlocked;
         this.gamePicture = gamePicture;
 
-        if(unlocked){
+        if (unlocked) {
             //TODO: collapse arrow here to be safe
             subHeader = "Bereits freigespielt";
             collapse = context.getDrawable(R.drawable.ic_arrow_left);
@@ -52,7 +52,9 @@ public class WantedPosterCard {
         return picture;
     }
 
-    public Uri getGamePicture() {return gamePicture;}
+    public Uri getGamePicture() {
+        return gamePicture;
+    }
 
     public String getInfotext() {
         return infotext;

@@ -1,15 +1,11 @@
 package de.lmu.treeapp.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.service.FragmentManagerService;
 
 
 public class Imprint extends AppCompatActivity {
@@ -44,14 +40,14 @@ public class Imprint extends AppCompatActivity {
 
     // Remove the current activity from the stack to switch to the previous one
     @Override
-    public boolean onSupportNavigateUp(){
+    public boolean onSupportNavigateUp() {
         finish();
         return true;
     }
 
     // Android hardware back button is pressed
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         finish();
         super.onBackPressed();
     }

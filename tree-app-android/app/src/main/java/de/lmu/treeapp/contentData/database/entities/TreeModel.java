@@ -22,7 +22,7 @@ public class TreeModel {
     public List<Integer> otherGamesCompleted;
 
     @Ignore
-    public void InitDefault(int _uid){
+    public void InitDefault(int _uid) {
         this.uid = _uid;
         this.unlocked = false;
         this.leafGamesCompleted = new ArrayList<>();
@@ -32,8 +32,8 @@ public class TreeModel {
     }
 
     @Ignore
-    public boolean IsGameCompleted(Tree.GameCategories category, int gameId){
-        switch (category){
+    public boolean IsGameCompleted(Tree.GameCategories category, int gameId) {
+        switch (category) {
             case leaf:
                 return ContainsId(leafGamesCompleted, gameId);
             case fruit:
@@ -47,9 +47,9 @@ public class TreeModel {
         }
     }
 
-    private boolean ContainsId(List<Integer> list, int id){
-        for (int i = 0; i < list.size(); i++){
-            if (list.get(i) == id){
+    private boolean ContainsId(List<Integer> list, int id) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) == id) {
                 return true;
             }
         }

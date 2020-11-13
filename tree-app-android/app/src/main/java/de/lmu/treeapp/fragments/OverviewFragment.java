@@ -14,16 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.service.MainActivityViewModel;
 import de.lmu.treeapp.adapter.OverviewRecyclerViewAdapter;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.service.FragmentManagerService;
+import de.lmu.treeapp.service.MainActivityViewModel;
 
 public class OverviewFragment extends Fragment {
 
-    private FragmentManagerService fragmentManager;
-    private Fragment selectedTreeFragment;
+    private final FragmentManagerService fragmentManager;
+    private final Fragment selectedTreeFragment;
     private RecyclerView overviewRecyclerView;
     private MainActivityViewModel viewModel;
 
@@ -45,10 +45,11 @@ public class OverviewFragment extends Fragment {
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         updateOverviewRecyclerView();
     }
+
     private void setupOverviewRecyclerView() {
         overviewRecyclerView.setHasFixedSize(true);
         // Also possible to use Overview_AutofitRecyclerView.java:
@@ -58,7 +59,7 @@ public class OverviewFragment extends Fragment {
 
     }
 
-    private void updateOverviewRecyclerView(){
+    private void updateOverviewRecyclerView() {
         List<Tree> trees = DataManager.getInstance(getContext()).trees;
         RecyclerView.Adapter recyclerViewAdapter = new OverviewRecyclerViewAdapter(trees, fragmentManager, selectedTreeFragment, viewModel);
         ((OverviewRecyclerViewAdapter) recyclerViewAdapter).setActivity(this.getActivity());

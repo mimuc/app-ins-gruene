@@ -15,10 +15,10 @@ import java.util.List;
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.SliderItem;
 
-public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderViewHolder>{
+public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderViewHolder> {
 
-    private List<SliderItem> sliderItems;
-    private ViewPager2 viewPager2;
+    private final List<SliderItem> sliderItems;
+    private final ViewPager2 viewPager2;
 
     public SliderAdapter(List<SliderItem> sliderItems, ViewPager2 viewPager2) {
         this.sliderItems = sliderItems;
@@ -41,7 +41,7 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
     public void onBindViewHolder(@NonNull SliderViewHolder holder, int position) {
         holder.setImage(sliderItems.get(position));
         // Slideshow circular from the beginning
-        if(position == sliderItems.size() - 2){
+        if (position == sliderItems.size() - 2) {
             viewPager2.post(runnable);
         }
     }
@@ -51,21 +51,21 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
         return sliderItems.size();
     }
 
-    class SliderViewHolder extends RecyclerView.ViewHolder{
+    class SliderViewHolder extends RecyclerView.ViewHolder {
 
-        private RoundedImageView imageView;
+        private final RoundedImageView imageView;
 
         SliderViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageSlide);
         }
 
-        void setImage(SliderItem sliderItem){
+        void setImage(SliderItem sliderItem) {
             imageView.setImageResource(sliderItem.getImage()); // setImageURI
         }
     }
 
-    private Runnable runnable = new Runnable() {
+    private final Runnable runnable = new Runnable() {
         @Override
         public void run() {
             sliderItems.addAll(sliderItems);

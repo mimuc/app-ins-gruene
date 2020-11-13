@@ -10,26 +10,29 @@ public class PopupComponent {
     public String content;
     public Boolean right = false;
 
-    public PopupComponent(){}
-    public PopupComponent(PopupTypes _type, String _content, Boolean _right){
+    public PopupComponent() {
+    }
+
+    public PopupComponent(PopupTypes _type, String _content, Boolean _right) {
         type = _type;
         content = _content;
         right = _right;
     }
-    public PopupComponent(PopupTypes _type, String _content){
+
+    public PopupComponent(PopupTypes _type, String _content) {
         type = _type;
         content = _content;
         right = false;
     }
 
-    public void SetType(PopupTypes _type){
+    public void SetType(PopupTypes _type) {
         this.type = _type;
     }
-    public void SetType(String _type){
-        if (_type.trim().equalsIgnoreCase("rightPopup")){
+
+    public void SetType(String _type) {
+        if (_type.trim().equalsIgnoreCase("rightPopup")) {
             this.type = PopupTypes.rightPopup;
-        }
-        else {
+        } else {
             this.type = PopupTypes.falsePopup;
         }
     }

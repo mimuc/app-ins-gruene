@@ -14,7 +14,7 @@ public class TypeConversion {
         String[] strArr = value.split(" ");
         int length = strArr.length;
         List<Integer> intVals = new ArrayList<Integer>();
-        for (int i = 0; i < length; i++){
+        for (int i = 0; i < length; i++) {
             if (strArr[i] == " " || strArr[i] == "") continue;
             intVals.add(Integer.parseInt(strArr[i]));
         }
@@ -24,7 +24,7 @@ public class TypeConversion {
     @TypeConverter
     public static String stringFromIntList(List<Integer> list) {
         String stringVal = "";
-        for (int i = 0; i < list.size(); i++){
+        for (int i = 0; i < list.size(); i++) {
             stringVal += list.get(i);
             stringVal += " ";
         }
@@ -36,7 +36,7 @@ public class TypeConversion {
         String[] strArr = value.split(" ");
         int length = strArr.length;
         int[] intVals = new int[length];
-        for (int i = 0; i < length; i++){
+        for (int i = 0; i < length; i++) {
             if (strArr[i] == " " || strArr[i] == "") continue;
             intVals[i] = Integer.parseInt(strArr[i]);
         }
@@ -47,7 +47,7 @@ public class TypeConversion {
     public static String stringFromIntArray(int[] list) {
 
         String stringVal = "";
-        for (int i = 0; i < list.length; i++){
+        for (int i = 0; i < list.length; i++) {
             stringVal += list[i];
             stringVal += " ";
         }
@@ -59,7 +59,7 @@ public class TypeConversion {
         String[] strArr = value.split(" ");
         int length = strArr.length;
         Boolean[] boolVals = new Boolean[length];
-        for (int i = 0; i < length; i++){
+        for (int i = 0; i < length; i++) {
             if (strArr[i] == " " || strArr[i] == "") continue;
             boolVals[i] = Boolean.getBoolean(strArr[i]);
         }
@@ -70,7 +70,7 @@ public class TypeConversion {
     public static String stringFromBoolArray(Boolean[] list) {
 
         String stringVal = "";
-        for (int i = 0; i < list.length; i++){
+        for (int i = 0; i < list.length; i++) {
             stringVal += list[i];
             stringVal += " ";
         }

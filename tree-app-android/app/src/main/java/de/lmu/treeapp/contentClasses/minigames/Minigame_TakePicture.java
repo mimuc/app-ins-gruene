@@ -4,9 +4,12 @@ public class Minigame_TakePicture extends Minigame_Base {
 
     private String pictureName = "";
 
-    public void FillPictureName(String _name){
+    public void FillPictureName(String _name) {
         pictureName = _name.trim().toLowerCase();
     }
-    public String GetPictureName() { return pictureName;}
+
+    public String GetPictureName() {
+        return pictureName;
+    }
 
 }
