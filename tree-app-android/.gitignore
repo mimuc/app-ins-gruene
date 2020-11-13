@@ -1,5 +1,6 @@
 # Built application files
 *.apk
+*.aar
 *.ap_
 *.aab
 
@@ -55,9 +56,23 @@ captures/
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
+.cxx/
 
 # Google Services (e.g. APIs or Firebase)
 # google-services.json
 
 # Version control
 vcs.xml
+
+# lint
+lint/intermediates/
+lint/generated/
+lint/outputs/
+lint/tmp/
+# lint/reports/
+
+# Android Profiling
+*.hprof
+
+# OS generated files
+.DS_Store
