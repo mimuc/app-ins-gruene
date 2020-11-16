@@ -23,17 +23,170 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.055" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/game_baumory_recyclerView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:horizontalSpacing="1dp"
-        android:verticalSpacing="1dip"
+    <ViewFlipper
+        android:id="@+id/viewFlipperBaumory"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_description"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/btn_multiplayer"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_background"
+                android:clickable="true"
+                android:contentDescription="@string/button_multiplayer_mode_description"
+                android:focusable="true"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_multiplayer_squirrel"
+                android:text="@string/game_mode_multiplayer"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_singleplayer"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textView_singleplayer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_mode_singleplayer"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/btn_singleplayer"
+                app:layout_constraintStart_toStartOf="@+id/btn_singleplayer"
+                app:layout_constraintTop_toBottomOf="@+id/btn_singleplayer" />
+
+            <ImageButton
+                android:id="@+id/btn_singleplayer"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/button_background"
+                android:clickable="true"
+                android:contentDescription="@string/button_singleplayer_mode_description"
+                android:focusable="true"
+                android:padding="22dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_singleplayer_squirrel"
+                android:text="@string/game_mode_singleplayer"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_multiplayer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_multiplayer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_mode_multiplayer"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="@+id/btn_multiplayer"
+                app:layout_constraintStart_toStartOf="@+id/btn_multiplayer"
+                app:layout_constraintTop_toBottomOf="@+id/btn_multiplayer" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_multiplayerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/asphalt"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@+id/game_baumory_recyclerView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_game_baumory_back"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_background"
+                android:elevation="4dp"
+                android:fontFamily="@font/freude"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp"
+                android:stateListAnimator="@null"
+                android:text="@string/button_back"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+                android:textColor="@color/forest"
+                android:textSize="30sp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_multiplayerTitle"
+                app:layout_constraintWidth_percent="0.6" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/game_baumory_recyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:horizontalSpacing="1dp"
+                android:verticalSpacing="1dip"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
+
+            <TextView
+                android:id="@+id/tv_score_p1"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/dark_grey_gradient"
+                android:backgroundTint="@color/asphalt"
+                android:paddingTop="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/light"
+                android:textSize="24sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_score_p2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/game_baumory_recyclerView" />
+
+            <TextView
+                android:id="@+id/tv_score_p2"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/dark_grey_gradient"
+                android:backgroundTint="@color/colorPrimary"
+                android:paddingTop="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/light"
+                android:textSize="24sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_score_p1"
+                app:layout_constraintTop_toBottomOf="@+id/game_baumory_recyclerView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ViewFlipper>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
