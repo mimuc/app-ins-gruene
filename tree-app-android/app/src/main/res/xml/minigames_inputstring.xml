@@ -4,9 +4,7 @@
         <minigame_inputString>
             <id>0</id>
             <name>Reim</name>
-            <description>Überlege dir einen Reim zu den Früchten des Ahorns. Tippe ihn unten in das
-                Feld ein!
-            </description>
+            <description>Überlege dir einen Reim zu den Früchten des Ahorns. Tippe ihn unten in das Feld ein!</description>
             <image></image>
             <rightAnswer></rightAnswer>
         </minigame_inputString>
