@@ -13,12 +13,12 @@ release {
 }
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
     defaultConfig {
         applicationId "de.lmu.treeapp"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 30
         versionCode System.getenv("BUILD_NUMBER") as Integer ?: 9999
         versionName version
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
