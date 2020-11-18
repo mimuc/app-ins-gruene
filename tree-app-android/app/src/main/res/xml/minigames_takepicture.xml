@@ -22,9 +22,7 @@
         <minigame_takePicture>
             <id>2</id>
             <name>Foto-Challenge</name>
-            <description>Suche einen Nasenzwicker und klebe ihn auf deine Nase. Wenn er gut hält
-                kannst du ein Selfie machen!
-            </description>
+            <description>Suche einen Nasenzwicker und klebe ihn auf deine Nase. Wenn er gut hält kannst du ein Selfie machen! </description>
             <image></image>
             <pictureName>Foto-Challenge</pictureName>
         </minigame_takePicture>
@@ -33,10 +31,7 @@
         <minigame_takePicture>
             <id>3</id>
             <name>Foto-Challenge</name>
-            <description>Jetzt ist Kreativität gefragt: Suche dir Blätter, Früchte und Zweige des
-                Ahorns und bastle etwas daraus, z.B. ein Mandala! Mache danach ein Foto von deinem
-                Kunstwerk!
-            </description>
+            <description>Jetzt ist Kreativität gefragt: Suche dir Blätter, Früchte und Zweige des Ahorns und bastle etwas daraus, z.B. ein Mandala! Mache danach ein Foto von deinem Kunstwerk!  </description>
             <image></image>
             <pictureName>Foto-Challenge</pictureName>
         </minigame_takePicture>
