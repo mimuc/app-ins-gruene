@@ -24,16 +24,22 @@ git clone https://gitlab.lrz.de/lmu-design-workshop/tree-app-android.git
 ```
 - Now you are able to open the project in Android Studio.
 
+### How to contribute?
 
-### Which branch should I use?
-- The final version is on the FinalVersion branch. Pls use this branch ;) ("Delevop" was used during the SoSe20, but is not up to date.)
+- Create an [issue](https://gitlab.com/gitlab-org/gitlab/-/issues), so we can discuss and monitor the topic.
+- You can check and manage the state of your issues in the [Issue-Board](https://gitlab.lrz.de/lmu-design-workshop/tree-app-android/-/boards). 
+- Use the branch `master` as basis for a new branch `git checkout 123-my-issue`, where `123` is the issue number. Don't forget to update your master before checkout with `git pull origin master`.
+- Make your changes, consider formatting them with your IDE (e.g. `Ctrl+Alt+L` in IntelliJ / AndroidStudio).
+- Commit your changes, consider [cross-linking](https://docs.gitlab.com/ee/user/project/issues/crosslinking_issues.html) the resolved issue with `(closes #123)` in your commit message.
+- Create a Merge-Request for your branch (also consider a cross-link to an existing issue).
+
+You may want to use the Version-Control-System (VCS) [of IntelliJ](https://www.jetbrains.com/help/idea/version-control-integration.html), to easier track and compare your changes.
 
 ## How to run tests?
 
 ```
 ./gradlew clean test
 ```
-
 
 ## How to Tag and Release the projectß
 
@@ -54,19 +60,16 @@ If you just want to build an unsigned APK File, call:
   ./gradlew clean assemble
 ```
 
-## Built With
-
-* [Gradle](https://gradle.org/) 
-
-## Versioning
-
-We use [Git](http://git.org/) for versioning.
-
 ## Authors
 
-**The Design Workshop II Team SS2019 from Ludwig-Maximilians-University**
-**SoSe20: Lisa Görtz (lisagoertz95@gmx.de) and Cara Emberger**
+***
+- SoSe19: Practical Course [Design Workshop II](http://www.medien.ifi.lmu.de/lehre/ss19/dw2/)
+- SoSe20: [Lisa Görtz](lisagoertz95@gmx.de) and Cara Emberger
+- WiSe20: Practical Course [Development of Media Systems III](https://www.medien.ifi.lmu.de/lehre/ws2021/pem3/)
+***
 
 ## Notes
 
-* This README is written in [Markdown](https://about.gitlab.com/handbook/product/technical-writing/markdown-guide/)
+- Built with [Gradle](https://gradle.org/) 
+- Versioning with [Git](http://git.org/)
+- Documentation written in [Markdown](https://about.gitlab.com/handbook/product/technical-writing/markdown-guide/)
