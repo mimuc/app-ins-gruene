@@ -1,5 +1,6 @@
 package de.lmu.treeapp.activities.minigames.baumory;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -12,18 +13,15 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Baumory;
 import de.lmu.treeapp.contentClasses.minigames.components.BaumoryCard;
-
-//TODO: Redesign Frontend
-//TODO: Review Multiplayer-Design
-//TODO: Review Multiplayer-Wording
-//TODO: Maybe add a popup after Multiplayer-Game Ends to Inform about the winner
 
 public class GameActivity_Baumory extends GameActivity_Base implements Baumory_Cards_RecyclerViewAdapter.OptionClickInterface {
 
@@ -31,14 +29,24 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
     private RecyclerView cardsRecyclerView;
     private RecyclerView.Adapter recyclerViewAdapter;
     private ViewFlipper viewFlipper;
-    private ImageButton btnSinglePlayer, btnMultiplayer;
     private Button btnBack, btnRepeat;
-    private TextView tvMpTitle, tvScoreP1, tvScoreP2;
 
     private Boolean multiplayerMode = false;
-    private Boolean p2Turn = false;
-    private Boolean p1Turn = true;
-    private int[] scores = new int []{0,0};
+
+    /**
+     * The total number of players
+     */
+    private final int playerCount = 2;
+
+    /**
+     * The player whose turn it is
+     */
+    private int playerTurn = 0;
+
+    private TextView tvMpTitle;
+    private final TextView[] tvMpScores = new TextView[playerCount];
+    private final int[] mpScores = new int[playerCount];
+    private final String[] mpNames = new String[playerCount];
 
     private BaumoryCard firstCard = null;
     private BaumoryCard secondCard = null;
@@ -48,28 +56,27 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
     private List<Integer> finishedCards;
     private int maxMatches = 0;
 
-
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
 
         setContentView(R.layout.activity_game__baumory);
         super.onCreate(savedInstanceState);
-        //setup View-Elements
-        viewFlipper = findViewById(R.id.viewFlipperBaumory); // get the reference of ViewFlipper
-        btnSinglePlayer = findViewById(R.id.btn_singleplayer); // get the reference of button
-        btnMultiplayer = findViewById(R.id.btn_multiplayer); // get the reference of button
-        btnBack = findViewById(R.id.btn_game_baumory_back); // get the reference of button
-        btnRepeat = findViewById(R.id.btn_game_baumory_repeat); // get the reference of button
-        tvMpTitle = findViewById(R.id.tv_multiplayerTitle); // get the reference of textview
-        tvScoreP1 = findViewById(R.id.tv_score_p1); // get the reference of textview
-        tvScoreP2 = findViewById(R.id.tv_score_p2); // get the reference of textview
+
+        // setup View-Elements
+        viewFlipper = findViewById(R.id.viewFlipperBaumory);
+        ImageButton btnSinglePlayer = findViewById(R.id.btn_singleplayer);
+        ImageButton btnMultiplayer = findViewById(R.id.btn_multiplayer);
+        btnBack = findViewById(R.id.btn_game_baumory_back);
+        btnRepeat = findViewById(R.id.btn_game_baumory_repeat);
+        tvMpTitle = findViewById(R.id.tv_multiplayerTitle);
+        tvMpScores[0] = findViewById(R.id.tv_score_p1);
+        tvMpScores[1] = findViewById(R.id.tv_score_p2);
 
         // set the animation type to ViewFlipper
         viewFlipper.setInAnimation(this, R.anim.fragment_fade_enter);
         viewFlipper.setOutAnimation(this, R.anim.fragment_fade_exit);
 
         setupBaumoryGame();
-
 
         btnSinglePlayer.setOnClickListener(v -> startGame());
 
@@ -82,7 +89,6 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         btnBack.setOnClickListener(v -> onSuccess());
 
         btnRepeat.setOnClickListener(v -> {
-            scores = new int[]{0, 0};
             firstCard = null;
             secondCard = null;
             firstCardButton = null;
@@ -95,8 +101,8 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         });
     }
 
-    private void startGame(){
-            viewFlipper.showNext(); // Switch to next View
+    private void startGame() {
+        viewFlipper.showNext(); // Switch to next View
     }
 
     private void setupCardsRecyclerView() {
@@ -139,7 +145,6 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
             handler.postDelayed(this::FailedMatch, 750);
         }
 
-
     }
 
 
@@ -148,19 +153,13 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         secondCardButton.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         firstCard = null;
         secondCard = null;
-        if ((finishedCards.size() >= maxMatches)&& !multiplayerMode) onSuccess();
+        if ((finishedCards.size() >= maxMatches) && !multiplayerMode) onSuccess();
 
-        if(multiplayerMode){
-            if(p1Turn){
-                scores[0] ++;
-                tvScoreP1.setText(getString(R.string.game_mode_player, "1", scores[0]));
-            }else{
-                scores[1] ++;
-                tvScoreP2.setText(getString(R.string.game_mode_player, "2", scores[1]));
-            }
+        if (multiplayerMode) {
+            mpScores[playerTurn]++;
+            tvMpScores[playerTurn].setText(getString(R.string.game_mode_player, mpNames[playerTurn], mpScores[playerTurn]));
 
             if (finishedCards.size() >= maxMatches) MultiplayerLastCard();
-
         }
     }
 
@@ -172,24 +171,36 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         firstCard = null;
         secondCard = null;
 
-        if(multiplayerMode){
-                if (p1Turn) {
-                    tvMpTitle.setText(getString(R.string.game_mode_multiplayer_next_player, "2"));
-                } else {
-                    tvMpTitle.setText(getString(R.string.game_mode_multiplayer_next_player, "1"));
-                }
-                p1Turn = !p1Turn;
-                p2Turn = !p2Turn;
+        if (multiplayerMode) {
+            playerTurn = (playerTurn + 1) % playerCount;
+            tvMpTitle.setText(getString(R.string.game_mode_multiplayer_next_player, mpNames[playerTurn]));
         }
-
     }
 
-    private void MultiplayerLastCard(){
+    private void MultiplayerLastCard() {
         tvMpTitle.setTextColor(getResources().getColor(R.color.colorPrimary));
-        if(scores[0]>scores[1]){
-            tvMpTitle.setText(getString(R.string.game_mode_player_won, "1"));
-        } else if(scores[1]>scores[0]){
-            tvMpTitle.setText(getString(R.string.game_mode_player_won, "2"));
+        Integer[] maxIndices;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            // Get the indices of the players, which had the max score.
+            int max = Arrays.stream(mpScores).max().getAsInt();
+            maxIndices = IntStream.range(0, playerCount).filter(i -> mpScores[i] == max).boxed().toArray(Integer[]::new);
+        } else {
+            // Polyfill for SDK below 21
+            int max = 0;
+            List<Integer> maxIndicesList = new ArrayList<>();
+            for (int i = 0; i < playerCount; i++) {
+                if (mpScores[i] >= max) {
+                    if (mpScores[i] > max) {
+                        maxIndicesList.clear();
+                        max = mpScores[i];
+                    }
+                    maxIndicesList.add(i);
+                }
+            }
+            maxIndices = maxIndicesList.toArray(new Integer[0]);
+        }
+        if (maxIndices.length == 1) {
+            tvMpTitle.setText(getString(R.string.game_mode_player_won, mpNames[maxIndices[0]]));
         } else {
             tvMpTitle.setText(R.string.game_mode_draw);
         }
@@ -198,20 +209,21 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
 
     }
 
-    private void setupMultiplayerView(){
+    private void setupMultiplayerView() {
         multiplayerMode = true;
-        p1Turn = true;
-        p2Turn = false;
-        tvMpTitle.setText(getString(R.string.game_mode_multiplayer_next_player, "1"));
+        playerTurn = 0;
+        for (int i = 0; i < playerCount; i++) {
+            mpNames[i] = String.valueOf((char) (i + 'A')); // Names the players according to their numbers 0: 'A', 1: 'B' etc.
+            mpScores[i] = 0; // (Re)set scores.
+            tvMpScores[i].setText(getString(R.string.game_mode_player, mpNames[i], mpScores[i]));
+            tvMpScores[i].setVisibility(View.VISIBLE);
+        }
+        tvMpTitle.setText(getString(R.string.game_mode_multiplayer_next_player, mpNames[playerTurn]));
         tvMpTitle.setTextColor(getResources().getColor(R.color.asphalt));
-        tvScoreP1.setText(getString(R.string.game_mode_player, "1", scores[0]));
-        tvScoreP2.setText(getString(R.string.game_mode_player, "2", scores[1]));
         tvMpTitle.setVisibility(View.VISIBLE);
-        tvScoreP1.setVisibility(View.VISIBLE);
-        tvScoreP2.setVisibility(View.VISIBLE);
     }
 
-    private void setupBaumoryGame(){
+    private void setupBaumoryGame() {
         finishedCards = new ArrayList<>();
         game = (Minigame_Baumory) gameContent;
         baumoryCards = game.cards;
