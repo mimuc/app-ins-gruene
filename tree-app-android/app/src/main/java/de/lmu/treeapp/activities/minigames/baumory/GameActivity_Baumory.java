@@ -1,5 +1,6 @@
 package de.lmu.treeapp.activities.minigames.baumory;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -32,14 +33,13 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
     private RecyclerView.Adapter recyclerViewAdapter;
     private ViewFlipper viewFlipper;
     private ImageButton btnSinglePlayer, btnMultiplayer;
-    private Button btnBack;
+    private Button btnBack, btnRepeat;
     private TextView tvMpTitle, tvScoreP1, tvScoreP2;
 
     private Boolean multiplayerMode = false;
     private Boolean p2Turn = false;
     private Boolean p1Turn = true;
     private int[] scores = new int []{0,0};
-    private Boolean matchFinished = false;
 
     private BaumoryCard firstCard = null;
     private BaumoryCard secondCard = null;
@@ -51,7 +51,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
 
         setContentView(R.layout.activity_game__baumory);
         super.onCreate(savedInstanceState);
@@ -60,6 +60,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         btnSinglePlayer = findViewById(R.id.btn_singleplayer); // get the reference of button
         btnMultiplayer = findViewById(R.id.btn_multiplayer); // get the reference of button
         btnBack = findViewById(R.id.btn_game_baumory_back); // get the reference of button
+        btnRepeat = findViewById(R.id.btn_game_baumory_repeat); // get the reference of button
         tvMpTitle = findViewById(R.id.tv_multiplayerTitle); // get the reference of textview
         tvScoreP1 = findViewById(R.id.tv_score_p1); // get the reference of textview
         tvScoreP2 = findViewById(R.id.tv_score_p2); // get the reference of textview
@@ -68,12 +69,8 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         viewFlipper.setInAnimation(this, R.anim.fragment_fade_enter);
         viewFlipper.setOutAnimation(this, R.anim.fragment_fade_exit);
 
-        finishedCards = new ArrayList<>();
-        game = (Minigame_Baumory) gameContent;
-        baumoryCards = game.cards;
-        maxMatches = baumoryCards.size() / 2;
-        Collections.shuffle(baumoryCards);
-        setupCardsRecyclerView();
+        setupBaumoryGame();
+
 
         btnSinglePlayer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,14 +82,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         btnMultiplayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                multiplayerMode = true;
-                p1Turn = true;
-                tvMpTitle.setText(getString(R.string.game_mode_multiplayer_next_player, "1"));
-                tvScoreP1.setText(getString(R.string.game_mode_player, 1, scores[0]));
-                tvScoreP2.setText(getString(R.string.game_mode_player, 2, scores[1]));
-                tvMpTitle.setVisibility(View.VISIBLE);
-                tvScoreP1.setVisibility(View.VISIBLE);
-                tvScoreP2.setVisibility(View.VISIBLE);
+                setupMultiplayerView();
                 startGame();
             }
         });
@@ -102,6 +92,22 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
             @Override
             public void onClick(View v) {
                 onSuccess();
+            }
+        });
+
+        btnRepeat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scores = new int []{0,0};
+                firstCard = null;
+                secondCard = null;
+                firstCardButton = null;
+                secondCardButton = null;
+                btnBack.setVisibility(View.INVISIBLE);
+                btnRepeat.setVisibility(View.INVISIBLE);
+
+                setupMultiplayerView();
+                setupBaumoryGame();
             }
         });
     }
@@ -122,7 +128,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
 
     @Override
     public void optionClicked(BaumoryCard _card, Baumory_Cards_RecyclerViewAdapter.ViewHolder _viewHolder) {
-        if (((firstCard != null && secondCard != null) || finishedCards.contains(_card.match)) && !multiplayerMode)
+        if ((firstCard != null && secondCard != null) || finishedCards.contains(_card.match))
             return;
 
         int imageId = getResources().getIdentifier(_card.content, "drawable", getPackageName());
@@ -149,7 +155,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
                 public void run() {
                     SuccessfulMatch();
                 }
-            }, 1000);
+            }, 750);
         } else {
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -157,7 +163,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
                 public void run() {
                     FailedMatch();
                 }
-            }, 1000);
+            }, 750);
         }
 
 
@@ -169,20 +175,19 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         secondCardButton.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         firstCard = null;
         secondCard = null;
-        if (finishedCards.size() >= maxMatches) MultiplayerLastCard();
+        if ((finishedCards.size() >= maxMatches)&& !multiplayerMode) onSuccess();
 
         if(multiplayerMode){
             if(p1Turn){
                 scores[0] ++;
-                tvScoreP1.setText(getString(R.string.game_mode_player, 1, scores[0]));
+                tvScoreP1.setText(getString(R.string.game_mode_player, "1", scores[0]));
             }else{
                 scores[1] ++;
-                tvScoreP2.setText(getString(R.string.game_mode_player, 2, scores[1]));
+                tvScoreP2.setText(getString(R.string.game_mode_player, "2", scores[1]));
             }
 
-            if(matchFinished){
-                MultiplayerLastCard();
-            }
+            if (finishedCards.size() >= maxMatches) MultiplayerLastCard();
+
         }
     }
 
@@ -216,6 +221,29 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
             tvMpTitle.setText(R.string.game_mode_draw);
         }
         btnBack.setVisibility(View.VISIBLE);
+        btnRepeat.setVisibility(View.VISIBLE);
 
+    }
+
+    private void setupMultiplayerView(){
+        multiplayerMode = true;
+        p1Turn = true;
+        p2Turn = false;
+        tvMpTitle.setText(getString(R.string.game_mode_multiplayer_next_player, "1"));
+        tvMpTitle.setTextColor(getResources().getColor(R.color.asphalt));
+        tvScoreP1.setText(getString(R.string.game_mode_player, "1", scores[0]));
+        tvScoreP2.setText(getString(R.string.game_mode_player, "2", scores[1]));
+        tvMpTitle.setVisibility(View.VISIBLE);
+        tvScoreP1.setVisibility(View.VISIBLE);
+        tvScoreP2.setVisibility(View.VISIBLE);
+    }
+
+    private void setupBaumoryGame(){
+        finishedCards = new ArrayList<>();
+        game = (Minigame_Baumory) gameContent;
+        baumoryCards = game.cards;
+        maxMatches = baumoryCards.size() / 2;
+        Collections.shuffle(baumoryCards);
+        setupCardsRecyclerView();
     }
 }

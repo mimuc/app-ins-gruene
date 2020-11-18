@@ -27,11 +27,12 @@
     <string name="game_selection_title">Minispiele</string>
     <string name="game_mode_singleplayer">Einzelspieler</string>
     <string name="game_mode_multiplayer">Mehrspieler</string>
-    <string name="game_mode_player">Spieler %2$d : %2$d</string>
+    <string name="game_mode_player">Spieler %1$s : %2$d</string>
     <string name="game_mode_multiplayer_next_player">Spieler %1$s ist an der Reihe</string>
     <string name="game_mode_player_won">Spieler %1$s hat gewonnen</string>
     <string name="game_mode_draw">Untentschieden!</string>
     <string name="button_back">zurück</string>
+    <string name="button_repeat">nochmal</string>
     <string name="main_activity_qr_code_no_tree_found_text">Kein Baum mit diesem QR-Code:</string>
     <string name="wanted_poster_card_header_image_description_text">Card header image</string>
     <string name="card_wanted_poster_header_text_placeholder">Ahorn</string>
