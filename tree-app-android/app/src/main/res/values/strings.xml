@@ -25,6 +25,13 @@
     <string name="overview_single_tree_state_image_content_description">overview_single_tree_state_image</string>
     <string name="overview_single_tree_image_content_description">overview_single_tree_image</string>
     <string name="game_selection_title">Minispiele</string>
+    <string name="game_mode_singleplayer">Einzelspieler</string>
+    <string name="game_mode_multiplayer">Mehrspieler</string>
+    <string name="game_mode_player">Spieler %2$d : %2$d</string>
+    <string name="game_mode_multiplayer_next_player">Spieler %1$s ist an der Reihe</string>
+    <string name="game_mode_player_won">Spieler %1$s hat gewonnen</string>
+    <string name="game_mode_draw">Untentschieden!</string>
+    <string name="button_back">zurück</string>
     <string name="main_activity_qr_code_no_tree_found_text">Kein Baum mit diesem QR-Code:</string>
     <string name="wanted_poster_card_header_image_description_text">Card header image</string>
     <string name="card_wanted_poster_header_text_placeholder">Ahorn</string>
@@ -90,5 +97,7 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="splash_screen_image_appinsgruene">image_appinsgruene</string>
     <string name="splash_screen_image_logos">image_logos</string>
     <string name="splash_screen_text">entstanden in Zusammenarbeit mit:</string>
+    <string name="button_multiplayer_mode_description">button_multiplayer-mode</string>
+    <string name="button_singleplayer_mode_description">button_singleplayer-mode-description</string>
 
 </resources>
