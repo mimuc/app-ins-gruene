@@ -119,7 +119,9 @@
                 android:id="@+id/btn_game_baumory_back"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/button_background"
                 android:elevation="4dp"
                 android:fontFamily="@font/freude"
@@ -131,10 +133,32 @@
                 android:textColor="@color/forest"
                 android:textSize="30sp"
                 android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/game_baumory_recyclerView"
+                app:layout_constraintEnd_toStartOf="@+id/btn_game_baumory_repeat"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_multiplayerTitle"
-                app:layout_constraintWidth_percent="0.6" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_multiplayerTitle" />
+
+            <Button
+                android:id="@+id/btn_game_baumory_repeat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/button_background"
+                android:elevation="4dp"
+                android:fontFamily="@font/freude"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp"
+                android:stateListAnimator="@null"
+                android:text="@string/button_repeat"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+                android:textColor="@color/forest"
+                android:textSize="30sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_game_baumory_back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_game_baumory_back"
+                app:layout_constraintTop_toTopOf="@+id/btn_game_baumory_back" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/game_baumory_recyclerView"
@@ -155,35 +179,39 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="24dp"
                 android:background="@drawable/dark_grey_gradient"
                 android:backgroundTint="@color/asphalt"
                 android:paddingTop="8dp"
                 android:textAlignment="center"
                 android:textColor="@color/light"
                 android:textSize="24sp"
-                android:visibility="visible"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tv_score_p2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/game_baumory_recyclerView" />
+                app:layout_constraintTop_toBottomOf="@+id/game_baumory_recyclerView"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/tv_score_p2"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="24dp"
                 android:background="@drawable/dark_grey_gradient"
                 android:backgroundTint="@color/colorPrimary"
                 android:paddingTop="8dp"
                 android:textAlignment="center"
                 android:textColor="@color/light"
                 android:textSize="24sp"
-                android:visibility="visible"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_score_p1"
-                app:layout_constraintTop_toBottomOf="@+id/game_baumory_recyclerView" />
+                app:layout_constraintTop_toBottomOf="@+id/game_baumory_recyclerView"
+                app:layout_constraintVertical_bias="1.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
