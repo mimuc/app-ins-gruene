@@ -44,39 +44,36 @@ public class DataManager {
     }
 
     private void Init() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                // Saved Name
-                PlayerModel DB_player = AppDatabase.getInstance(context).playerDao().get();
-                if (DB_player == null) {
-                    DB_player = new PlayerModel();
-                    AppDatabase.getInstance(context).playerDao().InsertOne(DB_player);
-                }
-                List<Tree> CMS_trees = ContentManager.getInstance(context).getTrees();
-                List<TreeProfile> CMS_treeProfiles = ContentManager.getInstance(context).getTreeProfiles();
-                List<Minigame_Base> CMS_miniGames = ContentManager.getInstance(context).getMinigames();
-                List<TreeModel> DB_trees = AppDatabase.getInstance(context).treeDao().getAll();
-                for (int i = 0; i < CMS_trees.size(); i++) {
-                    Tree cmsTree = CMS_trees.get(i);
-                    boolean initByDB = false;
-                    for (int j = 0; j < DB_trees.size(); j++) {
-                        TreeModel dbTree = DB_trees.get(j);
-                        if (cmsTree.uid == dbTree.uid) {
-                            cmsTree.InitFromDB(dbTree);
-                            initByDB = true;
-                            break;
-                        }
-                    }
-                    if (!initByDB) {
-                        TreeModel newDBTree = new TreeModel();
-                        newDBTree.InitDefault(cmsTree.uid);
-                        cmsTree.InitFromDB(newDBTree);
-                        AppDatabase.getInstance(context).treeDao().InsertOne(newDBTree);
-                    }
-                }
-                DataManager.getInstance(context).SetData(CMS_trees, CMS_treeProfiles, CMS_miniGames, DB_player);
+        new Thread(() -> {
+            // Saved Name
+            PlayerModel DB_player = AppDatabase.getInstance(context).playerDao().get();
+            if (DB_player == null) {
+                DB_player = new PlayerModel();
+                AppDatabase.getInstance(context).playerDao().InsertOne(DB_player);
             }
+            List<Tree> CMS_trees = ContentManager.getInstance(context).getTrees();
+            List<TreeProfile> CMS_treeProfiles = ContentManager.getInstance(context).getTreeProfiles();
+            List<Minigame_Base> CMS_miniGames = ContentManager.getInstance(context).getMinigames();
+            List<TreeModel> DB_trees = AppDatabase.getInstance(context).treeDao().getAll();
+            for (int i = 0; i < CMS_trees.size(); i++) {
+                Tree cmsTree = CMS_trees.get(i);
+                boolean initByDB = false;
+                for (int j = 0; j < DB_trees.size(); j++) {
+                    TreeModel dbTree = DB_trees.get(j);
+                    if (cmsTree.uid == dbTree.uid) {
+                        cmsTree.InitFromDB(dbTree);
+                        initByDB = true;
+                        break;
+                    }
+                }
+                if (!initByDB) {
+                    TreeModel newDBTree = new TreeModel();
+                    newDBTree.InitDefault(cmsTree.uid);
+                    cmsTree.InitFromDB(newDBTree);
+                    AppDatabase.getInstance(context).treeDao().InsertOne(newDBTree);
+                }
+            }
+            DataManager.getInstance(context).SetData(CMS_trees, CMS_treeProfiles, CMS_miniGames, DB_player);
         }).start();
     }
 
@@ -87,12 +84,7 @@ public class DataManager {
 
     public String SetPlayerName(String _name) {
         player.name = _name;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                AppDatabase.getInstance(context).playerDao().UpdateOne(player);
-            }
-        }).start();
+        new Thread(() -> AppDatabase.getInstance(context).playerDao().UpdateOne(player)).start();
         return player.name;
     }
 
@@ -153,12 +145,7 @@ public class DataManager {
     public void UnlockTree(Tree _tree) {
         final TreeModel model = _tree.changeable;
         model.unlocked = true;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                AppDatabase.getInstance(context).treeDao().Update(model);
-            }
-        }).start();
+        new Thread(() -> AppDatabase.getInstance(context).treeDao().Update(model)).start();
     }
 
     // GameCompleted overloaded Functions
@@ -232,11 +219,6 @@ public class DataManager {
             default:
                 break;
         }
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                AppDatabase.getInstance(context).treeDao().Update(model);
-            }
-        }).start();
+        new Thread(() -> AppDatabase.getInstance(context).treeDao().Update(model)).start();
     }
 }

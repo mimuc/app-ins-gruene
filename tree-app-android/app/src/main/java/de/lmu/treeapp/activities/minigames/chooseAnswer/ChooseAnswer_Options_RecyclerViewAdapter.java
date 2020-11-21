@@ -110,19 +110,9 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
             holder.button_img.setText("");
         }
 
-        holder.button_img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mOnClickListener.optionClicked(option);
-            }
-        });
+        holder.button_img.setOnClickListener(arg0 -> mOnClickListener.optionClicked(option));
 
-        holder.button_txt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mOnClickListener.optionClicked(option);
-            }
-        });
+        holder.button_txt.setOnClickListener(arg0 -> mOnClickListener.optionClicked(option));
     }
 
     @Override

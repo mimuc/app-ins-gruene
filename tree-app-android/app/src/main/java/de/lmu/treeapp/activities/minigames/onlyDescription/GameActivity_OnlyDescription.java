@@ -21,12 +21,7 @@ public class GameActivity_OnlyDescription extends GameActivity_Base {
 
         Button sendButton = findViewById(R.id.game_onlyDescription_sendButton);
 
-        sendButton.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onSuccess();
-            }
-        });
+        sendButton.setOnClickListener(view -> onSuccess());
 
     }
 }

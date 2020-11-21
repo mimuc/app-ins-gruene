@@ -25,13 +25,10 @@ public class SplashScreen extends AppCompatActivity {
         ImageView image_logos = findViewById(R.id.image_logos);
         TextView splash_screen_text = findViewById(R.id.splash_screen_text);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }, 3000);
     }
 }
