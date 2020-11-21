@@ -1,7 +1,6 @@
 package de.lmu.treeapp.activities.minigames.onlyDescription;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import de.lmu.treeapp.R;
