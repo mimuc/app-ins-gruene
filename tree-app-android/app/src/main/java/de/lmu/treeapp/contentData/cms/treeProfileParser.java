@@ -19,7 +19,7 @@ public class treeProfileParser {
     private String text;
 
     public treeProfileParser() {
-        treeProfiles = new ArrayList<TreeProfile>();
+        treeProfiles = new ArrayList<>();
     }
 
     public List<TreeProfile> getTreeProfiles() {
