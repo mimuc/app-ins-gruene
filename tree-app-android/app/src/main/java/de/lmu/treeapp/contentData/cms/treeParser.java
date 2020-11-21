@@ -16,7 +16,7 @@ public class treeParser {
     private String text;
 
     public treeParser() {
-        trees = new ArrayList<Tree>();
+        trees = new ArrayList<>();
     }
 
     public List<Tree> getTrees() {

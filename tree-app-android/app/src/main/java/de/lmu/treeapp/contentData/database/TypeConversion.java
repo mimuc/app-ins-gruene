@@ -13,7 +13,7 @@ public class TypeConversion {
     public static List<Integer> intListFromString(String value) {
         String[] strArr = value.split(" ");
         int length = strArr.length;
-        List<Integer> intVals = new ArrayList<Integer>();
+        List<Integer> intVals = new ArrayList<>();
         for (String s : strArr) {
             if (s.equals(" ") || s.equals("")) continue;
             intVals.add(Integer.parseInt(s));

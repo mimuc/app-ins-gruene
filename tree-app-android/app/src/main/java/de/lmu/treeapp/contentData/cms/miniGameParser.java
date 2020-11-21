@@ -29,7 +29,7 @@ public class miniGameParser {
     private String text;
 
     public miniGameParser() {
-        miniGames = new ArrayList<Minigame_Base>();
+        miniGames = new ArrayList<>();
     }
 
     public List<Minigame_Base> getMiniGames(Context context) {
@@ -91,9 +91,7 @@ public class miniGameParser {
                 eventType = parser.next();
             }
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -137,9 +135,7 @@ public class miniGameParser {
                 eventType = parser.next();
             }
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -184,9 +180,7 @@ public class miniGameParser {
                 eventType = parser.next();
             }
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -269,9 +263,7 @@ public class miniGameParser {
                 eventType = parser.next();
             }
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -314,9 +306,7 @@ public class miniGameParser {
                 eventType = parser.next();
             }
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
     }
