@@ -27,10 +27,10 @@ public class treeParser {
         try {
             int eventType = parser.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
-                String tagname = parser.getName();
+                String tagName = parser.getName();
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                        if (tagname.equalsIgnoreCase("tree")) {
+                        if (tagName.equalsIgnoreCase("tree")) {
                             // create a new instance of employee
                             tree = new Tree();
                         }
@@ -41,31 +41,31 @@ public class treeParser {
                         break;
 
                     case XmlPullParser.END_TAG:
-                        if (tagname.equalsIgnoreCase("tree")) {
+                        if (tagName.equalsIgnoreCase("tree")) {
                             trees.add(tree);
-                        } else if (tagname.equalsIgnoreCase("name")) {
+                        } else if (tagName.equalsIgnoreCase("name")) {
                             tree.name = text;
-                        } else if (tagname.equalsIgnoreCase("id")) {
+                        } else if (tagName.equalsIgnoreCase("id")) {
                             tree.uid = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("profileId")) {
+                        } else if (tagName.equalsIgnoreCase("profileId")) {
                             tree.profileId = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("qrCode")) {
+                        } else if (tagName.equalsIgnoreCase("qrCode")) {
                             tree.qrCode = text.trim();
-                        } else if (tagname.equalsIgnoreCase("leafGames")) {
+                        } else if (tagName.equalsIgnoreCase("leafGames")) {
                             tree.setGameIds(Tree.GameCategories.leaf, getGamesIds(text));
-                        } else if (tagname.equalsIgnoreCase("fruitGames")) {
+                        } else if (tagName.equalsIgnoreCase("fruitGames")) {
                             tree.setGameIds(Tree.GameCategories.fruit, getGamesIds(text));
-                        } else if (tagname.equalsIgnoreCase("trunkGames")) {
+                        } else if (tagName.equalsIgnoreCase("trunkGames")) {
                             tree.setGameIds(Tree.GameCategories.trunk, getGamesIds(text));
-                        } else if (tagname.equalsIgnoreCase("otherGames")) {
+                        } else if (tagName.equalsIgnoreCase("otherGames")) {
                             tree.setGameIds(Tree.GameCategories.other, getGamesIds(text));
-                        } else if (tagname.equalsIgnoreCase("imageTree")) {
+                        } else if (tagName.equalsIgnoreCase("imageTree")) {
                             tree.imageTree = text.trim();
-                        } else if (tagname.equalsIgnoreCase("imageLeaf")) {
+                        } else if (tagName.equalsIgnoreCase("imageLeaf")) {
                             tree.imageLeaf = text.trim();
-                        } else if (tagname.equalsIgnoreCase("imageFruit")) {
+                        } else if (tagName.equalsIgnoreCase("imageFruit")) {
                             tree.imageFruit = text.trim();
-                        } else if (tagname.equalsIgnoreCase("imageTrunk")) {
+                        } else if (tagName.equalsIgnoreCase("imageTrunk")) {
                             tree.imageTrunk = text.trim();
                         }
                         break;
@@ -76,9 +76,7 @@ public class treeParser {
                 eventType = parser.next();
             }
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
 
@@ -89,8 +87,8 @@ public class treeParser {
     private List<Integer> getGamesIds(String _text) {
         String[] nums = _text.split(",");
         List<Integer> gameIds = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            gameIds.add(Integer.parseInt(nums[i].trim()));
+        for (String num : nums) {
+            gameIds.add(Integer.parseInt(num.trim()));
         }
         return gameIds;
     }
