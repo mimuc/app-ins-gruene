@@ -92,21 +92,18 @@ public class FragmentManagerService implements Serializable {
      * @return
      */
     public BottomNavigationView.OnNavigationItemSelectedListener getOnNavigationItemSelectedListener(final Fragment overviewFragment, final Fragment treeSelectionFragment) {
-        return new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    // If the Overview-Button is clicked -> Show Overview-Fragment
-                    case R.id.action_overview:
-                        showFragment(overviewFragment);
-                        break;
-                    // If the Detail-Button is clicked -> Show Detail-Fragment
-                    case R.id.action_tree_selection:
-                        showFragment(treeSelectionFragment);
-                        break;
-                }
-                return true;
+        return item -> {
+            switch (item.getItemId()) {
+                // If the Overview-Button is clicked -> Show Overview-Fragment
+                case R.id.action_overview:
+                    showFragment(overviewFragment);
+                    break;
+                // If the Detail-Button is clicked -> Show Detail-Fragment
+                case R.id.action_tree_selection:
+                    showFragment(treeSelectionFragment);
+                    break;
             }
+            return true;
         };
     }
 

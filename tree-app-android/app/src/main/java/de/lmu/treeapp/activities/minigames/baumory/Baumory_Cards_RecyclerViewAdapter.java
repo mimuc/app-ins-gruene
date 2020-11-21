@@ -67,12 +67,7 @@ public class Baumory_Cards_RecyclerViewAdapter extends RecyclerView.Adapter<Baum
 
         holder.button.setImageResource(R.drawable.ic_question_big);
         holder.button.setBackgroundResource(R.drawable.dark_grey_gradient);
-        holder.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                mOnClickListener.optionClicked(option, holder);
-            }
-        });
+        holder.button.setOnClickListener(arg0 -> mOnClickListener.optionClicked(option, holder));
     }
 
 

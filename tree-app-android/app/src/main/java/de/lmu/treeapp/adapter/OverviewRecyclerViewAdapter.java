@@ -100,12 +100,9 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
 
         if (position == treeValues.size()) {
 
-            holder.btn_imprint.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent_imprint = new Intent(context, Imprint.class);
-                    context.startActivity(intent_imprint);
-                }
+            holder.btn_imprint.setOnClickListener(view -> {
+                Intent intent_imprint = new Intent(context, Imprint.class);
+                context.startActivity(intent_imprint);
             });
 
         } else {
@@ -127,15 +124,10 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
             Context context = holder.treeImage.getContext();
             int imageTreeId = context.getResources().getIdentifier(tree.imageTree, "drawable", context.getPackageName());
             holder.treeImage.setImageResource(imageTreeId);
-            holder.treeImage.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View arg0) {
-                    viewModel.setCurrentPagerIndex(position);
-                    fragmentManager.showFragment(selectedTreeFragment);
-                    ((BottomNavigationView) Objects.requireNonNull(currentActivity).findViewById(R.id.bottom_navigation)).setSelectedItemId(R.id.action_tree_selection);
-                }
-
+            holder.treeImage.setOnClickListener(arg0 -> {
+                viewModel.setCurrentPagerIndex(position);
+                fragmentManager.showFragment(selectedTreeFragment);
+                ((BottomNavigationView) Objects.requireNonNull(currentActivity).findViewById(R.id.bottom_navigation)).setSelectedItemId(R.id.action_tree_selection);
             });
         }
     }

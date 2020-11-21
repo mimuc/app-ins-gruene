@@ -91,17 +91,14 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         ViewCompat.animate(btnAccept).setStartDelay(200).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
         //close the popup to repeat the question or finish the game and go back to the overview
-        btnAccept.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                quizIDs.add(gameContent.uid);
-                if (current > 1) {
-                    showNextQuestion();
-                    current--;
-                } else {
-                    popupWindow.dismiss();
-                    onQuizSuccess(quizIDs);
-                }
+        btnAccept.setOnClickListener(v -> {
+            quizIDs.add(gameContent.uid);
+            if (current > 1) {
+                showNextQuestion();
+                current--;
+            } else {
+                popupWindow.dismiss();
+                onQuizSuccess(quizIDs);
             }
         });
 
@@ -154,20 +151,17 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         }
 
         //close the popup to repeat the question or show the next question
-        btnAccept.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (showAnswer < 2) {
-                    popupWindow.dismiss();
+        btnAccept.setOnClickListener(v -> {
+            if (showAnswer < 2) {
+                popupWindow.dismiss();
+            } else {
+                quizIDs.add(gameContent.uid);
+                if (current > 1) {
+                    showNextQuestion();
+                    current--;
                 } else {
-                    quizIDs.add(gameContent.uid);
-                    if (current > 1) {
-                        showNextQuestion();
-                        current--;
-                    } else {
-                        popupWindow.dismiss();
-                        onQuizSuccess(quizIDs);
-                    }
+                    popupWindow.dismiss();
+                    onQuizSuccess(quizIDs);
                 }
             }
         });

@@ -59,12 +59,7 @@ public class TreeSelectionFragment extends Fragment {
 
     private void setupViewModelObserving() {
 
-        final Observer<Integer> indexObserver = new Observer<Integer>() {
-            @Override
-            public void onChanged(@Nullable final Integer newIndex) {
-                pager.setCurrentItem(newIndex, false);
-            }
-        };
+        final Observer<Integer> indexObserver = newIndex -> pager.setCurrentItem(newIndex, false);
         viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
         viewModel.getCurrentPagerIndex().observe(this, indexObserver);
     }
