@@ -1,6 +1,5 @@
 package de.lmu.treeapp.activities.minigames.baumory;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -134,10 +133,10 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         if (firstCard.match == secondCard.match) {
             finishedCards.add(firstCard.match);
             Handler handler = new Handler();
-            handler.postDelayed(() -> SuccessfulMatch(), 750);
+            handler.postDelayed(this::SuccessfulMatch, 750);
         } else {
             Handler handler = new Handler();
-            handler.postDelayed(() -> FailedMatch(), 750);
+            handler.postDelayed(this::FailedMatch, 750);
         }
 
 

@@ -195,11 +195,9 @@ public class GameActivity_DragDrop extends GameActivity_Base {
             int action = event.getAction();
             switch (action) {
                 case DragEvent.ACTION_DRAG_STARTED:
-                    // do nothing
-                    break;
                 case DragEvent.ACTION_DRAG_ENTERED:
-                    break;
                 case DragEvent.ACTION_DRAG_EXITED:
+                    // do nothing
                     break;
                 case DragEvent.ACTION_DROP:
                     // Dropped, reassign View to ViewGroup
