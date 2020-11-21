@@ -80,7 +80,6 @@ public class DataManager {
         }).start();
     }
 
-
     // Player-Stuff
     public String GetPlayerName() {
         return player.name;
