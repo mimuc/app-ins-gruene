@@ -20,6 +20,10 @@ public class TreeModel {
     public List<Integer> fruitGamesCompleted;
     public List<Integer> trunkGamesCompleted;
     public List<Integer> otherGamesCompleted;
+    public String imageTreeTaken;
+    public String imageLeafTaken;
+    public String imageFruitTaken;
+    public String imageTrunkTaken;
 
     @Ignore
     public void InitDefault(int _uid) {
@@ -29,6 +33,10 @@ public class TreeModel {
         this.fruitGamesCompleted = new ArrayList<>();
         this.trunkGamesCompleted = new ArrayList<>();
         this.otherGamesCompleted = new ArrayList<>();
+        this.imageTreeTaken = "";
+        this.imageLeafTaken = "";
+        this.imageFruitTaken = "";
+        this.imageTrunkTaken = "";
     }
 
     @Ignore

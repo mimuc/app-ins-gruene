@@ -1,13 +1,24 @@
 package de.lmu.treeapp.activities;
 
-public class SliderItem {
-    private final int image;
+import android.graphics.drawable.Drawable;
 
-    SliderItem(int image) {
-        this.image = image;
+public class SliderItem {
+    private int image;
+    private Drawable drawable;
+
+    SliderItem(Integer image, Drawable drawable) {
+        if (drawable != null) {
+            this.drawable = drawable;
+        } else {
+            this.image = image;
+        }
     }
 
     public int getImage() {
         return image;
+    }
+
+    public Drawable getDrawable() {
+        return drawable;
     }
 }
