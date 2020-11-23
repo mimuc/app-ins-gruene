@@ -107,7 +107,7 @@ public class Tree {
     }
 
     private float GetGamesProgression(List<Integer> gamesTotal, List<Integer> gamesCompleted) {
-        if (gamesTotal.isEmpty() || gamesTotal.size() == 0) {
+        if (gamesTotal.isEmpty()) {
             return 1;
         }
         int completed = 0;

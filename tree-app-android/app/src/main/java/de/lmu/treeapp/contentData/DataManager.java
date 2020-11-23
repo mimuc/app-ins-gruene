@@ -197,6 +197,29 @@ public class DataManager {
         return gameCompleted;
     }
 
+    public void TakeTreePicture(String picPath, Tree.GameCategories _category, Tree _tree) {
+        final TreeModel model = _tree.changeable;
+        switch (_category) {
+            case total:
+                if (!model.imageTreeTaken.equals(picPath))
+                    model.imageTreeTaken = picPath;
+                break;
+            case leaf:
+                if (!model.imageLeafTaken.equals(picPath))
+                    model.imageLeafTaken = picPath;
+                break;
+            case fruit:
+                if (!model.imageFruitTaken.equals(picPath))
+                    model.imageFruitTaken = picPath;
+                break;
+            case trunk:
+                if (!model.imageTrunkTaken.equals(picPath))
+                    model.imageTrunkTaken = picPath;
+                break;
+        }
+        new Thread(() -> AppDatabase.getInstance(context).treeDao().Update(model)).start();
+    }
+
     public void GameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree) {
         final TreeModel model = _tree.changeable;
         switch (_category) {
