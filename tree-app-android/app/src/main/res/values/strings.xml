@@ -98,7 +98,7 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="splash_screen_image_appinsgruene">image_appinsgruene</string>
     <string name="splash_screen_image_logos">image_logos</string>
     <string name="splash_screen_text">entstanden in Zusammenarbeit mit:</string>
-    <string name="button_multiplayer_mode_description">button_multiplayer-mode</string>
-    <string name="button_singleplayer_mode_description">button_singleplayer-mode-description</string>
+    <string name="button_multiplayer_mode_description">Mulitplayer Modus</string>
+    <string name="button_singleplayer_mode_description">Singleplayer Modus</string>
 
 </resources>
