@@ -82,17 +82,14 @@ public class WantedPosterCardAdapter extends RecyclerView.Adapter<WantedPosterCa
         holder.itemView.setActivated(isExpanded);
         holder.collapseArrow.setImageDrawable(card.getCollapse());
         if (card.isUnlocked()) {
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (holder.collapseArrow.getRotation() == 90.0f) {
-                        holder.collapseArrow.setRotation(0);
-                    } else {
-                        holder.collapseArrow.setRotation(-90.0f);
-                    }
-                    expandedPosition = isExpanded ? -1 : position;
-                    notifyDataSetChanged();
+            holder.itemView.setOnClickListener(v -> {
+                if (holder.collapseArrow.getRotation() == 90.0f) {
+                    holder.collapseArrow.setRotation(0);
+                } else {
+                    holder.collapseArrow.setRotation(-90.0f);
                 }
+                expandedPosition = isExpanded ? -1 : position;
+                notifyDataSetChanged();
             });
         } else {
             holder.collapseArrow.setRotation(0);

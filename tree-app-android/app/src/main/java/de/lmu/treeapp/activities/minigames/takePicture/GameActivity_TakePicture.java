@@ -60,28 +60,15 @@ public class GameActivity_TakePicture extends GameActivity_Base {
 
         sendButton.setEnabled(false);
 
-        previewPicture.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dispatchTakePictureIntent();
-            }
+        previewPicture.setOnClickListener(view -> dispatchTakePictureIntent());
+
+        imageExample.setOnClickListener(view -> {
+            imageExample.setVisibility(View.GONE);
+            dispatchTakePictureIntent();
+            sendButton.setEnabled(true);
         });
 
-        imageExample.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imageExample.setVisibility(View.GONE);
-                dispatchTakePictureIntent();
-                sendButton.setEnabled(true);
-            }
-        });
-
-        sendButton.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPositivePopup();
-            }
-        });
+        sendButton.setOnClickListener(view -> showPositivePopup());
     }
 
     String currentPhotoPath;
@@ -126,38 +113,24 @@ public class GameActivity_TakePicture extends GameActivity_Base {
     }
 
     public static int getOrientation(Context context, Uri uri) {
-
         int rotate = 0;
-
         try {
-
             ParcelFileDescriptor parcelFileDescriptor =
                     context.getContentResolver().openFileDescriptor(uri, "r");
-
             FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
-
             FileInputStream input = new FileInputStream(fileDescriptor);
-
             File tempFile = File.createTempFile("exif", "tmp");
-
             String tempFilename = tempFile.getPath();
-
             FileOutputStream output = new FileOutputStream(tempFile.getPath());
-
             int read;
-
             byte[] bytes = new byte[4096];
-
             while ((read = input.read(bytes)) != -1) {
                 output.write(bytes, 0, read);
             }
-
             input.close();
             output.close();
-
             ExifInterface exif = new ExifInterface(tempFile.getAbsolutePath());
             int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
-
             switch (orientation) {
                 case ExifInterface.ORIENTATION_ROTATE_270:
                     rotate = 270;
@@ -169,11 +142,9 @@ public class GameActivity_TakePicture extends GameActivity_Base {
                     rotate = 90;
                     break;
             }
-
         } catch (Exception e) {
             System.out.println(e.getLocalizedMessage());
         }
-
         return rotate;
     }
 
@@ -181,8 +152,6 @@ public class GameActivity_TakePicture extends GameActivity_Base {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
-            int ori = getOrientation(getApplicationContext(), photoURI);
-            System.out.println("___________________" + ori);
             // TODO: Rotate now. Portrait gives 90, Landscape gives 0.
             previewPicture.setImageURI(photoURI);
             previewPicture.setVisibility(View.VISIBLE);
@@ -203,22 +172,16 @@ public class GameActivity_TakePicture extends GameActivity_Base {
         ViewCompat.animate(btnWiki).setStartDelay(300).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
         //close the popup and open the tree profile
-        btnWiki.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                popupWindow.dismiss();
-                finish();
-                showTreeProfile();
-            }
+        btnWiki.setOnClickListener(v -> {
+            popupWindow.dismiss();
+            finish();
+            showTreeProfile();
         });
 
         //close the popup and finish the game
-        btnAccept.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                popupWindow.dismiss();
-                onSuccess();
-            }
+        btnAccept.setOnClickListener(v -> {
+            popupWindow.dismiss();
+            onSuccess();
         });
 
         popupWindow.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

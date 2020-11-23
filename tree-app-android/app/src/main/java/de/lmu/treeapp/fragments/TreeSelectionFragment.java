@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -59,12 +58,7 @@ public class TreeSelectionFragment extends Fragment {
 
     private void setupViewModelObserving() {
 
-        final Observer<Integer> indexObserver = new Observer<Integer>() {
-            @Override
-            public void onChanged(@Nullable final Integer newIndex) {
-                pager.setCurrentItem(newIndex, false);
-            }
-        };
+        final Observer<Integer> indexObserver = newIndex -> pager.setCurrentItem(newIndex, false);
         viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
         viewModel.getCurrentPagerIndex().observe(this, indexObserver);
     }
