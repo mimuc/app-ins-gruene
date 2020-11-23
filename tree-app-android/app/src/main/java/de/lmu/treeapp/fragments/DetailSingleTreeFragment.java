@@ -105,13 +105,10 @@ public class DetailSingleTreeFragment extends Fragment {
     }
 
     private void setupOnClickListener() {
-        treeProfileButton.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), WantedPosterDetailsActivity.class);
-                intent.putExtra("TreeId", tree.uid);
-                startActivity(intent);
-            }
+        treeProfileButton.setOnClickListener(view -> {
+            Intent intent = new Intent(getContext(), WantedPosterDetailsActivity.class);
+            intent.putExtra("TreeId", tree.uid);
+            startActivity(intent);
         });
         leafButton.setOnClickListener(this.getCategoryButtonOnClickListener(Tree.GameCategories.leaf));
         fruitButton.setOnClickListener(this.getCategoryButtonOnClickListener(Tree.GameCategories.fruit));
@@ -120,14 +117,11 @@ public class DetailSingleTreeFragment extends Fragment {
     }
 
     private Button.OnClickListener getCategoryButtonOnClickListener(final Tree.GameCategories category) {
-        return new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), GameSelectionActivity.class);
-                intent.putExtra("TreeId", tree.uid);
-                intent.putExtra("Category", category);
-                startActivity(intent);
-            }
+        return v -> {
+            Intent intent = new Intent(getContext(), GameSelectionActivity.class);
+            intent.putExtra("TreeId", tree.uid);
+            intent.putExtra("Category", category);
+            startActivity(intent);
         };
     }
 }

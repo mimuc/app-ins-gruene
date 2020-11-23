@@ -19,7 +19,7 @@ public class treeProfileParser {
     private String text;
 
     public treeProfileParser() {
-        treeProfiles = new ArrayList<TreeProfile>();
+        treeProfiles = new ArrayList<>();
     }
 
     public List<TreeProfile> getTreeProfiles() {
@@ -30,14 +30,14 @@ public class treeProfileParser {
         try {
             int eventType = parser.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
-                String tagname = parser.getName();
+                String tagName = parser.getName();
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                        if (tagname.equalsIgnoreCase("treeProfile")) {
+                        if (tagName.equalsIgnoreCase("treeProfile")) {
                             // create a new instance of employee
                             treeProfile = new TreeProfile();
                             treeProfile.cards = new ArrayList<>();
-                        } else if (tagname.equalsIgnoreCase("card")) {
+                        } else if (tagName.equalsIgnoreCase("card")) {
                             treeProfileCard = new TreeProfileCard();
                         }
                         break;
@@ -47,13 +47,13 @@ public class treeProfileParser {
                         break;
 
                     case XmlPullParser.END_TAG:
-                        if (tagname.equalsIgnoreCase("treeProfile")) {
+                        if (tagName.equalsIgnoreCase("treeProfile")) {
                             treeProfiles.add(treeProfile);
-                        } else if (tagname.equalsIgnoreCase("id")) {
+                        } else if (tagName.equalsIgnoreCase("id")) {
                             treeProfile.uid = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("card_name")) {
+                        } else if (tagName.equalsIgnoreCase("card_name")) {
                             treeProfileCard.name = text.trim();
-                        } else if (tagname.equalsIgnoreCase("card_unlockedBy")) {
+                        } else if (tagName.equalsIgnoreCase("card_unlockedBy")) {
                             switch (text) {
                                 case "leaf":
                                     treeProfileCard.unlockedBy = Tree.GameCategories.leaf;
@@ -68,13 +68,13 @@ public class treeProfileParser {
                                     treeProfileCard.unlockedBy = Tree.GameCategories.other;
                                     break;
                             }
-                        } else if (tagname.equalsIgnoreCase("card_content")) {
+                        } else if (tagName.equalsIgnoreCase("card_content")) {
                             treeProfileCard.content = text;
-                        } else if (tagname.equalsIgnoreCase("card_image")) {
+                        } else if (tagName.equalsIgnoreCase("card_image")) {
                             treeProfileCard.image = text;
-                        } else if (tagname.equalsIgnoreCase("card_picture")) {
+                        } else if (tagName.equalsIgnoreCase("card_picture")) {
                             treeProfileCard.picture = text;
-                        } else if (tagname.equalsIgnoreCase("card")) {
+                        } else if (tagName.equalsIgnoreCase("card")) {
                             treeProfile.cards.add(treeProfileCard);
                         }
                         break;
@@ -85,9 +85,7 @@ public class treeProfileParser {
                 eventType = parser.next();
             }
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
 

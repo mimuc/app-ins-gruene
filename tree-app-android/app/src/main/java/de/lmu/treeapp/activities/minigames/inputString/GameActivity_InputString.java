@@ -2,7 +2,6 @@ package de.lmu.treeapp.activities.minigames.inputString;
 
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -26,14 +25,11 @@ public class GameActivity_InputString extends GameActivity_Base {
         final TextInputEditText inputField = findViewById(R.id.game_inputString_inputField);
         Button sendButton = findViewById(R.id.game_inputString_sendButton);
 
-        sendButton.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (inputStringGame.CheckAnswer(inputField.getText().toString())) {
-                    onSuccess();
-                } else {
-                    onFail();
-                }
+        sendButton.setOnClickListener(view -> {
+            if (inputStringGame.CheckAnswer(inputField.getText().toString())) {
+                onSuccess();
+            } else {
+                onFail();
             }
         });
 

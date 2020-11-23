@@ -29,7 +29,7 @@ public class miniGameParser {
     private String text;
 
     public miniGameParser() {
-        miniGames = new ArrayList<Minigame_Base>();
+        miniGames = new ArrayList<>();
     }
 
     public List<Minigame_Base> getMiniGames(Context context) {
@@ -50,14 +50,14 @@ public class miniGameParser {
         try {
             int eventType = parser.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
-                String tagname = parser.getName();
+                String tagName = parser.getName();
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                        if (tagname.equalsIgnoreCase("minigame_chooseAnswer")) {
+                        if (tagName.equalsIgnoreCase("minigame_chooseAnswer")) {
                             miniGameChooseAnswer = new Minigame_ChooseAnswer();
                             miniGameChooseAnswer.type = Minigame_Base.MinigameTypes.ChooseAnswer;
                             miniGameChooseAnswer.options = new ArrayList<>();
-                        } else if (tagname.equalsIgnoreCase("option")) {
+                        } else if (tagName.equalsIgnoreCase("option")) {
                             answerOption = new AnswerOption();
                         }
                         break;
@@ -65,23 +65,23 @@ public class miniGameParser {
                         text = parser.getText();
                         break;
                     case XmlPullParser.END_TAG:
-                        if (tagname.equalsIgnoreCase("minigame_chooseAnswer")) {
+                        if (tagName.equalsIgnoreCase("minigame_chooseAnswer")) {
                             miniGames.add(miniGameChooseAnswer);
-                        } else if (tagname.equalsIgnoreCase("id")) {
+                        } else if (tagName.equalsIgnoreCase("id")) {
                             miniGameChooseAnswer.uid = Integer.parseInt(text) + prefix;
-                        } else if (tagname.equalsIgnoreCase("name")) {
+                        } else if (tagName.equalsIgnoreCase("name")) {
                             miniGameChooseAnswer.name = text;
-                        } else if (tagname.equalsIgnoreCase("description")) {
+                        } else if (tagName.equalsIgnoreCase("description")) {
                             miniGameChooseAnswer.description = text;
-                        } else if (tagname.equalsIgnoreCase("image")) {
+                        } else if (tagName.equalsIgnoreCase("image")) {
                             miniGameChooseAnswer.image = text;
-                        } else if (tagname.equalsIgnoreCase("option_type")) {
+                        } else if (tagName.equalsIgnoreCase("option_type")) {
                             answerOption.SetType(text);
-                        } else if (tagname.equalsIgnoreCase("option_content")) {
+                        } else if (tagName.equalsIgnoreCase("option_content")) {
                             answerOption.content = (text);
-                        } else if (tagname.equalsIgnoreCase("option_right")) {
+                        } else if (tagName.equalsIgnoreCase("option_right")) {
                             answerOption.right = Boolean.parseBoolean(text);
-                        } else if (tagname.equalsIgnoreCase("option")) {
+                        } else if (tagName.equalsIgnoreCase("option")) {
                             miniGameChooseAnswer.options.add(answerOption);
                         }
                         break;
@@ -91,9 +91,7 @@ public class miniGameParser {
                 eventType = parser.next();
             }
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -105,10 +103,10 @@ public class miniGameParser {
         try {
             int eventType = parser.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
-                String tagname = parser.getName();
+                String tagName = parser.getName();
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                        if (tagname.equalsIgnoreCase("minigame_inputString")) {
+                        if (tagName.equalsIgnoreCase("minigame_inputString")) {
                             miniGameInputStringAnswer = new Minigame_InputStringAnswer();
                             miniGameInputStringAnswer.type = Minigame_Base.MinigameTypes.InputString;
                         }
@@ -117,17 +115,17 @@ public class miniGameParser {
                         text = parser.getText();
                         break;
                     case XmlPullParser.END_TAG:
-                        if (tagname.equalsIgnoreCase("minigame_inputString")) {
+                        if (tagName.equalsIgnoreCase("minigame_inputString")) {
                             miniGames.add(miniGameInputStringAnswer);
-                        } else if (tagname.equalsIgnoreCase("id")) {
+                        } else if (tagName.equalsIgnoreCase("id")) {
                             miniGameInputStringAnswer.uid = Integer.parseInt(text) + prefix;
-                        } else if (tagname.equalsIgnoreCase("name")) {
+                        } else if (tagName.equalsIgnoreCase("name")) {
                             miniGameInputStringAnswer.name = text;
-                        } else if (tagname.equalsIgnoreCase("description")) {
+                        } else if (tagName.equalsIgnoreCase("description")) {
                             miniGameInputStringAnswer.description = text;
-                        } else if (tagname.equalsIgnoreCase("image")) {
+                        } else if (tagName.equalsIgnoreCase("image")) {
                             miniGameInputStringAnswer.image = text;
-                        } else if (tagname.equalsIgnoreCase("rightAnswer")) {
+                        } else if (tagName.equalsIgnoreCase("rightAnswer")) {
                             miniGameInputStringAnswer.FillRightAnswer(text);
                         }
                         break;
@@ -137,9 +135,7 @@ public class miniGameParser {
                 eventType = parser.next();
             }
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -152,10 +148,10 @@ public class miniGameParser {
         try {
             int eventType = parser.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
-                String tagname = parser.getName();
+                String tagName = parser.getName();
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                        if (tagname.equalsIgnoreCase("minigame_takePicture")) {
+                        if (tagName.equalsIgnoreCase("minigame_takePicture")) {
                             miniGameTakePicture = new Minigame_TakePicture();
                             miniGameTakePicture.type = Minigame_Base.MinigameTypes.TakePicture;
                         }
@@ -164,17 +160,17 @@ public class miniGameParser {
                         text = parser.getText();
                         break;
                     case XmlPullParser.END_TAG:
-                        if (tagname.equalsIgnoreCase("minigame_takePicture")) {
+                        if (tagName.equalsIgnoreCase("minigame_takePicture")) {
                             miniGames.add(miniGameTakePicture);
-                        } else if (tagname.equalsIgnoreCase("id")) {
+                        } else if (tagName.equalsIgnoreCase("id")) {
                             miniGameTakePicture.uid = Integer.parseInt(text) + prefix;
-                        } else if (tagname.equalsIgnoreCase("name")) {
+                        } else if (tagName.equalsIgnoreCase("name")) {
                             miniGameTakePicture.name = text;
-                        } else if (tagname.equalsIgnoreCase("description")) {
+                        } else if (tagName.equalsIgnoreCase("description")) {
                             miniGameTakePicture.description = text;
-                        } else if (tagname.equalsIgnoreCase("image")) {
+                        } else if (tagName.equalsIgnoreCase("image")) {
                             miniGameTakePicture.image = text;
-                        } else if (tagname.equalsIgnoreCase("pictureName")) {
+                        } else if (tagName.equalsIgnoreCase("pictureName")) {
                             miniGameTakePicture.FillPictureName(text);
                         }
                         break;
@@ -184,9 +180,7 @@ public class miniGameParser {
                 eventType = parser.next();
             }
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -201,17 +195,17 @@ public class miniGameParser {
         try {
             int eventType = parser.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
-                String tagname = parser.getName();
+                String tagName = parser.getName();
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                        if (tagname.equalsIgnoreCase("minigame_dragDrop")) {
+                        if (tagName.equalsIgnoreCase("minigame_dragDrop")) {
                             miniGameDragDrop = new Minigame_DragDrop();
                             miniGameDragDrop.type = Minigame_Base.MinigameTypes.DragDrop;
                             miniGameDragDrop.items = new ArrayList<>();
                             miniGameDragDrop.zones = new ArrayList<>();
-                        } else if (tagname.equalsIgnoreCase("dragItem")) {
+                        } else if (tagName.equalsIgnoreCase("dragItem")) {
                             dragDropItem = new DragDropItem();
-                        } else if (tagname.equalsIgnoreCase("dropItem")) {
+                        } else if (tagName.equalsIgnoreCase("dropItem")) {
                             dragDropZone = new DragDropZone();
                         }
                         break;
@@ -219,47 +213,47 @@ public class miniGameParser {
                         text = parser.getText();
                         break;
                     case XmlPullParser.END_TAG:
-                        if (tagname.equalsIgnoreCase("minigame_dragDrop")) {
+                        if (tagName.equalsIgnoreCase("minigame_dragDrop")) {
                             miniGames.add(miniGameDragDrop);
-                        } else if (tagname.equalsIgnoreCase("id")) {
+                        } else if (tagName.equalsIgnoreCase("id")) {
                             miniGameDragDrop.uid = Integer.parseInt(text) + prefix;
-                        } else if (tagname.equalsIgnoreCase("name")) {
+                        } else if (tagName.equalsIgnoreCase("name")) {
                             miniGameDragDrop.name = text;
-                        } else if (tagname.equalsIgnoreCase("description")) {
+                        } else if (tagName.equalsIgnoreCase("description")) {
                             miniGameDragDrop.description = text;
-                        } else if (tagname.equalsIgnoreCase("image")) {
+                        } else if (tagName.equalsIgnoreCase("image")) {
                             miniGameDragDrop.image = text;
-                        } else if (tagname.equalsIgnoreCase("layout")) {
+                        } else if (tagName.equalsIgnoreCase("layout")) {
                             miniGameDragDrop.layout = text;
-                        } else if (tagname.equalsIgnoreCase("dragItem_type")) {
+                        } else if (tagName.equalsIgnoreCase("dragItem_type")) {
                             dragDropItem.SetType(text);
-                        } else if (tagname.equalsIgnoreCase("dragItem_content")) {
+                        } else if (tagName.equalsIgnoreCase("dragItem_content")) {
                             dragDropItem.content = (text);
-                        } else if (tagname.equalsIgnoreCase("dragItem_match")) {
+                        } else if (tagName.equalsIgnoreCase("dragItem_match")) {
                             dragDropItem.match = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("dragItem_x")) {
+                        } else if (tagName.equalsIgnoreCase("dragItem_x")) {
                             dragDropItem.x = Float.parseFloat(text);
-                        } else if (tagname.equalsIgnoreCase("dragItem_y")) {
+                        } else if (tagName.equalsIgnoreCase("dragItem_y")) {
                             dragDropItem.y = Float.parseFloat(text);
-                        } else if (tagname.equalsIgnoreCase("dragItem_w")) {
+                        } else if (tagName.equalsIgnoreCase("dragItem_w")) {
                             dragDropItem.w = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("dragItem_h")) {
+                        } else if (tagName.equalsIgnoreCase("dragItem_h")) {
                             dragDropItem.h = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("dropItem_match")) {
+                        } else if (tagName.equalsIgnoreCase("dropItem_match")) {
                             dragDropZone.match = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("dropItem_content")) {
+                        } else if (tagName.equalsIgnoreCase("dropItem_content")) {
                             dragDropZone.content = (text);
-                        } else if (tagname.equalsIgnoreCase("dropItem_x")) {
+                        } else if (tagName.equalsIgnoreCase("dropItem_x")) {
                             dragDropZone.x = Float.parseFloat(text);
-                        } else if (tagname.equalsIgnoreCase("dropItem_y")) {
+                        } else if (tagName.equalsIgnoreCase("dropItem_y")) {
                             dragDropZone.y = Float.parseFloat(text);
-                        } else if (tagname.equalsIgnoreCase("dropItem_w")) {
+                        } else if (tagName.equalsIgnoreCase("dropItem_w")) {
                             dragDropZone.w = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("dropItem_h")) {
+                        } else if (tagName.equalsIgnoreCase("dropItem_h")) {
                             dragDropZone.h = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("dragItem")) {
+                        } else if (tagName.equalsIgnoreCase("dragItem")) {
                             miniGameDragDrop.items.add(dragDropItem);
-                        } else if (tagname.equalsIgnoreCase("dropItem")) {
+                        } else if (tagName.equalsIgnoreCase("dropItem")) {
                             miniGameDragDrop.zones.add(dragDropZone);
                         }
                         break;
@@ -269,9 +263,7 @@ public class miniGameParser {
                 eventType = parser.next();
             }
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -284,10 +276,10 @@ public class miniGameParser {
         try {
             int eventType = parser.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
-                String tagname = parser.getName();
+                String tagName = parser.getName();
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                        if (tagname.equalsIgnoreCase("minigame_onlyDescription")) {
+                        if (tagName.equalsIgnoreCase("minigame_onlyDescription")) {
                             miniGameOnlyDescription = new Minigame_OnlyDescription();
                             miniGameOnlyDescription.type = Minigame_Base.MinigameTypes.OnlyDescription;
                         }
@@ -296,15 +288,15 @@ public class miniGameParser {
                         text = parser.getText();
                         break;
                     case XmlPullParser.END_TAG:
-                        if (tagname.equalsIgnoreCase("minigame_onlyDescription")) {
+                        if (tagName.equalsIgnoreCase("minigame_onlyDescription")) {
                             miniGames.add(miniGameOnlyDescription);
-                        } else if (tagname.equalsIgnoreCase("id")) {
+                        } else if (tagName.equalsIgnoreCase("id")) {
                             miniGameOnlyDescription.uid = Integer.parseInt(text) + prefix;
-                        } else if (tagname.equalsIgnoreCase("name")) {
+                        } else if (tagName.equalsIgnoreCase("name")) {
                             miniGameOnlyDescription.name = text;
-                        } else if (tagname.equalsIgnoreCase("description")) {
+                        } else if (tagName.equalsIgnoreCase("description")) {
                             miniGameOnlyDescription.description = text;
-                        } else if (tagname.equalsIgnoreCase("image")) {
+                        } else if (tagName.equalsIgnoreCase("image")) {
                             miniGameOnlyDescription.image = text;
                         }
                         break;
@@ -314,9 +306,7 @@ public class miniGameParser {
                 eventType = parser.next();
             }
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -330,14 +320,14 @@ public class miniGameParser {
         try {
             int eventType = parser.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
-                String tagname = parser.getName();
+                String tagName = parser.getName();
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                        if (tagname.equalsIgnoreCase("minigame_baumory")) {
+                        if (tagName.equalsIgnoreCase("minigame_baumory")) {
                             minigameBaumory = new Minigame_Baumory();
                             minigameBaumory.type = Minigame_Base.MinigameTypes.Baumory;
                             minigameBaumory.cards = new ArrayList<>();
-                        } else if (tagname.equalsIgnoreCase("card")) {
+                        } else if (tagName.equalsIgnoreCase("card")) {
                             card = new BaumoryCard();
                         }
                         break;
@@ -345,21 +335,21 @@ public class miniGameParser {
                         text = parser.getText();
                         break;
                     case XmlPullParser.END_TAG:
-                        if (tagname.equalsIgnoreCase("minigame_baumory")) {
+                        if (tagName.equalsIgnoreCase("minigame_baumory")) {
                             miniGames.add(minigameBaumory);
-                        } else if (tagname.equalsIgnoreCase("id")) {
+                        } else if (tagName.equalsIgnoreCase("id")) {
                             minigameBaumory.uid = Integer.parseInt(text) + prefix;
-                        } else if (tagname.equalsIgnoreCase("name")) {
+                        } else if (tagName.equalsIgnoreCase("name")) {
                             minigameBaumory.name = text;
-                        } else if (tagname.equalsIgnoreCase("description")) {
+                        } else if (tagName.equalsIgnoreCase("description")) {
                             minigameBaumory.description = text;
-                        } else if (tagname.equalsIgnoreCase("image")) {
+                        } else if (tagName.equalsIgnoreCase("image")) {
                             minigameBaumory.image = text;
-                        } else if (tagname.equalsIgnoreCase("card_image")) {
+                        } else if (tagName.equalsIgnoreCase("card_image")) {
                             card.content = (text);
-                        } else if (tagname.equalsIgnoreCase("card_match")) {
+                        } else if (tagName.equalsIgnoreCase("card_match")) {
                             card.match = Integer.parseInt(text);
-                        } else if (tagname.equalsIgnoreCase("card")) {
+                        } else if (tagName.equalsIgnoreCase("card")) {
                             minigameBaumory.cards.add(card);
                         }
                         break;
@@ -369,9 +359,7 @@ public class miniGameParser {
                 eventType = parser.next();
             }
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (XmlPullParserException | IOException e) {
             e.printStackTrace();
         }
     }

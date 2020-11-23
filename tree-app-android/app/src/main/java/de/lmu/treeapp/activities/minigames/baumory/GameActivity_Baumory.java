@@ -1,6 +1,5 @@
 package de.lmu.treeapp.activities.minigames.baumory;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -72,43 +71,27 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         setupBaumoryGame();
 
 
-        btnSinglePlayer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startGame();
-            }
-        });
+        btnSinglePlayer.setOnClickListener(v -> startGame());
 
-        btnMultiplayer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setupMultiplayerView();
-                startGame();
-            }
+        btnMultiplayer.setOnClickListener(v -> {
+            setupMultiplayerView();
+            startGame();
         });
 
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onSuccess();
-            }
-        });
+        btnBack.setOnClickListener(v -> onSuccess());
 
-        btnRepeat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                scores = new int []{0,0};
-                firstCard = null;
-                secondCard = null;
-                firstCardButton = null;
-                secondCardButton = null;
-                btnBack.setVisibility(View.INVISIBLE);
-                btnRepeat.setVisibility(View.INVISIBLE);
+        btnRepeat.setOnClickListener(v -> {
+            scores = new int[]{0, 0};
+            firstCard = null;
+            secondCard = null;
+            firstCardButton = null;
+            secondCardButton = null;
+            btnBack.setVisibility(View.INVISIBLE);
+            btnRepeat.setVisibility(View.INVISIBLE);
 
-                setupMultiplayerView();
-                setupBaumoryGame();
-            }
+            setupMultiplayerView();
+            setupBaumoryGame();
         });
     }
 
@@ -150,20 +133,10 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         if (firstCard.match == secondCard.match) {
             finishedCards.add(firstCard.match);
             Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    SuccessfulMatch();
-                }
-            }, 750);
+            handler.postDelayed(this::SuccessfulMatch, 750);
         } else {
             Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    FailedMatch();
-                }
-            }, 750);
+            handler.postDelayed(this::FailedMatch, 750);
         }
 
 

@@ -22,7 +22,6 @@ public class Tree {
     public String imageTrunk = "";
     public String imageOther = "";
 
-
     public TreeModel changeable;
 
     public enum GameCategories {
@@ -120,9 +119,7 @@ public class Tree {
                 }
             }
         }
-        float value = (float) completed / (float) gamesTotal.size();
-        return value;
+        return (float) completed / (float) gamesTotal.size();
     }
-
 
 }

@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.transition.Slide;
-import android.view.View;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -44,7 +42,6 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
     private final List<Slide> slideList = new ArrayList<>();
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
-    private Timer timer;
     private int current_position = 0;
 
     // ViewPager2
@@ -67,16 +64,17 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        String content = "";
+        StringBuilder content = new StringBuilder();
         for (int i = 0; i < treeProfile.cards.size(); i++) {
             TreeProfileCard card = treeProfile.cards.get(i);
             if (card.unlockedBy == Tree.GameCategories.none || tree.GetGameProgressionPercent(card.unlockedBy) > 90) {
-                content += card.name + "\n";
-                content += card.content + "\n";
+                content.append(card.name).append("\n");
+                content.append(card.content).append("\n");
             }
         }
 
         if (getSupportActionBar() != null) {
+            //set the title of the wanted poster( for example: 'Steckbrief Ahorn')
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             String titlePre = getResources().getString(R.string.wanted_poster_details_title_text);
             getSupportActionBar().setTitle(titlePre + " " + tree.name);
@@ -90,7 +88,6 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         sliderItems.add(new SliderItem(R.drawable.ic_ahorn_baum));
 
         viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
-
         viewPager2.setClipToPadding(false);
         viewPager2.setClipChildren(false);
         viewPager2.setOffscreenPageLimit(3);
@@ -99,12 +96,9 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         // Animation during sliding
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
         compositePageTransformer.addTransformer(new MarginPageTransformer(40));
-        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                float r = 1 - Math.abs(position);
-                page.setScaleY(0.85f + r * 0.15f);
-            }
+        compositePageTransformer.addTransformer((page, position) -> {
+            float r = 1 - Math.abs(position);
+            page.setScaleY(0.85f + r * 0.15f);
         });
         viewPager2.setPageTransformer(compositePageTransformer);
 
@@ -129,16 +123,13 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
     // Create a slide show for the photos of the Foto-Challenge
     private void createSlideShow() {
         final Handler handler = new Handler();
-        final Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                if (current_position == slideList.size()) {
-                    current_position = 0;
-                }
-                pager.setCurrentItem(current_position++, true);
+        final Runnable runnable = () -> {
+            if (current_position == slideList.size()) {
+                current_position = 0;
             }
+            pager.setCurrentItem(current_position++, true);
         };
-        timer = new Timer();
+        Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -198,10 +189,9 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
 
         if (!mediaFile.exists()) return null;
 
-        Uri photoURI = FileProvider.getUriForFile(this,
+        return FileProvider.getUriForFile(this,
                 "de.lmu.treeapp.fileprovider",
                 mediaFile);
-        return photoURI;
     }
 
     // Slideshow paused if App is minimized

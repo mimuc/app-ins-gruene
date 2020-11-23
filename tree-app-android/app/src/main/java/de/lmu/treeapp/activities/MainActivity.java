@@ -116,13 +116,10 @@ public class MainActivity extends AppCompatActivity {
      * OnClickListener that starts the QR-Functionality Activity.
      */
     private Button.OnClickListener getQrCodeButtonOnClickListener() {
-        return new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showToast("QR Code Button clicked");
-                Intent intent = new Intent(getApplicationContext(), BarcodeCaptureActivity.class);
-                startActivityForResult(intent, BARCODE_READER_REQUEST_CODE);
-            }
+        return v -> {
+            showToast("QR Code Button clicked");
+            Intent intent = new Intent(getApplicationContext(), BarcodeCaptureActivity.class);
+            startActivityForResult(intent, BARCODE_READER_REQUEST_CODE);
         };
     }
 
@@ -163,12 +160,7 @@ public class MainActivity extends AppCompatActivity {
      * @param toastText String containing the text to toast.
      */
     private void showToast(final String toastText) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_LONG).show();
-            }
-        });
+        runOnUiThread(() -> Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_LONG).show());
     }
 
     // Android hardware back button is pressed

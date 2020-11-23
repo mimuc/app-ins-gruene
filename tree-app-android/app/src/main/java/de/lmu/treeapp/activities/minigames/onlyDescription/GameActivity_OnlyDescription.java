@@ -1,7 +1,6 @@
 package de.lmu.treeapp.activities.minigames.onlyDescription;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import de.lmu.treeapp.R;
@@ -21,12 +20,7 @@ public class GameActivity_OnlyDescription extends GameActivity_Base {
 
         Button sendButton = findViewById(R.id.game_onlyDescription_sendButton);
 
-        sendButton.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onSuccess();
-            }
-        });
+        sendButton.setOnClickListener(view -> onSuccess());
 
     }
 }

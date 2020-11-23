@@ -82,19 +82,16 @@ public class GameActivity_DragDrop extends GameActivity_Base {
 
         Button sendButton = findViewById(R.id.game_dragdrop_sendButton);
 
-        sendButton.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                for (DragDropZone zone : dragDropGame.zones) {
-                    if (!zone.IsMatchedRight()) {
-                        onFail();
-                        Reset();
-                        return;
-                    }
+        sendButton.setOnClickListener(view -> {
+            for (DragDropZone zone : dragDropGame.zones) {
+                if (!zone.IsMatchedRight()) {
+                    onFail();
+                    Reset();
+                    return;
                 }
-                Reset();
-                onSuccess();
             }
+            Reset();
+            onSuccess();
         });
     }
 
@@ -198,11 +195,9 @@ public class GameActivity_DragDrop extends GameActivity_Base {
             int action = event.getAction();
             switch (action) {
                 case DragEvent.ACTION_DRAG_STARTED:
-                    // do nothing
-                    break;
                 case DragEvent.ACTION_DRAG_ENTERED:
-                    break;
                 case DragEvent.ACTION_DRAG_EXITED:
+                    // do nothing
                     break;
                 case DragEvent.ACTION_DROP:
                     // Dropped, reassign View to ViewGroup
