@@ -1,5 +1,8 @@
 package de.lmu.treeapp.activities;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,6 +23,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -56,7 +60,8 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wanted_poster_details);
 
-        tree = DataManager.getInstance(getApplicationContext()).GetTree(getIntent().getExtras().getInt("TreeId"));
+        //gets the tree and treeProfile data from DataManager, which gets the data from room database and app startup
+        tree = DataManager.getInstance(getApplicationContext()).GetTree(Objects.requireNonNull(getIntent().getExtras()).getInt("TreeId"));
         treeProfile = DataManager.getInstance(getApplicationContext()).GetTreeProfile(tree.profileId);
 
         RecyclerView recyclerView = findViewById(R.id.wanted_poster_recycler_view);
@@ -83,10 +88,41 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         // ViewPage2
         viewPager2 = findViewById(R.id.viewPagerImageSlider);
         List<SliderItem> sliderItems = new ArrayList<>();
-        sliderItems.add(new SliderItem(R.drawable.ic_ahorn_frucht)); // TODO: photos of smartphone gallery should be taken instead of predefined images ;)
-        sliderItems.add(new SliderItem(R.drawable.ic_ahorn_blatt));
-        sliderItems.add(new SliderItem(R.drawable.ic_ahorn_baum));
 
+        /*
+         * Check here if user has taken pics of the tree components (game GameActivity_TakePicture)
+         * If user has taken picture, the path is saved in the room database. Get the path and
+         * convert them to a drawable and set it to the sliderItem. If user has not taken a pic of
+         * the tree component, a graphical image is set.
+         */
+        if (!tree.changeable.imageFruitTaken.equals("")) {
+            Drawable d = setImage(tree.changeable.imageFruitTaken);
+            sliderItems.add(new SliderItem(null, d));
+        } else {
+            sliderItems.add(new SliderItem(getApplicationContext().getResources().
+                    getIdentifier(tree.imageFruit, "drawable",
+                            getApplicationContext().getPackageName()), null));
+        }
+        if (!tree.changeable.imageLeafTaken.equals("")) {
+            Drawable d = setImage(tree.changeable.imageLeafTaken);
+            sliderItems.add(new SliderItem(null, d));
+        } else {
+            sliderItems.add(new SliderItem(getApplicationContext().getResources()
+                    .getIdentifier(tree.imageLeaf, "drawable",
+                            getApplicationContext().getPackageName()), null));
+        }
+        if (!tree.changeable.imageTrunkTaken.equals("")) {
+            Drawable d = setImage(tree.changeable.imageTrunkTaken);
+            sliderItems.add(new SliderItem(null, d));
+        } else {
+            sliderItems.add(new SliderItem(getApplicationContext().getResources()
+                    .getIdentifier(tree.imageTrunk, "drawable",
+                            getApplicationContext().getPackageName()), null));
+        }
+        if (!tree.changeable.imageTreeTaken.equals("")) {
+            Drawable d = setImage(tree.changeable.imageTreeTaken);
+            sliderItems.add(new SliderItem(null, d));
+        }
         viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
         viewPager2.setClipToPadding(false);
         viewPager2.setClipChildren(false);
@@ -108,7 +144,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 sliderHandler.removeCallbacks(sliderRunnable);
-                sliderHandler.postDelayed(sliderRunnable, 3000); // Slide duration 3 sec
+                sliderHandler.postDelayed(sliderRunnable, 5000); // Slide duration 5 sec
             }
         });
     }
@@ -170,10 +206,18 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         return wantedPosterCards;
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        finish();
-        return true;
+    /**
+     * Gets the imagePath from room database of this tree component and return a drawable image
+     * of this tree component.
+     *
+     * @param imagePath String of the image-name (coming from room database, when user have taken
+     *                  pic of the tree)
+     * @return A Drawable of the image
+     */
+    private BitmapDrawable setImage(String imagePath) {
+        File imgFile = new File(imagePath);
+        Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+        return new BitmapDrawable(getResources(), myBitmap);
     }
 
     /**
@@ -192,6 +236,12 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         return FileProvider.getUriForFile(this,
                 "de.lmu.treeapp.fileprovider",
                 mediaFile);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     // Slideshow paused if App is minimized

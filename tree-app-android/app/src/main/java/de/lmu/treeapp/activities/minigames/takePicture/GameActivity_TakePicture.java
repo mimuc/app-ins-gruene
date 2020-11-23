@@ -29,6 +29,7 @@ import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Objects;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
@@ -102,13 +103,14 @@ public class GameActivity_TakePicture extends GameActivity_Base {
     }
 
     private File createImageFile() throws IOException {
-        String imageFileName = "AppInsGruene_" + takePictureGame.GetPictureName();
+        String imageFileName = "AppInsGruene_" + takePictureGame.GetPictureName() + "_" +
+                Objects.requireNonNull(getIntent().getExtras()).getInt("TreeId") + "_" + Objects.requireNonNull(getIntent().getExtras()).get("Category");
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = new File(storageDir + File.separator + imageFileName + ".jpg");
         if (!image.exists()) {
-            image.createNewFile();
+            boolean success = image.createNewFile();
+            currentPhotoPath = success ? image.getAbsolutePath() : null;
         }
-        currentPhotoPath = image.getAbsolutePath();
         return image;
     }
 
@@ -172,16 +174,17 @@ public class GameActivity_TakePicture extends GameActivity_Base {
         ViewCompat.animate(btnWiki).setStartDelay(300).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
         //close the popup and open the tree profile
-        btnWiki.setOnClickListener(v -> {
+        btnWiki.setOnClickListener(view -> {
             popupWindow.dismiss();
             finish();
-            showTreeProfile();
+            showTreeProfile(currentPhotoPath, true);
         });
 
         //close the popup and finish the game
-        btnAccept.setOnClickListener(v -> {
+        btnAccept.setOnClickListener(view -> {
             popupWindow.dismiss();
             onSuccess();
+            showTreeProfile(currentPhotoPath, false);
         });
 
         popupWindow.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

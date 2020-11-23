@@ -92,10 +92,14 @@ public class GameActivity_Base extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void showTreeProfile() {
-        Intent intent = new Intent(getApplicationContext(), WantedPosterDetailsActivity.class);
-        intent.putExtra("TreeId", treeId);
-        startActivity(intent);
+    public void showTreeProfile(String picPath, boolean toWantedPoster) {
+        DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid, parentTree);
+        DataManager.getInstance(getApplicationContext()).TakeTreePicture(picPath, parentCategory, parentTree);
+        if (toWantedPoster) {
+            Intent intent = new Intent(getApplicationContext(), WantedPosterDetailsActivity.class);
+            intent.putExtra("TreeId", treeId);
+            startActivity(intent);
+        }
     }
 
     protected void onFail() {

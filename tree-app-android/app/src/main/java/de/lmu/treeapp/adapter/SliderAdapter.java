@@ -51,7 +51,7 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
         return sliderItems.size();
     }
 
-    class SliderViewHolder extends RecyclerView.ViewHolder {
+    static class SliderViewHolder extends RecyclerView.ViewHolder {
 
         private final RoundedImageView imageView;
 
@@ -61,7 +61,11 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
         }
 
         void setImage(SliderItem sliderItem) {
-            imageView.setImageResource(sliderItem.getImage()); // setImageURI
+            if (sliderItem.getDrawable() != null) {
+                imageView.setImageDrawable(sliderItem.getDrawable());
+            } else {
+                imageView.setImageResource(sliderItem.getImage()); // setImageURI
+            }
         }
     }
 
