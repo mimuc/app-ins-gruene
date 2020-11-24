@@ -1,31 +1,45 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/forest</item>
+        <item name="colorPrimaryVariant">@color/darkForest</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">@color/trunk</item>
+        <item name="colorSecondaryVariant">@color/darkTrunk</item>
+        <item name="colorOnSecondary">@android:color/black</item>
+
         <item name="actionBarStyle">@style/WhiteActionbarStyle</item>
         <item name="actionBarTheme">@style/WhiteActionbarTheme</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/light</item>
-        <item name="colorControlHighlight">@color/colorPrimaryRipple</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="toolbarStyle">@style/WhiteToolbarStyle</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:statusBarColor">?attr/colorSurface</item>
         <item name="android:textSize">18dp</item>
         <item name="android:fontFamily">@font/freude</item>
         <item name="android:windowAnimationStyle">@null</item>
+
+        <!-- deprecated: prefer MDC "on" attrs or use defaults -->
+        <item name="colorControlHighlight">@color/colorPrimaryRipple</item>
     </style>
 
-    <style name="WhiteActionbarStyle" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="background">@color/light</item>
-        <item name="titleTextStyle">@style/WhiteActionbarTitle</item>
-        <item name="android:windowAnimationStyle">@null</item>
+    <!-- Background of Actionbar -->
+    <style name="WhiteActionbarStyle" parent="@style/Widget.MaterialComponents.Light.ActionBar.Solid">
+        <item name="background">?attr/colorSurface</item>
     </style>
 
-    <style name="WhiteActionbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <!-- Icon Color of Actionbar -->
+    <style name="WhiteActionbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <item name="colorControlNormal">@color/asphalt</item>
-        <item name="android:windowAnimationStyle">@null</item>
     </style>
 
-    <style name="WhiteActionbarTitle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/asphalt</item>
-        <item name="android:windowAnimationStyle">@null</item>
+    <!-- TextColor of Actionbar / Toolbar -->
+    <style name="WhiteToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
+        <item name="titleTextColor">@color/asphalt</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="backgroundTint">?attr/colorSurface</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.App.DefaultComponent</item>
     </style>
 
 </resources>

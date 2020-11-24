@@ -11,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/tab_bar_content_height" />
 
-    <com.google.android.material.appbar.MaterialToolbar
+    <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottom_app_bar_height"
         android:layout_gravity="bottom"
-        android:backgroundTint="@color/white"
-        app:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="?attr/colorSurface"
+        app:backgroundTint="?attr/colorPrimary"
         app:fabAlignmentMode="center" />
 
     <FrameLayout

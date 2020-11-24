@@ -40,7 +40,7 @@ public class GameActivity_DragDrop extends GameActivity_Base {
         layout = findViewById(R.id.cl);
         layout.setOnDragListener(new FreeDropListener());
 
-        zoneNormalColor = getResources().getColor(R.color.white);
+        zoneNormalColor = getResources().getColor(android.R.color.white);
         zoneDroppableColor = getResources().getColor(R.color.droppable);
 
         ImageView contentBox = findViewById(R.id.game_dragdrop_content);
@@ -148,7 +148,7 @@ public class GameActivity_DragDrop extends GameActivity_Base {
 
     class DropZoneListener implements View.OnDragListener {
         //Drawable enterShape = getResources().getDrawable(R.drawable.ic_completed);
-        //Drawable normalShape = getResources().getDrawable(R.drawable.button_background);
+        //Drawable normalShape = getResources().getDrawable(R.drawable.button_background); // use other drawable than button_background (means a white background)
 
         @Override
         public boolean onDrag(View v, DragEvent event) {
