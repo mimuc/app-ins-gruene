@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/tab_bar_content_height" />
 
-    <com.google.android.material.bottomappbar.BottomAppBar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottom_app_bar_height"
