@@ -23,7 +23,7 @@
         android:id="@+id/tree_selection_dots_indicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:dot_tint="@color/colorPrimaryDark"
+        app:dot_tint="?attr/colorPrimaryVariant"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tree_selection_view_pager" />
