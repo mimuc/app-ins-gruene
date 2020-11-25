@@ -30,6 +30,7 @@ public class GameActivity_DragDrop extends GameActivity_Base {
 
     private int zoneNormalColor = 0;
     private int zoneDroppableColor = 0;
+    private int zoneFalseColor = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class GameActivity_DragDrop extends GameActivity_Base {
 
         zoneNormalColor = getResources().getColor(R.color.white);
         zoneDroppableColor = getResources().getColor(R.color.droppable);
+        zoneFalseColor = getResources().getColor(R.color.falseDrop); // color for false assignment
 
         ImageView contentBox = findViewById(R.id.game_dragdrop_content);
         int backgroundImage = getResources().getIdentifier(dragDropGame.image, "drawable", getPackageName());
@@ -52,7 +54,7 @@ public class GameActivity_DragDrop extends GameActivity_Base {
             ImageView iv = new ImageView(this);
             int imageId = getResources().getIdentifier(item.content, "drawable", getPackageName());
             iv.setImageResource(imageId);
-            iv.setTag(item.match);
+            iv.setTag(item.id);
 
             SetItemStartPosition(iv, item);
             itemViews.add(iv);
@@ -73,7 +75,7 @@ public class GameActivity_DragDrop extends GameActivity_Base {
             lp.horizontalBias = zone.x;
             lp.verticalBias = zone.y;
 
-            ll.setTag(zone.match);
+            ll.setTag(zone.id);
             ll.setLayoutParams(lp);
             layout.addView(ll);
 
@@ -84,7 +86,7 @@ public class GameActivity_DragDrop extends GameActivity_Base {
 
         sendButton.setOnClickListener(view -> {
             for (DragDropZone zone : dragDropGame.zones) {
-                if (!zone.IsMatchedRight()) {
+                if (!zone.valideMatch) {
                     onFail();
                     Reset();
                     return;
@@ -163,7 +165,14 @@ public class GameActivity_DragDrop extends GameActivity_Base {
                     // do nothing
                     break;
                 case DragEvent.ACTION_DRAG_ENTERED:
-                    v.setBackgroundColor(zoneDroppableColor);
+                    zone.setValideMatch(zone.match == item.match);
+
+                    if(zone.valideMatch) {
+                        v.setBackgroundColor(zoneDroppableColor);
+                    } else {
+                        v.setBackgroundColor(zoneFalseColor);
+                    }
+
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
                     zone.currentItem = null;
