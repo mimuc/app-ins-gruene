@@ -7,7 +7,6 @@
     android:id="@+id/cl"
     tools:context="de.lmu.treeapp.activities.minigames.dragDrop.GameActivity_DragDrop">
 
-
     <TextView
         android:id="@+id/game_description"
         android:layout_width="319dp"
@@ -23,7 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.055" />
-
 
     <ImageView
         android:id="@+id/game_dragdrop_content"
@@ -45,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/button_background"
+        style="@style/AppTheme.Button"
         android:elevation="4dp"
         android:fontFamily="@font/freude"
         android:paddingTop="8dp"
@@ -53,7 +51,6 @@
         android:stateListAnimator="@null"
         android:text="Fertig!"
         android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
-        android:textColor="@color/forest"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,6 +58,5 @@
         app:layout_constraintTop_toBottomOf="@+id/game_dragdrop_content"
         app:layout_constraintVertical_bias="0.8"
         app:layout_constraintWidth_percent="0.6" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

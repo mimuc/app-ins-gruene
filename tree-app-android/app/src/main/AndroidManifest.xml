@@ -97,7 +97,7 @@
         </activity>
         <activity
             android:name=".activities.BarcodeCaptureActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity android:name=".activities.WantedPosterDetailsActivity" />
 
         <provider
