@@ -178,7 +178,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
     }
 
     private void MultiplayerLastCard() {
-        tvMpTitle.setTextColor(getResources().getColor(R.color.colorPrimary));
+        tvMpTitle.setTextColor(getResources().getColor(R.color.forest));
         Integer[] maxIndices;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             // Get the indices of the players, which had the max score.
