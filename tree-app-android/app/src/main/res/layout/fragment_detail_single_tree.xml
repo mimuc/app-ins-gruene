@@ -268,7 +268,7 @@
 
         <Button
             android:id="@+id/detail_single_tree_profileButton"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="2dp"
