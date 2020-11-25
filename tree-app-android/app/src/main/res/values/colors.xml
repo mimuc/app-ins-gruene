@@ -19,4 +19,5 @@
     <color name="mediumGrey">#E0E0E0</color>
     <color name="darkerGrey">#9F9F9F</color>
     <color name="droppable">#DDFDBD</color>
+    <color name="falseDrop">#F6A6A6</color> <!-- color for false assignment in drag and drop games -->
 </resources>

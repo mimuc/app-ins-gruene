@@ -6,6 +6,7 @@ public class DragDropItem {
         text, image
     }
 
+    public int id;
     public Types type = Types.text;
     public String content;
     public int match = -1;
