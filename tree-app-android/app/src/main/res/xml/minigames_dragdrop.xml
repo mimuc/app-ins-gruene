@@ -9,6 +9,7 @@
             <layout></layout>
             <dragItems>
                 <dragItem>
+                    <dragItem_id>0</dragItem_id>
                     <dragItem_type>Image</dragItem_type>
                     <dragItem_content>ic_ahorn_blatt</dragItem_content>
                     <dragItem_x>0</dragItem_x>
@@ -18,6 +19,7 @@
                     <dragItem_match>0</dragItem_match>
                 </dragItem>
                 <dragItem>
+                    <dragItem_id>1</dragItem_id>
                     <dragItem_type>Image</dragItem_type>
                     <dragItem_content>ic_ahorn_stamm</dragItem_content>
                     <dragItem_x>1</dragItem_x>
@@ -27,17 +29,19 @@
                     <dragItem_match>1</dragItem_match>
                 </dragItem>
                 <dragItem>
+                    <dragItem_id>2</dragItem_id>
                     <dragItem_type>Image</dragItem_type>
                     <dragItem_content>ic_ahorn_frucht</dragItem_content>
                     <dragItem_x>0.5</dragItem_x>
                     <dragItem_y>0</dragItem_y>
                     <dragItem_w>200</dragItem_w>
                     <dragItem_h>200</dragItem_h>
-                    <dragItem_match>2</dragItem_match>
+                    <dragItem_match>0</dragItem_match>
                 </dragItem>
             </dragItems>
             <dropItems>
                 <dropItem>
+                    <dropItem_id>0</dropItem_id>
                     <dropItem_x>0.6</dropItem_x>
                     <dropItem_y>0.25</dropItem_y>
                     <dropItem_content>button_background</dropItem_content>
@@ -46,6 +50,7 @@
                     <dropItem_match>0</dropItem_match>
                 </dropItem>
                 <dropItem>
+                    <dropItem_id>1</dropItem_id>
                     <dropItem_x>0.5</dropItem_x>
                     <dropItem_y>0.75</dropItem_y>
                     <dropItem_content>button_background</dropItem_content>
@@ -54,12 +59,13 @@
                     <dropItem_match>1</dropItem_match>
                 </dropItem>
                 <dropItem>
+                    <dropItem_id>2</dropItem_id>
                     <dropItem_x>0.2</dropItem_x>
                     <dropItem_y>0.4</dropItem_y>
                     <dropItem_content>button_background</dropItem_content>
                     <dropItem_w>200</dropItem_w>
                     <dropItem_h>200</dropItem_h>
-                    <dropItem_match>2</dropItem_match>
+                    <dropItem_match>0</dropItem_match>
                 </dropItem>
             </dropItems>
         </minigame_dragDrop>

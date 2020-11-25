@@ -191,7 +191,7 @@ public class miniGameParser {
     private DragDropItem dragDropItem;
     private DragDropZone dragDropZone;
 
-    public void parse_DragDrop(XmlPullParser parser, int prefix) {
+    public void parse_DragDrop(XmlPullParser parser, int prefix) {  // prefix 400
         try {
             int eventType = parser.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
@@ -225,6 +225,8 @@ public class miniGameParser {
                             miniGameDragDrop.image = text;
                         } else if (tagName.equalsIgnoreCase("layout")) {
                             miniGameDragDrop.layout = text;
+                        } else if (tagName.equalsIgnoreCase("dragItem_id")) {
+                            dragDropItem.id = Integer.parseInt(text);
                         } else if (tagName.equalsIgnoreCase("dragItem_type")) {
                             dragDropItem.SetType(text);
                         } else if (tagName.equalsIgnoreCase("dragItem_content")) {
@@ -239,6 +241,8 @@ public class miniGameParser {
                             dragDropItem.w = Integer.parseInt(text);
                         } else if (tagName.equalsIgnoreCase("dragItem_h")) {
                             dragDropItem.h = Integer.parseInt(text);
+                        } else if (tagName.equalsIgnoreCase("dropItem_id")) {
+                            dragDropZone.id = Integer.parseInt(text);
                         } else if (tagName.equalsIgnoreCase("dropItem_match")) {
                             dragDropZone.match = Integer.parseInt(text);
                         } else if (tagName.equalsIgnoreCase("dropItem_content")) {
