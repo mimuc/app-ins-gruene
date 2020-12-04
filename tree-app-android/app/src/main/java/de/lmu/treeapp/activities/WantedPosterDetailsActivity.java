@@ -32,8 +32,8 @@ import de.lmu.treeapp.adapter.SliderAdapter;
 import de.lmu.treeapp.adapter.WantedPosterCardAdapter;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.TreeProfile;
-import de.lmu.treeapp.contentClasses.trees.TreeProfileCard;
 import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.contentData.database.entities.content.TreeProfileCard;
 import de.lmu.treeapp.fragments.WantedPosterCard;
 
 /**
@@ -62,7 +62,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
 
         //gets the tree and treeProfile data from DataManager, which gets the data from room database and app startup
         tree = DataManager.getInstance(getApplicationContext()).GetTree(Objects.requireNonNull(getIntent().getExtras()).getInt("TreeId"));
-        treeProfile = DataManager.getInstance(getApplicationContext()).GetTreeProfile(tree.profileId);
+        treeProfile = DataManager.getInstance(getApplicationContext()).GetTreeProfile(tree.getId());
 
         RecyclerView recyclerView = findViewById(R.id.wanted_poster_recycler_view);
         WantedPosterCardAdapter adapter = new WantedPosterCardAdapter(getCards());
@@ -84,7 +84,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
             //set the title of the wanted poster( for example: 'Steckbrief Ahorn')
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             String titlePre = getResources().getString(R.string.wanted_poster_details_title_text);
-            getSupportActionBar().setTitle(titlePre + " " + tree.name);
+            getSupportActionBar().setTitle(titlePre + " " + tree.getName());
         }
 
         // ViewPage2
@@ -97,32 +97,32 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
          * convert them to a drawable and set it to the sliderItem. If user has not taken a pic of
          * the tree component, a graphical image is set.
          */
-        if (!tree.changeable.imageFruitTaken.equals("")) {
-            Drawable d = setImage(tree.changeable.imageFruitTaken);
+        if (!tree.appData.imageFruitTaken.equals("")) {
+            Drawable d = setImage(tree.appData.imageFruitTaken);
             sliderItems.add(new SliderItem(null, d));
         } else {
             sliderItems.add(new SliderItem(getApplicationContext().getResources().
                     getIdentifier(tree.imageFruit, "drawable",
                             getApplicationContext().getPackageName()), null));
         }
-        if (!tree.changeable.imageLeafTaken.equals("")) {
-            Drawable d = setImage(tree.changeable.imageLeafTaken);
+        if (!tree.appData.imageLeafTaken.equals("")) {
+            Drawable d = setImage(tree.appData.imageLeafTaken);
             sliderItems.add(new SliderItem(null, d));
         } else {
             sliderItems.add(new SliderItem(getApplicationContext().getResources()
                     .getIdentifier(tree.imageLeaf, "drawable",
                             getApplicationContext().getPackageName()), null));
         }
-        if (!tree.changeable.imageTrunkTaken.equals("")) {
-            Drawable d = setImage(tree.changeable.imageTrunkTaken);
+        if (!tree.appData.imageTrunkTaken.equals("")) {
+            Drawable d = setImage(tree.appData.imageTrunkTaken);
             sliderItems.add(new SliderItem(null, d));
         } else {
             sliderItems.add(new SliderItem(getApplicationContext().getResources()
                     .getIdentifier(tree.imageTrunk, "drawable",
                             getApplicationContext().getPackageName()), null));
         }
-        if (!tree.changeable.imageTreeTaken.equals("")) {
-            Drawable d = setImage(tree.changeable.imageTreeTaken);
+        if (!tree.appData.imageTreeTaken.equals("")) {
+            Drawable d = setImage(tree.appData.imageTreeTaken);
             sliderItems.add(new SliderItem(null, d));
         }
         viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));

@@ -5,9 +5,13 @@ import androidx.room.TypeConverter;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
+import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerOption;
+import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.contentClasses.trees.TreeComponent;
+
 
 public class TypeConversion {
-
 
     @TypeConverter
     public static List<Integer> intListFromString(String value) {
@@ -75,5 +79,49 @@ public class TypeConversion {
             stringVal.append(" ");
         }
         return stringVal.toString();
+    }
+
+    @TypeConverter
+    public static Tree.GameCategories gameCategoryFromString(String category) {
+        if (category == null) return Tree.GameCategories.none;
+        return Tree.GameCategories.valueOf(category.toLowerCase());
+    }
+
+    @TypeConverter
+    public static String gameCategoryToString(Tree.GameCategories category) {
+        return category.name();
+    }
+
+    @TypeConverter
+    public static TreeComponent treeComponentFromString(String component) {
+        if (component == null) return TreeComponent.OTHER;
+        return TreeComponent.valueOf(component.toUpperCase());
+    }
+
+    @TypeConverter
+    public static String treeComponentToString(TreeComponent component) {
+        return component.name();
+    }
+
+    @TypeConverter
+    public static GameChooseAnswerOption.OptionTypes answerOptionTypeFromString(String optionType) {
+        if (optionType == null) return GameChooseAnswerOption.OptionTypes.TEXT;
+        return GameChooseAnswerOption.OptionTypes.valueOf(optionType.toUpperCase());
+    }
+
+    @TypeConverter
+    public static String answerOptionTypeToString(GameChooseAnswerOption.OptionTypes optionType) {
+        return optionType.name();
+    }
+
+    @TypeConverter
+    public static Minigame_Base.MinigameTypes gameTypeFromString(String optionType) {
+        if (optionType == null) return Minigame_Base.MinigameTypes.Undefined;
+        return Minigame_Base.MinigameTypes.valueOf(optionType.toUpperCase());
+    }
+
+    @TypeConverter
+    public static String gameTypeToString(Minigame_Base.MinigameTypes optionType) {
+        return optionType.name();
     }
 }

@@ -1,11 +1,11 @@
-package de.lmu.treeapp.contentData.database.daos;
+package de.lmu.treeapp.contentData.database.daos.app;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import de.lmu.treeapp.contentData.database.entities.PlayerModel;
+import de.lmu.treeapp.contentData.database.entities.app.PlayerModel;
 
 @Dao
 public interface PlayerDao {

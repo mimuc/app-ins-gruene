@@ -56,7 +56,7 @@ public class DetailSingleTreeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        this.tree = DataManager.getInstance(getContext()).GetTree(tree.uid);
+        this.tree = DataManager.getInstance(getContext()).GetTree(tree.getId());
         this.updateTreeView();
     }
 
@@ -75,7 +75,7 @@ public class DetailSingleTreeFragment extends Fragment {
     }
 
     private void setupSingleTreeContent() {
-        treeName.setText(tree.name);
+        treeName.setText(tree.getName());
 
         if (getContext() != null) {
             this.setupImageResources();
@@ -107,7 +107,7 @@ public class DetailSingleTreeFragment extends Fragment {
     private void setupOnClickListener() {
         treeProfileButton.setOnClickListener(view -> {
             Intent intent = new Intent(getContext(), WantedPosterDetailsActivity.class);
-            intent.putExtra("TreeId", tree.uid);
+            intent.putExtra("TreeId", tree.getId());
             startActivity(intent);
         });
         leafButton.setOnClickListener(this.getCategoryButtonOnClickListener(Tree.GameCategories.leaf));
@@ -119,7 +119,7 @@ public class DetailSingleTreeFragment extends Fragment {
     private Button.OnClickListener getCategoryButtonOnClickListener(final Tree.GameCategories category) {
         return v -> {
             Intent intent = new Intent(getContext(), GameSelectionActivity.class);
-            intent.putExtra("TreeId", tree.uid);
+            intent.putExtra("TreeId", tree.getId());
             intent.putExtra("Category", category);
             startActivity(intent);
         };

@@ -1,4 +1,4 @@
-package de.lmu.treeapp.contentData.database.daos;
+package de.lmu.treeapp.contentData.database.daos.app;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -8,15 +8,15 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import de.lmu.treeapp.contentData.database.entities.TreeModel;
+import de.lmu.treeapp.contentData.database.entities.app.TreeModel;
 
 @Dao
 public interface TreeDao {
 
-    @Query("SELECT * FROM treemodel")
+    @Query("SELECT * FROM TreeModel")
     List<TreeModel> getAll();
 
-    @Query("SELECT * FROM treemodel WHERE uid=:uid LIMIT 1")
+    @Query("SELECT * FROM TreeModel WHERE uid=:uid LIMIT 1")
     TreeModel getById(int uid);
 
     @Insert

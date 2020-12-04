@@ -12,39 +12,45 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.contentClasses.minigames.Minigame_ChooseAnswer;
-import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
 import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerOption;
+import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerRelations;
 
 public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapter<ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder> {
 
-    public static List<AnswerOption> options;
-    private final Minigame_ChooseAnswer game;
+    public static List<GameChooseAnswerOption> options;
+    private static int resultImageId;
+    private static String resultText;
+    private final GameChooseAnswerRelations game;
     private final Context context;
     private final Tree tree;
     private final Tree.GameCategories category;
-    private static int resultImageId;
-    private static String resultText;
-
-
-    public interface OptionClickInterface {
-        void optionClicked(AnswerOption option);
-    }
-
     private final OptionClickInterface mOnClickListener;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public final ImageButton button_img;
-        public final Button button_txt;
-
-        ViewHolder(View v) {
-            super(v);
-            button_img = v.findViewById(R.id.button_img);
-            button_txt = v.findViewById(R.id.button_txt);
-        }
+    public ChooseAnswer_Options_RecyclerViewAdapter(OptionClickInterface mOnClickListener, GameChooseAnswerRelations _game, Context _context, Tree _tree, Tree.GameCategories _category) {
+        this.mOnClickListener = mOnClickListener;
+        options = _game.getOptions();
+        this.game = _game;
+        this.context = _context;
+        this.tree = _tree;
+        this.category = _category;
     }
 
-    public void add(int position, AnswerOption item) {
+    public static GameChooseAnswerOption findResult(List<GameChooseAnswerOption> options) {
+        for (GameChooseAnswerOption option : options) {
+            if (option.isRight) {
+                return option;
+            }
+        }
+        return null;
+    }
+
+    public static boolean isImage(List<GameChooseAnswerOption> options) {
+        GameChooseAnswerOption option = options.get(0);
+        return option.optionType == GameChooseAnswerOption.OptionTypes.IMAGE;
+    }
+
+    public void add(int position, GameChooseAnswerOption item) {
         options.add(position, item);
         notifyItemInserted(position);
     }
@@ -52,29 +58,6 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
     public void remove(int position) {
         options.remove(position);
         notifyItemRemoved(position);
-    }
-
-    public static AnswerOption findResult(List<AnswerOption> options) {
-        for (AnswerOption option : options) {
-            if (option.right) {
-                return option;
-            }
-        }
-        return null;
-    }
-
-    public static boolean isImage(List<AnswerOption> options) {
-        AnswerOption option = options.get(0);
-        return option.type == AnswerOption.OptionTypes.image;
-    }
-
-    public ChooseAnswer_Options_RecyclerViewAdapter(OptionClickInterface mOnClickListener, Minigame_ChooseAnswer _game, Context _context, Tree _tree, Tree.GameCategories _category) {
-        this.mOnClickListener = mOnClickListener;
-        options = _game.options;
-        this.game = _game;
-        this.context = _context;
-        this.tree = _tree;
-        this.category = _category;
     }
 
     @Override
@@ -90,20 +73,20 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
 
     @Override
     public void onBindViewHolder(ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder holder, final int position) {
-        final AnswerOption option = options.get(position);
+        final GameChooseAnswerOption option = options.get(position);
 
-        if (option.type == AnswerOption.OptionTypes.text) {
+        if (option.optionType == GameChooseAnswerOption.OptionTypes.TEXT) {
             holder.button_txt.setVisibility(View.VISIBLE);
             holder.button_txt.setText(option.content);
-            if (option.right) {
+            if (option.isRight) {
                 resultText = holder.button_txt.getText().toString();
                 GameActivity_ChooseAnswer.resultText = resultText;
             }
-        } else if (option.type == AnswerOption.OptionTypes.image) {
+        } else if (option.optionType == GameChooseAnswerOption.OptionTypes.IMAGE) {
             holder.button_img.setVisibility(View.VISIBLE);
             int imageId = context.getResources().getIdentifier(option.content, "drawable", context.getPackageName());
 
-            if (option.right) {
+            if (option.isRight) {
                 resultImageId = imageId;
                 GameActivity_ChooseAnswer.resultImage = resultImageId;
             }
@@ -118,5 +101,20 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
     @Override
     public int getItemCount() {
         return options.size();
+    }
+
+    public interface OptionClickInterface {
+        void optionClicked(GameChooseAnswerOption option);
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public final ImageButton button_img;
+        public final Button button_txt;
+
+        ViewHolder(View v) {
+            super(v);
+            button_img = v.findViewById(R.id.button_img);
+            button_txt = v.findViewById(R.id.button_txt);
+        }
     }
 }
