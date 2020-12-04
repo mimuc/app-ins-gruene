@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,7 +34,7 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
     private final OptionClickInterface mOnClickListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public final Button button_img;
+        public final ImageButton button_img;
         public final Button button_txt;
 
         ViewHolder(View v) {
@@ -107,7 +108,6 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
                 GameActivity_ChooseAnswer.resultImage = resultImageId;
             }
             holder.button_img.setBackgroundResource(imageId);
-            holder.button_img.setText("");
         }
 
         holder.button_img.setOnClickListener(arg0 -> mOnClickListener.optionClicked(option));
