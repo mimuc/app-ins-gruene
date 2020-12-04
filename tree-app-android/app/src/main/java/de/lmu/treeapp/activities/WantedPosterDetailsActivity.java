@@ -70,11 +70,13 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         StringBuilder content = new StringBuilder();
-        for (int i = 0; i < treeProfile.cards.size(); i++) {
-            TreeProfileCard card = treeProfile.cards.get(i);
-            if (card.unlockedBy == Tree.GameCategories.none || tree.GetGameProgressionPercent(card.unlockedBy) > 90) {
-                content.append(card.name).append("\n");
-                content.append(card.content).append("\n");
+        if (treeProfile != null && treeProfile.cards != null) {
+            for (int i = 0; i < treeProfile.cards.size(); i++) {
+                TreeProfileCard card = treeProfile.cards.get(i);
+                if (card.unlockedBy == Tree.GameCategories.none || tree.GetGameProgressionPercent(card.unlockedBy) > 90) {
+                    content.append(card.name).append("\n");
+                    content.append(card.content).append("\n");
+                }
             }
         }
 
@@ -182,25 +184,27 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
     private List<WantedPosterCard> getCards() {
         List<WantedPosterCard> wantedPosterCards = new ArrayList<>();
 
-        for (int i = 0; i < treeProfile.cards.size(); i++) {
-            TreeProfileCard card = treeProfile.cards.get(i);
-            boolean unlocked = card.unlockedBy == Tree.GameCategories.none || tree.GetGameProgressionPercent(card.unlockedBy) > 90;
-            int drawableId = getApplicationContext().getResources().getIdentifier(card.image, "drawable", getApplicationContext().getPackageName());
-            Drawable image = getDrawable(drawableId);
+        if (treeProfile != null && treeProfile.cards != null) {
+            for (int i = 0; i < treeProfile.cards.size(); i++) {
+                TreeProfileCard card = treeProfile.cards.get(i);
+                boolean unlocked = card.unlockedBy == Tree.GameCategories.none || tree.GetGameProgressionPercent(card.unlockedBy) > 90;
+                int drawableId = getApplicationContext().getResources().getIdentifier(card.image, "drawable", getApplicationContext().getPackageName());
+                Drawable image = getDrawable(drawableId);
 
-            Uri imageUri = null;
-            if (!card.picture.equalsIgnoreCase("")) {
-                imageUri = getImageUri(card.picture);
+                Uri imageUri = null;
+                if (!card.picture.equalsIgnoreCase("")) {
+                    imageUri = getImageUri(card.picture);
+                }
+
+                WantedPosterCard posterCard = new WantedPosterCard(unlocked,
+                        card.name,
+                        image,
+                        card.content,
+                        imageUri,
+                        getBaseContext());
+
+                wantedPosterCards.add(posterCard);
             }
-
-            WantedPosterCard posterCard = new WantedPosterCard(unlocked,
-                    card.name,
-                    image,
-                    card.content,
-                    imageUri,
-                    getBaseContext());
-
-            wantedPosterCards.add(posterCard);
         }
 
         return wantedPosterCards;
