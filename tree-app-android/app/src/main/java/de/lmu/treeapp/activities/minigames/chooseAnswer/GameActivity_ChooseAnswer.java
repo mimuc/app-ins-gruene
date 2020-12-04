@@ -20,21 +20,21 @@ import java.util.ArrayList;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
-import de.lmu.treeapp.contentClasses.minigames.Minigame_ChooseAnswer;
-import de.lmu.treeapp.contentClasses.minigames.components.AnswerOption;
+import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerOption;
+import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerRelations;
 
 public class GameActivity_ChooseAnswer extends GameActivity_Base implements ChooseAnswer_Options_RecyclerViewAdapter.OptionClickInterface {
 
+    public static int current;
+    public static ArrayList<Integer> quizIDs = new ArrayList<>();
+    protected static String resultText;
+    protected static int resultImage;
     RecyclerView optionsRecyclerView;
     Dialog popupWindow;
     Button btnAccept;
     TextView popupTitle, popupText, popup_result_text;
     ImageView popup_result_image;
-    protected static String resultText;
-    protected static int resultImage;
-    public static int current;
     private int showAnswer = 0;
-    public static ArrayList<Integer> quizIDs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         //RecyclerView.LayoutManager recyclerViewLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         //optionsRecyclerView.setLayoutManager(recyclerViewLayoutManager);
 
-        RecyclerView.Adapter recyclerViewAdapter = new ChooseAnswer_Options_RecyclerViewAdapter(this, (Minigame_ChooseAnswer) gameContent, getApplicationContext(), parentTree, parentCategory);
+        RecyclerView.Adapter recyclerViewAdapter = new ChooseAnswer_Options_RecyclerViewAdapter(this, (GameChooseAnswerRelations) gameContent, getApplicationContext(), parentTree, parentCategory);
         optionsRecyclerView.setAdapter(recyclerViewAdapter);
     }
 
@@ -66,10 +66,10 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
     }
 
     @Override
-    public void optionClicked(AnswerOption option) {
+    public void optionClicked(GameChooseAnswerOption option) {
         //quizIDs.add(gameContent.uid);
 
-        if (option.right) {
+        if (option.isRight) {
             showPositivePopup();
         } else {
             showAnswer++;
@@ -92,7 +92,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
 
         //close the popup to repeat the question or finish the game and go back to the overview
         btnAccept.setOnClickListener(v -> {
-            quizIDs.add(gameContent.uid);
+            quizIDs.add(gameContent.getId());
             if (current > 1) {
                 showNextQuestion();
                 current--;
@@ -110,7 +110,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
     }
 
     //create popup which gives feedback to the user's answer: the right answer is shown after 2 wrong given answers
-    private void showNegativePopup(AnswerOption option) {
+    private void showNegativePopup(GameChooseAnswerOption option) {
         popupWindow.setContentView(R.layout.popup_quiz_negative);
         btnAccept = popupWindow.findViewById(R.id.repeat_game);
         popupTitle = popupWindow.findViewById(R.id.popup_negative_title);
@@ -125,14 +125,14 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
             ViewCompat.animate(btnAccept).setStartDelay(800).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
         } else {
-            if (option.type == AnswerOption.OptionTypes.text) {
+            if (option.optionType == GameChooseAnswerOption.OptionTypes.TEXT) {
                 popup_result_text = popupWindow.findViewById(R.id.popup_answer_text);
                 popup_result_text.setText(resultText);
                 popup_result_text.setVisibility(View.VISIBLE);
 
                 ViewCompat.animate(popup_result_text).setStartDelay(600).alpha(1).setDuration(400).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
-            } else if (option.type == AnswerOption.OptionTypes.image) {
+            } else if (option.optionType == GameChooseAnswerOption.OptionTypes.IMAGE) {
                 popup_result_image = popupWindow.findViewById(R.id.popup_answer_picture);
                 popup_result_image.setBackgroundResource(resultImage);
                 popup_result_image.setVisibility(View.VISIBLE);
@@ -155,7 +155,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
             if (showAnswer < 2) {
                 popupWindow.dismiss();
             } else {
-                quizIDs.add(gameContent.uid);
+                quizIDs.add(gameContent.getId());
                 if (current > 1) {
                     showNextQuestion();
                     current--;

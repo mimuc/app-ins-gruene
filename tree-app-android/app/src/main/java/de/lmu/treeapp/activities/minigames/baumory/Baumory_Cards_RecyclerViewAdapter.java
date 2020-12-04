@@ -11,18 +11,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.contentClasses.minigames.components.BaumoryCard;
+import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryCard;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 
 public class Baumory_Cards_RecyclerViewAdapter extends RecyclerView.Adapter<Baumory_Cards_RecyclerViewAdapter.ViewHolder> {
 
-    private final List<BaumoryCard> options;
+    private final List<GameBaumoryCard> options;
     private final Context context;
     private final Tree tree;
     private final Tree.GameCategories category;
 
     public interface OptionClickInterface {
-        void optionClicked(BaumoryCard option, ViewHolder holder);
+        void optionClicked(GameBaumoryCard option, ViewHolder holder);
     }
 
     private final OptionClickInterface mOnClickListener;
@@ -36,7 +36,7 @@ public class Baumory_Cards_RecyclerViewAdapter extends RecyclerView.Adapter<Baum
         }
     }
 
-    public void add(int position, BaumoryCard item) {
+    public void add(int position, GameBaumoryCard item) {
         options.add(position, item);
         notifyItemInserted(position);
     }
@@ -46,7 +46,7 @@ public class Baumory_Cards_RecyclerViewAdapter extends RecyclerView.Adapter<Baum
         notifyItemRemoved(position);
     }
 
-    public Baumory_Cards_RecyclerViewAdapter(OptionClickInterface mOnClickListener, List<BaumoryCard> _cards, Context _context, Tree _tree, Tree.GameCategories _category) {
+    public Baumory_Cards_RecyclerViewAdapter(OptionClickInterface mOnClickListener, List<GameBaumoryCard> _cards, Context _context, Tree _tree, Tree.GameCategories _category) {
         this.mOnClickListener = mOnClickListener;
         this.options = _cards;
         this.context = _context;
@@ -63,7 +63,7 @@ public class Baumory_Cards_RecyclerViewAdapter extends RecyclerView.Adapter<Baum
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        final BaumoryCard option = options.get(position);
+        final GameBaumoryCard option = options.get(position);
 
         holder.button.setImageResource(R.drawable.ic_question_big);
         holder.button.setBackgroundResource(R.drawable.dark_grey_gradient);
