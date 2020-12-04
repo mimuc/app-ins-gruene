@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         Tree tree = dm.GetTreeByQR(barcode.displayValue);
         if (tree != null) {     // If the barcode captured does correspond with a tree.
             dm.UnlockTree(tree);
-            this.showToast(tree.name);
+            this.showToast(tree.getName());
         } else                  // If the barcode captured does not correspond with any tree.
             this.showToast(String.format("%s%s", getString(R.string.main_activity_qr_code_no_tree_found_text), barcode.displayValue));
     }

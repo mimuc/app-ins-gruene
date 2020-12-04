@@ -2,22 +2,24 @@ package de.lmu.treeapp.contentData.cms;
 
 import android.content.Context;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import de.lmu.treeapp.R;
-import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
+import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.TreeProfile;
+import de.lmu.treeapp.contentData.database.ContentDatabase;
+import de.lmu.treeapp.contentData.database.entities.content.TreeProfileCard;
+import de.lmu.treeapp.contentData.database.entities.content.TreeRelations;
 
 
 public class ContentManager {
-    private static ContentManager INSTANCE;
     private static final Object sLock = new Object();
+    private static ContentManager INSTANCE;
     private Context context;
-    private List<Tree> trees;
-    private List<TreeProfile> treeProfiles;
-    private List<Minigame_Base> minigames;
-
+    private List<Tree> trees = new ArrayList<>();
+    private List<TreeProfile> treeProfiles = new ArrayList<>();
+    private List<IGameBase> minigames = new ArrayList<>();
 
     public static ContentManager getInstance(Context _context) {
         synchronized (sLock) {
@@ -32,29 +34,41 @@ public class ContentManager {
     }
 
     private void init() {
-        treeParser parser = new treeParser();
-        this.trees = parser.parse(context.getResources().getXml(R.xml.trees));
+        // Load tree (images + games)
+        List<TreeRelations> treeRelations = ContentDatabase.getInstance(context).treeDao().getAll();
+        for (TreeRelations treeRelation : treeRelations) {
+            Tree tree = new Tree();
+            tree.initContentData(treeRelation);
+            this.trees.add(tree);
+        }
 
-        treeProfileParser parser2 = new treeProfileParser();
-        this.treeProfiles = parser2.parse(context.getResources().getXml(R.xml.treeprofiles));
+        // Load tree profile
+        for (Tree tree : this.trees) {
+            List<TreeProfileCard> treeProfileCards = ContentDatabase.getInstance(context).treeProfileDao().getCardsByTreeId(tree.getId());
 
-        this.minigames = parseAllMinigames();
+            TreeProfile treeProfile = new TreeProfile();
+            treeProfile.cards = treeProfileCards;
+            this.treeProfiles.add(treeProfile);
+        }
+
+        // Load quiz & Baumory from database
+        this.minigames.addAll(ContentDatabase.getInstance(context).gameChooseAnswerDao().getAll());
+        this.minigames.addAll(ContentDatabase.getInstance(context).gameBaumoryDao().getAll());
+
+        miniGameParser parser = new miniGameParser();
+        this.minigames.addAll(parser.getMiniGames(context));
     }
 
-    private List<Minigame_Base> parseAllMinigames() {
-        miniGameParser gameParser = new miniGameParser();
-        return gameParser.getMiniGames(context);
-    }
 
     public List<Tree> getTrees() {
         return trees;
     }
 
-    public List<TreeProfile> getTreeProfiles() {
+    public List<de.lmu.treeapp.contentClasses.trees.TreeProfile> getTreeProfiles() {
         return treeProfiles;
     }
 
-    public List<Minigame_Base> getMinigames() {
+    public List<IGameBase> getMinigames() {
         return minigames;
     }
 

@@ -20,12 +20,12 @@ import java.util.stream.IntStream;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
-import de.lmu.treeapp.contentClasses.minigames.Minigame_Baumory;
-import de.lmu.treeapp.contentClasses.minigames.components.BaumoryCard;
+import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryRelations;
+import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryCard;
 
 public class GameActivity_Baumory extends GameActivity_Base implements Baumory_Cards_RecyclerViewAdapter.OptionClickInterface {
 
-    private Minigame_Baumory game;
+    private GameBaumoryRelations game;
     private RecyclerView cardsRecyclerView;
     private RecyclerView.Adapter recyclerViewAdapter;
     private ViewFlipper viewFlipper;
@@ -48,11 +48,11 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
     private final int[] mpScores = new int[playerCount];
     private final String[] mpNames = new String[playerCount];
 
-    private BaumoryCard firstCard = null;
-    private BaumoryCard secondCard = null;
+    private GameBaumoryCard firstCard = null;
+    private GameBaumoryCard secondCard = null;
     private ImageButton firstCardButton = null;
     private ImageButton secondCardButton = null;
-    private List<BaumoryCard> baumoryCards;
+    private List<GameBaumoryCard> baumoryCards;
     private List<Integer> finishedCards;
     private int maxMatches = 0;
 
@@ -116,11 +116,11 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
     }
 
     @Override
-    public void optionClicked(BaumoryCard _card, Baumory_Cards_RecyclerViewAdapter.ViewHolder _viewHolder) {
+    public void optionClicked(GameBaumoryCard _card, Baumory_Cards_RecyclerViewAdapter.ViewHolder _viewHolder) {
         if ((firstCard != null && secondCard != null) || finishedCards.contains(_card.match))
             return;
 
-        int imageId = getResources().getIdentifier(_card.content, "drawable", getPackageName());
+        int imageId = getResources().getIdentifier(_card.imageResource, "drawable", getPackageName());
         _viewHolder.button.setImageResource(imageId);
         if (firstCard == null) {
             firstCardButton = _viewHolder.button;
@@ -225,8 +225,8 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
 
     private void setupBaumoryGame() {
         finishedCards = new ArrayList<>();
-        game = (Minigame_Baumory) gameContent;
-        baumoryCards = game.cards;
+        game = (GameBaumoryRelations) gameContent;
+        baumoryCards = game.getCards();
         maxMatches = baumoryCards.size() / 2;
         Collections.shuffle(baumoryCards);
         setupCardsRecyclerView();

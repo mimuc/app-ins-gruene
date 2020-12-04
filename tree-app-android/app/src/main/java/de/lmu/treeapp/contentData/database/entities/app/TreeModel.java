@@ -1,4 +1,4 @@
-package de.lmu.treeapp.contentData.database.entities;
+package de.lmu.treeapp.contentData.database.entities.app;
 
 import androidx.room.Entity;
 import androidx.room.Ignore;

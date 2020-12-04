@@ -13,13 +13,13 @@ import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.GameSelectionActivity;
 import de.lmu.treeapp.activities.WantedPosterDetailsActivity;
 import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
-import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
+import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
 
 public class GameActivity_Base extends AppCompatActivity {
 
-    protected Minigame_Base gameContent;
+    protected IGameBase gameContent;
     protected int treeId;
     protected Tree parentTree;
     protected Tree.GameCategories parentCategory;
@@ -34,18 +34,18 @@ public class GameActivity_Base extends AppCompatActivity {
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle(gameContent.name);
+            getSupportActionBar().setTitle(gameContent.getName());
         }
 
         TextView description = findViewById(R.id.game_description);
-        description.setText(gameContent.description);
+        description.setText(gameContent.getDescription());
         super.onCreate(savedInstanceState);
     }
 
     // Remove the current activity from the stack to switch to the previous one
     @Override
     public boolean onSupportNavigateUp() {
-        if (gameContent.type.name().equalsIgnoreCase("ChooseAnswer")) {
+        if (gameContent.getType().name().equalsIgnoreCase("ChooseAnswer")) {
             GameActivity_ChooseAnswer.quizIDs.clear();
         }
         finish();
@@ -56,7 +56,7 @@ public class GameActivity_Base extends AppCompatActivity {
     // Android hardware back button is pressed
     @Override
     public void onBackPressed() {
-        if (gameContent.type.name().equalsIgnoreCase("ChooseAnswer")) {
+        if (gameContent.getType().name().equalsIgnoreCase("ChooseAnswer")) {
             GameActivity_ChooseAnswer.quizIDs.clear();
         }
         finish();
@@ -66,7 +66,7 @@ public class GameActivity_Base extends AppCompatActivity {
 
     // Save the game process and go back to the game selection activity
     protected void onSuccess() {
-        DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid, parentTree);
+        DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.getId(), parentTree);
         Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
         intent.putExtra("TreeId", treeId);
         intent.putExtra("Category", parentCategory);
@@ -93,7 +93,7 @@ public class GameActivity_Base extends AppCompatActivity {
     }
 
     public void showTreeProfile(String picPath, boolean toWantedPoster) {
-        DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.uid, parentTree);
+        DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.getId(), parentTree);
         DataManager.getInstance(getApplicationContext()).TakeTreePicture(picPath, parentCategory, parentTree);
         if (toWantedPoster) {
             Intent intent = new Intent(getApplicationContext(), WantedPosterDetailsActivity.class);
@@ -107,6 +107,6 @@ public class GameActivity_Base extends AppCompatActivity {
     }
 
     public int getNextQuizID() {
-        return DataManager.getInstance(getApplicationContext()).GetNextQuiz(gameContent.uid).uid;
+        return DataManager.getInstance(getApplicationContext()).GetNextQuiz(gameContent.getId()).getId();
     }
 }
