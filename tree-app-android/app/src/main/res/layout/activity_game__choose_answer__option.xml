@@ -5,7 +5,7 @@
     android:layout_margin="@dimen/choose_answer_option_layout_margin"
     android:id="@+id/option_frame_layout">
 
-    <Button
+    <ImageButton
         android:id="@+id/button_img"
         android:layout_width="160dp"
         android:layout_height="160dp"
