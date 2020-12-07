@@ -188,11 +188,11 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
             for (int i = 0; i < treeProfile.cards.size(); i++) {
                 TreeProfileCard card = treeProfile.cards.get(i);
                 boolean unlocked = card.unlockedBy == Tree.GameCategories.none || tree.GetGameProgressionPercent(card.unlockedBy) > 90;
-                int drawableId = getApplicationContext().getResources().getIdentifier(card.image, "drawable", getApplicationContext().getPackageName());
+                int drawableId = getApplicationContext().getResources().getIdentifier(card.imageResource, "drawable", getApplicationContext().getPackageName());
                 Drawable image = getDrawable(drawableId);
 
                 Uri imageUri = null;
-                if (!card.picture.equalsIgnoreCase("")) {
+                if (card.picture != null && !card.picture.isEmpty()) {
                     imageUri = getImageUri(card.picture);
                 }
 
