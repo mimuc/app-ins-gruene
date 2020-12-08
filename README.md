@@ -35,13 +35,25 @@ git clone https://gitlab.lrz.de/lmu-design-workshop/tree-app-android.git
 
 You may want to use the Version-Control-System (VCS) [of IntelliJ](https://www.jetbrains.com/help/idea/version-control-integration.html), to easier track and compare your changes.
 
+### How to access the database?
+
+The prepopulated database is stored in `tree-app-android/app/src/main/assets/databases/content.db`. You can access and edit it with every database tool for SQLite.
+
+We recommend one of the following tools:
+- [Database Navigator](https://plugins.jetbrains.com/plugin/1800-database-navigator): **Android Studio** → Settings (`Ctrl + Alt + S`) → Plugins → Marketplace → Database Navigator
+   - Menu Bar → DB Navigator → Database Browser
+   - Create new SQLite connection to the above database path _(if necessary)_
+   - Schemas → main → Tables → _double click on your table_ → `No Filter` _(if necessary)_
+- [Database Tools and SQL](https://www.jetbrains.com/help/idea/relational-databases.html): **IntelliJ Ultimate** → Settings (`Ctrl + Alt + S`) → Plugins → Marketplace → Database Tools and SQL _(see also the [documentation](https://www.jetbrains.com/help/idea/accessing-android-sqllite-databases-from-product.html))_
+- [Database Inspector](https://developer.android.com/studio/inspect/database) _(only for debugging)_: **Android Studio** → Menu Bar → View → Tool Windows → Database Inspector
+
 ## How to run tests?
 
 ```
 ./gradlew clean test
 ```
 
-## How to Tag and Release the projectß
+## How to Tag and Release the project
 
  We release our Build and APK with [Gradle release plugin](https://github.com/researchgate/gradle-release).
  Release Call for specific Version is:
