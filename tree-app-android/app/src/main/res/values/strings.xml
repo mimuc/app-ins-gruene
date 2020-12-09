@@ -100,5 +100,8 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="splash_screen_text">entstanden in Zusammenarbeit mit:</string>
     <string name="button_multiplayer_mode_description">Mulitplayer Modus</string>
     <string name="button_singleplayer_mode_description">Singleplayer Modus</string>
+    <string name="game_btn_next">Weiter</string>
+    <string name="game_btn_finished">Fertig!</string>
+    <string name="game_popup_try_again">Probier\'s doch noch einmal...einen Versuch hast du übrig!</string>
 
 </resources>
