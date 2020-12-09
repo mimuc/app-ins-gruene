@@ -1,7 +1,6 @@
 package de.lmu.treeapp.activities.minigames.chooseAnswer;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -15,11 +14,13 @@ import android.widget.TextView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.Adapter;
 
 import java.util.ArrayList;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
+import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerOption;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerRelations;
 
@@ -30,9 +31,10 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
     protected static String resultText;
     protected static int resultImage;
     RecyclerView optionsRecyclerView;
+    Adapter<ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder> recyclerViewAdapter;
     Dialog popupWindow;
     Button btnAccept;
-    TextView popupTitle, popupText, popup_result_text;
+    TextView popupTitle, popupText, popup_result_text, description;
     ImageView popup_result_image;
     private int showAnswer = 0;
 
@@ -40,35 +42,28 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_game__choose_answer);
         super.onCreate(savedInstanceState);
+        description = findViewById(R.id.game_description);
+        optionsRecyclerView = findViewById(R.id.game_chooseAnswer_recyclerView);
+        optionsRecyclerView.setHasFixedSize(true);
         setupOptionRecyclerView();
         popupWindow = new Dialog(this);
     }
 
     private void setupOptionRecyclerView() {
-        optionsRecyclerView = findViewById(R.id.game_chooseAnswer_recyclerView);
-        optionsRecyclerView.setHasFixedSize(true);
-
-        //RecyclerView.LayoutManager recyclerViewLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
-        //optionsRecyclerView.setLayoutManager(recyclerViewLayoutManager);
-
-        RecyclerView.Adapter recyclerViewAdapter = new ChooseAnswer_Options_RecyclerViewAdapter(this, (GameChooseAnswerRelations) gameContent, getApplicationContext(), parentTree, parentCategory);
+        recyclerViewAdapter = new ChooseAnswer_Options_RecyclerViewAdapter(this, (GameChooseAnswerRelations) gameContent, getApplicationContext(), parentTree, parentCategory);
         optionsRecyclerView.setAdapter(recyclerViewAdapter);
     }
 
     private void showNextQuestion() {
-        Intent nextQuestion = new Intent(getApplicationContext(), GameActivity_ChooseAnswer.class);
-        nextQuestion.putExtra("TreeId", treeId);
-        nextQuestion.putExtra("Category", parentCategory);
-        nextQuestion.putExtra("GameId", getNextQuizID());
+        gameContent = DataManager.getInstance(getApplicationContext()).GetMinigame(getNextQuizID());
+        description.setText(gameContent.getDescription());
+        setupOptionRecyclerView();
+        showAnswer = 0;
         popupWindow.dismiss();
-        finish(); // Removes the current quiz activity from the stack
-        startActivity(nextQuestion);
     }
 
     @Override
     public void optionClicked(GameChooseAnswerOption option) {
-        //quizIDs.add(gameContent.uid);
-
         if (option.isRight) {
             showPositivePopup();
         } else {
@@ -85,8 +80,8 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
 
         // Checks if the current activity is last one
         if (current > 1) {
-            btnAccept.setText("Weiter");
-        } else btnAccept.setText("Fertig!");
+            btnAccept.setText(R.string.game_btn_next);
+        } else btnAccept.setText(R.string.game_btn_finished);
 
         ViewCompat.animate(btnAccept).setStartDelay(200).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
@@ -117,7 +112,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         popupText = popupWindow.findViewById(R.id.popup_negative_text);
 
         if (showAnswer < 2) {
-            popupText.setText("Probier's doch noch einmal...einen Versuch hast du übrig!");
+            popupText.setText(R.string.game_popup_try_again);
             popupText.setVisibility(View.VISIBLE);
             btnAccept.setVisibility(View.VISIBLE);
 
@@ -142,8 +137,8 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
 
             // Checks if the current activity is last one
             if (current > 1) {
-                btnAccept.setText("Weiter");
-            } else btnAccept.setText("Fertig");
+                btnAccept.setText(R.string.game_btn_next);
+            } else btnAccept.setText(R.string.game_btn_finished);
 
             btnAccept.setVisibility(View.VISIBLE);
             ViewCompat.animate(popupText).setStartDelay(500).alpha(1).setDuration(200).setInterpolator(new DecelerateInterpolator(1.2f)).start();
@@ -173,7 +168,3 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         window.setLayout(CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
     }
 }
-
-
-
-
