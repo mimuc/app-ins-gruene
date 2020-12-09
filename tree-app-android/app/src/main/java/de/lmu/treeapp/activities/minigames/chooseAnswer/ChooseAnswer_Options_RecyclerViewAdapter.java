@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Collections;
 import java.util.List;
 
 import de.lmu.treeapp.R;
@@ -30,6 +31,7 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
     public ChooseAnswer_Options_RecyclerViewAdapter(OptionClickInterface mOnClickListener, GameChooseAnswerRelations _game, Context _context, Tree _tree, Tree.GameCategories _category) {
         this.mOnClickListener = mOnClickListener;
         options = _game.getOptions();
+        Collections.shuffle(options);
         this.game = _game;
         this.context = _context;
         this.tree = _tree;
