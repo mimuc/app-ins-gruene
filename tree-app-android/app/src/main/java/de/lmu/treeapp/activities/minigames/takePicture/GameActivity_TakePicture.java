@@ -49,8 +49,6 @@ public class GameActivity_TakePicture extends GameActivity_Base {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        setContentView(R.layout.activity_game__take_picture);
         super.onCreate(savedInstanceState);
 
         popupWindow = new Dialog(this);
@@ -70,6 +68,11 @@ public class GameActivity_TakePicture extends GameActivity_Base {
         });
 
         sendButton.setOnClickListener(view -> showPositivePopup());
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_game__take_picture;
     }
 
     String currentPhotoPath;
