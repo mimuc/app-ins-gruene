@@ -40,13 +40,17 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_game__choose_answer);
         super.onCreate(savedInstanceState);
         description = findViewById(R.id.game_description);
         optionsRecyclerView = findViewById(R.id.game_chooseAnswer_recyclerView);
         optionsRecyclerView.setHasFixedSize(true);
         setupOptionRecyclerView();
         popupWindow = new Dialog(this);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_game__choose_answer;
     }
 
     private void setupOptionRecyclerView() {
