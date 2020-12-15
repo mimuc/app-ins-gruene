@@ -17,7 +17,7 @@ import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
 
-public class GameActivity_Base extends AppCompatActivity {
+public abstract class GameActivity_Base extends AppCompatActivity {
 
     protected IGameBase gameContent;
     protected int treeId;
@@ -26,6 +26,9 @@ public class GameActivity_Base extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(getLayoutId());
+
         Bundle b = getIntent().getExtras();
         parentCategory = (Tree.GameCategories) b.get("Category");
         treeId = b.getInt("TreeId");
@@ -39,8 +42,9 @@ public class GameActivity_Base extends AppCompatActivity {
 
         TextView description = findViewById(R.id.game_description);
         description.setText(gameContent.getDescription());
-        super.onCreate(savedInstanceState);
     }
+
+    protected abstract int getLayoutId();
 
     // Remove the current activity from the stack to switch to the previous one
     @Override

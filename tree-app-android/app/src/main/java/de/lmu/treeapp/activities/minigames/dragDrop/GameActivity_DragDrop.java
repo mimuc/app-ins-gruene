@@ -34,9 +34,8 @@ public class GameActivity_DragDrop extends GameActivity_Base {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        setContentView(R.layout.activity_game__drag_drop);
         super.onCreate(savedInstanceState);
+
         dragDropGame = (Minigame_DragDrop) gameContent;
         layout = findViewById(R.id.cl);
         layout.setOnDragListener(new FreeDropListener());
@@ -95,6 +94,11 @@ public class GameActivity_DragDrop extends GameActivity_Base {
             Reset();
             onSuccess();
         });
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_game__drag_drop;
     }
 
     private void ClearOtherZones(DragDropItem _item) {

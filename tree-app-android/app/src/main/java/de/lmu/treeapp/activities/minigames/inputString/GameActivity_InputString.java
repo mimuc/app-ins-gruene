@@ -16,10 +16,7 @@ public class GameActivity_InputString extends GameActivity_Base {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        setContentView(R.layout.activity_game__input_string);
         super.onCreate(savedInstanceState);
-
 
         inputStringGame = (Minigame_InputStringAnswer) gameContent;
         final TextInputEditText inputField = findViewById(R.id.game_inputString_inputField);
@@ -32,7 +29,11 @@ public class GameActivity_InputString extends GameActivity_Base {
                 onFail();
             }
         });
+    }
 
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_game__input_string;
     }
 
 }

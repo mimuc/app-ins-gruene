@@ -13,14 +13,18 @@ public class GameActivity_OnlyDescription extends GameActivity_Base {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        setContentView(R.layout.activity_game__only_description);
         super.onCreate(savedInstanceState);
+
         game = (Minigame_OnlyDescription) gameContent;
 
         Button sendButton = findViewById(R.id.game_onlyDescription_sendButton);
 
         sendButton.setOnClickListener(view -> onSuccess());
 
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_game__only_description;
     }
 }

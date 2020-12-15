@@ -120,7 +120,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="16dp"
-                style="@style/AppTheme.Button"
+                style="@style/AppTheme.OutlinedButton"
                 android:elevation="4dp"
                 android:fontFamily="@font/freude"
                 android:paddingTop="8dp"

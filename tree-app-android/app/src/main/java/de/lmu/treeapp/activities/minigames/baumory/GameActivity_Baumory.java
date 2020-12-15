@@ -58,8 +58,6 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
-
-        setContentView(R.layout.activity_game__baumory);
         super.onCreate(savedInstanceState);
 
         // setup View-Elements
@@ -99,6 +97,11 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
             setupMultiplayerView();
             setupBaumoryGame();
         });
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_game__baumory;
     }
 
     private void startGame() {
