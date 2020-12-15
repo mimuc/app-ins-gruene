@@ -32,12 +32,19 @@
     </style>
 
     <!-- TextColor of Actionbar / Toolbar -->
-    <style name="WhiteToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
+    <style name="WhiteToolbarStyle" parent="@style/Widget.MaterialComponents.Toolbar">
         <item name="titleTextColor">@color/asphalt</item>
     </style>
 
     <style name="AppTheme.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.App.DefaultComponent</item>
+    </style>
+
+    <style name="AppTheme.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="strokeColor">?attr/colorPrimary</item>
         <item name="backgroundTint">?attr/colorSurface</item>
         <item name="shapeAppearanceOverlay">@style/ShapeAppearance.App.DefaultComponent</item>
     </style>

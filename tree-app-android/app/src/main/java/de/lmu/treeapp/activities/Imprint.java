@@ -12,9 +12,8 @@ public class Imprint extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        setContentView(R.layout.activity_imprint);
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_imprint);
 
         TextView imprint_title = findViewById(R.id.imprint_title);
         TextView imprint_text = findViewById(R.id.imprint_text);
