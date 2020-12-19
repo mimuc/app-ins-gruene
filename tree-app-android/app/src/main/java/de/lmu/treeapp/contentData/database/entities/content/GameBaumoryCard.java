@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 public class GameBaumoryCard {
     @PrimaryKey
     public int id;
-    public int baumoryId;
+    public int gameId;
     public int match;
     public String imageResource;
 }
