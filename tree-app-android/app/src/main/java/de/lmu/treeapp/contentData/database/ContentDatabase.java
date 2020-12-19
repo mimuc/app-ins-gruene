@@ -11,7 +11,7 @@ import de.lmu.treeapp.contentData.database.daos.content.GameBaumoryDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameChooseAnswerDao;
 import de.lmu.treeapp.contentData.database.daos.content.TreeDao;
 import de.lmu.treeapp.contentData.database.daos.content.TreeProfileDao;
-import de.lmu.treeapp.contentData.database.entities.content.GameBaumory;
+import de.lmu.treeapp.contentData.database.entities.content.GameBase;
 import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryCard;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswer;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerOption;
@@ -21,7 +21,7 @@ import de.lmu.treeapp.contentData.database.entities.content.TreeProfileCard;
 import de.lmu.treeapp.contentData.database.entities.content.Tree_x_Game;
 
 @Database(entities = {
-        GameBaumory.class,
+        GameBase.class,
         GameBaumoryCard.class,
         GameChooseAnswer.class,
         GameChooseAnswerOption.class,
