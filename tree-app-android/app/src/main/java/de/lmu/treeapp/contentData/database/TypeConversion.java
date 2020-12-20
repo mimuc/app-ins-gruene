@@ -5,8 +5,8 @@ import androidx.room.TypeConverter;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.lmu.treeapp.contentClasses.minigames.MediaType;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
-import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerOption;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.TreeComponent;
 
@@ -104,13 +104,13 @@ public class TypeConversion {
     }
 
     @TypeConverter
-    public static GameChooseAnswerOption.OptionTypes answerOptionTypeFromString(String optionType) {
-        if (optionType == null) return GameChooseAnswerOption.OptionTypes.TEXT;
-        return GameChooseAnswerOption.OptionTypes.valueOf(optionType.toUpperCase());
+    public static MediaType answerOptionTypeFromString(String optionType) {
+        if (optionType == null) return MediaType.TEXT;
+        return MediaType.valueOf(optionType.toUpperCase());
     }
 
     @TypeConverter
-    public static String answerOptionTypeToString(GameChooseAnswerOption.OptionTypes optionType) {
+    public static String answerOptionTypeToString(MediaType optionType) {
         return optionType.name();
     }
 
