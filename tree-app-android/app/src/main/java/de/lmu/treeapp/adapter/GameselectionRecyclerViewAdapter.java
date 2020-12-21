@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import de.lmu.treeapp.R;
@@ -20,9 +22,9 @@ import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
 import de.lmu.treeapp.activities.minigames.onlyDescription.GameActivity_OnlyDescription;
 import de.lmu.treeapp.activities.minigames.takePicture.GameActivity_TakePicture;
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
-import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.utils.glide.BackgroundTarget;
 
 public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<GameselectionRecyclerViewAdapter.ViewHolder> {
 
@@ -78,8 +80,8 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
             return;
         }
         if (tree.appData.IsGameCompleted(category, game.getId())) {
-            holder.gameIcon.setImageResource(R.drawable.ic_quiz_checked);
-            holder.gameIcon.setBackgroundResource(R.drawable.white_background);
+            Glide.with(context).load(R.drawable.ic_quiz_checked).into(holder.gameIcon);
+            Glide.with(context).load(R.drawable.white_background).into(new BackgroundTarget(holder.gameIcon));
         }
         holder.gameName.setText(game.getName());
 

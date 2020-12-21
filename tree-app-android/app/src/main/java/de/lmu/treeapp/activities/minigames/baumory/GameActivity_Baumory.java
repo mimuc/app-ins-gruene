@@ -12,6 +12,8 @@ import android.widget.ViewFlipper;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -22,6 +24,7 @@ import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryRelations;
 import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryCard;
+import de.lmu.treeapp.utils.glide.BackgroundTarget;
 
 public class GameActivity_Baumory extends GameActivity_Base implements Baumory_Cards_RecyclerViewAdapter.OptionClickInterface {
 
@@ -124,7 +127,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
             return;
 
         int imageId = getResources().getIdentifier(_card.imageResource, "drawable", getPackageName());
-        _viewHolder.button.setImageResource(imageId);
+        Glide.with(this).load(imageId).into(_viewHolder.button);
         if (firstCard == null) {
             firstCardButton = _viewHolder.button;
             firstCard = _card;
@@ -167,10 +170,10 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
     }
 
     private void FailedMatch() {
-        firstCardButton.setBackgroundResource(R.drawable.dark_grey_gradient);
-        secondCardButton.setBackgroundResource(R.drawable.dark_grey_gradient);
-        firstCardButton.setImageResource(R.drawable.ic_question_big);
-        secondCardButton.setImageResource(R.drawable.ic_question_big);
+        Glide.with(this).load(R.drawable.dark_grey_gradient).into(new BackgroundTarget(firstCardButton));
+        Glide.with(this).load(R.drawable.dark_grey_gradient).into(new BackgroundTarget(secondCardButton));
+        Glide.with(this).load(R.drawable.ic_question_big).into(firstCardButton);
+        Glide.with(this).load(R.drawable.ic_question_big).into(secondCardButton);
         firstCard = null;
         secondCard = null;
 
