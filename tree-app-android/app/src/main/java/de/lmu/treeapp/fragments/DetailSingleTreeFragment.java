@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+
 import java.util.Objects;
 
 import de.lmu.treeapp.R;
@@ -96,12 +98,12 @@ public class DetailSingleTreeFragment extends Fragment {
         int imageFruitId = getContext().getResources().getIdentifier(tree.imageFruit, "drawable", getContext().getPackageName());
         int imageTrunkId = getContext().getResources().getIdentifier(tree.imageTrunk, "drawable", getContext().getPackageName());
         //int imageOtherId = getContext().getResources().getIdentifier(tree.imageOther, "drawable", getContext().getPackageName());
-        treeImage.setImageResource(imageTreeId);
-        leafButton.setImageResource(imageLeafId);
-        fruitButton.setImageResource(imageFruitId);
-        trunkButton.setImageResource(imageTrunkId);
-        //otherButton.setImageResource(imageOtherId);
-        otherButton.setImageResource(R.drawable.ic_tree_other);
+        Glide.with(this).load(imageTreeId).into(treeImage);
+        Glide.with(this).load(imageLeafId).into(leafButton);
+        Glide.with(this).load(imageFruitId).into(fruitButton);
+        Glide.with(this).load(imageTrunkId).into(trunkButton);
+        //Glide.with(this).load(imageOtherId).into(otherButton);
+        Glide.with(this).load(R.drawable.ic_tree_other).into(otherButton);
     }
 
     private void setupOnClickListener() {

@@ -9,6 +9,8 @@ import android.widget.ImageButton;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -17,6 +19,7 @@ import de.lmu.treeapp.contentClasses.minigames.MediaType;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerOption;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerRelations;
+import de.lmu.treeapp.utils.glide.BackgroundTarget;
 
 public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapter<ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder> {
 
@@ -93,7 +96,7 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
                 resultImageId = imageId;
                 GameActivity_ChooseAnswer.resultImage = resultImageId;
             }
-            holder.button_img.setBackgroundResource(imageId);
+            Glide.with(context).load(imageId).into(new BackgroundTarget(holder.button_img));
         }
 
         holder.button_img.setOnClickListener(arg0 -> mOnClickListener.optionClicked(option));

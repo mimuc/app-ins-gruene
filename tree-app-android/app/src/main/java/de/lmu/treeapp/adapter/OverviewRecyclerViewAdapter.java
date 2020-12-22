@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
@@ -113,17 +114,17 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
             holder.treeName.setText(tree.getName());
 
             if (Math.round(tree.GetGameProgressionPercent(Tree.GameCategories.total)) >= 100) {
-                holder.treeUnlockedStatus.setImageResource(R.drawable.ic_checked_mark);
+                Glide.with(context).load(R.drawable.ic_checked_mark).into(holder.treeUnlockedStatus);
             } else if (tree.appData.unlocked) {
                 // Change to Unlocked-Symbol
-                holder.treeUnlockedStatus.setImageResource(R.drawable.ic_question_mark);
+                Glide.with(context).load(R.drawable.ic_question_mark).into(holder.treeUnlockedStatus);
             } else {
-                holder.treeUnlockedStatus.setImageResource(R.drawable.ic_locked_mark);
+                Glide.with(context).load(R.drawable.ic_locked_mark).into(holder.treeUnlockedStatus);
             }
             // Set Tree-Image here:
             Context context = holder.treeImage.getContext();
             int imageTreeId = context.getResources().getIdentifier(tree.imageTree, "drawable", context.getPackageName());
-            holder.treeImage.setImageResource(imageTreeId);
+            Glide.with(context).load(imageTreeId).into(holder.treeImage);
             holder.treeImage.setOnClickListener(arg0 -> {
                 viewModel.setCurrentPagerIndex(position);
                 fragmentManager.showFragment(selectedTreeFragment);
