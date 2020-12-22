@@ -12,7 +12,6 @@ import java.util.List;
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_InputStringAnswer;
-import de.lmu.treeapp.contentClasses.minigames.Minigame_OnlyDescription;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_TakePicture;
 
 
@@ -28,7 +27,6 @@ public class miniGameParser {
     public List<Minigame_Base> getMiniGames(Context context) {
         parse_InputString(context.getResources().getXml(R.xml.minigames_inputstring), 200);
         parse_TakePicture(context.getResources().getXml(R.xml.minigames_takepicture), 300);
-        parse_OnlyDescription(context.getResources().getXml(R.xml.minigames_onlydescription), 500);
         return miniGames;
     }
 
@@ -108,48 +106,6 @@ public class miniGameParser {
                             miniGameTakePicture.image = text;
                         } else if (tagName.equalsIgnoreCase("pictureName")) {
                             miniGameTakePicture.FillPictureName(text);
-                        }
-                        break;
-                    default:
-                        break;
-                }
-                eventType = parser.next();
-            }
-
-        } catch (XmlPullParserException | IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // MiniGame_OnlyDescription
-    private Minigame_OnlyDescription miniGameOnlyDescription;
-
-    public void parse_OnlyDescription(XmlPullParser parser, int prefix) {
-        try {
-            int eventType = parser.getEventType();
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                String tagName = parser.getName();
-                switch (eventType) {
-                    case XmlPullParser.START_TAG:
-                        if (tagName.equalsIgnoreCase("minigame_onlyDescription")) {
-                            miniGameOnlyDescription = new Minigame_OnlyDescription();
-                            miniGameOnlyDescription.type = Minigame_Base.MinigameTypes.OnlyDescription;
-                        }
-                        break;
-                    case XmlPullParser.TEXT:
-                        text = parser.getText();
-                        break;
-                    case XmlPullParser.END_TAG:
-                        if (tagName.equalsIgnoreCase("minigame_onlyDescription")) {
-                            miniGames.add(miniGameOnlyDescription);
-                        } else if (tagName.equalsIgnoreCase("id")) {
-                            miniGameOnlyDescription.uid = Integer.parseInt(text) + prefix;
-                        } else if (tagName.equalsIgnoreCase("name")) {
-                            miniGameOnlyDescription.name = text;
-                        } else if (tagName.equalsIgnoreCase("description")) {
-                            miniGameOnlyDescription.description = text;
-                        } else if (tagName.equalsIgnoreCase("image")) {
-                            miniGameOnlyDescription.image = text;
                         }
                         break;
                     default:

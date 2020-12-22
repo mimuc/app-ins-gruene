@@ -56,6 +56,7 @@ public class ContentManager {
         this.minigames.addAll(contentDb.gameChooseAnswerDao().getAll());
         this.minigames.addAll(contentDb.gameBaumoryDao().getAll());
         this.minigames.addAll(contentDb.gameDragDropDao().getAll());
+        this.minigames.addAll(contentDb.gameOnlyDescriptionDao().getAll());
 
         miniGameParser parser = new miniGameParser();
         this.minigames.addAll(parser.getMiniGames(context));
