@@ -5,7 +5,7 @@ import androidx.room.Relation;
 import java.util.List;
 
 /**
- * The persistent database tree model with its related attributes.
+ * The persistent database for the game Baumory with its related attributes.
  */
 public class GameBaumoryRelations extends GameRelations {
 
