@@ -1,22 +1,15 @@
 package de.lmu.treeapp.contentData.database.daos.content;
 
 import androidx.room.Dao;
-import androidx.room.Query;
-import androidx.room.Transaction;
 
-import java.util.List;
-
+import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentData.database.entities.content.GameOnlyDescriptionRelations;
 
 @Dao
-public interface GameOnlyDescriptionDao {
+public abstract class GameOnlyDescriptionDao extends GameBaseDao<GameOnlyDescriptionRelations> {
 
-    @Transaction
-    @Query("SELECT * FROM GameBase WHERE gameType = 'OnlyDescription'")
-    List<GameOnlyDescriptionRelations> getAll();
-
-    @Transaction
-    @Query("SELECT * FROM GameBase WHERE gameType = 'OnlyDescription' AND id=:id LIMIT 1")
-    GameOnlyDescriptionRelations getById(int id);
+    public GameOnlyDescriptionDao() {
+        super(Minigame_Base.MinigameTypes.OnlyDescription);
+    }
 }
 
