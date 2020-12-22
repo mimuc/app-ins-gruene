@@ -11,6 +11,8 @@ import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerRela
 @Dao
 public interface GameChooseAnswerDao {
 
+    // TODO abstract GameBase
+
     @Transaction
     @Query("SELECT * FROM GameChooseAnswer")
     List<GameChooseAnswerRelations> getAll();

@@ -33,12 +33,12 @@ import java.util.Objects;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
-import de.lmu.treeapp.contentClasses.minigames.Minigame_TakePicture;
+import de.lmu.treeapp.contentData.database.entities.content.GameTakePictureRelations;
 
 
 public class GameActivity_TakePicture extends GameActivity_Base {
 
-    private Minigame_TakePicture takePictureGame;
+    private GameTakePictureRelations takePictureGame;
     private Button sendButton;
     private ImageView previewPicture;
     private ImageButton imageExample;
@@ -52,7 +52,7 @@ public class GameActivity_TakePicture extends GameActivity_Base {
         super.onCreate(savedInstanceState);
 
         popupWindow = new Dialog(this);
-        takePictureGame = (Minigame_TakePicture) gameContent;
+        takePictureGame = (GameTakePictureRelations) gameContent;
         sendButton = findViewById(R.id.game_takePicture_sendButton);
         previewPicture = findViewById(R.id.game_takePicture_previewPicture);
         imageExample = findViewById(R.id.game_takePicture_imageExample);
