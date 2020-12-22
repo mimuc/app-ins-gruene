@@ -34,8 +34,9 @@ public class ContentManager {
     }
 
     private void init() {
+        ContentDatabase contentDb = ContentDatabase.getInstance(context);
         // Load tree (images + games)
-        List<TreeRelations> treeRelations = ContentDatabase.getInstance(context).treeDao().getAll();
+        List<TreeRelations> treeRelations = contentDb.treeDao().getAll();
         for (TreeRelations treeRelation : treeRelations) {
             Tree tree = new Tree();
             tree.initContentData(treeRelation);
@@ -44,16 +45,17 @@ public class ContentManager {
 
         // Load tree profile
         for (Tree tree : this.trees) {
-            List<TreeProfileCard> treeProfileCards = ContentDatabase.getInstance(context).treeProfileDao().getCardsByTreeId(tree.getId());
+            List<TreeProfileCard> treeProfileCards = contentDb.treeProfileDao().getCardsByTreeId(tree.getId());
 
             TreeProfile treeProfile = new TreeProfile();
             treeProfile.cards = treeProfileCards;
             this.treeProfiles.add(treeProfile);
         }
 
-        // Load quiz & Baumory from database
-        this.minigames.addAll(ContentDatabase.getInstance(context).gameChooseAnswerDao().getAll());
-        this.minigames.addAll(ContentDatabase.getInstance(context).gameBaumoryDao().getAll());
+        // Load games from database
+        this.minigames.addAll(contentDb.gameChooseAnswerDao().getAll());
+        this.minigames.addAll(contentDb.gameBaumoryDao().getAll());
+        this.minigames.addAll(contentDb.gameDragDropDao().getAll());
 
         miniGameParser parser = new miniGameParser();
         this.minigames.addAll(parser.getMiniGames(context));
