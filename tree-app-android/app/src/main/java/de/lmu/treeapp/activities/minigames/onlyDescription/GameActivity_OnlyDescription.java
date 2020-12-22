@@ -5,17 +5,17 @@ import android.widget.Button;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
-import de.lmu.treeapp.contentClasses.minigames.Minigame_OnlyDescription;
+import de.lmu.treeapp.contentData.database.entities.content.GameOnlyDescriptionRelations;
 
 public class GameActivity_OnlyDescription extends GameActivity_Base {
 
-    private Minigame_OnlyDescription game;
+    private GameOnlyDescriptionRelations game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        game = (Minigame_OnlyDescription) gameContent;
+        game = (GameOnlyDescriptionRelations) gameContent;
 
         Button sendButton = findViewById(R.id.game_onlyDescription_sendButton);
 
