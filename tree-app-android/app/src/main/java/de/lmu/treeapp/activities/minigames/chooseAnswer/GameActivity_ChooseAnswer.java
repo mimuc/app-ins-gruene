@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
+import de.lmu.treeapp.contentClasses.minigames.MediaType;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerOption;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerRelations;
@@ -124,14 +125,14 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
             ViewCompat.animate(btnAccept).setStartDelay(800).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
         } else {
-            if (option.optionType == GameChooseAnswerOption.OptionTypes.TEXT) {
+            if (option.optionType == MediaType.TEXT) {
                 popup_result_text = popupWindow.findViewById(R.id.popup_answer_text);
                 popup_result_text.setText(resultText);
                 popup_result_text.setVisibility(View.VISIBLE);
 
                 ViewCompat.animate(popup_result_text).setStartDelay(600).alpha(1).setDuration(400).setInterpolator(new DecelerateInterpolator(1.2f)).start();
 
-            } else if (option.optionType == GameChooseAnswerOption.OptionTypes.IMAGE) {
+            } else if (option.optionType == MediaType.IMAGE) {
                 popup_result_image = popupWindow.findViewById(R.id.popup_answer_picture);
                 popup_result_image.setBackgroundResource(resultImage);
                 popup_result_image.setVisibility(View.VISIBLE);
