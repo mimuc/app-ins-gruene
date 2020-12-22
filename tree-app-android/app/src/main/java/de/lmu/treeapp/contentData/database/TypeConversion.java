@@ -117,7 +117,7 @@ public class TypeConversion {
     @TypeConverter
     public static Minigame_Base.MinigameTypes gameTypeFromString(String optionType) {
         if (optionType == null) return Minigame_Base.MinigameTypes.Undefined;
-        return Minigame_Base.MinigameTypes.valueOf(optionType.toUpperCase());
+        return Minigame_Base.MinigameTypes.valueOf(optionType);
     }
 
     @TypeConverter
