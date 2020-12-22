@@ -16,6 +16,8 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 import de.lmu.treeapp.R;
@@ -24,6 +26,7 @@ import de.lmu.treeapp.contentClasses.minigames.MediaType;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerOption;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerRelations;
+import de.lmu.treeapp.utils.glide.BackgroundTarget;
 
 public class GameActivity_ChooseAnswer extends GameActivity_Base implements ChooseAnswer_Options_RecyclerViewAdapter.OptionClickInterface {
 
@@ -134,7 +137,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
 
             } else if (option.optionType == MediaType.IMAGE) {
                 popup_result_image = popupWindow.findViewById(R.id.popup_answer_picture);
-                popup_result_image.setBackgroundResource(resultImage);
+                Glide.with(this).load(resultImage).into(new BackgroundTarget(popup_result_image));
                 popup_result_image.setVisibility(View.VISIBLE);
 
                 ViewCompat.animate(popup_result_image).setStartDelay(600).alpha(1).setDuration(400).setInterpolator(new DecelerateInterpolator(1.2f)).start();

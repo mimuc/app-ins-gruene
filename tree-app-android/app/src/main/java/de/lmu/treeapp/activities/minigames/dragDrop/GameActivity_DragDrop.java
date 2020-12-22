@@ -15,6 +15,8 @@ import androidx.constraintlayout.widget.ConstraintLayout.LayoutParams;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.math.MathUtils;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -49,7 +51,7 @@ public class GameActivity_DragDrop extends GameActivity_Base {
 
         ImageView backgroundBox = findViewById(R.id.game_dragdrop_background);
         int backgroundImage = getResources().getIdentifier(dragDropGame.getImageResource(), "drawable", getPackageName());
-        backgroundBox.setImageResource(backgroundImage);
+        Glide.with(this).load(backgroundImage).into(backgroundBox);
 
         // Load zones visually before the items.
         for (GameDragDropZone zone : dragDropGame.getZones()) {
@@ -73,7 +75,7 @@ public class GameActivity_DragDrop extends GameActivity_Base {
         for (GameDragDropItem item : dragDropGame.getItems()) {
             ImageView iv = new ImageView(this);
             int imageId = getResources().getIdentifier(item.content, "drawable", getPackageName());
-            iv.setImageResource(imageId);
+            Glide.with(this).load(imageId).into(iv);
             iv.setTag(item);
 
             setItemStartPosition(iv, item);
