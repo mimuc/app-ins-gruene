@@ -11,6 +11,7 @@ import de.lmu.treeapp.contentData.database.daos.content.GameBaumoryDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameChooseAnswerDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameDragDropDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameOnlyDescriptionDao;
+import de.lmu.treeapp.contentData.database.daos.content.GameTakePictureDao;
 import de.lmu.treeapp.contentData.database.daos.content.TreeDao;
 import de.lmu.treeapp.contentData.database.daos.content.TreeProfileDao;
 import de.lmu.treeapp.contentData.database.entities.content.GameBase;
@@ -67,5 +68,7 @@ public abstract class ContentDatabase extends RoomDatabase {
     public abstract GameDragDropDao gameDragDropDao();
 
     public abstract GameOnlyDescriptionDao gameOnlyDescriptionDao();
+
+    public abstract GameTakePictureDao gameTakePictureDao();
 }
 
