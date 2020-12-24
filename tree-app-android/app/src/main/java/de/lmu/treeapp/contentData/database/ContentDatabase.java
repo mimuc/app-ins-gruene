@@ -41,20 +41,21 @@ import de.lmu.treeapp.contentData.database.entities.content.Tree_x_Game;
 public abstract class ContentDatabase extends RoomDatabase {
     private static final String ASSET_DB_PATH = "databases";
     private static final String DB_NAME = "content";
-    private static final Object sLock = new Object();
     private static ContentDatabase INSTANCE;
 
-    public static synchronized ContentDatabase getInstance(Context context) {
-        synchronized (sLock) {
-            if (INSTANCE == null) {
-                INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                        ContentDatabase.class, DB_NAME)
-                        .createFromAsset(ASSET_DB_PATH + "/" + DB_NAME + ".db")
-                        .fallbackToDestructiveMigration()
-                        .build();
+    public static ContentDatabase getInstance(Context context) {
+        if (INSTANCE == null) {
+            synchronized (ContentDatabase.class) {
+                if (INSTANCE == null) { // double checked locking
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                            ContentDatabase.class, DB_NAME)
+                            .createFromAsset(ASSET_DB_PATH + "/" + DB_NAME + ".db")
+                            .fallbackToDestructiveMigration()
+                            .build();
+                }
             }
-            return INSTANCE;
         }
+        return INSTANCE;
     }
 
     public abstract TreeDao treeDao();
