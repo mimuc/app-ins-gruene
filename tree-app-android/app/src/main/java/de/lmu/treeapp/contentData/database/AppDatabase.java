@@ -19,18 +19,19 @@ import de.lmu.treeapp.contentData.database.entities.app.TreeProfileModel;
 public abstract class AppDatabase extends RoomDatabase {
     private static final String DB_NAME = "app";
     private static AppDatabase INSTANCE;
-    private static final Object sLock = new Object();
 
-    public static synchronized AppDatabase getInstance(Context context) {
-        synchronized (sLock) {
-            if (INSTANCE == null) {
-                INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                        AppDatabase.class, DB_NAME + ".db")
-                        .fallbackToDestructiveMigration()
-                        .build();
+    public static AppDatabase getInstance(Context context) {
+        if (INSTANCE == null) {
+            synchronized (AppDatabase.class) {
+                if (INSTANCE == null) { // double checked locking
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                            AppDatabase.class, DB_NAME + ".db")
+                            .fallbackToDestructiveMigration()
+                            .build();
+                }
             }
-            return INSTANCE;
         }
+        return INSTANCE;
     }
 
     public abstract TreeDao treeDao();
