@@ -10,12 +10,12 @@ import androidx.room.TypeConverters;
 import de.lmu.treeapp.contentData.database.daos.app.PlayerDao;
 import de.lmu.treeapp.contentData.database.daos.app.TreeDao;
 import de.lmu.treeapp.contentData.database.daos.app.TreeProfileDao;
-import de.lmu.treeapp.contentData.database.entities.app.PlayerModel;
-import de.lmu.treeapp.contentData.database.entities.app.TreeModel;
-import de.lmu.treeapp.contentData.database.entities.app.TreeProfileModel;
+import de.lmu.treeapp.contentData.database.entities.app.PlayerState;
+import de.lmu.treeapp.contentData.database.entities.app.TreeState;
+import de.lmu.treeapp.contentData.database.entities.app.TreeProfileState;
 import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
 
-@Database(entities = {TreeModel.class, TreeProfileModel.class, PlayerModel.class}, version = 1, exportSchema = false)
+@Database(entities = {TreeState.class, TreeProfileState.class, PlayerState.class}, version = 1, exportSchema = false)
 @TypeConverters({TypeConversion.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static final String DB_NAME = "app";

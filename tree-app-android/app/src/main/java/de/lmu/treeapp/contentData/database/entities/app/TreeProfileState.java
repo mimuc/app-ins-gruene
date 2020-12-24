@@ -4,7 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class TreeProfileModel {
+public class TreeProfileState {
     @PrimaryKey
     public int uid;
 }
