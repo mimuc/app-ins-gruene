@@ -29,7 +29,7 @@ public class DataManager {
                 if (INSTANCE == null) { // double checked locking
                     DataManager dataManager = new DataManager();
                     dataManager.context = _context;
-                    dataManager.Init();
+                    dataManager.init();
                     INSTANCE = dataManager;
                 }
             }
@@ -37,7 +37,7 @@ public class DataManager {
         return INSTANCE;
     }
 
-    private void SetData(List<Tree> _trees, List<TreeProfile> _treeProfiles, List<IGameBase> _minigames, PlayerModel _player) {
+    private void setData(List<Tree> _trees, List<TreeProfile> _treeProfiles, List<IGameBase> _minigames, PlayerModel _player) {
         this.trees = _trees;
         this.treeProfiles = _treeProfiles;
         this.miniGames = _minigames;
@@ -45,13 +45,13 @@ public class DataManager {
         this.loaded = true;
     }
 
-    private void Init() {
+    private void init() {
         new Thread(() -> {
             // Saved Name
             PlayerModel DB_player = AppDatabase.getInstance(context).playerDao().get();
             if (DB_player == null) {
                 DB_player = new PlayerModel();
-                AppDatabase.getInstance(context).playerDao().InsertOne(DB_player);
+                AppDatabase.getInstance(context).playerDao().insertOne(DB_player);
             }
             List<Tree> CMS_trees = ContentManager.getInstance(context).getTrees();
             List<TreeProfile> CMS_treeProfiles = ContentManager.getInstance(context).getTreeProfiles();
@@ -70,28 +70,28 @@ public class DataManager {
                 }
                 if (!initByDB) {
                     TreeModel newDBTree = new TreeModel();
-                    newDBTree.InitDefault(cmsTree.getId());
+                    newDBTree.initDefault(cmsTree.getId());
                     cmsTree.initAppData(newDBTree);
-                    AppDatabase.getInstance(context).treeDao().InsertOne(newDBTree);
+                    AppDatabase.getInstance(context).treeDao().insertOne(newDBTree);
                 }
             }
-            DataManager.getInstance(context).SetData(CMS_trees, CMS_treeProfiles, CMS_miniGames, DB_player);
+            DataManager.getInstance(context).setData(CMS_trees, CMS_treeProfiles, CMS_miniGames, DB_player);
         }).start();
     }
 
     // Player-Stuff
-    public String GetPlayerName() {
+    public String getPlayerName() {
         return player.name;
     }
 
-    public String SetPlayerName(String _name) {
+    public String setPlayerName(String _name) {
         player.name = _name;
-        new Thread(() -> AppDatabase.getInstance(context).playerDao().UpdateOne(player)).start();
+        new Thread(() -> AppDatabase.getInstance(context).playerDao().updateOne(player)).start();
         return player.name;
     }
 
     // Get something
-    public IGameBase GetMinigame(int id) {
+    public IGameBase getMinigame(int id) {
         if (miniGames == null) return null;
         for (int i = 0; i < miniGames.size(); i++) {
             if (miniGames.get(i).getId() == id) {
@@ -102,7 +102,7 @@ public class DataManager {
     }
 
     // Get next quiz game which is always the current id + 10 (see minigames_chooseanswer.xml)
-    public IGameBase GetNextQuiz(int id) {
+    public IGameBase getNextQuiz(int id) {
         if (miniGames == null) return null;
         for (int i = 0; i < miniGames.size(); i++) {
             if (miniGames.get(i).getId() == id) {
@@ -112,7 +112,7 @@ public class DataManager {
         return null;
     }
 
-    public Tree GetTreeByQR(String _qrCode) {
+    public Tree getTreeByQR(String _qrCode) {
         _qrCode = _qrCode.trim();
         if (trees == null) return null;
         for (int i = 0; i < trees.size(); i++) {
@@ -123,7 +123,7 @@ public class DataManager {
         return null;
     }
 
-    public Tree GetTree(int id) {
+    public Tree getTree(int id) {
         if (trees == null) return null;
         for (int i = 0; i < trees.size(); i++) {
             if (trees.get(i).getId() == id) {
@@ -133,7 +133,7 @@ public class DataManager {
         return null;
     }
 
-    public TreeProfile GetTreeProfile(int id) {
+    public TreeProfile getTreeProfile(int id) {
         if (treeProfiles == null) return null;
         for (int i = 0; i < treeProfiles.size(); i++) {
             if (treeProfiles.get(i).uid == id) {
@@ -144,36 +144,36 @@ public class DataManager {
     }
 
     // Unlocked a Tree
-    public void UnlockTree(Tree _tree) {
+    public void unlockTree(Tree _tree) {
         final TreeModel model = _tree.appData;
-        model.unlocked = true;
-        new Thread(() -> AppDatabase.getInstance(context).treeDao().Update(model)).start();
+        model.isUnlocked = true;
+        new Thread(() -> AppDatabase.getInstance(context).treeDao().update(model)).start();
     }
 
     // GameCompleted overloaded Functions
-    public void GameCompleted(Tree.GameCategories _category, Minigame_Base _game, Tree _tree) {
-        GameCompleted(_category, _game.uid, _tree);
+    public void setGameCompleted(Tree.GameCategories _category, Minigame_Base _game, Tree _tree) {
+        setGameCompleted(_category, _game.uid, _tree);
     }
 
-    public void GameCompleted(Tree.GameCategories _category, Minigame_Base _game, int _treeId) {
+    public void setGameCompleted(Tree.GameCategories _category, Minigame_Base _game, int _treeId) {
         if (trees.isEmpty() || trees == null) return;
         for (int i = 0; i < trees.size(); i++) {
             if (_treeId == trees.get(i).getId()) {
-                GameCompleted(_category, _game.uid, trees.get(i));
+                setGameCompleted(_category, _game.uid, trees.get(i));
             }
         }
     }
 
-    public void GameCompleted(Tree.GameCategories _category, int _gameId, int _treeId) {
+    public void setGameCompleted(Tree.GameCategories _category, int _gameId, int _treeId) {
         if (trees.isEmpty() || trees == null) return;
         for (int i = 0; i < trees.size(); i++) {
             if (_treeId == trees.get(i).getId()) {
-                GameCompleted(_category, _gameId, trees.get(i));
+                setGameCompleted(_category, _gameId, trees.get(i));
             }
         }
     }
 
-    public boolean IsGameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree) {
+    public boolean isGameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree) {
         final TreeModel model = _tree.appData;
         boolean gameCompleted = false;
         switch (_category) {
@@ -199,7 +199,7 @@ public class DataManager {
         return gameCompleted;
     }
 
-    public void TakeTreePicture(String picPath, Tree.GameCategories _category, Tree _tree) {
+    public void setTakeTreePicture(String picPath, Tree.GameCategories _category, Tree _tree) {
         final TreeModel model = _tree.appData;
         switch (_category) {
             case total:
@@ -219,10 +219,10 @@ public class DataManager {
                     model.imageTrunkTaken = picPath;
                 break;
         }
-        new Thread(() -> AppDatabase.getInstance(context).treeDao().Update(model)).start();
+        new Thread(() -> AppDatabase.getInstance(context).treeDao().update(model)).start();
     }
 
-    public void GameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree) {
+    public void setGameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree) {
         final TreeModel model = _tree.appData;
         switch (_category) {
             case leaf:
@@ -244,6 +244,6 @@ public class DataManager {
             default:
                 break;
         }
-        new Thread(() -> AppDatabase.getInstance(context).treeDao().Update(model)).start();
+        new Thread(() -> AppDatabase.getInstance(context).treeDao().update(model)).start();
     }
 }

@@ -40,7 +40,7 @@ public class GameSelectionActivity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         treeId = b.getInt("TreeId");
         category = (Tree.GameCategories) b.get("Category");
-        this.gameIds = DataManager.getInstance(getApplicationContext()).GetTree(treeId).GetGameIds(category);
+        this.gameIds = DataManager.getInstance(getApplicationContext()).getTree(treeId).GetGameIds(category);
         // Set ActionBar-Content
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);

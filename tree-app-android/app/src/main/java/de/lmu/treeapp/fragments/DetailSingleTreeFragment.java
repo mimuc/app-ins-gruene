@@ -58,7 +58,7 @@ public class DetailSingleTreeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        this.tree = DataManager.getInstance(getContext()).GetTree(tree.getId());
+        this.tree = DataManager.getInstance(getContext()).getTree(tree.getId());
         this.updateTreeView();
     }
 

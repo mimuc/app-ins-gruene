@@ -63,7 +63,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
     }
 
     private void showNextQuestion() {
-        gameContent = DataManager.getInstance(getApplicationContext()).GetMinigame(getNextQuizID());
+        gameContent = DataManager.getInstance(getApplicationContext()).getMinigame(getNextQuizID());
         description.setText(gameContent.getDescription());
         setupOptionRecyclerView();
         showAnswer = 0;

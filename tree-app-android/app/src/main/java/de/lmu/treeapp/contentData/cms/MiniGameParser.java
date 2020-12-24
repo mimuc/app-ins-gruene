@@ -14,12 +14,12 @@ import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_InputStringAnswer;
 
 
-public class miniGameParser {
+public class MiniGameParser {
 
     List<Minigame_Base> miniGames;
     private String text;
 
-    public miniGameParser() {
+    public MiniGameParser() {
         miniGames = new ArrayList<>();
     }
 

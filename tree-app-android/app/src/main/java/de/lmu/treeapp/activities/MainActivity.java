@@ -146,9 +146,9 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
-        Tree tree = dm.GetTreeByQR(barcode.displayValue);
+        Tree tree = dm.getTreeByQR(barcode.displayValue);
         if (tree != null) {     // If the barcode captured does correspond with a tree.
-            dm.UnlockTree(tree);
+            dm.unlockTree(tree);
             this.showToast(tree.getName());
         } else                  // If the barcode captured does not correspond with any tree.
             this.showToast(String.format("%s%s", getString(R.string.main_activity_qr_code_no_tree_found_text), barcode.displayValue));
