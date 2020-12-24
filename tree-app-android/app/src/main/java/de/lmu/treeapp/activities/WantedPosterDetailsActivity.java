@@ -61,8 +61,8 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.wanted_poster_details);
 
         //gets the tree and treeProfile data from DataManager, which gets the data from room database and app startup
-        tree = DataManager.getInstance(getApplicationContext()).GetTree(Objects.requireNonNull(getIntent().getExtras()).getInt("TreeId"));
-        treeProfile = DataManager.getInstance(getApplicationContext()).GetTreeProfile(tree.getId());
+        tree = DataManager.getInstance(getApplicationContext()).getTree(Objects.requireNonNull(getIntent().getExtras()).getInt("TreeId"));
+        treeProfile = DataManager.getInstance(getApplicationContext()).getTreeProfile(tree.getId());
 
         RecyclerView recyclerView = findViewById(R.id.wanted_poster_recycler_view);
         WantedPosterCardAdapter adapter = new WantedPosterCardAdapter(getCards());
@@ -187,7 +187,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
         if (treeProfile != null && treeProfile.cards != null) {
             for (int i = 0; i < treeProfile.cards.size(); i++) {
                 TreeProfileCard card = treeProfile.cards.get(i);
-                boolean unlocked = card.unlockedBy == Tree.GameCategories.none || tree.GetGameProgressionPercent(card.unlockedBy) > 90;
+                boolean isUnlocked = card.unlockedBy == Tree.GameCategories.none || tree.GetGameProgressionPercent(card.unlockedBy) > 90;
                 int drawableId = getApplicationContext().getResources().getIdentifier(card.imageResource, "drawable", getApplicationContext().getPackageName());
                 Drawable image = getDrawable(drawableId);
 
@@ -196,7 +196,7 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
                     imageUri = getImageUri(card.picture);
                 }
 
-                WantedPosterCard posterCard = new WantedPosterCard(unlocked,
+                WantedPosterCard posterCard = new WantedPosterCard(isUnlocked,
                         card.name,
                         image,
                         card.content,

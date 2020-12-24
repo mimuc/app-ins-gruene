@@ -74,12 +74,12 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
     @Override
     public void onBindViewHolder(GameselectionRecyclerViewAdapter.ViewHolder holder, final int position) {
         final Context context = holder.gameName.getContext();
-        final IGameBase game = DataManager.getInstance(context).GetMinigame(games.get(position));
-        final Tree tree = DataManager.getInstance(context).GetTree(treeId);
+        final IGameBase game = DataManager.getInstance(context).getMinigame(games.get(position));
+        final Tree tree = DataManager.getInstance(context).getTree(treeId);
         if (game == null) {
             return;
         }
-        if (tree.appData.IsGameCompleted(category, game.getId())) {
+        if (tree.appData.isGameCompleted(category, game.getId())) {
             Glide.with(context).load(R.drawable.ic_quiz_checked).into(holder.gameIcon);
             Glide.with(context).load(R.drawable.white_background).into(new BackgroundTarget(holder.gameIcon));
         }

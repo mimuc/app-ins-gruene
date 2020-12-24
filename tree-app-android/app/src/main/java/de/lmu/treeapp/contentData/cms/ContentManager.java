@@ -60,7 +60,7 @@ public class ContentManager {
         this.minigames.addAll(contentDb.gameOnlyDescriptionDao().getAll());
         this.minigames.addAll(contentDb.gameTakePictureDao().getAll());
 
-        miniGameParser parser = new miniGameParser();
+        MiniGameParser parser = new MiniGameParser();
         this.minigames.addAll(parser.getMiniGames(context));
     }
 

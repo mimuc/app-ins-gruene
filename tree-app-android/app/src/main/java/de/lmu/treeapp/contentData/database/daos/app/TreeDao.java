@@ -20,17 +20,17 @@ public interface TreeDao {
     TreeModel getById(int uid);
 
     @Insert
-    void InsertOne(TreeModel model);
+    void insertOne(TreeModel model);
 
     @Insert
-    void InsertAll(TreeModel... models);
+    void insertAll(TreeModel... models);
 
     @Insert
-    void InsertAll(List<TreeModel> models);
+    void insertAll(List<TreeModel> models);
 
     @Update
-    void Update(TreeModel... models);
+    void update(TreeModel... models);
 
     @Delete
-    void DeleteOne(TreeModel model);
+    void deleteOne(TreeModel model);
 }

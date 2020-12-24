@@ -17,18 +17,18 @@ public class WantedPosterCard {
     private final Drawable picture;
     private final Uri gamePicture;
     private final String infotext;
-    private final boolean unlocked;
+    private final boolean isUnlocked;
     private final Drawable collapse;
 
 
-    public WantedPosterCard(boolean unlocked, String header, Drawable picture, String infoText, Uri gamePicture, Context context) {
+    public WantedPosterCard(boolean isUnlocked, String header, Drawable picture, String infoText, Uri gamePicture, Context context) {
         this.header = header;
         this.picture = picture;
         this.infotext = infoText;
-        this.unlocked = unlocked;
+        this.isUnlocked = isUnlocked;
         this.gamePicture = gamePicture;
 
-        if (unlocked) {
+        if (isUnlocked) {
             //TODO: collapse arrow here to be safe
             subHeader = "Bereits freigespielt";
             collapse = context.getDrawable(R.drawable.ic_arrow_left);
@@ -61,7 +61,7 @@ public class WantedPosterCard {
     }
 
     public boolean isUnlocked() {
-        return unlocked;
+        return isUnlocked;
     }
 
     public Drawable getCollapse() {

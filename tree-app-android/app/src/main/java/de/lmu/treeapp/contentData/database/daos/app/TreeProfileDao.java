@@ -20,14 +20,14 @@ public interface TreeProfileDao {
     List<TreeProfileModel> getAll();
 
     @Insert
-    void InsertOne(TreeProfileModel model);
+    void insertOne(TreeProfileModel model);
 
     @Insert
-    void InsertAll(TreeProfileModel... models);
+    void insertAll(TreeProfileModel... models);
 
     @Update
-    void UpdateOne(TreeProfileModel model);
+    void updateOne(TreeProfileModel model);
 
     @Delete
-    void DeleteOne(TreeProfileModel model);
+    void deleteOne(TreeProfileModel model);
 }
