@@ -3,7 +3,7 @@ package de.lmu.treeapp.contentClasses.trees;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.lmu.treeapp.contentData.database.entities.app.TreeState;
+import de.lmu.treeapp.contentData.database.entities.app.TreeStateRelations;
 import de.lmu.treeapp.contentData.database.entities.content.TreeImage;
 import de.lmu.treeapp.contentData.database.entities.content.TreeRelations;
 import de.lmu.treeapp.contentData.database.entities.content.Tree_x_Game;
@@ -16,15 +16,10 @@ public class Tree {
     public List<Integer> trunkGamesIds = new ArrayList<>();
     public List<Integer> otherGamesIds = new ArrayList<>();
 
-    // TODO replace with getter methods which return images directly from contentData as type "TreeImage".
-    public String imageTree = "";
-    public String imageLeaf = "";
-    public String imageFruit = "";
-    public String imageTrunk = "";
-    public String imageOther = "";
+    public List<TreeImage> treeImages;
 
     public TreeRelations contentData;
-    public TreeState appData;
+    public TreeStateRelations appData;
 
     public Tree() {
         super();
@@ -32,26 +27,7 @@ public class Tree {
 
     public void initContentData(TreeRelations treeModel) {
         contentData = treeModel;
-
-        for (TreeImage image : contentData.images) {
-            switch (image.treeComponent) {
-                case TREE:
-                    imageTree = image.imageResource;
-                    break;
-                case LEAF:
-                    imageLeaf = image.imageResource;
-                    break;
-                case FRUIT:
-                    imageFruit = image.imageResource;
-                    break;
-                case TRUNK:
-                    imageTrunk = image.imageResource;
-                    break;
-                case OTHER:
-                    imageOther = image.imageResource;
-                    break;
-            }
-        }
+        treeImages = contentData.images;
 
         for (Tree_x_Game game : contentData.tree_x_games) {
             switch (game.gameCategory) {
@@ -74,7 +50,7 @@ public class Tree {
         }
     }
 
-    public void initAppData(TreeState treeState) {
+    public void initAppData(TreeStateRelations treeState) {
         appData = treeState;
     }
 
@@ -105,18 +81,18 @@ public class Tree {
 
         switch (category) {
             case leaf:
-                return GetGamesProgression(leafGamesIds, appData.leafGamesCompleted) * 100;
+                return GetGamesProgression(leafGamesIds, appData.treeState.leafGamesCompleted) * 100;
             case fruit:
-                return GetGamesProgression(fruitGamesIds, appData.fruitGamesCompleted) * 100;
+                return GetGamesProgression(fruitGamesIds, appData.treeState.fruitGamesCompleted) * 100;
             case trunk:
-                return GetGamesProgression(trunkGamesIds, appData.trunkGamesCompleted) * 100;
+                return GetGamesProgression(trunkGamesIds, appData.treeState.trunkGamesCompleted) * 100;
             case other:
-                return GetGamesProgression(otherGamesIds, appData.otherGamesCompleted) * 100;
+                return GetGamesProgression(otherGamesIds, appData.treeState.otherGamesCompleted) * 100;
             case total:
-                float valLeaf = GetGamesProgression(leafGamesIds, appData.leafGamesCompleted);
-                float valFruit = GetGamesProgression(fruitGamesIds, appData.fruitGamesCompleted);
-                float valTrunk = GetGamesProgression(trunkGamesIds, appData.trunkGamesCompleted);
-                float valOther = GetGamesProgression(otherGamesIds, appData.otherGamesCompleted);
+                float valLeaf = GetGamesProgression(leafGamesIds, appData.treeState.leafGamesCompleted);
+                float valFruit = GetGamesProgression(fruitGamesIds, appData.treeState.fruitGamesCompleted);
+                float valTrunk = GetGamesProgression(trunkGamesIds, appData.treeState.trunkGamesCompleted);
+                float valOther = GetGamesProgression(otherGamesIds, appData.treeState.otherGamesCompleted);
                 float valTotal = (valLeaf + valFruit + valTrunk + valOther) / 4;
                 return valTotal * 100;
             default:
@@ -138,6 +114,48 @@ public class Tree {
             }
         }
         return (float) completed / (float) gamesTotal.size();
+    }
+
+    public TreeImage getTreeImage(TreeComponent component) {
+        for (TreeImage treeImage : treeImages) {
+            if (treeImage.treeComponent == component) {
+                return treeImage;
+            }
+        }
+        return null;
+    }
+
+    public static TreeComponent toTreeComponent(GameCategories gameCategory) {
+        switch (gameCategory) {
+            case total:
+                return TreeComponent.TREE;
+            case leaf:
+                return TreeComponent.LEAF;
+            case fruit:
+                return TreeComponent.FRUIT;
+            case trunk:
+                return TreeComponent.TRUNK;
+            case other:
+            case none:
+            default:
+                return TreeComponent.OTHER;
+        }
+    }
+
+    public static GameCategories toGameCategory(TreeComponent component) {
+        switch (component) {
+            case TREE:
+                return GameCategories.total;
+            case LEAF:
+                return GameCategories.leaf;
+            case FRUIT:
+                return GameCategories.fruit;
+            case TRUNK:
+                return GameCategories.trunk;
+            case OTHER:
+            default:
+                return GameCategories.other;
+        }
     }
 
     public enum GameCategories {

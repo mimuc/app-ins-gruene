@@ -21,6 +21,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
 
     protected IGameBase gameContent;
     protected int treeId;
+    protected int gameId;
     protected Tree parentTree;
     protected Tree.GameCategories parentCategory;
 
@@ -32,8 +33,9 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         parentCategory = (Tree.GameCategories) b.get("Category");
         treeId = b.getInt("TreeId");
+        gameId = b.getInt("GameId");
         parentTree = DataManager.getInstance(getApplicationContext()).getTree(treeId);
-        gameContent = DataManager.getInstance(getApplicationContext()).getMinigame(b.getInt("GameId"));
+        gameContent = DataManager.getInstance(getApplicationContext()).getMinigame(gameId);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -67,14 +69,10 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         super.onBackPressed();
     }
 
-
     // Save the game process and go back to the game selection activity
     protected void onSuccess() {
         DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree).subscribe();
-        Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
-        intent.putExtra("TreeId", treeId);
-        intent.putExtra("Category", parentCategory);
-        startActivity(intent);
+        showGameSelection();
     }
 
     // Save the game process and display the next quiz game in this category
@@ -86,24 +84,23 @@ public abstract class GameActivity_Base extends AppCompatActivity {
             DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, quizIDs.get(i), parentTree).subscribe();
         }
         quizIDs.clear();
-        System.out.println(quizIDs);
 
+        showGameSelection();
+    }
 
+    public void showGameSelection() {
         Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
         intent.putExtra("TreeId", treeId);
         intent.putExtra("Category", parentCategory);
-        finish(); // Removes the last quiz activity from the stack
         startActivity(intent);
+        finish();
     }
 
-    public void showTreeProfile(String picPath, boolean toWantedPoster) {
-        DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree).subscribe();
-        DataManager.getInstance(getApplicationContext()).setTakeTreePicture(picPath, parentCategory, parentTree).subscribe();
-        if (toWantedPoster) {
-            Intent intent = new Intent(getApplicationContext(), WantedPosterDetailsActivity.class);
-            intent.putExtra("TreeId", treeId);
-            startActivity(intent);
-        }
+    public void showTreeProfile() {
+        Intent intent = new Intent(getApplicationContext(), WantedPosterDetailsActivity.class);
+        intent.putExtra("TreeId", treeId);
+        startActivity(intent);
+        finish();
     }
 
     protected void onFail() {

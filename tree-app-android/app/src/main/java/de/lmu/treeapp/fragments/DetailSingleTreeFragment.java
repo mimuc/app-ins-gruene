@@ -23,6 +23,7 @@ import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.GameSelectionActivity;
 import de.lmu.treeapp.activities.WantedPosterDetailsActivity;
 import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.contentClasses.trees.TreeComponent;
 import de.lmu.treeapp.contentData.DataManager;
 
 public class DetailSingleTreeFragment extends Fragment {
@@ -30,6 +31,7 @@ public class DetailSingleTreeFragment extends Fragment {
     private TextView treeName;
     private ImageView treeImage;
     private Button treeProfileButton;
+    // TODO replace with lists
     private ImageButton leafButton;
     private ImageButton fruitButton;
     private ImageButton trunkButton;
@@ -93,10 +95,10 @@ public class DetailSingleTreeFragment extends Fragment {
     }
 
     private void setupImageResources() {
-        int imageTreeId = Objects.requireNonNull(getContext()).getResources().getIdentifier(tree.imageTree, "drawable", getContext().getPackageName());
-        int imageLeafId = getContext().getResources().getIdentifier(tree.imageLeaf, "drawable", getContext().getPackageName());
-        int imageFruitId = getContext().getResources().getIdentifier(tree.imageFruit, "drawable", getContext().getPackageName());
-        int imageTrunkId = getContext().getResources().getIdentifier(tree.imageTrunk, "drawable", getContext().getPackageName());
+        int imageTreeId = Objects.requireNonNull(getContext()).getResources().getIdentifier(tree.getTreeImage(TreeComponent.TREE).imageResource, "drawable", getContext().getPackageName());
+        int imageLeafId = getContext().getResources().getIdentifier(tree.getTreeImage(TreeComponent.LEAF).imageResource, "drawable", getContext().getPackageName());
+        int imageFruitId = getContext().getResources().getIdentifier(tree.getTreeImage(TreeComponent.FRUIT).imageResource, "drawable", getContext().getPackageName());
+        int imageTrunkId = getContext().getResources().getIdentifier(tree.getTreeImage(TreeComponent.TRUNK).imageResource, "drawable", getContext().getPackageName());
         //int imageOtherId = getContext().getResources().getIdentifier(tree.imageOther, "drawable", getContext().getPackageName());
         Glide.with(this).load(imageTreeId).into(treeImage);
         Glide.with(this).load(imageLeafId).into(leafButton);

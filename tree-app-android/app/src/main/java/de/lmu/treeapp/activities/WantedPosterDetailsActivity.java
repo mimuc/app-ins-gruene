@@ -33,6 +33,7 @@ import de.lmu.treeapp.adapter.WantedPosterCardAdapter;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.TreeProfile;
 import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
 import de.lmu.treeapp.contentData.database.entities.content.TreeProfileCard;
 import de.lmu.treeapp.fragments.WantedPosterCard;
 
@@ -97,34 +98,29 @@ public class WantedPosterDetailsActivity extends AppCompatActivity {
          * convert them to a drawable and set it to the sliderItem. If user has not taken a pic of
          * the tree component, a graphical image is set.
          */
-        if (!tree.appData.imageFruitTaken.equals("")) {
-            Drawable d = setImage(tree.appData.imageFruitTaken);
-            sliderItems.add(new SliderItem(null, d));
-        } else {
-            sliderItems.add(new SliderItem(getApplicationContext().getResources().
-                    getIdentifier(tree.imageFruit, "drawable",
-                            getApplicationContext().getPackageName()), null));
+        Tree.GameCategories[] validGameCategories = {
+                Tree.GameCategories.leaf,
+                Tree.GameCategories.fruit,
+                Tree.GameCategories.trunk,
+                Tree.GameCategories.other
+        };
+        for (Tree.GameCategories gameCategory : validGameCategories) {
+            SliderItem sliderItem;
+            GameStateTakePictureImage takePictureImage = tree.appData.getLatestTakePictureImage(gameCategory);
+            if (takePictureImage != null) {
+                // Use photo of gameCategory if available
+                Drawable d = setImage(takePictureImage.imagePath);
+                sliderItem = new SliderItem(null, d);
+            } else {
+                // Else use default illustration
+                sliderItem = new SliderItem(getApplicationContext().getResources().getIdentifier(
+                        tree.getTreeImage(Tree.toTreeComponent(gameCategory)).imageResource,
+                        "drawable",
+                        getApplicationContext().getPackageName()), null);
+            }
+            sliderItems.add(sliderItem);
         }
-        if (!tree.appData.imageLeafTaken.equals("")) {
-            Drawable d = setImage(tree.appData.imageLeafTaken);
-            sliderItems.add(new SliderItem(null, d));
-        } else {
-            sliderItems.add(new SliderItem(getApplicationContext().getResources()
-                    .getIdentifier(tree.imageLeaf, "drawable",
-                            getApplicationContext().getPackageName()), null));
-        }
-        if (!tree.appData.imageTrunkTaken.equals("")) {
-            Drawable d = setImage(tree.appData.imageTrunkTaken);
-            sliderItems.add(new SliderItem(null, d));
-        } else {
-            sliderItems.add(new SliderItem(getApplicationContext().getResources()
-                    .getIdentifier(tree.imageTrunk, "drawable",
-                            getApplicationContext().getPackageName()), null));
-        }
-        if (!tree.appData.imageTreeTaken.equals("")) {
-            Drawable d = setImage(tree.appData.imageTreeTaken);
-            sliderItems.add(new SliderItem(null, d));
-        }
+
         viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
         viewPager2.setClipToPadding(false);
         viewPager2.setClipChildren(false);
