@@ -9,37 +9,37 @@ import java.util.List;
 
 import de.lmu.treeapp.contentClasses.trees.Tree;
 
-
 @Entity
 public class TreeState {
+
     @PrimaryKey
-    public int uid;
+    public int id;
 
     public Boolean isUnlocked;
     public List<Integer> leafGamesCompleted;
     public List<Integer> fruitGamesCompleted;
     public List<Integer> trunkGamesCompleted;
     public List<Integer> otherGamesCompleted;
-    public String imageTreeTaken;
-    public String imageLeafTaken;
-    public String imageFruitTaken;
-    public String imageTrunkTaken;
 
     @Ignore
-    public void initDefault(int _uid) {
-        this.uid = _uid;
+    public TreeState(int id) {
+        this.id = id;
         this.isUnlocked = false;
         this.leafGamesCompleted = new ArrayList<>();
         this.fruitGamesCompleted = new ArrayList<>();
         this.trunkGamesCompleted = new ArrayList<>();
         this.otherGamesCompleted = new ArrayList<>();
-        this.imageTreeTaken = "";
-        this.imageLeafTaken = "";
-        this.imageFruitTaken = "";
-        this.imageTrunkTaken = "";
     }
 
-    @Ignore
+    public TreeState(int id, Boolean isUnlocked, List<Integer> leafGamesCompleted, List<Integer> fruitGamesCompleted, List<Integer> trunkGamesCompleted, List<Integer> otherGamesCompleted) {
+        this.id = id;
+        this.isUnlocked = isUnlocked;
+        this.leafGamesCompleted = leafGamesCompleted;
+        this.fruitGamesCompleted = fruitGamesCompleted;
+        this.trunkGamesCompleted = trunkGamesCompleted;
+        this.otherGamesCompleted = otherGamesCompleted;
+    }
+
     public boolean isGameCompleted(Tree.GameCategories category, int gameId) {
         switch (category) {
             case leaf:

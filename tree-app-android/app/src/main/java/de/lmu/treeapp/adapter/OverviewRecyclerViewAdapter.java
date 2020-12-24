@@ -23,6 +23,7 @@ import java.util.Objects;
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.Imprint;
 import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.contentClasses.trees.TreeComponent;
 import de.lmu.treeapp.service.MainActivityViewModel;
 
 public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRecyclerViewAdapter.ViewHolder> {
@@ -89,10 +90,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
         }
         context = v.getContext();
 
-
         return new ViewHolder(v);
-
-
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -115,7 +113,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
 
             if (Math.round(tree.GetGameProgressionPercent(Tree.GameCategories.total)) >= 100) {
                 Glide.with(context).load(R.drawable.ic_checked_mark).into(holder.treeUnlockedStatus);
-            } else if (tree.appData.isUnlocked) {
+            } else if (tree.appData.treeState.isUnlocked) {
                 // Change to Unlocked-Symbol
                 Glide.with(context).load(R.drawable.ic_question_mark).into(holder.treeUnlockedStatus);
             } else {
@@ -123,7 +121,9 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
             }
             // Set Tree-Image here:
             Context context = holder.treeImage.getContext();
-            int imageTreeId = context.getResources().getIdentifier(tree.imageTree, "drawable", context.getPackageName());
+            int imageTreeId = context.getResources().getIdentifier(
+                    tree.getTreeImage(TreeComponent.TREE).imageResource,
+                    "drawable", context.getPackageName());
             Glide.with(context).load(imageTreeId).into(holder.treeImage);
             holder.treeImage.setOnClickListener(arg0 -> {
                 viewModel.setCurrentPagerIndex(position);
