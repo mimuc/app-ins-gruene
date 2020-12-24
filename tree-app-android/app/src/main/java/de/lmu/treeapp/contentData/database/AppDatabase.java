@@ -13,6 +13,7 @@ import de.lmu.treeapp.contentData.database.daos.app.TreeProfileDao;
 import de.lmu.treeapp.contentData.database.entities.app.PlayerModel;
 import de.lmu.treeapp.contentData.database.entities.app.TreeModel;
 import de.lmu.treeapp.contentData.database.entities.app.TreeProfileModel;
+import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
 
 @Database(entities = {TreeModel.class, TreeProfileModel.class, PlayerModel.class}, version = 1, exportSchema = false)
 @TypeConverters({TypeConversion.class})

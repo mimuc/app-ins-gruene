@@ -24,6 +24,7 @@ import de.lmu.treeapp.contentData.database.entities.content.TreeImage;
 import de.lmu.treeapp.contentData.database.entities.content.TreeModel;
 import de.lmu.treeapp.contentData.database.entities.content.TreeProfileCard;
 import de.lmu.treeapp.contentData.database.entities.content.Tree_x_Game;
+import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
 
 @Database(entities = {
         GameBase.class,

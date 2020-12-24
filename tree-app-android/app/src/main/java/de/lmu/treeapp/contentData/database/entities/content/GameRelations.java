@@ -5,7 +5,7 @@ import androidx.room.TypeConverters;
 
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
-import de.lmu.treeapp.contentData.database.TypeConversion;
+import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
 
 public abstract class GameRelations implements IGameBase {
     @Embedded
