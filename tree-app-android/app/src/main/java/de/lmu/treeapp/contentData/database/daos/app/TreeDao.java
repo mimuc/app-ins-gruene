@@ -9,6 +9,7 @@ import androidx.room.Update;
 import java.util.List;
 
 import de.lmu.treeapp.contentData.database.entities.app.TreeModel;
+import io.reactivex.rxjava3.core.Completable;
 
 @Dao
 public interface TreeDao {
@@ -29,7 +30,7 @@ public interface TreeDao {
     void insertAll(List<TreeModel> models);
 
     @Update
-    void update(TreeModel... models);
+    Completable update(TreeModel... models);
 
     @Delete
     void deleteOne(TreeModel model);
