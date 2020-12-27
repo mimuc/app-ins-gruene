@@ -70,7 +70,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
 
     // Save the game process and go back to the game selection activity
     protected void onSuccess() {
-        DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree);
+        DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree).subscribe();
         Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
         intent.putExtra("TreeId", treeId);
         intent.putExtra("Category", parentCategory);
@@ -83,7 +83,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         System.out.println(quizIDs);
 
         for (int i = 0; i < quizIDs.size(); i++) {
-            DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, quizIDs.get(i), parentTree);
+            DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, quizIDs.get(i), parentTree).subscribe();
         }
         quizIDs.clear();
         System.out.println(quizIDs);
@@ -97,8 +97,8 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     }
 
     public void showTreeProfile(String picPath, boolean toWantedPoster) {
-        DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree);
-        DataManager.getInstance(getApplicationContext()).setTakeTreePicture(picPath, parentCategory, parentTree);
+        DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree).subscribe();
+        DataManager.getInstance(getApplicationContext()).setTakeTreePicture(picPath, parentCategory, parentTree).subscribe();
         if (toWantedPoster) {
             Intent intent = new Intent(getApplicationContext(), WantedPosterDetailsActivity.class);
             intent.putExtra("TreeId", treeId);
