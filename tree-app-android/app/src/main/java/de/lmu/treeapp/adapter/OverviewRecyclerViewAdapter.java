@@ -115,7 +115,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
 
             if (Math.round(tree.GetGameProgressionPercent(Tree.GameCategories.total)) >= 100) {
                 Glide.with(context).load(R.drawable.ic_checked_mark).into(holder.treeUnlockedStatus);
-            } else if (tree.appData.unlocked) {
+            } else if (tree.appData.isUnlocked) {
                 // Change to Unlocked-Symbol
                 Glide.with(context).load(R.drawable.ic_question_mark).into(holder.treeUnlockedStatus);
             } else {

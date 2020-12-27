@@ -16,10 +16,10 @@ public interface PlayerDao {
     PlayerModel getById(int uid);
 
     @Insert
-    void InsertOne(PlayerModel model);
+    void insertOne(PlayerModel model);
 
     @Update
-    void UpdateOne(PlayerModel model);
+    void updateOne(PlayerModel model);
 
 
 }
