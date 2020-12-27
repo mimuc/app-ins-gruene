@@ -6,6 +6,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import de.lmu.treeapp.contentData.database.entities.app.PlayerModel;
+import io.reactivex.rxjava3.core.Completable;
 
 @Dao
 public interface PlayerDao {
@@ -19,7 +20,5 @@ public interface PlayerDao {
     void insertOne(PlayerModel model);
 
     @Update
-    void updateOne(PlayerModel model);
-
-
+    Completable updateOne(PlayerModel model);
 }
