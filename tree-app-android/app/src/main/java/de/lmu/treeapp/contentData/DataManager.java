@@ -12,6 +12,8 @@ import de.lmu.treeapp.contentData.cms.ContentManager;
 import de.lmu.treeapp.contentData.database.AppDatabase;
 import de.lmu.treeapp.contentData.database.entities.app.PlayerModel;
 import de.lmu.treeapp.contentData.database.entities.app.TreeModel;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class DataManager {
     private static DataManager INSTANCE;
@@ -29,7 +31,7 @@ public class DataManager {
                 if (INSTANCE == null) { // double checked locking
                     DataManager dataManager = new DataManager();
                     dataManager.context = _context;
-                    dataManager.init();
+                    dataManager.init().subscribe();
                     INSTANCE = dataManager;
                 }
             }
@@ -37,16 +39,8 @@ public class DataManager {
         return INSTANCE;
     }
 
-    private void setData(List<Tree> _trees, List<TreeProfile> _treeProfiles, List<IGameBase> _minigames, PlayerModel _player) {
-        this.trees = _trees;
-        this.treeProfiles = _treeProfiles;
-        this.miniGames = _minigames;
-        this.player = _player;
-        this.loaded = true;
-    }
-
-    private void init() {
-        new Thread(() -> {
+    private Completable init() {
+        return Completable.fromAction(() -> {
             // Saved Name
             PlayerModel DB_player = AppDatabase.getInstance(context).playerDao().get();
             if (DB_player == null) {
@@ -76,7 +70,15 @@ public class DataManager {
                 }
             }
             DataManager.getInstance(context).setData(CMS_trees, CMS_treeProfiles, CMS_miniGames, DB_player);
-        }).start();
+        }).subscribeOn(Schedulers.io());
+    }
+
+    private void setData(List<Tree> _trees, List<TreeProfile> _treeProfiles, List<IGameBase> _minigames, PlayerModel _player) {
+        this.trees = _trees;
+        this.treeProfiles = _treeProfiles;
+        this.miniGames = _minigames;
+        this.player = _player;
+        this.loaded = true;
     }
 
     // Player-Stuff
@@ -84,10 +86,9 @@ public class DataManager {
         return player.name;
     }
 
-    public String setPlayerName(String _name) {
+    public Completable setPlayerName(String _name) {
         player.name = _name;
-        new Thread(() -> AppDatabase.getInstance(context).playerDao().updateOne(player)).start();
-        return player.name;
+        return AppDatabase.getInstance(context).playerDao().updateOne(player).subscribeOn(Schedulers.io());
     }
 
     // Get something
@@ -144,33 +145,10 @@ public class DataManager {
     }
 
     // Unlocked a Tree
-    public void unlockTree(Tree _tree) {
+    public Completable unlockTree(Tree _tree) {
         final TreeModel model = _tree.appData;
         model.isUnlocked = true;
-        new Thread(() -> AppDatabase.getInstance(context).treeDao().update(model)).start();
-    }
-
-    // GameCompleted overloaded Functions
-    public void setGameCompleted(Tree.GameCategories _category, Minigame_Base _game, Tree _tree) {
-        setGameCompleted(_category, _game.uid, _tree);
-    }
-
-    public void setGameCompleted(Tree.GameCategories _category, Minigame_Base _game, int _treeId) {
-        if (trees.isEmpty() || trees == null) return;
-        for (int i = 0; i < trees.size(); i++) {
-            if (_treeId == trees.get(i).getId()) {
-                setGameCompleted(_category, _game.uid, trees.get(i));
-            }
-        }
-    }
-
-    public void setGameCompleted(Tree.GameCategories _category, int _gameId, int _treeId) {
-        if (trees.isEmpty() || trees == null) return;
-        for (int i = 0; i < trees.size(); i++) {
-            if (_treeId == trees.get(i).getId()) {
-                setGameCompleted(_category, _gameId, trees.get(i));
-            }
-        }
+        return AppDatabase.getInstance(context).treeDao().update(model).subscribeOn(Schedulers.io());
     }
 
     public boolean isGameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree) {
@@ -199,30 +177,34 @@ public class DataManager {
         return gameCompleted;
     }
 
-    public void setTakeTreePicture(String picPath, Tree.GameCategories _category, Tree _tree) {
-        final TreeModel model = _tree.appData;
-        switch (_category) {
-            case total:
-                if (!model.imageTreeTaken.equals(picPath))
-                    model.imageTreeTaken = picPath;
-                break;
-            case leaf:
-                if (!model.imageLeafTaken.equals(picPath))
-                    model.imageLeafTaken = picPath;
-                break;
-            case fruit:
-                if (!model.imageFruitTaken.equals(picPath))
-                    model.imageFruitTaken = picPath;
-                break;
-            case trunk:
-                if (!model.imageTrunkTaken.equals(picPath))
-                    model.imageTrunkTaken = picPath;
-                break;
-        }
-        new Thread(() -> AppDatabase.getInstance(context).treeDao().update(model)).start();
+    // GameCompleted overloaded Functions
+    public Completable setGameCompleted(Tree.GameCategories _category, Minigame_Base _game, Tree _tree) {
+        return setGameCompleted(_category, _game.uid, _tree);
     }
 
-    public void setGameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree) {
+    public Completable setGameCompleted(Tree.GameCategories _category, Minigame_Base _game, int _treeId) {
+        if (trees != null && !trees.isEmpty()) {
+            for (int i = 0; i < trees.size(); i++) {
+                if (_treeId == trees.get(i).getId()) {
+                    return setGameCompleted(_category, _game.uid, trees.get(i));
+                }
+            }
+        }
+        return Completable.complete();
+    }
+
+    public Completable setGameCompleted(Tree.GameCategories _category, int _gameId, int _treeId) {
+        if (trees != null && !trees.isEmpty()) {
+            for (int i = 0; i < trees.size(); i++) {
+                if (_treeId == trees.get(i).getId()) {
+                    return setGameCompleted(_category, _gameId, trees.get(i));
+                }
+            }
+        }
+        return Completable.complete();
+    }
+
+    public Completable setGameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree) {
         final TreeModel model = _tree.appData;
         switch (_category) {
             case leaf:
@@ -244,6 +226,29 @@ public class DataManager {
             default:
                 break;
         }
-        new Thread(() -> AppDatabase.getInstance(context).treeDao().update(model)).start();
+        return AppDatabase.getInstance(context).treeDao().update(model).subscribeOn(Schedulers.io());
+    }
+
+    public Completable setTakeTreePicture(String picPath, Tree.GameCategories _category, Tree _tree) {
+        final TreeModel model = _tree.appData;
+        switch (_category) {
+            case total:
+                if (!model.imageTreeTaken.equals(picPath))
+                    model.imageTreeTaken = picPath;
+                break;
+            case leaf:
+                if (!model.imageLeafTaken.equals(picPath))
+                    model.imageLeafTaken = picPath;
+                break;
+            case fruit:
+                if (!model.imageFruitTaken.equals(picPath))
+                    model.imageFruitTaken = picPath;
+                break;
+            case trunk:
+                if (!model.imageTrunkTaken.equals(picPath))
+                    model.imageTrunkTaken = picPath;
+                break;
+        }
+        return AppDatabase.getInstance(context).treeDao().update(model).subscribeOn(Schedulers.io());
     }
 }
