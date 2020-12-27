@@ -41,6 +41,13 @@
                 android:value="activities.MainActivity" />
         </activity>
         <activity
+            android:name=".activities.minigames.picturePuzzle.GameActivity_PicturePuzzle"
+            android:parentActivityName="activities.GameSelectionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="activities.MainActivity" />
+        </activity>
+        <activity
             android:name=".activities.minigames.takePicture.GameActivity_TakePicture"
             android:parentActivityName="activities.GameSelectionActivity">
             <meta-data

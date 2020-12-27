@@ -10,6 +10,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.activities.minigames.picturePuzzle.GameActivity_PicturePuzzle;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -26,7 +27,7 @@ public class SplashScreen extends AppCompatActivity {
         TextView splash_screen_text = findViewById(R.id.splash_screen_text);
 
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+            Intent intent = new Intent(SplashScreen.this, GameActivity_PicturePuzzle.class);
             startActivity(intent);
             finish();
         }, 3000);
