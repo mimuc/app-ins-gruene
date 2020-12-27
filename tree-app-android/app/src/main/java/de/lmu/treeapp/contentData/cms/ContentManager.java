@@ -14,23 +14,24 @@ import de.lmu.treeapp.contentData.database.entities.content.TreeRelations;
 
 
 public class ContentManager {
-    private static final Object sLock = new Object();
     private static ContentManager INSTANCE;
     private Context context;
-    private List<Tree> trees = new ArrayList<>();
-    private List<TreeProfile> treeProfiles = new ArrayList<>();
-    private List<IGameBase> minigames = new ArrayList<>();
+    private final List<Tree> trees = new ArrayList<>();
+    private final List<TreeProfile> treeProfiles = new ArrayList<>();
+    private final List<IGameBase> minigames = new ArrayList<>();
 
-    public static ContentManager getInstance(Context _context) {
-        synchronized (sLock) {
-            if (INSTANCE == null) {
-                ContentManager newCM = new ContentManager();
-                newCM.context = _context;
-                newCM.init();
-                INSTANCE = newCM;
+    public static ContentManager getInstance(Context context) {
+        if (INSTANCE == null) {
+            synchronized (ContentManager.class) {
+                if (INSTANCE == null) { // double checked locking
+                    ContentManager newCM = new ContentManager();
+                    newCM.context = context;
+                    newCM.init();
+                    INSTANCE = newCM;
+                }
             }
-            return INSTANCE;
         }
+        return INSTANCE;
     }
 
     private void init() {
@@ -63,7 +64,6 @@ public class ContentManager {
         this.minigames.addAll(parser.getMiniGames(context));
     }
 
-
     public List<Tree> getTrees() {
         return trees;
     }
@@ -75,6 +75,4 @@ public class ContentManager {
     public List<IGameBase> getMinigames() {
         return minigames;
     }
-
-
 }

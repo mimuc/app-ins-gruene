@@ -15,7 +15,6 @@ import de.lmu.treeapp.contentData.database.entities.app.TreeModel;
 
 public class DataManager {
     private static DataManager INSTANCE;
-    private static final Object sLock = new Object();
     private Context context;
 
     public Boolean loaded = false;
@@ -25,15 +24,17 @@ public class DataManager {
     public PlayerModel player;
 
     public static DataManager getInstance(Context _context) {
-        synchronized (sLock) {
-            if (INSTANCE == null) {
-                DataManager newCM = new DataManager();
-                newCM.context = _context;
-                newCM.Init();
-                INSTANCE = newCM;
+        if (INSTANCE == null) {
+            synchronized (DataManager.class) {
+                if (INSTANCE == null) { // double checked locking
+                    DataManager dataManager = new DataManager();
+                    dataManager.context = _context;
+                    dataManager.Init();
+                    INSTANCE = dataManager;
+                }
             }
-            return INSTANCE;
         }
+        return INSTANCE;
     }
 
     private void SetData(List<Tree> _trees, List<TreeProfile> _treeProfiles, List<IGameBase> _minigames, PlayerModel _player) {
