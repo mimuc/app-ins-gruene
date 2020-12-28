@@ -7,15 +7,22 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
+import de.lmu.treeapp.contentData.database.daos.app.GameStateTakePictureDao;
 import de.lmu.treeapp.contentData.database.daos.app.PlayerDao;
 import de.lmu.treeapp.contentData.database.daos.app.TreeDao;
 import de.lmu.treeapp.contentData.database.daos.app.TreeProfileDao;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
 import de.lmu.treeapp.contentData.database.entities.app.PlayerState;
 import de.lmu.treeapp.contentData.database.entities.app.TreeState;
 import de.lmu.treeapp.contentData.database.entities.app.TreeProfileState;
 import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
 
-@Database(entities = {TreeState.class, TreeProfileState.class, PlayerState.class}, version = 1, exportSchema = false)
+@Database(entities = {
+        GameStateTakePictureImage.class,
+        TreeState.class,
+        TreeProfileState.class,
+        PlayerState.class
+}, version = 1, exportSchema = false)
 @TypeConverters({TypeConversion.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static final String DB_NAME = "app";
@@ -40,5 +47,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract TreeProfileDao treeProfileDao();
 
     public abstract PlayerDao playerDao();
+
+    public abstract GameStateTakePictureDao gameTakePictureDao();
 }
 

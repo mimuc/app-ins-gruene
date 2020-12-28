@@ -11,6 +11,8 @@ import de.lmu.treeapp.contentClasses.trees.TreeProfile;
 import de.lmu.treeapp.contentData.database.ContentDatabase;
 import de.lmu.treeapp.contentData.database.entities.content.TreeProfileCard;
 import de.lmu.treeapp.contentData.database.entities.content.TreeRelations;
+import de.lmu.treeapp.contentData.database.entities.content.Tree_x_Game;
+import io.reactivex.rxjava3.core.Single;
 
 
 public class ContentManager {
@@ -66,6 +68,10 @@ public class ContentManager {
 
     public List<Tree> getTrees() {
         return trees;
+    }
+
+    public Single<Tree_x_Game> getTxgByCompositeKey(int treeId, int gameId, Tree.GameCategories gameCategory) {
+        return ContentDatabase.getInstance(context).tree_x_gameDao().getByCompositeKey(treeId, gameId, gameCategory);
     }
 
     public List<de.lmu.treeapp.contentClasses.trees.TreeProfile> getTreeProfiles() {

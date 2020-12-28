@@ -29,16 +29,22 @@ import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Objects;
+import java.util.Date;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
+import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.contentData.database.AppDatabase;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
 import de.lmu.treeapp.contentData.database.entities.content.GameTakePictureRelations;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
 public class GameActivity_TakePicture extends GameActivity_Base {
 
     private GameTakePictureRelations takePictureGame;
+    //private List<GameStateTakePictureImage> imageStates;
     private Button sendButton;
     private ImageView previewPicture;
     private ImageButton imageExample;
@@ -68,6 +74,9 @@ public class GameActivity_TakePicture extends GameActivity_Base {
         });
 
         sendButton.setOnClickListener(view -> showPositivePopup());
+
+        // Load state
+        //AppDatabase.getInstance(getApplicationContext()).gameTakePictureDao().getImages(gameId, treeId, parentCategory).subscribeOn(Schedulers.io()).subscribe(s -> imageStates = s);
     }
 
     @Override
@@ -106,8 +115,12 @@ public class GameActivity_TakePicture extends GameActivity_Base {
     }
 
     private File createImageFile() throws IOException {
-        String imageFileName = "AppInsGruene_" + takePictureGame.GetPictureName() + "_" +
-                Objects.requireNonNull(getIntent().getExtras()).getInt("TreeId") + "_" + Objects.requireNonNull(getIntent().getExtras()).get("Category");
+        String imageFileName = "AppInsGruene_"
+                + takePictureGame.GetPictureName()
+                + "_g" + gameId
+                + "_t" + treeId
+                + "_" + parentCategory.name()
+                + "_" + (System.currentTimeMillis() / 1000);
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = new File(storageDir + File.separator + imageFileName + ".jpg");
         if (!image.exists()) {
@@ -179,15 +192,17 @@ public class GameActivity_TakePicture extends GameActivity_Base {
         //close the popup and open the tree profile
         btnWiki.setOnClickListener(view -> {
             popupWindow.dismiss();
-            finish();
-            showTreeProfile(currentPhotoPath, true);
+            // Set success without going back to overview
+            DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree);
+            saveGameState().subscribe();
+            showTreeProfile();
         });
 
         //close the popup and finish the game
         btnAccept.setOnClickListener(view -> {
             popupWindow.dismiss();
+            saveGameState().subscribe();
             onSuccess();
-            showTreeProfile(currentPhotoPath, false);
         });
 
         popupWindow.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -195,5 +210,21 @@ public class GameActivity_TakePicture extends GameActivity_Base {
 
         Window window = popupWindow.getWindow();
         window.setLayout(CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
+    }
+
+    /**
+     * Write game state in background.
+     */
+    protected Completable saveGameState() {
+        if (currentPhotoPath != null) {
+            GameStateTakePictureImage gameStateTakePictureImage = new GameStateTakePictureImage(gameId, treeId, parentCategory, currentPhotoPath, new Date());
+            return AppDatabase.getInstance(getApplicationContext()).gameTakePictureDao()
+                    .insertImage(gameStateTakePictureImage)
+                    .subscribeOn(Schedulers.io()).flatMapCompletable(s -> Completable.fromAction(() -> {
+                        gameStateTakePictureImage.id = s.intValue(); // Update id afterwards
+                        parentTree.appData.takePictureImages.add(gameStateTakePictureImage);
+                    }));
+        }
+        return Completable.complete();
     }
 }
