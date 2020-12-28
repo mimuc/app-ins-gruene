@@ -1,4 +1,4 @@
-package de.lmu.treeapp.contentData.database;
+package de.lmu.treeapp.contentData.database.typeconversion;
 
 import androidx.room.TypeConverter;
 

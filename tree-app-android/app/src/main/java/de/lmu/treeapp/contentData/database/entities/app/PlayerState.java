@@ -4,7 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class PlayerModel {
+public class PlayerState {
     @PrimaryKey
     public int uid = 0;
     public String name = "Forscher";

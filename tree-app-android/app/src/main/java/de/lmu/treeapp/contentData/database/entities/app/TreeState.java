@@ -11,7 +11,7 @@ import de.lmu.treeapp.contentClasses.trees.Tree;
 
 
 @Entity
-public class TreeModel {
+public class TreeState {
     @PrimaryKey
     public int uid;
 

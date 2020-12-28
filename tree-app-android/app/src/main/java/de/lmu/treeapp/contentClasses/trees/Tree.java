@@ -3,7 +3,7 @@ package de.lmu.treeapp.contentClasses.trees;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.lmu.treeapp.contentData.database.entities.app.TreeModel;
+import de.lmu.treeapp.contentData.database.entities.app.TreeState;
 import de.lmu.treeapp.contentData.database.entities.content.TreeImage;
 import de.lmu.treeapp.contentData.database.entities.content.TreeRelations;
 import de.lmu.treeapp.contentData.database.entities.content.Tree_x_Game;
@@ -24,7 +24,7 @@ public class Tree {
     public String imageOther = "";
 
     public TreeRelations contentData;
-    public TreeModel appData;
+    public TreeState appData;
 
     public Tree() {
         super();
@@ -74,8 +74,8 @@ public class Tree {
         }
     }
 
-    public void initAppData(TreeModel treeModel) {
-        appData = treeModel;
+    public void initAppData(TreeState treeState) {
+        appData = treeState;
     }
 
     public int getId() {
