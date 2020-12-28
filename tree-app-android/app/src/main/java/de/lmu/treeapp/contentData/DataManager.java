@@ -10,8 +10,8 @@ import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.TreeProfile;
 import de.lmu.treeapp.contentData.cms.ContentManager;
 import de.lmu.treeapp.contentData.database.AppDatabase;
-import de.lmu.treeapp.contentData.database.entities.app.PlayerModel;
-import de.lmu.treeapp.contentData.database.entities.app.TreeModel;
+import de.lmu.treeapp.contentData.database.entities.app.PlayerState;
+import de.lmu.treeapp.contentData.database.entities.app.TreeState;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
@@ -23,7 +23,7 @@ public class DataManager {
     public List<Tree> trees;
     public List<TreeProfile> treeProfiles;
     public List<IGameBase> miniGames;
-    public PlayerModel player;
+    public PlayerState player;
 
     public static DataManager getInstance(Context _context) {
         if (INSTANCE == null) {
@@ -42,20 +42,20 @@ public class DataManager {
     private Completable init() {
         return Completable.fromAction(() -> {
             // Saved Name
-            PlayerModel DB_player = AppDatabase.getInstance(context).playerDao().get();
+            PlayerState DB_player = AppDatabase.getInstance(context).playerDao().get();
             if (DB_player == null) {
-                DB_player = new PlayerModel();
+                DB_player = new PlayerState();
                 AppDatabase.getInstance(context).playerDao().insertOne(DB_player);
             }
             List<Tree> CMS_trees = ContentManager.getInstance(context).getTrees();
             List<TreeProfile> CMS_treeProfiles = ContentManager.getInstance(context).getTreeProfiles();
             List<IGameBase> CMS_miniGames = ContentManager.getInstance(context).getMinigames();
-            List<TreeModel> DB_trees = AppDatabase.getInstance(context).treeDao().getAll();
+            List<TreeState> DB_trees = AppDatabase.getInstance(context).treeDao().getAll();
             for (int i = 0; i < CMS_trees.size(); i++) {
                 Tree cmsTree = CMS_trees.get(i);
                 boolean initByDB = false;
                 for (int j = 0; j < DB_trees.size(); j++) {
-                    TreeModel dbTree = DB_trees.get(j);
+                    TreeState dbTree = DB_trees.get(j);
                     if (cmsTree.getId() == dbTree.uid) {
                         cmsTree.initAppData(dbTree);
                         initByDB = true;
@@ -63,7 +63,7 @@ public class DataManager {
                     }
                 }
                 if (!initByDB) {
-                    TreeModel newDBTree = new TreeModel();
+                    TreeState newDBTree = new TreeState();
                     newDBTree.initDefault(cmsTree.getId());
                     cmsTree.initAppData(newDBTree);
                     AppDatabase.getInstance(context).treeDao().insertOne(newDBTree);
@@ -73,7 +73,7 @@ public class DataManager {
         }).subscribeOn(Schedulers.io());
     }
 
-    private void setData(List<Tree> _trees, List<TreeProfile> _treeProfiles, List<IGameBase> _minigames, PlayerModel _player) {
+    private void setData(List<Tree> _trees, List<TreeProfile> _treeProfiles, List<IGameBase> _minigames, PlayerState _player) {
         this.trees = _trees;
         this.treeProfiles = _treeProfiles;
         this.miniGames = _minigames;
@@ -146,13 +146,13 @@ public class DataManager {
 
     // Unlocked a Tree
     public Completable unlockTree(Tree _tree) {
-        final TreeModel model = _tree.appData;
+        final TreeState model = _tree.appData;
         model.isUnlocked = true;
         return AppDatabase.getInstance(context).treeDao().update(model).subscribeOn(Schedulers.io());
     }
 
     public boolean isGameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree) {
-        final TreeModel model = _tree.appData;
+        final TreeState model = _tree.appData;
         boolean gameCompleted = false;
         switch (_category) {
             case leaf:
@@ -205,7 +205,7 @@ public class DataManager {
     }
 
     public Completable setGameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree) {
-        final TreeModel model = _tree.appData;
+        final TreeState model = _tree.appData;
         switch (_category) {
             case leaf:
                 if (!model.leafGamesCompleted.contains(_gameId))
@@ -230,7 +230,7 @@ public class DataManager {
     }
 
     public Completable setTakeTreePicture(String picPath, Tree.GameCategories _category, Tree _tree) {
-        final TreeModel model = _tree.appData;
+        final TreeState model = _tree.appData;
         switch (_category) {
             case total:
                 if (!model.imageTreeTaken.equals(picPath))
