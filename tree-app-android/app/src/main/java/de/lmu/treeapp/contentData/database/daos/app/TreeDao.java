@@ -9,16 +9,17 @@ import androidx.room.Update;
 import java.util.List;
 
 import de.lmu.treeapp.contentData.database.entities.app.TreeState;
+import de.lmu.treeapp.contentData.database.entities.app.TreeStateRelations;
 import io.reactivex.rxjava3.core.Completable;
 
 @Dao
 public interface TreeDao {
 
     @Query("SELECT * FROM TreeState")
-    List<TreeState> getAll();
+    List<TreeStateRelations> getAll();
 
-    @Query("SELECT * FROM TreeState WHERE uid=:uid LIMIT 1")
-    TreeState getById(int uid);
+    @Query("SELECT * FROM TreeState WHERE id=:id LIMIT 1")
+    TreeStateRelations getById(int id);
 
     @Insert
     void insertOne(TreeState model);

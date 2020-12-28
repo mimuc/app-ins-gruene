@@ -12,6 +12,7 @@ import de.lmu.treeapp.contentData.cms.ContentManager;
 import de.lmu.treeapp.contentData.database.AppDatabase;
 import de.lmu.treeapp.contentData.database.entities.app.PlayerState;
 import de.lmu.treeapp.contentData.database.entities.app.TreeState;
+import de.lmu.treeapp.contentData.database.entities.app.TreeStateRelations;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
@@ -50,23 +51,24 @@ public class DataManager {
             List<Tree> CMS_trees = ContentManager.getInstance(context).getTrees();
             List<TreeProfile> CMS_treeProfiles = ContentManager.getInstance(context).getTreeProfiles();
             List<IGameBase> CMS_miniGames = ContentManager.getInstance(context).getMinigames();
-            List<TreeState> DB_trees = AppDatabase.getInstance(context).treeDao().getAll();
+            List<TreeStateRelations> DB_trees = AppDatabase.getInstance(context).treeDao().getAll();
             for (int i = 0; i < CMS_trees.size(); i++) {
                 Tree cmsTree = CMS_trees.get(i);
                 boolean initByDB = false;
                 for (int j = 0; j < DB_trees.size(); j++) {
-                    TreeState dbTree = DB_trees.get(j);
-                    if (cmsTree.getId() == dbTree.uid) {
+                    TreeStateRelations dbTree = DB_trees.get(j);
+                    if (cmsTree.getId() == dbTree.treeState.id) {
                         cmsTree.initAppData(dbTree);
                         initByDB = true;
                         break;
                     }
                 }
                 if (!initByDB) {
-                    TreeState newDBTree = new TreeState();
-                    newDBTree.initDefault(cmsTree.getId());
-                    cmsTree.initAppData(newDBTree);
-                    AppDatabase.getInstance(context).treeDao().insertOne(newDBTree);
+                    // Set volatile default values for every tree, if not done yet
+                    TreeState treeState = new TreeState(cmsTree.getId());
+                    TreeStateRelations treeStateRelations = new TreeStateRelations(treeState);
+                    cmsTree.initAppData(treeStateRelations);
+                    AppDatabase.getInstance(context).treeDao().insertOne(treeState);
                 }
             }
             DataManager.getInstance(context).setData(CMS_trees, CMS_treeProfiles, CMS_miniGames, DB_player);
@@ -146,13 +148,13 @@ public class DataManager {
 
     // Unlocked a Tree
     public Completable unlockTree(Tree _tree) {
-        final TreeState model = _tree.appData;
+        final TreeState model = _tree.appData.treeState;
         model.isUnlocked = true;
         return AppDatabase.getInstance(context).treeDao().update(model).subscribeOn(Schedulers.io());
     }
 
     public boolean isGameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree) {
-        final TreeState model = _tree.appData;
+        final TreeState model = _tree.appData.treeState;
         boolean gameCompleted = false;
         switch (_category) {
             case leaf:
@@ -205,7 +207,7 @@ public class DataManager {
     }
 
     public Completable setGameCompleted(Tree.GameCategories _category, int _gameId, Tree _tree) {
-        final TreeState model = _tree.appData;
+        final TreeState model = _tree.appData.treeState;
         switch (_category) {
             case leaf:
                 if (!model.leafGamesCompleted.contains(_gameId))
@@ -224,29 +226,6 @@ public class DataManager {
                     model.otherGamesCompleted.add(_gameId);
                 break;
             default:
-                break;
-        }
-        return AppDatabase.getInstance(context).treeDao().update(model).subscribeOn(Schedulers.io());
-    }
-
-    public Completable setTakeTreePicture(String picPath, Tree.GameCategories _category, Tree _tree) {
-        final TreeState model = _tree.appData;
-        switch (_category) {
-            case total:
-                if (!model.imageTreeTaken.equals(picPath))
-                    model.imageTreeTaken = picPath;
-                break;
-            case leaf:
-                if (!model.imageLeafTaken.equals(picPath))
-                    model.imageLeafTaken = picPath;
-                break;
-            case fruit:
-                if (!model.imageFruitTaken.equals(picPath))
-                    model.imageFruitTaken = picPath;
-                break;
-            case trunk:
-                if (!model.imageTrunkTaken.equals(picPath))
-                    model.imageTrunkTaken = picPath;
                 break;
         }
         return AppDatabase.getInstance(context).treeDao().update(model).subscribeOn(Schedulers.io());
