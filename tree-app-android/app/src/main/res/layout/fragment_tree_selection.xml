@@ -8,21 +8,20 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/tree_selection_view_pager"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@id/tree_selection_dots_indicator"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_default="percent"
-        app:layout_constraintHeight_percent="0.82"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.afollestad.viewpagerdots.DotsIndicator
         android:id="@+id/tree_selection_dots_indicator"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom='70dp'
+        android:padding='6dp'
+        app:layout_constraintBottom_toBottomOf="parent"
         app:dot_tint="?attr/colorPrimaryVariant"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
