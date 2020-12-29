@@ -1,40 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="@dimen/choose_answer_option_layout_margin"
-    android:id="@+id/option_frame_layout">
+    android:id="@+id/option_frame_layout"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
     <ImageButton
         android:id="@+id/button_img"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
         android:layout_marginStart="1dp"
         android:layout_marginTop="3dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="3dp"
         android:padding="2dp"
-        android:layout_gravity="center"
+        android:visibility="gone"
         android:text="@string/game_choose_answer_option_button_placeholder_text"
-        android:visibility="gone" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_txt"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="12dp"
-        android:padding="14dp"
+        android:layout_marginHorizontal="16dp"
         style="@style/AppTheme.OutlinedButton"
         android:elevation="4dp"
-        android:layout_gravity="center"
         android:stateListAnimator="@null"
         android:fontFamily="@font/freude"
         android:text="@string/game_choose_answer_option_button_placeholder_text"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
-        android:textSize="20sp"
-        android:visibility="gone" />
-</FrameLayout>
+        android:textSize="@dimen/buttons_klein"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--android:layout_gravity="center"
      android:foregroundGravity="center"
