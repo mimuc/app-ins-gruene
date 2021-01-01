@@ -13,8 +13,8 @@ import de.lmu.treeapp.contentData.database.daos.app.TreeDao;
 import de.lmu.treeapp.contentData.database.daos.app.TreeProfileDao;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
 import de.lmu.treeapp.contentData.database.entities.app.PlayerState;
-import de.lmu.treeapp.contentData.database.entities.app.TreeState;
 import de.lmu.treeapp.contentData.database.entities.app.TreeProfileState;
+import de.lmu.treeapp.contentData.database.entities.app.TreeState;
 import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
 
 @Database(entities = {

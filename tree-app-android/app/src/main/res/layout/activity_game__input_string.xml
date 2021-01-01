@@ -49,11 +49,11 @@
 
     <Button
         android:id="@+id/game_inputString_sendButton"
+        style="@style/AppTheme.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="2dp"
-        style="@style/AppTheme.Button"
         android:elevation="4dp"
         android:fontFamily="@font/freude"
         android:paddingTop="8dp"
