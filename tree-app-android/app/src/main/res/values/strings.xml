@@ -45,6 +45,8 @@
     <string name="game_description_placeholder">Spiel-Beschreibung</string>
     <string name="game_input_string_input_text_field_hint_text">Antwort</string>
     <string name="game_input_string_send_button_placeholder_text">Fertig!</string>
+    <string name="game_rhyme_instructions">Tippe in der richtigen Reihenfolge auf die Wörter:</string>
+    <string name="game_rhyme_solution_description">So, hier stimmt es wieder:</string>
     <string name="game_take_picture_example">Beispielbild</string>
     <string name="game_take_picture_own_foto">Vorschau deines Fotos</string>
     <string name="game_take_picture_send_button_placeholder_text">Fertig!</string>

@@ -61,9 +61,7 @@ public class ContentManager {
         this.minigames.addAll(contentDb.gameDragDropDao().getAll());
         this.minigames.addAll(contentDb.gameOnlyDescriptionDao().getAll());
         this.minigames.addAll(contentDb.gameTakePictureDao().getAll());
-
-        MiniGameParser parser = new MiniGameParser();
-        this.minigames.addAll(parser.getMiniGames(context));
+        this.minigames.addAll(contentDb.gameRhymeDao().getAll());
     }
 
     public List<Tree> getTrees() {
