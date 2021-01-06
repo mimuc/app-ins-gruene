@@ -104,7 +104,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     }
 
     protected void onFail() {
-        Toast.makeText(getApplicationContext(), "Falsch", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), getString(R.string.popup_quiz_negative_title), Toast.LENGTH_LONG).show();
     }
 
     public int getNextQuizID() {
