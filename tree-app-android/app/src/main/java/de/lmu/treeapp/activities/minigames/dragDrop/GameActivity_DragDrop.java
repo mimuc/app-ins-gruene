@@ -24,15 +24,19 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
+import de.lmu.treeapp.popup.Popup;
 import de.lmu.treeapp.contentData.database.entities.content.GameDragDropItem;
 import de.lmu.treeapp.contentData.database.entities.content.GameDragDropRelations;
 import de.lmu.treeapp.contentData.database.entities.content.GameDragDropZone;
+import de.lmu.treeapp.popup.PopupAction;
+import de.lmu.treeapp.popup.PopupType;
+import de.lmu.treeapp.popup.PopupInterface;
 
-public class GameActivity_DragDrop extends GameActivity_Base {
+public class GameActivity_DragDrop extends GameActivity_Base implements PopupInterface {
+    private final List<ImageView> itemViews = new ArrayList<>();
+    protected Popup popup;
     private GameDragDropRelations dragDropGame;
     private ConstraintLayout container;
-    private final List<ImageView> itemViews = new ArrayList<>();
-
     private int zoneNormalColor;
     private int zoneDroppableColor;
     private int zoneFalseColor;
@@ -95,6 +99,8 @@ public class GameActivity_DragDrop extends GameActivity_Base {
             }
             onSuccess();
         });
+
+        popup = new Popup(this);
     }
 
     @Override
@@ -155,6 +161,23 @@ public class GameActivity_DragDrop extends GameActivity_Base {
         for (GameDragDropZone zone : dragDropGame.getZones()) {
             zone.currentItem = null;
         }
+    }
+
+    @Override
+    public void onPopupAction(PopupType type, PopupAction action) {
+        if(type == PopupType.POSITIVE) {
+            super.onSuccess();
+        }
+    }
+
+    @Override
+    protected void onSuccess() {
+        popup.show(PopupType.POSITIVE);
+    }
+
+    @Override
+    protected void onFail() {
+        popup.show(PopupType.NEGATIVE);
     }
 
     private final class DragDropItemTouchListener implements View.OnTouchListener {
