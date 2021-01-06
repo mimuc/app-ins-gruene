@@ -57,13 +57,20 @@
     <string name="detail_single_tree_fruit_button_content_description">fruit games button</string>
     <string name="detail_single_tree_trunk_button_content_description">trunk games button</string>
     <string name="detail_single_tree_other_button_content_description">other games button</string>
+
     <string name="popup_quiz_positive_title">Richtig!</string>
-    <string name="popup_quiz_positive_text">Dein Foto erscheint jetzt auch im Steckbrief!</string>
     <string name="popup_quiz_negative_title">Leider falsch!</string>
+    <string name="popup_rhyme_negative_text">Das stimmt leider noch nicht ganz.</string>
     <string name="popup_quiz_negative_text">Die richtige Antwort ist:</string>
-    <string name="popup_neutral_btn_wiki">Steckbrief</string>
-    <string name="popup_neutral_btn_forward">Fertig!</string>
+    <string name="popup_take_picture_positive_text">Dein Foto erscheint jetzt auch im Steckbrief!</string>
+    <string name="popup_btn_wiki">Steckbrief</string>
+    <string name="popup_btn_finished">Fertig!</string>
+    <string name="popup_btn_continue">Weiter!</string>
     <string name="popup_neutral_title">Prima!</string>
+    <string name="popup_neutral_ok">Ok!</string>
+    <string name="popup_win_title">Gewonnen!</string>
+    <string name="popup_loose_title">Leider verloren :(</string>
+    <string name="popup_try_again">Probier\'s doch noch einmal...einen Versuch hast du übrig!</string>
     <string name="imprint_imprint_title">IMPRESSUM</string>
     <string name="imprint_imprint_text">Informationen gemäß § 5 Telemediengesetz und § 55 Rundfunkstaatsvertrag. Die Ludwig-Maximilians-Universität München ist eine Körperschaft des öffentlichen Rechts. Sie wird durch den Präsidenten Prof. Dr. Bernd Huber gesetzlich vertreten.</string>
     <string name="imprint_publisher_title">Herausgeber</string>
@@ -102,8 +109,5 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="splash_screen_text">entstanden in Zusammenarbeit mit:</string>
     <string name="button_multiplayer_mode_description">Mulitplayer Modus</string>
     <string name="button_singleplayer_mode_description">Singleplayer Modus</string>
-    <string name="game_btn_next">Weiter</string>
-    <string name="game_btn_finished">Fertig!</string>
-    <string name="game_popup_try_again">Probier\'s doch noch einmal...einen Versuch hast du übrig!</string>
 
 </resources>

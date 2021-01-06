@@ -53,60 +53,46 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/popup_insideMid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.5" />
-
-            <TextView
-                android:id="@+id/popup_positive_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:fontFamily="@font/freude"
-                android:textAlignment="center"
-                android:textSize="@dimen/buttons"
-                android:textStyle="bold"
-                android:text="@string/popup_quiz_positive_title"
-                app:layout_constraintTop_toBottomOf="@id/popup_mascot_positive"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/popup_insideMid" />
-
-            <ImageView
-                android:id="@+id/popup_mascot_positive"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/ic_mascott_true"
-                app:layout_constraintBottom_toTopOf="@id/popup_positive_title"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <Button
                 android:id="@+id/forward_next_game_positive"
+                style="@style/AppTheme.Button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                style="@style/AppTheme.Button"
+                android:alpha="0.0"
                 android:elevation="4dp"
                 android:fontFamily="@font/freude"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:stateListAnimator="@null"
                 android:text="Nochmal"
-                android:paddingBottom="4dp"
-                android:paddingTop="4dp"
                 android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
-                android:textSize="@dimen/buttons"
-                android:alpha="0.0"
+                android:textSize="30sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintWidth_percent="0.65" />
+
+            <TextView
+                android:id="@+id/descriptionText"
+                android:layout_width="251dp"
+                android:layout_height="318dp"
+                android:layout_marginBottom="80dp"
+                app:layout_constraintBottom_toTopOf="@+id/forward_next_game_positive"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Info"
+                app:layout_constraintBottom_toTopOf="@+id/descriptionText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.475" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

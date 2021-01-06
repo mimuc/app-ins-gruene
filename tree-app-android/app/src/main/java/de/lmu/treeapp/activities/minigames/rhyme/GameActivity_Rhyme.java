@@ -1,19 +1,11 @@
 package de.lmu.treeapp.activities.minigames.rhyme;
 
 import android.app.Dialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,19 +22,22 @@ import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentData.database.entities.content.GameRhymeItem;
 import de.lmu.treeapp.contentData.database.entities.content.GameRhymeRelations;
+import de.lmu.treeapp.popup.Popup;
+import de.lmu.treeapp.popup.PopupAction;
+import de.lmu.treeapp.popup.PopupInterface;
+import de.lmu.treeapp.popup.PopupType;
 
 import static com.google.android.flexbox.FlexWrap.WRAP;
 
 
-public class GameActivity_Rhyme extends GameActivity_Base implements RecyclerAdapter.OptionClickInterface {
+public class GameActivity_Rhyme extends GameActivity_Base implements RecyclerAdapter.OptionClickInterface, PopupInterface {
     ArrayList<RhymeElement> sList;
     ArrayList<RhymeElement> solutionList;
     RecyclerAdapter rcAdapterSolution;
     RecyclerAdapter rcAdapter;
     Dialog popupWindow;
-    Button btnAccept;
-    TextView popupTitle;
     RecyclerView recyclerViewSolution;
+    Popup popup;
     private GameRhymeRelations rhymeGame;
     private ArrayList<RhymeElement> correctList;
 
@@ -51,6 +46,7 @@ public class GameActivity_Rhyme extends GameActivity_Base implements RecyclerAda
         super.onCreate(savedInstanceState);
         rhymeGame = (GameRhymeRelations) gameContent;
         popupWindow = new Dialog(this);
+        popup = new Popup(this);
 
         ImageView contentBox = findViewById(R.id.leafImage);
         int backgroundImage = getResources().getIdentifier(rhymeGame.getImageResource(), "drawable", getPackageName());
@@ -104,9 +100,9 @@ public class GameActivity_Rhyme extends GameActivity_Base implements RecyclerAda
         sendButton.setOnClickListener(view -> {
             boolean isCorrect = checkCorrectness();
             if (isCorrect) {
-                showPositivePopup();
+                popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.popup_btn_finished));
             } else {
-                runOnUiThread(() -> Toast.makeText(getApplicationContext(), "Das stimmt leider noch nicht ganz.", Toast.LENGTH_LONG).show());
+                popup.showWithButtonText(PopupType.NEGATIVE, getString(R.string.popup_btn_continue), getString(R.string.popup_rhyme_negative_text));
             }
         });
     }
@@ -164,23 +160,10 @@ public class GameActivity_Rhyme extends GameActivity_Base implements RecyclerAda
         }
     }
 
-    private void showPositivePopup() {
-        popupWindow.setContentView(R.layout.popup_quiz_positive);
-        btnAccept = popupWindow.findViewById(R.id.forward_next_game_positive);
-        popupTitle = popupWindow.findViewById(R.id.popup_positive_title);
-        btnAccept.setText(R.string.game_btn_finished);
-
-        ViewCompat.animate(btnAccept).setStartDelay(200).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
-
-        btnAccept.setOnClickListener(v -> {
-            popupWindow.dismiss();
+    @Override
+    public void onPopupAction(PopupType type, PopupAction action) {
+        if(type != PopupType.NEGATIVE) {
             onSuccess();
-        });
-
-        popupWindow.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        popupWindow.show();
-
-        Window window = popupWindow.getWindow();
-        window.setLayout(CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
+        }
     }
 }
