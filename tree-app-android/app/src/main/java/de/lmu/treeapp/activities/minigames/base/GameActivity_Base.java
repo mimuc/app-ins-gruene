@@ -43,7 +43,9 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         }
 
         TextView description = findViewById(R.id.game_description);
-        description.setText(gameContent.getDescription());
+        if (description != null) {
+            description.setText(gameContent.getDescription());
+        }
     }
 
     protected abstract int getLayoutId();
