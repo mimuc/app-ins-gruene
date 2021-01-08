@@ -46,6 +46,7 @@
     <string name="game_input_string_input_text_field_hint_text">Antwort</string>
     <string name="game_input_string_send_button_placeholder_text">Fertig!</string>
     <string name="game_rhyme_instructions">Tippe in der richtigen Reihenfolge auf die Wörter:</string>
+    <string name="game_puzzle_instructions">Ziehe die Puzzleteile an die richtigen Stellen um das Bild zu vervollständigen.</string>
     <string name="game_rhyme_solution_description">So, hier stimmt es wieder:</string>
     <string name="game_take_picture_example">Beispielbild</string>
     <string name="game_take_picture_own_foto">Vorschau deines Fotos</string>
@@ -63,12 +64,14 @@
     <string name="popup_rhyme_negative_text">Das stimmt leider noch nicht ganz.</string>
     <string name="popup_quiz_negative_text">Die richtige Antwort ist:</string>
     <string name="popup_take_picture_positive_text">Dein Foto erscheint jetzt auch im Steckbrief!</string>
+    <string name="popup_puzzle_won_text">"Du hast %1$s Minuten gebraucht, super!"</string>
     <string name="popup_btn_wiki">Steckbrief</string>
     <string name="popup_btn_finished">Fertig!</string>
     <string name="popup_btn_continue">Weiter!</string>
     <string name="popup_neutral_title">Prima!</string>
     <string name="popup_neutral_ok">Ok!</string>
     <string name="popup_win_title">Gewonnen!</string>
+    <string name="popup_win_title_done">"Geschafft!"</string>
     <string name="popup_loose_title">Leider verloren :(</string>
     <string name="popup_try_again">Probier\'s doch noch einmal...einen Versuch hast du übrig!</string>
     <string name="imprint_imprint_title">IMPRESSUM</string>
@@ -109,5 +112,6 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="splash_screen_text">entstanden in Zusammenarbeit mit:</string>
     <string name="button_multiplayer_mode_description">Mulitplayer Modus</string>
     <string name="button_singleplayer_mode_description">Singleplayer Modus</string>
+    <string name="popup_puzzle_neutral_text">Puzzeln wir los!</string>
 
 </resources>
