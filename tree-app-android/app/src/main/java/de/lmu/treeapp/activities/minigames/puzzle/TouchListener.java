@@ -23,7 +23,7 @@ public class TouchListener implements View.OnTouchListener {
     public boolean onTouch(View view, MotionEvent motionEvent) {
         float x = motionEvent.getRawX();
         float y = motionEvent.getRawY();
-        final double tolerance = sqrt(pow(view.getWidth(), 2) + pow(view.getHeight(), 2)) / 10;
+        final double tolerance = sqrt(pow(view.getWidth(), 2) + pow(view.getHeight(), 2)) / 8;
 
         PuzzlePiece piece = (PuzzlePiece) view;
         if (!piece.canMove) {
