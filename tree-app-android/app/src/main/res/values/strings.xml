@@ -113,5 +113,9 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="button_multiplayer_mode_description">Mulitplayer Modus</string>
     <string name="button_singleplayer_mode_description">Singleplayer Modus</string>
     <string name="popup_puzzle_neutral_text">Puzzeln wir los!</string>
+    <string name="heading_puzzle_difficulty_select_text">Wie schwierig soll es sein?</string>
+    <string name="puzzle_difficulty_easy">Lieber was einfaches</string>
+    <string name="puzzle_difficulty_hard">Ich mag eine Herausforderung</string>
+    <string name="puzzle_difficulty_medium">Ganz normal</string>
 
 </resources>
