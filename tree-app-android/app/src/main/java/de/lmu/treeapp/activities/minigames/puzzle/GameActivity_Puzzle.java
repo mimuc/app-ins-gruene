@@ -12,14 +12,16 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Locale;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
@@ -37,11 +39,43 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
     Popup popup;
     String time;
     Boolean isTimerRunning = false;
+    Integer difficulty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         game = (GamePuzzleRelations) gameContent;
+
+        ViewFlipper viewFlipper = findViewById(R.id.viewFlipperPuzzle);
+        // set the animation type to ViewFlipper
+        viewFlipper.setInAnimation(this, R.anim.fragment_fade_enter);
+        viewFlipper.setOutAnimation(this, R.anim.fragment_fade_exit);
+
+        ImageButton btnEasy = findViewById(R.id.btn_easy);
+        ImageButton btnMedium = findViewById(R.id.btn_medium);
+        ImageButton btnHard = findViewById(R.id.btn_hard);
+
+        btnEasy.setOnClickListener(v -> {
+            difficulty = 1;
+            viewFlipper.showNext(); // Switch to next View
+            setupPuzzle();
+        });
+        btnMedium.setOnClickListener(v -> {
+            difficulty = 2;
+            viewFlipper.showNext(); // Switch to next View
+            setupPuzzle();
+        });
+        btnHard.setOnClickListener(v -> {
+            difficulty = 3;
+            viewFlipper.showNext(); // Switch to next View
+            setupPuzzle();
+        });
+
+
+    }
+
+    private void setupPuzzle() {
+
         final RelativeLayout layout = findViewById(R.id.layout);
         ImageView imageView = findViewById(R.id.imageView);
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), getResources().getIdentifier(game.getImageResource(), "drawable", getPackageName()));
@@ -55,8 +89,8 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
                 layout.addView(piece);
                 RelativeLayout.LayoutParams lParams = (RelativeLayout.LayoutParams) piece.getLayoutParams();
                 // move piece to random position on bottom
-                lParams.leftMargin = new Random().nextInt(layout.getWidth() - piece.pieceWidth);
-                lParams.topMargin = layout.getHeight() - piece.pieceHeight;
+                lParams.leftMargin = ThreadLocalRandom.current().nextInt(layout.getWidth() - piece.pieceWidth);
+                lParams.topMargin = layout.getHeight() - piece.pieceHeight - ThreadLocalRandom.current().nextInt(piece.pieceHeight / 2);
                 piece.setLayoutParams(lParams);
             }
         });
@@ -68,10 +102,30 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
     }
 
     private ArrayList<PuzzlePiece> splitImage() {
-        // game difficulty could be reduced or increased by changing pieceNumber / rows / cols -> The higher the more difficult
-        int piecesNumber = 12;
-        int rows = 4;
-        int cols = 3;
+        int piecesNumber, rows, cols;
+        switch (difficulty) {
+            case 1:
+                piecesNumber = 9;
+                rows = 3;
+                cols = 3;
+                break;
+
+            case 2:
+                piecesNumber = 12;
+                rows = 4;
+                cols = 3;
+                break;
+
+            case 3:
+                piecesNumber = 24;
+                rows = 6;
+                cols = 4;
+                break;
+
+            default:
+                throw new IllegalStateException("Unexpected value: " + difficulty);
+        }
+
 
         ImageView imageView = findViewById(R.id.imageView);
         ArrayList<PuzzlePiece> pieces = new ArrayList<>(piecesNumber);
