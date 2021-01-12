@@ -11,8 +11,8 @@ import de.lmu.treeapp.contentData.database.daos.content.GameBaumoryDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameChooseAnswerDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameDragDropDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameOnlyDescriptionDao;
+import de.lmu.treeapp.contentData.database.daos.content.GameOrderWordsDao;
 import de.lmu.treeapp.contentData.database.daos.content.GamePuzzleDao;
-import de.lmu.treeapp.contentData.database.daos.content.GameRhymeDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameTakePictureDao;
 import de.lmu.treeapp.contentData.database.daos.content.TreeDao;
 import de.lmu.treeapp.contentData.database.daos.content.TreeProfileDao;
@@ -23,7 +23,7 @@ import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswer;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerOption;
 import de.lmu.treeapp.contentData.database.entities.content.GameDragDropItem;
 import de.lmu.treeapp.contentData.database.entities.content.GameDragDropZone;
-import de.lmu.treeapp.contentData.database.entities.content.GameRhymeItem;
+import de.lmu.treeapp.contentData.database.entities.content.GameOrderWordsItem;
 import de.lmu.treeapp.contentData.database.entities.content.TreeImage;
 import de.lmu.treeapp.contentData.database.entities.content.TreeModel;
 import de.lmu.treeapp.contentData.database.entities.content.TreeProfileCard;
@@ -37,7 +37,7 @@ import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
         GameChooseAnswerOption.class,
         GameDragDropItem.class,
         GameDragDropZone.class,
-        GameRhymeItem.class,
+        GameOrderWordsItem.class,
         Tree_x_Game.class,
         TreeImage.class,
         TreeModel.class,
@@ -80,7 +80,7 @@ public abstract class ContentDatabase extends RoomDatabase {
 
     public abstract GameTakePictureDao gameTakePictureDao();
 
-    public abstract GameRhymeDao gameRhymeDao();
+    public abstract GameOrderWordsDao gameOrderWordsDao();
 
     public abstract GamePuzzleDao gamePuzzleDao();
 }

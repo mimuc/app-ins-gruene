@@ -6,7 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
-    tools:context="de.lmu.treeapp.activities.minigames.rhyme.GameActivity_Rhyme">
+    tools:context="de.lmu.treeapp.activities.minigames.orderWords.GameActivity_OrderWords">
+
+    <ImageView
+        android:id="@+id/leafImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="1.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="1.5"
+        tools:srcCompat="@drawable/ic_ahorn_blatt" />
 
     <TextView
         android:id="@+id/game_description"
@@ -28,14 +41,15 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
         android:layout_marginBottom="4dp"
-        android:text="@string/game_rhyme_instructions"
-        app:layout_constraintBottom_toTopOf="@+id/game_rhyme_content"
+        android:gravity="center"
+        android:text="@string/game_orderWords_instructions"
+        app:layout_constraintBottom_toTopOf="@+id/game_orderWords_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/game_description" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/game_rhyme_content"
+        android:id="@+id/game_orderWords_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -51,15 +65,16 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
         android:layout_marginVertical="4dp"
-        android:text="@string/game_rhyme_solution_description"
+        android:gravity="center"
+        android:text="@string/game_orderWords_solution_description"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/game_rhyme_solution"
+        app:layout_constraintBottom_toTopOf="@+id/game_orderWords_solution"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_rhyme_content" />
+        app:layout_constraintTop_toBottomOf="@+id/game_orderWords_content" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/game_rhyme_solution"
+        android:id="@+id/game_orderWords_solution"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|fill_vertical"
@@ -67,13 +82,13 @@
         android:clickable="false"
         android:clipChildren="false"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/game_rhyme_sendButton"
+        app:layout_constraintBottom_toTopOf="@+id/game_orderWords_sendButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/solution_description" />
 
     <Button
-        android:id="@+id/game_rhyme_sendButton"
+        android:id="@+id/game_orderWords_sendButton"
         style="@style/AppTheme.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -91,17 +106,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintWidth_percent="0.6" />
 
-    <ImageView
-        android:id="@+id/leafImage"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:alpha="0.15"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="1.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="1.5"
-        tools:srcCompat="@drawable/ic_ahorn_blatt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
