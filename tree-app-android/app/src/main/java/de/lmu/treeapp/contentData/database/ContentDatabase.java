@@ -10,6 +10,7 @@ import androidx.room.TypeConverters;
 import de.lmu.treeapp.contentData.database.daos.content.GameBaumoryDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameChooseAnswerDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameDragDropDao;
+import de.lmu.treeapp.contentData.database.daos.content.GameInputStringDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameOnlyDescriptionDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameOrderWordsDao;
 import de.lmu.treeapp.contentData.database.daos.content.GamePuzzleDao;
@@ -41,7 +42,8 @@ import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
         Tree_x_Game.class,
         TreeImage.class,
         TreeModel.class,
-        TreeProfileCard.class
+        TreeProfileCard.class,
+
 }, version = 1, exportSchema = false)
 @TypeConverters({TypeConversion.class})
 public abstract class ContentDatabase extends RoomDatabase {
@@ -83,5 +85,7 @@ public abstract class ContentDatabase extends RoomDatabase {
     public abstract GameOrderWordsDao gameOrderWordsDao();
 
     public abstract GamePuzzleDao gamePuzzleDao();
+
+    public abstract GameInputStringDao gameInputStringDao();
 }
 
