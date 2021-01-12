@@ -41,7 +41,7 @@
                 android:value="activities.MainActivity" />
         </activity>
         <activity
-            android:name=".activities.minigames.rhyme.GameActivity_Rhyme"
+            android:name=".activities.minigames.orderWords.GameActivity_OrderWords"
             android:parentActivityName="activities.GameSelectionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

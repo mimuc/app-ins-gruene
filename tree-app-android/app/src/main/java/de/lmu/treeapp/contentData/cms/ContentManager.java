@@ -61,7 +61,7 @@ public class ContentManager {
         this.minigames.addAll(contentDb.gameDragDropDao().getAll());
         this.minigames.addAll(contentDb.gameOnlyDescriptionDao().getAll());
         this.minigames.addAll(contentDb.gameTakePictureDao().getAll());
-        this.minigames.addAll(contentDb.gameRhymeDao().getAll());
+        this.minigames.addAll(contentDb.gameOrderWordsDao().getAll());
         this.minigames.addAll(contentDb.gamePuzzleDao().getAll());
     }
 

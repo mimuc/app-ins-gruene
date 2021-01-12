@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class GameRhymeItem {
+public class GameOrderWordsItem {
     @PrimaryKey
     public int id;
     @Nullable
