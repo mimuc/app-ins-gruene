@@ -1,4 +1,4 @@
-package de.lmu.treeapp.activities.minigames.rhyme;
+package de.lmu.treeapp.activities.minigames.orderWords;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;

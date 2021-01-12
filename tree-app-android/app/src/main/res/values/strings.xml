@@ -45,9 +45,9 @@
     <string name="game_description_placeholder">Spiel-Beschreibung</string>
     <string name="game_input_string_input_text_field_hint_text">Antwort</string>
     <string name="game_input_string_send_button_placeholder_text">Fertig!</string>
-    <string name="game_rhyme_instructions">Tippe in der richtigen Reihenfolge auf die Wörter:</string>
+    <string name="game_orderWords_instructions">Tippe in der richtigen Reihenfolge auf die Wörter:</string>
     <string name="game_puzzle_instructions">Ziehe die Puzzleteile an die richtigen Stellen um das Bild zu vervollständigen.</string>
-    <string name="game_rhyme_solution_description">So, hier stimmt es wieder:</string>
+    <string name="game_orderWords_solution_description">So, hier stimmt es wieder:</string>
     <string name="game_take_picture_example">Beispielbild</string>
     <string name="game_take_picture_own_foto">Vorschau deines Fotos</string>
     <string name="game_take_picture_send_button_placeholder_text">Fertig!</string>
@@ -61,7 +61,7 @@
 
     <string name="popup_quiz_positive_title">Richtig!</string>
     <string name="popup_quiz_negative_title">Leider falsch!</string>
-    <string name="popup_rhyme_negative_text">Das stimmt leider noch nicht ganz.</string>
+    <string name="popup_orderWords_negative_text">Das stimmt leider noch nicht ganz.</string>
     <string name="popup_quiz_negative_text">Die richtige Antwort ist:</string>
     <string name="popup_take_picture_positive_text">Dein Foto erscheint jetzt auch im Steckbrief!</string>
     <string name="popup_puzzle_won_text">"Du hast %1$s Minuten gebraucht, super!"</string>
@@ -74,6 +74,7 @@
     <string name="popup_win_title_done">"Geschafft!"</string>
     <string name="popup_loose_title">Leider verloren :(</string>
     <string name="popup_try_again">Probier\'s doch noch einmal...einen Versuch hast du übrig!</string>
+    <string name="popup_negative_title_close">Fast…</string>
     <string name="imprint_imprint_title">IMPRESSUM</string>
     <string name="imprint_imprint_text">Informationen gemäß § 5 Telemediengesetz und § 55 Rundfunkstaatsvertrag. Die Ludwig-Maximilians-Universität München ist eine Körperschaft des öffentlichen Rechts. Sie wird durch den Präsidenten Prof. Dr. Bernd Huber gesetzlich vertreten.</string>
     <string name="imprint_publisher_title">Herausgeber</string>
@@ -117,5 +118,4 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="puzzle_difficulty_easy">Lieber was einfaches</string>
     <string name="puzzle_difficulty_hard">Ich mag eine Herausforderung</string>
     <string name="puzzle_difficulty_medium">Ganz normal</string>
-
 </resources>

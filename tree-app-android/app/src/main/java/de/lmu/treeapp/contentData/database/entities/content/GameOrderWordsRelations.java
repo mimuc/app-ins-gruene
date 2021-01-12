@@ -4,15 +4,15 @@ import androidx.room.Relation;
 
 import java.util.List;
 
-public class GameRhymeRelations extends GameRelations {
+public class GameOrderWordsRelations extends GameRelations {
     @Relation(parentColumn = "id", entityColumn = "gameId")
-    protected List<GameRhymeItem> items;
+    protected List<GameOrderWordsItem> items;
 
-    public GameRhymeRelations(List<GameRhymeItem> items) {
+    public GameOrderWordsRelations(List<GameOrderWordsItem> items) {
         this.items = items;
     }
 
-    public List<GameRhymeItem> getItems() {
+    public List<GameOrderWordsItem> getItems() {
         return items;
     }
 }
