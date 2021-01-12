@@ -27,6 +27,4 @@ public class GameDragDropRelations extends GameRelations {
     public List<GameDragDropZone> getZones() {
         return zones;
     }
-
-    public String layout = "";
 }
