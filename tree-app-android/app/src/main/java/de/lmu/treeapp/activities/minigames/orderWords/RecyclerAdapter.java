@@ -1,4 +1,4 @@
-package de.lmu.treeapp.activities.minigames.rhyme;
+package de.lmu.treeapp.activities.minigames.orderWords;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,15 +15,15 @@ import de.lmu.treeapp.R;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> implements ItemMoveCallback.ItemTouchHelperContract {
 
-    private final ArrayList<RhymeElement> data;
+    private final ArrayList<OrderWordsElement> data;
     private final OptionClickInterface mOnClickListener;
 
-    public RecyclerAdapter(ArrayList<RhymeElement> data, OptionClickInterface mOnClickListener) {
+    public RecyclerAdapter(ArrayList<OrderWordsElement> data, OptionClickInterface mOnClickListener) {
         this.data = data;
         this.mOnClickListener = mOnClickListener;
     }
 
-    public void add(int position, RhymeElement item) {
+    public void add(int position, OrderWordsElement item) {
         data.add(position, item);
         notifyItemInserted(position);
         notifyItemRangeChanged(position, data.size());
@@ -40,7 +40,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.rhyme_element, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.order_words_element, parent, false);
         return new MyViewHolder(itemView);
     }
 
@@ -48,6 +48,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.content.setOnClickListener(arg0 -> mOnClickListener.optionClicked(position, holder));
         holder.content.setText(data.get(position).getText());
+        data.get(position).setHolder(holder);
     }
 
     @Override
@@ -55,16 +56,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         return data.size();
     }
 
-    public ArrayList<RhymeElement> getItems() {
+    public ArrayList<OrderWordsElement> getItems() {
         return data;
     }
 
-    public RhymeElement getItemById(int position) {
+    public OrderWordsElement getItemById(int position) {
         return data.get(position);
     }
 
     @Override
     public void onRowMoved(int fromPosition, int toPosition) {
+        for (OrderWordsElement element : data) {
+            element.setCorrect(true);
+        }
+
         if (fromPosition < toPosition) {
             for (int i = fromPosition; i < toPosition; i++) {
                 Collections.swap(data, i, i + 1);
@@ -98,7 +103,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         public MyViewHolder(View itemView) {
             super(itemView);
             rowView = itemView;
-            content = itemView.findViewById(R.id.rhyme_element);
+            content = itemView.findViewById(R.id.orderWords_element);
+        }
+
+        public TextView getContent() {
+            return content;
         }
 
         public RecyclerAdapter getOuterClass() {
