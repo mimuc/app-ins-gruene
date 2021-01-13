@@ -5,25 +5,16 @@
         <layer-list>
             <item>
                 <shape android:shape="oval">
-                    <gradient
-                        android:startColor="#FF000000"
-                        android:endColor="#00000000"
-
-                        android:gradientRadius="32dp"
-                        android:type="radial"
-                        />
+                    <solid android:color="@android:color/white" />
                 </shape>
             </item>
-            <item android:top="8dp" android:left="8dp" android:right="8dp" android:bottom="8dp">
+            <item android:top="15dp" android:left="15dp" android:right="15dp" android:bottom="15dp">
                 <shape android:shape="oval">
                     <size android:width="64dp"
                         android:height="64dp"/>
                     <solid android:color="@android:color/white" />
                 </shape>
             </item>
-
-
         </layer-list>
     </item>
-
 </selector>
