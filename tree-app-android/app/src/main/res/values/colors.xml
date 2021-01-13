@@ -19,4 +19,12 @@
     <color name="darkerGrey">#9F9F9F</color>
     <color name="droppable">#DDFDBD</color>
     <color name="falseDrop">#F6A6A6</color> <!-- color for false assignment in drag and drop games -->
+    <color name="progress1_8">#870D23</color>
+    <color name="progress2_8">#811021</color>
+    <color name="progress3_8">#752D1F</color>
+    <color name="progress4_8">#753D1D</color>
+    <color name="progress5_8">#6E4C1C</color>
+    <color name="progress6_8">#685C1A</color>
+    <color name="progress7_8">#626C18</color>
+    <color name="progress8_8">#5C7C16</color>
 </resources>

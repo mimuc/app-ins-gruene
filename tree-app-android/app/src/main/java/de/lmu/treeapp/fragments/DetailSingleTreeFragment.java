@@ -1,6 +1,7 @@
 package de.lmu.treeapp.fragments;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -88,10 +89,25 @@ public class DetailSingleTreeFragment extends Fragment {
     }
 
     private void updateTreeView() {
-        leafProgressBar.setProgress((int) this.tree.GetGameProgressionPercent(Tree.GameCategories.leaf));
-        fruitProgressBar.setProgress((int) this.tree.GetGameProgressionPercent(Tree.GameCategories.fruit));
-        trunkProgressBar.setProgress((int) this.tree.GetGameProgressionPercent(Tree.GameCategories.trunk));
-        otherProgressBar.setProgress((int) this.tree.GetGameProgressionPercent(Tree.GameCategories.other));
+        float leafProgress = this.tree.GetGameProgressionPercent(Tree.GameCategories.leaf);
+        float fruitProgress = this.tree.GetGameProgressionPercent(Tree.GameCategories.fruit);
+        float trunkProgress = this.tree.GetGameProgressionPercent(Tree.GameCategories.trunk);
+        float otherProgress = this.tree.GetGameProgressionPercent(Tree.GameCategories.other);
+
+        setProgressColor(leafProgress, leafProgressBar);
+        setProgressColor(fruitProgress, fruitProgressBar);
+        setProgressColor(trunkProgress, trunkProgressBar);
+        setProgressColor(otherProgress, otherProgressBar);
+
+        leafProgressBar.setProgress((int) leafProgress);
+        fruitProgressBar.setProgress((int) fruitProgress);
+        trunkProgressBar.setProgress((int) trunkProgress);
+        otherProgressBar.setProgress((int) otherProgress);
+    }
+
+    private void setProgressColor(float progress, ProgressBar progressBar) {
+        int[] progressColors = Objects.requireNonNull(getContext()).getResources().getIntArray(R.array.progressColors);
+        progressBar.setProgressTintList(ColorStateList.valueOf(progressColors[(int) (progress / (101f / progressColors.length))]));
     }
 
     private void setupImageResources() {
