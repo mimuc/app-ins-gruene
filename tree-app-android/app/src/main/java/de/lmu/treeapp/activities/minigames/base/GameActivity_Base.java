@@ -24,14 +24,13 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     protected int gameId;
     protected Tree parentTree;
     protected Tree.GameCategories parentCategory;
-    public boolean active = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
 
-        if(active){Bundle b = getIntent().getExtras();
+        Bundle b = getIntent().getExtras();
         parentCategory = (Tree.GameCategories) b.get("Category");
         treeId = b.getInt("TreeId");
         gameId = b.getInt("GameId");
@@ -44,7 +43,6 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         }
 
         TextView description = findViewById(R.id.game_description);
-
         if (description != null) {
             description.setText(gameContent.getDescription());
         }

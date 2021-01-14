@@ -30,7 +30,6 @@ public class GameActivity_PicturePuzzle extends GameActivity_Base {
     private static String[] tileList;
 
     protected void onCreate(Bundle savedInstanceState) {
-        super.active = false;
         super.onCreate(savedInstanceState);
 
         init();
