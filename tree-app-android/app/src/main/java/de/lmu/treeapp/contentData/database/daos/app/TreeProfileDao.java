@@ -8,26 +8,26 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import de.lmu.treeapp.contentData.database.entities.app.TreeProfileModel;
+import de.lmu.treeapp.contentData.database.entities.app.TreeProfileState;
 
 @Dao
 public interface TreeProfileDao {
 
-    @Query("SELECT * FROM TreeProfileModel WHERE uid=:uid LIMIT 1")
-    TreeProfileModel getById(int uid);
+    @Query("SELECT * FROM TreeProfileState WHERE uid=:uid LIMIT 1")
+    TreeProfileState getById(int uid);
 
-    @Query("SELECT * FROM TreeProfileModel")
-    List<TreeProfileModel> getAll();
-
-    @Insert
-    void InsertOne(TreeProfileModel model);
+    @Query("SELECT * FROM TreeProfileState")
+    List<TreeProfileState> getAll();
 
     @Insert
-    void InsertAll(TreeProfileModel... models);
+    void insertOne(TreeProfileState model);
+
+    @Insert
+    void insertAll(TreeProfileState... models);
 
     @Update
-    void UpdateOne(TreeProfileModel model);
+    void updateOne(TreeProfileState model);
 
     @Delete
-    void DeleteOne(TreeProfileModel model);
+    void deleteOne(TreeProfileState model);
 }

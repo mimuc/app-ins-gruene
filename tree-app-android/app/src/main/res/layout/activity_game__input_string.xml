@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context="de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString">
 
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="1.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="1.5"
+        tools:srcCompat="@drawable/ic_question" />
 
     <TextView
         android:id="@+id/game_description"
@@ -16,6 +28,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/game_description_placeholder"
+        android:textSize="@dimen/heading2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -33,14 +46,15 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_description"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.643">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/game_inputString_inputField"
             android:layout_width="match_parent"
+            android:minHeight="400dp"
             android:layout_height="wrap_content"
             android:hint="@string/game_input_string_input_text_field_hint_text" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -48,11 +62,11 @@
 
     <Button
         android:id="@+id/game_inputString_sendButton"
+        style="@style/AppTheme.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="2dp"
-        style="@style/AppTheme.Button"
         android:elevation="4dp"
         android:fontFamily="@font/freude"
         android:paddingTop="8dp"
@@ -60,7 +74,7 @@
         android:stateListAnimator="@null"
         android:text="@string/game_input_string_send_button_placeholder_text"
         android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
-        android:textSize="30sp"
+        android:textSize="@dimen/buttons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

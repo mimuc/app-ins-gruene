@@ -1,30 +1,32 @@
 package de.lmu.treeapp.activities.minigames.chooseAnswer;
 
-import android.app.Dialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.view.ViewCompat;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
+import de.lmu.treeapp.contentClasses.minigames.MediaType;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerOption;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerRelations;
+import de.lmu.treeapp.popup.Popup;
+import de.lmu.treeapp.popup.PopupAction;
+import de.lmu.treeapp.popup.PopupInterface;
+import de.lmu.treeapp.popup.PopupType;
 
-public class GameActivity_ChooseAnswer extends GameActivity_Base implements ChooseAnswer_Options_RecyclerViewAdapter.OptionClickInterface {
+public class GameActivity_ChooseAnswer extends GameActivity_Base implements ChooseAnswer_Options_RecyclerViewAdapter.OptionClickInterface, PopupInterface {
 
     public static int current;
     public static ArrayList<Integer> quizIDs = new ArrayList<>();
@@ -32,10 +34,8 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
     protected static int resultImage;
     RecyclerView optionsRecyclerView;
     Adapter<ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder> recyclerViewAdapter;
-    Dialog popupWindow;
-    Button btnAccept;
-    TextView popupTitle, popupText, popup_result_text, description;
-    ImageView popup_result_image;
+    TextView description;
+    Popup popup;
     private int showAnswer = 0;
 
     @Override
@@ -45,7 +45,9 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         optionsRecyclerView = findViewById(R.id.game_chooseAnswer_recyclerView);
         optionsRecyclerView.setHasFixedSize(true);
         setupOptionRecyclerView();
-        popupWindow = new Dialog(this);
+        popup = new Popup(this);
+        popup.setLooseTitle(getString(R.string.popup_quiz_negative_title));
+        popup.setWinTitle(getString(R.string.popup_quiz_positive_title));
     }
 
     @Override
@@ -59,116 +61,78 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
     }
 
     private void showNextQuestion() {
-        gameContent = DataManager.getInstance(getApplicationContext()).GetMinigame(getNextQuizID());
+        gameContent = DataManager.getInstance(getApplicationContext()).getMinigame(getNextQuizID());
         description.setText(gameContent.getDescription());
         setupOptionRecyclerView();
         showAnswer = 0;
-        popupWindow.dismiss();
+        popup.dismiss();
     }
 
     @Override
     public void optionClicked(GameChooseAnswerOption option) {
         if (option.isRight) {
-            showPositivePopup();
+            //calls positive popup
+            if (current > 1) {
+                popup.showWithButtonText(PopupType.NEUTRAL, getString(R.string.popup_btn_continue));
+            } else {
+                popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.popup_btn_finished));
+            }
         } else {
             showAnswer++;
-            showNegativePopup(option);
+
+            //calls negative popup
+            if (showAnswer < 2) {
+                popup.showWithButtonText(PopupType.NEGATIVE, getString(R.string.popup_neutral_ok), getString(R.string.popup_try_again));
+            } else {
+                int popupBtnTextRes = current > 1 ? R.string.popup_btn_continue : R.string.popup_btn_finished;
+                List<View> views = new ArrayList<>();
+                if (option.optionType == MediaType.TEXT) {
+                    TextView textView = new TextView(this);
+                    textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                    textView.setText(resultText);
+                    views.add(textView);
+
+                    popup.showWithButtonText(PopupType.NEGATIVE, getString(popupBtnTextRes), getString(R.string.popup_quiz_negative_text), views);
+                } else if (option.optionType == MediaType.IMAGE) {
+                    float factor = getResources().getDisplayMetrics().density; // Convert to dp
+                    ImageView childView = new ImageView(this);
+                    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, (int) (125 * factor));
+                    childView.setLayoutParams(lp);
+                    Glide.with(this).load(resultImage).into(childView);
+                    childView.setAdjustViewBounds(true);
+                    views.add(childView);
+                    popup.showWithButtonText(PopupType.NEGATIVE, getString(popupBtnTextRes), getString(R.string.popup_quiz_negative_text), views);
+                }
+            }
         }
     }
 
-    //create popup which gives feedback to the user's answer
-    private void showPositivePopup() {
-        popupWindow.setContentView(R.layout.popup_quiz_positive);
-        btnAccept = popupWindow.findViewById(R.id.forward_next_game_positive);
-        popupTitle = popupWindow.findViewById(R.id.popup_positive_title);
-
-        // Checks if the current activity is last one
-        if (current > 1) {
-            btnAccept.setText(R.string.game_btn_next);
-        } else btnAccept.setText(R.string.game_btn_finished);
-
-        ViewCompat.animate(btnAccept).setStartDelay(200).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
-
-        //close the popup to repeat the question or finish the game and go back to the overview
-        btnAccept.setOnClickListener(v -> {
+    /**
+     * listener methods (3) for continue/accept/wiki button -> click event
+     *
+     * @param type
+     * @param action
+     */
+    @Override
+    public void onPopupAction(PopupType type, PopupAction action) {
+        if (type != PopupType.NEGATIVE) {
             quizIDs.add(gameContent.getId());
             if (current > 1) {
                 showNextQuestion();
                 current--;
             } else {
-                popupWindow.dismiss();
                 onQuizSuccess(quizIDs);
             }
-        });
-
-        popupWindow.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        popupWindow.show();
-
-        Window window = popupWindow.getWindow();
-        window.setLayout(CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
-    }
-
-    //create popup which gives feedback to the user's answer: the right answer is shown after 2 wrong given answers
-    private void showNegativePopup(GameChooseAnswerOption option) {
-        popupWindow.setContentView(R.layout.popup_quiz_negative);
-        btnAccept = popupWindow.findViewById(R.id.repeat_game);
-        popupTitle = popupWindow.findViewById(R.id.popup_negative_title);
-        popupText = popupWindow.findViewById(R.id.popup_negative_text);
-
-        if (showAnswer < 2) {
-            popupText.setText(R.string.game_popup_try_again);
-            popupText.setVisibility(View.VISIBLE);
-            btnAccept.setVisibility(View.VISIBLE);
-
-            ViewCompat.animate(popupText).setStartDelay(400).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
-            ViewCompat.animate(btnAccept).setStartDelay(800).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
-
         } else {
-            if (option.optionType == GameChooseAnswerOption.OptionTypes.TEXT) {
-                popup_result_text = popupWindow.findViewById(R.id.popup_answer_text);
-                popup_result_text.setText(resultText);
-                popup_result_text.setVisibility(View.VISIBLE);
-
-                ViewCompat.animate(popup_result_text).setStartDelay(600).alpha(1).setDuration(400).setInterpolator(new DecelerateInterpolator(1.2f)).start();
-
-            } else if (option.optionType == GameChooseAnswerOption.OptionTypes.IMAGE) {
-                popup_result_image = popupWindow.findViewById(R.id.popup_answer_picture);
-                popup_result_image.setBackgroundResource(resultImage);
-                popup_result_image.setVisibility(View.VISIBLE);
-
-                ViewCompat.animate(popup_result_image).setStartDelay(600).alpha(1).setDuration(400).setInterpolator(new DecelerateInterpolator(1.2f)).start();
-            }
-
-            // Checks if the current activity is last one
-            if (current > 1) {
-                btnAccept.setText(R.string.game_btn_next);
-            } else btnAccept.setText(R.string.game_btn_finished);
-
-            btnAccept.setVisibility(View.VISIBLE);
-            ViewCompat.animate(popupText).setStartDelay(500).alpha(1).setDuration(200).setInterpolator(new DecelerateInterpolator(1.2f)).start();
-            ViewCompat.animate(btnAccept).setStartDelay(900).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
-        }
-
-        //close the popup to repeat the question or show the next question
-        btnAccept.setOnClickListener(v -> {
-            if (showAnswer < 2) {
-                popupWindow.dismiss();
-            } else {
+            if (showAnswer > 2) {
                 quizIDs.add(gameContent.getId());
                 if (current > 1) {
                     showNextQuestion();
                     current--;
                 } else {
-                    popupWindow.dismiss();
                     onQuizSuccess(quizIDs);
                 }
             }
-        });
-
-        popupWindow.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        popupWindow.show();
-
-        Window window = popupWindow.getWindow();
-        window.setLayout(CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
+        }
     }
 }

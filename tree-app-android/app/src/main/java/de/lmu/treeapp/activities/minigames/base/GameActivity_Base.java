@@ -21,6 +21,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
 
     protected IGameBase gameContent;
     protected int treeId;
+    protected int gameId;
     protected Tree parentTree;
     protected Tree.GameCategories parentCategory;
     public boolean active = true;
@@ -33,8 +34,9 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         if(active){Bundle b = getIntent().getExtras();
         parentCategory = (Tree.GameCategories) b.get("Category");
         treeId = b.getInt("TreeId");
-        parentTree = DataManager.getInstance(getApplicationContext()).GetTree(treeId);
-        gameContent = DataManager.getInstance(getApplicationContext()).GetMinigame(b.getInt("GameId"));
+        gameId = b.getInt("GameId");
+        parentTree = DataManager.getInstance(getApplicationContext()).getTree(treeId);
+        gameContent = DataManager.getInstance(getApplicationContext()).getMinigame(gameId);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -42,7 +44,10 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         }
 
         TextView description = findViewById(R.id.game_description);
-        description.setText(gameContent.getDescription());}
+
+        if (description != null) {
+            description.setText(gameContent.getDescription());
+        }
     }
 
     protected abstract int getLayoutId();
@@ -68,14 +73,10 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         super.onBackPressed();
     }
 
-
     // Save the game process and go back to the game selection activity
     protected void onSuccess() {
-        DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.getId(), parentTree);
-        Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
-        intent.putExtra("TreeId", treeId);
-        intent.putExtra("Category", parentCategory);
-        startActivity(intent);
+        DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree).subscribe();
+        showGameSelection();
     }
 
     // Save the game process and display the next quiz game in this category
@@ -84,34 +85,33 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         System.out.println(quizIDs);
 
         for (int i = 0; i < quizIDs.size(); i++) {
-            DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, quizIDs.get(i), parentTree);
+            DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, quizIDs.get(i), parentTree).subscribe();
         }
         quizIDs.clear();
-        System.out.println(quizIDs);
 
+        showGameSelection();
+    }
 
+    public void showGameSelection() {
         Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
         intent.putExtra("TreeId", treeId);
         intent.putExtra("Category", parentCategory);
-        finish(); // Removes the last quiz activity from the stack
         startActivity(intent);
+        finish();
     }
 
-    public void showTreeProfile(String picPath, boolean toWantedPoster) {
-        DataManager.getInstance(getApplicationContext()).GameCompleted(parentCategory, gameContent.getId(), parentTree);
-        DataManager.getInstance(getApplicationContext()).TakeTreePicture(picPath, parentCategory, parentTree);
-        if (toWantedPoster) {
-            Intent intent = new Intent(getApplicationContext(), WantedPosterDetailsActivity.class);
-            intent.putExtra("TreeId", treeId);
-            startActivity(intent);
-        }
+    public void showTreeProfile() {
+        Intent intent = new Intent(getApplicationContext(), WantedPosterDetailsActivity.class);
+        intent.putExtra("TreeId", treeId);
+        startActivity(intent);
+        finish();
     }
 
     protected void onFail() {
-        Toast.makeText(getApplicationContext(), "Falsch", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), getString(R.string.popup_quiz_negative_title), Toast.LENGTH_LONG).show();
     }
 
     public int getNextQuizID() {
-        return DataManager.getInstance(getApplicationContext()).GetNextQuiz(gameContent.getId()).getId();
+        return DataManager.getInstance(getApplicationContext()).getNextQuiz(gameContent.getId()).getId();
     }
 }

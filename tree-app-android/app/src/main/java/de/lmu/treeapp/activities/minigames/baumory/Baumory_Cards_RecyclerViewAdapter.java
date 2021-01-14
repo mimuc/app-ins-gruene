@@ -8,11 +8,14 @@ import android.widget.ImageButton;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryCard;
 import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.utils.glide.BackgroundTarget;
 
 public class Baumory_Cards_RecyclerViewAdapter extends RecyclerView.Adapter<Baumory_Cards_RecyclerViewAdapter.ViewHolder> {
 
@@ -65,8 +68,8 @@ public class Baumory_Cards_RecyclerViewAdapter extends RecyclerView.Adapter<Baum
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final GameBaumoryCard option = options.get(position);
 
-        holder.button.setImageResource(R.drawable.ic_question_big);
-        holder.button.setBackgroundResource(R.drawable.dark_grey_gradient);
+        Glide.with(context).load(R.drawable.ic_question_big).into(holder.button);
+        Glide.with(context).load(R.drawable.dark_grey_gradient).into(new BackgroundTarget(holder.button));
         holder.button.setOnClickListener(arg0 -> mOnClickListener.optionClicked(option, holder));
     }
 

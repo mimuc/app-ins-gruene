@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
 import de.lmu.treeapp.contentClasses.trees.Tree;
-import de.lmu.treeapp.contentData.database.TypeConversion;
+import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
 
 @Entity
 public class Tree_x_Game {

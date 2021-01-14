@@ -11,31 +11,35 @@ import de.lmu.treeapp.contentClasses.trees.TreeProfile;
 import de.lmu.treeapp.contentData.database.ContentDatabase;
 import de.lmu.treeapp.contentData.database.entities.content.TreeProfileCard;
 import de.lmu.treeapp.contentData.database.entities.content.TreeRelations;
+import de.lmu.treeapp.contentData.database.entities.content.Tree_x_Game;
+import io.reactivex.rxjava3.core.Single;
 
 
 public class ContentManager {
-    private static final Object sLock = new Object();
     private static ContentManager INSTANCE;
     private Context context;
-    private List<Tree> trees = new ArrayList<>();
-    private List<TreeProfile> treeProfiles = new ArrayList<>();
-    private List<IGameBase> minigames = new ArrayList<>();
+    private final List<Tree> trees = new ArrayList<>();
+    private final List<TreeProfile> treeProfiles = new ArrayList<>();
+    private final List<IGameBase> minigames = new ArrayList<>();
 
-    public static ContentManager getInstance(Context _context) {
-        synchronized (sLock) {
-            if (INSTANCE == null) {
-                ContentManager newCM = new ContentManager();
-                newCM.context = _context;
-                newCM.init();
-                INSTANCE = newCM;
+    public static ContentManager getInstance(Context context) {
+        if (INSTANCE == null) {
+            synchronized (ContentManager.class) {
+                if (INSTANCE == null) { // double checked locking
+                    ContentManager newCM = new ContentManager();
+                    newCM.context = context;
+                    newCM.init();
+                    INSTANCE = newCM;
+                }
             }
-            return INSTANCE;
         }
+        return INSTANCE;
     }
 
     private void init() {
+        ContentDatabase contentDb = ContentDatabase.getInstance(context);
         // Load tree (images + games)
-        List<TreeRelations> treeRelations = ContentDatabase.getInstance(context).treeDao().getAll();
+        List<TreeRelations> treeRelations = contentDb.treeDao().getAll();
         for (TreeRelations treeRelation : treeRelations) {
             Tree tree = new Tree();
             tree.initContentData(treeRelation);
@@ -44,24 +48,30 @@ public class ContentManager {
 
         // Load tree profile
         for (Tree tree : this.trees) {
-            List<TreeProfileCard> treeProfileCards = ContentDatabase.getInstance(context).treeProfileDao().getCardsByTreeId(tree.getId());
+            List<TreeProfileCard> treeProfileCards = contentDb.treeProfileDao().getCardsByTreeId(tree.getId());
 
             TreeProfile treeProfile = new TreeProfile();
             treeProfile.cards = treeProfileCards;
             this.treeProfiles.add(treeProfile);
         }
 
-        // Load quiz & Baumory from database
-        this.minigames.addAll(ContentDatabase.getInstance(context).gameChooseAnswerDao().getAll());
-        this.minigames.addAll(ContentDatabase.getInstance(context).gameBaumoryDao().getAll());
-
-        miniGameParser parser = new miniGameParser();
-        this.minigames.addAll(parser.getMiniGames(context));
+        // Load games from database
+        this.minigames.addAll(contentDb.gameChooseAnswerDao().getAll());
+        this.minigames.addAll(contentDb.gameBaumoryDao().getAll());
+        this.minigames.addAll(contentDb.gameDragDropDao().getAll());
+        this.minigames.addAll(contentDb.gameOnlyDescriptionDao().getAll());
+        this.minigames.addAll(contentDb.gameTakePictureDao().getAll());
+        this.minigames.addAll(contentDb.gameOrderWordsDao().getAll());
+        this.minigames.addAll(contentDb.gamePuzzleDao().getAll());
+        this.minigames.addAll(contentDb.gameInputStringDao().getAll());
     }
-
 
     public List<Tree> getTrees() {
         return trees;
+    }
+
+    public Single<Tree_x_Game> getTxgByCompositeKey(int treeId, int gameId, Tree.GameCategories gameCategory) {
+        return ContentDatabase.getInstance(context).tree_x_gameDao().getByCompositeKey(treeId, gameId, gameCategory);
     }
 
     public List<de.lmu.treeapp.contentClasses.trees.TreeProfile> getTreeProfiles() {
@@ -71,6 +81,4 @@ public class ContentManager {
     public List<IGameBase> getMinigames() {
         return minigames;
     }
-
-
 }

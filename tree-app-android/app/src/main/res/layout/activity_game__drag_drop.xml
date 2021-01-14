@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/cl"
     tools:context="de.lmu.treeapp.activities.minigames.dragDrop.GameActivity_DragDrop">
 
     <TextView
         android:id="@+id/game_description"
-        android:layout_width="319dp"
-        android:layout_height="58dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/game_description_placeholder"
+        android:gravity="center"
+        android:textSize="@dimen/heading2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -23,19 +24,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.055" />
 
-    <ImageView
-        android:id="@+id/game_dragdrop_content"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@id/game_dragdrop_sendButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_description"
-        tools:srcCompat="@drawable/ic_ahorn_baum" />
+        app:layout_constraintTop_toBottomOf="@+id/game_description">
+
+        <ImageView
+            android:id="@+id/game_dragdrop_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/ic_ahorn_baum" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/game_dragdrop_sendButton"
@@ -51,11 +63,11 @@
         android:stateListAnimator="@null"
         android:text="Fertig!"
         android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
-        android:textSize="30sp"
+        android:textSize="@dimen/buttons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_dragdrop_content"
+        app:layout_constraintTop_toBottomOf="@+id/cl"
         app:layout_constraintVertical_bias="0.8"
         app:layout_constraintWidth_percent="0.6" />
 

@@ -2,7 +2,15 @@
 <resources>
     <dimen name="bottom_app_bar_height">64dp</dimen>
     <dimen name="tab_bar_content_height">675dp</dimen>
-    <dimen name="game_selection_headline_text_size">24sp</dimen>
+    <dimen name="game_selection_headline_text_size">@dimen/_18ssp</dimen>
+    <dimen name="heading1">@dimen/_20ssp</dimen>
+    <dimen name="heading2">@dimen/_14ssp</dimen>
+    <dimen name="heading3">@dimen/_12ssp</dimen>
+    <dimen name="text">@dimen/_10ssp</dimen>
+    <dimen name="over_picture">@dimen/_18ssp</dimen>
+    <dimen name="under_picture">@dimen/_10ssp</dimen>
+    <dimen name="buttons">@dimen/_22ssp</dimen>
+    <dimen name="buttons_klein">@dimen/_14ssp</dimen>
     <dimen name="detail_single_tree_layout_margin">12dp</dimen>
     <dimen name="choose_answer_option_layout_margin">4dp</dimen>
     <dimen name="column_width">160dp</dimen>

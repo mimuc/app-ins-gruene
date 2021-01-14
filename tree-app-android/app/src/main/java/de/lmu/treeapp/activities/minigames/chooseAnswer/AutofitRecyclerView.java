@@ -33,7 +33,7 @@ public class AutofitRecyclerView extends RecyclerView {
                     android.R.attr.columnWidth
             };
             TypedArray array = context.obtainStyledAttributes(attrs, attrsArray);
-            columnWidth = array.getDimensionPixelSize(0, -1);
+            columnWidth = getResources().getDisplayMetrics().widthPixels;
             array.recycle();
         }
         manager = new GridLayoutManager(getContext(), 1);

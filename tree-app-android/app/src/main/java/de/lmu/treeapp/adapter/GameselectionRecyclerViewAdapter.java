@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import de.lmu.treeapp.R;
@@ -18,11 +20,13 @@ import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswe
 import de.lmu.treeapp.activities.minigames.dragDrop.GameActivity_DragDrop;
 import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
 import de.lmu.treeapp.activities.minigames.onlyDescription.GameActivity_OnlyDescription;
+import de.lmu.treeapp.activities.minigames.orderWords.GameActivity_OrderWords;
+import de.lmu.treeapp.activities.minigames.puzzle.GameActivity_Puzzle;
 import de.lmu.treeapp.activities.minigames.takePicture.GameActivity_TakePicture;
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
-import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.utils.glide.BackgroundTarget;
 
 public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<GameselectionRecyclerViewAdapter.ViewHolder> {
 
@@ -72,14 +76,14 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
     @Override
     public void onBindViewHolder(GameselectionRecyclerViewAdapter.ViewHolder holder, final int position) {
         final Context context = holder.gameName.getContext();
-        final IGameBase game = DataManager.getInstance(context).GetMinigame(games.get(position));
-        final Tree tree = DataManager.getInstance(context).GetTree(treeId);
+        final IGameBase game = DataManager.getInstance(context).getMinigame(games.get(position));
+        final Tree tree = DataManager.getInstance(context).getTree(treeId);
         if (game == null) {
             return;
         }
-        if (tree.appData.IsGameCompleted(category, game.getId())) {
-            holder.gameIcon.setImageResource(R.drawable.ic_quiz_checked);
-            holder.gameIcon.setBackgroundResource(R.drawable.white_background);
+        if (tree.appData.isGameCompleted(category, game.getId())) {
+            Glide.with(context).load(R.drawable.ic_quiz_checked).into(holder.gameIcon);
+            Glide.with(context).load(R.drawable.white_background).into(new BackgroundTarget(holder.gameIcon));
         }
         holder.gameName.setText(game.getName());
 
@@ -135,6 +139,20 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
                     intent6.putExtra("Category", category);
                     intent6.putExtra("GameId", game.getId());
                     context.startActivity(intent6);
+                    break;
+                case OrderWords:
+                    Intent intent7 = new Intent(context, GameActivity_OrderWords.class);
+                    intent7.putExtra("TreeId", treeId);
+                    intent7.putExtra("Category", category);
+                    intent7.putExtra("GameId", game.getId());
+                    context.startActivity(intent7);
+                    break;
+                case Puzzle:
+                    Intent intent8 = new Intent(context, GameActivity_Puzzle.class);
+                    intent8.putExtra("TreeId", treeId);
+                    intent8.putExtra("Category", category);
+                    intent8.putExtra("GameId", game.getId());
+                    context.startActivity(intent8);
                     break;
                 default:
                     break;

@@ -9,7 +9,7 @@ import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 
 /**
- * The persistent database tree model with its related attributes.
+ * The persistent database for the game ChooseAnswer with its related attributes.
  */
 public class GameChooseAnswerRelations implements IGameBase {
     @Embedded

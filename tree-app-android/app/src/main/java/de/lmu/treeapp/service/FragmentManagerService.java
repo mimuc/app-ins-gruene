@@ -38,7 +38,7 @@ public class FragmentManagerService implements Serializable {
     public static FragmentManagerService getInstance(FragmentManager supportFragmentManager) {
         if (sSoleInstance == null) {
             synchronized (FragmentManagerService.class) {
-                if (sSoleInstance == null)
+                if (sSoleInstance == null) // double checked locking
                     sSoleInstance = new FragmentManagerService(supportFragmentManager);
             }
         }

@@ -1,10 +1,7 @@
 package de.lmu.treeapp.activities.minigames.takePicture;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,54 +9,63 @@ import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.view.View;
-import android.view.Window;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.FileProvider;
-import androidx.core.view.ViewCompat;
 
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Objects;
+import java.util.Date;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
-import de.lmu.treeapp.contentClasses.minigames.Minigame_TakePicture;
+import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.contentData.database.AppDatabase;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
+import de.lmu.treeapp.contentData.database.entities.content.GameTakePictureRelations;
+import de.lmu.treeapp.popup.Popup;
+import de.lmu.treeapp.popup.PopupAction;
+import de.lmu.treeapp.popup.PopupInterface;
+import de.lmu.treeapp.popup.PopupType;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
-public class GameActivity_TakePicture extends GameActivity_Base {
+public class GameActivity_TakePicture extends GameActivity_Base implements PopupInterface {
 
-    private Minigame_TakePicture takePictureGame;
+    protected static final int REQUEST_TAKE_PHOTO = 1;
+    protected String currentPhotoPath;
+    protected Popup popup;
+    protected Uri photoURI;
+    //protected List<GameStateTakePictureImage> imageStates;
+    private GameTakePictureRelations takePictureGame;
     private Button sendButton;
     private ImageView previewPicture;
     private ImageButton imageExample;
-    // PopUp:
-    Dialog popupWindow;
-    Button btnAccept, btnWiki;
-    TextView popupTitle, popupText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-        popupWindow = new Dialog(this);
-        takePictureGame = (Minigame_TakePicture) gameContent;
+        super.onCreate(savedInstanceState);
+        popup = new Popup(this);
+        popup.setButtonSecondary(true);
+        popup.setButtonAcceptText(getString(R.string.popup_btn_finished));
+        popup.setButtonSecondaryText(getString(R.string.popup_btn_wiki));
+
+        takePictureGame = (GameTakePictureRelations) gameContent;
         sendButton = findViewById(R.id.game_takePicture_sendButton);
         previewPicture = findViewById(R.id.game_takePicture_previewPicture);
         imageExample = findViewById(R.id.game_takePicture_imageExample);
-
         sendButton.setEnabled(false);
-
         previewPicture.setOnClickListener(view -> dispatchTakePictureIntent());
+
+        sendButton.setOnClickListener(view -> popup.show(PopupType.NEUTRAL));
 
         imageExample.setOnClickListener(view -> {
             imageExample.setVisibility(View.GONE);
@@ -67,18 +73,14 @@ public class GameActivity_TakePicture extends GameActivity_Base {
             sendButton.setEnabled(true);
         });
 
-        sendButton.setOnClickListener(view -> showPositivePopup());
+        // Load state
+        //AppDatabase.getInstance(getApplicationContext()).gameTakePictureDao().getImages(gameId, treeId, parentCategory).subscribeOn(Schedulers.io()).subscribe(s -> imageStates = s);
     }
 
     @Override
     protected int getLayoutId() {
         return R.layout.activity_game__take_picture;
     }
-
-    String currentPhotoPath;
-    Uri photoURI;
-
-    static final int REQUEST_TAKE_PHOTO = 1;
 
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -106,8 +108,12 @@ public class GameActivity_TakePicture extends GameActivity_Base {
     }
 
     private File createImageFile() throws IOException {
-        String imageFileName = "AppInsGruene_" + takePictureGame.GetPictureName() + "_" +
-                Objects.requireNonNull(getIntent().getExtras()).getInt("TreeId") + "_" + Objects.requireNonNull(getIntent().getExtras()).get("Category");
+        String imageFileName = "AppInsGruene_"
+                + takePictureGame.GetPictureName()
+                + "_g" + gameId
+                + "_t" + treeId
+                + "_" + parentCategory.name()
+                + "_" + (System.currentTimeMillis() / 1000);
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = new File(storageDir + File.separator + imageFileName + ".jpg");
         if (!image.exists()) {
@@ -163,37 +169,32 @@ public class GameActivity_TakePicture extends GameActivity_Base {
         }
     }
 
-    private void showPositivePopup() {
-        popupWindow.setContentView(R.layout.popup_neutral);
-        btnAccept = popupWindow.findViewById(R.id.btn_forward);
-        btnWiki = popupWindow.findViewById(R.id.btn_wiki);
-        popupTitle = popupWindow.findViewById(R.id.popup_title);
-        popupText = popupWindow.findViewById(R.id.popup_text);
-
-        btnAccept.setVisibility(View.VISIBLE);
-        btnWiki.setVisibility(View.VISIBLE);
-        ViewCompat.animate(popupText).setStartDelay(150).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
-        ViewCompat.animate(btnAccept).setStartDelay(300).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
-        ViewCompat.animate(btnWiki).setStartDelay(300).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
-
-        //close the popup and open the tree profile
-        btnWiki.setOnClickListener(view -> {
-            popupWindow.dismiss();
-            finish();
-            showTreeProfile(currentPhotoPath, true);
-        });
-
-        //close the popup and finish the game
-        btnAccept.setOnClickListener(view -> {
-            popupWindow.dismiss();
+    @Override
+    public void onPopupAction(PopupType type, PopupAction action) {
+        if (action == PopupAction.ACCEPT) {
+            saveGameState().subscribe();
             onSuccess();
-            showTreeProfile(currentPhotoPath, false);
-        });
+        } else {
+            // Set success without going back to overview
+            DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree);
+            saveGameState().subscribe();
+            showTreeProfile();
+        }
+    }
 
-        popupWindow.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        popupWindow.show();
-
-        Window window = popupWindow.getWindow();
-        window.setLayout(CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
+    /**
+     * Write game state in background.
+     */
+    protected Completable saveGameState() {
+        if (currentPhotoPath != null) {
+            GameStateTakePictureImage gameStateTakePictureImage = new GameStateTakePictureImage(gameId, treeId, parentCategory, currentPhotoPath, new Date());
+            return AppDatabase.getInstance(getApplicationContext()).gameTakePictureDao()
+                    .insertImage(gameStateTakePictureImage)
+                    .subscribeOn(Schedulers.io()).flatMapCompletable(s -> Completable.fromAction(() -> {
+                        gameStateTakePictureImage.id = s.intValue(); // Update id afterwards
+                        parentTree.appData.takePictureImages.add(gameStateTakePictureImage);
+                    }));
+        }
+        return Completable.complete();
     }
 }

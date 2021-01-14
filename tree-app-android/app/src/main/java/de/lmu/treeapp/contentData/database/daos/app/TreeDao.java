@@ -4,33 +4,38 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import java.util.List;
 
-import de.lmu.treeapp.contentData.database.entities.app.TreeModel;
+import de.lmu.treeapp.contentData.database.entities.app.TreeState;
+import de.lmu.treeapp.contentData.database.entities.app.TreeStateRelations;
+import io.reactivex.rxjava3.core.Completable;
 
 @Dao
 public interface TreeDao {
 
-    @Query("SELECT * FROM TreeModel")
-    List<TreeModel> getAll();
+    @Transaction
+    @Query("SELECT * FROM TreeState")
+    List<TreeStateRelations> getAll();
 
-    @Query("SELECT * FROM TreeModel WHERE uid=:uid LIMIT 1")
-    TreeModel getById(int uid);
-
-    @Insert
-    void InsertOne(TreeModel model);
-
-    @Insert
-    void InsertAll(TreeModel... models);
+    @Transaction
+    @Query("SELECT * FROM TreeState WHERE id=:id LIMIT 1")
+    TreeStateRelations getById(int id);
 
     @Insert
-    void InsertAll(List<TreeModel> models);
+    void insertOne(TreeState model);
+
+    @Insert
+    void insertAll(TreeState... models);
+
+    @Insert
+    void insertAll(List<TreeState> models);
 
     @Update
-    void Update(TreeModel... models);
+    Completable update(TreeState... models);
 
     @Delete
-    void DeleteOne(TreeModel model);
+    void deleteOne(TreeState model);
 }
