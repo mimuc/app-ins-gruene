@@ -34,6 +34,8 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
     private final MainActivityViewModel viewModel;
     public static boolean isImprint = false;
     private Context context;
+    public static ImageButton firstTree;
+    public static ImageView treeLocked;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -97,6 +99,10 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
+        if(position == 0){
+            firstTree = holder.treeImage;
+            treeLocked = holder.treeUnlockedStatus;
+        }
         if (position == treeValues.size()) {
 
             holder.btn_imprint.setOnClickListener(view -> {

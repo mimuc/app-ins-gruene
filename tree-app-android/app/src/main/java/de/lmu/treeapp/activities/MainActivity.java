@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +25,9 @@ import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.fragments.OverviewFragment;
 import de.lmu.treeapp.fragments.TreeSelectionFragment;
 import de.lmu.treeapp.service.FragmentManagerService;
+
+import de.lmu.treeapp.tutorial.CustomTapTargetPromptBuilder;
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence;
 
 /**
  * The MainActivity consists of the two fragments (overview and detail) and the BottomNavigation-Bar.
@@ -167,5 +172,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         fragmentManager.showOverview(bottomNavigationFragments);
+    }
+
+    public void presentMaterialTapTargetSequence(ImageButton b, ImageView lock) {
+        new MaterialTapTargetSequence()
+                .addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
+                        .setTarget(R.id.action_overview)
+                        .setPrimaryText(R.string.overview_heading)
+                        .setSecondaryText(R.string.overview_text))
+                .addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
+                        .setTarget(R.id.action_tree_selection)
+                        .setPrimaryText(R.string.single_view_heading)
+                        .setSecondaryText(R.string.single_view_text))
+                .addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
+                        .setTarget(b)
+                        .setFocalRadius(R.dimen._60sdp)
+                        .setSecondaryText(R.string.tree_text))
+                .addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
+                        .setTarget(lock)
+                        .setFocalRadius(R.dimen._15sdp)
+                        .setSecondaryText(R.string.tree_lock_text))
+                .show();
     }
 }
