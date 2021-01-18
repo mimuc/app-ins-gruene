@@ -2,7 +2,9 @@ package de.lmu.treeapp.fragments;
 
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,8 @@ import de.lmu.treeapp.activities.WantedPosterDetailsActivity;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.TreeComponent;
 import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.tutorial.CustomTapTargetPromptBuilder;
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence;
 
 public class DetailSingleTreeFragment extends Fragment {
 
@@ -59,6 +63,11 @@ public class DetailSingleTreeFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        presentMaterialTapTargetSequence();
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         this.tree = DataManager.getInstance(getContext()).getTree(tree.getId());
@@ -81,7 +90,6 @@ public class DetailSingleTreeFragment extends Fragment {
 
     private void setupSingleTreeContent() {
         treeName.setText(tree.getName());
-
         if (getContext() != null) {
             this.setupImageResources();
             this.setupOnClickListener();
@@ -143,5 +151,42 @@ public class DetailSingleTreeFragment extends Fragment {
             intent.putExtra("Category", category);
             startActivity(intent);
         };
+    }
+
+    void presentMaterialTapTargetSequence() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        boolean name = preferences.getBoolean("single", false);
+        if (name == false) {
+            new MaterialTapTargetSequence()
+                    .addPrompt(new CustomTapTargetPromptBuilder(getActivity())
+                            .setTarget(R.id.detail_single_tree_circularProgressbar_other)
+                            .setFocalRadius(R.dimen.target_radius_small)
+                            .setPrimaryText(R.string.other_heading)
+                            .setSecondaryText(R.string.other_text))
+                    .addPrompt(new CustomTapTargetPromptBuilder(getActivity())
+                            .setTarget(R.id.detail_single_tree_circularProgressbar_leaf)
+                            .setFocalRadius(R.dimen.target_radius_small)
+                            .setPrimaryText(R.string.leaf_heading)
+                            .setSecondaryText(R.string.leaf_text))
+                    .addPrompt(new CustomTapTargetPromptBuilder(getActivity())
+                            .setTarget(R.id.detail_single_tree_circularProgressbar_fruit)
+                            .setFocalRadius(R.dimen.target_radius_small)
+                            .setPrimaryText(R.string.fruit_heading)
+                            .setSecondaryText(R.string.fruit_text))
+                    .addPrompt(new CustomTapTargetPromptBuilder(getActivity())
+                            .setTarget(R.id.detail_single_tree_circularProgressbar_trunk)
+                            .setFocalRadius(R.dimen.target_radius_small)
+                            .setPrimaryText(R.string.trunk_heading)
+                            .setSecondaryText(R.string.trunk_text))
+                    .addPrompt(new CustomTapTargetPromptBuilder(getActivity())
+                            .setTarget(R.id.detail_single_tree_profileButton)
+                            .setFocalRadius(R.dimen.target_radius_big)
+                            .setPrimaryText(R.string.profile_heading)
+                            .setSecondaryText(R.string.profile_text))
+                    .show();
+        }
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("single", true);
+        editor.apply();
     }
 }

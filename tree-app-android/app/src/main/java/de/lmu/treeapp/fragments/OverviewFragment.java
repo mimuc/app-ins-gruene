@@ -1,19 +1,26 @@
 package de.lmu.treeapp.fragments;
 
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.activities.MainActivity;
 import de.lmu.treeapp.adapter.OverviewRecyclerViewAdapter;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
@@ -64,5 +71,26 @@ public class OverviewFragment extends Fragment {
         RecyclerView.Adapter recyclerViewAdapter = new OverviewRecyclerViewAdapter(trees, fragmentManager, selectedTreeFragment, viewModel);
         ((OverviewRecyclerViewAdapter) recyclerViewAdapter).setActivity(this.getActivity());
         overviewRecyclerView.setAdapter(recyclerViewAdapter);
+        overviewRecyclerView
+                .getViewTreeObserver()
+                .addOnGlobalLayoutListener(
+                        new ViewTreeObserver.OnGlobalLayoutListener() {
+                            @Override
+                            public void onGlobalLayout() {
+                                // At this point the layout is complete and the
+                                // dimensions of recyclerView and any child views
+                                // are known.
+                                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                                Boolean name = preferences.getBoolean("show", false);
+                                if (name == false) {
+                                    ImageButton b = OverviewRecyclerViewAdapter.firstTree;
+                                    ImageView lock = OverviewRecyclerViewAdapter.treeLocked;
+                                    ((MainActivity) getActivity()).presentMaterialTapTargetSequence(b, lock);
+                                }
+                                SharedPreferences.Editor editor = preferences.edit();
+                                editor.putBoolean("show", true);
+                                editor.apply();
+                            }
+                        });
     }
 }
