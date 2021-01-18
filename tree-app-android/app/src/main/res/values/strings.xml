@@ -20,7 +20,7 @@
     <string name="tree_selection_fragment_button_text">DETAILS ANZEIGEN</string>
     <string name="overview_fragment_headline">Deine Waldübersicht</string>
     <string name="overview_fragment_btn_imprint">Impressum</string>
-    <string name="overview_fragment_description_text">Klicke auf einen Baum um mehr über ihn zu erfahren!</string>
+    <string name="overview_fragment_description_text">Klicke auf einen Baum, um mehr über ihn zu erfahren!</string>
     <string name="overview_single_tree_placeholder_text">overview_single_tree_text</string>
     <string name="overview_single_tree_state_image_content_description">overview_single_tree_state_image</string>
     <string name="overview_single_tree_image_content_description">overview_single_tree_image</string>
@@ -118,4 +118,25 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="puzzle_difficulty_easy">Lieber was einfaches</string>
     <string name="puzzle_difficulty_hard">Ich mag eine Herausforderung</string>
     <string name="puzzle_difficulty_medium">Ganz normal</string>
+
+    //tutorial
+
+    <string name="overview_heading">Waldübersicht</string>
+    <string name="overview_text">Hier siehst du alle Bäume auf einem Fleck!</string>
+    <string name="single_view_heading">Einzelansicht</string>
+    <string name="single_view_text">Hier findest du die Bäume einzeln aufgelistet!</string>
+    <string name="tree_text">Wenn du auf einen Baum klickst, kommst du zu den Spielen!</string>
+    <string name="tree_lock_text">Das Schloss wird zu einem grünen Haken, wenn du alle Spiele gespielt hast!</string>
+    <string name="other_heading">Allgemeine Spiele</string>
+    <string name="other_text">Hier findest du alle allgemeinen Spiele zu diesem Baum!</string>
+    <string name="leaf_heading">Blattspiele</string>
+    <string name="leaf_text">Hier findest du alle Spiele zu den Blättern!</string>
+    <string name="fruit_heading">Fruchtspiele</string>
+    <string name="fruit_text">Wenn du mich klickst, kommst du zu den Fruchtspielen!</string>
+    <string name="trunk_heading">Rindespiele</string>
+    <string name="trunk_text">Alle Spiele zur Rinde findest du hier!</string>
+    <string name="profile_heading">Steckbrief</string>
+    <string name="profile_text">Hier findest du mehr Informationen zu diesem Baum!</string>
+
+
 </resources>
