@@ -88,7 +88,12 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
         holder.gameName.setText(game.getName());
 
         holder.gameIcon.setOnClickListener(arg0 -> {
-            switch (game.getType()) {
+            Intent intent = new Intent(context, GameActivity_ChooseAnswer.class);
+            //intent.putExtra("TreeId", treeId);
+            //intent.putExtra("Category", category);
+            //intent.putExtra("GameId", game.getId());
+            context.startActivity(intent);
+            /*switch (game.getType()) {
                 case ChooseAnswer:
 
                     if (game.getId() >= 100) {
@@ -156,7 +161,7 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
                     break;
                 default:
                     break;
-            }
+            }*/
         });
 
     }

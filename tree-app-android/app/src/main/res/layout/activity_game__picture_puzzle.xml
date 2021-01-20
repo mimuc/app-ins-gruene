@@ -18,18 +18,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="357dp"
-        android:layout_height="353dp"
+        android:layout_width="360dp"
+        android:layout_height="360dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.42000002">
 
-        <de.lmu.treeapp.activities.minigames.picturePuzzle.DragDrop_Grid
+        <de.lmu.treeapp.activities.minigames.picturePuzzle.DragDropListener
             android:id="@+id/grid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             tools:context="de.lmu.treeapp.activities.minigames.picturePuzzle.MainActivity"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="110dp" />

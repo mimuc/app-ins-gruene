@@ -7,35 +7,38 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.GridView;
+import android.widget.RelativeLayout;
 
-public class DragDrop_Grid extends GridView {
+public class DragDropListener extends GridView {
     private GestureDetector gDetector;
     private boolean mFlingConfirmed = false;
     private float mTouchX;
     private float mTouchY;
+    int picture;
+    int columns;
 
     private static final int SWIPE_MIN_DISTANCE = 100;
     private static final int SWIPE_MAX_OFF_PATH = 100;
     private static final int SWIPE_THRESHOLD_VELOCITY = 100;
 
-    public DragDrop_Grid(Context context) {
+    public DragDropListener(Context context) {
         super(context);
         init(context);
     }
 
-    public DragDrop_Grid(Context context, AttributeSet attrs) {
+    public DragDropListener(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public DragDrop_Grid(Context context, AttributeSet attrs, int defStyleAttr) {
+    public DragDropListener(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP) // API 21
-    public DragDrop_Grid(Context context, AttributeSet attrs, int defStyleAttr,
-                         int defStyleRes) {
+    public DragDropListener(Context context, AttributeSet attrs, int defStyleAttr,
+                            int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context);
     }
@@ -50,7 +53,7 @@ public class DragDrop_Grid extends GridView {
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
                                    float velocityY) {
-                final int position = DragDrop_Grid.this.pointToPosition
+                final int position = DragDropListener.this.pointToPosition
                         (Math.round(e1.getX()), Math.round(e1.getY()));
 
                 if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH) {
@@ -59,18 +62,18 @@ public class DragDrop_Grid extends GridView {
                         return false;
                     }
                     if (e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE) {
-                        GameActivity_PicturePuzzle.moveTiles(context, GameActivity_PicturePuzzle.up, position);
+                        activity.moveTiles(context, activity.up, position);
                     } else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE) {
-                        GameActivity_PicturePuzzle.moveTiles(context, GameActivity_PicturePuzzle.down, position);
+                        activity.moveTiles(context, activity.down, position);
                     }
                 } else {
                     if (Math.abs(velocityX) < SWIPE_THRESHOLD_VELOCITY) {
                         return false;
                     }
                     if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE) {
-                        GameActivity_PicturePuzzle.moveTiles(context, GameActivity_PicturePuzzle.left, position);
+                        activity.moveTiles(context, activity.left, position);
                     } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE) {
-                        GameActivity_PicturePuzzle.moveTiles(context, GameActivity_PicturePuzzle.right, position);
+                        activity.moveTiles(context, activity.right, position);
                     }
                 }
 
@@ -104,6 +107,11 @@ public class DragDrop_Grid extends GridView {
         }
 
         return super.onInterceptTouchEvent(ev);
+    }
+
+    void setValues(int pic, int cols){
+        this.picture = pic;
+        this.columns = cols;
     }
 
     @Override
