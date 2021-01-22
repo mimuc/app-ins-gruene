@@ -30,7 +30,19 @@ public abstract class GameDescriptionDao extends GameBaseDao<GameDescriptionRela
                     // max 16 items
                     break;
                 }
-                if (!items.contains(globalItem)) {
+
+                /*
+                 * Make sure we don't get the same value twice.
+                 * Use name for comparison as id varies dependent on game.
+                 */
+                boolean existsAlready = false;
+                for (GameDescriptionItem exists : items) {
+                    if (exists.content.equals(globalItem.content)) {
+                        existsAlready = true;
+                        break;
+                    }
+                }
+                if (!existsAlready) {
                     globalItem.isRight = false;
                     items.add(globalItem);
                 }
@@ -40,7 +52,7 @@ public abstract class GameDescriptionDao extends GameBaseDao<GameDescriptionRela
     }
 
     @Transaction
-    @Query("SELECT * FROM GameDescriptionItem ORDER BY RANDOM() limit 50")
+    @Query("SELECT * FROM GameDescriptionItem WHERE gameId = 0 ORDER BY RANDOM() LIMIT 50")
     abstract List<GameDescriptionItem> mGetRandomOptions();
 }
 
