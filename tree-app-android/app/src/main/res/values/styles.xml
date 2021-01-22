@@ -49,4 +49,23 @@
         <item name="shapeAppearanceOverlay">@style/ShapeAppearance.App.DefaultComponent</item>
     </style>
 
+
+    <style name="AppTheme.RoundButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:minHeight">@dimen/mtrl_extended_fab_min_height</item>
+        <item name="android:minWidth">@dimen/mtrl_extended_fab_min_width</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="elevation">@dimen/mtrl_extended_fab_elevation</item>
+        <item name="iconPadding">@dimen/mtrl_extended_fab_icon_text_spacing</item>
+        <item name="iconSize">@dimen/mtrl_extended_fab_icon_size</item>
+        <item name="iconTint">@color/mtrl_fab_icon_text_color_selector</item>
+        <item name="rippleColor">@color/mtrl_fab_ripple_color</item>
+        <item name="shapeAppearanceOverlay">
+            @style/ShapeAppearanceOverlay.MaterialComponents.ExtendedFloatingActionButton
+        </item>
+    </style>
+
 </resources>

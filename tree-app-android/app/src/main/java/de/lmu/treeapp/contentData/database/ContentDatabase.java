@@ -9,6 +9,7 @@ import androidx.room.TypeConverters;
 
 import de.lmu.treeapp.contentData.database.daos.content.GameBaumoryDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameChooseAnswerDao;
+import de.lmu.treeapp.contentData.database.daos.content.GameDescriptionDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameDragDropDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameInputStringDao;
 import de.lmu.treeapp.contentData.database.daos.content.GameOnlyDescriptionDao;
@@ -22,6 +23,7 @@ import de.lmu.treeapp.contentData.database.entities.content.GameBase;
 import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryCard;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswer;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerOption;
+import de.lmu.treeapp.contentData.database.entities.content.GameDescriptionItem;
 import de.lmu.treeapp.contentData.database.entities.content.GameDragDropItem;
 import de.lmu.treeapp.contentData.database.entities.content.GameDragDropZone;
 import de.lmu.treeapp.contentData.database.entities.content.GameOrderWordsItem;
@@ -43,6 +45,7 @@ import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
         TreeImage.class,
         TreeModel.class,
         TreeProfileCard.class,
+        GameDescriptionItem.class,
 
 }, version = 1, exportSchema = false)
 @TypeConverters({TypeConversion.class})
@@ -79,6 +82,8 @@ public abstract class ContentDatabase extends RoomDatabase {
     public abstract GameDragDropDao gameDragDropDao();
 
     public abstract GameOnlyDescriptionDao gameOnlyDescriptionDao();
+
+    public abstract GameDescriptionDao gameDescriptionDao();
 
     public abstract GameTakePictureDao gameTakePictureDao();
 
