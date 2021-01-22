@@ -17,6 +17,7 @@ import java.util.List;
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.baumory.GameActivity_Baumory;
 import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
+import de.lmu.treeapp.activities.minigames.description.GameActivity_Description;
 import de.lmu.treeapp.activities.minigames.dragDrop.GameActivity_DragDrop;
 import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
 import de.lmu.treeapp.activities.minigames.onlyDescription.GameActivity_OnlyDescription;
@@ -153,6 +154,13 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
                     intent8.putExtra("Category", category);
                     intent8.putExtra("GameId", game.getId());
                     context.startActivity(intent8);
+                    break;
+                case Description:
+                    Intent intent9 = new Intent(context, GameActivity_Description.class);
+                    intent9.putExtra("TreeId", treeId);
+                    intent9.putExtra("Category", category);
+                    intent9.putExtra("GameId", game.getId());
+                    context.startActivity(intent9);
                     break;
                 default:
                     break;
