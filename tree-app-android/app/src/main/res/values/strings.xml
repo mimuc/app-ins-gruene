@@ -138,5 +138,9 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="profile_heading">Steckbrief</string>
     <string name="profile_text">Hier findest du mehr Informationen zu diesem Baum!</string>
 
-
+    <string name="game_description_input_hint">Dein eigenes Wort</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="descriptionGame_you_selected">Du hast ausgewählt: \n</string>
+    <string name="game_description_start_screen_long">Wie fühlt sich die Rinde {0} {1} an? Welche Wörter beschreiben sie am besten?</string>
+    <string name="game_description_start_screen_short">Jetzt bist du gefragt!</string>
 </resources>
