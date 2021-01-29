@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
@@ -58,6 +59,7 @@ public class Popup {
     protected Context context;
     protected List<View> childViews;
     protected boolean isButtonSecondary;
+    protected boolean isSquirrel = true;
 
     /**
      * Popup Constructor
@@ -180,6 +182,12 @@ public class Popup {
             ViewCompat.animate(parentLayout).setStartDelay(400).alpha(1).setDuration(300).setInterpolator(new DecelerateInterpolator(1.2f)).start();
         }
 
+        //Hide Squirrel
+        if (!isSquirrel) {
+            ConstraintLayout squirrelframe = popupWindow.findViewById(R.id.mascot_wrapper);
+            squirrelframe.setVisibility(View.GONE);
+        }
+
         if (type == PopupType.POSITIVE) {
             popupTitle.setText(winTitle);
             //Squirrel animation
@@ -257,6 +265,10 @@ public class Popup {
     public void showWithButtonText(PopupType type, String buttonText, String message, List<View> childViews) {
         setButtonAcceptText(buttonText);
         show(type, message, childViews);
+    }
+
+    public void hideSquirrel() {
+        isSquirrel = false;
     }
 
     public void onClose() {

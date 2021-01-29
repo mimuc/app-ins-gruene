@@ -90,14 +90,12 @@ public class GameActivity_DragDrop extends GameActivity_Base implements PopupInt
         Button sendButton = findViewById(R.id.game_dragdrop_sendButton);
 
         sendButton.setOnClickListener(view -> {
-            for (GameDragDropZone zone : dragDropGame.getZones()) {
-                if (!zone.validMatch) {
-                    onFail();
-                    reset();
-                    return;
-                }
+            if(checkGameState()){
+                onSuccess();
+            }else{
+                onFail();
+                reset();
             }
-            onSuccess();
         });
 
         popup = new Popup(this);
@@ -276,4 +274,25 @@ public class GameActivity_DragDrop extends GameActivity_Base implements PopupInt
         }
     }
 
+    private boolean checkGameState() {
+        for (GameDragDropZone zone : dragDropGame.getZones()) {
+            if (!zone.validMatch) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (checkGameState()) super.onSuccess();
+        else super.onBackPressed();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        if (checkGameState()) super.onSuccess();
+        else finish();
+        return true;
+    }
 }

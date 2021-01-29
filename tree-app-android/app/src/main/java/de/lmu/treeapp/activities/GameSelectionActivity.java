@@ -2,10 +2,13 @@ package de.lmu.treeapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NavUtils;
+import androidx.core.app.TaskStackBuilder;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -76,6 +79,18 @@ public class GameSelectionActivity extends AppCompatActivity {
                 NavUtils.navigateUpTo(this, upIntent);
                 return true;
         }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent upIntent = new Intent(this, MainActivity.class);
+        NavUtils.navigateUpTo(this, upIntent);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
         return true;
     }
 }

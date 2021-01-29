@@ -107,6 +107,17 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         }
     }
 
+    private boolean checkGameState(){
+        quizIDs.add(gameContent.getId());
+        if (current > 1) {
+            showNextQuestion();
+            current--;
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     /**
      * listener methods (3) for continue/accept/wiki button -> click event
      *
@@ -115,24 +126,21 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
      */
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
-        if (type != PopupType.NEGATIVE) {
-            quizIDs.add(gameContent.getId());
-            if (current > 1) {
-                showNextQuestion();
-                current--;
-            } else {
+        if ((type != PopupType.NEGATIVE || showAnswer > 2) && checkGameState()) {
                 onQuizSuccess(quizIDs);
-            }
-        } else {
-            if (showAnswer > 2) {
-                quizIDs.add(gameContent.getId());
-                if (current > 1) {
-                    showNextQuestion();
-                    current--;
-                } else {
-                    onQuizSuccess(quizIDs);
-                }
-            }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (checkGameState()) onQuizSuccess(quizIDs);
+        else super.onBackPressed();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        if (checkGameState()) onQuizSuccess(quizIDs);
+        else finish();
+        return true;
     }
 }
