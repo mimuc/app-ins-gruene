@@ -24,8 +24,11 @@ import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.fragments.OverviewFragment;
 import de.lmu.treeapp.fragments.TreeSelectionFragment;
+import de.lmu.treeapp.popup.Popup;
+import de.lmu.treeapp.popup.PopupAction;
+import de.lmu.treeapp.popup.PopupInterface;
+import de.lmu.treeapp.popup.PopupType;
 import de.lmu.treeapp.service.FragmentManagerService;
-
 import de.lmu.treeapp.tutorial.CustomTapTargetPromptBuilder;
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence;
 
@@ -33,7 +36,7 @@ import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence;
  * The MainActivity consists of the two fragments (overview and detail) and the BottomNavigation-Bar.
  * It acts as the manager of everything else, but does not include a lot of functionality itself, except the basic set-ups needed for everything to work (e.g. Start loading the data from the database, etc.)
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PopupInterface {
 
     private DataManager dm; // The Singleton holding all the data of the CMS and Database
     private final FragmentManagerService fragmentManager = FragmentManagerService.getInstance(getSupportFragmentManager()); // The FragmentManager we need to register and launch fragments
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private final Fragment overviewFragment = new OverviewFragment(fragmentManager, treeSelectionFragment); // The Trees-Overview-Fragment (The one which all the trees in small squares on one screen)
     private BottomNavigationView bottomNavigationView;  // The NavigationBar on the bottom
     public static Context mainContext;
+    private Popup popupLeave;
 
     // QR-Code Stuff (Disabled)
     private FloatingActionButton qrCodeButton;  // The Button to start the QR-Code/Camera-Functionality
@@ -107,6 +111,16 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.registerTransactions(bottomNavigationFragments);
     }
 
+    private void showLeavePopup() {
+        popupLeave = new Popup(this);
+        popupLeave.setNeutralTitle(mainContext.getString(R.string.popup_close_app_title));
+        popupLeave.setButtonAcceptText(mainContext.getString(R.string.popup_close_app_accept));
+        popupLeave.setButtonSecondaryText(mainContext.getString(R.string.cancel));
+        popupLeave.setButtonSecondary(true);
+        popupLeave.hideSquirrel();
+        popupLeave.show(PopupType.NEUTRAL);
+    }
+
     /**
      * Get the instance of the DataManager-Singleton and wait for everything of the CMS and Database to be loaded.
      * TODO: This can be optimized by handling it asynchronously instead of waiting for it. Load times are fine, though.
@@ -171,7 +185,19 @@ public class MainActivity extends AppCompatActivity {
     // Android hardware back button is pressed
     @Override
     public void onBackPressed() {
-        fragmentManager.showOverview(bottomNavigationFragments);
+        //Check if last View
+        if (fragmentManager.getCurrentActiveFragment() == bottomNavigationFragments[0]) {
+            showLeavePopup();
+        } else fragmentManager.showOverview(bottomNavigationFragments);
+    }
+
+
+    @Override
+    public void onPopupAction(PopupType type, PopupAction action) {
+        popupLeave.dismiss();
+        if (action == PopupAction.ACCEPT) {
+            finishAffinity();
+        }
     }
 
     public void presentMaterialTapTargetSequence(ImageButton b, ImageView lock) {
@@ -193,5 +219,12 @@ public class MainActivity extends AppCompatActivity {
                         .setFocalRadius(R.dimen._15sdp)
                         .setSecondaryText(R.string.tree_lock_text))
                 .show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        fragmentManager.onDestroy();
+        mainContext = null;
     }
 }

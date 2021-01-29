@@ -118,6 +118,8 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="puzzle_difficulty_easy">Lieber was einfaches</string>
     <string name="puzzle_difficulty_hard">Ich mag eine Herausforderung</string>
     <string name="puzzle_difficulty_medium">Ganz normal</string>
+    <string name="popup_close_app_title">Möchtest du die App wirklich beenden?</string>
+    <string name="popup_close_app_accept">Ja</string>
 
     //tutorial
 
