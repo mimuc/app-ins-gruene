@@ -332,6 +332,19 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
             });
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        if (isGameOver()) onSuccess();
+        else super.onBackPressed();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        if (isGameOver()) onSuccess();
+        else finish();
+        return true;
+    }
 }
 
 
