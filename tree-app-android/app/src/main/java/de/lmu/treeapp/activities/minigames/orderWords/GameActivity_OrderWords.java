@@ -180,4 +180,18 @@ public class GameActivity_OrderWords extends GameActivity_Base implements Recycl
             onSuccess();
         }
     }
+
+
+    @Override
+    public void onBackPressed() {
+        if (checkCorrectness()) onSuccess();
+        else super.onBackPressed();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        if (checkCorrectness()) onSuccess();
+        else finish();
+        return true;
+    }
 }

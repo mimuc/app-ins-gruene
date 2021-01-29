@@ -1,5 +1,7 @@
 package de.lmu.treeapp.service;
 
+import android.util.Log;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -56,10 +58,10 @@ public class FragmentManagerService implements Serializable {
                 this.fragmentManager.beginTransaction().add(R.id.main_container, fragment, fragment.getTag()).commit();
                 //this.fragmentManager.beginTransaction().replace(R.id.main_container, fragment).addToBackStack("my_fragment").commit();
                 this.currentActiveFragment = fragment;
-                continue;
+            } else {
+                this.fragmentManager.beginTransaction().add(R.id.main_container, fragment, fragment.getTag()).hide(fragment).commit();
+                //this.fragmentManager.beginTransaction().replace(R.id.main_container, fragment).addToBackStack("my_fragment").commit();
             }
-            this.fragmentManager.beginTransaction().add(R.id.main_container, fragment, fragment.getTag()).hide(fragment).commit();
-            //this.fragmentManager.beginTransaction().replace(R.id.main_container, fragment).addToBackStack("my_fragment").commit();
         }
     }
 
@@ -79,6 +81,13 @@ public class FragmentManagerService implements Serializable {
             fragmentManager.beginTransaction().hide(this.currentActiveFragment).show(fragment).commit();
             this.currentActiveFragment = fragment;
         }
+    }
+
+    /**
+     * Get current active fragment.
+     */
+    public Fragment getCurrentActiveFragment() {
+        return this.currentActiveFragment;
     }
 
     /**
@@ -104,5 +113,7 @@ public class FragmentManagerService implements Serializable {
         };
     }
 
-
+    public void onDestroy() {
+        sSoleInstance = null;
+    }
 }

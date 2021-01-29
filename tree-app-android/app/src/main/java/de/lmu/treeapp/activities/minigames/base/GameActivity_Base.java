@@ -13,9 +13,12 @@ import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.GameSelectionActivity;
 import de.lmu.treeapp.activities.WantedPosterDetailsActivity;
 import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
+import de.lmu.treeapp.activities.minigames.dragDrop.GameActivity_DragDrop;
+import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.contentData.database.entities.content.GameDragDropZone;
 
 public abstract class GameActivity_Base extends AppCompatActivity {
 
@@ -53,21 +56,13 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     // Remove the current activity from the stack to switch to the previous one
     @Override
     public boolean onSupportNavigateUp() {
-        if (gameContent.getType().name().equalsIgnoreCase("ChooseAnswer")) {
-            GameActivity_ChooseAnswer.quizIDs.clear();
-        }
         finish();
         return true;
     }
 
-
     // Android hardware back button is pressed
     @Override
     public void onBackPressed() {
-        if (gameContent.getType().name().equalsIgnoreCase("ChooseAnswer")) {
-            GameActivity_ChooseAnswer.quizIDs.clear();
-        }
-        finish();
         super.onBackPressed();
     }
 
