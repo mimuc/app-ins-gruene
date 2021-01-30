@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sb_sky_blue_gradient"
+    android:translationZ="-1dp"
+    tools:context=".wantedPoster.activity.WantedPosterTreeActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="6dp">
+
+        <ImageView
+            android:id="@+id/card_background_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:translationZ="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/sb_tab_card" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="11dp"
+            android:orientation="vertical"
+            android:translationZ="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline3">
+
+            <de.lmu.treeapp.wantedPoster.view.AgeInfoView
+                android:id="@+id/age_info_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:translationZ="1dp" />
+
+            <de.lmu.treeapp.wantedPoster.view.BlossomInfoView
+                android:id="@+id/blossom_info_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:translationZ="1dp" />
+
+            <de.lmu.treeapp.wantedPoster.view.FunFactView
+                android:id="@+id/fun_fact_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:translationZ="1dp" />
+
+            <de.lmu.treeapp.wantedPoster.view.GalleryView
+                android:id="@+id/gallery_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:translationZ="1dp" />
+
+            <de.lmu.treeapp.wantedPoster.view.HeightInfoView
+                android:id="@+id/height_info_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:translationZ="1dp" />
+
+            <de.lmu.treeapp.wantedPoster.view.LeafFruitBarkInfoView
+                android:id="@+id/leaf_fruit_bark_info_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:translationZ="1dp" />
+
+            <de.lmu.treeapp.wantedPoster.view.LifecycleInfoView
+                android:id="@+id/lifecycle_info_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:translationZ="1dp" />
+
+            <de.lmu.treeapp.wantedPoster.view.TreeDetailInfoView
+                android:id="@+id/tree_detail_info_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:translationZ="1dp" />
+
+            <de.lmu.treeapp.wantedPoster.view.TreeVideoView
+                android:id="@+id/video_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:translationZ="1dp" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.09" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.yarolegovich.discretescrollview.DiscreteScrollView
+            android:id="@+id/tree_category_picker"
+            android:layout_width="match_parent"
+            android:layout_height="40pt"
+            android:layout_gravity="top"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/transparent"
+            android:translationZ="1dp"/>
+</FrameLayout>

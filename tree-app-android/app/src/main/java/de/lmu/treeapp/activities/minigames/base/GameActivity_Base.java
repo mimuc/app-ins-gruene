@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.GameSelectionActivity;
-import de.lmu.treeapp.activities.WantedPosterDetailsActivity;
 import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
 import de.lmu.treeapp.activities.minigames.dragDrop.GameActivity_DragDrop;
 import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
@@ -19,6 +18,7 @@ import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.contentData.database.entities.content.GameDragDropZone;
+import de.lmu.treeapp.wantedPoster.activity.WantedPosterTreeActivity;
 
 public abstract class GameActivity_Base extends AppCompatActivity {
 
@@ -94,7 +94,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     }
 
     public void showTreeProfile() {
-        Intent intent = new Intent(getApplicationContext(), WantedPosterDetailsActivity.class);
+        Intent intent = new Intent(getApplicationContext(), WantedPosterTreeActivity.class);
         intent.putExtra("TreeId", treeId);
         startActivity(intent);
         finish();
