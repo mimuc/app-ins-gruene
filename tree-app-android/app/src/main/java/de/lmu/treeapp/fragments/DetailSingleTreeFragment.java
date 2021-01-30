@@ -24,7 +24,7 @@ import java.util.Objects;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.GameSelectionActivity;
-import de.lmu.treeapp.activities.WantedPosterDetailsActivity;
+import de.lmu.treeapp.wantedPoster.activity.WantedPosterTreeActivity;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.TreeComponent;
 import de.lmu.treeapp.contentData.DataManager;
@@ -134,7 +134,7 @@ public class DetailSingleTreeFragment extends Fragment {
 
     private void setupOnClickListener() {
         treeProfileButton.setOnClickListener(view -> {
-            Intent intent = new Intent(getContext(), WantedPosterDetailsActivity.class);
+            Intent intent = new Intent(getContext(), WantedPosterTreeActivity.class);
             intent.putExtra("TreeId", tree.getId());
             startActivity(intent);
         });

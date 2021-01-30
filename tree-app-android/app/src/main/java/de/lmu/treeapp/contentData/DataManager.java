@@ -8,6 +8,8 @@ import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.TreeProfile;
+import de.lmu.treeapp.contentClasses.trees.WantedPosterImageList;
+import de.lmu.treeapp.contentClasses.trees.WantedPosterTextList;
 import de.lmu.treeapp.contentData.cms.ContentManager;
 import de.lmu.treeapp.contentData.database.AppDatabase;
 import de.lmu.treeapp.contentData.database.entities.app.PlayerState;
@@ -23,6 +25,8 @@ public class DataManager {
     public Boolean loaded = false;
     public List<Tree> trees;
     public List<TreeProfile> treeProfiles;
+    public List<WantedPosterTextList> allWantedPosters;
+    public List<WantedPosterImageList> allWantedPosterImages;
     public List<IGameBase> miniGames;
     public PlayerState player;
 
@@ -50,6 +54,8 @@ public class DataManager {
             }
             List<Tree> CMS_trees = ContentManager.getInstance(context).getTrees();
             List<TreeProfile> CMS_treeProfiles = ContentManager.getInstance(context).getTreeProfiles();
+            List<WantedPosterTextList> CMS_allWantedPosters = ContentManager.getInstance(context).getAllWantedPosters();
+            List<WantedPosterImageList> CMS_allWantedPosterImages = ContentManager.getInstance(context).getAllWantedPosterImages();
             List<IGameBase> CMS_miniGames = ContentManager.getInstance(context).getMinigames();
             List<TreeStateRelations> DB_trees = AppDatabase.getInstance(context).treeDao().getAll();
             for (int i = 0; i < CMS_trees.size(); i++) {
@@ -71,13 +77,15 @@ public class DataManager {
                     AppDatabase.getInstance(context).treeDao().insertOne(treeState);
                 }
             }
-            DataManager.getInstance(context).setData(CMS_trees, CMS_treeProfiles, CMS_miniGames, DB_player);
+            DataManager.getInstance(context).setData(CMS_trees, CMS_treeProfiles, CMS_allWantedPosters, CMS_allWantedPosterImages, CMS_miniGames, DB_player);
         }).subscribeOn(Schedulers.io());
     }
 
-    private void setData(List<Tree> _trees, List<TreeProfile> _treeProfiles, List<IGameBase> _minigames, PlayerState _player) {
+    private void setData(List<Tree> _trees, List<TreeProfile> _treeProfiles, List<WantedPosterTextList> _allWantedPosters, List<WantedPosterImageList> _allWantedPosterImages, List<IGameBase> _minigames, PlayerState _player) {
         this.trees = _trees;
         this.treeProfiles = _treeProfiles;
+        this.allWantedPosters = _allWantedPosters;
+        this.allWantedPosterImages = _allWantedPosterImages;
         this.miniGames = _minigames;
         this.player = _player;
         this.loaded = true;
@@ -141,6 +149,26 @@ public class DataManager {
         for (int i = 0; i < treeProfiles.size(); i++) {
             if (treeProfiles.get(i).uid == id) {
                 return treeProfiles.get(i);
+            }
+        }
+        return null;
+    }
+
+    public WantedPosterTextList getAllWantedPosters(int id){
+        if(allWantedPosters == null) return null;
+        for (int i = 0; i < allWantedPosters.size(); i++) {
+            if (allWantedPosters.get(i).uid == id) {
+                return allWantedPosters.get(i);
+            }
+        }
+        return null;
+    }
+
+    public WantedPosterImageList getAllWantedPosterImages(int id){
+        if(allWantedPosterImages == null) return null;
+        for (int i = 0; i < allWantedPosterImages.size(); i++) {
+            if (allWantedPosterImages.get(i).uid == id) {
+                return allWantedPosterImages.get(i);
             }
         }
         return null;
