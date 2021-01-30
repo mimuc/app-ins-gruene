@@ -17,5 +17,6 @@
     <dimen name="target_radius_small">@dimen/_32sdp</dimen>
     <dimen name="target_radius_big">@dimen/_65sdp</dimen>
     <dimen name="max_text_width">@dimen/_140sdp</dimen>
-    <!--    <dimen name="target_radius">@dimen/_1sdp</dimen>-->
+    <dimen name="wanted_poster_text">@dimen/_16ssp</dimen>
+    <dimen name="wanted_poster_text_spacing">@dimen/_17ssp</dimen>
 </resources>

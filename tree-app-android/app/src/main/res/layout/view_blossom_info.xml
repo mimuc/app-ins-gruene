@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/closeCameraView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0"
+            android:translationZ="5dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/wanted_poster_border"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/wanted_poster_border"
+            android:gravity="start|center_vertical"
+            android:translationZ="1dp"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_constraintLayout"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="7dp"
+                android:fadeScrollbars="false"
+                android:fontFamily="@font/freude"
+                android:gravity="start|center_horizontal"
+                android:paddingStart="0dp"
+                android:paddingEnd="10dp"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbarThumbVertical="@android:color/white"
+                android:scrollbars="vertical"
+                android:text="@string/wanted_poster_description"
+                android:textColor="#FFFFFF"
+                android:translationZ="1dp"
+                app:lineHeight="@dimen/wanted_poster_text_spacing" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/popup_layout_mw"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/wanted_poster_border"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:translationZ="6dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/popup_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/page_title">
+
+            <ImageView
+                    android:id="@+id/picture_m"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitEnd"
+                    android:translationZ="6dp"
+                    app:layout_constrainedHeight="true"
+                    app:layout_constrainedWidth="false"
+                    app:layout_constraintBottom_toTopOf="@id/picturetext_m"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/sb_bluete_foto_kiefer_m"/>
+
+            <TextView
+                    android:id="@+id/picturetext_m"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="7dp"
+                    android:fontFamily="@font/freude"
+                    android:gravity="start|top"
+                    android:text="@string/wanted_poster_description"
+                    android:textColor="#FFFFFF"
+                    android:translationZ="6dp"
+                    app:layout_constraintBottom_toTopOf="@id/picture_w"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/picture_m"
+                    app:lineHeight="@dimen/wanted_poster_text_spacing"/>
+            <ImageView
+                    android:id="@+id/picture_w"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitEnd"
+                    android:translationZ="6dp"
+                    app:layout_constrainedHeight="true"
+                    app:layout_constraintBottom_toTopOf="@id/picturetext_w"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/picturetext_m"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/sb_bluete_foto_kiefer_w"/>
+
+            <TextView
+                    android:id="@+id/picturetext_w"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="7dp"
+                    android:fontFamily="@font/freude"
+                    android:gravity="start|top"
+                    android:text="@string/wanted_poster_description"
+                    android:textColor="#FFFFFF"
+                    android:translationZ="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/picture_w"
+                    app:lineHeight="@dimen/wanted_poster_text_spacing"/>
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/freude"
+                android:textAlignment="center"
+                android:textColor="@color/asphalt"
+                android:textSize="@dimen/heading1"
+                android:translationZ="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Test"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/popup_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/wanted_poster_border"
+            android:translationZ="6dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/popup_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/page_title">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/picture_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:translationZ="6dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.3">
+
+                <ImageView
+                    android:id="@+id/picture"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:translationZ="6dp"
+                    app:layout_constrainedHeight="false"
+                    app:layout_constraintBottom_toTopOf="@id/picturetext"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/sb_bluete_foto_ahorn" />
+
+                <TextView
+                    android:id="@+id/picturetext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="7dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="32dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/freude"
+                    android:gravity="start|center_horizontal"
+                    android:scrollbarThumbVertical="@android:color/white"
+                    android:text="@string/wanted_poster_description"
+                    android:textColor="#FFFFFF"
+                    android:translationZ="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/picture"
+                    app:lineHeight="@dimen/wanted_poster_text_spacing" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/image_constraintLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:translationZ="0dp"
+            app:layout_constrainedHeight="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/page_title">
+
+            <ImageButton
+                android:id="@+id/time_button"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/sb_icon_magnifier"
+                android:padding="16dp"
+                android:scaleType="fitCenter"
+                android:translationZ="1dp"
+                app:layout_constraintStart_toStartOf="@+id/time_guideline_left"
+                app:layout_constraintTop_toTopOf="@+id/time_guideline_top"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/symbol_button"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/sb_icon_magnifier"
+                android:padding="16dp"
+                android:scaleType="fitCenter"
+                android:translationZ="1dp"
+                app:layout_constraintBottom_toBottomOf="@id/symbol_guideline_bottom"
+                app:layout_constraintEnd_toEndOf="@id/symbol_guideline_right"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/camera_button"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="1dp"
+                android:background="@drawable/sb_icon_camera"
+                android:padding="16dp"
+                android:scaleType="fitCenter"
+                android:translationZ="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/blossom_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:scaleType="fitCenter"
+                android:translationZ="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/sb_bluete_ahorn" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/symbol_guideline_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:translationZ="1dp"
+                app:layout_constraintGuide_percent="0.91" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/time_guideline_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:translationZ="1dp"
+                app:layout_constraintGuide_percent="0.37" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/time_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:translationZ="1dp"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/symbol_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:translationZ="1dp"
+                app:layout_constraintGuide_percent="0.94" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/popup_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/camera_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/image_constraintLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

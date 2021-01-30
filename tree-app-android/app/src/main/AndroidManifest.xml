@@ -14,7 +14,9 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -119,7 +121,7 @@
         <activity
             android:name=".activities.BarcodeCaptureActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
-        <activity android:name=".activities.WantedPosterDetailsActivity" />
+        <activity android:name=".wantedPoster.activity.WantedPosterTreeActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

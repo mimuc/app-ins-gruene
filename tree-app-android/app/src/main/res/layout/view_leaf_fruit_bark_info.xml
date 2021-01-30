@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/leaf_fruit_bark_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="false"
+            android:scaleType="fitCenter"
+            android:translationZ="0dp"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toTopOf="@id/linearLayout3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/page_title"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/ic_ahorn_frucht" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/wanted_poster_border"
+            android:gravity="start|center_vertical"
+            android:translationZ="1dp"
+            app:layout_constrainedHeight="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="7dp"
+                android:fadeScrollbars="false"
+                android:fontFamily="@font/freude"
+                android:gravity="start|center_horizontal"
+                android:paddingStart="0dp"
+                android:paddingEnd="10dp"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbarThumbVertical="@android:color/white"
+                android:scrollbars="vertical"
+                android:text="@string/wanted_poster_description"
+                android:textColor="#FFFFFF"
+                android:translationZ="1dp"
+                app:lineHeight="@dimen/wanted_poster_text_spacing" />
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/freude"
+                android:textAlignment="center"
+                android:textColor="@color/asphalt"
+                android:textSize="@dimen/heading1"
+                android:translationZ="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Test"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>
