@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/age_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:focusable="false">
+
+        <ImageButton
+            android:id="@+id/wood_button"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/sb_icon_questionmark"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            android:translationZ="1dp"
+            app:layout_constraintBottom_toTopOf="@id/age_text_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/wanted_poster_border"
+            android:gravity="start|center_vertical"
+            android:translationZ="1dp"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/age_text_guideline"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="7dp"
+                android:fadeScrollbars="false"
+                android:fontFamily="@font/freude"
+                android:gravity="start|center_horizontal"
+                android:paddingStart="0dp"
+                android:paddingEnd="10dp"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbarThumbVertical="@android:color/white"
+                android:scrollbars="vertical"
+                android:text="@string/wanted_poster_description"
+                android:textColor="#FFFFFF"
+                android:translationZ="1dp"
+                app:lineHeight="@dimen/wanted_poster_text_spacing" />
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/age_page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/freude"
+                android:textAlignment="center"
+                android:textColor="@color/asphalt"
+                android:textSize="@dimen/heading1"
+                android:translationZ="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Test"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/image_constraintLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:translationZ="0dp"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toTopOf="@id/age_text_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/age_page_title">
+
+            <ImageButton
+                android:id="@+id/age_button"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/sb_icon_magnifier"
+                android:padding="16dp"
+                android:scaleType="fitCenter"
+                android:translationZ="1dp"
+                app:layout_constraintStart_toStartOf="@+id/age_guideline_left"
+                app:layout_constraintTop_toTopOf="@+id/age_guideline_top"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/color_button"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/sb_icon_magnifier"
+                android:padding="16dp"
+                android:scaleType="fitCenter"
+                android:translationZ="1dp"
+                app:layout_constraintStart_toStartOf="@id/color_guideline_left"
+                app:layout_constraintTop_toTopOf="@id/color_guideline_top"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/age_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:scaleType="fitCenter"
+                android:translationZ="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/sb_alter_ahorn" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/color_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:translationZ="1dp"
+                app:layout_constraintGuide_percent="0.6" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/color_guideline_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:translationZ="1dp"
+                app:layout_constraintGuide_percent="0.65" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/age_guideline_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:translationZ="1dp"
+                app:layout_constraintGuide_percent="0.13" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/age_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:translationZ="1dp"
+                app:layout_constraintGuide_percent="0.33" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/age_text_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.72" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

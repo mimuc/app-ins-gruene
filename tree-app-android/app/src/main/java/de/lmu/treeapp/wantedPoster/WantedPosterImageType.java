@@ -1,0 +1,9 @@
+package de.lmu.treeapp.wantedPoster;
+
+public enum WantedPosterImageType {
+    CYCLE_FRUIT, CYCLE_LEAF, CIRCLE,
+    BUTTON_FRUIT, BUTTON_FRUIT_CLICKED, BUTTON_LEAF, BUTTON_LEAF_CLICKED,
+    GRAPHIC_0, GRAPHIC_1, GRAPHIC_2,
+    PHOTO, PHOTO_M, PHOTO_W,
+    UNKNOWN,
+}

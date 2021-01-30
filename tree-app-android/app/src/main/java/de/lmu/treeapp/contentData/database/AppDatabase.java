@@ -10,7 +10,6 @@ import androidx.room.TypeConverters;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateTakePictureDao;
 import de.lmu.treeapp.contentData.database.daos.app.PlayerDao;
 import de.lmu.treeapp.contentData.database.daos.app.TreeDao;
-import de.lmu.treeapp.contentData.database.daos.app.TreeProfileDao;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
 import de.lmu.treeapp.contentData.database.entities.app.PlayerState;
 import de.lmu.treeapp.contentData.database.entities.app.TreeProfileState;
@@ -43,8 +42,6 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     public abstract TreeDao treeDao();
-
-    public abstract TreeProfileDao treeProfileDao();
 
     public abstract PlayerDao playerDao();
 

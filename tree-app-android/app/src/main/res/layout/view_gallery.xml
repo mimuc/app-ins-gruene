@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" android:id="@+id/locked_layout"
+                app:layout_constraintTop_toBottomOf="@id/page_title"
+                app:layout_constraintBottom_toTopOf="@id/linearLayoutmyStuff"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                tools:visibility="gone">
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/guideline"
+                    app:layout_constraintGuide_percent="0.25"/>
+            <androidx.constraintlayout.widget.Guideline
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/guideline4"
+                    app:layout_constraintGuide_percent="0.75"/>
+            <ImageView
+                    android:id="@+id/gallery_locked"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/sb_nopictures"
+                    tools:layout_constraintBottom_toTopOf="@id/linearLayoutmyStuff"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/guideline"
+                    app:layout_constraintEnd_toStartOf="@id/guideline4"
+                    app:layout_constraintBottom_toTopOf="@id/noPicture_text" tools:visibility="gone"/>
+            <TextView
+                    android:text="@string/wanted_poster_no_taken_pictures"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:id="@+id/noPicture_text"
+                    app:layout_constraintTop_toBottomOf="@id/gallery_locked"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="32dp" android:layout_marginEnd="32dp"
+                    app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="16dp"
+                    android:textSize="24sp" android:textAlignment="center" tools:visibility="gone"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+                android:id="@+id/page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/freude"
+                android:textAlignment="center"
+                android:textColor="@color/asphalt"
+                android:textSize="@dimen/heading1"
+                android:translationZ="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Test"/>
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/layout1"
+                app:layout_constraintTop_toBottomOf="@id/page_title" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guideline2"
+                app:layout_constraintBottom_toTopOf="@id/layout3" android:layout_marginTop="16dp"
+                android:layout_marginStart="12dp" android:layout_marginEnd="6dp" android:layout_marginBottom="12dp"
+                app:layout_constrainedHeight="true" app:layout_constrainedWidth="true">
+            <ImageView
+                    android:id="@+id/tree_image_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:translationZ="2dp"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/sb_bluete_foto_ahorn"
+                    app:layout_constrainedHeight="false" app:layout_constrainedWidth="false"/>
+            <ImageView
+                    android:id="@+id/noImage1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:translationZ="2dp"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/sb_nopictures"
+                    app:layout_constrainedHeight="false" app:layout_constrainedWidth="false"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="32dp" android:layout_marginEnd="32dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/layout2"
+                app:layout_constraintStart_toStartOf="@id/guideline2" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/page_title"
+                app:layout_constraintBottom_toTopOf="@id/layout4" android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp" android:layout_marginStart="6dp" android:layout_marginBottom="12dp"
+                app:layout_constrainedHeight="true" app:layout_constrainedWidth="true">
+            <ImageView
+                    android:id="@+id/tree_image_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:translationZ="2dp"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/sb_bluete_foto_ahorn"
+                    app:layout_constrainedHeight="false" app:layout_constrainedWidth="false"/>
+            <ImageView
+                    android:id="@+id/noImage2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:translationZ="2dp"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/sb_nopictures"
+                    app:layout_constrainedHeight="false" app:layout_constrainedWidth="false"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="32dp" android:layout_marginEnd="32dp"
+            />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/layout3"
+                app:layout_constraintTop_toBottomOf="@id/layout1" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guideline2" android:layout_marginTop="6dp"
+                android:layout_marginStart="12dp" android:layout_marginEnd="6dp"
+                app:layout_constraintBottom_toTopOf="@id/linearLayoutmyStuff" android:layout_marginBottom="16dp"
+                app:layout_constrainedHeight="true" app:layout_constrainedWidth="true">
+            <ImageView
+                    android:id="@+id/tree_image_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:translationZ="2dp"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/sb_bluete_foto_ahorn"
+                    app:layout_constrainedHeight="false" app:layout_constrainedWidth="false"/>
+            <ImageView
+                    android:id="@+id/noImage3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:translationZ="2dp"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/sb_nopictures"
+                    app:layout_constrainedHeight="false" app:layout_constrainedWidth="false"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="32dp" android:layout_marginEnd="32dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/layout4"
+                app:layout_constraintTop_toBottomOf="@id/layout2"
+                app:layout_constraintStart_toStartOf="@id/guideline2" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="6dp" android:layout_marginTop="6dp" android:layout_marginEnd="12dp"
+                app:layout_constraintBottom_toTopOf="@id/linearLayoutmyStuff" android:layout_marginBottom="16dp"
+                app:layout_constrainedHeight="true" app:layout_constrainedWidth="true">
+            <ImageView
+                    android:id="@+id/tree_image_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:translationZ="2dp"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/sb_bluete_foto_ahorn"
+                    app:layout_constrainedHeight="false" app:layout_constrainedWidth="false"/>
+            <ImageView
+                    android:id="@+id/noImage4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:translationZ="2dp"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/sb_nopictures"
+                    app:layout_constrainedHeight="false" app:layout_constrainedWidth="false"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="32dp" android:layout_marginEnd="32dp"
+            />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+                android:id="@+id/linearLayoutmyStuff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/wanted_poster_border"
+                android:gravity="start|center_vertical"
+                android:translationZ="1dp"
+                app:layout_constrainedHeight="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout3">
+
+        </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/popup_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/wanted_poster_border"
+                android:translationZ="6dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/page_title" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="12dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/picture_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:translationZ="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.3" android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp">
+
+                <ImageView
+                        android:id="@+id/picture_big"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:translationZ="6dp"
+                        app:layout_constrainedHeight="false"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ContentDescription"
+                        tools:src="@drawable/sb_bluete_foto_ahorn" app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</merge>
