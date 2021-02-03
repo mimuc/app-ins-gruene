@@ -46,18 +46,24 @@ public class BlossomInfoView extends LinearLayout {
     private final LinearLayout description_Layout;
     private final ConstraintLayout popupLayout;
     private final ImageView picture;
-    private final TextView picturetext;
+    private final TextView pictureText;
     private final LinearLayout popupLayoutMW;
     private final ImageView pictureM;
-    private final TextView picturetextM;
+    private final TextView pictureTextM;
     private final ImageView pictureW;
-    private final TextView picturetextW;
+    private final TextView pictureTextW;
     private String imageInfo = "noImageInfo";
     private String maleImageInfo = "noImageInfo";
     private String femaleImageInfo = "noImageInfo";
     private String popUpImage = "noImage";
-    private String malepopUpImage = "noImage";
-    private String femalepopUpImage = "noImage";
+    private String malePopUpImage = "noImage";
+    private String femalePopUpImage = "noImage";
+
+    //variables for position of items
+    private String timeTopVal;
+    private String timeLeftVal;
+    private String symbolBottomVal;
+    private String symbolRightVal;
 
     public BlossomInfoView(Context context) {
         super(context);
@@ -89,12 +95,12 @@ public class BlossomInfoView extends LinearLayout {
         description_Layout = findViewById(R.id.linearLayout3);
         popupLayout = findViewById(R.id.popup_layout);
         picture = findViewById(R.id.picture);
-        picturetext = findViewById(R.id.picturetext);
+        pictureText = findViewById(R.id.picturetext);
         popupLayoutMW = findViewById(R.id.popup_layout_mw);
         pictureM = findViewById(R.id.picture_m);
-        picturetextM = findViewById(R.id.picturetext_m);
+        pictureTextM = findViewById(R.id.picturetext_m);
         pictureW = findViewById(R.id.picture_w);
-        picturetextW = findViewById(R.id.picturetext_w);
+        pictureTextW = findViewById(R.id.picturetext_w);
 
     }
 
@@ -131,6 +137,14 @@ public class BlossomInfoView extends LinearLayout {
                     maleImageInfo = wp.description;
                 } else if (wp.name == WantedPosterTextType.PHOTO_W) {
                     femaleImageInfo = wp.description;
+                } else if (wp.name == WantedPosterTextType.TIME_TOP) {
+                    timeTopVal = wp.description;
+                } else if (wp.name == WantedPosterTextType.TIME_LEFT) {
+                    timeLeftVal = wp.description;
+                } else if (wp.name == WantedPosterTextType.SYMBOL_BOTTOM) {
+                    symbolBottomVal = wp.description;
+                } else if (wp.name == WantedPosterTextType.SYMBOL_RIGHT) {
+                    symbolRightVal = wp.description;
                 }
             } else if (wp.tab == WantedPosterTab.ALL && wp.name == WantedPosterTextType.STANDARD) {
                 placeholder = wp.description;
@@ -143,9 +157,9 @@ public class BlossomInfoView extends LinearLayout {
                 } else if (wpi.usage == WantedPosterImageType.PHOTO) {
                     popUpImage = wpi.imageResource;
                 } else if (wpi.usage == WantedPosterImageType.PHOTO_M) {
-                    malepopUpImage = wpi.imageResource;
+                    malePopUpImage = wpi.imageResource;
                 } else if (wpi.usage == WantedPosterImageType.PHOTO_W) {
-                    femalepopUpImage = wpi.imageResource;
+                    femalePopUpImage = wpi.imageResource;
                 }
             }
         }
@@ -157,7 +171,7 @@ public class BlossomInfoView extends LinearLayout {
                 "drawable", context.getApplicationContext().getPackageName());
         blossomImage.setImageResource(imageId);
         blossomImage.setOnClickListener(view -> {
-            if (treeID == 1 || treeID == 4) {
+            if (symbolBottomVal == null || symbolRightVal == null) {
                 symbolButton.setVisibility(GONE);
             }
             timeButton.setBackgroundResource(buttonInactiveId);
@@ -187,86 +201,36 @@ public class BlossomInfoView extends LinearLayout {
         Guideline timeLeft = findViewById(R.id.time_guideline_left);
         Guideline symbolBottom = findViewById(R.id.symbol_guideline_bottom);
         Guideline symbolRight = findViewById(R.id.symbol_guideline_right);
-        switch (treeID) {
-            case 1: //Buche
-                symbolButton.setVisibility(View.GONE);
-                timeTop.setGuidelinePercent(0.45f);
-                timeLeft.setGuidelinePercent(0.5f);
-                break;
-            case 2: //Linde
-                timeTop.setGuidelinePercent(0.53f);
-                timeLeft.setGuidelinePercent(0.23f);
-                symbolBottom.setGuidelinePercent(0.98f);
-                symbolRight.setGuidelinePercent(1f);
-                break;
-            case 3: //Kiefer
-                timeTop.setGuidelinePercent(0.45f);
-                timeLeft.setGuidelinePercent(0.6f);
-                symbolBottom.setGuidelinePercent(0.91f);
-                symbolRight.setGuidelinePercent(0.97f);
-                break;
-            case 4: //Eiche
-                symbolButton.setVisibility(View.GONE);
-                timeTop.setGuidelinePercent(0.45f);
-                timeLeft.setGuidelinePercent(0.48f);
-                break;
-            case 5: //Hasel
-                timeTop.setGuidelinePercent(0.45f);
-                timeLeft.setGuidelinePercent(0.6f);
-                symbolBottom.setGuidelinePercent(0.99f);
-                symbolRight.setGuidelinePercent(0.73f);
-                break;
-            case 6: //Birke
-                timeTop.setGuidelinePercent(0.27f);
-                timeLeft.setGuidelinePercent(0.58f);
-                symbolBottom.setGuidelinePercent(0.97f);
-                symbolRight.setGuidelinePercent(0.92f);
-                break;
-            case 7: //Eberesche
-                timeTop.setGuidelinePercent(0.57f);
-                timeLeft.setGuidelinePercent(0.25f);
-                symbolBottom.setGuidelinePercent(0.88f);
-                symbolRight.setGuidelinePercent(0.97f);
-                break;
-            case 8: //Tanne
-                timeTop.setGuidelinePercent(0.3f);
-                timeLeft.setGuidelinePercent(0.58f);
-                symbolBottom.setGuidelinePercent(1f);
-                symbolRight.setGuidelinePercent(0.99f);
-                break;
-            case 9: //Fichte
-                timeTop.setGuidelinePercent(0.45f);
-                timeLeft.setGuidelinePercent(0.6f);
-                symbolBottom.setGuidelinePercent(0.97f);
-                symbolRight.setGuidelinePercent(0.93f);
-                break;
-            default: //Ahorn
-                timeTop.setGuidelinePercent(0.5f);
-                timeLeft.setGuidelinePercent(0.37f);
-                symbolBottom.setGuidelinePercent(0.94f);
-                symbolRight.setGuidelinePercent(0.91f);
-                break;
+        if (symbolBottomVal == null || symbolRightVal == null) {
+            symbolButton.setVisibility(View.GONE);
+            timeTop.setGuidelinePercent(Float.parseFloat(String.valueOf(timeTopVal)));
+            timeLeft.setGuidelinePercent(Float.parseFloat(String.valueOf(timeLeftVal)));
+        } else {
+            timeTop.setGuidelinePercent(Float.parseFloat(String.valueOf(timeTopVal)));
+            timeLeft.setGuidelinePercent(Float.parseFloat(String.valueOf(timeLeftVal)));
+            symbolBottom.setGuidelinePercent(Float.parseFloat(String.valueOf(symbolBottomVal)));
+            symbolRight.setGuidelinePercent(Float.parseFloat(String.valueOf(symbolRightVal)));
         }
 
 
         // set Images for Pop-up view
         // Pop-up view with one image
         if (maleImageInfo.equalsIgnoreCase("noImageInfo")) {
-            int popupimageId = context.getApplicationContext().getResources().getIdentifier(popUpImage,
+            int popUpImageId = context.getApplicationContext().getResources().getIdentifier(popUpImage,
                     "drawable", context.getApplicationContext().getPackageName());
-            picture.setImageResource(popupimageId);
-            picturetext.setText(imageInfo);
+            picture.setImageResource(popUpImageId);
+            pictureText.setText(imageInfo);
         }
         // Pop-up view with two images
         else if (imageInfo.equalsIgnoreCase("noImageInfo")) {
-            int malepopupimageId = context.getApplicationContext().getResources().getIdentifier(malepopUpImage,
+            int malePopUpImageId = context.getApplicationContext().getResources().getIdentifier(malePopUpImage,
                     "drawable", context.getApplicationContext().getPackageName());
-            pictureM.setImageResource(malepopupimageId);
-            picturetextM.setText(maleImageInfo);
-            int femalepopupimageId = context.getApplicationContext().getResources().getIdentifier(femalepopUpImage,
+            pictureM.setImageResource(malePopUpImageId);
+            pictureTextM.setText(maleImageInfo);
+            int femalePopUpImageId = context.getApplicationContext().getResources().getIdentifier(femalePopUpImage,
                     "drawable", context.getApplicationContext().getPackageName());
-            pictureW.setImageResource(femalepopupimageId);
-            picturetextW.setText(femaleImageInfo);
+            pictureW.setImageResource(femalePopUpImageId);
+            pictureTextW.setText(femaleImageInfo);
         }
 
         cameraButton.setOnClickListener(view -> {
@@ -316,7 +280,7 @@ public class BlossomInfoView extends LinearLayout {
             symbolButton.setVisibility(VISIBLE);
             timeButton.setVisibility(VISIBLE);
 
-            if (treeID == 1 || treeID == 4) {
+            if (symbolBottomVal == null || symbolRightVal == null) {
                 symbolButton.setVisibility(GONE);
             }
             timeButton.setBackgroundResource(buttonInactiveId);

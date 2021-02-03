@@ -12,5 +12,6 @@ public enum WantedPosterTextType {
     FACT_1, FACT_2,
     HEIGHT_HUMAN,
     CYCLE_FRUIT, CYCLE_LEAF,
+    TIME_TOP, TIME_LEFT, SYMBOL_BOTTOM, SYMBOL_RIGHT,
     UNKNOWN,
 }
