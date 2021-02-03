@@ -34,6 +34,7 @@ import de.lmu.treeapp.popup.PopupInterface;
 import de.lmu.treeapp.popup.PopupType;
 
 import static com.google.android.flexbox.FlexWrap.WRAP;
+import static de.lmu.treeapp.utils.language.LanguageUtils.getTreeGenitiveGerman;
 
 
 public class GameActivity_Description extends GameActivity_Base implements RecyclerAdapter.OptionClickInterface, PopupInterface {
@@ -47,12 +48,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String treeName = parentTree.getName();
-        String article = "der";
-        if (treeName.equals("Ahorn")) {
-            article = "des";
-            treeName = treeName + "s";
-        }
+        String treeName = getTreeGenitiveGerman(parentTree.getName());
 
         descriptionGame = (GameDescriptionRelations) gameContent;
         popupWindow = new Dialog(this);
@@ -60,7 +56,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
         popup.setWinTitle(getString(R.string.popup_quiz_positive_title));
         popup.setLooseTitle(getString(R.string.popup_negative_title_close));
         popup.setNeutralTitle(getString(R.string.game_description_start_screen_short));
-        popup.showWithButtonText(PopupType.NEUTRAL, getString(R.string.popup_btn_continue), MessageFormat.format(getString(R.string.game_description_start_screen_long), article, treeName));
+        popup.showWithButtonText(PopupType.NEUTRAL, getString(R.string.popup_btn_continue), MessageFormat.format(getString(R.string.game_description_start_screen_long), treeName));
 
         addButton = findViewById(R.id.game_add_button);
 
