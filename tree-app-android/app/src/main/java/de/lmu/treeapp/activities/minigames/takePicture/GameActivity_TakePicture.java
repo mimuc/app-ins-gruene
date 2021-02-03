@@ -182,9 +182,8 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
         }
     }
 
-    /**
-     * Write game state in background.
-     */
+
+    @Override
     protected Completable saveGameState() {
         if (currentPhotoPath != null) {
             GameStateTakePictureImage gameStateTakePictureImage = new GameStateTakePictureImage(gameId, treeId, parentCategory, currentPhotoPath, new Date());

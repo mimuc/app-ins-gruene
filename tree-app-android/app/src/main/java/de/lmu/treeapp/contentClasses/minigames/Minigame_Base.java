@@ -8,7 +8,17 @@ public class Minigame_Base implements IGameBase{
     public String image;
 
     public enum MinigameTypes {
-        ChooseAnswer, InputString, TakePicture, DragDrop, OnlyDescription, Baumory, OrderWords, Puzzle, Description, Undefined
+        Baumory,
+        CatchFruits,
+        ChooseAnswer,
+        Description,
+        DragDrop,
+        InputString,
+        OnlyDescription,
+        OrderWords,
+        Puzzle,
+        TakePicture,
+        Undefined
     }
 
     @Override
