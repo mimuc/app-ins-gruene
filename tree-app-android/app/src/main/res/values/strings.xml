@@ -1,4 +1,7 @@
 <resources>
+    <!-- Tree -->
+    <string name="ahorn_tree">Ahorn</string>
+
     <string name="ok">OK</string>
 
     <string name="no_barcode_captured">No barcode captured</string>
@@ -39,6 +42,9 @@
     <string name="card_wanted_poster_sub_header_placeholder">Bereits freigespielt</string>
     <string name="card_wanted_poster_collapse_arrow">Card wanted poster collapse arrow</string>
     <string name="card_wanted_poster_description_text_placeholder">69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang</string>
+
+    <!-- Games-->
+
     <string name="game_choose_answer_option_button_placeholder_text">Button</string>
     <string name="game_choose_answer_popup_text">Richtig :-)</string>
     <string name="game_title_placeholder">TextView</string>
@@ -53,12 +59,24 @@
     <string name="game_take_picture_send_button_placeholder_text">Fertig!</string>
     <string name="game_selection_headline_placholder">Wähle ein Spiel aus</string>
     <string name="game_selection_description_placeholder">Hier findest du Minigames zu Rinde und Holz der Waldkiefer. Starte jetzt mit einem Spiel!</string>
+    <string name="game_score_comparison">%1$d / %2$d</string>
+    <string name="game_new_highscore">Neuer Highscore!</string>
+    <string name="game_no_highscore">Kein neuer Highscore!</string>
+    <string name="game_your_score">Deine Punktzahl</string>
+    <string name="game_your_highscore">Dein Highscore</string>
+    <string name="game_have_fun">Viel Spaß!</string>
+    <string name="game_btn_start">Start</string>
+    <string name="game_catchFruits_trees_description_text">Weißt du noch, wie die Blätter und Früchte %1$s aussehen?</string>
+    <string name="instruction_catch_fruits_1">Versuche 10 Blätter und 10 Früchte durch klicken einzusammeln bevor du keine Lebenspunkte mehr hast.</string>
+    <string name="instruction_catch_fruits_2">Wenn du auf falsche Blätter oder Früchte klickst oder ein richtiges Blatt/ eine richtige Frucht verpasst werden dir Lebenspunkte abgezogen.</string>
+
     <string name="detail_single_tree_profile_button_text">Steckbrief</string>
     <string name="detail_single_tree_leaf_button_content_description">leaf games button</string>
     <string name="detail_single_tree_fruit_button_content_description">fruit games button</string>
     <string name="detail_single_tree_trunk_button_content_description">trunk games button</string>
     <string name="detail_single_tree_other_button_content_description">other games button</string>
 
+    <!-- Popup -->
     <string name="popup_quiz_positive_title">Richtig!</string>
     <string name="popup_quiz_negative_title">Leider falsch!</string>
     <string name="popup_orderWords_negative_text">Das stimmt leider noch nicht ganz.</string>
@@ -73,8 +91,15 @@
     <string name="popup_win_title">Gewonnen!</string>
     <string name="popup_win_title_done">"Geschafft!"</string>
     <string name="popup_loose_title">Leider verloren :(</string>
+    <string name="popup_loose_title_not_sufficient">Leider hat es nicht gereicht</string>
     <string name="popup_try_again">Probier\'s doch noch einmal...einen Versuch hast du übrig!</string>
     <string name="popup_negative_title_close">Fast…</string>
+    <string name="popup_puzzle_neutral_text">Puzzeln wir los!</string>
+    <string name="popup_close_app_title">Möchtest du die App wirklich beenden?</string>
+    <string name="popup_close_app_accept">Ja</string>
+
+    <!-- Imprint-->
+
     <string name="imprint_imprint_title">IMPRESSUM</string>
     <string name="imprint_imprint_text">Informationen gemäß § 5 Telemediengesetz und § 55 Rundfunkstaatsvertrag. Die Ludwig-Maximilians-Universität München ist eine Körperschaft des öffentlichen Rechts. Sie wird durch den Präsidenten Prof. Dr. Bernd Huber gesetzlich vertreten.</string>
     <string name="imprint_publisher_title">Herausgeber</string>
@@ -108,18 +133,22 @@ Der Haftungsausschluss gilt nicht für Informationen, die in den Anwendungsberei
 Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie dürfen nur zum privaten und sonstigen eigenen Gebrauch im Rahmen des §53 Urheberrechtsgesetz (UrhG) verwendet werden. Eine anderweitige Verwendung ist nur nach vorheriger Genehmigung gestattet.</string>
     <string name="imprint_privacy_title">Datenschutzerklärung</string>
     <string name="imprint_privacy_text">Rechtsgrundlagen der Datenverarbeitung, Empfänger der personenbezogenen Daten, Rechte der betroffenen Person, Widerrufsrecht bei Einwilligung, Erhebung von Daten</string>
+
+    <!-- Splash Screen -->
+
     <string name="splash_screen_image_appinsgruene">image_appinsgruene</string>
     <string name="splash_screen_image_logos">image_logos</string>
     <string name="splash_screen_text">entstanden in Zusammenarbeit mit:</string>
+
     <string name="button_multiplayer_mode_description">Mulitplayer Modus</string>
     <string name="button_singleplayer_mode_description">Singleplayer Modus</string>
-    <string name="popup_puzzle_neutral_text">Puzzeln wir los!</string>
     <string name="heading_puzzle_difficulty_select_text">Wie schwierig soll es sein?</string>
     <string name="puzzle_difficulty_easy">Lieber was einfaches</string>
     <string name="puzzle_difficulty_hard">Ich mag eine Herausforderung</string>
     <string name="puzzle_difficulty_medium">Ganz normal</string>
-    <string name="popup_close_app_title">Möchtest du die App wirklich beenden?</string>
-    <string name="popup_close_app_accept">Ja</string>
+
+    <string name="leaf_icon">Leaf Icon</string>
+    <string name="heart_icon">Heart Icon</string>
 
     <!-- Tutorial -->
 
@@ -143,7 +172,7 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="game_description_input_hint">Dein eigenes Wort</string>
     <string name="cancel">Abbrechen</string>
     <string name="descriptionGame_you_selected">Du hast ausgewählt: \n</string>
-    <string name="game_description_start_screen_long">Wie fühlt sich die Rinde {0} {1} an? Welche Wörter beschreiben sie am besten?</string>
+    <string name="game_description_start_screen_long">Wie fühlt sich die Rinde {0} an? Welche Wörter beschreiben sie am besten?</string>
     <string name="game_description_start_screen_short">Jetzt bist du gefragt!</string>
 
     <!-- Wanted poster-->

@@ -11,14 +11,12 @@ import java.util.ArrayList;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.GameSelectionActivity;
-import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
-import de.lmu.treeapp.activities.minigames.dragDrop.GameActivity_DragDrop;
-import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
-import de.lmu.treeapp.contentData.database.entities.content.GameDragDropZone;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateScore;
 import de.lmu.treeapp.wantedPoster.activity.WantedPosterTreeActivity;
+import io.reactivex.rxjava3.core.Completable;
 
 public abstract class GameActivity_Base extends AppCompatActivity {
 
@@ -27,6 +25,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     protected int gameId;
     protected Tree parentTree;
     protected Tree.GameCategories parentCategory;
+    protected GameStateScore gameState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +36,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         parentCategory = (Tree.GameCategories) b.get("Category");
         treeId = b.getInt("TreeId");
         gameId = b.getInt("GameId");
+
         parentTree = DataManager.getInstance(getApplicationContext()).getTree(treeId);
         gameContent = DataManager.getInstance(getApplicationContext()).getMinigame(gameId);
 
@@ -106,5 +106,19 @@ public abstract class GameActivity_Base extends AppCompatActivity {
 
     public int getNextQuizID() {
         return DataManager.getInstance(getApplicationContext()).getNextQuiz(gameContent.getId()).getId();
+    }
+
+    /**
+     * Write game state in background.
+     */
+    protected Completable saveGameState() {
+        return DataManager.getInstance(getApplicationContext()).updateGameState(gameState);
+    }
+
+    /**
+     * Save game state in background.
+     */
+    protected void getGameState() {
+        DataManager.getInstance(getApplicationContext()).getOrCreateGameStateScore(treeId, gameId, parentCategory).subscribe(s -> gameState = s);
     }
 }

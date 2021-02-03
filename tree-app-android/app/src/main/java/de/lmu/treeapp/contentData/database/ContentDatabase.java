@@ -14,6 +14,7 @@ import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
 @Database(entities = {
         GameBase.class,
         GameBaumoryCard.class,
+        GameCatchFruitsItem.class,
         GameChooseAnswer.class,
         GameChooseAnswerOption.class,
         GameDragDropItem.class,
@@ -67,6 +68,8 @@ public abstract class ContentDatabase extends RoomDatabase {
     public abstract GameDescriptionDao gameDescriptionDao();
 
     public abstract GameTakePictureDao gameTakePictureDao();
+
+    public abstract GameCatchFruitsDao gameCatchFruitsDao();
 
     public abstract GameOrderWordsDao gameOrderWordsDao();
 
