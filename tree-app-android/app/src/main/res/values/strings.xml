@@ -58,7 +58,7 @@
     <string name="game_take_picture_own_foto">Vorschau deines Fotos</string>
     <string name="game_take_picture_send_button_placeholder_text">Fertig!</string>
     <string name="game_selection_headline_placholder">Wähle ein Spiel aus</string>
-    <string name="game_selection_description_placeholder">Hier findest du Minigames zu Rinde und Holz der Waldkiefer. Starte jetzt mit einem Spiel!</string>
+    <string name="game_selection_description_placeholder">Hier findest du Minigames zu Rinde und Holz der Kiefer. Starte jetzt mit einem Spiel!</string>
     <string name="game_score_comparison">%1$d / %2$d</string>
     <string name="game_new_highscore">Neuer Highscore!</string>
     <string name="game_no_highscore">Kein neuer Highscore!</string>
