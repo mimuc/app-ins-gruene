@@ -21,6 +21,7 @@ import de.lmu.treeapp.activities.minigames.dragDrop.GameActivity_DragDrop;
 import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
 import de.lmu.treeapp.activities.minigames.onlyDescription.GameActivity_OnlyDescription;
 import de.lmu.treeapp.activities.minigames.orderWords.GameActivity_OrderWords;
+import de.lmu.treeapp.activities.minigames.picturePuzzle.GameActivity_PicturePuzzle;
 import de.lmu.treeapp.activities.minigames.puzzle.GameActivity_Puzzle;
 import de.lmu.treeapp.activities.minigames.takePicture.GameActivity_TakePicture;
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
@@ -93,7 +94,7 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
             //intent.putExtra("Category", category);
             //intent.putExtra("GameId", game.getId());
             context.startActivity(intent);
-            /*switch (game.getType()) {
+            switch (game.getType()) {
                 case ChooseAnswer:
 
                     if (game.getId() >= 100) {
@@ -159,9 +160,16 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
                     intent8.putExtra("GameId", game.getId());
                     context.startActivity(intent8);
                     break;
+                case SlidePuzzle:
+                    Intent intent9 = new Intent(context, GameActivity_PicturePuzzle.class);
+                    intent8.putExtra("TreeId", treeId);
+                    intent8.putExtra("Category", category);
+                    intent8.putExtra("GameId", game.getId());
+                    context.startActivity(intent9);
+                    break;
                 default:
                     break;
-            }*/
+            }
         });
 
     }

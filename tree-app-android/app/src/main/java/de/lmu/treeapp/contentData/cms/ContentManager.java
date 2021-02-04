@@ -64,6 +64,7 @@ public class ContentManager {
         this.minigames.addAll(contentDb.gameOrderWordsDao().getAll());
         this.minigames.addAll(contentDb.gamePuzzleDao().getAll());
         this.minigames.addAll(contentDb.gameInputStringDao().getAll());
+        this.minigames.addAll(contentDb.gameSlidePuzzleDao().getAll());
     }
 
     public List<Tree> getTrees() {

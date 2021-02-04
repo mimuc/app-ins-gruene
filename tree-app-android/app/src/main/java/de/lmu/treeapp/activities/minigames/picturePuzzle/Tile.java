@@ -1,15 +1,13 @@
 package de.lmu.treeapp.activities.minigames.picturePuzzle;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
 
-public class Tile extends androidx.appcompat.widget.AppCompatButton {
-
-    Drawable pic;
-    int width;
-    int height;
-
-    public Tile(Context context) {
-        super(context);
+public class Tile {
+    public int pos;
+    public int x;
+    public int y;
+    public Tile(int pos, int y, int x) {
+        this.pos = pos;
+        this.x = x;
+        this.y = y;
     }
 }
