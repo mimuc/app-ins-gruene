@@ -8,10 +8,10 @@ import java.util.List;
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.TreeProfile;
+import de.lmu.treeapp.contentClasses.trees.WantedPosterImageList;
+import de.lmu.treeapp.contentClasses.trees.WantedPosterTextList;
 import de.lmu.treeapp.contentData.database.ContentDatabase;
-import de.lmu.treeapp.contentData.database.entities.content.TreeProfileCard;
-import de.lmu.treeapp.contentData.database.entities.content.TreeRelations;
-import de.lmu.treeapp.contentData.database.entities.content.Tree_x_Game;
+import de.lmu.treeapp.contentData.database.entities.content.*;
 import io.reactivex.rxjava3.core.Single;
 
 
@@ -20,7 +20,10 @@ public class ContentManager {
     private Context context;
     private final List<Tree> trees = new ArrayList<>();
     private final List<TreeProfile> treeProfiles = new ArrayList<>();
+    private final List<WantedPosterTextList> allWantedPosters = new ArrayList<>();
+    private final List<WantedPosterImageList> allWantedPosterImages = new ArrayList<>();
     private final List<IGameBase> minigames = new ArrayList<>();
+    private final List<Tree_x_Game> tree_x_games = new ArrayList<>();
 
     public static ContentManager getInstance(Context context) {
         if (INSTANCE == null) {
@@ -46,17 +49,26 @@ public class ContentManager {
             this.trees.add(tree);
         }
 
-        // Load tree profile
+        // Load wanted poster
         for (Tree tree : this.trees) {
-            List<TreeProfileCard> treeProfileCards = contentDb.treeProfileDao().getCardsByTreeId(tree.getId());
+            List<WantedPoster> wantedPosterTexts = contentDb.wantedPosterTextDao().getTextsByTreeId(tree.getId());
+            List<WantedPosterImage> wantedPosterImgs = contentDb.wantedPosterImageDao().getImagesByTreeId(tree.getId());
 
-            TreeProfile treeProfile = new TreeProfile();
-            treeProfile.cards = treeProfileCards;
-            this.treeProfiles.add(treeProfile);
+            WantedPosterTextList textList = new WantedPosterTextList();
+            WantedPosterImageList imageList = new WantedPosterImageList();
+            textList.uid = tree.getId();
+            imageList.uid = tree.getId();
+            textList.wantedPosters = wantedPosterTexts;
+            imageList.wantedPosterImages = wantedPosterImgs;
+            this.allWantedPosters.add(textList);
+            this.allWantedPosterImages.add(imageList);
         }
+
+        this.tree_x_games.addAll(contentDb.tree_x_gameDao().getAll());
 
         // Load games from database
         this.minigames.addAll(contentDb.gameChooseAnswerDao().getAll());
+        this.minigames.addAll(contentDb.gameCatchFruitsDao().getAll());
         this.minigames.addAll(contentDb.gameBaumoryDao().getAll());
         this.minigames.addAll(contentDb.gameDragDropDao().getAll());
         this.minigames.addAll(contentDb.gameOnlyDescriptionDao().getAll());
@@ -65,6 +77,7 @@ public class ContentManager {
         this.minigames.addAll(contentDb.gamePuzzleDao().getAll());
         this.minigames.addAll(contentDb.gameInputStringDao().getAll());
         this.minigames.addAll(contentDb.gameSlidePuzzleDao().getAll());
+        this.minigames.addAll(contentDb.gameDescriptionDao().getAll());
     }
 
     public List<Tree> getTrees() {
@@ -75,9 +88,18 @@ public class ContentManager {
         return ContentDatabase.getInstance(context).tree_x_gameDao().getByCompositeKey(treeId, gameId, gameCategory);
     }
 
+
+    public List<Tree_x_Game> getTxg() {
+        return tree_x_games;
+    }
+
     public List<de.lmu.treeapp.contentClasses.trees.TreeProfile> getTreeProfiles() {
         return treeProfiles;
     }
+
+    public List<de.lmu.treeapp.contentClasses.trees.WantedPosterTextList> getAllWantedPosters() {return allWantedPosters; }
+
+    public List<de.lmu.treeapp.contentClasses.trees.WantedPosterImageList> getAllWantedPosterImages() {return allWantedPosterImages; }
 
     public List<IGameBase> getMinigames() {
         return minigames;

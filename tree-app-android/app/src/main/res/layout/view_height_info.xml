@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/freude"
+                android:textAlignment="center"
+                android:textColor="@color/asphalt"
+                android:textSize="@dimen/heading1"
+                android:translationZ="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Test"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/height_image_constraintLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:translationZ="0dp"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/page_title">
+
+            <ImageButton
+                android:id="@+id/tree_button"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/sb_icon_magnifier"
+                android:padding="16dp"
+                android:scaleType="fitCenter"
+                android:translationZ="1dp"
+                app:layout_constraintBottom_toTopOf="@id/tree_guideline_bottom"
+                app:layout_constraintStart_toStartOf="@+id/tree_guideline_left"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/human_button"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/sb_icon_magnifier"
+                android:padding="16dp"
+                android:scaleType="fitCenter"
+                android:translationZ="1dp"
+                app:layout_constraintBottom_toTopOf="@id/human_guideline_bottom"
+                app:layout_constraintStart_toStartOf="@id/human_guideline_left"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/height_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:scaleType="fitCenter"
+                android:translationZ="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/sb_hoehe_ahorn" />
+
+            <LinearLayout
+                android:id="@+id/height_text_layout"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/wanted_poster_border"
+                android:gravity="start|top"
+                android:translationZ="1dp"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="@id/textbox_guideline_bottom"
+                app:layout_constraintEnd_toStartOf="@id/textbox_guideline_right"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/textbox_guideline_left"
+                app:layout_constraintTop_toTopOf="@id/height_image"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="7dp"
+                    android:fadeScrollbars="false"
+                    android:fontFamily="@font/freude"
+                    android:gravity="start|center_horizontal"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollbarThumbVertical="@android:color/white"
+                    android:scrollbars="vertical"
+                    android:text="@string/wanted_poster_description"
+                    android:textColor="#FFFFFF"
+                    android:translationZ="1dp"
+                    app:lineHeight="@dimen/wanted_poster_text_spacing" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/textbox_guideline_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.038" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/textbox_guideline_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.962" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/textbox_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:translationZ="1dp"
+                app:layout_constraintGuide_percent="0.8" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/tree_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:translationZ="1dp"
+                app:layout_constraintGuide_percent="0.88" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/tree_guideline_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:translationZ="1dp"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/human_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:translationZ="1dp"
+                app:layout_constraintGuide_percent="0.98" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/human_guideline_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:translationZ="1dp"
+                app:layout_constraintGuide_percent="0.21" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

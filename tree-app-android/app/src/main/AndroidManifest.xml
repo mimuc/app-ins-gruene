@@ -14,7 +14,10 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -62,6 +65,13 @@
                 android:value="activities.MainActivity" />
         </activity>
         <activity
+            android:name=".activities.minigames.description.GameActivity_Description"
+            android:parentActivityName="activities.GameSelectionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="activities.MainActivity" />
+        </activity>
+        <activity
             android:name=".activities.minigames.takePicture.GameActivity_TakePicture"
             android:parentActivityName="activities.GameSelectionActivity">
             <meta-data
@@ -90,6 +100,14 @@
                 android:value="activities.MainActivity" />
         </activity>
         <activity
+            android:name=".activities.minigames.catchFruits.GameActivity_CatchFruits"
+            android:parentActivityName="activities.GameSelectionActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="activities.MainActivity" />
+        </activity>
+        <activity
             android:name=".activities.GameSelectionActivity"
             android:parentActivityName="activities.MainActivity">
             <meta-data
@@ -99,7 +117,7 @@
         <activity
             android:name=".activities.MainActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.SplashScreen"
             android:launchMode="singleTop"
@@ -119,7 +137,7 @@
         <activity
             android:name=".activities.BarcodeCaptureActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
-        <activity android:name=".activities.WantedPosterDetailsActivity" />
+        <activity android:name=".wantedPoster.activity.WantedPosterTreeActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -128,7 +146,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
     </application>
 

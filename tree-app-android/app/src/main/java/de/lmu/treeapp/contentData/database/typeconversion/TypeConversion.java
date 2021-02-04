@@ -9,6 +9,9 @@ import de.lmu.treeapp.contentClasses.minigames.MediaType;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.TreeComponent;
+import de.lmu.treeapp.wantedPoster.WantedPosterImageType;
+import de.lmu.treeapp.wantedPoster.WantedPosterTab;
+import de.lmu.treeapp.wantedPoster.WantedPosterTextType;
 
 
 public class TypeConversion {
@@ -124,4 +127,41 @@ public class TypeConversion {
     public static String gameTypeToString(Minigame_Base.MinigameTypes optionType) {
         return optionType.name();
     }
+
+    //region Wanted Poster
+
+    @TypeConverter
+    public static WantedPosterTab wantedPosterTabFromString(String str) {
+        if (str == null) return WantedPosterTab.UNKNOWN;
+        return WantedPosterTab.valueOf(str.toUpperCase());
+    }
+
+    @TypeConverter
+    public static String wantedPosterTabToString(WantedPosterTab tab) {
+        return tab.name();
+    }
+
+    @TypeConverter
+    public static WantedPosterImageType wantedPosterImageTypeFromString(String str) {
+        if (str == null) return WantedPosterImageType.UNKNOWN;
+        return WantedPosterImageType.valueOf(str.toUpperCase());
+    }
+
+    @TypeConverter
+    public static String wantedPosterImageTypeToString(WantedPosterImageType imgType) {
+        return imgType.name();
+    }
+
+    @TypeConverter
+    public static WantedPosterTextType wantedPosterTextTypeFromString(String str) {
+        if (str == null) return WantedPosterTextType.UNKNOWN;
+        return WantedPosterTextType.valueOf(str.toUpperCase());
+    }
+
+    @TypeConverter
+    public static String wantedPosterTextTypeToString(WantedPosterTextType textType) {
+        return textType.name();
+    }
+
+    //endregion Wanted Poster
 }

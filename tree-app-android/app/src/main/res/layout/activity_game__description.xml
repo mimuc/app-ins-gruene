@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    tools:context="de.lmu.treeapp.activities.minigames.description.GameActivity_Description">
+
+    <ImageView
+        android:id="@+id/leafImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="1.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="1.5"
+        tools:srcCompat="@drawable/ic_ahorn_blatt" />
+
+    <TextView
+        android:id="@+id/game_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="@string/game_description_placeholder"
+        android:textSize="@dimen/heading2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/game_orderWords_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginHorizontal="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/game_orderWords_sendButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game_description" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/game_add_button"
+        style="@style/AppTheme.RoundButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="+"
+        app:cornerRadius="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game_orderWords_content" />
+
+
+    <Button
+        android:id="@+id/game_orderWords_sendButton"
+        style="@style/AppTheme.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:elevation="4dp"
+        android:fontFamily="@font/freude"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"
+        android:stateListAnimator="@null"
+        android:text="@string/game_input_string_send_button_placeholder_text"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+        android:textSize="@dimen/buttons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.6" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

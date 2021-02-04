@@ -16,7 +16,9 @@ import java.util.List;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.baumory.GameActivity_Baumory;
+import de.lmu.treeapp.activities.minigames.catchFruits.GameActivity_CatchFruits;
 import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
+import de.lmu.treeapp.activities.minigames.description.GameActivity_Description;
 import de.lmu.treeapp.activities.minigames.dragDrop.GameActivity_DragDrop;
 import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
 import de.lmu.treeapp.activities.minigames.onlyDescription.GameActivity_OnlyDescription;
@@ -27,6 +29,7 @@ import de.lmu.treeapp.activities.minigames.takePicture.GameActivity_TakePicture;
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.contentData.database.entities.content.Tree_x_Game;
 import de.lmu.treeapp.utils.glide.BackgroundTarget;
 
 public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<GameselectionRecyclerViewAdapter.ViewHolder> {
@@ -34,6 +37,7 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
     List<Integer> games;
     int treeId;
     Tree.GameCategories category;
+    List<Tree_x_Game> gamestates;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView gameName;
@@ -88,12 +92,11 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
         }
         holder.gameName.setText(game.getName());
 
+        gamestates = DataManager.getInstance(context).tree_x_games;
+
         holder.gameIcon.setOnClickListener(arg0 -> {
-            Intent intent = new Intent(context, GameActivity_ChooseAnswer.class);
-            //intent.putExtra("TreeId", treeId);
-            //intent.putExtra("Category", category);
-            //intent.putExtra("GameId", game.getId());
-            context.startActivity(intent);
+
+            Class<?> gameActivityClass = null;
             switch (game.getType()) {
                 case ChooseAnswer:
 
@@ -105,70 +108,48 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
                         GameActivity_ChooseAnswer.current = 3;
                     }
 
-                    Intent intent = new Intent(context, GameActivity_ChooseAnswer.class);
-                    intent.putExtra("TreeId", treeId);
-                    intent.putExtra("Category", category);
-                    intent.putExtra("GameId", game.getId());
-                    context.startActivity(intent);
+                    gameActivityClass = GameActivity_ChooseAnswer.class;
                     break;
                 case InputString:
-                    Intent intent2 = new Intent(context, GameActivity_InputString.class);
-                    intent2.putExtra("TreeId", treeId);
-                    intent2.putExtra("Category", category);
-                    intent2.putExtra("GameId", game.getId());
-                    context.startActivity(intent2);
+                    gameActivityClass = GameActivity_InputString.class;
                     break;
                 case TakePicture:
-                    Intent intent3 = new Intent(context, GameActivity_TakePicture.class);
-                    intent3.putExtra("TreeId", treeId);
-                    intent3.putExtra("Category", category);
-                    intent3.putExtra("GameId", game.getId());
-                    context.startActivity(intent3);
+                    gameActivityClass = GameActivity_TakePicture.class;
                     break;
                 case DragDrop:
-                    Intent intent4 = new Intent(context, GameActivity_DragDrop.class);
-                    intent4.putExtra("TreeId", treeId);
-                    intent4.putExtra("Category", category);
-                    intent4.putExtra("GameId", game.getId());
-                    context.startActivity(intent4);
+                    gameActivityClass = GameActivity_DragDrop.class;
                     break;
                 case OnlyDescription:
-                    Intent intent5 = new Intent(context, GameActivity_OnlyDescription.class);
-                    intent5.putExtra("TreeId", treeId);
-                    intent5.putExtra("Category", category);
-                    intent5.putExtra("GameId", game.getId());
-                    context.startActivity(intent5);
+                    gameActivityClass = GameActivity_OnlyDescription.class;
                     break;
                 case Baumory:
-                    Intent intent6 = new Intent(context, GameActivity_Baumory.class);
-                    intent6.putExtra("TreeId", treeId);
-                    intent6.putExtra("Category", category);
-                    intent6.putExtra("GameId", game.getId());
-                    context.startActivity(intent6);
+                    gameActivityClass = GameActivity_Baumory.class;
                     break;
                 case OrderWords:
-                    Intent intent7 = new Intent(context, GameActivity_OrderWords.class);
-                    intent7.putExtra("TreeId", treeId);
-                    intent7.putExtra("Category", category);
-                    intent7.putExtra("GameId", game.getId());
-                    context.startActivity(intent7);
+                    gameActivityClass = GameActivity_OrderWords.class;
                     break;
                 case Puzzle:
-                    Intent intent8 = new Intent(context, GameActivity_Puzzle.class);
-                    intent8.putExtra("TreeId", treeId);
-                    intent8.putExtra("Category", category);
-                    intent8.putExtra("GameId", game.getId());
-                    context.startActivity(intent8);
+                    gameActivityClass = GameActivity_Puzzle.class;
+                    break;
+                case Description:
+                    gameActivityClass = GameActivity_Description.class;
+                    break;
+                case CatchFruits:
+                    gameActivityClass = GameActivity_CatchFruits.class;
                     break;
                 case SlidePuzzle:
-                    Intent intent9 = new Intent(context, GameActivity_PicturePuzzle.class);
-                    intent8.putExtra("TreeId", treeId);
-                    intent8.putExtra("Category", category);
-                    intent8.putExtra("GameId", game.getId());
-                    context.startActivity(intent9);
+                    gameActivityClass = GameActivity_PicturePuzzle.class;
                     break;
                 default:
                     break;
+            }
+
+            if (gameActivityClass != null) {
+                Intent intent = new Intent(context, gameActivityClass);
+                intent.putExtra("TreeId", treeId);
+                intent.putExtra("Category", category);
+                intent.putExtra("GameId", game.getId());
+                context.startActivity(intent);
             }
         });
 

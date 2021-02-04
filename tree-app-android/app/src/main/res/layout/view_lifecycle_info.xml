@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/freude"
+                android:textAlignment="center"
+                android:textColor="@color/asphalt"
+                android:textSize="@dimen/heading1"
+                android:translationZ="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Test"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp" android:id="@+id/image_layout"
+                app:layout_constraintTop_toBottomOf="@id/page_title" android:layout_marginTop="12dp"
+                app:layout_constraintBottom_toTopOf="@id/textbox_guideline"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="24dp" android:layout_marginEnd="24dp" android:layout_marginBottom="16dp">
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/sb_cycle_circle"
+                    android:id="@+id/cycle" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="ContentDescription" android:adjustViewBounds="true"
+                    android:scaleType="fitCenter" android:translationZ="1dp"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/sb_cycle_ahorn_leaf"
+                    android:id="@+id/leaf_and_fruit" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="ContentDescription" android:adjustViewBounds="true"
+                    android:scaleType="fitCenter" android:translationZ="2dp" android:visibility="gone"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+                android:id="@+id/leaf_button"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/sb_button_ahorn_leaf"
+                android:padding="16dp"
+                android:scaleType="fitCenter"
+                android:translationZ="3dp"
+                tools:ignore="ContentDescription" app:layout_constraintBottom_toTopOf="@id/textbox_guideline"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="6dp"
+                android:layout_marginBottom="4dp"/>
+        <ImageButton
+                android:id="@+id/fruit_button"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/sb_button_ahorn_fruit"
+                android:padding="16dp"
+                android:scaleType="fitCenter"
+                android:translationZ="3dp"
+                tools:ignore="ContentDescription" app:layout_constraintBottom_toTopOf="@id/textbox_guideline"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="6dp"
+                android:layout_marginBottom="4dp"/>
+        <androidx.constraintlayout.widget.Guideline
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textbox_guideline" app:layout_constraintGuide_percent="0.77"/>
+        <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/wanted_poster_border"
+                android:gravity="start|center_vertical"
+                android:translationZ="1dp"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textbox_guideline" app:layout_constraintVertical_bias="0.0"
+        >
+
+            <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="7dp"
+                    android:fadeScrollbars="false"
+                    android:fontFamily="@font/freude"
+                    android:gravity="start|center_horizontal"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="10dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollbarThumbVertical="@android:color/white"
+                    android:scrollbars="vertical"
+                    android:text="@string/wanted_poster_description"
+                    android:textColor="#FFFFFF"
+                    android:translationZ="1dp"
+                    app:lineHeight="@dimen/wanted_poster_text_spacing"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

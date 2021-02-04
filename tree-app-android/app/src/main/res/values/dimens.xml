@@ -14,4 +14,9 @@
     <dimen name="detail_single_tree_layout_margin">12dp</dimen>
     <dimen name="choose_answer_option_layout_margin">4dp</dimen>
     <dimen name="column_width">160dp</dimen>
+    <dimen name="target_radius_small">@dimen/_32sdp</dimen>
+    <dimen name="target_radius_big">@dimen/_65sdp</dimen>
+    <dimen name="max_text_width">@dimen/_140sdp</dimen>
+    <dimen name="wanted_poster_text">@dimen/_16ssp</dimen>
+    <dimen name="wanted_poster_text_spacing">@dimen/_17ssp</dimen>
 </resources>

@@ -11,11 +11,12 @@ import java.util.ArrayList;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.GameSelectionActivity;
-import de.lmu.treeapp.activities.WantedPosterDetailsActivity;
-import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateScore;
+import de.lmu.treeapp.wantedPoster.activity.WantedPosterTreeActivity;
+import io.reactivex.rxjava3.core.Completable;
 
 public abstract class GameActivity_Base extends AppCompatActivity {
 
@@ -24,6 +25,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     protected int gameId;
     protected Tree parentTree;
     protected Tree.GameCategories parentCategory;
+    protected GameStateScore gameState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         parentCategory = (Tree.GameCategories) b.get("Category");
         treeId = b.getInt("TreeId");
         gameId = b.getInt("GameId");
+
         parentTree = DataManager.getInstance(getApplicationContext()).getTree(treeId);
         gameContent = DataManager.getInstance(getApplicationContext()).getMinigame(gameId);
 
@@ -53,21 +56,13 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     // Remove the current activity from the stack to switch to the previous one
     @Override
     public boolean onSupportNavigateUp() {
-        if (gameContent.getType().name().equalsIgnoreCase("ChooseAnswer")) {
-            GameActivity_ChooseAnswer.quizIDs.clear();
-        }
         finish();
         return true;
     }
 
-
     // Android hardware back button is pressed
     @Override
     public void onBackPressed() {
-        if (gameContent.getType().name().equalsIgnoreCase("ChooseAnswer")) {
-            GameActivity_ChooseAnswer.quizIDs.clear();
-        }
-        finish();
         super.onBackPressed();
     }
 
@@ -99,7 +94,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     }
 
     public void showTreeProfile() {
-        Intent intent = new Intent(getApplicationContext(), WantedPosterDetailsActivity.class);
+        Intent intent = new Intent(getApplicationContext(), WantedPosterTreeActivity.class);
         intent.putExtra("TreeId", treeId);
         startActivity(intent);
         finish();
@@ -111,5 +106,19 @@ public abstract class GameActivity_Base extends AppCompatActivity {
 
     public int getNextQuizID() {
         return DataManager.getInstance(getApplicationContext()).getNextQuiz(gameContent.getId()).getId();
+    }
+
+    /**
+     * Write game state in background.
+     */
+    protected Completable saveGameState() {
+        return DataManager.getInstance(getApplicationContext()).updateGameState(gameState);
+    }
+
+    /**
+     * Save game state in background.
+     */
+    protected void getGameState() {
+        DataManager.getInstance(getApplicationContext()).getOrCreateGameStateScore(treeId, gameId, parentCategory).subscribe(s -> gameState = s);
     }
 }

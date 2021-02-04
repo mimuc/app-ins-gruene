@@ -30,20 +30,25 @@ import de.lmu.treeapp.contentData.database.entities.content.TreeImage;
 import de.lmu.treeapp.contentData.database.entities.content.TreeModel;
 import de.lmu.treeapp.contentData.database.entities.content.TreeProfileCard;
 import de.lmu.treeapp.contentData.database.entities.content.Tree_x_Game;
+import de.lmu.treeapp.contentData.database.daos.content.*;
+import de.lmu.treeapp.contentData.database.entities.content.*;
 import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
 
 @Database(entities = {
         GameBase.class,
         GameBaumoryCard.class,
+        GameCatchFruitsItem.class,
         GameChooseAnswer.class,
         GameChooseAnswerOption.class,
         GameDragDropItem.class,
         GameDragDropZone.class,
         GameOrderWordsItem.class,
+        GameDescriptionItem.class,
         Tree_x_Game.class,
         TreeImage.class,
         TreeModel.class,
-        TreeProfileCard.class,
+        WantedPoster.class,
+        WantedPosterImage.class
 
 }, version = 1, exportSchema = false)
 @TypeConverters({TypeConversion.class})
@@ -69,7 +74,9 @@ public abstract class ContentDatabase extends RoomDatabase {
 
     public abstract TreeDao treeDao();
 
-    public abstract TreeProfileDao treeProfileDao();
+    public abstract WantedPosterTextDao wantedPosterTextDao();
+
+    public abstract WantedPosterImageDao wantedPosterImageDao();
 
     public abstract Tree_x_GameDao tree_x_gameDao();
 
@@ -81,7 +88,11 @@ public abstract class ContentDatabase extends RoomDatabase {
 
     public abstract GameOnlyDescriptionDao gameOnlyDescriptionDao();
 
+    public abstract GameDescriptionDao gameDescriptionDao();
+
     public abstract GameTakePictureDao gameTakePictureDao();
+
+    public abstract GameCatchFruitsDao gameCatchFruitsDao();
 
     public abstract GameOrderWordsDao gameOrderWordsDao();
 
