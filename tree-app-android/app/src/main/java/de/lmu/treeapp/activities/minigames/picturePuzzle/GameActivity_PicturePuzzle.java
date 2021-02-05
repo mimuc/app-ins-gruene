@@ -14,7 +14,7 @@ public class GameActivity_PicturePuzzle extends GameActivity_Base implements Pop
     DragDropGrid grid;
     int dimension = 3;
     Popup popup;
-    int img = R.drawable.ic_eberesche_frucht;
+    int img = R.drawable.sb_bluete_foto_ahorn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
