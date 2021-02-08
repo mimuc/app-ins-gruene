@@ -1,64 +1,50 @@
 <resources>
-    <!-- Tree -->
+    <!-- Common -->
     <string name="ahorn_tree">Ahorn</string>
-
     <string name="ok">OK</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="leaf_icon">Leaf Icon</string>
+    <string name="heart_icon">Heart Icon</string>
 
-    <string name="no_barcode_captured">No barcode captured</string>
-    <string name="barcode_error_format">"Error reading barcode: %1$s"</string>
-    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
-    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
-
+    <!-- Bottom Bar -->
     <string name="bottom_app_bar_overview">Übersicht</string>
     <string name="bottom_app_bar_tree_selection">Bäume</string>
 
-    <string name="welcome_text">Herzlich Willkomen!</string>
-    <string name="fragment_overview_start_text">OverviewFragment</string>
-    <string name="fragment_tree_selection_start_text">TreeSelectionFragment</string>
-    <string name="wanted_poster_text_view_text">WantedPosterActivity</string>
-    <string name="overview_button_text">BAUM ANZEIGEN</string>
-    <string name="wanted_poster_details_text_view_text">Hier werden die Informationen über jeden Baum stehen!</string>
-    <string name="wanted_poster_title_text">Wanted Poster</string>
-    <string name="wanted_poster_details_title_text">Steckbrief</string>
-    <string name="tree_selection_fragment_button_text">DETAILS ANZEIGEN</string>
+    <!-- Overview -->
     <string name="overview_fragment_headline">Deine Waldübersicht</string>
     <string name="overview_fragment_btn_imprint">Impressum</string>
     <string name="overview_fragment_description_text">Klicke auf einen Baum, um mehr über ihn zu erfahren!</string>
     <string name="overview_single_tree_placeholder_text">overview_single_tree_text</string>
     <string name="overview_single_tree_state_image_content_description">overview_single_tree_state_image</string>
     <string name="overview_single_tree_image_content_description">overview_single_tree_image</string>
+
+    <!-- Single View -->
+    <string name="detail_single_tree_profile_button_text">Steckbrief</string>
+    <string name="detail_single_tree_leaf_button_content_description">leaf games button</string>
+    <string name="detail_single_tree_fruit_button_content_description">fruit games button</string>
+    <string name="detail_single_tree_trunk_button_content_description">trunk games button</string>
+    <string name="detail_single_tree_other_button_content_description">other games button</string>
+
+    <!-- Games Common -->
     <string name="game_selection_title">Minispiele</string>
-    <string name="game_mode_singleplayer">Einzelspieler</string>
+    <string name="game_selection_headline_placeholder">Wähle ein Spiel aus</string>
+    <string name="game_selection_description_placeholder">Hier findest du Minigames zu Rinde und Holz der Kiefer. Starte jetzt mit einem Spiel!</string>
+
     <string name="game_mode_multiplayer">Mehrspieler</string>
+    <string name="game_mode_multiplayer_button_description">Mulitplayer Modus</string>
+    <string name="game_mode_singleplayer">Einzelspieler</string>
+    <string name="game_mode_singleplayer_button_description">Singleplayer Modus</string>
     <string name="game_mode_player">Spieler %1$s : %2$d</string>
     <string name="game_mode_multiplayer_next_player">Spieler %1$s ist an der Reihe</string>
     <string name="game_mode_player_won">Spieler %1$s hat gewonnen</string>
     <string name="game_mode_draw">Untentschieden!</string>
-    <string name="button_back">zurück</string>
-    <string name="button_repeat">nochmal</string>
-    <string name="main_activity_qr_code_no_tree_found_text">Kein Baum mit diesem QR-Code:</string>
-    <string name="wanted_poster_card_header_image_description_text">Card header image</string>
-    <string name="card_wanted_poster_header_text_placeholder">Ahorn</string>
-    <string name="card_wanted_poster_sub_header_placeholder">Bereits freigespielt</string>
-    <string name="card_wanted_poster_collapse_arrow">Card wanted poster collapse arrow</string>
-    <string name="card_wanted_poster_description_text_placeholder">69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang 69 420 gucci gang</string>
 
-    <!-- Games-->
+    <string name="game_difficulty_select_text">Wie schwierig soll es sein?</string>
+    <string name="game_difficulty_easy">Lieber was einfaches</string>
+    <string name="game_difficulty_medium">Ganz normal</string>
+    <string name="game_difficulty_hard">Ich mag eine Herausforderung</string>
 
-    <string name="game_choose_answer_option_button_placeholder_text">Button</string>
-    <string name="game_choose_answer_popup_text">Richtig :-)</string>
-    <string name="game_title_placeholder">TextView</string>
     <string name="game_description_placeholder">Spiel-Beschreibung</string>
-    <string name="game_input_string_input_text_field_hint_text">Antwort</string>
-    <string name="game_input_string_send_button_placeholder_text">Fertig!</string>
-    <string name="game_orderWords_instructions">Tippe in der richtigen Reihenfolge auf die Wörter:</string>
-    <string name="game_puzzle_instructions">Ziehe die Puzzleteile an die richtigen Stellen um das Bild zu vervollständigen.</string>
-    <string name="game_orderWords_solution_description">So, hier stimmt es wieder:</string>
-    <string name="game_take_picture_example">Beispielbild</string>
-    <string name="game_take_picture_own_foto">Vorschau deines Fotos</string>
-    <string name="game_take_picture_send_button_placeholder_text">Fertig!</string>
-    <string name="game_selection_headline_placholder">Wähle ein Spiel aus</string>
-    <string name="game_selection_description_placeholder">Hier findest du Minigames zu Rinde und Holz der Kiefer. Starte jetzt mit einem Spiel!</string>
     <string name="game_score_comparison">%1$d / %2$d</string>
     <string name="game_new_highscore">Neuer Highscore!</string>
     <string name="game_no_highscore">Kein neuer Highscore!</string>
@@ -66,15 +52,30 @@
     <string name="game_your_highscore">Dein Highscore</string>
     <string name="game_have_fun">Viel Spaß!</string>
     <string name="game_btn_start">Start</string>
-    <string name="game_catchFruits_trees_description_text">Weißt du noch, wie die Blätter und Früchte %1$s aussehen?</string>
-    <string name="instruction_catch_fruits_1">Versuche 10 Blätter und 10 Früchte durch klicken einzusammeln bevor du keine Lebenspunkte mehr hast.</string>
-    <string name="instruction_catch_fruits_2">Wenn du auf falsche Blätter oder Früchte klickst oder ein richtiges Blatt/ eine richtige Frucht verpasst werden dir Lebenspunkte abgezogen.</string>
 
-    <string name="detail_single_tree_profile_button_text">Steckbrief</string>
-    <string name="detail_single_tree_leaf_button_content_description">leaf games button</string>
-    <string name="detail_single_tree_fruit_button_content_description">fruit games button</string>
-    <string name="detail_single_tree_trunk_button_content_description">trunk games button</string>
-    <string name="detail_single_tree_other_button_content_description">other games button</string>
+    <!-- Games -->
+    <string name="game_catchFruits_trees_description_text">Weißt du noch, wie die Blätter und Früchte %1$s aussehen?</string>
+    <string name="game_catchFruits_instruction_1">Versuche 10 Blätter und 10 Früchte durch klicken einzusammeln bevor du keine Lebenspunkte mehr hast.</string>
+    <string name="game_catchFruits_instruction_2">Wenn du auf falsche Blätter oder Früchte klickst oder ein richtiges Blatt/ eine richtige Frucht verpasst werden dir Lebenspunkte abgezogen.</string>
+
+    <string name="game_choose_answer_option_button_placeholder_text">Answer Button</string>
+
+    <string name="game_description_you_selected">Du hast ausgewählt: \n</string>
+    <string name="game_description_start_screen_long">Wie fühlt sich die Rinde {0} an? Welche Wörter beschreiben sie am besten?</string>
+    <string name="game_description_start_screen_short">Jetzt bist du gefragt!</string>
+    <string name="game_description_input_hint">Dein eigenes Wort</string>
+
+    <string name="game_input_string_input_text_field_hint_text">Antwort</string>
+    <string name="game_input_string_send_button_placeholder_text">Fertig!</string>
+
+    <string name="game_orderWords_instructions">Tippe in der richtigen Reihenfolge auf die Wörter:</string>
+    <string name="game_orderWords_solution_description">So, hier stimmt es wieder:</string>
+
+    <string name="game_puzzle_instructions">Ziehe die Puzzleteile an die richtigen Stellen um das Bild zu vervollständigen.</string>
+
+    <string name="game_take_picture_example">Beispielbild</string>
+    <string name="game_take_picture_own_foto">Vorschau deines Fotos</string>
+    <string name="game_take_picture_send_button_placeholder_text">Fertig!</string>
 
     <!-- Popup -->
     <string name="popup_quiz_positive_title">Richtig!</string>
@@ -97,9 +98,10 @@
     <string name="popup_puzzle_neutral_text">Puzzeln wir los!</string>
     <string name="popup_close_app_title">Möchtest du die App wirklich beenden?</string>
     <string name="popup_close_app_accept">Ja</string>
+    <string name="button_back">zurück</string>
+    <string name="button_repeat">nochmal</string>
 
     <!-- Imprint-->
-
     <string name="imprint_imprint_title">IMPRESSUM</string>
     <string name="imprint_imprint_text">Informationen gemäß § 5 Telemediengesetz und § 55 Rundfunkstaatsvertrag. Die Ludwig-Maximilians-Universität München ist eine Körperschaft des öffentlichen Rechts. Sie wird durch den Präsidenten Prof. Dr. Bernd Huber gesetzlich vertreten.</string>
     <string name="imprint_publisher_title">Herausgeber</string>
@@ -135,23 +137,11 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="imprint_privacy_text">Rechtsgrundlagen der Datenverarbeitung, Empfänger der personenbezogenen Daten, Rechte der betroffenen Person, Widerrufsrecht bei Einwilligung, Erhebung von Daten</string>
 
     <!-- Splash Screen -->
-
     <string name="splash_screen_image_appinsgruene">image_appinsgruene</string>
     <string name="splash_screen_image_logos">image_logos</string>
     <string name="splash_screen_text">entstanden in Zusammenarbeit mit:</string>
 
-    <string name="button_multiplayer_mode_description">Mulitplayer Modus</string>
-    <string name="button_singleplayer_mode_description">Singleplayer Modus</string>
-    <string name="heading_puzzle_difficulty_select_text">Wie schwierig soll es sein?</string>
-    <string name="puzzle_difficulty_easy">Lieber was einfaches</string>
-    <string name="puzzle_difficulty_hard">Ich mag eine Herausforderung</string>
-    <string name="puzzle_difficulty_medium">Ganz normal</string>
-
-    <string name="leaf_icon">Leaf Icon</string>
-    <string name="heart_icon">Heart Icon</string>
-
     <!-- Tutorial -->
-
     <string name="overview_heading">Waldübersicht</string>
     <string name="overview_text">Hier siehst du alle Bäume auf einem Fleck!</string>
     <string name="single_view_heading">Einzelansicht</string>
@@ -169,16 +159,16 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="profile_heading">Steckbrief</string>
     <string name="profile_text">Hier findest du mehr Informationen zu diesem Baum!</string>
 
-    <string name="game_description_input_hint">Dein eigenes Wort</string>
-    <string name="cancel">Abbrechen</string>
-    <string name="descriptionGame_you_selected">Du hast ausgewählt: \n</string>
-    <string name="game_description_start_screen_long">Wie fühlt sich die Rinde {0} an? Welche Wörter beschreiben sie am besten?</string>
-    <string name="game_description_start_screen_short">Jetzt bist du gefragt!</string>
-
     <!-- Wanted poster-->
     <string name="wanted_poster_description">Klicke doch mal auf die Lupen, um mehr zu erfahren!</string>
-    <string name="wanted_poster_no_taken_pictures">Du hast noch keine Fotos gemacht. Schau doch mal bei den Minispielen vorbei!
-    </string>
+    <string name="wanted_poster_no_taken_pictures">Du hast noch keine Fotos gemacht. Schau doch mal bei den Minispielen vorbei!</string>
     <string name="wanted_poster_gallery">Gallerie</string>
+    <string name="wanted_poster_details_title_text">Steckbrief</string>
 
+    <!-- Camera / QR Code -->
+    <string name="no_barcode_captured">No barcode captured</string>
+    <string name="barcode_error_format">"Error reading barcode: %1$s"</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
+    <string name="main_activity_qr_code_no_tree_found_text">Kein Baum mit diesem QR-Code:</string>
 </resources>
