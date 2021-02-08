@@ -205,7 +205,10 @@ public class Popup {
             popupText.setText(message);
             ViewCompat.animate(popupText).setStartDelay(400).alpha(1).setDuration(300)
                     .setInterpolator(new DecelerateInterpolator(1.2f)).start();
+        } else {
+            popupText.setVisibility(View.GONE);
         }
+
         if (childViews != null && !childViews.isEmpty()) {
             LinearLayout parentLayout = popupWindow.findViewById(R.id.popup_content);
             for (View childView : childViews) {
@@ -235,7 +238,7 @@ public class Popup {
             // Positive squirrel animation
             (new Handler(Looper.getMainLooper())).postDelayed(this::squirrelAnimationPositive, 600);
             // Leaves animation
-            leafAnimation(true, getCurrentTree());
+            leafAnimation();
         } else if (type == PopupType.NEGATIVE_ANIMATION) {
             // WITH ANIMATION
             popupTitle.setText(looseTitle);
@@ -365,75 +368,72 @@ public class Popup {
     /**
      * Leaf animation.
      */
-    private void leafAnimation(boolean won, int currentTree) {
-        this.currentTree = currentTree;
+    private void leafAnimation() {
 
         // Set correct start position
         for (ImageView leafImageView : leafImageViews) {
             leafImageView.setTranslationY(-140);
         }
 
-        if (won) {
-            // Make them visible
-            for (ImageView leafImageView : leafImageViews) {
-                leafImageView.setVisibility(View.VISIBLE);
-            }
-
-            Handler handler = new Handler(Looper.getMainLooper());
-            handler.postDelayed(() -> {
-                leafImageViews[0].animate()
-                        .translationY(2000)
-                        .setDuration(3600)
-                        .rotationBy(-45)
-                        .setListener(new AnimatorListenerAdapter() {
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                leafImageViews[0].setVisibility(View.GONE);
-                            }
-                        });
-
-                leafImageViews[1].animate()
-                        .translationY(2000)
-                        .setDuration(4600)
-                        .setListener(new AnimatorListenerAdapter() {
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                leafImageViews[1].setVisibility(View.GONE);
-                            }
-                        });
-
-                leafImageViews[2].animate()
-                        .translationY(2000)
-                        .setDuration(3300)
-                        .setListener(new AnimatorListenerAdapter() {
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                leafImageViews[2].setVisibility(View.GONE);
-                            }
-                        });
-
-                leafImageViews[3].animate()
-                        .translationY(2000)
-                        .setDuration(3000)
-                        .setListener(new AnimatorListenerAdapter() {
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                leafImageViews[3].setVisibility(View.GONE);
-                            }
-                        });
-
-                leafImageViews[4].animate()
-                        .translationY(2000)
-                        .setDuration(4600)
-                        .rotationBy(55)
-                        .setListener(new AnimatorListenerAdapter() {
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                leafImageViews[4].setVisibility(View.GONE);
-                            }
-                        });
-            }, 1870);
+        // Make them visible
+        for (ImageView leafImageView : leafImageViews) {
+            leafImageView.setVisibility(View.VISIBLE);
         }
+
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(() -> {
+            leafImageViews[0].animate()
+                    .translationY(2000)
+                    .setDuration(3600)
+                    .rotationBy(-45)
+                    .setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            leafImageViews[0].setVisibility(View.GONE);
+                        }
+                    });
+
+            leafImageViews[1].animate()
+                    .translationY(2000)
+                    .setDuration(4600)
+                    .setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            leafImageViews[1].setVisibility(View.GONE);
+                        }
+                    });
+
+            leafImageViews[2].animate()
+                    .translationY(2000)
+                    .setDuration(3300)
+                    .setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            leafImageViews[2].setVisibility(View.GONE);
+                        }
+                    });
+
+            leafImageViews[3].animate()
+                    .translationY(2000)
+                    .setDuration(3000)
+                    .setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            leafImageViews[3].setVisibility(View.GONE);
+                        }
+                    });
+
+            leafImageViews[4].animate()
+                    .translationY(2000)
+                    .setDuration(4600)
+                    .rotationBy(55)
+                    .setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            leafImageViews[4].setVisibility(View.GONE);
+                        }
+                    });
+        }, 1870);
     }
 
     /**
