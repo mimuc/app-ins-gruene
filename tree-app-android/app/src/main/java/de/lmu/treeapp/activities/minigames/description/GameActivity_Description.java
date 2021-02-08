@@ -142,7 +142,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
             }
 
         }
-        correctString = getString(R.string.descriptionGame_you_selected) + TextUtils.join(", ", correctStrings);
+        correctString = getString(R.string.game_description_you_selected) + TextUtils.join(", ", correctStrings);
 
         return isCorrect && selectedSomething;
     }

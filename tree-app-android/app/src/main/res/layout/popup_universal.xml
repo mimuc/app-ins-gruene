@@ -114,14 +114,15 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/mascot_wrapper"
-                android:layout_width="368dp"
-                android:layout_height="331dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:clipChildren="false"
                 android:clipToPadding="false"
-                android:paddingHorizontal="36dp"
+                android:paddingHorizontal="40dp"
+                android:paddingTop="36dp"
                 app:layout_constraintBottom_toTopOf="@id/popup_title"
                 app:layout_constraintTop_toTopOf="parent">
+                <!-- Consider extra views, e.g. in Choose Answer, if wrong answer is selected multiple times -->
 
                 <ImageView
                     android:id="@+id/imageViewTail"
@@ -131,7 +132,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_mascott_true_only_tail" />
 
                 <ImageView
@@ -142,7 +142,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_mascott_true_only_squirrel" />
 
                 <ImageView
@@ -153,7 +152,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_mascott_true_only_bar" />
 
                 <ImageView
@@ -164,7 +162,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_mascott_false_squirrel_tear" />
 
 
