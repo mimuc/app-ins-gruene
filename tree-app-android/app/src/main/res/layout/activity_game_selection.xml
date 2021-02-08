@@ -30,7 +30,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:text="@string/game_selection_headline_placholder"
+        android:text="@string/game_selection_headline_placeholder"
         android:textColor="@color/asphalt"
         android:textSize="@dimen/game_selection_headline_text_size"
         app:layout_constraintEnd_toEndOf="parent"
