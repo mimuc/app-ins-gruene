@@ -45,7 +45,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         optionsRecyclerView = findViewById(R.id.game_chooseAnswer_recyclerView);
         optionsRecyclerView.setHasFixedSize(true);
         setupOptionRecyclerView();
-        popup = new Popup(this);
+        popup = new Popup(this, treeId);
         popup.setLooseTitle(getString(R.string.popup_quiz_negative_title));
         popup.setWinTitle(getString(R.string.popup_quiz_positive_title));
     }
@@ -73,9 +73,9 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
         if (option.isRight) {
             //calls positive popup
             if (current > 1) {
-                popup.showWithButtonText(PopupType.NEUTRAL, getString(R.string.popup_btn_continue));
+                popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.popup_btn_continue));
             } else {
-                popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.popup_btn_finished));
+                popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished));
             }
         } else {
             showAnswer++;
@@ -92,7 +92,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
                     textView.setText(resultText);
                     views.add(textView);
 
-                    popup.showWithButtonText(PopupType.NEGATIVE, getString(popupBtnTextRes), getString(R.string.popup_quiz_negative_text), views);
+                    popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(popupBtnTextRes), getString(R.string.popup_quiz_negative_text), views);
                 } else if (option.optionType == MediaType.IMAGE) {
                     float factor = getResources().getDisplayMetrics().density; // Convert to dp
                     ImageView childView = new ImageView(this);
@@ -101,7 +101,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
                     Glide.with(this).load(resultImage).into(childView);
                     childView.setAdjustViewBounds(true);
                     views.add(childView);
-                    popup.showWithButtonText(PopupType.NEGATIVE, getString(popupBtnTextRes), getString(R.string.popup_quiz_negative_text), views);
+                    popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(popupBtnTextRes), getString(R.string.popup_quiz_negative_text), views);
                 }
             }
         }
@@ -126,7 +126,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements Choo
      */
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
-        if ((type != PopupType.NEGATIVE || showAnswer > 2) && checkGameState()) {
+        if ((type != PopupType.NEGATIVE && type != PopupType.NEGATIVE_ANIMATION || showAnswer > 2) && checkGameState()) {
                 onQuizSuccess(quizIDs);
         }
     }

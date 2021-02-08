@@ -95,7 +95,7 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
             }
         });
 
-        popup = new Popup(this);
+        popup = new Popup(this, treeId);
         popup.setWinTitle(getString(R.string.popup_win_title_done));
         popup.setNeutralTitle(getString(R.string.popup_puzzle_neutral_text));
         popup.showWithButtonText(PopupType.NEUTRAL, getString(R.string.popup_btn_continue), getString(R.string.game_puzzle_instructions));
@@ -279,7 +279,7 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
     public void checkGameOver() {
         if (isGameOver()) {
             isTimerRunning = false;
-            popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.popup_btn_finished), getString(R.string.popup_puzzle_won_text, time));
+            popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_puzzle_won_text, time));
         }
     }
 
@@ -295,7 +295,7 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
 
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
-        if (type == PopupType.POSITIVE) {
+        if (type == PopupType.POSITIVE_ANIMATION || type == PopupType.POSITIVE) {
             // close game on gameover
             onSuccess();
         } else {
