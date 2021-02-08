@@ -98,7 +98,7 @@ public class GameActivity_DragDrop extends GameActivity_Base implements PopupInt
             }
         });
 
-        popup = new Popup(this);
+        popup = new Popup(this, treeId);
     }
 
     @Override
@@ -163,19 +163,19 @@ public class GameActivity_DragDrop extends GameActivity_Base implements PopupInt
 
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
-        if(type == PopupType.POSITIVE) {
+        if (type == PopupType.POSITIVE_ANIMATION || type == PopupType.POSITIVE) {
             super.onSuccess();
         }
     }
 
     @Override
     protected void onSuccess() {
-        popup.show(PopupType.POSITIVE);
+        popup.show(PopupType.POSITIVE_ANIMATION);
     }
 
     @Override
     protected void onFail() {
-        popup.show(PopupType.NEGATIVE);
+        popup.show(PopupType.NEGATIVE_ANIMATION);
     }
 
     private final class DragDropItemTouchListener implements View.OnTouchListener {

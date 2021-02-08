@@ -53,7 +53,7 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        popup = new Popup(this);
+        popup = new Popup(this, treeId);
         popup.setButtonSecondary(true);
         popup.setButtonAcceptText(getString(R.string.popup_btn_finished));
         popup.setButtonSecondaryText(getString(R.string.popup_btn_wiki));
