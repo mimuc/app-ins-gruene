@@ -3,8 +3,95 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/sky_blue_gradient">
+    android:layout_height="match_parent">
+
+    <ViewFlipper
+        android:id="@+id/viewFlipperPuzzle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/sky_blue_gradient">
+
+            <TextView
+                android:id="@+id/select_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/freude"
+                android:scaleType="fitCenter"
+                android:text="@string/slidepuzzle_select_image_text"
+                android:textAlignment="center"
+                android:textColor="@color/asphalt"
+                android:textSize="@dimen/heading1"
+                app:layout_constraintBottom_toTopOf="@+id/btn_male"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="0dp" />
+
+
+            <ImageButton
+                android:id="@+id/btn_male"
+                style="@style/AppTheme.Button"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:clickable="true"
+                android:contentDescription="@string/button_singleplayer_mode_description"
+                android:focusable="true"
+                android:padding="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sb_bluete_foto_buche_m"
+                android:text="@string/puzzle_difficulty_easy"
+                app:layout_constraintBottom_toTopOf="@+id/btn_female"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/select_image" />
+
+            <TextView
+                android:id="@+id/textView_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/blossom_male"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/btn_male"
+                app:layout_constraintStart_toStartOf="@+id/btn_male"
+                app:layout_constraintTop_toBottomOf="@+id/btn_male" />
+
+            <ImageButton
+                android:id="@+id/btn_female"
+                style="@style/AppTheme.Button"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:clickable="true"
+                android:contentDescription="@string/button_multiplayer_mode_description"
+                android:focusable="true"
+                android:padding="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sb_bluete_foto_buche_w"
+                android:text="@string/puzzle_difficulty_medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_male" />
+
+            <TextView
+                android:id="@+id/textView_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/blossom_female"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="@+id/btn_female"
+                app:layout_constraintStart_toStartOf="@+id/btn_female"
+                app:layout_constraintTop_toBottomOf="@+id/btn_female" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/sky_blue_gradient">
 
     <TextView
         android:id="@+id/textView"
@@ -36,5 +123,7 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="110dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ViewFlipper>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

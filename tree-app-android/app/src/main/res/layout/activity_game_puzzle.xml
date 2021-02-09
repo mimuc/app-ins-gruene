@@ -29,13 +29,13 @@
                 android:textAlignment="center"
                 android:textColor="@color/asphalt"
                 android:textSize="@dimen/heading1"
-                app:layout_constraintBottom_toTopOf="@+id/btn_easy"
+                app:layout_constraintBottom_toTopOf="@+id/btn_male"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="0dp" />
 
 
             <ImageButton
-                android:id="@+id/btn_easy"
+                android:id="@+id/btn_male"
                 style="@style/AppTheme.Button"
                 android:layout_width="250dp"
                 android:layout_height="80dp"
@@ -46,24 +46,24 @@
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_bird"
                 android:text="@string/puzzle_difficulty_easy"
-                app:layout_constraintBottom_toBottomOf="@+id/btn_medium"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_female"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView_easy"
+                android:id="@+id/textView_male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puzzle_difficulty_easy"
                 android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="@+id/btn_easy"
-                app:layout_constraintStart_toStartOf="@+id/btn_easy"
-                app:layout_constraintTop_toBottomOf="@+id/btn_easy" />
+                app:layout_constraintEnd_toEndOf="@+id/btn_male"
+                app:layout_constraintStart_toStartOf="@+id/btn_male"
+                app:layout_constraintTop_toBottomOf="@+id/btn_male" />
 
             <ImageButton
-                android:id="@+id/btn_medium"
+                android:id="@+id/btn_female"
                 style="@style/AppTheme.Button"
                 android:layout_width="250dp"
                 android:layout_height="80dp"
@@ -78,18 +78,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/btn_easy" />
+                app:layout_constraintTop_toTopOf="@+id/btn_male" />
 
             <TextView
-                android:id="@+id/textView_mediun"
+                android:id="@+id/textView_female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/puzzle_difficulty_medium"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="@+id/btn_medium"
-                app:layout_constraintStart_toStartOf="@+id/btn_medium"
-                app:layout_constraintTop_toBottomOf="@+id/btn_medium" />
+                app:layout_constraintEnd_toEndOf="@+id/btn_female"
+                app:layout_constraintStart_toStartOf="@+id/btn_female"
+                app:layout_constraintTop_toBottomOf="@+id/btn_female" />
 
 
             <ImageButton
@@ -108,7 +108,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/btn_medium" />
+                app:layout_constraintTop_toTopOf="@+id/btn_female" />
 
             <TextView
                 android:id="@+id/textView_hard"

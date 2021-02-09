@@ -135,7 +135,8 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
                     gameActivityClass = GameActivity_Description.class;
                     break;
                 case CatchFruits:
-                    gameActivityClass = GameActivity_CatchFruits.class;
+                    //TEST
+                    gameActivityClass = GameActivity_PicturePuzzle.class;
                     break;
                 case SlidePuzzle:
                     gameActivityClass = GameActivity_PicturePuzzle.class;

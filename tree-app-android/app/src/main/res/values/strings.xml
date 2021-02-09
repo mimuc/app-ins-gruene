@@ -147,6 +147,10 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="puzzle_difficulty_hard">Ich mag eine Herausforderung</string>
     <string name="puzzle_difficulty_medium">Ganz normal</string>
 
+    <string name="slidepuzzle_select_image_text">Welches Bild möchtest du lösen?</string>
+    <string name="blossom_male">Männliche Blüte</string>
+    <string name="blossom_female">Weibliche Blüte</string>
+
     <string name="leaf_icon">Leaf Icon</string>
     <string name="heart_icon">Heart Icon</string>
 

@@ -51,8 +51,8 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
         viewFlipper.setInAnimation(this, R.anim.fragment_fade_enter);
         viewFlipper.setOutAnimation(this, R.anim.fragment_fade_exit);
 
-        ImageButton btnEasy = findViewById(R.id.btn_easy);
-        ImageButton btnMedium = findViewById(R.id.btn_medium);
+        ImageButton btnEasy = findViewById(R.id.btn_male);
+        ImageButton btnMedium = findViewById(R.id.btn_female);
         ImageButton btnHard = findViewById(R.id.btn_hard);
 
         btnEasy.setOnClickListener(v -> {
