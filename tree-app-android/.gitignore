@@ -90,3 +90,4 @@ lint/tmp/
 
 # OS generated files
 .DS_Store
+.fuse_hidden*

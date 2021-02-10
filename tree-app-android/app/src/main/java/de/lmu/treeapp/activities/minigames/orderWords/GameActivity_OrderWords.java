@@ -47,7 +47,7 @@ public class GameActivity_OrderWords extends GameActivity_Base implements Recycl
         super.onCreate(savedInstanceState);
         orderWordsGame = (GameOrderWordsRelations) gameContent;
         popupWindow = new Dialog(this);
-        popup = new Popup(this);
+        popup = new Popup(this, treeId);
         popup.setWinTitle(getString(R.string.popup_quiz_positive_title));
         popup.setLooseTitle(getString(R.string.popup_negative_title_close));
 
@@ -104,9 +104,9 @@ public class GameActivity_OrderWords extends GameActivity_Base implements Recycl
         sendButton.setOnClickListener(view -> {
             boolean isCorrect = checkCorrectness();
             if (isCorrect) {
-                popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.popup_btn_finished), correctString);
+                popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), correctString);
             } else {
-                popup.showWithButtonText(PopupType.NEGATIVE, getString(R.string.popup_btn_continue), getString(R.string.popup_orderWords_negative_text));
+                popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_btn_continue), getString(R.string.popup_orderWords_negative_text));
             }
         });
     }
@@ -176,7 +176,7 @@ public class GameActivity_OrderWords extends GameActivity_Base implements Recycl
 
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
-        if(type != PopupType.NEGATIVE) {
+        if (type != PopupType.NEGATIVE && type != PopupType.NEGATIVE_ANIMATION) {
             onSuccess();
         }
     }

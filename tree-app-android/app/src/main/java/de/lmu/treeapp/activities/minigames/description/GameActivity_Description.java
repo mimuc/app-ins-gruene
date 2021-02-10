@@ -52,7 +52,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
 
         descriptionGame = (GameDescriptionRelations) gameContent;
         popupWindow = new Dialog(this);
-        popup = new Popup(this);
+        popup = new Popup(this, treeId);
         popup.setWinTitle(getString(R.string.popup_quiz_positive_title));
         popup.setLooseTitle(getString(R.string.popup_negative_title_close));
         popup.setNeutralTitle(getString(R.string.game_description_start_screen_short));
@@ -110,9 +110,9 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
         sendButton.setOnClickListener(view -> {
             boolean isCorrect = checkCorrectness();
             if (isCorrect) {
-                popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.popup_btn_finished), correctString);
+                popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), correctString);
             } else {
-                popup.showWithButtonText(PopupType.NEGATIVE, getString(R.string.popup_btn_continue), getString(R.string.popup_orderWords_negative_text));
+                popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_btn_continue), getString(R.string.popup_orderWords_negative_text));
             }
         });
     }
@@ -142,7 +142,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
             }
 
         }
-        correctString = getString(R.string.descriptionGame_you_selected) + TextUtils.join(", ", correctStrings);
+        correctString = getString(R.string.game_description_you_selected) + TextUtils.join(", ", correctStrings);
 
         return isCorrect && selectedSomething;
     }
@@ -163,7 +163,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
 
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
-        if (type == PopupType.POSITIVE) {
+        if (type == PopupType.POSITIVE || type == PopupType.POSITIVE_ANIMATION) {
             onSuccess();
         }
     }
