@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.method.ScrollingMovementMethod;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -18,12 +19,14 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateDescription;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateInputString;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
 
 import java.io.File;
 import java.util.List;
 
-public class GalleryView extends LinearLayout {
+public class MyStuffView extends LinearLayout {
 
     private final TextView pageTitle;
     private final ConstraintLayout lockedLayout;
@@ -37,20 +40,28 @@ public class GalleryView extends LinearLayout {
     private final ImageView noImage2;
     private final ImageView noImage3;
     private final ImageView noImage4;
+    private final ConstraintLayout layout1;
+    private final ConstraintLayout layout2;
+    private final ConstraintLayout layout3;
+    private final ConstraintLayout layout4;
     private final LinearLayout myStuff;
+    private final ConstraintLayout ideasLayout;
+    private final TextView textCloud1;
+    private final TextView textCloud2;
+    private boolean locked;
 
     private final ConstraintLayout popupLayout;
     private final ImageView pictureBig;
 
-    public GalleryView(Context context) {
+    public MyStuffView(Context context) {
         super(context);
     }
 
-    public GalleryView(Context context, AttributeSet attrs) {
+    public MyStuffView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public GalleryView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public MyStuffView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -59,11 +70,11 @@ public class GalleryView extends LinearLayout {
 
         setOrientation(VERTICAL);
         setGravity(Gravity.CENTER_HORIZONTAL);
-        inflate(getContext(), R.layout.view_gallery, this);
+        inflate(getContext(), R.layout.view_my_stuff, this);
 
         pageTitle = findViewById(R.id.page_title);
         lockedLayout = findViewById(R.id.locked_layout);
-        lockedPicture = findViewById(R.id.gallery_locked);
+        lockedPicture = findViewById(R.id.my_stuff_locked);
         noPictureText = findViewById(R.id.noPicture_text);
         takenTreePicture1 = findViewById(R.id.tree_image_1);
         takenTreePicture2 = findViewById(R.id.tree_image_2);
@@ -73,7 +84,14 @@ public class GalleryView extends LinearLayout {
         noImage2 = findViewById(R.id.noImage2);
         noImage3 = findViewById(R.id.noImage3);
         noImage4 = findViewById(R.id.noImage4);
-        myStuff = findViewById(R.id.linearLayoutmyStuff);
+        layout1 = findViewById(R.id.layout1);
+        layout2 = findViewById(R.id.layout2);
+        layout3 = findViewById(R.id.layout3);
+        layout4 = findViewById(R.id.layout4);
+        myStuff = findViewById(R.id.linearLayoutMyStuff);
+        ideasLayout = findViewById(R.id.ideas_layout);
+        textCloud1 = findViewById(R.id.text_cloud1);
+        textCloud2 = findViewById(R.id.text_cloud2);
 
         popupLayout = findViewById(R.id.popup_layout);
         pictureBig = findViewById(R.id.picture_big);
@@ -89,11 +107,45 @@ public class GalleryView extends LinearLayout {
         super.onDraw(canvas);
     }
 
-    public void setGallery(List<GameStateTakePictureImage> takenPictureImages) {
-        //TODO: Pop-up für Reime und Adjektive, wenn man auf "Meine Ideen" klickt.
-        pageTitle.setText(R.string.wanted_poster_gallery);
-        if (takenPictureImages.size() != 0) {
+    private void closeIdeas() {
+        setVisibility(View.VISIBLE, lockedLayout, layout1, layout2, layout3, layout4);
+        setVisibility(View.GONE, ideasLayout);
+    }
 
+    public void setMyStuff(Context context, int treeId,
+                           List<GameStateTakePictureImage> takenPictureImages,
+                           List<GameStateInputString> treeInputStrings,
+                           List<GameStateDescription> treeDescriptions) {
+        pageTitle.setText(R.string.wanted_poster_my_stuff);
+        myStuff.setOnClickListener(view -> {
+            setVisibility(View.GONE, lockedLayout, layout1, layout2, layout3, layout4);
+            setVisibility(View.VISIBLE, ideasLayout);
+            if (treeInputStrings.size() != 0) {
+                for (GameStateInputString inputString : treeInputStrings) {
+                    if (inputString.treeId == treeId) {
+                        // context is required because otherwise the string is only displayed as an integer
+                        String rhymeDesc = context.getResources().getString(R.string.wanted_poster_rhyme_cloud)
+                                + inputString.inputString;
+                        textCloud1.setText(rhymeDesc);
+                    }
+                }
+                for (GameStateDescription treeDescription : treeDescriptions) {
+                    if (treeDescription.treeId == treeId) {
+                        String treeDesc = context.getResources().getString(R.string.wanted_poster_tree_description)
+                                + treeDescription.description;
+                        textCloud2.setText(treeDesc);
+                    }
+                }
+            }
+            ideasLayout.setOnClickListener(close -> closeIdeas());
+            textCloud1.setOnClickListener(close -> closeIdeas());
+            textCloud2.setOnClickListener(close -> closeIdeas());
+        });
+        textCloud1.setMovementMethod(new ScrollingMovementMethod());
+        textCloud2.setMovementMethod(new ScrollingMovementMethod());
+
+        if (takenPictureImages.size() != 0) {
+            locked = false;
             setVisibility(View.GONE, lockedLayout, noPictureText, lockedPicture);
             noImage1.setImageResource(R.drawable.sb_nopictures);
             noImage2.setImageResource(R.drawable.sb_nopictures);
@@ -179,6 +231,7 @@ public class GalleryView extends LinearLayout {
         } else {
             setVisibility(View.VISIBLE, lockedLayout, noPictureText, lockedPicture);
             lockedPicture.setImageResource(R.drawable.sb_nopictures);
+            locked = true;
         }
     }
 
@@ -188,13 +241,19 @@ public class GalleryView extends LinearLayout {
         }
     }
 
-    public void resetGalleryView() {
+    public void resetMyStuffView() {
         Handler handler = new Handler(Looper.getMainLooper());
         handler.postDelayed(() -> {
             // Wait until click is performed
-            setVisibility(View.VISIBLE, takenTreePicture1, takenTreePicture2,
-                    takenTreePicture3, takenTreePicture4, myStuff);
-            popupLayout.setVisibility(View.GONE);
+            if (locked) {
+                setVisibility(View.VISIBLE, lockedLayout, noPictureText, lockedPicture);
+                lockedPicture.setImageResource(R.drawable.sb_nopictures);
+            } else {
+                setVisibility(View.VISIBLE, takenTreePicture1, takenTreePicture2,
+                        takenTreePicture3, takenTreePicture4);
+            }
+            setVisibility(View.VISIBLE, myStuff, layout1, layout2, layout3, layout4);
+            setVisibility(View.GONE, popupLayout, ideasLayout);
         }, 1500);
 
     }

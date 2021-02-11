@@ -162,8 +162,13 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <!-- Wanted poster-->
     <string name="wanted_poster_description">Klicke doch mal auf die Lupen, um mehr zu erfahren!</string>
     <string name="wanted_poster_no_taken_pictures">Du hast noch keine Fotos gemacht. Schau doch mal bei den Minispielen vorbei!</string>
-    <string name="wanted_poster_gallery">Gallerie</string>
     <string name="wanted_poster_details_title_text">Steckbrief</string>
+    <string name="wanted_poster_my_stuff">Meine Sammlung</string>
+    <string name="wanted_poster_my_ideas">Meine Ideen</string>
+    <string name="wanted_poster_no_rhyme">Du hast dir noch keinen Reim überlegt. Schau doch mal zu den Minispielen!</string>
+    <string name="wanted_poster_no_adjectives">Hier ist es noch ziemlich leer. Schau doch mal bei den Minispielen vorbei!</string>
+    <string name="wanted_poster_rhyme_cloud">Mein Reim: \n</string>
+    <string name="wanted_poster_tree_description">Die Rinde fühlt sich an: \n</string>
 
     <!-- Camera / QR Code -->
     <string name="no_barcode_captured">No barcode captured</string>
