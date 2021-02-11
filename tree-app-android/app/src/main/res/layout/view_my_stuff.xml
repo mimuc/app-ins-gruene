@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" android:id="@+id/locked_layout"
                 app:layout_constraintTop_toBottomOf="@id/page_title"
-                app:layout_constraintBottom_toTopOf="@id/linearLayoutmyStuff"
+                app:layout_constraintBottom_toTopOf="@id/linearLayoutMyStuff"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
                 tools:visibility="gone">
 
@@ -26,7 +26,7 @@
                     android:layout_height="wrap_content" android:id="@+id/guideline4"
                     app:layout_constraintGuide_percent="0.75"/>
             <ImageView
-                    android:id="@+id/gallery_locked"
+                    android:id="@+id/my_stuff_locked"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     tools:ignore="ContentDescription"
@@ -40,7 +40,7 @@
                     android:text="@string/wanted_poster_no_taken_pictures"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" android:id="@+id/noPicture_text"
-                    app:layout_constraintTop_toBottomOf="@id/gallery_locked"
+                    app:layout_constraintTop_toBottomOf="@id/my_stuff_locked"
                     app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="32dp" android:layout_marginEnd="32dp"
                     app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="16dp"
@@ -144,7 +144,7 @@
                 app:layout_constraintTop_toBottomOf="@id/layout1" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/guideline2" android:layout_marginTop="6dp"
                 android:layout_marginStart="12dp" android:layout_marginEnd="6dp"
-                app:layout_constraintBottom_toTopOf="@id/linearLayoutmyStuff" android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@id/linearLayoutMyStuff" android:layout_marginBottom="16dp"
                 app:layout_constrainedHeight="true" app:layout_constrainedWidth="true">
             <ImageView
                     android:id="@+id/tree_image_3"
@@ -177,7 +177,7 @@
                 app:layout_constraintTop_toBottomOf="@id/layout2"
                 app:layout_constraintStart_toStartOf="@id/guideline2" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="6dp" android:layout_marginTop="6dp" android:layout_marginEnd="12dp"
-                app:layout_constraintBottom_toTopOf="@id/linearLayoutmyStuff" android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@id/linearLayoutMyStuff" android:layout_marginBottom="16dp"
                 app:layout_constrainedHeight="true" app:layout_constrainedWidth="true">
             <ImageView
                     android:id="@+id/tree_image_4"
@@ -206,7 +206,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
-                android:id="@+id/linearLayoutmyStuff"
+                android:id="@+id/linearLayoutMyStuff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -219,8 +219,21 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layout3">
+        >
 
+            <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="7dp"
+                    android:fadeScrollbars="false"
+                    android:fontFamily="@font/freude"
+                    android:gravity="start|center_horizontal"
+                android:text="@string/wanted_poster_my_ideas"
+                android:textColor="#FFFFFF"
+                    android:translationZ="1dp"
+                    app:lineHeight="@dimen/wanted_poster_text_spacing"/>
         </LinearLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/popup_layout"
@@ -264,8 +277,97 @@
                         tools:src="@drawable/sb_bluete_foto_ahorn" app:layout_constraintBottom_toBottomOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ideas_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:translationZ="6dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/page_title" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="12dp" app:layout_constraintBottom_toTopOf="@id/linearLayoutMyStuff"
+                android:layout_marginBottom="8dp">
 
-
+            <androidx.constraintlayout.widget.Guideline
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/guidelineClouds"
+                    app:layout_constraintGuide_percent="0.5"/>
+            <androidx.constraintlayout.widget.Guideline
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/guidelineCloud1"
+                    app:layout_constraintGuide_percent="0.8"/>
+            <androidx.constraintlayout.widget.Guideline
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/guidelineCloud2"
+                    app:layout_constraintGuide_percent="0.2"/>
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" app:srcCompat="@drawable/sb_cloud"
+                    android:id="@+id/cloud1" app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineCloud1"
+                    app:layout_constraintBottom_toBottomOf="@id/guidelineClouds" android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"/>
+            <TextView
+                android:text="@string/wanted_poster_no_rhyme"
+                android:layout_width="0dp"
+                    android:layout_height="0dp" android:id="@+id/text_cloud1"
+                    app:layout_constraintTop_toTopOf="@id/cloud1" app:layout_constraintEnd_toEndOf="@+id/cloud1"
+                    app:layout_constraintStart_toStartOf="@id/cloud1"
+                    app:layout_constraintBottom_toBottomOf="@+id/cloud1" android:textColor="#ffffff"
+                    android:layout_marginStart="46dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="46dp"
+                    android:layout_marginBottom="42dp"
+                    android:fadeScrollbars="false"
+                    android:fontFamily="@font/freude"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="10dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollbarThumbVertical="@android:color/white"
+                    android:scrollbars="vertical"
+                    android:translationZ="2dp"
+                    app:lineHeight="@dimen/wanted_poster_text_spacing"
+                    android:gravity="center_horizontal|center_vertical"/>
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" app:srcCompat="@drawable/sb_cloud"
+                    android:id="@+id/cloud2" app:layout_constraintTop_toTopOf="@id/guidelineClouds"
+                    tools:ignore="ContentDescription"
+                    app:layout_constraintStart_toStartOf="@id/guidelineCloud2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"/>
+            <TextView
+                android:text="@string/wanted_poster_no_adjectives"
+                android:layout_width="0dp"
+                    android:layout_height="0dp" android:id="@+id/text_cloud2"
+                    app:layout_constraintTop_toTopOf="@id/cloud2" app:layout_constraintEnd_toEndOf="@+id/cloud2"
+                    app:layout_constraintStart_toStartOf="@id/cloud2"
+                    app:layout_constraintBottom_toBottomOf="@+id/cloud2" android:textColor="#ffffff"
+                    android:layout_marginStart="46dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="46dp"
+                    android:layout_marginBottom="42dp"
+                    android:fadeScrollbars="false"
+                    android:fontFamily="@font/freude"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="10dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollbarThumbVertical="@android:color/white"
+                    android:scrollbars="vertical"
+                    android:translationZ="2dp"
+                    app:lineHeight="@dimen/wanted_poster_text_spacing"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </merge>
