@@ -136,6 +136,7 @@ public class DetailSingleTreeFragment extends Fragment {
         treeProfileButton.setOnClickListener(view -> {
             Intent intent = new Intent(getContext(), WantedPosterTreeActivity.class);
             intent.putExtra("TreeId", tree.getId());
+            intent.putExtra("TabId", 1);
             startActivity(intent);
         });
         leafButton.setOnClickListener(this.getCategoryButtonOnClickListener(Tree.GameCategories.leaf));
