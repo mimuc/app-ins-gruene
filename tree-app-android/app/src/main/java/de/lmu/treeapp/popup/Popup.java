@@ -303,6 +303,12 @@ public class Popup {
         show(type, message, null);
     }
 
+    public void showWithButtonText(PopupType type, String buttonTextPositive, String buttonTextWantedPoster,String message) {
+        setButtonAcceptText(buttonTextPositive);
+        setButtonSecondaryText(buttonTextWantedPoster);
+        show(type, message, null);
+    }
+
     /**
      * Positive / negative popup with default message and default button text
      *
