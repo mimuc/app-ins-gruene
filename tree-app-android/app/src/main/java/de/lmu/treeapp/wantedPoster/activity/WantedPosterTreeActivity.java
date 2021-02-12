@@ -100,7 +100,7 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
         treeCategoryPicker.setAdapter(new WantedPosterTreeAdapter(treeWantedPosterIcons));
         treeCategoryPicker.addOnItemChangedListener(this);
         treeCategoryPicker.addScrollStateChangeListener(this);
-        treeCategoryPicker.scrollToPosition(1);
+        treeCategoryPicker.scrollToPosition(Objects.requireNonNull(getIntent().getExtras()).getInt("TabId"));
         treeCategoryPicker.setItemTransformer(new ScaleTransformer.Builder()
                 .setMinScale(0.6f).setMaxScale(1.1f)
                 .build());
