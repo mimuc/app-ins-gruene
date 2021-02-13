@@ -1,4 +1,4 @@
-package de.lmu.treeapp.activities.minigames.picturePuzzle;
+package de.lmu.treeapp.activities.minigames.slidePuzzle;
 
 import java.util.ArrayList;
 import java.util.List;

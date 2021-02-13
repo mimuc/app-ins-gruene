@@ -44,7 +44,7 @@
                 android:value="activities.MainActivity" />
         </activity>
         <activity
-            android:name=".activities.minigames.picturePuzzle.GameActivity_PicturePuzzle"
+            android:name=".activities.minigames.slidePuzzle.GameActivity_SlidePuzzle"
             android:parentActivityName="activities.GameSelectionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

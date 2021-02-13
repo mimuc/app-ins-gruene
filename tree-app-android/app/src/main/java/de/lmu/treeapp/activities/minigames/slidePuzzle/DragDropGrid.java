@@ -1,4 +1,4 @@
-package de.lmu.treeapp.activities.minigames.picturePuzzle;
+package de.lmu.treeapp.activities.minigames.slidePuzzle;
 
 import android.content.Context;
 import android.graphics.Matrix;

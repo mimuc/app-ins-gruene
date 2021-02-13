@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ViewFlipper
-        android:id="@+id/viewFlipperPuzzle"
+        android:id="@+id/viewFlipperSlidePuzzle"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,7 +35,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:clickable="true"
-                android:contentDescription="@string/button_singleplayer_mode_description"
+                android:contentDescription="@string/blossom_male"
                 android:focusable="true"
                 android:padding="5dp"
                 android:scaleType="centerCrop"
@@ -63,7 +63,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:clickable="true"
-                android:contentDescription="@string/button_multiplayer_mode_description"
+                android:contentDescription="@string/blossom_female"
                 android:focusable="true"
                 android:padding="5dp"
                 android:scaleType="centerCrop"
@@ -114,12 +114,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.42000002">
 
-        <de.lmu.treeapp.activities.minigames.picturePuzzle.DragDropGrid
+        <de.lmu.treeapp.activities.minigames.slidePuzzle.DragDropGrid
             android:id="@+id/grid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            tools:context="de.lmu.treeapp.activities.minigames.picturePuzzle.MainActivity"
+            tools:context="de.lmu.treeapp.activities.minigames.slidePuzzle.MainActivity"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="110dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>

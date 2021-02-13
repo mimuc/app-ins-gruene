@@ -23,7 +23,7 @@ import de.lmu.treeapp.activities.minigames.dragDrop.GameActivity_DragDrop;
 import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
 import de.lmu.treeapp.activities.minigames.onlyDescription.GameActivity_OnlyDescription;
 import de.lmu.treeapp.activities.minigames.orderWords.GameActivity_OrderWords;
-import de.lmu.treeapp.activities.minigames.picturePuzzle.GameActivity_PicturePuzzle;
+import de.lmu.treeapp.activities.minigames.slidePuzzle.GameActivity_SlidePuzzle;
 import de.lmu.treeapp.activities.minigames.puzzle.GameActivity_Puzzle;
 import de.lmu.treeapp.activities.minigames.takePicture.GameActivity_TakePicture;
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
@@ -135,11 +135,10 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
                     gameActivityClass = GameActivity_Description.class;
                     break;
                 case CatchFruits:
-                    //TEST
-                    gameActivityClass = GameActivity_PicturePuzzle.class;
+                    gameActivityClass = GameActivity_CatchFruits.class;
                     break;
                 case SlidePuzzle:
-                    gameActivityClass = GameActivity_PicturePuzzle.class;
+                    gameActivityClass = GameActivity_SlidePuzzle.class;
                     break;
                 default:
                     break;
