@@ -96,6 +96,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     public void showTreeProfile() {
         Intent intent = new Intent(getApplicationContext(), WantedPosterTreeActivity.class);
         intent.putExtra("TreeId", treeId);
+        intent.putExtra("TabId", 0);
         startActivity(intent);
         finish();
     }

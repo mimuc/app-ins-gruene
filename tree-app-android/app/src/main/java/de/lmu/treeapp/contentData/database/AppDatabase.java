@@ -7,10 +7,14 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
+import de.lmu.treeapp.contentData.database.daos.app.GameStateDescriptionDao;
+import de.lmu.treeapp.contentData.database.daos.app.GameStateInputStringDao;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateScoresDao;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateTakePictureDao;
 import de.lmu.treeapp.contentData.database.daos.app.PlayerDao;
 import de.lmu.treeapp.contentData.database.daos.app.TreeDao;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateDescription;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateInputString;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateScore;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
 import de.lmu.treeapp.contentData.database.entities.app.PlayerState;
@@ -23,7 +27,9 @@ import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
         TreeState.class,
         TreeProfileState.class,
         PlayerState.class,
-        GameStateScore.class
+        GameStateScore.class,
+        GameStateInputString.class,
+        GameStateDescription.class
 }, version = 1, exportSchema = false)
 @TypeConverters({TypeConversion.class})
 public abstract class AppDatabase extends RoomDatabase {
@@ -51,5 +57,9 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract GameStateTakePictureDao gameTakePictureDao();
 
     public abstract GameStateScoresDao gameStateScoresDao();
+
+    public abstract GameStateInputStringDao gameStateInputStringDao();
+
+    public abstract GameStateDescriptionDao gameStateDescriptionDao();
 }
 

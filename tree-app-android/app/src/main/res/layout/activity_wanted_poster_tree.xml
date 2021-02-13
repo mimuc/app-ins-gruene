@@ -66,8 +66,8 @@
                 android:scaleType="centerInside"
                 android:translationZ="1dp" />
 
-            <de.lmu.treeapp.wantedPoster.view.GalleryView
-                android:id="@+id/gallery_view"
+            <de.lmu.treeapp.wantedPoster.view.MyStuffView
+                android:id="@+id/my_stuff_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"

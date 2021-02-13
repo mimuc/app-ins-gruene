@@ -1,7 +1,6 @@
 package de.lmu.treeapp.wantedPoster.activity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -25,7 +24,7 @@ import de.lmu.treeapp.wantedPoster.adapter.WantedPosterTreeAdapter;
 import de.lmu.treeapp.wantedPoster.view.AgeInfoView;
 import de.lmu.treeapp.wantedPoster.view.BlossomInfoView;
 import de.lmu.treeapp.wantedPoster.view.FunFactView;
-import de.lmu.treeapp.wantedPoster.view.GalleryView;
+import de.lmu.treeapp.wantedPoster.view.MyStuffView;
 import de.lmu.treeapp.wantedPoster.view.HeightInfoView;
 import de.lmu.treeapp.wantedPoster.view.LeafFruitBarkInfoView;
 import de.lmu.treeapp.wantedPoster.view.LifecycleInfoView;
@@ -38,6 +37,7 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
 
     private WantedPosterTextList wantedPosterTextList;
 
+    private MyStuffView myStuffView;
     private TreeDetailInfoView treeDetailInfoView;
     private HeightInfoView heightInfoView;
     private AgeInfoView ageInfoView;
@@ -45,7 +45,6 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
     private BlossomInfoView blossomInfoView;
     private FunFactView funFactView;
     private LifecycleInfoView lifecycleInfoView;
-    private GalleryView galleryView;
     private TreeVideoView treeVideoView;
     private final List<String> imageStrings = new ArrayList<String>();
     private Integer buttonInactiveId, questionMarkInactiveId, cameraInactiveId;
@@ -69,6 +68,7 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
             getSupportActionBar().setTitle(title);
         }
 
+        myStuffView = findViewById(R.id.my_stuff_view);
         treeDetailInfoView = findViewById(R.id.tree_detail_info_view);
         heightInfoView = findViewById(R.id.height_info_view);
         ageInfoView = findViewById(R.id.age_info_view);
@@ -76,13 +76,13 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
         blossomInfoView = findViewById(R.id.blossom_info_view);
         funFactView = findViewById(R.id.fun_fact_view);
         lifecycleInfoView = findViewById(R.id.lifecycle_info_view);
-        galleryView = findViewById(R.id.gallery_view);
         treeVideoView = findViewById(R.id.video_view);
 
         for (int i = 0; i < tree.contentData.images.size(); i++) {
             imageStrings.add(tree.contentData.images.get(i).imageResource);
         }
         List<Integer> treeWantedPosterIcons = Arrays.asList(
+                R.drawable.sb_icon_my_stuff,
                 getApplicationContext().getResources().getIdentifier(imageStrings.get(0),
                         "drawable", getApplicationContext().getPackageName()),
                 R.drawable.sb_icon_hoehe, R.drawable.sb_icon_alter,
@@ -93,14 +93,14 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
                 getApplicationContext().getResources().getIdentifier(imageStrings.get(3),
                         "drawable", getApplicationContext().getPackageName()),
                 R.drawable.sb_icon_bluete, R.drawable.sb_icon_funfact, R.drawable.sb_icon_zyklus,
-                R.drawable.sb_icon_galerie, R.drawable.sb_icon_video);
+                R.drawable.sb_icon_video);
 
         DiscreteScrollView treeCategoryPicker = findViewById(R.id.tree_category_picker);
         treeCategoryPicker.setSlideOnFling(true);
         treeCategoryPicker.setAdapter(new WantedPosterTreeAdapter(treeWantedPosterIcons));
         treeCategoryPicker.addOnItemChangedListener(this);
         treeCategoryPicker.addScrollStateChangeListener(this);
-        treeCategoryPicker.scrollToPosition(0);
+        treeCategoryPicker.scrollToPosition(Objects.requireNonNull(getIntent().getExtras()).getInt("TabId"));
         treeCategoryPicker.setItemTransformer(new ScaleTransformer.Builder()
                 .setMinScale(0.6f).setMaxScale(1.1f)
                 .build());
@@ -118,6 +118,8 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
         Integer cameraActiveId = getApplicationContext().getResources().getIdentifier(
                 "sb_icon_cameraclicked", "drawable", getApplicationContext().getPackageName());
 
+        myStuffView.setMyStuff(this, tree.getId(), tree.appData.takePictureImages,
+                tree.appData.treeInputStrings, tree.appData.treeDescriptions);
         treeDetailInfoView.setTreeDetailInfo(this, wantedPosterTextList.wantedPosters
                 , wantedPosterImageList.wantedPosterImages, buttonActiveId, buttonInactiveId);
         heightInfoView.setHeightInfo(this, wantedPosterTextList.wantedPosters,
@@ -136,12 +138,11 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
                 wantedPosterImageList.wantedPosterImages);
         lifecycleInfoView.setLifecycleInfo(this, wantedPosterTextList.wantedPosters,
                 wantedPosterImageList.wantedPosterImages);
-        galleryView.setGallery(tree.appData.takePictureImages);
         treeVideoView.setTreeVideo(this.getLifecycle(), wantedPosterTextList.wantedPosters);
 
         setVisibility(View.GONE, heightInfoView, ageInfoView,
                 leafFruitBarkInfoView, blossomInfoView, funFactView, lifecycleInfoView,
-                galleryView, treeVideoView);
+                myStuffView, treeVideoView);
     }
 
     @Override
@@ -150,78 +151,78 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
         if (holder != null) {
             switch (position) {
                 case 0:
-                    setVisibility(View.GONE, heightInfoView, ageInfoView,
+                    setVisibility(View.GONE, treeDetailInfoView, heightInfoView, ageInfoView,
                             leafFruitBarkInfoView, blossomInfoView, funFactView, lifecycleInfoView,
-                            galleryView, treeVideoView);
-                    treeDetailInfoView.setVisibility(View.VISIBLE);
+                            treeVideoView);
+                    myStuffView.setVisibility(View.VISIBLE);
                     break;
                 case 1:
-                    setVisibility(View.GONE, treeDetailInfoView, ageInfoView,
+                    setVisibility(View.GONE, heightInfoView, ageInfoView,
                             leafFruitBarkInfoView, blossomInfoView, funFactView, lifecycleInfoView,
-                            galleryView, treeVideoView);
-                    heightInfoView.setVisibility(View.VISIBLE);
+                            myStuffView, treeVideoView);
+                    treeDetailInfoView.setVisibility(View.VISIBLE);
                     break;
                 case 2:
-                    setVisibility(View.GONE, treeDetailInfoView, heightInfoView,
+                    setVisibility(View.GONE, treeDetailInfoView, ageInfoView,
                             leafFruitBarkInfoView, blossomInfoView, funFactView, lifecycleInfoView,
-                            galleryView, treeVideoView);
-                    ageInfoView.setVisibility(View.VISIBLE);
+                            myStuffView, treeVideoView);
+                    heightInfoView.setVisibility(View.VISIBLE);
                     break;
                 case 3:
+                    setVisibility(View.GONE, treeDetailInfoView, heightInfoView,
+                            leafFruitBarkInfoView, blossomInfoView, funFactView, lifecycleInfoView,
+                            myStuffView, treeVideoView);
+                    ageInfoView.setVisibility(View.VISIBLE);
+                    break;
+                case 4:
                     setVisibility(View.GONE, treeDetailInfoView, heightInfoView, ageInfoView,
-                            blossomInfoView, funFactView, lifecycleInfoView, galleryView,
+                            blossomInfoView, funFactView, lifecycleInfoView, myStuffView,
                             treeVideoView);
                     leafFruitBarkInfoView.setLeafInfo(wantedPosterTextList.wantedPosters,
                             getApplicationContext().getResources().getIdentifier(imageStrings.get(1),
                                     "drawable", getApplicationContext().getPackageName()));
                     leafFruitBarkInfoView.setVisibility(View.VISIBLE);
                     break;
-                case 4:
+                case 5:
                     setVisibility(View.GONE, treeDetailInfoView, heightInfoView, ageInfoView,
-                            blossomInfoView, funFactView, lifecycleInfoView, galleryView,
+                            blossomInfoView, funFactView, lifecycleInfoView, myStuffView,
                             treeVideoView);
                     leafFruitBarkInfoView.setFruitInfo(wantedPosterTextList.wantedPosters,
                             getApplicationContext().getResources().getIdentifier(imageStrings.get(2),
                                     "drawable", getApplicationContext().getPackageName()));
                     leafFruitBarkInfoView.setVisibility(View.VISIBLE);
                     break;
-                case 5:
+                case 6:
                     setVisibility(View.GONE, treeDetailInfoView, heightInfoView, ageInfoView,
-                            blossomInfoView, funFactView, lifecycleInfoView, galleryView,
+                            blossomInfoView, funFactView, lifecycleInfoView, myStuffView,
                             treeVideoView);
                     leafFruitBarkInfoView.setBarkInfo(wantedPosterTextList.wantedPosters,
                             getApplicationContext().getResources().getIdentifier(imageStrings.get(3),
                                     "drawable", getApplicationContext().getPackageName()));
                     leafFruitBarkInfoView.setVisibility(View.VISIBLE);
                     break;
-                case 6:
+                case 7:
                     setVisibility(View.GONE, treeDetailInfoView, heightInfoView, ageInfoView,
-                            leafFruitBarkInfoView, funFactView, lifecycleInfoView, galleryView,
+                            leafFruitBarkInfoView, funFactView, lifecycleInfoView, myStuffView,
                             treeVideoView);
                     blossomInfoView.setVisibility(View.VISIBLE);
                     break;
-                case 7:
+                case 8:
                     setVisibility(View.GONE, treeDetailInfoView, heightInfoView, ageInfoView,
-                            leafFruitBarkInfoView, blossomInfoView, lifecycleInfoView, galleryView,
+                            leafFruitBarkInfoView, blossomInfoView, lifecycleInfoView, myStuffView,
                             treeVideoView);
                     funFactView.setVisibility(View.VISIBLE);
                     break;
-                case 8:
-                    setVisibility(View.GONE, treeDetailInfoView, heightInfoView, ageInfoView,
-                            leafFruitBarkInfoView, blossomInfoView, funFactView, galleryView,
-                            treeVideoView);
-                    lifecycleInfoView.setVisibility(View.VISIBLE);
-                    break;
                 case 9:
                     setVisibility(View.GONE, treeDetailInfoView, heightInfoView, ageInfoView,
-                            leafFruitBarkInfoView, blossomInfoView, funFactView, lifecycleInfoView,
+                            leafFruitBarkInfoView, blossomInfoView, funFactView, myStuffView,
                             treeVideoView);
-                    galleryView.setVisibility(View.VISIBLE);
+                    lifecycleInfoView.setVisibility(View.VISIBLE);
                     break;
                 case 10:
                     setVisibility(View.GONE, treeDetailInfoView, heightInfoView, ageInfoView,
                             leafFruitBarkInfoView, blossomInfoView, funFactView, lifecycleInfoView,
-                            galleryView);
+                            myStuffView);
                     treeVideoView.setVisibility(View.VISIBLE);
                     break;
             }
@@ -243,7 +244,8 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onScrollEnd(@NonNull WantedPosterTreeAdapter.ViewHolder currentItemHolder, int adapterPosition) {
+    public void onScrollEnd(@NonNull WantedPosterTreeAdapter.ViewHolder currentItemHolder,
+                            int adapterPosition) {
     }
 
     @Override
@@ -254,22 +256,22 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
             @Nullable WantedPosterTreeAdapter.ViewHolder newHolder) {
         switch (currentIndex) {
             case 0:
-                treeDetailInfoView.resetTreeView(buttonInactiveId);
+                myStuffView.resetMyStuffView();
                 break;
             case 1:
-                heightInfoView.resetHeightView(buttonInactiveId);
+                treeDetailInfoView.resetTreeView(buttonInactiveId);
                 break;
             case 2:
+                heightInfoView.resetHeightView(buttonInactiveId);
+                break;
+            case 3:
                 ageInfoView.resetAgeView(buttonInactiveId, questionMarkInactiveId);
                 break;
-            case 6:
+            case 7:
                 blossomInfoView.resetBlossomView(buttonInactiveId, cameraInactiveId);
                 break;
-            case 8:
-                lifecycleInfoView.resetLifecycleInfoView();
-                break;
             case 9:
-                galleryView.resetGalleryView();
+                lifecycleInfoView.resetLifecycleInfoView();
                 break;
         }
     }
