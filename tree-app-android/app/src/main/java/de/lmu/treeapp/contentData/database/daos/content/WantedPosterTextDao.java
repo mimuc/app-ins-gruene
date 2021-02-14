@@ -11,7 +11,7 @@ import java.util.List;
 public interface WantedPosterTextDao {
 
     @Transaction
-    @Query("SELECT * FROM WantedPoster WHERE treeId=:treeId")
+    @Query("SELECT * FROM WantedPoster WHERE treeId = :treeId")
     List<WantedPoster> getTextsByTreeId(int treeId);
 }
 

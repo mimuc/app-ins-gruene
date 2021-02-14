@@ -8,17 +8,19 @@ import java.util.List;
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.trees.Tree;
-import de.lmu.treeapp.contentClasses.trees.TreeProfile;
 import de.lmu.treeapp.contentClasses.trees.WantedPosterImageList;
 import de.lmu.treeapp.contentClasses.trees.WantedPosterTextList;
 import de.lmu.treeapp.contentData.cms.ContentManager;
 import de.lmu.treeapp.contentData.database.AppDatabase;
-import de.lmu.treeapp.contentData.database.entities.app.GameStateScore;
+import de.lmu.treeapp.contentData.database.daos.app.AbstractGameStateDao;
+import de.lmu.treeapp.contentData.database.daos.app.PlayerStateDao;
+import de.lmu.treeapp.contentData.database.daos.app.TreeStateDao;
+import de.lmu.treeapp.contentData.database.entities.app.AbstractGameState;
 import de.lmu.treeapp.contentData.database.entities.app.PlayerState;
 import de.lmu.treeapp.contentData.database.entities.app.TreeState;
 import de.lmu.treeapp.contentData.database.entities.app.TreeStateRelations;
-import de.lmu.treeapp.contentData.database.entities.content.Tree_x_Game;
 import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
@@ -26,85 +28,77 @@ public class DataManager {
     private static DataManager INSTANCE;
     private Context context;
 
-    public Boolean loaded = false;
     public List<Tree> trees;
-    public List<TreeProfile> treeProfiles;
     public List<WantedPosterTextList> allWantedPosters;
     public List<WantedPosterImageList> allWantedPosterImages;
     public List<IGameBase> miniGames;
     public PlayerState player;
-    public List<Tree_x_Game> tree_x_games;
 
     public static DataManager getInstance(Context context) {
+        return DataManager.getInstanceAsync(context).blockingGet();
+    }
+
+    public static Single<DataManager> getInstanceAsync(Context context) {
         if (INSTANCE == null) {
             synchronized (DataManager.class) {
                 if (INSTANCE == null) { // double checked locking
                     DataManager dataManager = new DataManager();
                     dataManager.context = context;
-                    dataManager.init().subscribe();
-                    INSTANCE = dataManager;
+                    return dataManager.init().andThen(Completable.defer(() -> {
+                        INSTANCE = dataManager;
+                        return Completable.complete();
+                    })).andThen(Single.just(dataManager));
                 }
             }
         }
-        return INSTANCE;
+        return Single.just(INSTANCE);
     }
 
-
     private Completable init() {
-        return Completable.fromAction(() -> {
+        return ContentManager.getInstanceAsync(context).flatMapCompletable(contentManager -> {
+            List<Tree> CMS_trees = contentManager.getTrees();
+            List<WantedPosterTextList> CMS_allWantedPosters = contentManager.getAllWantedPosters();
+            List<WantedPosterImageList> CMS_allWantedPosterImages = contentManager.getAllWantedPosterImages();
+            List<IGameBase> CMS_miniGames = contentManager.getMinigames();
+
             // Saved Name
-            PlayerState DB_player = AppDatabase.getInstance(context).playerDao().get();
-            if (DB_player == null) {
-                DB_player = new PlayerState();
-                AppDatabase.getInstance(context).playerDao().insertOne(DB_player);
-            }
+            PlayerStateDao playerStateDao = AppDatabase.getInstance(context).playerStateDao();
+            TreeStateDao treeStateDao = AppDatabase.getInstance(context).treeStateDao();
 
-            List<Tree> CMS_trees = ContentManager.getInstance(context).getTrees();
-            List<TreeProfile> CMS_treeProfiles = ContentManager.getInstance(context).getTreeProfiles();
-            List<WantedPosterTextList> CMS_allWantedPosters = ContentManager.getInstance(context).getAllWantedPosters();
-            List<WantedPosterImageList> CMS_allWantedPosterImages = ContentManager.getInstance(context).getAllWantedPosterImages();
-            List<IGameBase> CMS_miniGames = ContentManager.getInstance(context).getMinigames();
-            List<Tree_x_Game> CMS_treexgames = ContentManager.getInstance(context).getTxg();
-            List<TreeStateRelations> DB_trees = AppDatabase.getInstance(context).treeDao().getAll();
-
-            for (int i = 0; i < CMS_trees.size(); i++) {
-                Tree cmsTree = CMS_trees.get(i);
-                boolean initByDB = false;
-                for (int j = 0; j < DB_trees.size(); j++) {
-                    TreeStateRelations dbTree = DB_trees.get(j);
-                    if (cmsTree.getId() == dbTree.treeState.id) {
-                        cmsTree.initAppData(dbTree);
-                        initByDB = true;
-                        break;
+            return playerStateDao.getFirst().onErrorResumeNext(s -> {
+                        PlayerState playerState = new PlayerState();
+                        return playerStateDao.insertOne(playerState).flatMap(id -> {
+                            playerState.id = id.intValue();
+                            return Single.just(playerState);
+                        });
                     }
-                }
-                if (!initByDB) {
-                    // Set volatile default values for every tree, if not done yet
-                    TreeState treeState = new TreeState(cmsTree.getId());
+            ).flatMapCompletable(playerState -> {
+                this.setData(CMS_trees, CMS_allWantedPosters, CMS_allWantedPosterImages, CMS_miniGames, playerState);
+
+                // Get or create treeStates
+                return Observable.fromIterable(CMS_trees).flatMap(tree -> treeStateDao.getById(tree.getId()).onErrorResumeNext((s -> {
+                    // Set volatile default values for tree, if not done yet
+                    TreeState treeState = new TreeState(tree.getId());
                     TreeStateRelations treeStateRelations = new TreeStateRelations(treeState);
-                    cmsTree.initAppData(treeStateRelations);
-                    AppDatabase.getInstance(context).treeDao().insertOne(treeState);
-                }
-            }
-            DataManager.getInstance(context).setData(CMS_trees, CMS_treeProfiles, CMS_allWantedPosters, CMS_allWantedPosterImages, CMS_miniGames, DB_player, CMS_treexgames);
+                    return treeStateDao.insertOne(treeState).flatMap(id -> Single.just(treeStateRelations));
+                })).flatMap(treeStateRelations -> {
+                    tree.initAppData(treeStateRelations);
+                    return Single.just(treeStateRelations);
+                }).toObservable()).ignoreElements();
+            });
         }).subscribeOn(Schedulers.io());
     }
 
     private void setData(List<Tree> trees,
-                         List<TreeProfile> treeProfiles,
                          List<WantedPosterTextList> allWantedPosters,
                          List<WantedPosterImageList> allWantedPosterImages,
                          List<IGameBase> minigames,
-                         PlayerState player,
-                         List<Tree_x_Game> tree_x_games) {
+                         PlayerState player) {
         this.trees = trees;
-        this.treeProfiles = treeProfiles;
         this.allWantedPosters = allWantedPosters;
         this.allWantedPosterImages = allWantedPosterImages;
         this.miniGames = minigames;
         this.player = player;
-        this.tree_x_games = tree_x_games;
-        this.loaded = true;
     }
 
     // Player-Stuff
@@ -114,7 +108,7 @@ public class DataManager {
 
     public Completable setPlayerName(String name) {
         player.name = name;
-        return AppDatabase.getInstance(context).playerDao().updateOne(player).subscribeOn(Schedulers.io());
+        return AppDatabase.getInstance(context).playerStateDao().updateOne(player).subscribeOn(Schedulers.io());
     }
 
     // Get something
@@ -127,29 +121,6 @@ public class DataManager {
         }
         return null;
     }
-
-    /***
-     * Return Score of Game by treeId and gameId
-     * ***/
-    public Single<GameStateScore> getOrCreateGameStateScore(int treeId, int gameId, Tree.GameCategories gameCategory) {
-        for (Tree_x_Game tree_x_game : tree_x_games) {
-            if (tree_x_game.gameId == gameId && tree_x_game.treeId == treeId && tree_x_game.gameCategory == gameCategory) {
-                return AppDatabase.getInstance(context).gameStateScoresDao().getById(tree_x_game.id)
-                        .onErrorResumeNext(s -> {
-                            // If score state didn't exist, create and return it with its id.
-                            GameStateScore gameStateScore = new GameStateScore(tree_x_game.id, 0);
-                            return insertGameState(gameStateScore).flatMap(id -> {
-                                gameStateScore.tree_x_gameId = id.intValue();
-                                return Single.just(gameStateScore);
-                            });
-                        })
-                        .subscribeOn(Schedulers.io());
-            }
-        }
-        // Game does not exist
-        return null;
-    }
-
 
     // Get next quiz game which is always the current id + 10 (see minigames_chooseanswer.xml)
     public IGameBase getNextQuiz(int id) {
@@ -183,16 +154,6 @@ public class DataManager {
         return null;
     }
 
-    public TreeProfile getTreeProfile(int id) {
-        if (treeProfiles == null) return null;
-        for (int i = 0; i < treeProfiles.size(); i++) {
-            if (treeProfiles.get(i).uid == id) {
-                return treeProfiles.get(i);
-            }
-        }
-        return null;
-    }
-
     public WantedPosterTextList getAllWantedPosters(int id) {
         if (allWantedPosters == null) return null;
         for (int i = 0; i < allWantedPosters.size(); i++) {
@@ -217,7 +178,7 @@ public class DataManager {
     public Completable unlockTree(Tree tree) {
         final TreeState model = tree.appData.treeState;
         model.isUnlocked = true;
-        return AppDatabase.getInstance(context).treeDao().update(model).subscribeOn(Schedulers.io());
+        return AppDatabase.getInstance(context).treeStateDao().updateOne(model).subscribeOn(Schedulers.io());
     }
 
     public boolean isGameCompleted(Tree.GameCategories category, int gameId, Tree tree) {
@@ -295,19 +256,32 @@ public class DataManager {
             default:
                 break;
         }
-        return AppDatabase.getInstance(context).treeDao().update(model).subscribeOn(Schedulers.io());
+        return AppDatabase.getInstance(context).treeStateDao().updateOne(model).subscribeOn(Schedulers.io());
     }
 
-    /***
-     * Insert Items into GameStateScores-Table if they don't exist yet.
-     * **/
-    public Single<Long> insertGameState(int tree_x_gameId) {
-        return insertGameState(new GameStateScore(tree_x_gameId, 0));
+    /**
+     * Return Score of Game by treeId and gameId
+     */
+    public <T extends AbstractGameState, S extends AbstractGameStateDao<T>> Single<T> getOrCreateGameStateSingle(int treeId, int gameId, Tree.GameCategories gameCategory, Class<S> clazz) {
+        S gameStateDao = AppDatabase.getInstance(context).gameStateDao(clazz);
+        return gameStateDao.getSingle(treeId, gameId, gameCategory)
+                .onErrorResumeNext(s -> {
+                    // If score state didn't exist, create and return it with its id.
+                    T gameState = gameStateDao.getEntityClass().getConstructor(int.class, int.class, Tree.GameCategories.class).newInstance(treeId, gameId, gameCategory);
+                    return insertGameState(gameState, clazz).flatMap(id -> Single.just(gameState));
+                })
+                .subscribeOn(Schedulers.io());
     }
 
-    public Single<Long> insertGameState(GameStateScore gameStateScore) {
+    /**
+     * Insert Game state.
+     */
+    public <T extends AbstractGameState, S extends AbstractGameStateDao<T>> Single<Long> insertGameState(T gameState, Class<S> clazz) {
         try {
-            return AppDatabase.getInstance(context).gameStateScoresDao().insertOne(gameStateScore);
+            return AppDatabase.getInstance(context).gameStateDao(clazz).insertOne(gameState).flatMap(id -> {
+                gameState.id = id.intValue();
+                return Single.just(id);
+            }).subscribeOn(Schedulers.io());
         } catch (SQLiteException exception) {
             exception.printStackTrace();
         }
@@ -315,9 +289,9 @@ public class DataManager {
     }
 
     /**
-     * Set new (High)Score
+     * Update Game state.
      **/
-    public Completable updateGameState(GameStateScore gameStateScore) {
-        return AppDatabase.getInstance(context).gameStateScoresDao().update(gameStateScore).subscribeOn(Schedulers.io());
+    public <T extends AbstractGameState, S extends AbstractGameStateDao<T>> Completable updateGameState(T gameState, Class<S> clazz) {
+        return AppDatabase.getInstance(context).gameStateDao(clazz).updateOne(gameState).subscribeOn(Schedulers.io());
     }
 }

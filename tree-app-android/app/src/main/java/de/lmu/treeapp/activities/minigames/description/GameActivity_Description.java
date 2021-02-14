@@ -27,7 +27,7 @@ import java.util.Collections;
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentData.DataManager;
-import de.lmu.treeapp.contentData.database.AppDatabase;
+import de.lmu.treeapp.contentData.database.daos.app.GameStateDescriptionDao;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateDescription;
 import de.lmu.treeapp.contentData.database.entities.content.GameDescriptionItem;
 import de.lmu.treeapp.contentData.database.entities.content.GameDescriptionRelations;
@@ -36,7 +36,6 @@ import de.lmu.treeapp.popup.PopupAction;
 import de.lmu.treeapp.popup.PopupInterface;
 import de.lmu.treeapp.popup.PopupType;
 import io.reactivex.rxjava3.core.Completable;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static com.google.android.flexbox.FlexWrap.WRAP;
 import static de.lmu.treeapp.utils.language.LanguageUtils.getTreeGenitiveGerman;
@@ -49,13 +48,15 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
     Dialog popupWindow;
     Popup popup;
     String correctString;
-    String correctDescription;
+    GameStateDescription gameStateDescription;
     private GameDescriptionRelations descriptionGame;
     MaterialButton addButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (gameStateDescription == null) getGameState().subscribe();
+
         String treeName = getTreeGenitiveGerman(parentTree.getName());
 
         descriptionGame = (GameDescriptionRelations) gameContent;
@@ -69,7 +70,6 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
                         treeName));
 
         addButton = findViewById(R.id.game_add_button);
-
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View viewInflated = LayoutInflater.from(this).inflate(R.layout.text_input,
@@ -158,7 +158,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
 
         }
         correctString = getString(R.string.game_description_you_selected) + TextUtils.join(", ", correctStrings);
-        correctDescription = "" + TextUtils.join(", ", correctStrings);
+        gameStateDescription.description = "" + TextUtils.join(", ", correctStrings);
 
         return isCorrect && selectedSomething;
     }
@@ -194,14 +194,16 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
     }
 
     @Override
+    protected Completable getGameState() {
+        return DataManager.getInstance(getApplicationContext()).getOrCreateGameStateSingle(treeId, gameId, parentCategory, GameStateDescriptionDao.class).flatMapCompletable(s -> {
+            gameStateDescription = s;
+            parentTree.appData.treeDescriptions.add(gameStateDescription);
+            return Completable.complete();
+        });
+    }
+
+    @Override
     protected Completable saveGameState() {
-        GameStateDescription gameStateDescription = new GameStateDescription(gameId, treeId,
-                parentCategory, correctDescription);
-        return AppDatabase.getInstance(getApplicationContext()).gameStateDescriptionDao()
-                .insertOne(gameStateDescription)
-                .subscribeOn(Schedulers.io()).flatMapCompletable(s -> Completable.fromAction(() -> {
-                    gameStateDescription.id = s.intValue(); // Update id afterwards
-                    parentTree.appData.treeDescriptions.add(gameStateDescription);
-                }));
+        return DataManager.getInstance(getApplicationContext()).updateGameState(gameStateDescription, GameStateDescriptionDao.class);
     }
 }
