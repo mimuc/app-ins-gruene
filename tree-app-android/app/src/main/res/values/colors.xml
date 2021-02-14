@@ -9,6 +9,7 @@
     <color name="lightAsphalt">#65706C</color>
     <color name="forest">#5E7E1D</color>
     <color name="forest_transparent">#F25E7E1D</color>
+    <color name="forest_light">#9EB177</color>
     <color name="darkForest">#435A14</color>
     <color name="trunk">#4e342e</color>
     <color name="darkTrunk">#260e04</color>
@@ -21,6 +22,7 @@
     <color name="droppable">#DDFDBD</color>
     <color name="falseDrop">#F6A6A6</color> <!-- color for false assignment in drag and drop games -->
     <color name="transparent">#00FAFAFA</color>
+    <color name="progress1_8_light">#C38691</color>
     <color name="progress1_8">#870D23</color>
     <color name="progress2_8">#811021</color>
     <color name="progress3_8">#752D1F</color>
@@ -29,4 +31,10 @@
     <color name="progress6_8">#685C1A</color>
     <color name="progress7_8">#626C18</color>
     <color name="progress8_8">#5C7C16</color>
+    <color name="blue2">#276FBF</color>
+    <color name="blue3">#052F5F</color>
+    <color name="orange">#FA9F42</color>
+    <color name="blue4">#208891</color>
+    <color name="orange2">#EF8354</color>
+    <color name="blue">#5abfe6</color>
 </resources>

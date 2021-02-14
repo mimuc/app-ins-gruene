@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightBlue"
     tools:context="de.lmu.treeapp.activities.minigames.onlyDescription.GameActivity_OnlyDescription">
 
 
@@ -17,32 +16,31 @@
             android:id="@+id/tv_multiplayerTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
             android:textAlignment="center"
             android:textColor="@color/asphalt"
             android:textSize="@dimen/heading1"
             android:textStyle="bold"
-            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/game_baumory_recyclerView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="spread_inside" />
+            app:layout_constraintVertical_chainStyle="spread" />
 
         <TextView
             android:id="@+id/time_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
             android:text="00:00"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/game_baumory_recyclerView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -50,14 +48,13 @@
             android:id="@+id/game_baumory_recyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
             android:horizontalSpacing="1dp"
             android:verticalSpacing="1dp"
             app:layout_constraintBottom_toTopOf="@+id/bottom"
-            app:layout_constraintDimensionRatio="H,1:1.25"
+            app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_multiplayerTitle" />
@@ -66,9 +63,6 @@
             android:id="@+id/bottom"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -79,14 +73,14 @@
                 android:id="@+id/tv_score_p1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/dark_grey_gradient"
-                android:backgroundTint="@color/blue"
+                android:backgroundTint="@color/asphalt"
                 android:textAlignment="center"
-                android:textColor="@color/asphalt"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="@dimen/buttons"
-                android:visibility="gone"
-                android:padding="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tv_score_p2"
                 app:layout_constraintStart_toStartOf="parent"
@@ -97,13 +91,14 @@
                 android:id="@+id/tv_score_p2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/dark_grey_gradient"
-                android:backgroundTint="@color/orange"
+                android:backgroundTint="?attr/colorPrimary"
                 android:textAlignment="center"
-                android:textColor="@color/asphalt"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="@dimen/buttons"
-                android:visibility="gone"
-                android:padding="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_score_p1"
@@ -111,13 +106,6 @@
                 app:layout_constraintVertical_bias="1.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/selection_fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
