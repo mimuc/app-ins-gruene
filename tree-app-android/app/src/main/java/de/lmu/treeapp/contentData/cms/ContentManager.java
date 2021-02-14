@@ -72,16 +72,17 @@ public class ContentManager {
             this.tree_x_games.addAll(contentDb.tree_x_gameDao().getAll());
 
             // Load games from database
-            this.minigames.addAll(contentDb.gameChooseAnswerDao().getAll());
-            this.minigames.addAll(contentDb.gameCatchFruitsDao().getAll());
             this.minigames.addAll(contentDb.gameBaumoryDao().getAll());
+            this.minigames.addAll(contentDb.gameCatchFruitsDao().getAll());
+            this.minigames.addAll(contentDb.gameChooseAnswerDao().getAll());
+            this.minigames.addAll(contentDb.gameContourDao().getAll());
+            this.minigames.addAll(contentDb.gameDescriptionDao().getAll());
             this.minigames.addAll(contentDb.gameDragDropDao().getAll());
+            this.minigames.addAll(contentDb.gameInputStringDao().getAll());
             this.minigames.addAll(contentDb.gameOnlyDescriptionDao().getAll());
-            this.minigames.addAll(contentDb.gameTakePictureDao().getAll());
             this.minigames.addAll(contentDb.gameOrderWordsDao().getAll());
             this.minigames.addAll(contentDb.gamePuzzleDao().getAll());
-            this.minigames.addAll(contentDb.gameInputStringDao().getAll());
-            this.minigames.addAll(contentDb.gameDescriptionDao().getAll());
+            this.minigames.addAll(contentDb.gameTakePictureDao().getAll());
             return Completable.complete();
         }).subscribeOn(Schedulers.io());
     }
