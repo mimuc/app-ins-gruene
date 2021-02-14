@@ -112,7 +112,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
             }
         }
 
-        if (gameState == null) getGameState();
+        if (gameStateScore == null) getGameState().subscribe();
 
         // show instruction screen only for first round
         if (instructions) {
@@ -165,7 +165,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
         tvScore = findViewById(R.id.tv_score);
         tvScore.setText(String.valueOf(curScoreFruit + curScoreLeaf));
         tvHighscore = popupGameover.findViewById(R.id.textView_highscore);
-        tvHighscore.setText(String.valueOf(gameState.highscore));
+        tvHighscore.setText(String.valueOf(gameStateScore.highscore));
         tvEndScore = popupGameover.findViewById(R.id.textView_userScore);
         tvEndScoreLabel = popupGameover.findViewById(R.id.textViewUserScoreLabel);
         tvEndTitle = popupGameover.findViewById(R.id.textView_title_Score);
@@ -613,8 +613,8 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
         if (curScoreLeaf >= goalLeaf) checkLeaf.setVisibility(View.VISIBLE);
         if (curScoreFruit >= goalFruit) checkFruit.setVisibility(View.VISIBLE);
 
-        if (curScoreFruit + curScoreLeaf > gameState.highscore) {
-            gameState.highscore = curScoreFruit + curScoreLeaf;
+        if (curScoreFruit + curScoreLeaf > gameStateScore.highscore) {
+            gameStateScore.highscore = curScoreFruit + curScoreLeaf;
             saveGameState().subscribe();
 
             tvHighscoreTitle.setText(R.string.game_new_highscore);

@@ -37,7 +37,6 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
     List<Integer> games;
     int treeId;
     Tree.GameCategories category;
-    List<Tree_x_Game> gamestates;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView gameName;
@@ -91,8 +90,6 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
             Glide.with(context).load(R.drawable.white_background).into(new BackgroundTarget(holder.gameIcon));
         }
         holder.gameName.setText(game.getName());
-
-        gamestates = DataManager.getInstance(context).tree_x_games;
 
         holder.gameIcon.setOnClickListener(arg0 -> {
 

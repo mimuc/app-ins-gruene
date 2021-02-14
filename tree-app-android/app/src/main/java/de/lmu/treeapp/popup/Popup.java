@@ -221,36 +221,36 @@ public class Popup {
 
         // Hide Squirrel
         if (!isSquirrel) {
-            ConstraintLayout squirrelframe = popupWindow.findViewById(R.id.mascot_wrapper);
-            squirrelframe.setVisibility(View.GONE);
+            ConstraintLayout squirrelFrame = popupWindow.findViewById(R.id.mascot_wrapper);
+            squirrelFrame.setVisibility(View.GONE);
         }
 
         if (type == PopupType.POSITIVE) {
-            // WITHOUT ANIMATION
             popupTitle.setText(winTitle);
             squirrelBar.setImageResource(R.drawable.ic_mascott_true_only_bar);
             squirrel.setImageResource(R.drawable.ic_mascott_true_only_squirrel);
+            // Light positive squirrel animation
+            (new Handler(Looper.getMainLooper())).postDelayed(this::squirrelAnimationPositiveLight, 200);
         } else if (type == PopupType.POSITIVE_ANIMATION) {
-            // WITH ANIMATION
             popupTitle.setText(winTitle);
             squirrelBar.setImageResource(R.drawable.ic_mascott_true_only_bar);
             squirrel.setImageResource(R.drawable.ic_mascott_true_only_squirrel);
-            // Positive squirrel animation
+            // Strong positive squirrel animation
             (new Handler(Looper.getMainLooper())).postDelayed(this::squirrelAnimationPositive, 600);
             // Leaves animation
             leafAnimation();
         } else if (type == PopupType.NEGATIVE_ANIMATION) {
-            // WITH ANIMATION
             popupTitle.setText(looseTitle);
             this.squirrelBar.setImageResource(R.drawable.ic_mascott_false_squirrel_bar);
             this.squirrel.setImageResource(R.drawable.ic_mascott_false_only_squirrel);
-            // Negative squirrel animation
+            // Strong negative squirrel animation
             (new Handler(Looper.getMainLooper())).postDelayed(this::squirrelAnimationNegative, 700);
         } else if (type == PopupType.NEGATIVE) {
             popupTitle.setText(looseTitle);
-            // WITHOUT ANIMATION
             this.squirrelBar.setImageResource(R.drawable.ic_mascott_false_squirrel_bar);
             this.squirrel.setImageResource(R.drawable.ic_mascott_false_only_squirrel);
+            // Light negative squirrel animation
+            (new Handler(Looper.getMainLooper())).postDelayed(this::squirrelAnimationNegativeLight, 500);
         } else {
             popupTitle.setText(neutralTitle);
         }
@@ -278,6 +278,8 @@ public class Popup {
                 onClose(type);
                 listener.onPopupAction(type, PopupAction.SECONDARY);
             });
+        } else {
+            btnSecondary.setVisibility(View.GONE);
         }
 
         popupWindow.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -573,6 +575,43 @@ public class Popup {
         Handler handlerB = new Handler(Looper.getMainLooper());
         handlerB.postDelayed(() -> squirrel.setImageResource(R.drawable.ic_mascott_false_only_squirrel), 70);
     }
+
+    /**
+     * simple positive animation
+     */
+    private void squirrelAnimationPositiveLight(){
+        Handler handlerB = new Handler(Looper.getMainLooper());
+        handlerB.postDelayed(() -> {
+            // bar animation
+            squirrelBar.animate().rotationBy(-15).setDuration(260);
+            new Handler(Looper.getMainLooper()).postDelayed(() -> squirrelBar.animate().rotationBy(15).setDuration(280), 750);
+        }, 300);
+
+        // 2. BLINK 2 times
+        (new Handler(Looper.getMainLooper())).postDelayed(this::blinkSquirrelPositive, 1200);
+        (new Handler(Looper.getMainLooper())).postDelayed(this::blinkSquirrelPositive, 1420);
+    }
+
+    /**
+     * simple negative animation
+     */
+    private void squirrelAnimationNegativeLight(){
+        //1. close eyes
+        new Handler(Looper.getMainLooper()).postDelayed(() -> this.squirrel.setImageResource(R.drawable.ic_mascott_false_only_squirrel_eyeclosed), 80);
+        Handler handlerB = new Handler(Looper.getMainLooper());
+        handlerB.postDelayed(() -> {
+            //2. rise bar
+            squirrelBar.animate().rotationBy(-15).setDuration(340);
+            //3. revert bar
+            new Handler(Looper.getMainLooper()).postDelayed(() -> squirrelBar.animate().rotationBy(15).setDuration(370), 1080);
+            //4. open eyes
+            new Handler(Looper.getMainLooper()).postDelayed(() -> this.squirrel.setImageResource(R.drawable.ic_mascott_false_only_squirrel), 1890);
+            //5. blink one time
+            new Handler(Looper.getMainLooper()).postDelayed(this::blinkSquirrelNegative, 2180);
+        }, 300);
+
+    }
+
 
     /**
      * Getter & Setter below

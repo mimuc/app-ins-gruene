@@ -1,17 +1,23 @@
 package de.lmu.treeapp.contentData.database.entities.app;
 
 import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+import androidx.room.Ignore;
+
+import de.lmu.treeapp.contentClasses.trees.Tree;
 
 
 @Entity
-public class GameStateScore {
-    @PrimaryKey
-    public Integer tree_x_gameId;
+public class GameStateScore extends AbstractGameState {
+
     public Integer highscore;
 
-    public GameStateScore(int tree_x_gameId, int highscore) {
-        this.tree_x_gameId = tree_x_gameId;
+    @Ignore
+    public GameStateScore(int treeId, int gameId, Tree.GameCategories gameCategory) {
+        this(treeId, gameId, gameCategory, 0);
+    }
+
+    public GameStateScore(int treeId, int gameId, Tree.GameCategories gameCategory, int highscore) {
+        super(treeId, gameId, gameCategory);
         this.highscore = highscore;
     }
 

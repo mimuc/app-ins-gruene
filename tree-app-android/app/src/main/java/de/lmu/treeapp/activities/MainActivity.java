@@ -30,6 +30,7 @@ import de.lmu.treeapp.popup.PopupInterface;
 import de.lmu.treeapp.popup.PopupType;
 import de.lmu.treeapp.service.FragmentManagerService;
 import de.lmu.treeapp.tutorial.CustomTapTargetPromptBuilder;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence;
 
 /**
@@ -58,9 +59,11 @@ public class MainActivity extends AppCompatActivity implements PopupInterface {
         this.hideActionBar();
         this.findViewsById();
         this.setOnClickListener();
-        this.getContentFromDataManager();
-        this.registerFragmentManagerTransactions();
-        mainContext = getApplicationContext();
+        DataManager.getInstanceAsync(getApplicationContext()).subscribe(dataManager -> {
+            dm = dataManager;
+            this.registerFragmentManagerTransactions();
+            mainContext = getApplicationContext();
+        });
     }
 
     /**
@@ -119,16 +122,6 @@ public class MainActivity extends AppCompatActivity implements PopupInterface {
         popupLeave.setButtonSecondary(true);
         popupLeave.hideSquirrel();
         popupLeave.show(PopupType.NEUTRAL);
-    }
-
-    /**
-     * Get the instance of the DataManager-Singleton and wait for everything of the CMS and Database to be loaded.
-     * TODO: This can be optimized by handling it asynchronously instead of waiting for it. Load times are fine, though.
-     */
-    private void getContentFromDataManager() {
-        dm = DataManager.getInstance(getApplicationContext());
-        while (!dm.loaded) {
-        } //Wait for everything to be loaded.
     }
 
     /**

@@ -18,13 +18,16 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import de.lmu.treeapp.R;
-import de.lmu.treeapp.contentData.database.entities.app.GameStateDescription;
-import de.lmu.treeapp.contentData.database.entities.app.GameStateInputString;
-import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
+import com.bumptech.glide.Glide;
 
 import java.io.File;
 import java.util.List;
+
+import de.lmu.treeapp.R;
+import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateDescription;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateInputString;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
 
 public class MyStuffView extends LinearLayout {
 
@@ -32,18 +35,8 @@ public class MyStuffView extends LinearLayout {
     private final ConstraintLayout lockedLayout;
     private final ImageView lockedPicture;
     private final TextView noPictureText;
-    private final ImageView takenTreePicture1;
-    private final ImageView takenTreePicture2;
-    private final ImageView takenTreePicture3;
-    private final ImageView takenTreePicture4;
-    private final ImageView noImage1;
-    private final ImageView noImage2;
-    private final ImageView noImage3;
-    private final ImageView noImage4;
-    private final ConstraintLayout layout1;
-    private final ConstraintLayout layout2;
-    private final ConstraintLayout layout3;
-    private final ConstraintLayout layout4;
+    private final ImageView[] takenTreePictures;
+    private final ConstraintLayout[] layouts;
     private final LinearLayout myStuff;
     private final ConstraintLayout ideasLayout;
     private final TextView textCloud1;
@@ -76,18 +69,16 @@ public class MyStuffView extends LinearLayout {
         lockedLayout = findViewById(R.id.locked_layout);
         lockedPicture = findViewById(R.id.my_stuff_locked);
         noPictureText = findViewById(R.id.noPicture_text);
-        takenTreePicture1 = findViewById(R.id.tree_image_1);
-        takenTreePicture2 = findViewById(R.id.tree_image_2);
-        takenTreePicture3 = findViewById(R.id.tree_image_3);
-        takenTreePicture4 = findViewById(R.id.tree_image_4);
-        noImage1 = findViewById(R.id.noImage1);
-        noImage2 = findViewById(R.id.noImage2);
-        noImage3 = findViewById(R.id.noImage3);
-        noImage4 = findViewById(R.id.noImage4);
-        layout1 = findViewById(R.id.layout1);
-        layout2 = findViewById(R.id.layout2);
-        layout3 = findViewById(R.id.layout3);
-        layout4 = findViewById(R.id.layout4);
+        takenTreePictures = new ImageView[4];
+        takenTreePictures[0] = findViewById(R.id.tree_image_1);
+        takenTreePictures[1] = findViewById(R.id.tree_image_2);
+        takenTreePictures[2] = findViewById(R.id.tree_image_3);
+        takenTreePictures[3] = findViewById(R.id.tree_image_4);
+        layouts = new ConstraintLayout[4];
+        layouts[0] = findViewById(R.id.layout1);
+        layouts[1] = findViewById(R.id.layout2);
+        layouts[2] = findViewById(R.id.layout3);
+        layouts[3] = findViewById(R.id.layout4);
         myStuff = findViewById(R.id.linearLayoutMyStuff);
         ideasLayout = findViewById(R.id.ideas_layout);
         textCloud1 = findViewById(R.id.text_cloud1);
@@ -108,7 +99,7 @@ public class MyStuffView extends LinearLayout {
     }
 
     private void closeIdeas() {
-        setVisibility(View.VISIBLE, lockedLayout, layout1, layout2, layout3, layout4);
+        setVisibility(View.VISIBLE, lockedLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
         setVisibility(View.GONE, ideasLayout);
     }
 
@@ -118,7 +109,7 @@ public class MyStuffView extends LinearLayout {
                            List<GameStateDescription> treeDescriptions) {
         pageTitle.setText(R.string.wanted_poster_my_stuff);
         myStuff.setOnClickListener(view -> {
-            setVisibility(View.GONE, lockedLayout, layout1, layout2, layout3, layout4);
+            setVisibility(View.GONE, lockedLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
             setVisibility(View.VISIBLE, ideasLayout);
             if (treeInputStrings.size() != 0) {
                 for (GameStateInputString inputString : treeInputStrings) {
@@ -147,85 +138,33 @@ public class MyStuffView extends LinearLayout {
         if (takenPictureImages.size() != 0) {
             locked = false;
             setVisibility(View.GONE, lockedLayout, noPictureText, lockedPicture);
-            noImage1.setImageResource(R.drawable.sb_nopictures);
-            noImage2.setImageResource(R.drawable.sb_nopictures);
-            noImage3.setImageResource(R.drawable.sb_nopictures);
-            noImage4.setImageResource(R.drawable.sb_nopictures);
 
-            for (GameStateTakePictureImage takenImg : takenPictureImages) {
-                switch (takenImg.gameId) {
-                    case 300:
-                        noImage2.setVisibility(GONE);
-                        Drawable img2 = setImage(takenImg.imagePath);
-                        takenTreePicture2.setRotation(-90);
-                        takenTreePicture2.setImageDrawable(img2);
-                        takenTreePicture2.setOnClickListener(view -> {
-                            setVisibility(View.GONE, takenTreePicture1, takenTreePicture2,
-                                    takenTreePicture3, takenTreePicture4, myStuff);
-                            popupLayout.setVisibility(VISIBLE);
-                            pictureBig.setRotation(-90);
-                            pictureBig.setImageDrawable(img2);
-                            popupLayout.setOnClickListener(viewClose -> {
-                                setVisibility(View.VISIBLE, takenTreePicture1, takenTreePicture2,
-                                        takenTreePicture3, takenTreePicture4, myStuff);
-                                popupLayout.setVisibility(View.GONE);
-                            });
+            Tree.GameCategories[] validGameCategories = {
+                    Tree.GameCategories.leaf,
+                    Tree.GameCategories.fruit,
+                    Tree.GameCategories.trunk,
+                    Tree.GameCategories.other
+            };
+            for (int i = 0; i < validGameCategories.length; i++) {
+                Tree.GameCategories gameCategory = validGameCategories[i];
+                GameStateTakePictureImage takePictureImage = GameStateTakePictureImage.getLatestTakePictureImage(takenPictureImages, gameCategory);
+                if (takePictureImage != null) {
+                    takenTreePictures[i].setPadding(0, 0, 0, 0);
+                    Drawable img = setImage(takePictureImage.imagePath);
+                    Glide.with(context).load(img).into(takenTreePictures[i]);
+                    takenTreePictures[i].setOnClickListener(view -> {
+                        setVisibility(View.GONE, myStuff,
+                                takenTreePictures[0], takenTreePictures[1],
+                                takenTreePictures[2], takenTreePictures[3]);
+                        popupLayout.setVisibility(VISIBLE);
+                        Glide.with(context).load(img).into(pictureBig);
+                        popupLayout.setOnClickListener(viewClose -> {
+                            setVisibility(View.VISIBLE, myStuff,
+                                    takenTreePictures[0], takenTreePictures[1],
+                                    takenTreePictures[2], takenTreePictures[3]);
+                            popupLayout.setVisibility(View.GONE);
                         });
-                        break;
-                    case 301:
-                        noImage3.setVisibility(GONE);
-                        Drawable img3 = setImage(takenImg.imagePath);
-                        takenTreePicture3.setRotation(-90);
-                        takenTreePicture3.setImageDrawable(img3);
-                        takenTreePicture3.setOnClickListener(view -> {
-                            setVisibility(View.GONE, takenTreePicture1, takenTreePicture2,
-                                    takenTreePicture3, takenTreePicture4, myStuff);
-                            popupLayout.setVisibility(VISIBLE);
-                            pictureBig.setRotation(-90);
-                            pictureBig.setImageDrawable(img3);
-                            popupLayout.setOnClickListener(viewClose -> {
-                                setVisibility(View.VISIBLE, takenTreePicture1, takenTreePicture2,
-                                        takenTreePicture3, takenTreePicture4, myStuff);
-                                popupLayout.setVisibility(View.GONE);
-                            });
-                        });
-                        break;
-                    case 302:
-                        noImage4.setVisibility(GONE);
-                        Drawable img4 = setImage(takenImg.imagePath);
-                        takenTreePicture4.setRotation(-90);
-                        takenTreePicture4.setImageDrawable(img4);
-                        takenTreePicture4.setOnClickListener(view -> {
-                            setVisibility(View.GONE, takenTreePicture1, takenTreePicture2,
-                                    takenTreePicture3, takenTreePicture4, myStuff);
-                            popupLayout.setVisibility(VISIBLE);
-                            pictureBig.setRotation(-90);
-                            pictureBig.setImageDrawable(img4);
-                            popupLayout.setOnClickListener(viewClose -> {
-                                setVisibility(View.VISIBLE, takenTreePicture1, takenTreePicture2,
-                                        takenTreePicture3, takenTreePicture4, myStuff);
-                                popupLayout.setVisibility(View.GONE);
-                            });
-                        });
-                        break;
-                    case 303:
-                        noImage1.setVisibility(GONE);
-                        Drawable img1 = setImage(takenImg.imagePath);
-                        takenTreePicture1.setRotation(-90);
-                        takenTreePicture1.setImageDrawable(img1);
-                        takenTreePicture1.setOnClickListener(view -> {
-                            setVisibility(View.GONE, takenTreePicture1, takenTreePicture2,
-                                    takenTreePicture3, takenTreePicture4, myStuff);
-                            popupLayout.setVisibility(VISIBLE);
-                            pictureBig.setRotation(-90);
-                            pictureBig.setImageDrawable(img1);
-                            popupLayout.setOnClickListener(viewClose -> {
-                                setVisibility(View.VISIBLE, takenTreePicture1, takenTreePicture2,
-                                        takenTreePicture3, takenTreePicture4, myStuff);
-                                popupLayout.setVisibility(View.GONE);
-                            });
-                        });
-                        break;
+                    });
                 }
             }
         } else {
@@ -249,10 +188,11 @@ public class MyStuffView extends LinearLayout {
                 setVisibility(View.VISIBLE, lockedLayout, noPictureText, lockedPicture);
                 lockedPicture.setImageResource(R.drawable.sb_nopictures);
             } else {
-                setVisibility(View.VISIBLE, takenTreePicture1, takenTreePicture2,
-                        takenTreePicture3, takenTreePicture4);
+                setVisibility(View.VISIBLE,
+                        takenTreePictures[0], takenTreePictures[1],
+                        takenTreePictures[2], takenTreePictures[3]);
             }
-            setVisibility(View.VISIBLE, myStuff, layout1, layout2, layout3, layout4);
+            setVisibility(View.VISIBLE, myStuff, layouts[0], layouts[1], layouts[2], layouts[3]);
             setVisibility(View.GONE, popupLayout, ideasLayout);
         }, 1500);
 

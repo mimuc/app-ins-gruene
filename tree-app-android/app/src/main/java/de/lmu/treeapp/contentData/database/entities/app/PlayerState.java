@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey;
 @Entity
 public class PlayerState {
     @PrimaryKey
-    public int uid = 0;
+    public int id = 0;
     public String name = "Forscher";
 }

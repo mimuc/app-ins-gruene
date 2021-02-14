@@ -2,7 +2,6 @@ package de.lmu.treeapp.activities.minigames.takePicture;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -15,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.core.content.FileProvider;
+import androidx.exifinterface.media.ExifInterface;
 
 import java.io.File;
 import java.io.FileDescriptor;
@@ -26,7 +26,7 @@ import java.util.Date;
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentData.DataManager;
-import de.lmu.treeapp.contentData.database.AppDatabase;
+import de.lmu.treeapp.contentData.database.daos.app.GameStateTakePictureDao;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
 import de.lmu.treeapp.contentData.database.entities.content.GameTakePictureRelations;
 import de.lmu.treeapp.popup.Popup;
@@ -34,7 +34,6 @@ import de.lmu.treeapp.popup.PopupAction;
 import de.lmu.treeapp.popup.PopupInterface;
 import de.lmu.treeapp.popup.PopupType;
 import io.reactivex.rxjava3.core.Completable;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
 public class GameActivity_TakePicture extends GameActivity_Base implements PopupInterface {
@@ -72,9 +71,6 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
             dispatchTakePictureIntent();
             sendButton.setEnabled(true);
         });
-
-        // Load state
-        //AppDatabase.getInstance(getApplicationContext()).gameTakePictureDao().getImages(gameId, treeId, parentCategory).subscribeOn(Schedulers.io()).subscribe(s -> imageStates = s);
     }
 
     @Override
@@ -186,13 +182,10 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
     @Override
     protected Completable saveGameState() {
         if (currentPhotoPath != null) {
-            GameStateTakePictureImage gameStateTakePictureImage = new GameStateTakePictureImage(gameId, treeId, parentCategory, currentPhotoPath, new Date());
-            return AppDatabase.getInstance(getApplicationContext()).gameTakePictureDao()
-                    .insertImage(gameStateTakePictureImage)
-                    .subscribeOn(Schedulers.io()).flatMapCompletable(s -> Completable.fromAction(() -> {
-                        gameStateTakePictureImage.id = s.intValue(); // Update id afterwards
-                        parentTree.appData.takePictureImages.add(gameStateTakePictureImage);
-                    }));
+            GameStateTakePictureImage gameStateTakePictureImage = new GameStateTakePictureImage(treeId, gameId, parentCategory, currentPhotoPath, new Date());
+            return DataManager.getInstance(getApplicationContext()).insertGameState(gameStateTakePictureImage, GameStateTakePictureDao.class).flatMapCompletable(s -> Completable.fromAction(() -> {
+                parentTree.appData.takePictureImages.add(gameStateTakePictureImage);
+            }));
         }
         return Completable.complete();
     }

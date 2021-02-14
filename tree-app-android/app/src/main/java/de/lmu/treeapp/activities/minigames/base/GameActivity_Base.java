@@ -14,6 +14,7 @@ import de.lmu.treeapp.activities.GameSelectionActivity;
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.contentData.database.daos.app.GameStateScoresDao;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateScore;
 import de.lmu.treeapp.wantedPoster.activity.WantedPosterTreeActivity;
 import io.reactivex.rxjava3.core.Completable;
@@ -25,7 +26,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     protected int gameId;
     protected Tree parentTree;
     protected Tree.GameCategories parentCategory;
-    protected GameStateScore gameState;
+    protected GameStateScore gameStateScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,16 +111,19 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     }
 
     /**
-     * Write game state in background.
+     * Save game state in background.
      */
-    protected Completable saveGameState() {
-        return DataManager.getInstance(getApplicationContext()).updateGameState(gameState);
+    protected Completable getGameState() {
+        return DataManager.getInstance(getApplicationContext()).getOrCreateGameStateSingle(treeId, gameId, parentCategory, GameStateScoresDao.class).flatMapCompletable(s -> {
+            gameStateScore = s;
+            return Completable.complete();
+        });
     }
 
     /**
-     * Save game state in background.
+     * Write game state in background.
      */
-    protected void getGameState() {
-        DataManager.getInstance(getApplicationContext()).getOrCreateGameStateScore(treeId, gameId, parentCategory).subscribe(s -> gameState = s);
+    protected Completable saveGameState() {
+        return DataManager.getInstance(getApplicationContext()).updateGameState(gameStateScore, GameStateScoresDao.class);
     }
 }
