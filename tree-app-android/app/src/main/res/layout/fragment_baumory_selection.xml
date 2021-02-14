@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightBlue"
+    tools:context="de.lmu.treeapp.activities.minigames.onlyDescription.GameActivity_OnlyDescription">
+
+
+    <ViewFlipper
+        android:id="@+id/viewFlipperBaumorySelection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/btn_multiplayer"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginEnd="16dp"
+                style="@style/AppTheme.Button"
+                android:clickable="true"
+                android:contentDescription="@string/game_mode_multiplayer_button_description"
+                android:focusable="true"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_multiplayer_squirrel"
+                android:text="@string/game_mode_multiplayer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_singleplayer"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textView_singleplayer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_mode_singleplayer"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/btn_singleplayer"
+                app:layout_constraintStart_toStartOf="@+id/btn_singleplayer"
+                app:layout_constraintTop_toBottomOf="@+id/btn_singleplayer" />
+
+            <ImageButton
+                android:id="@+id/btn_singleplayer"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="16dp"
+                style="@style/AppTheme.Button"
+                android:clickable="true"
+                android:contentDescription="@string/game_mode_singleplayer_button_description"
+                android:focusable="true"
+                android:padding="22dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_singleplayer_squirrel"
+                android:text="@string/game_mode_singleplayer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_multiplayer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_multiplayer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_mode_multiplayer"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="@+id/btn_multiplayer"
+                app:layout_constraintStart_toStartOf="@+id/btn_multiplayer"
+                app:layout_constraintTop_toBottomOf="@+id/btn_multiplayer" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/heading_puzzle_difficulty_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/freude"
+                android:scaleType="fitCenter"
+                android:text="@string/game_difficulty_select_text"
+                android:textAlignment="center"
+                android:textColor="@color/asphalt"
+                android:textSize="@dimen/heading1"
+                app:layout_constraintBottom_toTopOf="@+id/btn_easy"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="0dp" />
+
+
+            <ImageButton
+                android:id="@+id/btn_easy"
+                style="@style/AppTheme.Button"
+                android:layout_width="250dp"
+                android:layout_height="80dp"
+                android:clickable="true"
+                android:contentDescription="@string/game_mode_multiplayer_button_description"
+                android:focusable="true"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_bird"
+                android:text="@string/game_difficulty_easy"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_hard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_easy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_difficulty_easy"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/btn_easy"
+                app:layout_constraintStart_toStartOf="@+id/btn_easy"
+                app:layout_constraintTop_toBottomOf="@+id/btn_easy" />
+
+
+            <ImageButton
+                android:id="@+id/btn_hard"
+                style="@style/AppTheme.Button"
+                android:layout_width="250dp"
+                android:layout_height="80dp"
+                android:clickable="true"
+                android:contentDescription="@string/game_mode_multiplayer_button_description"
+                android:focusable="true"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_cat"
+                android:text="@string/game_difficulty_hard"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_easy"/>
+
+            <TextView
+                android:id="@+id/textView_hard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_difficulty_hard"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="@+id/btn_hard"
+                app:layout_constraintStart_toStartOf="@+id/btn_hard"
+                app:layout_constraintTop_toBottomOf="@+id/btn_hard" />
+            
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ViewFlipper>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

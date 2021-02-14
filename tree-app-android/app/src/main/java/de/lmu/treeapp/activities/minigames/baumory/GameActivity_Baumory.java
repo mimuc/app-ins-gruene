@@ -1,14 +1,20 @@
 package de.lmu.treeapp.activities.minigames.baumory;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,23 +24,28 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.IntStream;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryRelations;
 import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryCard;
+import de.lmu.treeapp.popup.Popup;
+import de.lmu.treeapp.popup.PopupAction;
+import de.lmu.treeapp.popup.PopupInterface;
+import de.lmu.treeapp.popup.PopupType;
 import de.lmu.treeapp.utils.glide.BackgroundTarget;
 
-public class GameActivity_Baumory extends GameActivity_Base implements Baumory_Cards_RecyclerViewAdapter.OptionClickInterface {
+public class GameActivity_Baumory extends GameActivity_Base implements Baumory_Cards_RecyclerViewAdapter.OptionClickInterface, PopupInterface {
 
-    private GameBaumoryRelations game;
-    private RecyclerView cardsRecyclerView;
-    private RecyclerView.Adapter recyclerViewAdapter;
-    private ViewFlipper viewFlipper;
-    private Button btnBack, btnRepeat;
+    private Popup popup;
+    private Boolean isTimerRunning = false;
+    private String time;
 
-    private Boolean multiplayerMode = false;
+    private Boolean multiPlayerMode = false;
+    private Boolean difficultyHard = false;
+    protected Dialog popupWindow;
 
     /**
      * The total number of players
@@ -58,48 +69,23 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
     private List<GameBaumoryCard> baumoryCards;
     private List<Integer> finishedCards;
     private int maxMatches = 0;
+    private BaumorySelectionFragment baumorySelectionFragment;
+    private Boolean selectionVisible = false;
+    private TextView timeView;
+    private EditText editName;
+    private String name;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // setup View-Elements
-        viewFlipper = findViewById(R.id.viewFlipperBaumory);
-        ImageButton btnSinglePlayer = findViewById(R.id.btn_singleplayer);
-        ImageButton btnMultiplayer = findViewById(R.id.btn_multiplayer);
-        btnBack = findViewById(R.id.btn_game_baumory_back);
-        btnRepeat = findViewById(R.id.btn_game_baumory_repeat);
-        tvMpTitle = findViewById(R.id.tv_multiplayerTitle);
-        tvMpScores[0] = findViewById(R.id.tv_score_p1);
-        tvMpScores[1] = findViewById(R.id.tv_score_p2);
+        // show selection of single/multiPlayer and difficulty
+        baumorySelectionFragment = new BaumorySelectionFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.selection_fragment_container, baumorySelectionFragment).commit();
+        selectionVisible = true;
 
-        // set the animation type to ViewFlipper
-        viewFlipper.setInAnimation(this, R.anim.fragment_fade_enter);
-        viewFlipper.setOutAnimation(this, R.anim.fragment_fade_exit);
-
-        setupBaumoryGame();
-
-        btnSinglePlayer.setOnClickListener(v -> startGame());
-
-        btnMultiplayer.setOnClickListener(v -> {
-            setupMultiplayerView();
-            startGame();
-        });
-
-
-        btnBack.setOnClickListener(v -> onSuccess());
-
-        btnRepeat.setOnClickListener(v -> {
-            firstCard = null;
-            secondCard = null;
-            firstCardButton = null;
-            secondCardButton = null;
-            btnBack.setVisibility(View.INVISIBLE);
-            btnRepeat.setVisibility(View.INVISIBLE);
-
-            setupMultiplayerView();
-            setupBaumoryGame();
-        });
+        popupWindow = new Dialog(this);
     }
 
     @Override
@@ -107,17 +93,57 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         return R.layout.activity_game__baumory;
     }
 
-    private void startGame() {
-        viewFlipper.showNext(); // Switch to next View
+    public void startGame(Boolean multiPlayer, Boolean hard) {
+        if (selectionVisible) {
+            getSupportFragmentManager().beginTransaction()
+                    .detach(baumorySelectionFragment).commit();
+            selectionVisible = false;
+        }
+
+        multiPlayerMode = multiPlayer;
+        difficultyHard = hard;
+        tvMpTitle = findViewById(R.id.tv_multiplayerTitle);
+        tvMpScores[0] = findViewById(R.id.tv_score_p1);
+        tvMpScores[1] = findViewById(R.id.tv_score_p2);
+        timeView = findViewById(R.id.time_view);
+        if (!multiPlayerMode) {
+            timeView.setVisibility(View.VISIBLE);
+            startTimer();
+        } else {
+            timeView.setVisibility(View.INVISIBLE);
+            showNamePopup();
+        }
+        setupBaumoryGame();
+    }
+
+    private void showNamePopup() {
+        popupWindow.setContentView(R.layout.popup_second_player_name);
+        editName = popupWindow.findViewById(R.id.edit_name);
+        Button next = popupWindow.findViewById(R.id.next_button);
+        next.setOnClickListener(v ->
+        {
+            String input = editName.getText().toString();
+            if (input.equals("")) {
+                name = getString(R.string.game_second_player_default);
+            } else {
+                name = editName.getText().toString();
+            }
+            popupWindow.dismiss();
+            setupMultiplayerView();
+        });
+        popupWindow.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        popupWindow.show();
+        Window window = popupWindow.getWindow();
+        window.setLayout(CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
     }
 
     private void setupCardsRecyclerView() {
-        cardsRecyclerView = findViewById(R.id.game_baumory_recyclerView);
+        RecyclerView cardsRecyclerView = findViewById(R.id.game_baumory_recyclerView);
         cardsRecyclerView.setHasFixedSize(false);
         int columns = 4;
         RecyclerView.LayoutManager recyclerViewLayoutManager = new GridLayoutManager(getApplicationContext(), columns);
         cardsRecyclerView.setLayoutManager(recyclerViewLayoutManager);
-        recyclerViewAdapter = new Baumory_Cards_RecyclerViewAdapter(this, baumoryCards, getApplicationContext(), parentTree, parentCategory);
+        RecyclerView.Adapter recyclerViewAdapter = new Baumory_Cards_RecyclerViewAdapter(this, baumoryCards, getApplicationContext(), parentTree, parentCategory);
         cardsRecyclerView.setAdapter(recyclerViewAdapter);
     }
 
@@ -130,9 +156,11 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         Glide.with(this).load(imageId).into(_viewHolder.button);
         if (firstCard == null) {
             firstCardButton = _viewHolder.button;
+            Glide.with(this).load(R.drawable.white_card_background).into(new BackgroundTarget(firstCardButton));
             firstCard = _card;
         } else if (secondCard == null && _card != firstCard) {
             secondCardButton = _viewHolder.button;
+            Glide.with(this).load(R.drawable.white_card_background).into(new BackgroundTarget(secondCardButton));
             secondCard = _card;
         }
         Evaluate();
@@ -150,34 +178,69 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
             Handler handler = new Handler();
             handler.postDelayed(this::FailedMatch, 750);
         }
+    }
 
+    private void startTimer() {
+        // displaying stopwatch
+        isTimerRunning = true;
+        {
+            final Handler handler_ = new Handler(getMainLooper());
+            handler_.post(new Runnable() {
+                int seconds = 0;
+
+                @Override
+                public void run() {
+                    int hours = seconds / 3600;
+                    int minutes = ((seconds % 3600) / 60) + hours * 60;
+                    int secs = seconds % 60;
+                    time = String.format(Locale.getDefault(), "%02d:%02d", minutes, secs);
+                    timeView.setText(time);
+                    if (isTimerRunning) {
+                        seconds++;
+                    } else {
+                        return;
+                    }
+                    handler_.postDelayed(this, 1000);
+                }
+            });
+        }
     }
 
 
     private void SuccessfulMatch() {
-        firstCardButton.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-        secondCardButton.setBackgroundColor(getResources().getColor(android.R.color.transparent));
         firstCard = null;
         secondCard = null;
-        if ((finishedCards.size() >= maxMatches) && !multiplayerMode) onSuccess();
-
-        if (multiplayerMode) {
+        if (multiPlayerMode) {
+            if (playerTurn == 0) {
+                Glide.with(this).load(R.drawable.light_green_crad_background).into(new BackgroundTarget(firstCardButton));
+                Glide.with(this).load(R.drawable.light_green_crad_background).into(new BackgroundTarget(secondCardButton));
+            } else {
+                Glide.with(this).load(R.drawable.light_red_card_background).into(new BackgroundTarget(firstCardButton));
+                Glide.with(this).load(R.drawable.light_red_card_background).into(new BackgroundTarget(secondCardButton));
+            }
             mpScores[playerTurn]++;
             tvMpScores[playerTurn].setText(getString(R.string.game_mode_player, mpNames[playerTurn], mpScores[playerTurn]));
-
             if (finishedCards.size() >= maxMatches) MultiplayerLastCard();
+        } else {
+            Glide.with(this).load(R.drawable.forest_border_card).into(new BackgroundTarget(firstCardButton));
+            Glide.with(this).load(R.drawable.forest_border_card).into(new BackgroundTarget(secondCardButton));
+            if ((finishedCards.size() >= maxMatches) && !multiPlayerMode) {
+                isTimerRunning = false;
+                popup.setButtonSecondary(true);
+                popup.setButtonSecondaryText(getString(R.string.button_back));
+                popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.button_repeat), getString(R.string.popup_puzzle_won_text, time));
+            }
         }
     }
 
     private void FailedMatch() {
-        Glide.with(this).load(R.drawable.dark_grey_gradient).into(new BackgroundTarget(firstCardButton));
-        Glide.with(this).load(R.drawable.dark_grey_gradient).into(new BackgroundTarget(secondCardButton));
-        Glide.with(this).load(R.drawable.ic_question_big).into(firstCardButton);
-        Glide.with(this).load(R.drawable.ic_question_big).into(secondCardButton);
+        Glide.with(this).load(R.drawable.forst_card_background).into(new BackgroundTarget(firstCardButton));
+        Glide.with(this).load(R.drawable.forst_card_background).into(new BackgroundTarget(secondCardButton));
+        Glide.with(this).load(R.drawable.ic_singleplayer_squirrel).into(firstCardButton);
+        Glide.with(this).load(R.drawable.ic_singleplayer_squirrel).into(secondCardButton);
         firstCard = null;
         secondCard = null;
-
-        if (multiplayerMode) {
+        if (multiPlayerMode) {
             playerTurn = (playerTurn + 1) % playerCount;
             tvMpTitle.setText(getString(R.string.game_mode_multiplayer_next_player, mpNames[playerTurn]));
         }
@@ -206,20 +269,23 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
             maxIndices = maxIndicesList.toArray(new Integer[0]);
         }
         if (maxIndices.length == 1) {
-            tvMpTitle.setText(getString(R.string.game_mode_player_won, mpNames[maxIndices[0]]));
+            popup.setButtonSecondary(true);
+            popup.setButtonSecondaryText(getString(R.string.button_back));
+            popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.button_repeat), getString(R.string.game_mode_player_won, mpNames[maxIndices[0]]));
         } else {
-            tvMpTitle.setText(R.string.game_mode_draw);
+            popup.setButtonSecondary(true);
+            popup.setButtonSecondaryText(getString(R.string.button_back));
+            popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.button_repeat), getString(R.string.game_mode_draw));
         }
-        btnBack.setVisibility(View.VISIBLE);
-        btnRepeat.setVisibility(View.VISIBLE);
-
     }
 
     private void setupMultiplayerView() {
-        multiplayerMode = true;
+        multiPlayerMode = true;
         playerTurn = 0;
+        mpNames[0] = getString(R.string.game_first_player_default);
+        mpNames[1] = name;
         for (int i = 0; i < playerCount; i++) {
-            mpNames[i] = String.valueOf((char) (i + 'A')); // Names the players according to their numbers 0: 'A', 1: 'B' etc.
+            // Names the players according to their numbers 0: 'A', 1: 'B' etc.
             mpScores[i] = 0; // (Re)set scores.
             tvMpScores[i].setText(getString(R.string.game_mode_player, mpNames[i], mpScores[i]));
             tvMpScores[i].setVisibility(View.VISIBLE);
@@ -231,10 +297,35 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
 
     private void setupBaumoryGame() {
         finishedCards = new ArrayList<>();
-        game = (GameBaumoryRelations) gameContent;
-        baumoryCards = game.getCards();
+        GameBaumoryRelations game = (GameBaumoryRelations) gameContent;
+        List<GameBaumoryCard> allCards;
+        allCards = game.getCards();
+        baumoryCards = new ArrayList<>();
+        if (!difficultyHard) {
+            for (GameBaumoryCard card : allCards) {
+                if (card.difficulty == 0) {
+                    baumoryCards.add(card);
+                }
+            }
+        } else {
+            baumoryCards = allCards;
+        }
         maxMatches = baumoryCards.size() / 2;
         Collections.shuffle(baumoryCards);
         setupCardsRecyclerView();
+        popup = new Popup(this);
+        popup.setWinTitle(getString(R.string.popup_win_title_done));
+    }
+
+
+    @Override
+    public void onPopupAction(PopupType type, PopupAction action) {
+        if (type == PopupType.POSITIVE) {
+            if (action == PopupAction.SECONDARY) {
+                onSuccess();
+            } else {
+                startGame(multiPlayerMode, difficultyHard);
+            }
+        }
     }
 }

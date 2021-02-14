@@ -10,4 +10,5 @@ public class GameBaumoryCard {
     public int gameId;
     public int match;
     public String imageResource;
+    public int difficulty;
 }
