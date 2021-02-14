@@ -65,6 +65,9 @@
 
     <string name="game_choose_answer_option_button_placeholder_text">Answer Button</string>
 
+    <string name="game_contour_do_not_scribble">Bitte nicht kritzeln!</string>
+    <string name="game_contour_try_to_hit_circles">Fast richtig, versuche die Kreise zu treffen</string>
+
     <string name="game_description_you_selected">Du hast ausgewählt: \n</string>
     <string name="game_description_start_screen_long">Wie fühlt sich die Rinde {0} an? Welche Wörter beschreiben sie am besten?</string>
     <string name="game_description_start_screen_short">Jetzt bist du gefragt!</string>
@@ -96,7 +99,7 @@
     <string name="popup_neutral_ok">Ok!</string>
     <string name="popup_win_title">Gewonnen!</string>
     <string name="popup_win_title_done">"Geschafft!"</string>
-    <string name="popup_loose_title">Leider verloren :(</string>
+    <string name="popup_loose_title">Oh nein ...</string>
     <string name="popup_loose_title_not_sufficient">Leider hat es nicht gereicht</string>
     <string name="popup_try_again">Probier\'s doch noch einmal...einen Versuch hast du übrig!</string>
     <string name="popup_negative_title_close">Fast…</string>

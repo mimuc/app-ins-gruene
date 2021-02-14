@@ -18,6 +18,7 @@ import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.baumory.GameActivity_Baumory;
 import de.lmu.treeapp.activities.minigames.catchFruits.GameActivity_CatchFruits;
 import de.lmu.treeapp.activities.minigames.chooseAnswer.GameActivity_ChooseAnswer;
+import de.lmu.treeapp.activities.minigames.contour.GameActivity_Contour;
 import de.lmu.treeapp.activities.minigames.description.GameActivity_Description;
 import de.lmu.treeapp.activities.minigames.dragDrop.GameActivity_DragDrop;
 import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
@@ -28,7 +29,6 @@ import de.lmu.treeapp.activities.minigames.takePicture.GameActivity_TakePicture;
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
-import de.lmu.treeapp.contentData.database.entities.content.Tree_x_Game;
 import de.lmu.treeapp.utils.glide.BackgroundTarget;
 
 public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<GameselectionRecyclerViewAdapter.ViewHolder> {
@@ -132,6 +132,9 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
                     break;
                 case CatchFruits:
                     gameActivityClass = GameActivity_CatchFruits.class;
+                    break;
+                case Contour:
+                    gameActivityClass = GameActivity_Contour.class;
                     break;
                 default:
                     break;
