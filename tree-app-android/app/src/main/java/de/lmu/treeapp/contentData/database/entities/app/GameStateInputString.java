@@ -1,23 +1,22 @@
 package de.lmu.treeapp.contentData.database.entities.app;
 
 import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+import androidx.room.Ignore;
 
 import de.lmu.treeapp.contentClasses.trees.Tree;
 
 @Entity
-public class GameStateInputString {
-    @PrimaryKey(autoGenerate = true)
-    public int id;
-    public int gameId;
-    public int treeId;
-    public Tree.GameCategories gameCategory;
+public class GameStateInputString extends AbstractGameState {
+
     public String inputString;
 
-    public GameStateInputString(int gameId, int treeId, Tree.GameCategories gameCategory, String inputString) {
-        this.gameId = gameId;
-        this.treeId = treeId;
-        this.gameCategory = gameCategory;
+    @Ignore
+    public GameStateInputString(int treeId, int gameId, Tree.GameCategories gameCategory) {
+        this(treeId, gameId, gameCategory, null);
+    }
+
+    public GameStateInputString(int treeId, int gameId, Tree.GameCategories gameCategory, String inputString) {
+        super(treeId, gameId, gameCategory);
         this.inputString = inputString;
     }
 }
