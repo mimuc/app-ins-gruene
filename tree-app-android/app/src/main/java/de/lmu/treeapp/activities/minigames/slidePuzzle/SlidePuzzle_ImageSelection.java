@@ -33,8 +33,8 @@ public class SlidePuzzle_ImageSelection extends Fragment{
         btnMale = rootView.findViewById(R.id.btn_male);
         btnFemale = rootView.findViewById(R.id.btn_female);
         Bundle bundle = getArguments();
-        btnMale.setBackgroundResource(bundle.getInt("imgM"));
-        btnFemale.setBackgroundResource(bundle.getInt("imgF"));
+        btnMale.setImageResource(bundle.getInt("imgM"));
+        btnFemale.setImageResource(bundle.getInt("imgF"));
         btnMale.setOnClickListener(arg0 -> ((GameActivity_SlidePuzzle) getActivity()).startPuzzle(GameActivity_SlidePuzzle.BlossomType.male));
         btnFemale.setOnClickListener(arg0 -> ((GameActivity_SlidePuzzle) getActivity()).startPuzzle(GameActivity_SlidePuzzle.BlossomType.female));
 

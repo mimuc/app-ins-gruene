@@ -38,7 +38,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         game = (GameSlidePuzzleRelations) gameContent;
 
         setContentView(R.layout.activity_game__picture_puzzle);
-        //int treeId = parentTree.getId();
+        int treeId = parentTree.getId();
         if (ArrayUtils.contains(mwTrees, treeId)){
             int imgM = selectImage(BlossomType.male);
             int imgF = selectImage(BlossomType.female);
@@ -117,6 +117,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
                 } else {
                     img = R.drawable.sb_bluete_foto_kiefer_w;
                 }
+                break;
             case 4:
                 img = R.drawable.sb_bluete_foto_eiche;
                 break;
@@ -126,6 +127,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
                 } else {
                     img = R.drawable.sb_bluete_foto_hasel_w;
                 }
+                break;
             case 6:
                 img = R.drawable.sb_bluete_foto_birke;
                 break;
@@ -138,12 +140,14 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
                 } else {
                     img = R.drawable.sb_bluete_foto_tanne_w;
                 }
+                break;
             case 9:
                 if(type == BlossomType.male){
                     img = R.drawable.sb_bluete_foto_fichte_m;
                 } else {
                     img = R.drawable.sb_bluete_foto_fichte_w;
                 }
+                break;
             default:
                 img = R.drawable.sb_bluete_foto_ahorn;
                 break;
