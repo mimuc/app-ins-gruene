@@ -34,7 +34,14 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         btnMale.setOnClickListener(v -> {
             img = R.drawable.sb_bluete_foto_buche_m;
             viewFlipper.showNext(); // Switch to next View
-            init();
+            popup = new Popup(this);
+            popup.setWinTitle("Wunderbar!");
+            grid = (DragDropGrid) findViewById(R.id.grid);
+            grid.setImage(img, dimension);
+            grid.setOnCompleteCallback(() -> {
+                popup.showWithButtonText(PopupType.POSITIVE, "Fertig", "Du hast das Puzzle gelöst.");
+                grid.postDelayed(GameActivity_SlidePuzzle.this, 800);
+            });
         });
         btnFemale.setOnClickListener(v -> {
             img = R.drawable.sb_bluete_foto_buche_w;
@@ -43,7 +50,6 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         });
     }
     public void init(){
-        //setContentView(R.layout.activity_game__picture_puzzle);
         popup = new Popup(this);
         popup.setWinTitle("Wunderbar!");
         grid = (DragDropGrid) findViewById(R.id.grid);

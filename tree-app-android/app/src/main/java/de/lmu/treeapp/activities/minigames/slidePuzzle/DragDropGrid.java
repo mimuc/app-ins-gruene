@@ -18,7 +18,6 @@ import androidx.customview.widget.ViewDragHelper;
 
 public class DragDropGrid extends RelativeLayout {
     private ViewDragHelper viewDragHelper;
-    private static final String TAG = DragDropGrid.class.getSimpleName();
     private MoveCalculator calculator;
     private int mDrawableId;
     private int dimensions;
@@ -130,7 +129,6 @@ public class DragDropGrid extends RelativeLayout {
 
             @Override
             public void onViewReleased(View releasedChild, float xvel, float yvel) {
-                Log.d(TAG, "xvel " + xvel + " yvel " + yvel);
                 int index = indexOfChild(releasedChild);
                 boolean isCompleted = calculator.swapValueWithInvisibleModel(index);
                 Tile item =  calculator.getModel(index);
@@ -193,8 +191,6 @@ public class DragDropGrid extends RelativeLayout {
 
         for (int i = 0; i < dimensions; i++){
             for (int j = 0; j < dimensions; j++){
-                Log.d(TAG, "mItemWidth * x " + (mItemWidth * i));
-                Log.d(TAG, "mItemWidth * y " + (mItemWidth * j));
                 ImageView iv = new ImageView(getContext());
                 iv.setScaleType(ImageView.ScaleType.FIT_XY);
                 LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

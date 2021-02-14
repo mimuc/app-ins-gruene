@@ -105,6 +105,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/slidePuzzleLayout"
         android:layout_width="360dp"
         android:layout_height="360dp"
         android:background="#FFFFFF"
