@@ -7,12 +7,14 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
+import de.lmu.treeapp.contentData.database.daos.app.AbstractGameStateDao;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateDescriptionDao;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateInputStringDao;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateScoresDao;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateTakePictureDao;
-import de.lmu.treeapp.contentData.database.daos.app.PlayerDao;
-import de.lmu.treeapp.contentData.database.daos.app.TreeDao;
+import de.lmu.treeapp.contentData.database.daos.app.PlayerStateDao;
+import de.lmu.treeapp.contentData.database.daos.app.TreeStateDao;
+import de.lmu.treeapp.contentData.database.entities.app.AbstractGameState;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateDescription;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateInputString;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateScore;
@@ -50,16 +52,29 @@ public abstract class AppDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    public abstract TreeDao treeDao();
+    public abstract TreeStateDao treeStateDao();
 
-    public abstract PlayerDao playerDao();
+    public abstract PlayerStateDao playerStateDao();
 
-    public abstract GameStateTakePictureDao gameTakePictureDao();
+    public <T extends AbstractGameState, S extends AbstractGameStateDao<T>> S gameStateDao(Class<S> daoClass) {
+        if (daoClass == GameStateScoresDao.class) {
+            return daoClass.cast(gameStateScoresDao());
+        } else if (daoClass == GameStateInputStringDao.class) {
+            return daoClass.cast(gameStateInputStringDao());
+        } else if (daoClass == GameStateDescriptionDao.class) {
+            return daoClass.cast(gameStateDescriptionDao());
+        } else if (daoClass == GameStateTakePictureDao.class) {
+            return daoClass.cast(gameStateTakePictureDao());
+        }
+        return null;
+    }
 
-    public abstract GameStateScoresDao gameStateScoresDao();
+    protected abstract GameStateScoresDao gameStateScoresDao();
 
-    public abstract GameStateInputStringDao gameStateInputStringDao();
+    protected abstract GameStateInputStringDao gameStateInputStringDao();
 
-    public abstract GameStateDescriptionDao gameStateDescriptionDao();
+    protected abstract GameStateDescriptionDao gameStateDescriptionDao();
+
+    protected abstract GameStateTakePictureDao gameStateTakePictureDao();
 }
 
