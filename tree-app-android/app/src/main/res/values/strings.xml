@@ -34,10 +34,11 @@
     <string name="game_mode_multiplayer_button_description">Mulitplayer Modus</string>
     <string name="game_mode_singleplayer">Einzelspieler</string>
     <string name="game_mode_singleplayer_button_description">Singleplayer Modus</string>
-    <string name="game_mode_player">Spieler %1$s : %2$d</string>
-    <string name="game_mode_multiplayer_next_player">Spieler %1$s ist an der Reihe</string>
-    <string name="game_mode_player_won">Spieler %1$s hat gewonnen</string>
+    <string name="game_mode_player">%1$s : %2$d</string>
+    <string name="game_mode_multiplayer_next_player">%1$s ist an der Reihe</string>
+    <string name="game_mode_player_won">%1$s hat gewonnen</string>
     <string name="game_mode_draw">Untentschieden!</string>
+
 
     <string name="game_difficulty_select_text">Wie schwierig soll es sein?</string>
     <string name="game_difficulty_easy">Lieber was einfaches</string>
@@ -52,6 +53,10 @@
     <string name="game_your_highscore">Dein Highscore</string>
     <string name="game_have_fun">Viel Spaß!</string>
     <string name="game_btn_start">Start</string>
+    <string name="game_prompt_second_player_name">Mit wem spielst du heute? Bitte gib den Namen ein!</string>
+    <string name="game_edit_text_name">Name</string>
+    <string name="game_first_player_default">Spieler A</string>
+    <string name="game_second_player_default">Spieler 2</string>
 
     <!-- Games -->
     <string name="game_catchFruits_trees_description_text">Weißt du noch, wie die Blätter und Früchte %1$s aussehen?</string>
