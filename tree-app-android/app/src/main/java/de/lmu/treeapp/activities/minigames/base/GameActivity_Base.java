@@ -33,7 +33,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
 
-        /*Bundle b = getIntent().getExtras();
+        Bundle b = getIntent().getExtras();
         parentCategory = (Tree.GameCategories) b.get("Category");
         treeId = b.getInt("TreeId");
         gameId = b.getInt("GameId");
@@ -49,7 +49,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         TextView description = findViewById(R.id.game_description);
         if (description != null) {
             description.setText(gameContent.getDescription());
-        }*/
+        }
     }
 
     protected abstract int getLayoutId();
