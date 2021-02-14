@@ -11,6 +11,7 @@ public class Minigame_Base implements IGameBase{
         Baumory,
         CatchFruits,
         ChooseAnswer,
+        Contour,
         Description,
         DragDrop,
         InputString,
