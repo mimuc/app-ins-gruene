@@ -22,6 +22,7 @@ import de.lmu.treeapp.activities.minigames.contour.GameActivity_Contour;
 import de.lmu.treeapp.activities.minigames.description.GameActivity_Description;
 import de.lmu.treeapp.activities.minigames.dragDrop.GameActivity_DragDrop;
 import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
+import de.lmu.treeapp.activities.minigames.leafOrder.GameActivity_LeafOrder;
 import de.lmu.treeapp.activities.minigames.onlyDescription.GameActivity_OnlyDescription;
 import de.lmu.treeapp.activities.minigames.orderWords.GameActivity_OrderWords;
 import de.lmu.treeapp.activities.minigames.puzzle.GameActivity_Puzzle;
@@ -135,6 +136,9 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
                     break;
                 case Contour:
                     gameActivityClass = GameActivity_Contour.class;
+                    break;
+                case LeafOrder:
+                    gameActivityClass = GameActivity_LeafOrder.class;
                     break;
                 default:
                     break;

@@ -18,6 +18,28 @@ public class GameDragDropItem {
     @Nullable
     public Integer matchId;
     public int w, h;
+    public Integer angle;
     @Ignore
     public float x, y;
+
+    public GameDragDropItem() {
+
+    }
+
+    public GameDragDropItem(GameDragDropItem item) {
+        this.id = item.id;
+        this.gameId = item.gameId;
+        this.type = item.type;
+        this.content = item.content;
+        this.matchId = item.matchId;
+        this.w = item.w;
+        this.h = item.h;
+        this.angle = item.angle;
+        this.x = item.x;
+        this.y = item.y;
+    }
+
+    public void setId(int iD) {
+        this.id = iD;
+    }
 }

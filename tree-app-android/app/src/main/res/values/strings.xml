@@ -88,7 +88,6 @@
     <!-- Popup -->
     <string name="popup_quiz_positive_title">Richtig!</string>
     <string name="popup_quiz_negative_title">Leider falsch!</string>
-    <string name="popup_orderWords_negative_text">Das stimmt leider noch nicht ganz.</string>
     <string name="popup_quiz_negative_text">Die richtige Antwort ist:</string>
     <string name="popup_take_picture_positive_text">Dein Foto erscheint jetzt auch im Steckbrief!</string>
     <string name="popup_puzzle_won_text">"Du hast %1$s Minuten gebraucht, super!"</string>

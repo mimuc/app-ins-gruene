@@ -18,10 +18,11 @@ import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
         GameChooseAnswer.class,
         GameChooseAnswerOption.class,
         GameContourCheckpoint.class,
+        GameDescriptionItem.class,
         GameDragDropItem.class,
         GameDragDropZone.class,
+        GameLeafOrder.class,
         GameOrderWordsItem.class,
-        GameDescriptionItem.class,
         Tree_x_Game.class,
         TreeImage.class,
         TreeModel.class,
@@ -63,6 +64,8 @@ public abstract class ContentDatabase extends RoomDatabase {
     public abstract GameBaumoryDao gameBaumoryDao();
 
     public abstract GameDragDropDao gameDragDropDao();
+
+    public abstract GameLeafOrderDao gameLeafOrderDao();
 
     public abstract GameOnlyDescriptionDao gameOnlyDescriptionDao();
 
