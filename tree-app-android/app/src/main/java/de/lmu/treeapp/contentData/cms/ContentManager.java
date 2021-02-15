@@ -83,6 +83,7 @@ public class ContentManager {
             this.minigames.addAll(contentDb.gameOnlyDescriptionDao().getAll());
             this.minigames.addAll(contentDb.gameOrderWordsDao().getAll());
             this.minigames.addAll(contentDb.gamePuzzleDao().getAll());
+            this.minigames.addAll(contentDb.gameSlidePuzzleDao().getAll());
             this.minigames.addAll(contentDb.gameTakePictureDao().getAll());
             return Completable.complete();
         }).subscribeOn(Schedulers.io());
