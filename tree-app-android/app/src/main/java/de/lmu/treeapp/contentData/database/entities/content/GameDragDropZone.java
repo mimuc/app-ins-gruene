@@ -16,6 +16,8 @@ public class GameDragDropZone {
     public Integer matchId;
     public float x, y;
     public int w, h;
+    @Nullable
+    public Integer position;
 
     @Ignore
     public Boolean validMatch = false;
