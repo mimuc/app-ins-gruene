@@ -20,6 +20,7 @@ public class Minigame_Base implements IGameBase{
         OrderWords,
         Puzzle,
         TakePicture,
+        SlidePuzzle,
         Undefined
     }
 
