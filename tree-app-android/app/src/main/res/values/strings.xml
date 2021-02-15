@@ -28,7 +28,10 @@
     <!-- Games Common -->
     <string name="game_selection_title">Minispiele</string>
     <string name="game_selection_headline_placeholder">Wähle ein Spiel aus</string>
-    <string name="game_selection_description_placeholder">Hier findest du Minigames zu Rinde und Holz der Kiefer. Starte jetzt mit einem Spiel!</string>
+    <string name="game_selection_description_trunk">Hier findest du Minigames zu Rinde und Holz %1$s. Starte jetzt mit einem Spiel!</string>
+    <string name="game_selection_description_fruit">Hier findest du Minigames zu Blüte und Frucht %1$s. Starte jetzt mit einem Spiel!</string>
+    <string name="game_selection_description_leaf">Hier findest du Minigames zu Blatt und Zweig %1$s. Starte jetzt mit einem Spiel!</string>
+    <string name="game_selection_description_other">Hier findest du allgemeine Minigames %1$s. Starte jetzt mit einem Spiel!</string>
 
     <string name="game_mode_multiplayer">Mehrspieler</string>
     <string name="game_mode_multiplayer_button_description">Mulitplayer Modus</string>
