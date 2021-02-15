@@ -23,6 +23,8 @@ import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
         GameDragDropZone.class,
         GameLeafOrder.class,
         GameOrderWordsItem.class,
+        GameOnlyDescriptionTextItem.class,
+        GameOnlyDescriptionImageItem.class,
         Tree_x_Game.class,
         TreeImage.class,
         TreeModel.class,
