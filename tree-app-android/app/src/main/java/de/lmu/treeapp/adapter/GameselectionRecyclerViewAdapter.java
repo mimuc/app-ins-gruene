@@ -25,6 +25,7 @@ import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
 import de.lmu.treeapp.activities.minigames.leafOrder.GameActivity_LeafOrder;
 import de.lmu.treeapp.activities.minigames.onlyDescription.GameActivity_OnlyDescription;
 import de.lmu.treeapp.activities.minigames.orderWords.GameActivity_OrderWords;
+import de.lmu.treeapp.activities.minigames.slidePuzzle.GameActivity_SlidePuzzle;
 import de.lmu.treeapp.activities.minigames.puzzle.GameActivity_Puzzle;
 import de.lmu.treeapp.activities.minigames.takePicture.GameActivity_TakePicture;
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
@@ -92,8 +93,8 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
         holder.gameName.setText(game.getName());
 
         holder.gameIcon.setOnClickListener(arg0 -> {
-            Class<?> gameActivityClass = null;
 
+            Class<?> gameActivityClass = null;
             switch (game.getType()) {
                 case ChooseAnswer:
 
@@ -139,6 +140,9 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
                     break;
                 case LeafOrder:
                     gameActivityClass = GameActivity_LeafOrder.class;
+                    break;
+                case SlidePuzzle:
+                    gameActivityClass = GameActivity_SlidePuzzle.class;
                     break;
                 default:
                     break;

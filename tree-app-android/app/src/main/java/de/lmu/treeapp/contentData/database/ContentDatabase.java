@@ -83,5 +83,6 @@ public abstract class ContentDatabase extends RoomDatabase {
 
     public abstract GameContourDao gameContourDao();
 
+    public abstract GameSlidePuzzleDao gameSlidePuzzleDao();
 }
 
