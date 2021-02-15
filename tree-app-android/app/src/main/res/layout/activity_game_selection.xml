@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewImpressum"
+        app:layout_constraintTop_toBottomOf="@+id/gameselection_textview2"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -38,14 +38,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewImpressum"
+        android:id="@+id/gameselection_textview2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/hind_medium"
-        android:text="@string/game_selection_description_placeholder"
+        android:text="@string/game_selection_description_other"
         android:textColor="@color/asphalt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
