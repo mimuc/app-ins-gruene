@@ -15,6 +15,9 @@ public class GameDragDropRelations extends GameRelations {
     @Relation(parentColumn = "id", entityColumn = "gameId")
     protected List<GameDragDropZone> zones;
 
+    @Relation(parentColumn = "id", entityColumn = "gameId")
+    public GameLeafOrder gameLeafOrder;
+
     public GameDragDropRelations(List<GameDragDropItem> items, List<GameDragDropZone> zones) {
         this.items = items;
         this.zones = zones;
@@ -26,5 +29,9 @@ public class GameDragDropRelations extends GameRelations {
 
     public List<GameDragDropZone> getZones() {
         return zones;
+    }
+
+    public boolean isAlternate() {
+        return gameLeafOrder != null ? gameLeafOrder.isAlternate : false;
     }
 }

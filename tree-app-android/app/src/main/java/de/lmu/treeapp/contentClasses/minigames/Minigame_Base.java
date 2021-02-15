@@ -15,6 +15,7 @@ public class Minigame_Base implements IGameBase{
         Description,
         DragDrop,
         InputString,
+        LeafOrder,
         OnlyDescription,
         OrderWords,
         Puzzle,
