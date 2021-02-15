@@ -2,40 +2,167 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/only_description"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightBlue"
     tools:context="de.lmu.treeapp.activities.minigames.onlyDescription.GameActivity_OnlyDescription">
 
+    <ViewFlipper
+        android:id="@+id/viewFlipperOnlyDescription"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="1dp">
 
-    <TextView
-        android:id="@+id/game_description"
-        android:layout_width="333dp"
-        android:layout_height="519dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/game_description_placeholder"
-        android:textSize="@dimen/heading2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.346" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/game_onlyDescription_sendButton"
-        android:layout_width="146dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/game_input_string_send_button_placeholder_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/game_onlyDescription_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/game_onlyDescription_nextButton1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/game_onlyDescription_nextButton1"
+                style="@style/AppTheme.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:elevation="4dp"
+                android:fontFamily="@font/freude"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp"
+                android:stateListAnimator="@null"
+                android:text="@string/button_next"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+                android:textSize="@dimen/buttons"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.89"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.4" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/game_onlyDescription_content2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/game_onlyDescription_nextButton2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/game_onlyDescription_nextButton2"
+                style="@style/AppTheme.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:elevation="4dp"
+                android:fontFamily="@font/freude"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp"
+                android:stateListAnimator="@null"
+                android:text="@string/button_next"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+                android:textSize="@dimen/buttons"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/game_onlyDescription_prevButton1"
+                app:layout_constraintWidth_percent="0.4" />
+
+            <Button
+                android:id="@+id/game_onlyDescription_prevButton1"
+                style="@style/AppTheme.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:elevation="4dp"
+                android:fontFamily="@font/freude"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp"
+                android:stateListAnimator="@null"
+                android:text="@string/button_back"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+                android:textSize="@dimen/buttons"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/game_onlyDescription_nextButton2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.4" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/game_onlyDescription_content3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/game_onlyDescription_doneButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/game_onlyDescription_doneButton"
+                style="@style/AppTheme.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:elevation="4dp"
+                android:fontFamily="@font/freude"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp"
+                android:stateListAnimator="@null"
+                android:text="@string/button_done"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+                android:textSize="@dimen/buttons"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/game_onlyDescription_prevButton2"
+                app:layout_constraintWidth_percent="0.4" />
+
+            <Button
+                android:id="@+id/game_onlyDescription_prevButton2"
+                style="@style/AppTheme.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:elevation="4dp"
+                android:fontFamily="@font/freude"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp"
+                android:stateListAnimator="@null"
+                android:text="@string/button_back"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+                android:textSize="@dimen/buttons"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/game_onlyDescription_doneButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ViewFlipper>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
