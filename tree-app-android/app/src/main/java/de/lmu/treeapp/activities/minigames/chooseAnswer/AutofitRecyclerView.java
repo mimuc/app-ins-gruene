@@ -11,6 +11,7 @@ public class AutofitRecyclerView extends RecyclerView {
 
     private GridLayoutManager manager;
     private int columnWidth = -1;
+    private boolean isImage = false;
 
     public AutofitRecyclerView(Context context) {
         super(context);
@@ -45,13 +46,17 @@ public class AutofitRecyclerView extends RecyclerView {
         super.onMeasure(widthSpec, heightSpec);
         if (columnWidth > 0) {
             int spanCount;
-            if (ChooseAnswer_Options_RecyclerViewAdapter.isImage(ChooseAnswer_Options_RecyclerViewAdapter.options)) {
+            if (isImage) {
                 spanCount = 2;
             } else {
                 spanCount = 1;
             }
             manager.setSpanCount(spanCount);
         }
+    }
+
+    public void setIsImage(boolean image) {
+        isImage = image;
     }
 }
 
