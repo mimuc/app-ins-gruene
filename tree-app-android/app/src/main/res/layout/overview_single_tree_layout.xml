@@ -6,6 +6,7 @@
     android:adjustViewBounds="true"
     android:clipChildren="false"
     android:clipToPadding="false"
+    android:paddingTop="12dp"
     android:paddingHorizontal="16dp">
 
     <ImageButton
@@ -53,10 +54,11 @@
         android:layout_height="0dp"
         android:contentDescription="@string/overview_single_tree_state_image_content_description"
         android:elevation="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/overview_single_tree_image"
+        android:translationX="10dp"
+        android:translationY="-10dp"
+        android:visibility="gone"
         app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintEnd_toEndOf="@id/overview_single_tree_image"
-        app:layout_constraintStart_toEndOf="@id/overview_single_tree_image"
         app:layout_constraintTop_toTopOf="@+id/overview_single_tree_image"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintWidth_default="percent"
