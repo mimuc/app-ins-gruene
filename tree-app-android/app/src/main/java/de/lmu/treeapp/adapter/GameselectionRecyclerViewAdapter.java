@@ -97,15 +97,6 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
             Class<?> gameActivityClass = null;
             switch (game.getType()) {
                 case ChooseAnswer:
-
-                    if (game.getId() >= 100) {
-                        GameActivity_ChooseAnswer.current = 1;
-                    } else if (game.getId() < 40) {
-                        GameActivity_ChooseAnswer.current = 4;
-                    } else {
-                        GameActivity_ChooseAnswer.current = 3;
-                    }
-
                     gameActivityClass = GameActivity_ChooseAnswer.class;
                     break;
                 case InputString:
