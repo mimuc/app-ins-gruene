@@ -6,8 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -25,10 +27,11 @@ import de.lmu.treeapp.activities.minigames.inputString.GameActivity_InputString;
 import de.lmu.treeapp.activities.minigames.leafOrder.GameActivity_LeafOrder;
 import de.lmu.treeapp.activities.minigames.onlyDescription.GameActivity_OnlyDescription;
 import de.lmu.treeapp.activities.minigames.orderWords.GameActivity_OrderWords;
-import de.lmu.treeapp.activities.minigames.slidePuzzle.GameActivity_SlidePuzzle;
 import de.lmu.treeapp.activities.minigames.puzzle.GameActivity_Puzzle;
+import de.lmu.treeapp.activities.minigames.slidePuzzle.GameActivity_SlidePuzzle;
 import de.lmu.treeapp.activities.minigames.takePicture.GameActivity_TakePicture;
 import de.lmu.treeapp.contentClasses.minigames.IGameBase;
+import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.utils.glide.BackgroundTarget;
@@ -42,11 +45,13 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView gameName;
         public final ImageButton gameIcon;
+        public final ImageView gameStatusView;
 
         ViewHolder(View v) {
             super(v);
             gameName = v.findViewById(R.id.gameselection_single_game_name);
             gameIcon = v.findViewById(R.id.gameselection_single_game_icon);
+            gameStatusView = v.findViewById(R.id.gameselection_single_game_state_image);
         }
     }
 
@@ -67,6 +72,7 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
     }
 
 
+    @NonNull
     @Override
     public GameselectionRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                                           int viewType) {
@@ -87,9 +93,11 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
             return;
         }
         if (tree.appData.isGameCompleted(category, game.getId())) {
-            Glide.with(context).load(R.drawable.ic_quiz_checked).into(holder.gameIcon);
-            Glide.with(context).load(R.drawable.white_background).into(new BackgroundTarget(holder.gameIcon));
+            Glide.with(context).load(R.drawable.overlay_disabled).into(holder.gameIcon);
+            holder.gameStatusView.setVisibility(View.VISIBLE);
         }
+
+        Glide.with(context).load(gameIcon(game.getType())).into(new BackgroundTarget(holder.gameIcon));
         holder.gameName.setText(game.getName());
 
         holder.gameIcon.setOnClickListener(arg0 -> {
@@ -157,6 +165,59 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
             }
         });
 
+    }
+
+    public int gameIcon(Minigame_Base.MinigameTypes type) {
+        int icon;
+        switch (type) {
+            case Baumory:
+                icon = R.drawable.ic_game_baumory;
+                break;
+            case CatchFruits:
+                icon = R.drawable.ic_game_catch_fruits;
+                break;
+            case ChooseAnswer:
+                if (category == Tree.GameCategories.other) {
+                    icon = R.drawable.ic_game_superpower;
+                } else {
+                    icon = R.drawable.ic_game_quiz;
+                }
+                break;
+            case Contour:
+                icon = R.drawable.ic_game_contour;
+                break;
+            case Description:
+                icon = R.drawable.ic_game_select_attributes;
+                break;
+            case DragDrop:
+                icon = R.drawable.ic_game_drag_drop;
+                break;
+            case InputString:
+                icon = R.drawable.ic_game_rhyme;
+                break;
+            case LeafOrder:
+                icon = R.drawable.ic_game_leaf_order;
+                break;
+            case OnlyDescription:
+                icon = R.drawable.ic_game_only_description;
+                break;
+            case OrderWords:
+                icon = R.drawable.ic_game_order_words;
+                break;
+            case Puzzle:
+                icon = R.drawable.ic_game_puzzle;
+                break;
+            case SlidePuzzle:
+                icon = R.drawable.ic_game_slide_puzzle;
+                break;
+            case TakePicture:
+                icon = R.drawable.ic_game_take_picture;
+                break;
+            default:
+                icon = R.drawable.sb_icon_questionmark;
+                break;
+        }
+        return icon;
     }
 
     // Return the size of your dataset (invoked by the layout manager)
