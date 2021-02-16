@@ -118,13 +118,9 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
             holder.treeName.setText(tree.getName());
 
             if (Math.round(tree.GetGameProgressionPercent(Tree.GameCategories.total)) >= 100) {
-                Glide.with(context).load(R.drawable.ic_checked_mark).into(holder.treeUnlockedStatus);
-            } else if (tree.appData.treeState.isUnlocked) {
-                // Change to Unlocked-Symbol
-                Glide.with(context).load(R.drawable.ic_question_mark).into(holder.treeUnlockedStatus);
-            } else {
-                Glide.with(context).load(R.drawable.ic_locked_mark).into(holder.treeUnlockedStatus);
+                holder.treeUnlockedStatus.setVisibility(View.VISIBLE);
             }
+
             // Set Tree-Image here:
             Context context = holder.treeImage.getContext();
             int imageTreeId = context.getResources().getIdentifier(
