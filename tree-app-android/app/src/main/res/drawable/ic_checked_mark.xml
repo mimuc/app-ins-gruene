@@ -22,12 +22,7 @@
                 </shape>
             </item>
 
-            <item
-                android:drawable="@drawable/ic_completed"
-                android:bottom="12dp"
-                android:left="12dp"
-                android:right="12dp"
-                android:top="12dp"/>
+            <item android:drawable="@drawable/ic_completed" android:gravity="center" android:height="24dp" android:width="24dp" />
 
         </layer-list>
     </item>
