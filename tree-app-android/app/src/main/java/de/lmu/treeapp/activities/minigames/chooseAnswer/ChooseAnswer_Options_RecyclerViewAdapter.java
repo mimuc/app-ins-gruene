@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -16,56 +17,27 @@ import java.util.List;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.contentClasses.minigames.MediaType;
-import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerOption;
 import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerRelations;
 import de.lmu.treeapp.utils.glide.BackgroundTarget;
 
-public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapter<ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder> {
+public class ChooseAnswer_Options_RecyclerViewAdapter extends
+        RecyclerView.Adapter<ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder> {
 
-    public static List<GameChooseAnswerOption> options;
-    private static int resultImageId;
-    private static String resultText;
-    private final GameChooseAnswerRelations game;
+    public List<GameChooseAnswerOption> options;
     private final Context context;
-    private final Tree tree;
-    private final Tree.GameCategories category;
     private final OptionClickInterface mOnClickListener;
 
-    public ChooseAnswer_Options_RecyclerViewAdapter(OptionClickInterface mOnClickListener, GameChooseAnswerRelations _game, Context _context, Tree _tree, Tree.GameCategories _category) {
+    public ChooseAnswer_Options_RecyclerViewAdapter(OptionClickInterface mOnClickListener,
+                                                    GameChooseAnswerRelations _game,
+                                                    Context _context) {
         this.mOnClickListener = mOnClickListener;
         options = _game.getOptions();
         Collections.shuffle(options);
-        this.game = _game;
         this.context = _context;
-        this.tree = _tree;
-        this.category = _category;
     }
 
-    public static GameChooseAnswerOption findResult(List<GameChooseAnswerOption> options) {
-        for (GameChooseAnswerOption option : options) {
-            if (option.isRight) {
-                return option;
-            }
-        }
-        return null;
-    }
-
-    public static boolean isImage(List<GameChooseAnswerOption> options) {
-        GameChooseAnswerOption option = options.get(0);
-        return option.optionType == MediaType.IMAGE;
-    }
-
-    public void add(int position, GameChooseAnswerOption item) {
-        options.add(position, item);
-        notifyItemInserted(position);
-    }
-
-    public void remove(int position) {
-        options.remove(position);
-        notifyItemRemoved(position);
-    }
-
+    @NonNull
     @Override
     public ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                                                   int viewType) {
@@ -78,24 +50,18 @@ public class ChooseAnswer_Options_RecyclerViewAdapter extends RecyclerView.Adapt
     }
 
     @Override
-    public void onBindViewHolder(ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ChooseAnswer_Options_RecyclerViewAdapter.ViewHolder holder,
+                                 final int position) {
         final GameChooseAnswerOption option = options.get(position);
 
         if (option.optionType == MediaType.TEXT) {
             holder.button_txt.setVisibility(View.VISIBLE);
             holder.button_txt.setText(option.content);
-            if (option.isRight) {
-                resultText = holder.button_txt.getText().toString();
-                GameActivity_ChooseAnswer.resultText = resultText;
-            }
         } else if (option.optionType == MediaType.IMAGE) {
             holder.button_img.setVisibility(View.VISIBLE);
-            int imageId = context.getResources().getIdentifier(option.content, "drawable", context.getPackageName());
+            int imageId = context.getResources().getIdentifier(option.content,
+                    "drawable", context.getPackageName());
 
-            if (option.isRight) {
-                resultImageId = imageId;
-                GameActivity_ChooseAnswer.resultImage = resultImageId;
-            }
             Glide.with(context).load(imageId).into(new BackgroundTarget(holder.button_img));
         }
 
