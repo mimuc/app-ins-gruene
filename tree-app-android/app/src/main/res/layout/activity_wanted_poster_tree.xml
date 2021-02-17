@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sb_sky_blue_gradient"
+    android:background="@color/lightBlue"
     android:translationZ="-1dp"
     tools:context=".wantedPoster.activity.WantedPosterTreeActivity">
 
