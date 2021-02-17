@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightBlue"
     tools:context="de.lmu.treeapp.activities.minigames.puzzle.GameActivity_Puzzle">
 
 
@@ -17,7 +18,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/sky_blue_gradient">
+            >
 
             <TextView
                 android:id="@+id/heading_puzzle_difficulty_select"
@@ -36,9 +37,10 @@
 
             <ImageButton
                 android:id="@+id/btn_easy"
-                style="@style/AppTheme.Button"
+                style="@style/ClickableImageView"
                 android:layout_width="250dp"
                 android:layout_height="80dp"
+                android:layout_marginBottom="24dp"
                 android:clickable="true"
                 android:contentDescription="@string/game_mode_singleplayer_button_description"
                 android:focusable="true"
@@ -64,7 +66,7 @@
 
             <ImageButton
                 android:id="@+id/btn_medium"
-                style="@style/AppTheme.Button"
+                style="@style/ClickableImageView"
                 android:layout_width="250dp"
                 android:layout_height="80dp"
                 android:clickable="true"
@@ -94,9 +96,10 @@
 
             <ImageButton
                 android:id="@+id/btn_hard"
-                style="@style/AppTheme.Button"
+                style="@style/ClickableImageView"
                 android:layout_width="250dp"
                 android:layout_height="80dp"
+                android:layout_marginTop="24dp"
                 android:clickable="true"
                 android:contentDescription="@string/game_mode_multiplayer_button_description"
                 android:focusable="true"
