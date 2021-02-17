@@ -1,11 +1,15 @@
 package de.lmu.treeapp.activities.minigames.slidePuzzle;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.widget.TextView;
 
 
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.common.util.ArrayUtils;
+
+import java.util.Locale;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
@@ -18,6 +22,9 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
     DragDropGrid grid;
     int dimension = 3;
     Popup popup;
+    private TextView timeText;
+    private Boolean isTimerRunning = false;
+    private String time;
     int img = R.drawable.sb_bluete_foto_ahorn;
     Fragment imageSelectFragment;
     int[] mwTrees = new int[]{1, 9, 5, 3, 8};
@@ -59,12 +66,18 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         img = selectImage(type);
         popup = new Popup(this);
         popup.setWinTitle(getString(R.string.slidepuzzle_wonderful));
+        timeText = findViewById(R.id.time_TextView);
+        startTimer();
         grid = (DragDropGrid) findViewById(R.id.grid);
         grid.setImage(img, dimension);
         grid.setOnCompleteCallback(() -> {
-            popup.showWithButtonText(PopupType.POSITIVE,
-                    getString(R.string.game_input_string_send_button_placeholder_text),
-                    getString(R.string.slidepuzzle_win));
+            //popup.showWithButtonText(PopupType.POSITIVE,
+              //      getString(R.string.game_input_string_send_button_placeholder_text),
+                //    getString(R.string.slidepuzzle_win));
+            isTimerRunning = false;
+            popup.setButtonSecondary(true);
+            popup.setButtonSecondaryText(getString(R.string.button_back));
+            popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.button_repeat), getString(R.string.popup_puzzle_won_text, time));
             grid.postDelayed(GameActivity_SlidePuzzle.this, 800);
         });
     }
@@ -83,6 +96,32 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
     public void onPopupAction(PopupType type, PopupAction action) {
         if (type == PopupType.POSITIVE) {
             onSuccess();
+        }
+    }
+
+    private void startTimer() {
+        // displaying stopwatch
+        isTimerRunning = true;
+        {
+            final Handler handler_ = new Handler(getMainLooper());
+            handler_.post(new Runnable() {
+                int seconds = 0;
+
+                @Override
+                public void run() {
+                    int hours = seconds / 3600;
+                    int minutes = ((seconds % 3600) / 60) + hours * 60;
+                    int secs = seconds % 60;
+                    time = String.format(Locale.getDefault(), "%02d:%02d", minutes, secs);
+                    timeText.setText(time);
+                    if (isTimerRunning) {
+                        seconds++;
+                    } else {
+                        return;
+                    }
+                    handler_.postDelayed(this, 1000);
+                }
+            });
         }
     }
 

@@ -21,7 +21,6 @@ public class Minigame_Base implements IGameBase{
         Puzzle,
         SlidePuzzle,
         TakePicture,
-        SlidePuzzle,
         Undefined
     }
 
