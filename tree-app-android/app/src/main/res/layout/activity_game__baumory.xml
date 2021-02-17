@@ -4,236 +4,120 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightBlue"
     tools:context="de.lmu.treeapp.activities.minigames.onlyDescription.GameActivity_OnlyDescription">
 
 
-    <TextView
-        android:id="@+id/game_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/game_description_placeholder"
-        android:gravity="center"
-        android:textSize="@dimen/heading2"
-        app:layout_constraintBottom_toTopOf="@id/viewFlipperBaumory"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ViewFlipper
-        android:id="@+id/viewFlipperBaumory"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/game_description">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageButton
-                android:id="@+id/btn_multiplayer"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginEnd="16dp"
-                style="@style/AppTheme.Button"
-                android:clickable="true"
-                android:contentDescription="@string/game_mode_multiplayer_button_description"
-                android:focusable="true"
-                android:padding="10dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_multiplayer_squirrel"
-                android:text="@string/game_mode_multiplayer"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btn_singleplayer"
-                app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
-            <TextView
-                android:id="@+id/textView_singleplayer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/game_mode_singleplayer"
-                android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="@+id/btn_singleplayer"
-                app:layout_constraintStart_toStartOf="@+id/btn_singleplayer"
-                app:layout_constraintTop_toBottomOf="@+id/btn_singleplayer" />
+        <TextView
+            android:id="@+id/tv_multiplayerTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:textAlignment="center"
+            android:textColor="@color/asphalt"
+            android:textSize="@dimen/heading1"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/game_baumory_recyclerView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
 
-            <ImageButton
-                android:id="@+id/btn_singleplayer"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginStart="16dp"
-                style="@style/AppTheme.Button"
-                android:clickable="true"
-                android:contentDescription="@string/game_mode_singleplayer_button_description"
-                android:focusable="true"
-                android:padding="22dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_singleplayer_squirrel"
-                android:text="@string/game_mode_singleplayer"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btn_multiplayer"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/time_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:text="00:00"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/game_baumory_recyclerView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView_multiplayer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/game_mode_multiplayer"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="@+id/btn_multiplayer"
-                app:layout_constraintStart_toStartOf="@+id/btn_multiplayer"
-                app:layout_constraintTop_toBottomOf="@+id/btn_multiplayer" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/game_baumory_recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:horizontalSpacing="1dp"
+            android:verticalSpacing="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom"
+            app:layout_constraintDimensionRatio="H,1:1.25"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_multiplayerTitle" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:id="@+id/bottom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/game_baumory_recyclerView">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/top"
+            <TextView
+                android:id="@+id/tv_score_p1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/game_baumory_recyclerView"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/dark_grey_gradient"
+                android:backgroundTint="@color/blue"
+                android:textAlignment="center"
+                android:textColor="@color/asphalt"
+                android:textSize="@dimen/buttons"
+                android:visibility="gone"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_score_p2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
 
-                <TextView
-                    android:id="@+id/tv_multiplayerTitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@color/asphalt"
-                    android:textSize="@dimen/heading1"
-                    android:textStyle="bold"
-                    android:visibility="invisible"
-                    app:layout_constraintBottom_toTopOf="@+id/btn_game_baumory_back"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
-                    android:id="@+id/btn_game_baumory_back"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp"
-                    style="@style/AppTheme.OutlinedButton"
-                    android:elevation="4dp"
-                    android:fontFamily="@font/freude"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="4dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_back"
-                    android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
-                    android:textSize="@dimen/buttons"
-                    android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/btn_game_baumory_repeat"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_multiplayerTitle" />
-
-                <Button
-                    android:id="@+id/btn_game_baumory_repeat"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="16dp"
-                    style="@style/AppTheme.Button"
-                    android:elevation="4dp"
-                    android:fontFamily="@font/freude"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="4dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_repeat"
-                    android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
-                    android:textSize="@dimen/buttons"
-                    android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/btn_game_baumory_back"
-                    app:layout_constraintTop_toBottomOf="@id/tv_multiplayerTitle" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/game_baumory_recyclerView"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="24dp"
-                android:horizontalSpacing="1dp"
-                android:verticalSpacing="1dp"
-                app:layout_constraintBottom_toTopOf="@id/bottom"
-                app:layout_constraintDimensionRatio="H,1:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/top" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/bottom"
+            <TextView
+                android:id="@+id/tv_score_p2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/dark_grey_gradient"
+                android:backgroundTint="@color/orange"
+                android:textAlignment="center"
+                android:textColor="@color/asphalt"
+                android:textSize="@dimen/buttons"
+                android:visibility="gone"
+                android:padding="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/game_baumory_recyclerView">
-
-                <TextView
-                    android:id="@+id/tv_score_p1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="24dp"
-                    android:background="@drawable/dark_grey_gradient"
-                    android:backgroundTint="@color/asphalt"
-                    android:textAlignment="center"
-                    android:textColor="?attr/colorOnPrimary"
-                    android:textSize="@dimen/buttons"
-                    android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_score_p2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <TextView
-                    android:id="@+id/tv_score_p2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="24dp"
-                    android:background="@drawable/dark_grey_gradient"
-                    android:backgroundTint="?attr/colorPrimary"
-                    android:textAlignment="center"
-                    android:textColor="?attr/colorOnPrimary"
-                    android:textSize="@dimen/buttons"
-                    android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/tv_score_p1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
+                app:layout_constraintStart_toEndOf="@+id/tv_score_p1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ViewFlipper>
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/selection_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

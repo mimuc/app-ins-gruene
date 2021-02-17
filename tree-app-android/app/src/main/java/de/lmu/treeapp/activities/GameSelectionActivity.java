@@ -2,13 +2,11 @@ package de.lmu.treeapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.app.NavUtils;
-import androidx.core.app.TaskStackBuilder;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +16,8 @@ import de.lmu.treeapp.R;
 import de.lmu.treeapp.adapter.GameselectionRecyclerViewAdapter;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
+
+import static de.lmu.treeapp.utils.language.LanguageUtils.getTreeGenitiveGerman;
 
 /**
  * This Activity is displayed, when the user clicks on a category inside a tree-card. It contains the different games in this category.
@@ -29,6 +29,7 @@ public class GameSelectionActivity extends AppCompatActivity {
     private int treeId;
     private Tree.GameCategories category;
     private List<Integer> gameIds;
+    protected Tree parentTree;
 
     /**
      * On creation of this Activity, get the current tree and category we need to display and set-up the RecyclerView and Actionbar.
@@ -49,6 +50,21 @@ public class GameSelectionActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle(R.string.game_selection_title);
         }
+
+        // update the introduction text accordingly to tree and category
+        parentTree = DataManager.getInstance(getApplicationContext()).getTree(treeId);
+        String treeName = getTreeGenitiveGerman(parentTree.getName());
+        TextView text = findViewById(R.id.gameselection_textview2);
+        if (category == Tree.GameCategories.other) {
+            text.setText(getString(R.string.game_selection_description_other, treeName));
+        } else if (category == Tree.GameCategories.leaf) {
+            text.setText(getString(R.string.game_selection_description_leaf, treeName));
+        } else if (category == Tree.GameCategories.fruit) {
+            text.setText(getString(R.string.game_selection_description_fruit, treeName));
+        } else if (category == Tree.GameCategories.trunk) {
+            text.setText(getString(R.string.game_selection_description_trunk, treeName));
+        }
+
         // Setup the RecyclerView
         gameSelectionRecyclerView = findViewById(R.id.gameselection_recyclerview);
         setupOverviewRecyclerView();

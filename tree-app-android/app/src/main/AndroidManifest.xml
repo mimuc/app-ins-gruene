@@ -86,6 +86,20 @@
                 android:value="activities.MainActivity" />
         </activity>
         <activity
+            android:name=".activities.minigames.contour.GameActivity_Contour"
+            android:parentActivityName="activities.GameSelectionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="activities.MainActivity" />
+        </activity>
+        <activity
+                android:name=".activities.minigames.leafOrder.GameActivity_LeafOrder"
+                android:parentActivityName="activities.GameSelectionActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="activities.MainActivity" />
+        </activity>
+        <activity
             android:name=".activities.minigames.onlyDescription.GameActivity_OnlyDescription"
             android:parentActivityName="activities.GameSelectionActivity">
             <meta-data

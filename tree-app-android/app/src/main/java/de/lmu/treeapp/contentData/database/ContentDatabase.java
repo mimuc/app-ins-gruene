@@ -7,29 +7,6 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import de.lmu.treeapp.contentData.database.daos.content.GameBaumoryDao;
-import de.lmu.treeapp.contentData.database.daos.content.GameChooseAnswerDao;
-import de.lmu.treeapp.contentData.database.daos.content.GameDragDropDao;
-import de.lmu.treeapp.contentData.database.daos.content.GameInputStringDao;
-import de.lmu.treeapp.contentData.database.daos.content.GameOnlyDescriptionDao;
-import de.lmu.treeapp.contentData.database.daos.content.GameOrderWordsDao;
-import de.lmu.treeapp.contentData.database.daos.content.GamePuzzleDao;
-import de.lmu.treeapp.contentData.database.daos.content.GameSlidePuzzleDao;
-import de.lmu.treeapp.contentData.database.daos.content.GameTakePictureDao;
-import de.lmu.treeapp.contentData.database.daos.content.TreeDao;
-//import de.lmu.treeapp.contentData.database.daos.content.TreeProfileDao;
-import de.lmu.treeapp.contentData.database.daos.content.Tree_x_GameDao;
-import de.lmu.treeapp.contentData.database.entities.content.GameBase;
-import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryCard;
-import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswer;
-import de.lmu.treeapp.contentData.database.entities.content.GameChooseAnswerOption;
-import de.lmu.treeapp.contentData.database.entities.content.GameDragDropItem;
-import de.lmu.treeapp.contentData.database.entities.content.GameDragDropZone;
-import de.lmu.treeapp.contentData.database.entities.content.GameOrderWordsItem;
-import de.lmu.treeapp.contentData.database.entities.content.TreeImage;
-import de.lmu.treeapp.contentData.database.entities.content.TreeModel;
-//import de.lmu.treeapp.contentData.database.entities.content.TreeProfileCard;
-import de.lmu.treeapp.contentData.database.entities.content.Tree_x_Game;
 import de.lmu.treeapp.contentData.database.daos.content.*;
 import de.lmu.treeapp.contentData.database.entities.content.*;
 import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
@@ -40,10 +17,14 @@ import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
         GameCatchFruitsItem.class,
         GameChooseAnswer.class,
         GameChooseAnswerOption.class,
+        GameContourCheckpoint.class,
+        GameDescriptionItem.class,
         GameDragDropItem.class,
         GameDragDropZone.class,
+        GameLeafOrder.class,
         GameOrderWordsItem.class,
-        GameDescriptionItem.class,
+        GameOnlyDescriptionTextItem.class,
+        GameOnlyDescriptionImageItem.class,
         Tree_x_Game.class,
         TreeImage.class,
         TreeModel.class,
@@ -86,6 +67,8 @@ public abstract class ContentDatabase extends RoomDatabase {
 
     public abstract GameDragDropDao gameDragDropDao();
 
+    public abstract GameLeafOrderDao gameLeafOrderDao();
+
     public abstract GameOnlyDescriptionDao gameOnlyDescriptionDao();
 
     public abstract GameDescriptionDao gameDescriptionDao();
@@ -99,6 +82,8 @@ public abstract class ContentDatabase extends RoomDatabase {
     public abstract GamePuzzleDao gamePuzzleDao();
 
     public abstract GameInputStringDao gameInputStringDao();
+
+    public abstract GameContourDao gameContourDao();
 
     public abstract GameSlidePuzzleDao gameSlidePuzzleDao();
 }

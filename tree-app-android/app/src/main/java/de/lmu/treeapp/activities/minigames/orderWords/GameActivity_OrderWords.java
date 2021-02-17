@@ -106,7 +106,7 @@ public class GameActivity_OrderWords extends GameActivity_Base implements Recycl
             if (isCorrect) {
                 popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), correctString);
             } else {
-                popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_btn_continue), getString(R.string.popup_orderWords_negative_text));
+                popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_btn_continue), getString(R.string.popup_loose_title));
             }
         });
     }

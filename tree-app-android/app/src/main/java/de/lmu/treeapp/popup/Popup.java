@@ -206,6 +206,7 @@ public class Popup {
             ViewCompat.animate(popupText).setStartDelay(400).alpha(1).setDuration(300)
                     .setInterpolator(new DecelerateInterpolator(1.2f)).start();
         } else {
+            popupText.setText("");
             popupText.setVisibility(View.GONE);
         }
 

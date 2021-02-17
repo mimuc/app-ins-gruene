@@ -68,8 +68,8 @@ public class Baumory_Cards_RecyclerViewAdapter extends RecyclerView.Adapter<Baum
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final GameBaumoryCard option = options.get(position);
 
-        Glide.with(context).load(R.drawable.ic_question_big).into(holder.button);
-        Glide.with(context).load(R.drawable.dark_grey_gradient).into(new BackgroundTarget(holder.button));
+        Glide.with(context).load(R.drawable.ic_singleplayer_squirrel).into(holder.button);
+        Glide.with(context).load(R.drawable.forst_card_background).into(new BackgroundTarget(holder.button));
         holder.button.setOnClickListener(arg0 -> mOnClickListener.optionClicked(option, holder));
     }
 

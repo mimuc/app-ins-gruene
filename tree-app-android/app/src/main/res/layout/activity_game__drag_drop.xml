@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightBlue"
     tools:context="de.lmu.treeapp.activities.minigames.dragDrop.GameActivity_DragDrop">
 
     <TextView
@@ -61,7 +62,7 @@
         android:paddingTop="8dp"
         android:paddingBottom="4dp"
         android:stateListAnimator="@null"
-        android:text="Fertig!"
+        android:text="@string/popup_btn_finished"
         android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
         android:textSize="@dimen/buttons"
         app:layout_constraintBottom_toBottomOf="parent"
