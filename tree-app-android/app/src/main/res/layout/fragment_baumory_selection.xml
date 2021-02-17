@@ -20,9 +20,10 @@
             <ImageButton
                 android:id="@+id/btn_multiplayer"
                 android:layout_width="150dp"
+                android:background="@color/lightBlue"
                 android:layout_height="150dp"
                 android:layout_marginEnd="16dp"
-                style="@style/AppTheme.Button"
+                style="@style/ClickableImageView"
                 android:clickable="true"
                 android:contentDescription="@string/game_mode_multiplayer_button_description"
                 android:focusable="true"
@@ -51,8 +52,9 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="16dp"
-                style="@style/AppTheme.Button"
+                style="@style/ClickableImageView"
                 android:clickable="true"
+                android:background="@color/lightBlue"
                 android:contentDescription="@string/game_mode_singleplayer_button_description"
                 android:focusable="true"
                 android:padding="22dp"
@@ -98,7 +100,7 @@
 
             <ImageButton
                 android:id="@+id/btn_easy"
-                style="@style/AppTheme.Button"
+                style="@style/ClickableImageView"
                 android:layout_width="250dp"
                 android:layout_height="80dp"
                 android:clickable="true"
@@ -107,6 +109,7 @@
                 android:padding="5dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_bird"
+                android:background="@color/lightBlue"
                 android:text="@string/game_difficulty_easy"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_hard"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -127,7 +130,7 @@
 
             <ImageButton
                 android:id="@+id/btn_hard"
-                style="@style/AppTheme.Button"
+                style="@style/ClickableImageView"
                 android:layout_width="250dp"
                 android:layout_height="80dp"
                 android:clickable="true"
@@ -135,6 +138,7 @@
                 android:focusable="true"
                 android:padding="5dp"
                 android:scaleType="fitCenter"
+                android:background="@color/lightBlue"
                 android:src="@drawable/ic_cat"
                 android:text="@string/game_difficulty_hard"
                 app:layout_constraintBottom_toBottomOf="parent"
