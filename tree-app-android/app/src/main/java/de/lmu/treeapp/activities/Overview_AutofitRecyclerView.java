@@ -7,8 +7,6 @@ import android.util.AttributeSet;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import de.lmu.treeapp.adapter.OverviewRecyclerViewAdapter;
-
 public class Overview_AutofitRecyclerView extends RecyclerView {
 
     private GridLayoutManager manager;
@@ -44,19 +42,12 @@ public class Overview_AutofitRecyclerView extends RecyclerView {
         setLayoutManager(manager);
     }
 
-
     @Override
     protected void onMeasure(int widthSpec, int heightSpec) {
         super.onMeasure(widthSpec, heightSpec);
         if (columnWidth > 0) {
-            int spanCount;
-            if (OverviewRecyclerViewAdapter.isImprint) {
-                spanCount = 1;
-            } else {
-                spanCount = 3;
-            }
+            int spanCount = 3;
             manager.setSpanCount(spanCount);
-            OverviewRecyclerViewAdapter.isImprint = false;
         }
     }
 }

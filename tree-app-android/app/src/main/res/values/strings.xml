@@ -5,6 +5,7 @@
     <string name="cancel">Abbrechen</string>
     <string name="leaf_icon">Leaf Icon</string>
     <string name="heart_icon">Heart Icon</string>
+    <string name="please_select">Bitte auswählen</string>
 
     <!-- Bottom Bar -->
     <string name="bottom_app_bar_overview">Übersicht</string>
@@ -59,7 +60,7 @@
     <string name="game_prompt_second_player_name">Mit wem spielst du heute? Bitte gib den Namen ein!</string>
     <string name="game_edit_text_name">Name</string>
     <string name="game_first_player_default">Spieler A</string>
-    <string name="game_second_player_default">Spieler 2</string>
+    <string name="game_second_player_default">Spieler B</string>
 
     <!-- Games -->
     <string name="game_catchFruits_trees_description_text">Weißt du noch, wie die Blätter und Früchte %1$s aussehen?</string>
@@ -203,4 +204,25 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
     <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
     <string name="main_activity_qr_code_no_tree_found_text">Kein Baum mit diesem QR-Code:</string>
+
+    <!-- Profile -->
+    <string name="profile_thats_me">Dein Freundebuch</string>
+    <string name="profile_age">So alt bin ich:</string>
+    <string name="profile_bubble_text">Hi, ich bin %s!</string>
+    <string name="profile_favTree">Mein Lieblingsbaum:</string>
+    <string name="profile_favLeaf">Mein Lieblingsblatt:</string>
+    <string name="profile_favSeason">Meine liebste Jahreszeit:</string>
+    <string name="profile_nickname">Mein Name:</string>
+    <string name="profile_name_default_val">Sag ich nicht</string>
+    <string name="profile_name_default_val_2">Max</string>
+    <string name="profile_name_default_val_3">Erika</string>
+    <string name="profile_age_default_val">Immer ein Jahr mehr als du!</string>
+    <string name="profile_location">Hier wohne ich:</string>
+    <string name="profile_location_default_val">Deutschland</string>
+    <string name="profile_edit">Profil ändern</string>
+    <string name="profile_save">Profil speichern</string>
+    <string name="profile_delete">Profil löschen</string>
+    <string name="profile_create">Profil erstellen</string>
+    <string name="profile_avatar">Mein Avatar</string>
+    <string name="profile_welcome">Willkommen im Profil!</string>
 </resources>
