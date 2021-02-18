@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/profile_delete"
+        android:icon="@drawable/ic_baseline_delete"
+        android:title="@string/profile_delete"
+        app:iconTint="@color/red"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/profile_save"
+        android:icon="@drawable/ic_checked_resize"
+        android:title="@string/profile_save"
+        app:iconTint="@color/forest"
+        app:showAsAction="ifRoom" />
+</menu>

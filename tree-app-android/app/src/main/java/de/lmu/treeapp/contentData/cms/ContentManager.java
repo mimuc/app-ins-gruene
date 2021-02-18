@@ -20,7 +20,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
 public class ContentManager {
-    private static ContentManager INSTANCE;
+    private static Single<ContentManager> INSTANCE;
     private Context context;
     private final List<Tree> trees = new ArrayList<>();
     private final List<WantedPosterTextList> allWantedPosters = new ArrayList<>();
@@ -28,20 +28,26 @@ public class ContentManager {
     private final List<IGameBase> minigames = new ArrayList<>();
     private final List<Tree_x_Game> tree_x_games = new ArrayList<>();
 
+    public static ContentManager getInstance(Context context) {
+        return ContentManager.getInstanceAsync(context).blockingGet();
+    }
+
     public static Single<ContentManager> getInstanceAsync(Context context) {
         if (INSTANCE == null) {
-            synchronized (ContentManager.class) {
-                if (INSTANCE == null) { // double checked locking
-                    ContentManager newCM = new ContentManager();
-                    newCM.context = context;
-                    return newCM.init().andThen(Completable.defer(() -> {
-                        INSTANCE = newCM;
-                        return Completable.complete();
-                    })).andThen(Single.just(newCM));
+            Single<ContentManager> objectSingle = Single.create(emitter -> {
+                synchronized (ContentManager.class) {
+                    if (INSTANCE == null) { // double checked locking
+                        ContentManager contentManager = new ContentManager();
+                        contentManager.context = context;
+                        contentManager.init().blockingSubscribe();
+                        INSTANCE = Single.just(contentManager);
+                    }
+                    emitter.onSuccess(INSTANCE.blockingGet());
                 }
-            }
+            });
+            return objectSingle.subscribeOn(Schedulers.io());
         }
-        return Single.just(INSTANCE);
+        return INSTANCE;
     }
 
     private Completable init() {
