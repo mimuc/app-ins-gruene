@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context="de.lmu.treeapp.activities.minigames.contour.GameActivity_Contour">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="de.lmu.treeapp.activities.minigames.contour.GameActivity_Contour">
 
     <TextView
         android:id="@+id/game_description"
         android:layout_width="333dp"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/game_description_placeholder"
@@ -20,57 +19,78 @@ tools:context="de.lmu.treeapp.activities.minigames.contour.GameActivity_Contour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintVertical_bias="0.019" />
 
     <Button
-    android:id="@+id/game_contour_sendButton"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
-    style="@style/AppTheme.Button"
-    android:elevation="4dp"
-    android:fontFamily="@font/freude"
-    android:paddingTop="8dp"
-    android:paddingBottom="4dp"
-    android:stateListAnimator="@null"
-    android:text="Fertig!"
-    android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
-    android:textSize="30sp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/single_touch_view"
-    app:layout_constraintVertical_bias="0.8"
-    app:layout_constraintWidth_percent="0.6" />
+        android:id="@+id/game_contour_sendButton"
+        style="@style/AppTheme.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="4dp"
+        android:fontFamily="@font/freude"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"
+        android:stateListAnimator="@null"
+        android:text="Fertig!"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/single_touch_view"
+        app:layout_constraintVertical_bias="0.8"
+        app:layout_constraintWidth_percent="0.6" />
 
     <de.lmu.treeapp.activities.minigames.contour.DrawingViewDefault
         android:id="@+id/single_touch_view"
-        android:layout_width="380dp"
-        android:layout_height="380dp"
-        android:background="#ffffff"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_gravity="start|top"
-        app:layout_constraintBottom_toTopOf="@+id/game_contour_sendButton"
+        android:background="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/game_contourGame_background"
+        app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_description"
-        app:layout_constraintVertical_bias="0"
+        app:layout_constraintTop_toTopOf="@+id/game_contourGame_background"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintWidth_max="wrap"
         />
 
     <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/game_contour_sendButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game_description"
+        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <ImageView
         android:id="@+id/game_contourGame_background"
-        android:layout_width="380dp"
-        android:layout_height="380dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/custom_background_gradient"
         android:contentDescription="TODO"
         android:src="@drawable/ic_ahorn_blatt"
         app:layout_constraintBottom_toTopOf="@+id/game_contour_sendButton"
+        app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/game_description"
-        app:layout_constraintVertical_bias="0.463" />
+        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintWidth_max="wrap"
+        />
 
     <ImageButton
         android:id="@+id/button1"
@@ -88,7 +108,7 @@ tools:context="de.lmu.treeapp.activities.minigames.contour.GameActivity_Contour"
         app:layout_constraintBottom_toTopOf="@+id/game_contourGame_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/game_description"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/ic_pencil" />
 
     <ImageButton
@@ -107,7 +127,7 @@ tools:context="de.lmu.treeapp.activities.minigames.contour.GameActivity_Contour"
         app:layout_constraintBottom_toTopOf="@+id/game_contourGame_background"
         app:layout_constraintEnd_toStartOf="@+id/button1"
         app:layout_constraintTop_toBottomOf="@+id/game_description"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/ic_eraser"
         app:strokeWidth="0dp" />
 
