@@ -39,6 +39,7 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
     Popup popup;
     String time;
     Boolean isTimerRunning = false;
+    Boolean gameStarted = false;
     Integer difficulty;
 
     @Override
@@ -94,6 +95,7 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
                 piece.setLayoutParams(lParams);
             }
         });
+        gameStarted = true;
 
         popup = new Popup(this, treeId);
         popup.setWinTitle(getString(R.string.popup_win_title_done));
@@ -284,13 +286,14 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
     }
 
     private boolean isGameOver() {
-        for (PuzzlePiece piece : pieces) {
-            if (piece.canMove) {
-                return false;
+        if (pieces != null) {
+            for (PuzzlePiece piece : pieces) {
+                if (piece.canMove) {
+                    return false;
+                }
             }
         }
-
-        return true;
+        return gameStarted;
     }
 
     @Override
