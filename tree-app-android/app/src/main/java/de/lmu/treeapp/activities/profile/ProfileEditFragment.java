@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.appcompat.widget.Toolbar;
@@ -241,6 +240,7 @@ public class ProfileEditFragment extends Fragment {
     private void onClose() {
         AppDatabase.getInstance(getContext()).userProfileDao().updateOne(this.userProfileState).subscribeOn(Schedulers.io()).subscribe(() -> {
             Intent intent = new Intent();
+            intent.putExtra(ProfileSliderFragment.PAGER_USER_ID, userProfileState.id);
             getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK, intent);
             getParentFragmentManager().popBackStack();
         });
