@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.ViewFlipper;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -29,13 +28,16 @@ import java.util.stream.IntStream;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
-import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryRelations;
+import de.lmu.treeapp.contentData.database.AppDatabase;
 import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryCard;
+import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryRelations;
 import de.lmu.treeapp.popup.Popup;
 import de.lmu.treeapp.popup.PopupAction;
 import de.lmu.treeapp.popup.PopupInterface;
 import de.lmu.treeapp.popup.PopupType;
 import de.lmu.treeapp.utils.glide.BackgroundTarget;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class GameActivity_Baumory extends GameActivity_Base implements Baumory_Cards_RecyclerViewAdapter.OptionClickInterface, PopupInterface {
 
@@ -123,7 +125,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         next.setOnClickListener(v ->
         {
             String input = editName.getText().toString();
-            if (input.equals("")) {
+            if (input.isEmpty()) {
                 name = getString(R.string.game_second_player_default);
             } else {
                 name = editName.getText().toString();
@@ -282,17 +284,23 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
     private void setupMultiplayerView() {
         multiPlayerMode = true;
         playerTurn = 0;
-        mpNames[0] = getString(R.string.game_first_player_default);
-        mpNames[1] = name;
-        for (int i = 0; i < playerCount; i++) {
-            // Names the players according to their numbers 0: 'A', 1: 'B' etc.
-            mpScores[i] = 0; // (Re)set scores.
-            tvMpScores[i].setText(getString(R.string.game_mode_player, mpNames[i], mpScores[i]));
-            tvMpScores[i].setVisibility(View.VISIBLE);
-        }
-        tvMpTitle.setText(getString(R.string.game_mode_multiplayer_next_player, mpNames[playerTurn]));
-        tvMpTitle.setTextColor(getResources().getColor(R.color.asphalt));
-        tvMpTitle.setVisibility(View.VISIBLE);
+        AppDatabase.getInstance(this).userProfileDao().getFirst().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(s -> {
+            if (s != null) {
+                mpNames[0] = s.name;
+            } else {
+                mpNames[0] = getString(R.string.game_first_player_default);
+            }
+            mpNames[1] = name;
+            for (int i = 0; i < playerCount; i++) {
+                // Names the players according to their numbers 0: 'A', 1: 'B' etc.
+                mpScores[i] = 0; // (Re)set scores.
+                tvMpScores[i].setText(getString(R.string.game_mode_player, mpNames[i], mpScores[i]));
+                tvMpScores[i].setVisibility(View.VISIBLE);
+            }
+            tvMpTitle.setText(getString(R.string.game_mode_multiplayer_next_player, mpNames[playerTurn]));
+            tvMpTitle.setTextColor(getResources().getColor(R.color.asphalt));
+            tvMpTitle.setVisibility(View.VISIBLE);
+        });
     }
 
     private void setupBaumoryGame() {
