@@ -285,7 +285,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         multiPlayerMode = true;
         playerTurn = 0;
         AppDatabase.getInstance(this).userProfileDao().getFirst().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(s -> {
-            if (s != null) {
+            if (s != null && s.name != null) {
                 mpNames[0] = s.name;
             } else {
                 mpNames[0] = getString(R.string.game_first_player_default);
