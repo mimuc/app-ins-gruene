@@ -1,7 +1,5 @@
 package de.lmu.treeapp.service;
 
-import android.util.Log;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -10,7 +8,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.io.Serializable;
 
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.adapter.OverviewRecyclerViewAdapter;
 
 /**
  * The FragmentManagerService is a Singleton used to prepare and launch the fragments (The overview and detail views of the trees in the MainActivity).
@@ -68,7 +65,6 @@ public class FragmentManagerService implements Serializable {
     // Show overview and reset the isImprint variable to show columns of overview correctly
     public void showOverview(Fragment[] fragmentsToShow) {
         showFragment(fragmentsToShow[0]);
-        OverviewRecyclerViewAdapter.isImprint = false;
     }
 
     /**
@@ -95,9 +91,15 @@ public class FragmentManagerService implements Serializable {
      *
      * @param overviewFragment      The fragment of the trees-overview.
      * @param treeSelectionFragment The fragment of the trees-detail.
+     * @param profileFragment       The fragment of profile.
      * @return
      */
-    public BottomNavigationView.OnNavigationItemSelectedListener getOnNavigationItemSelectedListener(final Fragment overviewFragment, final Fragment treeSelectionFragment) {
+    public BottomNavigationView.OnNavigationItemSelectedListener getOnNavigationItemSelectedListener(
+            final Fragment overviewFragment,
+            final Fragment treeSelectionFragment,
+            final Fragment profileFragment
+
+    ) {
         return item -> {
             switch (item.getItemId()) {
                 // If the Overview-Button is clicked -> Show Overview-Fragment
@@ -107,6 +109,9 @@ public class FragmentManagerService implements Serializable {
                 // If the Detail-Button is clicked -> Show Detail-Fragment
                 case R.id.action_tree_selection:
                     showFragment(treeSelectionFragment);
+                    break;
+                case R.id.action_profile:
+                    showFragment(profileFragment);
                     break;
             }
             return true;

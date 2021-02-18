@@ -12,26 +12,26 @@ import de.lmu.treeapp.contentData.database.daos.app.GameStateDescriptionDao;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateInputStringDao;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateScoresDao;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateTakePictureDao;
-import de.lmu.treeapp.contentData.database.daos.app.PlayerStateDao;
 import de.lmu.treeapp.contentData.database.daos.app.TreeStateDao;
+import de.lmu.treeapp.contentData.database.daos.app.UserProfileDao;
 import de.lmu.treeapp.contentData.database.entities.app.AbstractGameState;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateDescription;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateInputString;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateScore;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
-import de.lmu.treeapp.contentData.database.entities.app.PlayerState;
 import de.lmu.treeapp.contentData.database.entities.app.TreeProfileState;
 import de.lmu.treeapp.contentData.database.entities.app.TreeState;
+import de.lmu.treeapp.contentData.database.entities.app.UserProfileState;
 import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
 
 @Database(entities = {
         GameStateTakePictureImage.class,
         TreeState.class,
         TreeProfileState.class,
-        PlayerState.class,
         GameStateScore.class,
         GameStateInputString.class,
-        GameStateDescription.class
+        GameStateDescription.class,
+        UserProfileState.class,
 }, version = 1, exportSchema = false)
 @TypeConverters({TypeConversion.class})
 public abstract class AppDatabase extends RoomDatabase {
@@ -54,8 +54,6 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract TreeStateDao treeStateDao();
 
-    public abstract PlayerStateDao playerStateDao();
-
     public <T extends AbstractGameState, S extends AbstractGameStateDao<T>> S gameStateDao(Class<S> daoClass) {
         if (daoClass == GameStateScoresDao.class) {
             return daoClass.cast(gameStateScoresDao());
@@ -76,5 +74,7 @@ public abstract class AppDatabase extends RoomDatabase {
     protected abstract GameStateDescriptionDao gameStateDescriptionDao();
 
     protected abstract GameStateTakePictureDao gameStateTakePictureDao();
+
+    public abstract UserProfileDao userProfileDao();
 }
 

@@ -6,10 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-    <include
-        layout="@layout/tab_bar_content"
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/bottom_app_bar_height"
+        android:clipToPadding="false">
+
+        <include
+            layout="@layout/tab_bar_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
