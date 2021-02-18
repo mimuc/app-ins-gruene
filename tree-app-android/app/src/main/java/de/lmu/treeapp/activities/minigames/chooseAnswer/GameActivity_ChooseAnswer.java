@@ -163,7 +163,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
         if ((type != PopupType.NEGATIVE && type != PopupType.NEGATIVE_ANIMATION ||
-                showAnswer > 2) && checkGameState()) {
+                showAnswer >= 2) && checkGameState()) {
             onQuizSuccess(quizIDs);
         }
     }
