@@ -36,10 +36,12 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class ProfileSliderFragment extends Fragment {
 
     public static int PROFILE_SLIDER_FRAGMENT_CODE = 1337;
+    public static String PAGER_USER_ID = "pagerUserId";
 
-    private ViewPager pager;
-    private DotsIndicator dotsIndicator;
     private Context context;
+    private ViewPager pager;
+    private Toolbar toolbar;
+    private DotsIndicator dotsIndicator;
     List<UserProfileState> profileList;
 
     public ProfileSliderFragment() {
@@ -51,7 +53,7 @@ public class ProfileSliderFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile_slider, container, false);
         this.findViewsById(view);
-        this.setupViewPager();
+        this.setupViewPager(0);
         this.setupViewModelObserving();
 
         return view;
@@ -61,7 +63,7 @@ public class ProfileSliderFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Toolbar toolbar = view.findViewById(R.id.profile_app_bar);
+        toolbar = view.findViewById(R.id.profile_app_bar);
         toolbar.inflateMenu(R.menu.profile_menu);
 
         toolbar.setOnMenuItemClickListener(item -> {
@@ -107,7 +109,7 @@ public class ProfileSliderFragment extends Fragment {
         dotsIndicator = view.findViewById(R.id.profile_selection_dots_indicator);
     }
 
-    private void setupViewPager() {
+    private void setupViewPager(int userId) {
 
         AppDatabase.getInstance(getContext()).userProfileDao().getAll().flatMap(tmpProfiles -> {
             if (tmpProfiles.size() < 1) {
@@ -128,11 +130,40 @@ public class ProfileSliderFragment extends Fragment {
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(s -> {
             this.profileList = s;
+            int pagerItemPosition = 0;
+            for (int i = 0; i < profileList.size(); i++) {
+                if (profileList.get(i).id == userId) {
+                    pagerItemPosition = i;
+                }
+            }
             PagerAdapter adapter = new ProfileSlidePagerAdapter(getParentFragmentManager(), getProfileFragments(profileList));
             pager.setClipToPadding(false);
             pager.setPageMargin(100);
             pager.setAdapter(adapter);
+            pager.setCurrentItem(pagerItemPosition);
             dotsIndicator.attachViewPager(pager);
+        });
+
+        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position < 1) {
+                    toolbar.setTitle(R.string.profile_thats_me);
+                } else {
+                    toolbar.setTitle(R.string.profile_friend_book);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
         });
     }
 
@@ -160,7 +191,8 @@ public class ProfileSliderFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PROFILE_SLIDER_FRAGMENT_CODE && resultCode == Activity.RESULT_OK) {
-            setupViewPager();
+            int userId = data.getIntExtra(PAGER_USER_ID, 0);
+            setupViewPager(userId);
         }
     }
 }
