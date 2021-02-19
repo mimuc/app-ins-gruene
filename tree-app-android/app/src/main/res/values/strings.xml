@@ -174,8 +174,9 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="overview_text">Hier siehst du alle Bäume auf einem Fleck!</string>
     <string name="single_view_heading">Einzelansicht</string>
     <string name="single_view_text">Hier findest du die Bäume einzeln aufgelistet!</string>
+    <string name="profile_button_heading">Profil</string>
+    <string name="profile_button_text">Hier findest du dein Profil!</string>
     <string name="tree_text">Wenn du auf einen Baum klickst, kommst du zu den Spielen!</string>
-    <string name="tree_lock_text">Das Schloss wird zu einem grünen Haken, wenn du alle Spiele gespielt hast!</string>
     <string name="other_heading">Allgemeine Spiele</string>
     <string name="other_text">Hier findest du alle allgemeinen Spiele zu diesem Baum!</string>
     <string name="leaf_heading">Blattspiele</string>
@@ -186,6 +187,7 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="trunk_text">Alle Spiele zur Rinde findest du hier!</string>
     <string name="profile_heading">Steckbrief</string>
     <string name="profile_text">Hier findest du mehr Informationen zu diesem Baum!</string>
+    <string name="wanted_poster_text">Klicke oder wische, um mehr über %1$s zu erfahren.</string>
 
     <!-- Wanted poster-->
     <string name="wanted_poster_description">Klicke doch mal auf die Lupen, um mehr zu erfahren!</string>

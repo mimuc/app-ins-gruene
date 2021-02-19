@@ -16,8 +16,9 @@ import de.lmu.treeapp.R;
 
 public class WantedPosterTreeAdapter extends RecyclerView.Adapter<WantedPosterTreeAdapter.ViewHolder> {
 
-    private RecyclerView parentRecycler;
+    public RecyclerView parentRecycler;
     private final List<Integer> iconList;
+    public static ImageView firstButton;
 
     public WantedPosterTreeAdapter(List<Integer> iconList) {
         this.iconList = iconList;
@@ -39,6 +40,11 @@ public class WantedPosterTreeAdapter extends RecyclerView.Adapter<WantedPosterTr
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+
+        if(position == 1){
+            firstButton = holder.imageView;
+        }
+
         Integer listOfIcons = iconList.get(position);
         Glide.with(holder.itemView.getContext())
                 .load(listOfIcons)
