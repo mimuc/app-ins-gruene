@@ -1,7 +1,10 @@
 package de.lmu.treeapp.wantedPoster.activity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +23,7 @@ import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.WantedPosterImageList;
 import de.lmu.treeapp.contentClasses.trees.WantedPosterTextList;
 import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.tutorial.CustomTapTargetPromptBuilder;
 import de.lmu.treeapp.wantedPoster.adapter.WantedPosterTreeAdapter;
 import de.lmu.treeapp.wantedPoster.view.AgeInfoView;
 import de.lmu.treeapp.wantedPoster.view.BlossomInfoView;
@@ -30,6 +34,9 @@ import de.lmu.treeapp.wantedPoster.view.LeafFruitBarkInfoView;
 import de.lmu.treeapp.wantedPoster.view.LifecycleInfoView;
 import de.lmu.treeapp.wantedPoster.view.TreeDetailInfoView;
 import de.lmu.treeapp.wantedPoster.view.TreeVideoView;
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence;
+
+import static de.lmu.treeapp.utils.language.LanguageUtils.getTreeAkkusativGerman;
 
 public class WantedPosterTreeActivity extends AppCompatActivity implements
         DiscreteScrollView.ScrollStateChangeListener<WantedPosterTreeAdapter.ViewHolder>,
@@ -48,15 +55,16 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
     private TreeVideoView treeVideoView;
     private final List<String> imageStrings = new ArrayList<String>();
     private Integer buttonInactiveId, questionMarkInactiveId, cameraInactiveId;
+    private WantedPosterTreeAdapter adapter;
+    private Tree tree;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wanted_poster_tree);
-
         //gets the tree and treeProfile data from DataManager, which gets the data from room database and app startup
         // Data of our tree (from CMS and Database)
-        Tree tree = DataManager.getInstance(getApplicationContext()).getTree(Objects.requireNonNull(getIntent().getExtras()).getInt("TreeId"));
+        tree = DataManager.getInstance(getApplicationContext()).getTree(Objects.requireNonNull(getIntent().getExtras()).getInt("TreeId"));
         wantedPosterTextList = DataManager.getInstance(getApplicationContext()).getAllWantedPosters(tree.getId());
         WantedPosterImageList wantedPosterImageList = DataManager.getInstance(getApplicationContext()).getAllWantedPosterImages(tree.getId());
 
@@ -97,7 +105,8 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
 
         DiscreteScrollView treeCategoryPicker = findViewById(R.id.tree_category_picker);
         treeCategoryPicker.setSlideOnFling(true);
-        treeCategoryPicker.setAdapter(new WantedPosterTreeAdapter(treeWantedPosterIcons));
+        adapter = new WantedPosterTreeAdapter(treeWantedPosterIcons);
+        treeCategoryPicker.setAdapter(adapter);
         treeCategoryPicker.addOnItemChangedListener(this);
         treeCategoryPicker.addScrollStateChangeListener(this);
         treeCategoryPicker.scrollToPosition(Objects.requireNonNull(getIntent().getExtras()).getInt("TabId"));
@@ -143,6 +152,14 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
         setVisibility(View.GONE, heightInfoView, ageInfoView,
                 leafFruitBarkInfoView, blossomInfoView, funFactView, lifecycleInfoView,
                 myStuffView, treeVideoView);
+
+        adapter.parentRecycler.getViewTreeObserver().addOnGlobalLayoutListener(
+                () -> {
+                    // At this point the layout is complete and the
+                    // dimensions of recyclerView and any child views
+                    // are known.
+                    presentMaterialTapTargetSequence();
+                });
     }
 
     @Override
@@ -237,6 +254,24 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
         for (View view : views) {
             view.setVisibility(visibility);
         }
+    }
+
+
+    public void presentMaterialTapTargetSequence() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean name = preferences.getBoolean("poster", false);
+        if (name == false) {
+        ImageView target = adapter.firstButton;
+        String treeName = getTreeAkkusativGerman(tree.getName());
+        new MaterialTapTargetSequence()
+                    .addPrompt(new CustomTapTargetPromptBuilder(WantedPosterTreeActivity.this)
+                            .setTarget(target)
+                            .setSecondaryText(getString(R.string.wanted_poster_text, treeName)))
+                    .show();
+        }
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("poster", true);
+        editor.apply();
     }
 
     @Override

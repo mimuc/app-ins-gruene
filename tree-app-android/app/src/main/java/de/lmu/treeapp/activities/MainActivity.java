@@ -209,15 +209,14 @@ public class MainActivity extends AppCompatActivity implements PopupInterface {
                         .setTarget(R.id.action_tree_selection)
                         .setPrimaryText(R.string.single_view_heading)
                         .setSecondaryText(R.string.single_view_text))
-                .addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
+                  .addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
+                        .setTarget(R.id.action_profile)
+                        .setPrimaryText(R.string.profile_button_heading)
+                        .setSecondaryText(R.string.profile_button_text)).show();
+                /**.addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
                         .setTarget(b)
                         .setFocalRadius(R.dimen._60sdp)
-                        .setSecondaryText(R.string.tree_text))
-                .addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
-                        .setTarget(lock)
-                        .setFocalRadius(R.dimen._15sdp)
-                        .setSecondaryText(R.string.tree_lock_text))
-                .show();
+                        .setSecondaryText(R.string.tree_text))**/
     }
 
     @Override
