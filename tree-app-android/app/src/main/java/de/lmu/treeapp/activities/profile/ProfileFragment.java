@@ -1,5 +1,6 @@
 package de.lmu.treeapp.activities.profile;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,8 +70,13 @@ public class ProfileFragment extends Fragment {
         DataManager.getInstance(getContext()).getUserProfileOptions().observeOn(AndroidSchedulers.mainThread()).subscribe(userProfileOptions -> {
             this.userProfileOptions = userProfileOptions;
 
+            Context context = getContext();
+
+            // Check if context is still available on reinitialization
+            if (context == null) return;
+
             if (this.userProfileState.name != null && this.userProfileState.age != null) {
-                profileBubbleText.setText(getString(R.string.profile_bubble_text, this.userProfileState.name));
+                profileBubbleText.setText(context.getString(R.string.profile_bubble_text, this.userProfileState.name));
                 userNameView.setText(this.userProfileState.name.substring(0, 1).toUpperCase() + this.userProfileState.name.substring(1).toLowerCase());
                 ageTextView.setText(this.userProfileState.age);
 
@@ -85,7 +91,7 @@ public class ProfileFragment extends Fragment {
                 avatarImg.setImageResource(defaultAvatar);
 
                 int defaultLocationFlag = R.drawable.ic_flag_germany;
-                String defaultLocationName = getResources().getString(R.string.profile_location_default_val);
+                String defaultLocationName = context.getString(R.string.profile_location_default_val);
                 if (this.userProfileState.location != null) {
                     UserProfileOption option = UserProfileDao.getByPositionAndCategory(userProfileState.location, UserProfileCategory.LOCATION, userProfileOptions);
                     if (option != null) {

@@ -206,7 +206,8 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="main_activity_qr_code_no_tree_found_text">Kein Baum mit diesem QR-Code:</string>
 
     <!-- Profile -->
-    <string name="profile_thats_me">Dein Freundebuch</string>
+    <string name="profile_thats_me">Das bin ich</string>
+    <string name="profile_friend_book">Dein Freundebuch</string>
     <string name="profile_age">So alt bin ich:</string>
     <string name="profile_bubble_text">Hi, ich bin %s!</string>
     <string name="profile_favTree">Mein Lieblingsbaum:</string>
