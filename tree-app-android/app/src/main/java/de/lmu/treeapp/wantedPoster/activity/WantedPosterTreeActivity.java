@@ -128,7 +128,7 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
                 "sb_icon_cameraclicked", "drawable", getApplicationContext().getPackageName());
 
         myStuffView.setMyStuff(this, tree.getId(), tree.appData.takePictureImages,
-                tree.appData.treeInputStrings, tree.appData.treeDescriptions);
+                tree.appData.treeInputStrings, tree.appData.treeDescriptions, imageStrings);
         treeDetailInfoView.setTreeDetailInfo(this, wantedPosterTextList.wantedPosters
                 , wantedPosterImageList.wantedPosterImages, buttonActiveId, buttonInactiveId);
         heightInfoView.setHeightInfo(this, wantedPosterTextList.wantedPosters,

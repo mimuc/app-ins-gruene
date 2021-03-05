@@ -41,7 +41,9 @@ public class MyStuffView extends LinearLayout {
     private final ConstraintLayout ideasLayout;
     private final TextView textCloud1;
     private final TextView textCloud2;
+    private final TextView viewDescription;
     private boolean locked;
+    private boolean showsPictures;
 
     private final ConstraintLayout popupLayout;
     private final ImageView pictureBig;
@@ -59,6 +61,7 @@ public class MyStuffView extends LinearLayout {
     }
 
     {
+        showsPictures = true;
         setWillNotDraw(false);
 
         setOrientation(VERTICAL);
@@ -83,6 +86,7 @@ public class MyStuffView extends LinearLayout {
         ideasLayout = findViewById(R.id.ideas_layout);
         textCloud1 = findViewById(R.id.text_cloud1);
         textCloud2 = findViewById(R.id.text_cloud2);
+        viewDescription = findViewById(R.id.description);
 
         popupLayout = findViewById(R.id.popup_layout);
         pictureBig = findViewById(R.id.picture_big);
@@ -106,31 +110,39 @@ public class MyStuffView extends LinearLayout {
     public void setMyStuff(Context context, int treeId,
                            List<GameStateTakePictureImage> takenPictureImages,
                            List<GameStateInputString> treeInputStrings,
-                           List<GameStateDescription> treeDescriptions) {
+                           List<GameStateDescription> treeDescriptions,
+                           List<String> imageStrings) {
         pageTitle.setText(R.string.wanted_poster_my_stuff);
         myStuff.setOnClickListener(view -> {
-            setVisibility(View.GONE, lockedLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
-            setVisibility(View.VISIBLE, ideasLayout);
-            if (treeInputStrings.size() != 0) {
-                for (GameStateInputString inputString : treeInputStrings) {
-                    if (inputString.treeId == treeId) {
-                        // context is required because otherwise the string is only displayed as an integer
-                        String rhymeDesc = context.getResources().getString(R.string.wanted_poster_rhyme_cloud)
-                                + inputString.inputString;
-                        textCloud1.setText(rhymeDesc);
+            if(showsPictures){
+                setVisibility(View.GONE, lockedLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
+                setVisibility(View.VISIBLE, ideasLayout);
+                if (treeInputStrings.size() != 0) {
+                    for (GameStateInputString inputString : treeInputStrings) {
+                        if (inputString.treeId == treeId) {
+                            // context is required because otherwise the string is only displayed as an integer
+                            String rhymeDesc = context.getResources().getString(R.string.wanted_poster_rhyme_cloud)
+                                    + inputString.inputString;
+                            textCloud1.setText(rhymeDesc);
+                        }
+                    }
+                    for (GameStateDescription treeDescription : treeDescriptions) {
+                        if (treeDescription.treeId == treeId) {
+                            String treeDesc = context.getResources().getString(R.string.wanted_poster_tree_description)
+                                    + treeDescription.description;
+                            textCloud2.setText(treeDesc);
+                        }
                     }
                 }
-                for (GameStateDescription treeDescription : treeDescriptions) {
-                    if (treeDescription.treeId == treeId) {
-                        String treeDesc = context.getResources().getString(R.string.wanted_poster_tree_description)
-                                + treeDescription.description;
-                        textCloud2.setText(treeDesc);
-                    }
-                }
+                showsPictures = false;
+                viewDescription.setText("Meine Fotos");
             }
-            ideasLayout.setOnClickListener(close -> closeIdeas());
-            textCloud1.setOnClickListener(close -> closeIdeas());
-            textCloud2.setOnClickListener(close -> closeIdeas());
+            else{
+                closeIdeas();
+                showsPictures = true;
+                viewDescription.setText("Meine Ideen");
+            }
+
         });
         textCloud1.setMovementMethod(new ScrollingMovementMethod());
         textCloud2.setMovementMethod(new ScrollingMovementMethod());
@@ -166,6 +178,12 @@ public class MyStuffView extends LinearLayout {
                         });
                     });
                 }
+                else{
+                    //set Background if image is null
+                    takenTreePictures[i].setImageResource(context.getApplicationContext().getResources().getIdentifier(imageStrings.get(i), "drawable", context.getApplicationContext().getPackageName()));
+                    takenTreePictures[i].setAlpha(0.3f);
+                    //Glide.with(context).load(img).into(takenTreePictures[i]);
+                }
             }
         } else {
             setVisibility(View.VISIBLE, lockedLayout, noPictureText, lockedPicture);
@@ -194,6 +212,8 @@ public class MyStuffView extends LinearLayout {
             }
             setVisibility(View.VISIBLE, myStuff, layouts[0], layouts[1], layouts[2], layouts[3]);
             setVisibility(View.GONE, popupLayout, ideasLayout);
+            showsPictures = true;
+            viewDescription.setText("Meine Ideen");
         }, 1500);
 
     }
