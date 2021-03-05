@@ -27,6 +27,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     protected Tree parentTree;
     protected Tree.GameCategories parentCategory;
     protected GameStateScore gameStateScore;
+    protected String specialGameName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         parentCategory = (Tree.GameCategories) b.get("Category");
         treeId = b.getInt("TreeId");
         gameId = b.getInt("GameId");
+        specialGameName = b.getString("GameName") != null ? b.getString("GameName") : "";
 
         parentTree = DataManager.getInstance(getApplicationContext()).getTree(treeId);
         gameContent = DataManager.getInstance(getApplicationContext()).getMinigame(gameId);

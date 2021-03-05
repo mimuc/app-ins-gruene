@@ -114,7 +114,7 @@ public class MyStuffView extends LinearLayout {
                            List<String> imageStrings) {
         pageTitle.setText(R.string.wanted_poster_my_stuff);
         myStuff.setOnClickListener(view -> {
-            if(showsPictures){
+            if (showsPictures) {
                 setVisibility(View.GONE, lockedLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
                 setVisibility(View.VISIBLE, ideasLayout);
                 if (treeInputStrings.size() != 0) {
@@ -136,8 +136,7 @@ public class MyStuffView extends LinearLayout {
                 }
                 showsPictures = false;
                 viewDescription.setText("Meine Fotos");
-            }
-            else{
+            } else {
                 closeIdeas();
                 showsPictures = true;
                 viewDescription.setText("Meine Ideen");
@@ -147,15 +146,18 @@ public class MyStuffView extends LinearLayout {
         textCloud1.setMovementMethod(new ScrollingMovementMethod());
         textCloud2.setMovementMethod(new ScrollingMovementMethod());
 
+        //das hier sollte das Bild von der bastelAufgabe sein
+        GameStateTakePictureImage craftTaskPicture = GameStateTakePictureImage.getLatestCraftTaskPictureImage(takenPictureImages);
+
         if (takenPictureImages.size() != 0) {
             locked = false;
             setVisibility(View.GONE, lockedLayout, noPictureText, lockedPicture);
 
             Tree.GameCategories[] validGameCategories = {
+                    Tree.GameCategories.other,
                     Tree.GameCategories.leaf,
                     Tree.GameCategories.fruit,
                     Tree.GameCategories.trunk,
-                    Tree.GameCategories.other
             };
             for (int i = 0; i < validGameCategories.length; i++) {
                 Tree.GameCategories gameCategory = validGameCategories[i];
@@ -177,8 +179,7 @@ public class MyStuffView extends LinearLayout {
                             popupLayout.setVisibility(View.GONE);
                         });
                     });
-                }
-                else{
+                } else {
                     //set Background if image is null
                     takenTreePictures[i].setImageResource(context.getApplicationContext().getResources().getIdentifier(imageStrings.get(i), "drawable", context.getApplicationContext().getPackageName()));
                     takenTreePictures[i].setAlpha(0.3f);
