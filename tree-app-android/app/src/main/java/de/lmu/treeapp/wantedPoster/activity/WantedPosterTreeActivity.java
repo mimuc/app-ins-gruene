@@ -172,6 +172,9 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
                             leafFruitBarkInfoView, blossomInfoView, funFactView, lifecycleInfoView,
                             treeVideoView);
                     myStuffView.setVisibility(View.VISIBLE);
+                    if(getIntent().getExtras().getBoolean("Crafting")){
+                        myStuffView.performCraftingClick();
+                    }
                     break;
                 case 1:
                     setVisibility(View.GONE, heightInfoView, ageInfoView,

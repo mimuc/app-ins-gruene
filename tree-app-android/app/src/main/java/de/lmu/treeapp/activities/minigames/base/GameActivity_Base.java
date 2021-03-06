@@ -103,6 +103,14 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    public void showTreeProfileCrafting() {
+        Intent intent = new Intent(getApplicationContext(), WantedPosterTreeActivity.class);
+        intent.putExtra("TreeId", treeId);
+        intent.putExtra("TabId", 0);
+        intent.putExtra("Crafting", true);
+        startActivity(intent);
+        finish();
+    }
 
     protected void onFail() {
         Toast.makeText(getApplicationContext(), getString(R.string.popup_quiz_negative_title), Toast.LENGTH_LONG).show();
