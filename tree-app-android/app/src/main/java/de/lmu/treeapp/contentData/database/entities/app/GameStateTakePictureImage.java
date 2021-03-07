@@ -17,28 +17,40 @@ public class GameStateTakePictureImage extends AbstractGameState {
     public String imagePath;
     @TypeConverters(DateConverter.class)
     public Date creationDateTime;
+    public String specialGameName;
 
     @Ignore
     public GameStateTakePictureImage(int treeId, int gameId, Tree.GameCategories gameCategory) {
-        this(treeId, gameId, gameCategory, null, null);
+        this(treeId, gameId, gameCategory, null, null, null);
     }
 
-    public GameStateTakePictureImage(int treeId, int gameId, Tree.GameCategories gameCategory, String imagePath, Date creationDateTime) {
+    public GameStateTakePictureImage(int treeId, int gameId, Tree.GameCategories gameCategory, String imagePath, Date creationDateTime, String specialGameName) {
         super(treeId, gameId, gameCategory);
         this.treeId = treeId;
         this.imagePath = imagePath;
         this.creationDateTime = creationDateTime;
+        this.specialGameName = specialGameName;
     }
 
     public static GameStateTakePictureImage getLatestTakePictureImage(List<GameStateTakePictureImage> takePictureImages, Tree.GameCategories category) {
         GameStateTakePictureImage resImg = null;
         // TODO replace with stream on API 24
         for (GameStateTakePictureImage tpImg : takePictureImages) {
-            if (tpImg.gameCategory == category) {
+            if (tpImg.gameCategory == category && tpImg.specialGameName.equals("")) {
                 // Search the most recent image by id
                 if (resImg == null || resImg.creationDateTime.before(tpImg.creationDateTime)) {
                     resImg = tpImg;
                 }
+            }
+        }
+        return resImg;
+    }
+
+    public static GameStateTakePictureImage getLatestCraftTaskPictureImage(List<GameStateTakePictureImage> takePictureImages) {
+        GameStateTakePictureImage resImg = null;
+        for (GameStateTakePictureImage tpImg : takePictureImages) {
+            if (tpImg.specialGameName.equals("Bastelaufgabe")) {
+                resImg = tpImg;
             }
         }
         return resImg;

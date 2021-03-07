@@ -12,6 +12,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -39,12 +40,24 @@ public class MyStuffView extends LinearLayout {
     private final ConstraintLayout[] layouts;
     private final LinearLayout myStuff;
     private final ConstraintLayout ideasLayout;
+    private final ConstraintLayout craftingLayout;
     private final TextView textCloud1;
     private final TextView textCloud2;
+    private final ImageButton cameraButton;
+    private final ImageButton writingButton;
+    private final ImageButton craftingButton;
+    private final ImageView pictureCrafting;
     private boolean locked;
 
     private final ConstraintLayout popupLayout;
     private final ImageView pictureBig;
+
+    private Integer cameraActiveId;
+    private Integer cameraInactiveId;
+    private Integer writingActiveId;
+    private Integer writingInactiveId;
+    private Integer craftingActiveId;
+    private Integer craftingInactiveId;
 
     public MyStuffView(Context context) {
         super(context);
@@ -81,8 +94,13 @@ public class MyStuffView extends LinearLayout {
         layouts[3] = findViewById(R.id.layout4);
         myStuff = findViewById(R.id.linearLayoutMyStuff);
         ideasLayout = findViewById(R.id.ideas_layout);
+        craftingLayout = findViewById(R.id.crafting_layout);
         textCloud1 = findViewById(R.id.text_cloud1);
         textCloud2 = findViewById(R.id.text_cloud2);
+        cameraButton = findViewById(R.id.camera_button);
+        writingButton = findViewById(R.id.writing_button);
+        craftingButton = findViewById(R.id.crafting_button);
+        pictureCrafting = findViewById(R.id.picture_crafting);
 
         popupLayout = findViewById(R.id.popup_layout);
         pictureBig = findViewById(R.id.picture_big);
@@ -98,18 +116,31 @@ public class MyStuffView extends LinearLayout {
         super.onDraw(canvas);
     }
 
-    private void closeIdeas() {
-        setVisibility(View.VISIBLE, lockedLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
-        setVisibility(View.GONE, ideasLayout);
-    }
-
     public void setMyStuff(Context context, int treeId,
                            List<GameStateTakePictureImage> takenPictureImages,
                            List<GameStateInputString> treeInputStrings,
-                           List<GameStateDescription> treeDescriptions) {
+                           List<GameStateDescription> treeDescriptions,
+                           List<String> imageStrings) {
         pageTitle.setText(R.string.wanted_poster_my_stuff);
-        myStuff.setOnClickListener(view -> {
-            setVisibility(View.GONE, lockedLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
+
+        cameraInactiveId = context.getApplicationContext().getResources().getIdentifier(
+                "sb_icon_camera", "drawable", context.getApplicationContext().getPackageName());
+        cameraActiveId = context.getApplicationContext().getResources().getIdentifier(
+                "sb_icon_cameraclicked", "drawable", context.getApplicationContext().getPackageName());
+        writingInactiveId = context.getApplicationContext().getResources().getIdentifier(
+                "sb_icon_writing", "drawable", context.getApplicationContext().getPackageName());
+        writingActiveId = context.getApplicationContext().getResources().getIdentifier(
+                "sb_icon_writingclicked", "drawable", context.getApplicationContext().getPackageName());
+        craftingInactiveId = context.getApplicationContext().getResources().getIdentifier(
+                "sb_icon_crafting", "drawable", context.getApplicationContext().getPackageName());
+        craftingActiveId = context.getApplicationContext().getResources().getIdentifier(
+                "sb_icon_craftingclicked", "drawable", context.getApplicationContext().getPackageName());
+
+        writingButton.setOnClickListener(view -> {
+            cameraButton.setBackgroundResource(cameraInactiveId);
+            writingButton.setBackgroundResource(writingActiveId);
+            craftingButton.setBackgroundResource(craftingInactiveId);
+            setVisibility(View.GONE, craftingLayout, lockedLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
             setVisibility(View.VISIBLE, ideasLayout);
             if (treeInputStrings.size() != 0) {
                 for (GameStateInputString inputString : treeInputStrings) {
@@ -128,22 +159,43 @@ public class MyStuffView extends LinearLayout {
                     }
                 }
             }
-            ideasLayout.setOnClickListener(close -> closeIdeas());
-            textCloud1.setOnClickListener(close -> closeIdeas());
-            textCloud2.setOnClickListener(close -> closeIdeas());
+
         });
         textCloud1.setMovementMethod(new ScrollingMovementMethod());
         textCloud2.setMovementMethod(new ScrollingMovementMethod());
 
-        if (takenPictureImages.size() != 0) {
+        GameStateTakePictureImage craftTaskPicture = GameStateTakePictureImage.getLatestCraftTaskPictureImage(takenPictureImages);
+        craftingButton.setOnClickListener(view -> {
+            cameraButton.setBackgroundResource(cameraInactiveId);
+            writingButton.setBackgroundResource(writingInactiveId);
+            craftingButton.setBackgroundResource(craftingActiveId);
+            if(craftTaskPicture == null){
+                setVisibility(View.GONE, ideasLayout, craftingLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
+                setVisibility(View.VISIBLE, lockedLayout);
+                lockedPicture.setImageResource(R.drawable.sb_crafting_symbol);
+                noPictureText.setText(getResources().getString(R.string.wanted_poster_no_crafting_pictures));
+            }
+            else{
+                setVisibility(View.GONE, lockedLayout, ideasLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
+                setVisibility(View.VISIBLE, craftingLayout);
+                Drawable img = setImage(craftTaskPicture.imagePath);
+                Glide.with(context).load(img).into(pictureCrafting);
+            }
+        });
+
+
+        cameraButton.setBackgroundResource(cameraActiveId);
+        writingButton.setBackgroundResource(writingInactiveId);
+        craftingButton.setBackgroundResource(craftingInactiveId);
+        if (takenPictureImages.size() != 0) { // check here if only crafting image is set
             locked = false;
-            setVisibility(View.GONE, lockedLayout, noPictureText, lockedPicture);
+            setVisibility(View.GONE, ideasLayout, craftingLayout, lockedLayout);
 
             Tree.GameCategories[] validGameCategories = {
+                    Tree.GameCategories.other,
                     Tree.GameCategories.leaf,
                     Tree.GameCategories.fruit,
                     Tree.GameCategories.trunk,
-                    Tree.GameCategories.other
             };
             for (int i = 0; i < validGameCategories.length; i++) {
                 Tree.GameCategories gameCategory = validGameCategories[i];
@@ -165,13 +217,35 @@ public class MyStuffView extends LinearLayout {
                             popupLayout.setVisibility(View.GONE);
                         });
                     });
+                } else {
+                    //set Background if image is null
+                    takenTreePictures[i].setImageResource(context.getApplicationContext().getResources().getIdentifier(imageStrings.get(i), "drawable", context.getApplicationContext().getPackageName()));
+                    takenTreePictures[i].setAlpha(0.3f);
                 }
             }
         } else {
-            setVisibility(View.VISIBLE, lockedLayout, noPictureText, lockedPicture);
+            setVisibility(View.VISIBLE, lockedLayout);
+            setVisibility(View.GONE, ideasLayout, craftingLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
             lockedPicture.setImageResource(R.drawable.sb_nopictures);
+            noPictureText.setText(getResources().getString(R.string.wanted_poster_no_taken_pictures));
             locked = true;
         }
+
+        cameraButton.setOnClickListener(view -> {
+            cameraButton.setBackgroundResource(cameraActiveId);
+            writingButton.setBackgroundResource(writingInactiveId);
+            craftingButton.setBackgroundResource(craftingInactiveId);
+            if(locked){
+                setVisibility(View.GONE, ideasLayout, craftingLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
+                setVisibility(View.VISIBLE, lockedLayout);
+                lockedPicture.setImageResource(R.drawable.sb_nopictures);
+                noPictureText.setText(getResources().getString(R.string.wanted_poster_no_taken_pictures));
+            }
+            else{
+                setVisibility(View.GONE, lockedLayout, ideasLayout, craftingLayout);
+                setVisibility(View.VISIBLE, layouts[0], layouts[1], layouts[2], layouts[3]);
+            }
+        });
     }
 
     public static void setVisibility(int visibility, View... views) {
@@ -182,20 +256,13 @@ public class MyStuffView extends LinearLayout {
 
     public void resetMyStuffView() {
         Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(() -> {
-            // Wait until click is performed
-            if (locked) {
-                setVisibility(View.VISIBLE, lockedLayout, noPictureText, lockedPicture);
-                lockedPicture.setImageResource(R.drawable.sb_nopictures);
-            } else {
-                setVisibility(View.VISIBLE,
-                        takenTreePictures[0], takenTreePictures[1],
-                        takenTreePictures[2], takenTreePictures[3]);
-            }
-            setVisibility(View.VISIBLE, myStuff, layouts[0], layouts[1], layouts[2], layouts[3]);
-            setVisibility(View.GONE, popupLayout, ideasLayout);
-        }, 1500);
+        // Wait until click is performed
+        handler.postDelayed(cameraButton::performClick, 1500);
 
+    }
+
+    public void performCraftingClick(){
+        craftingButton.performClick();
     }
 
     /**
