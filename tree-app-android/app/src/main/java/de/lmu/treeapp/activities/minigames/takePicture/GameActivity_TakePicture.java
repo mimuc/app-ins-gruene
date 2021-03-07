@@ -174,6 +174,10 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
             // Set success without going back to overview
             DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree);
             saveGameState().subscribe();
+            if(getIntent().getExtras().getInt("GameId") == 303){
+                showTreeProfileCrafting();
+                return;
+            }
             showTreeProfile();
         }
     }
@@ -182,7 +186,7 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
     @Override
     protected Completable saveGameState() {
         if (currentPhotoPath != null) {
-            GameStateTakePictureImage gameStateTakePictureImage = new GameStateTakePictureImage(treeId, gameId, parentCategory, currentPhotoPath, new Date());
+            GameStateTakePictureImage gameStateTakePictureImage = new GameStateTakePictureImage(treeId, gameId, parentCategory, currentPhotoPath, new Date(), specialGameName);
             return DataManager.getInstance(getApplicationContext()).insertGameState(gameStateTakePictureImage, GameStateTakePictureDao.class).flatMapCompletable(s -> Completable.fromAction(() -> {
                 parentTree.appData.takePictureImages.add(gameStateTakePictureImage);
             }));
