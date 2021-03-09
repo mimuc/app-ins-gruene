@@ -111,20 +111,45 @@
                         android:layout_width="0dp"
                         android:layout_height="80dp"
                         android:text="@string/profile_name_default_val"
-                        android:textAlignment="center"
+                        android:textAlignment="textStart"
                         app:autoSizeMaxTextSize="80sp"
                         app:autoSizeTextType="uniform"
                         app:layout_columnWeight="1"
                         app:layout_gravity="fill_horizontal" />
 
-                    <ImageView
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="fill_horizontal">
+
+                        <ImageView
+                            android:id="@+id/profileSlide_tree_Img"
+                            android:layout_width="match_parent"
+                            android:layout_height="60sp"
+                            android:scaleType="fitStart"
+                            android:paddingStart="10dp"
+                            app:srcCompat="@drawable/ic_ahorn_baum" />
+
+                        <TextView
+                            android:id="@+id/profileSlide_tree_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ahorn"
+                            android:textAlignment="textStart" />
+
+                    </LinearLayout>
+
+                    <!--<ImageView
                         android:id="@+id/profileSlide_tree_Img"
                         android:layout_width="0dp"
                         android:layout_height="80sp"
-                        android:scaleType="fitCenter"
+                        android:paddingStart="15dp"
+                        android:scaleType="fitStart"
                         android:src="@drawable/ic_ahorn_baum"
                         app:layout_columnWeight="1"
-                        app:layout_gravity="fill_horizontal" />
+                        app:layout_gravity="fill_horizontal" /> -->
 
                     <!-- Second row -->
 
@@ -153,20 +178,43 @@
                         android:layout_width="0dp"
                         android:layout_height="80sp"
                         android:text="@string/profile_age_default_val"
-                        android:textAlignment="center"
+                        android:textAlignment="textStart"
                         app:autoSizeMaxTextSize="80sp"
                         app:autoSizeTextType="uniform"
                         app:layout_columnWeight="1"
                         app:layout_gravity="fill_horizontal" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="fill_horizontal">
 
-                    <ImageView
+                        <ImageView
+                            android:id="@+id/profileSlide_leaf_Img"
+                            android:layout_width="match_parent"
+                            android:layout_height="60sp"
+                            android:scaleType="fitStart"
+                            android:paddingStart="10dp"
+                            app:srcCompat="@drawable/ic_ahorn_blatt" />
+
+                        <TextView
+                            android:id="@+id/profileSlide_leaf_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ahornblatt"
+                            android:textAlignment="textStart" />
+
+                    </LinearLayout>
+                    <!--<ImageView
                         android:id="@+id/profileSlide_leaf_Img"
+                        android:paddingStart="15dp"
                         android:layout_width="0dp"
                         android:layout_height="80sp"
-                        android:scaleType="fitCenter"
+                        android:scaleType="fitStart"
                         android:src="@drawable/ic_ahorn_blatt"
                         app:layout_columnWeight="1"
-                        app:layout_gravity="fill_horizontal" />
+                        app:layout_gravity="fill_horizontal" /> -->
 
                     <!-- Third row -->
 
@@ -200,9 +248,9 @@
                         <ImageView
                             android:id="@+id/profile_location_flag"
                             android:layout_width="match_parent"
-                            android:layout_height="65sp"
-                            android:layout_marginHorizontal="20dp"
-                            android:scaleType="fitCenter"
+                            android:layout_height="60sp"
+                            android:paddingStart="10dp"
+                            android:scaleType="fitStart"
                             app:srcCompat="@drawable/ic_flag_bavaria" />
 
                         <TextView
@@ -210,18 +258,42 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Neustadt"
-                            android:textAlignment="center" />
+                            android:textAlignment="textStart" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="fill_horizontal">
+
+                        <ImageView
+                            android:id="@+id/profileSlide_season_Img"
+                            android:layout_width="match_parent"
+                            android:layout_height="60sp"
+                            android:scaleType="fitStart"
+                            android:paddingStart="10dp"
+                            app:srcCompat="@drawable/ic_forest_navigation_bw" />
+
+                        <TextView
+                            android:id="@+id/profileSlide_season_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Winter"
+                            android:textAlignment="textStart" />
 
                     </LinearLayout>
 
-                    <ImageView
+                    <!--<ImageView
                         android:id="@+id/profileSlide_season_Img"
                         android:layout_width="0dp"
                         android:layout_height="80sp"
-                        android:scaleType="fitCenter"
+                        android:scaleType="fitStart"
                         android:src="@drawable/ic_forest_navigation_bw"
+                        android:paddingStart="15dp"
                         app:layout_columnWeight="1"
-                        app:layout_gravity="fill_horizontal" />
+                        app:layout_gravity="fill_horizontal" />-->
 
                 </androidx.gridlayout.widget.GridLayout>
 

@@ -24,7 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.activities.About;
 import de.lmu.treeapp.activities.Imprint;
+import de.lmu.treeapp.activities.Privacy;
 import de.lmu.treeapp.adapter.ProfileSlidePagerAdapter;
 import de.lmu.treeapp.contentData.database.AppDatabase;
 import de.lmu.treeapp.contentData.database.entities.app.UserProfileState;
@@ -72,6 +74,16 @@ public class ProfileSliderFragment extends Fragment {
                     this.context = getContext();
                     Intent intent_imprint = new Intent(context, Imprint.class);
                     context.startActivity(intent_imprint);
+                    return true;
+                case R.id.open_about:
+                    this.context = getContext();
+                    Intent intent_about = new Intent(context, About.class);
+                    context.startActivity(intent_about);
+                    return true;
+                case R.id.open_privacy:
+                    this.context = getContext();
+                    Intent intent_privacy = new Intent(context, Privacy.class);
+                    context.startActivity(intent_privacy);
                     return true;
                 case R.id.profile_add:
                     UserProfileState user = new UserProfileState();
