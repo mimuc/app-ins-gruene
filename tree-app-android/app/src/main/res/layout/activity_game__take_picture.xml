@@ -140,6 +140,7 @@
             android:elevation="4dp"
             android:fontFamily="@font/freude"
             android:text="@string/game_send_button_placeholder_text"
+            android:alpha="0.5"
             android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
             android:textSize="@dimen/buttons"
             app:layout_constraintWidth_percent="0.6"
