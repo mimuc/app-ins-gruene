@@ -50,6 +50,7 @@
     <string name="game_difficulty_hard">Ich mag eine Herausforderung</string>
 
     <string name="game_description_placeholder">Spiel-Beschreibung</string>
+    <string name="game_send_button_placeholder_text">Fertig!</string>
     <string name="game_score_comparison">%1$d / %2$d</string>
     <string name="game_new_highscore">Neuer Highscore!</string>
     <string name="game_no_highscore">Kein neuer Highscore!</string>
@@ -78,16 +79,16 @@
     <string name="game_description_input_hint">Dein eigenes Wort</string>
 
     <string name="game_input_string_input_text_field_hint_text">Antwort</string>
-    <string name="game_input_string_send_button_placeholder_text">Fertig!</string>
 
     <string name="game_orderWords_instructions">Tippe in der richtigen Reihenfolge auf die Wörter:</string>
     <string name="game_orderWords_solution_description">So, hier stimmt es wieder:</string>
 
-    <string name="game_puzzle_instructions">Ziehe die Puzzleteile an die richtigen Stellen um das Bild zu vervollständigen.</string>
+    <string name="game_puzzle_instructions">Ziehe die Puzzleteile an die richtigen Stellen, um das Bild zu vervollständigen.</string>
+
+    <string name="game_description_sliding_puzzle">Repariere das Bild, indem du die verschiedenen Puzzlestücke verschiebst.</string>
 
     <string name="game_take_picture_example">Beispielbild</string>
     <string name="game_take_picture_own_foto">Vorschau deines Fotos</string>
-    <string name="game_take_picture_send_button_placeholder_text">Fertig!</string>
 
     <!-- Popup -->
     <string name="popup_quiz_positive_title">Richtig!</string>

@@ -59,11 +59,11 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         img = selectImage(type);
         popup = new Popup(this);
         popup.setWinTitle(getString(R.string.slidepuzzle_wonderful));
-        grid = (DragDropGrid) findViewById(R.id.grid);
+        grid = findViewById(R.id.grid);
         grid.setImage(img, dimension);
         grid.setOnCompleteCallback(() -> {
             popup.showWithButtonText(PopupType.POSITIVE,
-                    getString(R.string.game_input_string_send_button_placeholder_text),
+                    getString(R.string.popup_btn_finished),
                     getString(R.string.slidepuzzle_win));
             grid.postDelayed(GameActivity_SlidePuzzle.this, 800);
         });

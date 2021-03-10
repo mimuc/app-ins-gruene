@@ -8,40 +8,76 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="360dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="50dp"
-        android:text="Repariere das Bild indem du die verschiedenen Puzzlestücke verschiebst."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/game_description_sliding_puzzle"
+        android:textAlignment="center"
+        android:textSize="@dimen/heading2"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/slidePuzzleLayout"
-        android:layout_width="360dp"
-        android:layout_height="360dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/_16sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.42000002">
+        app:layout_constraintBottom_toTopOf="@id/game_picture_puzzle_sendButton">
 
         <de.lmu.treeapp.activities.minigames.slidePuzzle.DragDropGrid
             android:id="@+id/grid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:orientation="vertical"
             tools:context="de.lmu.treeapp.activities.minigames.slidePuzzle.MainActivity"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="0dp"
+            app:layout_constraintDimensionRatio="W,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteY="110dp" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
         android:id="@+id/selection_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="20dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_16sdp"
+        android:elevation="20dp"
+        app:layout_constraintBottom_toTopOf="@id/game_picture_puzzle_sendButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+
+    <Button
+        android:id="@+id/game_picture_puzzle_sendButton"
+        style="@style/AppTheme.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="4dp"
+        android:fontFamily="@font/freude"
+        android:padding="8dp"
+        android:text="@string/game_send_button_placeholder_text"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+        android:textSize="@dimen/buttons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

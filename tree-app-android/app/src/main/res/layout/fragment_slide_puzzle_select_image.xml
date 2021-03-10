@@ -16,8 +16,7 @@
                 android:scaleType="fitCenter"
                 android:text="@string/slidepuzzle_select_image_text"
                 android:textAlignment="center"
-                android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading1"
+                android:textSize="@dimen/heading2"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -46,6 +45,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/blossom_male"
                 android:textAlignment="center"
+                android:textSize="@dimen/heading3"
                 app:layout_constraintEnd_toEndOf="@+id/btn_male"
                 app:layout_constraintStart_toStartOf="@+id/btn_male"
                 app:layout_constraintTop_toBottomOf="@+id/btn_male" />
@@ -75,7 +75,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/blossom_female"
                 android:textAlignment="center"
-                android:textAllCaps="false"
+                android:textSize="@dimen/heading3"
                 app:layout_constraintEnd_toEndOf="@+id/btn_female"
                 app:layout_constraintStart_toStartOf="@+id/btn_female"
                 app:layout_constraintTop_toBottomOf="@+id/btn_female" />
