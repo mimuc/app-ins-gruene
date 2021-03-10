@@ -169,15 +169,21 @@
 
     <Button
         android:id="@+id/start_catchfruits_button"
-        android:layout_width="146dp"
+        style="@style/AppTheme.Button"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_width="0dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="4dp"
+        android:fontFamily="@font/freude"
+        android:padding="8dp"
         android:text="@string/game_btn_start"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+        android:textSize="@dimen/buttons"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintWidth_percent="0.6" />
 </androidx.constraintlayout.widget.ConstraintLayout>
