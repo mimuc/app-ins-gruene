@@ -2,7 +2,6 @@ package de.lmu.treeapp.wantedPoster.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -282,6 +281,20 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
             case 9:
                 lifecycleInfoView.resetLifecycleInfoView();
                 break;
+        }
+    }
+
+    // Android hardware back button is pressed
+    @Override
+    public void onBackPressed() {
+        if(backToGames){
+            Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
+            intent.putExtra("TreeId", tree.getId());
+            intent.putExtra("Category", category);
+            startActivity(intent);
+            finish();
+        }else{
+            super.onBackPressed();
         }
     }
 

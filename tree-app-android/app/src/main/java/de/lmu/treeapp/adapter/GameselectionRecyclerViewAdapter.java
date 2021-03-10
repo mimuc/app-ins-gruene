@@ -3,7 +3,6 @@ package de.lmu.treeapp.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,7 +104,6 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
         holder.gameName.setText(game.getName());
 
         holder.gameIcon.setOnClickListener(arg0 -> {
-            Log.d("Gameselection", "geklickt");
             Class<?> gameActivityClass = null;
             switch (game.getType()) {
                 case ChooseAnswer:
