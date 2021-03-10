@@ -264,11 +264,12 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean name = preferences.getBoolean("poster", false);
         if (name == false) {
-        ImageView target = adapter.firstButton;
-        String treeName = getTreeAkkusativGerman(tree.getName());
+        ImageView target = WantedPosterTreeAdapter.firstButton;
+            String treeName = getTreeAkkusativGerman(tree.getName());
         new MaterialTapTargetSequence()
                     .addPrompt(new CustomTapTargetPromptBuilder(WantedPosterTreeActivity.this)
                             .setTarget(target)
+                            .setIcon(R.drawable.card_wanted_circle_icon)
                             .setSecondaryText(getString(R.string.wanted_poster_text, treeName)))
                     .show();
         }
