@@ -179,7 +179,7 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
                             leafFruitBarkInfoView, blossomInfoView, funFactView, lifecycleInfoView,
                             treeVideoView);
                     myStuffView.setVisibility(View.VISIBLE);
-                    if(getIntent().getExtras().getBoolean("Crafting")){
+                    if (getIntent().getExtras().getBoolean("Crafting")) {
                         myStuffView.performCraftingClick();
                     }
                     break;
@@ -270,10 +270,10 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
     public void presentMaterialTapTargetSequence() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean name = preferences.getBoolean("poster", false);
-        if (name == false) {
-        ImageView target = adapter.firstButton;
-        String treeName = getTreeAkkusativGerman(tree.getName());
-        new MaterialTapTargetSequence()
+        if (!name) {
+            ImageView target = adapter.firstButton;
+            String treeName = getTreeAkkusativGerman(tree.getName());
+            new MaterialTapTargetSequence()
                     .addPrompt(new CustomTapTargetPromptBuilder(WantedPosterTreeActivity.this)
                             .setTarget(target)
                             .setSecondaryText(getString(R.string.wanted_poster_text, treeName)))
@@ -324,20 +324,20 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
     // Android hardware back button is pressed
     @Override
     public void onBackPressed() {
-        if(backToGames){
+        if (backToGames) {
             Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
             intent.putExtra("TreeId", tree.getId());
             intent.putExtra("Category", category);
             startActivity(intent);
             finish();
-        }else{
+        } else {
             super.onBackPressed();
         }
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-        if(backToGames){
+        if (backToGames) {
             Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
             intent.putExtra("TreeId", tree.getId());
             intent.putExtra("Category", category);
