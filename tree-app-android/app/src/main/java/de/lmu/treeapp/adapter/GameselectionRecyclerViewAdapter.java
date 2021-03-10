@@ -1,7 +1,9 @@
 package de.lmu.treeapp.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +43,7 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
     List<Integer> games;
     int treeId;
     Tree.GameCategories category;
+    Activity activity;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView gameName;
@@ -65,10 +68,11 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
         notifyItemRemoved(position);
     }
 
-    public GameselectionRecyclerViewAdapter(List<Integer> gameIds, int treeId, Tree.GameCategories category) {
+    public GameselectionRecyclerViewAdapter(List<Integer> gameIds, int treeId, Tree.GameCategories category, Activity activity) {
         this.games = gameIds;
         this.treeId = treeId;
         this.category = category;
+        this.activity = activity;
     }
 
 
@@ -101,7 +105,7 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
         holder.gameName.setText(game.getName());
 
         holder.gameIcon.setOnClickListener(arg0 -> {
-
+            Log.d("Gameselection", "geklickt");
             Class<?> gameActivityClass = null;
             switch (game.getType()) {
                 case ChooseAnswer:
@@ -153,6 +157,7 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
                 intent.putExtra("Category", category);
                 intent.putExtra("GameId", game.getId());
                 context.startActivity(intent);
+                this.activity.finish();
             }
         });
 

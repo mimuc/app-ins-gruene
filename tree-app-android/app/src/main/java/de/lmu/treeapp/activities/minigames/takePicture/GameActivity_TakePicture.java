@@ -174,7 +174,7 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
             // Set success without going back to overview
             DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree);
             saveGameState().subscribe();
-            showTreeProfile();
+            showTreeProfile(true);
         }
     }
 

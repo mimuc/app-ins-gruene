@@ -57,13 +57,14 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     // Remove the current activity from the stack to switch to the previous one
     @Override
     public boolean onSupportNavigateUp() {
-        finish();
+        this.showGameSelection();
         return true;
     }
 
     // Android hardware back button is pressed
     @Override
     public void onBackPressed() {
+        this.showGameSelection();
         super.onBackPressed();
     }
 
@@ -94,10 +95,12 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         finish();
     }
 
-    public void showTreeProfile() {
+    public void showTreeProfile(Boolean toSelection) {
         Intent intent = new Intent(getApplicationContext(), WantedPosterTreeActivity.class);
         intent.putExtra("TreeId", treeId);
         intent.putExtra("TabId", 0);
+        intent.putExtra("Category", parentCategory);
+        intent.putExtra("ReturnToGames", toSelection);
         startActivity(intent);
         finish();
     }

@@ -1,6 +1,8 @@
 package de.lmu.treeapp.wantedPoster.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import java.util.List;
 import java.util.Objects;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.activities.GameSelectionActivity;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.WantedPosterImageList;
 import de.lmu.treeapp.contentClasses.trees.WantedPosterTextList;
@@ -46,8 +49,11 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
     private FunFactView funFactView;
     private LifecycleInfoView lifecycleInfoView;
     private TreeVideoView treeVideoView;
-    private final List<String> imageStrings = new ArrayList<String>();
+    private final List<String> imageStrings = new ArrayList<>();
     private Integer buttonInactiveId, questionMarkInactiveId, cameraInactiveId;
+    private Boolean backToGames;
+    private Tree.GameCategories category;
+    private Tree tree;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,11 +62,14 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
 
         //gets the tree and treeProfile data from DataManager, which gets the data from room database and app startup
         // Data of our tree (from CMS and Database)
-        Tree tree = DataManager.getInstance(getApplicationContext()).getTree(Objects.requireNonNull(getIntent().getExtras()).getInt("TreeId"));
+        tree = DataManager.getInstance(getApplicationContext()).getTree(Objects.requireNonNull(getIntent().getExtras()).getInt("TreeId"));
         wantedPosterTextList = DataManager.getInstance(getApplicationContext()).getAllWantedPosters(tree.getId());
         WantedPosterImageList wantedPosterImageList = DataManager.getInstance(getApplicationContext()).getAllWantedPosterImages(tree.getId());
 
         String title = getResources().getString(R.string.wanted_poster_details_title_text) + " " + tree.getName();
+        Bundle b = getIntent().getExtras();
+        backToGames = b.getBoolean("ReturnToGames");
+        category = (Tree.GameCategories) b.get("Category");
 
         if (getSupportActionBar() != null) {
             //set the title of the wanted poster( for example: 'Steckbrief Ahorn')
@@ -276,9 +285,14 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
         }
     }
 
-
     @Override
     public boolean onSupportNavigateUp() {
+        if(backToGames){
+            Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
+            intent.putExtra("TreeId", tree.getId());
+            intent.putExtra("Category", category);
+            startActivity(intent);
+        }
         finish();
         return true;
     }
