@@ -5,6 +5,7 @@ import androidx.room.TypeConverter;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.lmu.treeapp.contentClasses.UserProfileCategory;
 import de.lmu.treeapp.contentClasses.minigames.MediaType;
 import de.lmu.treeapp.contentClasses.minigames.Minigame_Base;
 import de.lmu.treeapp.contentClasses.trees.Tree;
@@ -127,6 +128,21 @@ public class TypeConversion {
     public static String gameTypeToString(Minigame_Base.MinigameTypes optionType) {
         return optionType.name();
     }
+
+    //region UserProfile
+
+    @TypeConverter
+    public static UserProfileCategory userCategoryFromString(String optionType) {
+        if (optionType == null) return UserProfileCategory.UNDEFINED;
+        return UserProfileCategory.valueOf(optionType.toUpperCase());
+    }
+
+    @TypeConverter
+    public static String userCategoryToString(UserProfileCategory optionType) {
+        return optionType.name();
+    }
+
+    //endregion UserProfile
 
     //region Wanted Poster
 

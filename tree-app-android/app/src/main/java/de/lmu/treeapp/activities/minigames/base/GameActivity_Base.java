@@ -27,6 +27,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     protected Tree parentTree;
     protected Tree.GameCategories parentCategory;
     protected GameStateScore gameStateScore;
+    protected String specialGameName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         parentCategory = (Tree.GameCategories) b.get("Category");
         treeId = b.getInt("TreeId");
         gameId = b.getInt("GameId");
+        specialGameName = b.getString("GameName") != null ? b.getString("GameName") : "";
 
         parentTree = DataManager.getInstance(getApplicationContext()).getTree(treeId);
         gameContent = DataManager.getInstance(getApplicationContext()).getMinigame(gameId);
@@ -101,6 +103,14 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         intent.putExtra("TabId", 0);
         intent.putExtra("Category", parentCategory);
         intent.putExtra("ReturnToGames", toSelection);
+        startActivity(intent);
+        finish();
+    }
+    public void showTreeProfileCrafting() {
+        Intent intent = new Intent(getApplicationContext(), WantedPosterTreeActivity.class);
+        intent.putExtra("TreeId", treeId);
+        intent.putExtra("TabId", 0);
+        intent.putExtra("Crafting", true);
         startActivity(intent);
         finish();
     }

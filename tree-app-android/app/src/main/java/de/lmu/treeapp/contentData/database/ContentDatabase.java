@@ -28,6 +28,7 @@ import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
         Tree_x_Game.class,
         TreeImage.class,
         TreeModel.class,
+        UserProfileOption.class,
         WantedPoster.class,
         WantedPosterImage.class
 
@@ -86,5 +87,7 @@ public abstract class ContentDatabase extends RoomDatabase {
     public abstract GameContourDao gameContourDao();
 
     public abstract GameSlidePuzzleDao gameSlidePuzzleDao();
+
+    public abstract UserProfileDao userProfileDao();
 }
 

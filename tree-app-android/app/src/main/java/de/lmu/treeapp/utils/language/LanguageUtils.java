@@ -10,4 +10,14 @@ public class LanguageUtils {
         }
         return treeName;
     }
+
+
+    public static String getTreeAkkusativGerman(String treeName) {
+        if (treeName.equals("Ahorn")) {
+            treeName = "den " + treeName;
+        } else {
+            treeName = "die " + treeName;
+        }
+        return treeName;
+    }
 }

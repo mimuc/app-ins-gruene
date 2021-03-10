@@ -224,6 +224,7 @@ public class GameActivity_OnlyDescription extends GameActivity_Base implements P
             intent.putExtra("TreeId", treeId);
             intent.putExtra("Category", parentCategory);
             intent.putExtra("GameId", 303);
+            intent.putExtra("GameName", gameContent.getName());
             this.startActivity(intent);
             finish();
         }

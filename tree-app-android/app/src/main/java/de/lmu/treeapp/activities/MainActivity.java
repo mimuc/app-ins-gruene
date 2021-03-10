@@ -20,6 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.activities.profile.ProfileSliderFragment;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.fragments.OverviewFragment;
@@ -30,7 +31,6 @@ import de.lmu.treeapp.popup.PopupInterface;
 import de.lmu.treeapp.popup.PopupType;
 import de.lmu.treeapp.service.FragmentManagerService;
 import de.lmu.treeapp.tutorial.CustomTapTargetPromptBuilder;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence;
 
 /**
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements PopupInterface {
     private DataManager dm; // The Singleton holding all the data of the CMS and Database
     private final FragmentManagerService fragmentManager = FragmentManagerService.getInstance(getSupportFragmentManager()); // The FragmentManager we need to register and launch fragments
     private final Fragment treeSelectionFragment = new TreeSelectionFragment(); // The Trees-Detail-Fragment (The one were we can see the trees in big and click on games or the profile)
+    private final Fragment profileFragment = new ProfileSliderFragment(); // The Profile-Fragment
     private final Fragment overviewFragment = new OverviewFragment(fragmentManager, treeSelectionFragment); // The Trees-Overview-Fragment (The one which all the trees in small squares on one screen)
     private BottomNavigationView bottomNavigationView;  // The NavigationBar on the bottom
     public static Context mainContext;
@@ -101,7 +102,12 @@ public class MainActivity extends AppCompatActivity implements PopupInterface {
         /* DISABLED: QR
         this.qrCodeButton.setOnClickListener(this.getQrCodeButtonOnClickListener());
         */
-        this.bottomNavigationView.setOnNavigationItemSelectedListener(fragmentManager.getOnNavigationItemSelectedListener(overviewFragment, treeSelectionFragment));
+        this.bottomNavigationView.setOnNavigationItemSelectedListener(
+                fragmentManager.getOnNavigationItemSelectedListener(
+                        overviewFragment,
+                        treeSelectionFragment,
+                        profileFragment
+                ));
     }
 
     /**
@@ -110,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements PopupInterface {
     Fragment[] bottomNavigationFragments;
 
     private void registerFragmentManagerTransactions() {
-        bottomNavigationFragments = new Fragment[]{this.overviewFragment, this.treeSelectionFragment};
+        bottomNavigationFragments = new Fragment[]{this.overviewFragment, this.treeSelectionFragment, this.profileFragment};
         fragmentManager.registerTransactions(bottomNavigationFragments);
     }
 
@@ -203,15 +209,14 @@ public class MainActivity extends AppCompatActivity implements PopupInterface {
                         .setTarget(R.id.action_tree_selection)
                         .setPrimaryText(R.string.single_view_heading)
                         .setSecondaryText(R.string.single_view_text))
-                .addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
+                  .addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
+                        .setTarget(R.id.action_profile)
+                        .setPrimaryText(R.string.profile_button_heading)
+                        .setSecondaryText(R.string.profile_button_text)).show();
+                /**.addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
                         .setTarget(b)
                         .setFocalRadius(R.dimen._60sdp)
-                        .setSecondaryText(R.string.tree_text))
-                .addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
-                        .setTarget(lock)
-                        .setFocalRadius(R.dimen._15sdp)
-                        .setSecondaryText(R.string.tree_lock_text))
-                .show();
+                        .setSecondaryText(R.string.tree_text))**/
     }
 
     @Override
