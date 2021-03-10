@@ -80,23 +80,30 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:hint="@string/game_edit_text_name"
+                android:textSize="@dimen/heading3"
                 app:layout_constraintBottom_toTopOf="@+id/next_button"
                 app:layout_constraintStart_toStartOf="@+id/name_other_player"
                 app:layout_constraintTop_toBottomOf="@+id/name_other_player" />
 
             <Button
                 android:id="@+id/next_button"
-                android:layout_width="wrap_content"
+                style="@style/AppTheme.Button"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="139dp"
-                android:layout_marginEnd="165dp"
-                android:layout_marginBottom="16dp"
-                android:text="Weiter"
+                android:layout_width="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:elevation="4dp"
+                android:fontFamily="@font/freude"
+                android:padding="8dp"
+                android:text="@string/button_next"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+                android:textSize="@dimen/buttons"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edit_name" />
+                app:layout_constraintWidth_percent="0.6" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

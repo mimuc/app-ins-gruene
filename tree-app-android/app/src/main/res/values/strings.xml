@@ -112,10 +112,10 @@
     <string name="popup_only_description_foto_text">Wenn du direkt hier ein Foto machen willst, klick auf Foto. Dann landet dein Bild auch im Steckbrief!</string>
     <string name="popup_close_app_title">Möchtest du die App wirklich beenden?</string>
     <string name="popup_close_app_accept">Ja</string>
-    <string name="button_next">weiter</string>
-    <string name="button_back">zurück</string>
-    <string name="button_repeat">nochmal</string>
-    <string name="button_done">fertig</string>
+    <string name="button_next">Weiter</string>
+    <string name="button_back">Zurück</string>
+    <string name="button_repeat">Nochmal</string>
+    <string name="button_done">Fertig</string>
 
     <!-- Imprint-->
     <string name="imprint_imprint_title">IMPRESSUM</string>

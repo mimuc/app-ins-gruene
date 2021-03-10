@@ -36,31 +36,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/game_orderWords_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginHorizontal="60dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/game_orderWords_sendButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_description" />
+        app:layout_constraintTop_toBottomOf="@+id/game_description">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/game_orderWords_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="60dp"
+            app:layout_constraintBottom_toTopOf="@id/game_add_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/game_add_button"
-        style="@style/AppTheme.RoundButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:text="+"
-        app:cornerRadius="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_orderWords_content" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/game_add_button"
+            style="@style/AppTheme.RoundButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+"
+            app:cornerRadius="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/game_orderWords_content" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/game_orderWords_sendButton"
