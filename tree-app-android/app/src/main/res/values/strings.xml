@@ -5,6 +5,7 @@
     <string name="cancel">Abbrechen</string>
     <string name="leaf_icon">Leaf Icon</string>
     <string name="heart_icon">Heart Icon</string>
+    <string name="please_select">Bitte auswählen</string>
 
     <!-- Bottom Bar -->
     <string name="bottom_app_bar_overview">Übersicht</string>
@@ -59,7 +60,7 @@
     <string name="game_prompt_second_player_name">Mit wem spielst du heute? Bitte gib den Namen ein!</string>
     <string name="game_edit_text_name">Name</string>
     <string name="game_first_player_default">Spieler A</string>
-    <string name="game_second_player_default">Spieler 2</string>
+    <string name="game_second_player_default">Spieler B</string>
 
     <!-- Games -->
     <string name="game_catchFruits_trees_description_text">Weißt du noch, wie die Blätter und Früchte %1$s aussehen?</string>
@@ -102,7 +103,7 @@
     <string name="popup_neutral_ok">Ok!</string>
     <string name="popup_win_title">Gewonnen!</string>
     <string name="popup_win_title_done">"Geschafft!"</string>
-    <string name="popup_loose_title">Oh nein ...</string>
+    <string name="popup_loose_title">Oh nein … denke daran, dass du nur Begriffe auswählst die du fühlen kannst. Sehen ist nicht fühlen. </string>
     <string name="popup_loose_title_not_sufficient">Leider hat es nicht gereicht</string>
     <string name="popup_try_again">Probier\'s doch noch einmal...einen Versuch hast du übrig!</string>
     <string name="popup_negative_title_close">Fast…</string>
@@ -173,8 +174,9 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="overview_text">Hier siehst du alle Bäume auf einem Fleck!</string>
     <string name="single_view_heading">Einzelansicht</string>
     <string name="single_view_text">Hier findest du die Bäume einzeln aufgelistet!</string>
+    <string name="profile_button_heading">Profil</string>
+    <string name="profile_button_text">Hier findest du dein Profil!</string>
     <string name="tree_text">Wenn du auf einen Baum klickst, kommst du zu den Spielen!</string>
-    <string name="tree_lock_text">Das Schloss wird zu einem grünen Haken, wenn du alle Spiele gespielt hast!</string>
     <string name="other_heading">Allgemeine Spiele</string>
     <string name="other_text">Hier findest du alle allgemeinen Spiele zu diesem Baum!</string>
     <string name="leaf_heading">Blattspiele</string>
@@ -185,10 +187,12 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="trunk_text">Alle Spiele zur Rinde findest du hier!</string>
     <string name="profile_heading">Steckbrief</string>
     <string name="profile_text">Hier findest du mehr Informationen zu diesem Baum!</string>
+    <string name="wanted_poster_text">Klicke oder wische, um mehr über %1$s zu erfahren.</string>
 
     <!-- Wanted poster-->
     <string name="wanted_poster_description">Klicke doch mal auf die Lupen, um mehr zu erfahren!</string>
     <string name="wanted_poster_no_taken_pictures">Du hast noch keine Fotos gemacht. Schau doch mal bei den Minispielen vorbei!</string>
+    <string name="wanted_poster_no_crafting_pictures">Du hast noch nichts gebastelt. Ab zu den Minispielen!</string>
     <string name="wanted_poster_details_title_text">Steckbrief</string>
     <string name="wanted_poster_my_stuff">Meine Sammlung</string>
     <string name="wanted_poster_my_ideas">Meine Ideen</string>
@@ -203,4 +207,26 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
     <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
     <string name="main_activity_qr_code_no_tree_found_text">Kein Baum mit diesem QR-Code:</string>
+
+    <!-- Profile -->
+    <string name="profile_thats_me">Das bin ich</string>
+    <string name="profile_friend_book">Dein Freundebuch</string>
+    <string name="profile_age">So alt bin ich:</string>
+    <string name="profile_bubble_text">Hi, ich bin %s!</string>
+    <string name="profile_favTree">Mein Lieblingsbaum:</string>
+    <string name="profile_favLeaf">Mein Lieblingsblatt:</string>
+    <string name="profile_favSeason">Meine liebste Jahreszeit:</string>
+    <string name="profile_nickname">Mein Name:</string>
+    <string name="profile_name_default_val">Sag ich nicht</string>
+    <string name="profile_name_default_val_2">Max</string>
+    <string name="profile_name_default_val_3">Erika</string>
+    <string name="profile_age_default_val">Immer ein Jahr mehr als du!</string>
+    <string name="profile_location">Hier wohne ich:</string>
+    <string name="profile_location_default_val">Deutschland</string>
+    <string name="profile_edit">Profil ändern</string>
+    <string name="profile_save">Profil speichern</string>
+    <string name="profile_delete">Profil löschen</string>
+    <string name="profile_create">Profil erstellen</string>
+    <string name="profile_avatar">Mein Avatar</string>
+    <string name="profile_welcome">Willkommen im Profil!</string>
 </resources>
