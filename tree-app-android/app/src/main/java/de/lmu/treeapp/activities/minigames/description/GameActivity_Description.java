@@ -126,7 +126,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
                 popup.setButtonSecondary(true);
                 popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), correctString);
             } else {
-                popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_try_again_short));
+                popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_loose_title));
             }
         });
     }
