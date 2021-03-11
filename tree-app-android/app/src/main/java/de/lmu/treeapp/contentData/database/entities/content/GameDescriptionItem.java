@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 public class GameDescriptionItem {
     @PrimaryKey
     public int id;
-    public int gameId;
+    public Integer gameId;
     public String content;
     public boolean isRight;
 }

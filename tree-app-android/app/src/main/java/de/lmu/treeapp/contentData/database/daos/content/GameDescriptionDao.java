@@ -21,19 +21,19 @@ public abstract class GameDescriptionDao extends GameBaseDao<GameDescriptionRela
     /*
      * Explaination: in the "GameDescriptionItem" table are two types of gameIds:
      * 1. Actual gameIds e.g. 1001. If set, these items apply ONLY to this specific game
-     * 2. "0", which are always correct
+     * 2. null, which applies for all games (global)
      * */
 
     @Override
     public List<GameDescriptionRelations> getAll() {
         List<GameDescriptionRelations> gameDragDropRelationsList = super.getAll();
         // get some random strings to put in as "distraction"
-        List<GameDescriptionItem> falseItems = mGetFalseOptions();
-        List<GameDescriptionItem> moreRightOptions = mGetMoreRightOptions();
+        List<GameDescriptionItem> globalFalseItems = mGetGlobalFalseOptions(5);
+        List<GameDescriptionItem> globalRightOptions = mGetGlobalRightOptions(10);
         for (GameDescriptionRelations gameDragDropRelations : gameDragDropRelationsList) {
 
             List<GameDescriptionItem> items = gameDragDropRelations.getItems();
-            for (GameDescriptionItem rightItem : moreRightOptions) {
+            for (GameDescriptionItem rightItem : globalRightOptions) {
                 if (items.size() > 15) {
                     // max 16 items
                     break;
@@ -50,12 +50,11 @@ public abstract class GameDescriptionDao extends GameBaseDao<GameDescriptionRela
                     }
                 }
                 if (!existsAlready) {
-                    rightItem.isRight = true;
                     items.add(rightItem);
                 }
             }
 
-            for (GameDescriptionItem falseItem : falseItems) {
+            for (GameDescriptionItem falseItem : globalFalseItems) {
                 if (items.size() > 15) {
                     // max 16 items
                     break;
@@ -72,7 +71,6 @@ public abstract class GameDescriptionDao extends GameBaseDao<GameDescriptionRela
                     }
                 }
                 if (!existsAlready) {
-                    falseItem.isRight = false;
                     items.add(falseItem);
                 }
             }
@@ -83,10 +81,10 @@ public abstract class GameDescriptionDao extends GameBaseDao<GameDescriptionRela
     }
 
     @Transaction
-    @Query("SELECT * FROM GameDescriptionItem WHERE gameId = 0 and isRight = 0 ORDER BY RANDOM() LIMIT 5")
-    abstract List<GameDescriptionItem> mGetFalseOptions();
+    @Query("SELECT * FROM GameDescriptionItem WHERE gameId IS NULL and isRight = 0 ORDER BY RANDOM() LIMIT :limit")
+    abstract List<GameDescriptionItem> mGetGlobalFalseOptions(int limit);
 
     @Transaction
-    @Query("SELECT * FROM GameDescriptionItem WHERE gameId = 0 and isRight = 1 ORDER BY RANDOM() LIMIT 10")
-    abstract List<GameDescriptionItem> mGetMoreRightOptions();
+    @Query("SELECT * FROM GameDescriptionItem WHERE gameId IS NULL and isRight = 1 ORDER BY RANDOM() LIMIT :limit")
+    abstract List<GameDescriptionItem> mGetGlobalRightOptions(int limit);
 }
