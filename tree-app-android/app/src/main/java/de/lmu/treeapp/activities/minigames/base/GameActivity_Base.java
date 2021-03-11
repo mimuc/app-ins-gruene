@@ -59,7 +59,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     // Remove the current activity from the stack to switch to the previous one
     @Override
     public boolean onSupportNavigateUp() {
-        finish();
+        this.showGameSelection();
         return true;
     }
 
