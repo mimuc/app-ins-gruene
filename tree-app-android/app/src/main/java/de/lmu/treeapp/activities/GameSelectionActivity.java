@@ -78,7 +78,7 @@ public class GameSelectionActivity extends AppCompatActivity {
         int gridColumns = 3;
         RecyclerView.LayoutManager recyclerViewLayoutManager = new GridLayoutManager(getApplicationContext(), gridColumns);
         gameSelectionRecyclerView.setLayoutManager(recyclerViewLayoutManager);
-        RecyclerView.Adapter recyclerViewAdapter = new GameselectionRecyclerViewAdapter(this.gameIds, this.treeId, this.category);
+        RecyclerView.Adapter recyclerViewAdapter = new GameselectionRecyclerViewAdapter(this.gameIds, this.treeId, this.category, this);
         gameSelectionRecyclerView.setAdapter(recyclerViewAdapter);
     }
 

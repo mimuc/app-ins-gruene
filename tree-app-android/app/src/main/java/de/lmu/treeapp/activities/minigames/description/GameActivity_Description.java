@@ -187,7 +187,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
                 DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory,
                         gameContent.getId(), parentTree);
                 saveGameState().subscribe();
-                showTreeProfile();
+                showTreeProfile(false);
             }
         }
     }
