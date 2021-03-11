@@ -178,7 +178,7 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
                 showTreeProfileCrafting();
                 return;
             }
-            showTreeProfile();
+            showTreeProfile(true);
         }
     }
 
