@@ -175,7 +175,7 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
             DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree);
             saveGameState().subscribe();
             if(getIntent().getExtras().getInt("GameId") == 303){
-                showTreeProfileCrafting();
+                showTreeProfileCrafting(true);
                 return;
             }
             showTreeProfile(true);
