@@ -1,11 +1,13 @@
 package de.lmu.treeapp.activities.minigames.baumory;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -28,6 +30,7 @@ import java.util.stream.IntStream;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
+import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.contentData.database.AppDatabase;
 import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryCard;
 import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryRelations;
@@ -88,6 +91,21 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         selectionVisible = true;
 
         popupWindow = new Dialog(this);
+        popupWindow.setOnKeyListener(new Dialog.OnKeyListener() {
+
+            @Override
+            public boolean onKey(DialogInterface arg0, int keyCode,
+                                 KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                    popupWindow.dismiss();
+                    baumorySelectionFragment = new BaumorySelectionFragment();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.selection_fragment_container, baumorySelectionFragment).commit();
+                    selectionVisible = true;
+                }
+                return true;
+            }
+        });
     }
 
     @Override
@@ -332,6 +350,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
             if (action == PopupAction.SECONDARY) {
                 onSuccess();
             } else {
+                DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree).subscribe();
                 startGame(multiPlayerMode, difficultyHard);
             }
         }
