@@ -97,7 +97,7 @@ public class GameActivity_DragDrop extends GameActivity_Base implements PopupInt
     @Override
     public boolean onSupportNavigateUp() {
         if (dragDropHelper.checkGameState()) super.onSuccess();
-        else finish();
+        else super.onSupportNavigateUp();
         return true;
     }
 }
