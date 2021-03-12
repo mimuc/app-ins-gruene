@@ -82,9 +82,27 @@ public class ProfileFragment extends Fragment {
                 profileBubbleText.setText(context.getString(R.string.profile_bubble_text, this.userProfileState.name));
                 userNameView.setText(this.userProfileState.name.substring(0, 1).toUpperCase() + this.userProfileState.name.substring(1).toLowerCase());
                 ageTextView.setText(this.userProfileState.age);
-                treeTextView.setText(this.userProfileState.tree);
-                leafTextView.setText(this.userProfileState.leaf);
-                seasonTextView.setText(this.userProfileState.season);
+
+                if(this.userProfileState.tree != -1){
+                    treeTextView.setText(this.userProfileState.tree);
+                }
+                else{
+                    treeTextView.setText("Ahorn");
+                }
+
+                if(this.userProfileState.leaf != -1){
+                    leafTextView.setText(this.userProfileState.leaf);
+                }
+                else{
+                    treeTextView.setText("Ahornblatt");
+                }
+
+                if(this.userProfileState.season != -1){
+                    seasonTextView.setText(this.userProfileState.season);
+                }
+                else{
+                    treeTextView.setText("Winter");
+                }
 
                 int defaultAvatar = R.drawable.ic_singleplayer_squirrel;
                 if (this.userProfileState.avatar != null) {
