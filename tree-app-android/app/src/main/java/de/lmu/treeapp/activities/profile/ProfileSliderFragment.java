@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -86,6 +87,7 @@ public class ProfileSliderFragment extends Fragment {
                     context.startActivity(intent_privacy);
                     return true;
                 case R.id.profile_add:
+                    view.findViewById(R.id.profile_add).setEnabled(false);
                     UserProfileState user = new UserProfileState();
                     AppDatabase.getInstance(getContext()).userProfileDao().insertOne(user).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(s -> {
                         user.id = s.intValue(); // Update id of newly inserted user
@@ -101,6 +103,7 @@ public class ProfileSliderFragment extends Fragment {
                     });
                     return true;
                 case R.id.profile_edit:
+                    view.findViewById(R.id.profile_edit).setEnabled(false);
                     FragmentManager fragManager = getParentFragmentManager();
 
                     ProfileEditFragment profileEditFragment = ProfileEditFragment.newInstance(profileList.get(pager.getCurrentItem()), true);
@@ -154,6 +157,8 @@ public class ProfileSliderFragment extends Fragment {
             pager.setAdapter(adapter);
             pager.setCurrentItem(pagerItemPosition);
             dotsIndicator.attachViewPager(pager);
+            getView().findViewById(R.id.profile_edit).setEnabled(true);
+            getView().findViewById(R.id.profile_add).setEnabled(true);
         });
 
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -207,4 +212,7 @@ public class ProfileSliderFragment extends Fragment {
             setupViewPager(userId);
         }
     }
+
+
+
 }
