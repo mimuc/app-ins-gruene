@@ -345,7 +345,7 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
     @Override
     public boolean onSupportNavigateUp() {
         if (isGameOver()) onSuccess();
-        else finish();
+        else super.onSupportNavigateUp();
         return true;
     }
 }
