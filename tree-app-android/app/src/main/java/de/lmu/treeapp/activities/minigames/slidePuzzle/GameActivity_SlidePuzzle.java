@@ -2,9 +2,13 @@ package de.lmu.treeapp.activities.minigames.slidePuzzle;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.common.util.ArrayUtils;
@@ -25,7 +29,9 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
     private TextView timeText;
     private Boolean isTimerRunning = false;
     private String time;
+    private Button doneButton;
     int img = R.drawable.sb_bluete_foto_ahorn;
+    ImageView imgView;
     Fragment imageSelectFragment;
     int[] mwTrees = new int[]{1, 9, 5, 3, 8};
 
@@ -40,6 +46,25 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_game__picture_puzzle);
+        Button helpButton = findViewById(R.id.helpImageButton);
+        Button continueButton = findViewById(R.id.continueButton);
+        doneButton = findViewById(R.id.doneButton);
+        imgView = findViewById(R.id.doneImage);
+        CardView helpView = findViewById(R.id.finishedImageView);
+        helpView.setVisibility(View.GONE);
+        doneButton.setVisibility(View.GONE);
+        popup = new Popup(this);
+        popup.setWinTitle(getString(R.string.slidepuzzle_wonderful));
+        doneButton.setOnClickListener(e -> {
+            popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_puzzle_won_text, time));
+
+        });
+        helpButton.setOnClickListener(e -> {
+            helpView.setVisibility(View.VISIBLE);
+        });
+        continueButton.setOnClickListener(e -> {
+            helpView.setVisibility(View.GONE);
+        });
         int treeId = parentTree.getId();
         if (ArrayUtils.contains(mwTrees, treeId)) {
             int imgM = selectImage(BlossomType.male);
@@ -64,8 +89,8 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
                     .detach(imageSelectFragment).commit();
         }
         img = selectImage(type);
-        popup = new Popup(this);
-        popup.setWinTitle(getString(R.string.slidepuzzle_wonderful));
+        imgView.setImageResource(img);
+
         timeText = findViewById(R.id.time_TextView);
         startTimer();
         grid = (DragDropGrid) findViewById(R.id.grid);
@@ -75,9 +100,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
               //      getString(R.string.game_input_string_send_button_placeholder_text),
                 //    getString(R.string.slidepuzzle_win));
             isTimerRunning = false;
-            popup.setButtonSecondary(true);
-            popup.setButtonSecondaryText(getString(R.string.button_back));
-            popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.button_repeat), getString(R.string.popup_puzzle_won_text, time));
+            doneButton.setVisibility(View.VISIBLE);
             grid.postDelayed(GameActivity_SlidePuzzle.this, 800);
         });
     }
@@ -94,7 +117,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
 
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
-        if (type == PopupType.POSITIVE) {
+        if (type == PopupType.POSITIVE_ANIMATION) {
             onSuccess();
         }
     }
