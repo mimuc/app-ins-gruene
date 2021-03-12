@@ -177,7 +177,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements
     @Override
     public boolean onSupportNavigateUp() {
         if (checkGameState()) onQuizSuccess(quizIDs);
-        else finish();
+        else super.onSupportNavigateUp();
         return true;
     }
 }
