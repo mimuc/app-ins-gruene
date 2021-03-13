@@ -64,8 +64,8 @@
 
     <!-- Games -->
     <string name="game_catchFruits_trees_description_text">Weißt du noch, wie die Blätter und Früchte %1$s aussehen?</string>
-    <string name="game_catchFruits_instruction_1">Versuche 10 Blätter und 10 Früchte durch klicken einzusammeln bevor die Zeit abläuft.</string>
-    <string name="game_catchFruits_instruction_2">Wenn du auf falsche Blätter oder Früchte klickst oder ein richtiges Blatt/ eine richtige Frucht verpasst ist das Spiel schneller vorbei.</string>
+    <string name="game_catchFruits_instruction_1">Versuche, 10 Blätter und 10 Früchte durch Klicken einzusammeln, bevor die Zeit abläuft.</string>
+    <string name="game_catchFruits_instruction_2">Wenn du auf falsche Blätter oder Früchte klickst oder ein richtiges Blatt/ eine richtige Frucht verpasst, ist das Spiel schneller vorbei.</string>
 
     <string name="game_choose_answer_option_button_placeholder_text">Answer Button</string>
 
