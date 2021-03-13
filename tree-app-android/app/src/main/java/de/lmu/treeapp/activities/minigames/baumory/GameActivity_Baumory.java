@@ -247,8 +247,8 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
             if ((finishedCards.size() >= maxMatches) && !multiPlayerMode) {
                 isTimerRunning = false;
                 popup.setButtonSecondary(true);
-                popup.setButtonSecondaryText(getString(R.string.button_back));
-                popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.button_repeat), getString(R.string.popup_puzzle_won_text, time));
+                popup.setButtonSecondaryText(getString(R.string.button_repeat));
+                popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.button_done), getString(R.string.popup_puzzle_won_text, time));
             }
         }
     }
@@ -290,12 +290,12 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         }
         if (maxIndices.length == 1) {
             popup.setButtonSecondary(true);
-            popup.setButtonSecondaryText(getString(R.string.button_back));
-            popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.button_repeat), getString(R.string.game_mode_player_won, mpNames[maxIndices[0]]));
+            popup.setButtonSecondaryText(getString(R.string.button_repeat));
+            popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.button_done), getString(R.string.game_mode_player_won, mpNames[maxIndices[0]]));
         } else {
             popup.setButtonSecondary(true);
-            popup.setButtonSecondaryText(getString(R.string.button_back));
-            popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.button_repeat), getString(R.string.game_mode_draw));
+            popup.setButtonSecondaryText(getString(R.string.button_repeat));
+            popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.button_done), getString(R.string.game_mode_draw));
         }
     }
 
@@ -346,8 +346,8 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
 
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
-        if (type == PopupType.POSITIVE) {
-            if (action == PopupAction.SECONDARY) {
+        if (type == PopupType.POSITIVE_ANIMATION) {
+            if (action == PopupAction.ACCEPT) {
                 onSuccess();
             } else {
                 DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree).subscribe();

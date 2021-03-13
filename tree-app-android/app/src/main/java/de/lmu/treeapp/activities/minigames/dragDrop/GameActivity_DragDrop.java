@@ -77,6 +77,7 @@ public class GameActivity_DragDrop extends GameActivity_Base implements PopupInt
 
     @Override
     protected void onSuccess() {
+        popup.setButtonAcceptText(getResources().getString(R.string.popup_btn_finished));
         popup.show(PopupType.POSITIVE_ANIMATION);
         for (GameDragDropZone zone : dragDropGame.getZones()) {
             zone.validMatch = false;
@@ -85,7 +86,8 @@ public class GameActivity_DragDrop extends GameActivity_Base implements PopupInt
 
     @Override
     protected void onFail() {
-        popup.show(PopupType.NEGATIVE_ANIMATION);
+        popup.setLooseTitle(getString(R.string.popup_negative_title_close));
+        popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_try_again_short));
     }
 
     @Override
