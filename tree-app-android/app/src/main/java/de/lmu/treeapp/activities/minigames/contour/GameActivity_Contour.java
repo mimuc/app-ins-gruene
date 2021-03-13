@@ -77,7 +77,7 @@ public class GameActivity_Contour extends GameActivity_Base implements PopupInte
 
             } else {
                 //You are here? Ough .. not so good at drawing?
-                popup.show(PopupType.NEGATIVE, getString(R.string.game_contour_try_to_hit_circles), null);
+                popup.showWithButtonText(PopupType.NEGATIVE, getString(R.string.popup_neutral_ok), getString(R.string.game_contour_try_to_hit_circles));
             }
         });
 

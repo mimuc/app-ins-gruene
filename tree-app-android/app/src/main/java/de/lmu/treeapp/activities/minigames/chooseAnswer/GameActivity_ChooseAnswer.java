@@ -105,6 +105,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements
                 popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.popup_btn_continue));
             } else {
                 superPowerGivenAnswer = true;
+                popup.setWinTitle(getResources().getString(R.string.popup_win_title));
                 popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished));
             }
         } else {
@@ -115,7 +116,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements
                 popup.showWithButtonText(PopupType.NEGATIVE, getString(R.string.popup_neutral_ok),
                         getString(R.string.popup_try_again));
             } else {
-                int popupBtnTextRes = current > 1 ? R.string.popup_btn_continue : R.string.popup_btn_finished;
+                int popupBtnTextRes = R.string.button_back;
                 List<View> views = new ArrayList<>();
                 if (option.optionType == MediaType.TEXT) {
                     TextView textView = new TextView(this);
@@ -148,9 +149,9 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements
             current--;
             return false;
         } else {
-            // should return true when user has finished quiz or user finished "Superkraft" game
+            // returns true if last quiz question / Superkraft question was answered correctly
             // else returns false
-            return !gameContent.getName().equals("Superkraft") || superPowerGivenAnswer;
+            return superPowerGivenAnswer;
         }
     }
 
@@ -165,6 +166,8 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements
         if ((type != PopupType.NEGATIVE && type != PopupType.NEGATIVE_ANIMATION ||
                 showAnswer >= 2) && checkGameState()) {
             onQuizSuccess(quizIDs);
+        } else if (type == PopupType.NEGATIVE_ANIMATION) {
+            super.onBackPressed();
         }
     }
 
@@ -177,7 +180,7 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements
     @Override
     public boolean onSupportNavigateUp() {
         if (checkGameState()) onQuizSuccess(quizIDs);
-        else finish();
+        else super.onSupportNavigateUp();
         return true;
     }
 }
