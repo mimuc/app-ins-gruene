@@ -40,7 +40,7 @@
     <string name="game_mode_singleplayer_button_description">Singleplayer Modus</string>
     <string name="game_mode_player">%1$s : %2$d</string>
     <string name="game_mode_multiplayer_next_player">%1$s ist an der Reihe</string>
-    <string name="game_mode_player_won">%1$s hat gewonnen</string>
+    <string name="game_mode_player_won">%1$s hat gewonnen.</string>
     <string name="game_mode_draw">Untentschieden!</string>
 
 
@@ -64,13 +64,13 @@
 
     <!-- Games -->
     <string name="game_catchFruits_trees_description_text">Weißt du noch, wie die Blätter und Früchte %1$s aussehen?</string>
-    <string name="game_catchFruits_instruction_1">Versuche 10 Blätter und 10 Früchte durch klicken einzusammeln bevor du keine Lebenspunkte mehr hast.</string>
-    <string name="game_catchFruits_instruction_2">Wenn du auf falsche Blätter oder Früchte klickst oder ein richtiges Blatt/ eine richtige Frucht verpasst werden dir Lebenspunkte abgezogen.</string>
+    <string name="game_catchFruits_instruction_1">Versuche, 10 Blätter und 10 Früchte durch Klicken einzusammeln, bevor die Zeit abläuft.</string>
+    <string name="game_catchFruits_instruction_2">Wenn du auf falsche Blätter oder Früchte klickst oder ein richtiges Blatt/ eine richtige Frucht verpasst, ist das Spiel schneller vorbei.</string>
 
     <string name="game_choose_answer_option_button_placeholder_text">Answer Button</string>
 
     <string name="game_contour_do_not_scribble">Bitte nicht kritzeln!</string>
-    <string name="game_contour_try_to_hit_circles">Fast richtig, versuche die Kreise zu treffen</string>
+    <string name="game_contour_try_to_hit_circles">Fast richtig, versuche die Kreise zu treffen.</string>
 
     <string name="game_description_you_selected">Du hast ausgewählt: \n</string>
     <string name="game_description_start_screen_long">Wie fühlt sich die Rinde {0} an? Welche Wörter beschreiben sie am besten?</string>
@@ -98,23 +98,24 @@
     <string name="popup_btn_wiki">Steckbrief</string>
     <string name="popup_btn_finished">Fertig!</string>
     <string name="popup_btn_continue">Weiter!</string>
-    <string name="popup_btn_foto">Foto!</string>
+    <string name="popup_btn_foto">Foto</string>
     <string name="popup_neutral_title">Prima!</string>
     <string name="popup_neutral_ok">Ok!</string>
     <string name="popup_win_title">Gewonnen!</string>
     <string name="popup_win_title_done">"Geschafft!"</string>
-    <string name="popup_loose_title">Oh nein … denke daran, dass du nur Begriffe auswählst die du fühlen kannst. Sehen ist nicht fühlen. </string>
-    <string name="popup_loose_title_not_sufficient">Leider hat es nicht gereicht</string>
-    <string name="popup_try_again">Probier\'s doch noch einmal...einen Versuch hast du übrig!</string>
+    <string name="popup_loose_title">Oh nein… denke daran, dass du nur Begriffe auswählst, die du fühlen kannst. Sehen ist nicht fühlen. </string>
+    <string name="popup_loose_title_not_sufficient">Leider hat es nicht gereicht.</string>
+    <string name="popup_try_again">Probier\'s doch noch einmal... einen Versuch hast du übrig!</string>
+    <string name="popup_try_again_short">Versuch\'s doch noch einmal!</string>
     <string name="popup_negative_title_close">Fast…</string>
     <string name="popup_puzzle_neutral_text">Puzzeln wir los!</string>
     <string name="popup_only_description_foto_text">Wenn du direkt hier ein Foto machen willst, klick auf Foto. Dann landet dein Bild auch im Steckbrief!</string>
     <string name="popup_close_app_title">Möchtest du die App wirklich beenden?</string>
     <string name="popup_close_app_accept">Ja</string>
-    <string name="button_next">weiter</string>
-    <string name="button_back">zurück</string>
-    <string name="button_repeat">nochmal</string>
-    <string name="button_done">fertig</string>
+    <string name="button_next">Weiter</string>
+    <string name="button_back">Zurück</string>
+    <string name="button_repeat">Nochmal</string>
+    <string name="button_done">Fertig</string>
 
     <!-- Imprint-->
     <string name="imprint_imprint_title">IMPRESSUM</string>

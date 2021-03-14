@@ -106,7 +106,7 @@ public class GameActivity_OrderWords extends GameActivity_Base implements Recycl
             if (isCorrect) {
                 popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), correctString);
             } else {
-                popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_btn_continue), getString(R.string.popup_loose_title));
+                popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_try_again_short));
             }
         });
     }
@@ -191,7 +191,7 @@ public class GameActivity_OrderWords extends GameActivity_Base implements Recycl
     @Override
     public boolean onSupportNavigateUp() {
         if (checkCorrectness()) onSuccess();
-        else finish();
+        else super.onSupportNavigateUp();
         return true;
     }
 }

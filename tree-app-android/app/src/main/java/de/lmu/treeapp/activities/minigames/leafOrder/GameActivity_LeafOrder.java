@@ -26,8 +26,7 @@ import de.lmu.treeapp.popup.PopupInterface;
 import de.lmu.treeapp.popup.PopupType;
 
 public class GameActivity_LeafOrder extends GameActivity_Base implements PopupInterface {
-    protected Popup popupWin;
-    protected Popup popupLoose;
+    protected Popup popup;
     private GameDragDropRelations leafOrderGame;
     private ConstraintLayout container;
     protected DragDropHelper dragDropHelper;
@@ -44,8 +43,7 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
         Glide.with(this).load(backgroundImage).dontTransform().into(backgroundBox);
         backgroundBox.setImageResource(backgroundImage);
 
-        popupWin = new Popup(this, treeId);
-        popupLoose = new Popup(this);
+        popup = new Popup(this, treeId);
 
         container.post(() -> {
             dragDropHelper = new DragDropHelper(leafOrderGame, container, backgroundBox, false);
@@ -79,14 +77,12 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
         if (type == PopupType.POSITIVE_ANIMATION && action == PopupAction.ACCEPT) {
             super.onSuccess();
         }
-        if (action == PopupAction.SECONDARY) {
-            super.onBackPressed();
-        }
     }
 
     @Override
     protected void onSuccess() {
-        popupWin.show(PopupType.POSITIVE_ANIMATION);
+        popup.setButtonAcceptText(getResources().getString(R.string.popup_btn_finished));
+        popup.show(PopupType.POSITIVE_ANIMATION);
         for (GameDragDropZone zone : leafOrderGame.getZones()) {
             zone.validMatch = false;
         }
@@ -94,10 +90,8 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
 
     @Override
     protected void onFail() {
-        popupLoose.setButtonSecondary(true);
-        popupLoose.setButtonAcceptText(getResources().getString(R.string.button_repeat));
-        popupLoose.setButtonSecondaryText(getString(R.string.button_back));
-        popupLoose.show(PopupType.NEGATIVE_ANIMATION);
+        popup.setLooseTitle(getString(R.string.popup_negative_title_close));
+        popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_try_again_short));
     }
 
     private ImageView setImageView(GameDragDropItem item) {
@@ -157,7 +151,7 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
     @Override
     public boolean onSupportNavigateUp() {
         if (dragDropHelper.checkGameState()) super.onSuccess();
-        else finish();
+        else super.onSupportNavigateUp();
         return true;
     }
 }
