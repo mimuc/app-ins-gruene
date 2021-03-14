@@ -1,11 +1,9 @@
 package de.lmu.treeapp.activities.minigames.takePicture;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -14,16 +12,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.core.content.FileProvider;
-import androidx.exifinterface.media.ExifInterface;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
 import java.io.File;
-import java.io.FileDescriptor;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
 
@@ -144,49 +138,12 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
         return image;
     }
 
-    public static int getOrientation(Context context, Uri uri) {
-        int rotate = 0;
-        try {
-            ParcelFileDescriptor parcelFileDescriptor =
-                    context.getContentResolver().openFileDescriptor(uri, "r");
-            FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
-            FileInputStream input = new FileInputStream(fileDescriptor);
-            File tempFile = File.createTempFile("exif", "tmp");
-            String tempFilename = tempFile.getPath();
-            FileOutputStream output = new FileOutputStream(tempFile.getPath());
-            int read;
-            byte[] bytes = new byte[4096];
-            while ((read = input.read(bytes)) != -1) {
-                output.write(bytes, 0, read);
-            }
-            input.close();
-            output.close();
-            ExifInterface exif = new ExifInterface(tempFile.getAbsolutePath());
-            int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
-            switch (orientation) {
-                case ExifInterface.ORIENTATION_ROTATE_270:
-                    rotate = 270;
-                    break;
-                case ExifInterface.ORIENTATION_ROTATE_180:
-                    rotate = 180;
-                    break;
-                case ExifInterface.ORIENTATION_ROTATE_90:
-                    rotate = 90;
-                    break;
-            }
-        } catch (Exception e) {
-            System.out.println(e.getLocalizedMessage());
-        }
-        return rotate;
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
             setPreviewPicture();
             if (currentPhotoPath != null) {
-                // TODO: Rotate now. Portrait gives 90, Landscape gives 0.
                 GameStateTakePictureImage gameStateTakePictureImage = new GameStateTakePictureImage(gameStateTakePictureRelations.getId(), currentPhotoPath, new Date(), specialGameName);
                 AppDatabase.getInstance(getApplicationContext()).gameStateTakePictureImageDao().insertOne(gameStateTakePictureImage).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                         .flatMapCompletable(s -> {
