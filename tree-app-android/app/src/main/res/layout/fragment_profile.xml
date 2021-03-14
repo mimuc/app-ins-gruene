@@ -141,16 +141,6 @@
 
                     </LinearLayout>
 
-                    <!--<ImageView
-                        android:id="@+id/profileSlide_tree_Img"
-                        android:layout_width="0dp"
-                        android:layout_height="80sp"
-                        android:paddingStart="15dp"
-                        android:scaleType="fitStart"
-                        android:src="@drawable/ic_ahorn_baum"
-                        app:layout_columnWeight="1"
-                        app:layout_gravity="fill_horizontal" /> -->
-
                     <!-- Second row -->
 
                     <TextView
@@ -206,15 +196,6 @@
                             android:textAlignment="textStart" />
 
                     </LinearLayout>
-                    <!--<ImageView
-                        android:id="@+id/profileSlide_leaf_Img"
-                        android:paddingStart="15dp"
-                        android:layout_width="0dp"
-                        android:layout_height="80sp"
-                        android:scaleType="fitStart"
-                        android:src="@drawable/ic_ahorn_blatt"
-                        app:layout_columnWeight="1"
-                        app:layout_gravity="fill_horizontal" /> -->
 
                     <!-- Third row -->
 
@@ -284,16 +265,6 @@
                             android:textAlignment="textStart" />
 
                     </LinearLayout>
-
-                    <!--<ImageView
-                        android:id="@+id/profileSlide_season_Img"
-                        android:layout_width="0dp"
-                        android:layout_height="80sp"
-                        android:scaleType="fitStart"
-                        android:src="@drawable/ic_forest_navigation_bw"
-                        android:paddingStart="15dp"
-                        app:layout_columnWeight="1"
-                        app:layout_gravity="fill_horizontal" />-->
 
                 </androidx.gridlayout.widget.GridLayout>
 

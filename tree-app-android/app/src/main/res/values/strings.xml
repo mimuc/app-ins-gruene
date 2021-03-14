@@ -232,4 +232,7 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="datenschutz">Datenschutz</string>
     <string name="about_us">Über uns</string>
     <string name="privacy_declaration">Datenschutzerklärung</string>
+    <string name="creation">Entstehung</string>
+    <string name="goal">Ziel</string>
+    <string name="powered_by">Ermöglicht durch</string>
 </resources>
