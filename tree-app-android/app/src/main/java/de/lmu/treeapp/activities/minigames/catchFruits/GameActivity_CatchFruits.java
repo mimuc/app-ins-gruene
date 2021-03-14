@@ -671,7 +671,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
     @Override
     public boolean onSupportNavigateUp() {
         if (gameSuccess()) onSuccess();
-        else finish();
+        else super.onSupportNavigateUp();
         return true;
     }
 

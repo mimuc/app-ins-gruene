@@ -144,7 +144,7 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
     @Override
     public boolean onSupportNavigateUp() {
         if (dragDropHelper.checkGameState()) super.onSuccess();
-        else finish();
+        else super.onSupportNavigateUp();
         return true;
     }
 }

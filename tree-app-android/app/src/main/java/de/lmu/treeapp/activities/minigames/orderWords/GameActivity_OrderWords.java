@@ -191,7 +191,7 @@ public class GameActivity_OrderWords extends GameActivity_Base implements Recycl
     @Override
     public boolean onSupportNavigateUp() {
         if (checkCorrectness()) onSuccess();
-        else finish();
+        else super.onSupportNavigateUp();
         return true;
     }
 }
