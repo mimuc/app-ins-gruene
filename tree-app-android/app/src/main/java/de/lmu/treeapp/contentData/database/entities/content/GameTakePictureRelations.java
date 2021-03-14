@@ -5,7 +5,7 @@ package de.lmu.treeapp.contentData.database.entities.content;
  */
 public class GameTakePictureRelations extends GameRelations {
 
-    public String GetPictureName() {
+    public String getPictureName() {
         return "Foto-Challenge";
     }
 }
