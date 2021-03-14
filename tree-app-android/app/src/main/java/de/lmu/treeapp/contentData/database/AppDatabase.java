@@ -7,31 +7,34 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import de.lmu.treeapp.contentData.database.daos.app.AbstractGameStateDao;
+import de.lmu.treeapp.contentData.database.daos.app.AbstractGameStateRelationsDao;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateDescriptionDao;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateInputStringDao;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateScoresDao;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateTakePictureDao;
+import de.lmu.treeapp.contentData.database.daos.app.GameStateTakePictureImageDao;
 import de.lmu.treeapp.contentData.database.daos.app.TreeStateDao;
 import de.lmu.treeapp.contentData.database.daos.app.UserProfileDao;
-import de.lmu.treeapp.contentData.database.entities.app.AbstractGameState;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateDescription;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateInputString;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateScore;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePicture;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
+import de.lmu.treeapp.contentData.database.entities.app.IGameState;
 import de.lmu.treeapp.contentData.database.entities.app.TreeProfileState;
 import de.lmu.treeapp.contentData.database.entities.app.TreeState;
 import de.lmu.treeapp.contentData.database.entities.app.UserProfileState;
 import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
 
 @Database(entities = {
-        GameStateTakePictureImage.class,
-        TreeState.class,
-        TreeProfileState.class,
-        GameStateScore.class,
-        GameStateInputString.class,
         GameStateDescription.class,
+        GameStateInputString.class,
+        GameStateScore.class,
+        GameStateTakePicture.class,
+        GameStateTakePictureImage.class,
         UserProfileState.class,
+        TreeProfileState.class,
+        TreeState.class,
 }, version = 1, exportSchema = false)
 @TypeConverters({TypeConversion.class})
 public abstract class AppDatabase extends RoomDatabase {
@@ -54,7 +57,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract TreeStateDao treeStateDao();
 
-    public <T extends AbstractGameState, S extends AbstractGameStateDao<T>> S gameStateDao(Class<S> daoClass) {
+    public <T extends IGameState, U extends IGameState, S extends AbstractGameStateRelationsDao<T, U>> S gameStateDao(Class<S> daoClass) {
         if (daoClass == GameStateScoresDao.class) {
             return daoClass.cast(gameStateScoresDao());
         } else if (daoClass == GameStateInputStringDao.class) {
@@ -74,6 +77,8 @@ public abstract class AppDatabase extends RoomDatabase {
     protected abstract GameStateDescriptionDao gameStateDescriptionDao();
 
     protected abstract GameStateTakePictureDao gameStateTakePictureDao();
+
+    public abstract GameStateTakePictureImageDao gameStateTakePictureImageDao();
 
     public abstract UserProfileDao userProfileDao();
 }
