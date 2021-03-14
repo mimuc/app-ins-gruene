@@ -1,11 +1,8 @@
 package de.lmu.treeapp.wantedPoster.view;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.method.ScrollingMovementMethod;
@@ -181,7 +178,7 @@ public class MyStuffView extends LinearLayout {
                 } else {
                     setVisibility(View.GONE, lockedLayout, ideasLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
                     setVisibility(View.VISIBLE, craftingLayout);
-                    Drawable img = setImage(craftTaskPicture.imagePath);
+                    Uri img = setImage(craftTaskPicture.imagePath);
                     Glide.with(context).load(img).into(pictureCrafting);
                 }
             });
@@ -205,7 +202,7 @@ public class MyStuffView extends LinearLayout {
                     GameStateTakePictureRelations gameStateTakePictureRelationsFiltered = GameStateTakePictureDao.filterImages(gameStateTakePictureRelations, gameCategory);
                     if (gameStateTakePictureRelationsFiltered != null && gameStateTakePictureRelationsFiltered.getSelectedImage() != null) {
                         takenTreePictures[i].setPadding(0, 0, 0, 0);
-                        Drawable img = setImage(gameStateTakePictureRelationsFiltered.getSelectedImage().imagePath);
+                        Uri img = setImage(gameStateTakePictureRelationsFiltered.getSelectedImage().imagePath);
                         Glide.with(context).load(img).into(takenTreePictures[i]);
                         takenTreePictures[i].setOnClickListener(view -> {
                             setVisibility(View.GONE, myStuff,
@@ -269,16 +266,15 @@ public class MyStuffView extends LinearLayout {
     }
 
     /**
-     * Gets the imagePath from room database of this tree component and return a drawable image
-     * of this tree component.
+     * Gets the imagePath from room database of this tree component and return a URI image
+     * of this tree component, in order to detect the correct rotation (contrary to a BitmapDrawable).
      *
      * @param imagePath String of the image-name (coming from room database, when user have taken
      *                  pic of the tree)
-     * @return A Drawable of the image
+     * @return A URI of the image
      */
-    private BitmapDrawable setImage(String imagePath) {
+    private Uri setImage(String imagePath) {
         File imgFile = new File(imagePath);
-        Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-        return new BitmapDrawable(getResources(), myBitmap);
+        return Uri.fromFile(imgFile);
     }
 }

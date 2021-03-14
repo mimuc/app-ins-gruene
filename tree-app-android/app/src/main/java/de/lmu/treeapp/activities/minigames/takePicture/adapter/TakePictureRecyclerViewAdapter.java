@@ -80,7 +80,7 @@ public class TakePictureRecyclerViewAdapter extends RecyclerView.Adapter<TakePic
         GameStateTakePictureImage gameStateTakePictureImage = gameStateRelations.images.get(position);
 
         Glide.with(context).load(gameStateTakePictureImage.imagePath).into(new BackgroundTarget(holder.imageItem));
-        if (gameStateTakePictureImage.id == gameStateRelations.getSelectedImageId()) {
+        if (gameStateRelations.getSelectedImageId() != null && gameStateTakePictureImage.id == gameStateRelations.getSelectedImageId()) {
             holder.imageItem.setAlpha(0.5f);
             holder.imageItem.setPadding(32, 32, 32, 32);
             Glide.with(context).load(R.drawable.ic_completed).into(holder.imageItem);
