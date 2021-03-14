@@ -31,6 +31,7 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
     private GameDragDropRelations leafOrderGame;
     private ConstraintLayout container;
     protected DragDropHelper dragDropHelper;
+    private ImageView backgroundBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,7 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
         leafOrderGame = (GameDragDropRelations) gameContent;
         container = findViewById(R.id.cl_ast);
 
-        ImageView backgroundBox = findViewById(R.id.game_leaforder_background);
+        backgroundBox = findViewById(R.id.game_leaforder_background);
         int backgroundImage = getResources().getIdentifier(leafOrderGame.getImageResource(), "drawable", getPackageName());
         Glide.with(this).load(backgroundImage).dontTransform().into(backgroundBox);
         backgroundBox.setImageResource(backgroundImage);
@@ -118,7 +119,12 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
     private void animateItem(ImageView iv, GameDragDropItem item) {
         float x = ThreadLocalRandom.current().nextFloat();
         dragDropHelper.setItemPosition(iv, item, x, 0.0f);
-        float scale = container.getHeight() / 1500f;
+        float scale;
+        if (backgroundBox.getDrawable().getIntrinsicHeight() > backgroundBox.getDrawable().getIntrinsicWidth()) { // some constant to set icon size dependent on image height / width dependent of image
+            scale = container.getHeight() / 1500f;
+        } else {
+            scale = container.getWidth() / 1200f;
+        }
         float bottomOfScreen = container.getHeight() - item.h * scale;
         ObjectAnimator animation = ObjectAnimator.ofFloat(iv, "translationY", bottomOfScreen);
         animation.setDuration(2000);

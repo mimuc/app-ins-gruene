@@ -53,8 +53,6 @@ public class DragDropHelper {
 
         container.setOnDragListener(new LayoutDragListener());
 
-        scale = container.getHeight() / 1500f; // some constant to set icon size dependent on view height
-
         //constrain imageView to actual image
         // get actual height and width of image
         final float actualHeight, actualWidth;
@@ -105,6 +103,12 @@ public class DragDropHelper {
 
         //apply new constraints to constraintlayout
         set.applyTo(container);
+
+        if (actualHeight > actualWidth) { // some constant to set icon/dropzone size dependent on image height / width dependent of image
+            scale = container.getHeight() / 1500f;
+        } else {
+            scale = container.getWidth() / 1200f;
+        }
 
         // Load zones visually before the items.
         for (GameDragDropZone zone : gameDragDrop.getZones()) {
