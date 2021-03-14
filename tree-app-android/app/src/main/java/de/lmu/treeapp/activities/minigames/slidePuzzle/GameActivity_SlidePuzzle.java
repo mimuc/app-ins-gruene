@@ -96,9 +96,6 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         grid = (DragDropGrid) findViewById(R.id.grid);
         grid.setImage(img, dimension);
         grid.setOnCompleteCallback(() -> {
-            //popup.showWithButtonText(PopupType.POSITIVE,
-              //      getString(R.string.game_input_string_send_button_placeholder_text),
-                //    getString(R.string.slidepuzzle_win));
             isTimerRunning = false;
             doneButton.setVisibility(View.VISIBLE);
             grid.postDelayed(GameActivity_SlidePuzzle.this, 800);
@@ -147,11 +144,6 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
             });
         }
     }
-
-    //Buche, Fichte, Hasel, Kiefer, Tanne (M/W)
-    //1, 9, 5, 3, 8
-    //Ahorn, Birke, Eberesche, Eiche, Linde
-    //0, 6, 7, 4, 2
 
     private int selectImage(BlossomType type) {
         int img;
