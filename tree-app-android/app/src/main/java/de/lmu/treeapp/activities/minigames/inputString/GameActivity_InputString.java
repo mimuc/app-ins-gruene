@@ -1,19 +1,35 @@
 package de.lmu.treeapp.activities.minigames.inputString;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.annotation.RequiresPermission;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
@@ -28,9 +44,11 @@ import de.lmu.treeapp.popup.PopupType;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Completable;
 
+
 public class GameActivity_InputString extends GameActivity_Base implements PopupInterface {
 
     private TextInputEditText inputField;
+    ArrayList<String> swearwords;
     protected Popup popup;
     protected GameStateInputString gameStateInputString;
 
@@ -44,6 +62,8 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
         inputField = findViewById(R.id.game_inputString_inputField);
         TextInputLayout textInputLayout = findViewById(R.id.textInputLayout);
 
+        swearwords = readSwearwordsfromFile("swearwords.txt", this);
+        System.out.println(swearwords);
         popup = new Popup(this, treeId);
         popup.setButtonSecondary(true);
 
@@ -64,13 +84,24 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
                 if (checkAnswer(Objects.requireNonNull(inputField.getText()).toString())) {
                     popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), inputField.getText().toString());
                 } else {
-                    onFail();
+                    popup.showWithButtonText(PopupType.NEGATIVE, getString(R.string.popup_neutral_ok), getString(R.string.game_contour_try_to_hit_circles));
+
+                    inputField.setText("");
                 }
             });
         });
     }
 
     private boolean checkAnswer(String toString) {
+        for(String word : toString.split(" ")) {
+            // Check for each word if it is in the list of swearwords
+            if (swearwords.contains(word)) {
+                System.out.println("SWEARWORD " + word);
+                return false;
+            }
+        }
+        System.out.println("NO SWEARWORD");
+
         return true;
     }
 
@@ -173,4 +204,24 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
         // place image view behind text field:
         set.setTranslationZ(childView.getId(), -1);
     }
+
+    public boolean noSwearwords(ArrayList<String> swearwords, String word) {
+        return true;
+    }
+
+    public ArrayList<String> readSwearwordsfromFile(String fileName, Context context) {
+        ArrayList<String> swearwords = new ArrayList<>();
+        BufferedReader bufferedReader;
+        try {
+            bufferedReader = new BufferedReader(new InputStreamReader(context.getResources().getAssets().open(fileName)));
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                swearwords.add(line);
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return swearwords;
+    }
+
 }
