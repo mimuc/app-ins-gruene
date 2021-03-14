@@ -41,12 +41,13 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
         ImageView backgroundBox = findViewById(R.id.game_leaforder_background);
         int backgroundImage = getResources().getIdentifier(leafOrderGame.getImageResource(), "drawable", getPackageName());
         Glide.with(this).load(backgroundImage).dontTransform().into(backgroundBox);
+        backgroundBox.setImageResource(backgroundImage);
 
         popupWin = new Popup(this, treeId);
         popupLoose = new Popup(this);
 
         container.post(() -> {
-            dragDropHelper = new DragDropHelper(leafOrderGame, container, false);
+            dragDropHelper = new DragDropHelper(leafOrderGame, container, backgroundBox, false);
 
             for (GameDragDropItem item : leafOrderGame.getItems()) {
                 ImageView iv = setImageView(item);
