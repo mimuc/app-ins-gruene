@@ -1,11 +1,13 @@
 package de.lmu.treeapp.activities.minigames.baumory;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -28,6 +30,7 @@ import java.util.stream.IntStream;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
+import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.contentData.database.AppDatabase;
 import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryCard;
 import de.lmu.treeapp.contentData.database.entities.content.GameBaumoryRelations;
@@ -88,6 +91,21 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         selectionVisible = true;
 
         popupWindow = new Dialog(this);
+        popupWindow.setOnKeyListener(new Dialog.OnKeyListener() {
+
+            @Override
+            public boolean onKey(DialogInterface arg0, int keyCode,
+                                 KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                    popupWindow.dismiss();
+                    baumorySelectionFragment = new BaumorySelectionFragment();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.selection_fragment_container, baumorySelectionFragment).commit();
+                    selectionVisible = true;
+                }
+                return true;
+            }
+        });
     }
 
     @Override
@@ -229,8 +247,8 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
             if ((finishedCards.size() >= maxMatches) && !multiPlayerMode) {
                 isTimerRunning = false;
                 popup.setButtonSecondary(true);
-                popup.setButtonSecondaryText(getString(R.string.button_back));
-                popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.button_repeat), getString(R.string.popup_puzzle_won_text, time));
+                popup.setButtonSecondaryText(getString(R.string.button_repeat));
+                popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.button_done), getString(R.string.popup_puzzle_won_text, time));
             }
         }
     }
@@ -272,12 +290,12 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         }
         if (maxIndices.length == 1) {
             popup.setButtonSecondary(true);
-            popup.setButtonSecondaryText(getString(R.string.button_back));
-            popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.button_repeat), getString(R.string.game_mode_player_won, mpNames[maxIndices[0]]));
+            popup.setButtonSecondaryText(getString(R.string.button_repeat));
+            popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.button_done), getString(R.string.game_mode_player_won, mpNames[maxIndices[0]]));
         } else {
             popup.setButtonSecondary(true);
-            popup.setButtonSecondaryText(getString(R.string.button_back));
-            popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.button_repeat), getString(R.string.game_mode_draw));
+            popup.setButtonSecondaryText(getString(R.string.button_repeat));
+            popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.button_done), getString(R.string.game_mode_draw));
         }
     }
 
@@ -328,10 +346,11 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
 
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
-        if (type == PopupType.POSITIVE) {
-            if (action == PopupAction.SECONDARY) {
+        if (type == PopupType.POSITIVE_ANIMATION) {
+            if (action == PopupAction.ACCEPT) {
                 onSuccess();
             } else {
+                DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree).subscribe();
                 startGame(multiPlayerMode, difficultyHard);
             }
         }

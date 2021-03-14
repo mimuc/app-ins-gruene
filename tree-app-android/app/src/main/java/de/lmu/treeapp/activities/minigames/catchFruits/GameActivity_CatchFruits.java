@@ -546,6 +546,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
 
         if (curScoreLeaf >= goalLeaf && curScoreFruit >= goalFruit) {
             tvEndTitle.setText(R.string.popup_win_title_done);
+            btnBack.setText(getResources().getString(R.string.button_done));
             squirrelBar.setImageResource(R.drawable.ic_mascott_true_only_bar);
             starImageView.animate()
                     .translationY(2000)
@@ -601,6 +602,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
             squirrelBar.setImageResource(R.drawable.ic_mascott_false_squirrel_bar);
             tvEndTitle.setText(R.string.popup_loose_title_not_sufficient);
             tvEndTitle.setTextColor(getResources().getColor(R.color.asphalt));
+            btnBack.setText(getResources().getString(R.string.button_back));
             (new Handler(Looper.getMainLooper())).postDelayed(this::squirrelTailAnimationNegative, 700);
             (new Handler(Looper.getMainLooper())).postDelayed(this::squirrelBarAnimationNegative, 700);
             starImageView.setVisibility(View.GONE);
@@ -669,7 +671,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
     @Override
     public boolean onSupportNavigateUp() {
         if (gameSuccess()) onSuccess();
-        else finish();
+        else super.onSupportNavigateUp();
         return true;
     }
 

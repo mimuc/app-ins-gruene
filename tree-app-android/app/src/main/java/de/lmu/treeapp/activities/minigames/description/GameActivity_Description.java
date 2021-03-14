@@ -74,7 +74,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View viewInflated = LayoutInflater.from(this).inflate(R.layout.text_input,
                 (ViewGroup) getCurrentFocus(), false);
-        final EditText input = (EditText) viewInflated.findViewById(R.id.input);
+        final EditText input = viewInflated.findViewById(R.id.input);
         builder.setView(viewInflated);
         builder.setPositiveButton(R.string.ok, (dialog, which) -> {
             dialog.dismiss();
@@ -124,9 +124,9 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
             boolean isCorrect = checkCorrectness();
             if (isCorrect) {
                 popup.setButtonSecondary(true);
-                popup.showWithButtonText(PopupType.POSITIVE, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), correctString);
+                popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), correctString);
             } else {
-                popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_btn_continue), getString(R.string.popup_loose_title));
+                popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_loose_title));
             }
         });
     }
@@ -187,7 +187,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
                 DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory,
                         gameContent.getId(), parentTree);
                 saveGameState().subscribe();
-                showTreeProfile();
+                showTreeProfile(false);
             }
         }
     }

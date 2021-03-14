@@ -1,6 +1,7 @@
 package de.lmu.treeapp.wantedPoster.activity;
 
 import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Objects;
 
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.activities.GameSelectionActivity;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.WantedPosterImageList;
 import de.lmu.treeapp.contentClasses.trees.WantedPosterTextList;
@@ -53,10 +55,12 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
     private FunFactView funFactView;
     private LifecycleInfoView lifecycleInfoView;
     private TreeVideoView treeVideoView;
-    private final List<String> imageStrings = new ArrayList<String>();
+    private final List<String> imageStrings = new ArrayList<>();
     private Integer buttonInactiveId, questionMarkInactiveId, cameraInactiveId;
     private WantedPosterTreeAdapter adapter;
     private Tree tree;
+    private Boolean backToGames;
+    private Tree.GameCategories category;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,6 +73,9 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
         WantedPosterImageList wantedPosterImageList = DataManager.getInstance(getApplicationContext()).getAllWantedPosterImages(tree.getId());
 
         String title = getResources().getString(R.string.wanted_poster_details_title_text) + " " + tree.getName();
+        Bundle b = getIntent().getExtras();
+        backToGames = b.getBoolean("ReturnToGames");
+        category = (Tree.GameCategories) b.get("Category");
 
         if (getSupportActionBar() != null) {
             //set the title of the wanted poster( for example: 'Steckbrief Ahorn')
@@ -172,7 +179,7 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
                             leafFruitBarkInfoView, blossomInfoView, funFactView, lifecycleInfoView,
                             treeVideoView);
                     myStuffView.setVisibility(View.VISIBLE);
-                    if(getIntent().getExtras().getBoolean("Crafting")){
+                    if (getIntent().getExtras().getBoolean("Crafting")) {
                         myStuffView.performCraftingClick();
                     }
                     break;
@@ -263,10 +270,10 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
     public void presentMaterialTapTargetSequence() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean name = preferences.getBoolean("poster", false);
-        if (name == false) {
-        ImageView target = WantedPosterTreeAdapter.firstButton;
+        if (!name) {
+            ImageView target = adapter.firstButton;
             String treeName = getTreeAkkusativGerman(tree.getName());
-        new MaterialTapTargetSequence()
+            new MaterialTapTargetSequence()
                     .addPrompt(new CustomTapTargetPromptBuilder(WantedPosterTreeActivity.this)
                             .setTarget(target)
                             .setIcon(R.drawable.card_wanted_circle_icon)
@@ -315,9 +322,28 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
         }
     }
 
+    // Android hardware back button is pressed
+    @Override
+    public void onBackPressed() {
+        if (backToGames) {
+            Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
+            intent.putExtra("TreeId", tree.getId());
+            intent.putExtra("Category", category);
+            startActivity(intent);
+            finish();
+        } else {
+            super.onBackPressed();
+        }
+    }
 
     @Override
     public boolean onSupportNavigateUp() {
+        if (backToGames) {
+            Intent intent = new Intent(getApplicationContext(), GameSelectionActivity.class);
+            intent.putExtra("TreeId", tree.getId());
+            intent.putExtra("Category", category);
+            startActivity(intent);
+        }
         finish();
         return true;
     }
