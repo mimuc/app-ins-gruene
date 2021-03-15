@@ -34,9 +34,10 @@ public class GameActivity_DragDrop extends GameActivity_Base implements PopupInt
         ImageView backgroundBox = findViewById(R.id.game_dragdrop_background);
         int backgroundImage = getResources().getIdentifier(dragDropGame.getImageResource(), "drawable", getPackageName());
         Glide.with(this).load(backgroundImage).into(backgroundBox);
+        backgroundBox.setImageResource(backgroundImage);
 
         container.post(() -> {
-            dragDropHelper = new DragDropHelper(dragDropGame, container, true);
+            dragDropHelper = new DragDropHelper(dragDropGame, container, backgroundBox, true);
 
             List<GameDragDropItem> items = dragDropGame.getItems();
             Collections.shuffle(items);
