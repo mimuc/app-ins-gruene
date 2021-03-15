@@ -14,11 +14,14 @@ import de.lmu.treeapp.contentData.cms.ContentManager;
 import de.lmu.treeapp.contentData.database.AppDatabase;
 import de.lmu.treeapp.contentData.database.ContentDatabase;
 import de.lmu.treeapp.contentData.database.daos.app.AbstractGameStateDao;
+import de.lmu.treeapp.contentData.database.daos.app.AbstractGameStateRelationsDao;
 import de.lmu.treeapp.contentData.database.daos.app.TreeStateDao;
 import de.lmu.treeapp.contentData.database.entities.app.AbstractGameState;
+import de.lmu.treeapp.contentData.database.entities.app.IGameState;
 import de.lmu.treeapp.contentData.database.entities.app.TreeState;
 import de.lmu.treeapp.contentData.database.entities.app.TreeStateRelations;
 import de.lmu.treeapp.contentData.database.entities.content.UserProfileOption;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
@@ -164,7 +167,7 @@ public class DataManager {
     public Completable unlockTree(Tree tree) {
         final TreeState model = tree.appData.treeState;
         model.isUnlocked = true;
-        return AppDatabase.getInstance(context).treeStateDao().updateOne(model).subscribeOn(Schedulers.io());
+        return AppDatabase.getInstance(context).treeStateDao().updateOne(model).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
     public boolean isGameCompleted(Tree.GameCategories category, int gameId, Tree tree) {
@@ -242,32 +245,55 @@ public class DataManager {
             default:
                 break;
         }
-        return AppDatabase.getInstance(context).treeStateDao().updateOne(model).subscribeOn(Schedulers.io());
+        return AppDatabase.getInstance(context).treeStateDao().updateOne(model).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
     /**
-     * Return Score of Game by treeId and gameId
+     * Return single state of Game by treeId and gameId
      */
-    public <T extends AbstractGameState, S extends AbstractGameStateDao<T>> Single<T> getOrCreateGameStateSingle(int treeId, int gameId, Tree.GameCategories gameCategory, Class<S> clazz) {
+    public <T extends IGameState, U extends IGameState, S extends AbstractGameStateRelationsDao<T, U>> Single<U> getOrCreateGameStateSingle(int treeId, int gameId, Tree.GameCategories gameCategory, Class<S> clazz) {
         S gameStateDao = AppDatabase.getInstance(context).gameStateDao(clazz);
         return gameStateDao.getSingle(treeId, gameId, gameCategory)
                 .onErrorResumeNext(s -> {
                     // If score state didn't exist, create and return it with its id.
                     T gameState = gameStateDao.getEntityClass().getConstructor(int.class, int.class, Tree.GameCategories.class).newInstance(treeId, gameId, gameCategory);
-                    return insertGameState(gameState, clazz).flatMap(id -> Single.just(gameState));
+                    return insertGameState(gameState, clazz).flatMap(id -> {
+                        if (gameStateDao.getEntityClass() == gameStateDao.getResultClass()) {
+                            return Single.just((U) gameState);
+                        } else {
+                            // If requested result is different from insertion type, get inserted object from database. (e.g. StateRelations vs. State)
+                            return getOrCreateGameStateSingle(treeId, gameId, gameCategory, clazz);
+                        }
+                    });
                 })
-                .subscribeOn(Schedulers.io());
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+
+    /**
+     * Return list of GameStates by treeId and gameId
+     */
+    public <T extends IGameState, U extends IGameState, S extends AbstractGameStateRelationsDao<T, U>> Single<List<U>> getGameStateList(int treeId, int gameId, Tree.GameCategories gameCategory, Class<S> clazz) {
+        S gameStateDao = AppDatabase.getInstance(context).gameStateDao(clazz);
+        return gameStateDao.getList(treeId, gameId, gameCategory).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
+
+    /**
+     * Get game states for a specific tree.
+     */
+    public <T extends IGameState, U extends IGameState, S extends AbstractGameStateRelationsDao<T, U>> Single<List<U>> getGameStateList(int treeId, Class<S> clazz) {
+        S gameStateDao = AppDatabase.getInstance(context).gameStateDao(clazz);
+        return gameStateDao.getList(treeId).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
     /**
      * Insert Game state.
      */
-    public <T extends AbstractGameState, S extends AbstractGameStateDao<T>> Single<Long> insertGameState(T gameState, Class<S> clazz) {
+    public <T extends IGameState, U extends IGameState, S extends AbstractGameStateRelationsDao<T, U>> Single<Long> insertGameState(T gameState, Class<S> clazz) {
         try {
             return AppDatabase.getInstance(context).gameStateDao(clazz).insertOne(gameState).flatMap(id -> {
-                gameState.id = id.intValue();
+                gameState.setId(id.intValue());
                 return Single.just(id);
-            }).subscribeOn(Schedulers.io());
+            }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
         } catch (SQLiteException exception) {
             exception.printStackTrace();
         }
@@ -278,7 +304,7 @@ public class DataManager {
      * Update Game state.
      **/
     public <T extends AbstractGameState, S extends AbstractGameStateDao<T>> Completable updateGameState(T gameState, Class<S> clazz) {
-        return AppDatabase.getInstance(context).gameStateDao(clazz).updateOne(gameState).subscribeOn(Schedulers.io());
+        return AppDatabase.getInstance(context).gameStateDao(clazz).updateOne(gameState).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
     /**
@@ -294,7 +320,7 @@ public class DataManager {
                     emitter.onSuccess(userProfileOptions.blockingGet());
                 }
             });
-            return objectSingle.subscribeOn(Schedulers.io());
+            return objectSingle.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
         }
         return userProfileOptions;
     }

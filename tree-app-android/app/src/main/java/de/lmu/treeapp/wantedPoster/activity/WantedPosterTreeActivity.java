@@ -1,7 +1,7 @@
 package de.lmu.treeapp.wantedPoster.activity;
 
-import android.content.SharedPreferences;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -30,10 +30,10 @@ import de.lmu.treeapp.wantedPoster.adapter.WantedPosterTreeAdapter;
 import de.lmu.treeapp.wantedPoster.view.AgeInfoView;
 import de.lmu.treeapp.wantedPoster.view.BlossomInfoView;
 import de.lmu.treeapp.wantedPoster.view.FunFactView;
-import de.lmu.treeapp.wantedPoster.view.MyStuffView;
 import de.lmu.treeapp.wantedPoster.view.HeightInfoView;
 import de.lmu.treeapp.wantedPoster.view.LeafFruitBarkInfoView;
 import de.lmu.treeapp.wantedPoster.view.LifecycleInfoView;
+import de.lmu.treeapp.wantedPoster.view.MyStuffView;
 import de.lmu.treeapp.wantedPoster.view.TreeDetailInfoView;
 import de.lmu.treeapp.wantedPoster.view.TreeVideoView;
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence;
@@ -134,7 +134,7 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
         Integer cameraActiveId = getApplicationContext().getResources().getIdentifier(
                 "sb_icon_cameraclicked", "drawable", getApplicationContext().getPackageName());
 
-        myStuffView.setMyStuff(this, tree.getId(), tree.appData.takePictureImages,
+        myStuffView.setMyStuff(this, tree.getId(),
                 tree.appData.treeInputStrings, tree.appData.treeDescriptions, imageStrings);
         treeDetailInfoView.setTreeDetailInfo(this, wantedPosterTextList.wantedPosters
                 , wantedPosterImageList.wantedPosterImages, buttonActiveId, buttonInactiveId);
