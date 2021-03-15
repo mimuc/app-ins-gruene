@@ -105,6 +105,7 @@
     <string name="popup_neutral_ok">Ok!</string>
     <string name="popup_win_title">Gewonnen!</string>
     <string name="popup_win_title_done">"Geschafft!"</string>
+    <string name="popup_loose_title_short">Oh nein…</string>
     <string name="popup_loose_title">Oh nein… denke daran, dass du nur Begriffe auswählst, die du fühlen kannst. Sehen ist nicht fühlen. </string>
     <string name="popup_loose_title_not_sufficient">Leider hat es nicht gereicht.</string>
     <string name="popup_try_again">Probier\'s doch noch einmal... einen Versuch hast du übrig!</string>
