@@ -47,32 +47,11 @@
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_inside_1"
+            android:id="@+id/guideline_viewpager"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.3" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_inside_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.65" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_preview1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.27" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_preview2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.75" />
+            app:layout_constraintGuide_percent="0.6" />
 
         <TextView
             android:id="@+id/game_description"
@@ -92,40 +71,46 @@
             android:id="@+id/game_takePicture_imageExample"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="12dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
+            android:layout_marginVertical="12dp"
             android:background="@drawable/white_background"
-            android:scaleType="fitCenter"
-            android:elevation="4dp"
-            android:stateListAnimator="@null"
             android:contentDescription="@string/game_take_picture_example"
-            app:layout_constraintBottom_toTopOf="@id/guideline_inside_2"
+            android:elevation="4dp"
+            android:paddingHorizontal="12dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_camera"
+            android:stateListAnimator="@null"
+            app:layout_constraintBottom_toTopOf="@id/guideline_viewpager"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_default="wrap"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guideline_inside_1"
-            app:layout_constraintWidth_percent="0.6"
-            android:src="@drawable/ic_camera" />
+            app:layout_constraintTop_toBottomOf="@+id/game_description"
+            app:layout_constraintWidth_percent="0.6" />
 
         <ImageView
             android:id="@+id/game_takePicture_previewPicture"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginVertical="4dp"
             android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
-            android:layout_marginBottom="4dp"
+            android:contentDescription="@string/game_take_picture_own_foto"
             android:scaleType="fitCenter"
             android:visibility="gone"
-            android:contentDescription="@string/game_take_picture_own_foto"
-            app:layout_constraintBottom_toTopOf="@id/guideline_preview2"
+            app:layout_constraintBottom_toTopOf="@id/guideline_viewpager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guideline_preview1"
+            app:layout_constraintTop_toBottomOf="@+id/game_description"
             app:layout_constraintWidth_percent="0.8" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/image_view_pager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintBottom_toTopOf="@id/game_takePicture_sendButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline_viewpager" />
 
         <Button
             android:id="@+id/game_takePicture_sendButton"

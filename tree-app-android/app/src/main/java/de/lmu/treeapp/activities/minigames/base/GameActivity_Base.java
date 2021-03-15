@@ -106,11 +106,14 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    public void showTreeProfileCrafting() {
+
+    public void showTreeProfileCrafting(Boolean toSelection) {
         Intent intent = new Intent(getApplicationContext(), WantedPosterTreeActivity.class);
         intent.putExtra("TreeId", treeId);
         intent.putExtra("TabId", 0);
         intent.putExtra("Crafting", true);
+        intent.putExtra("Category", parentCategory);
+        intent.putExtra("ReturnToGames", toSelection);
         startActivity(intent);
         finish();
     }

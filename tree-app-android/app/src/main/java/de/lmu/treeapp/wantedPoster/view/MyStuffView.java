@@ -1,11 +1,8 @@
 package de.lmu.treeapp.wantedPoster.view;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.method.ScrollingMovementMethod;
@@ -26,9 +23,12 @@ import java.util.List;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.contentData.database.daos.app.GameStateTakePictureDao;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateDescription;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateInputString;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
+import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureRelations;
 
 public class MyStuffView extends LinearLayout {
 
@@ -117,7 +117,6 @@ public class MyStuffView extends LinearLayout {
     }
 
     public void setMyStuff(Context context, int treeId,
-                           List<GameStateTakePictureImage> takenPictureImages,
                            List<GameStateInputString> treeInputStrings,
                            List<GameStateDescription> treeDescriptions,
                            List<String> imageStrings) {
@@ -164,87 +163,88 @@ public class MyStuffView extends LinearLayout {
         textCloud1.setMovementMethod(new ScrollingMovementMethod());
         textCloud2.setMovementMethod(new ScrollingMovementMethod());
 
-        GameStateTakePictureImage craftTaskPicture = GameStateTakePictureImage.getLatestCraftTaskPictureImage(takenPictureImages);
-        craftingButton.setOnClickListener(view -> {
-            cameraButton.setBackgroundResource(cameraInactiveId);
-            writingButton.setBackgroundResource(writingInactiveId);
-            craftingButton.setBackgroundResource(craftingActiveId);
-            if(craftTaskPicture == null){
-                setVisibility(View.GONE, ideasLayout, craftingLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
-                setVisibility(View.VISIBLE, lockedLayout);
-                lockedPicture.setImageResource(R.drawable.sb_crafting_symbol);
-                noPictureText.setText(getResources().getString(R.string.wanted_poster_no_crafting_pictures));
-            }
-            else{
-                setVisibility(View.GONE, lockedLayout, ideasLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
-                setVisibility(View.VISIBLE, craftingLayout);
-                Drawable img = setImage(craftTaskPicture.imagePath);
-                Glide.with(context).load(img).into(pictureCrafting);
-            }
-        });
+        DataManager.getInstance(getContext()).getGameStateList(treeId, GameStateTakePictureDao.class).subscribe(gameStateTakePictureRelations -> {
 
-
-        cameraButton.setBackgroundResource(cameraActiveId);
-        writingButton.setBackgroundResource(writingInactiveId);
-        craftingButton.setBackgroundResource(craftingInactiveId);
-        if (takenPictureImages.size() != 0) { // check here if only crafting image is set
-            locked = false;
-            setVisibility(View.GONE, ideasLayout, craftingLayout, lockedLayout);
-
-            Tree.GameCategories[] validGameCategories = {
-                    Tree.GameCategories.other,
-                    Tree.GameCategories.leaf,
-                    Tree.GameCategories.fruit,
-                    Tree.GameCategories.trunk,
-            };
-            for (int i = 0; i < validGameCategories.length; i++) {
-                Tree.GameCategories gameCategory = validGameCategories[i];
-                GameStateTakePictureImage takePictureImage = GameStateTakePictureImage.getLatestTakePictureImage(takenPictureImages, gameCategory);
-                if (takePictureImage != null) {
-                    takenTreePictures[i].setPadding(0, 0, 0, 0);
-                    Drawable img = setImage(takePictureImage.imagePath);
-                    Glide.with(context).load(img).into(takenTreePictures[i]);
-                    takenTreePictures[i].setOnClickListener(view -> {
-                        setVisibility(View.GONE, myStuff,
-                                takenTreePictures[0], takenTreePictures[1],
-                                takenTreePictures[2], takenTreePictures[3]);
-                        popupLayout.setVisibility(VISIBLE);
-                        Glide.with(context).load(img).into(pictureBig);
-                        popupLayout.setOnClickListener(viewClose -> {
-                            setVisibility(View.VISIBLE, myStuff,
-                                    takenTreePictures[0], takenTreePictures[1],
-                                    takenTreePictures[2], takenTreePictures[3]);
-                            popupLayout.setVisibility(View.GONE);
-                        });
-                    });
+            GameStateTakePictureImage craftTaskPicture = GameStateTakePictureDao.getLatestCraftImage(gameStateTakePictureRelations);
+            craftingButton.setOnClickListener(view -> {
+                cameraButton.setBackgroundResource(cameraInactiveId);
+                writingButton.setBackgroundResource(writingInactiveId);
+                craftingButton.setBackgroundResource(craftingActiveId);
+                if (craftTaskPicture == null) {
+                    setVisibility(View.GONE, ideasLayout, craftingLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
+                    setVisibility(View.VISIBLE, lockedLayout);
+                    lockedPicture.setImageResource(R.drawable.sb_crafting_symbol);
+                    noPictureText.setText(getResources().getString(R.string.wanted_poster_no_crafting_pictures));
                 } else {
-                    //set Background if image is null
-                    takenTreePictures[i].setImageResource(context.getApplicationContext().getResources().getIdentifier(imageStrings.get(i), "drawable", context.getApplicationContext().getPackageName()));
-                    takenTreePictures[i].setAlpha(0.3f);
+                    setVisibility(View.GONE, lockedLayout, ideasLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
+                    setVisibility(View.VISIBLE, craftingLayout);
+                    Uri img = setImage(craftTaskPicture.imagePath);
+                    Glide.with(context).load(img).into(pictureCrafting);
                 }
-            }
-        } else {
-            setVisibility(View.VISIBLE, lockedLayout);
-            setVisibility(View.GONE, ideasLayout, craftingLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
-            lockedPicture.setImageResource(R.drawable.sb_nopictures);
-            noPictureText.setText(getResources().getString(R.string.wanted_poster_no_taken_pictures));
-            locked = true;
-        }
+            });
 
-        cameraButton.setOnClickListener(view -> {
+
             cameraButton.setBackgroundResource(cameraActiveId);
             writingButton.setBackgroundResource(writingInactiveId);
             craftingButton.setBackgroundResource(craftingInactiveId);
-            if(locked){
-                setVisibility(View.GONE, ideasLayout, craftingLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
+            if (gameStateTakePictureRelations.size() > 0) { // check here if only crafting image is set
+                locked = false;
+                setVisibility(View.GONE, ideasLayout, craftingLayout, lockedLayout);
+
+                Tree.GameCategories[] validGameCategories = {
+                        Tree.GameCategories.other,
+                        Tree.GameCategories.leaf,
+                        Tree.GameCategories.fruit,
+                        Tree.GameCategories.trunk,
+                };
+                for (int i = 0; i < validGameCategories.length; i++) {
+                    Tree.GameCategories gameCategory = validGameCategories[i];
+                    GameStateTakePictureRelations gameStateTakePictureRelationsFiltered = GameStateTakePictureDao.filterImages(gameStateTakePictureRelations, gameCategory);
+                    if (gameStateTakePictureRelationsFiltered != null && gameStateTakePictureRelationsFiltered.getSelectedImage() != null) {
+                        takenTreePictures[i].setPadding(0, 0, 0, 0);
+                        Uri img = setImage(gameStateTakePictureRelationsFiltered.getSelectedImage().imagePath);
+                        Glide.with(context).load(img).into(takenTreePictures[i]);
+                        takenTreePictures[i].setOnClickListener(view -> {
+                            setVisibility(View.GONE, myStuff,
+                                    takenTreePictures[0], takenTreePictures[1],
+                                    takenTreePictures[2], takenTreePictures[3]);
+                            popupLayout.setVisibility(VISIBLE);
+                            Glide.with(context).load(img).into(pictureBig);
+                            popupLayout.setOnClickListener(viewClose -> {
+                                setVisibility(View.VISIBLE, myStuff,
+                                        takenTreePictures[0], takenTreePictures[1],
+                                        takenTreePictures[2], takenTreePictures[3]);
+                                popupLayout.setVisibility(View.GONE);
+                            });
+                        });
+                    } else {
+                        //set Background if image is null
+                        takenTreePictures[i].setImageResource(context.getApplicationContext().getResources().getIdentifier(imageStrings.get(i), "drawable", context.getApplicationContext().getPackageName()));
+                        takenTreePictures[i].setAlpha(0.3f);
+                    }
+                }
+            } else {
                 setVisibility(View.VISIBLE, lockedLayout);
+                setVisibility(View.GONE, ideasLayout, craftingLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
                 lockedPicture.setImageResource(R.drawable.sb_nopictures);
                 noPictureText.setText(getResources().getString(R.string.wanted_poster_no_taken_pictures));
+                locked = true;
             }
-            else{
-                setVisibility(View.GONE, lockedLayout, ideasLayout, craftingLayout);
-                setVisibility(View.VISIBLE, layouts[0], layouts[1], layouts[2], layouts[3]);
-            }
+
+            cameraButton.setOnClickListener(view -> {
+                cameraButton.setBackgroundResource(cameraActiveId);
+                writingButton.setBackgroundResource(writingInactiveId);
+                craftingButton.setBackgroundResource(craftingInactiveId);
+                if (locked) {
+                    setVisibility(View.GONE, ideasLayout, craftingLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
+                    setVisibility(View.VISIBLE, lockedLayout);
+                    lockedPicture.setImageResource(R.drawable.sb_nopictures);
+                    noPictureText.setText(getResources().getString(R.string.wanted_poster_no_taken_pictures));
+                } else {
+                    setVisibility(View.GONE, lockedLayout, ideasLayout, craftingLayout);
+                    setVisibility(View.VISIBLE, layouts[0], layouts[1], layouts[2], layouts[3]);
+                }
+            });
         });
     }
 
@@ -261,21 +261,20 @@ public class MyStuffView extends LinearLayout {
 
     }
 
-    public void performCraftingClick(){
+    public void performCraftingClick() {
         craftingButton.performClick();
     }
 
     /**
-     * Gets the imagePath from room database of this tree component and return a drawable image
-     * of this tree component.
+     * Gets the imagePath from room database of this tree component and return a URI image
+     * of this tree component, in order to detect the correct rotation (contrary to a BitmapDrawable).
      *
      * @param imagePath String of the image-name (coming from room database, when user have taken
      *                  pic of the tree)
-     * @return A Drawable of the image
+     * @return A URI of the image
      */
-    private BitmapDrawable setImage(String imagePath) {
+    private Uri setImage(String imagePath) {
         File imgFile = new File(imagePath);
-        Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-        return new BitmapDrawable(getResources(), myBitmap);
+        return Uri.fromFile(imgFile);
     }
 }

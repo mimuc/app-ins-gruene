@@ -233,4 +233,10 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="profile_create">Profil erstellen</string>
     <string name="profile_avatar">Mein Avatar</string>
     <string name="profile_welcome">Willkommen im Profil!</string>
+    <string name="datenschutz">Datenschutz</string>
+    <string name="about_us">Über uns</string>
+    <string name="privacy_declaration">Datenschutzerklärung</string>
+    <string name="creation">Entstehung</string>
+    <string name="goal">Ziel</string>
+    <string name="powered_by">Ermöglicht durch</string>
 </resources>
