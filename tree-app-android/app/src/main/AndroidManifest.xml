@@ -149,6 +149,20 @@
                 android:value="activities.MainActivity" />
         </activity>
         <activity
+            android:name=".activities.About"
+            android:parentActivityName="activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.Privacy"
+            android:parentActivityName="activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="activities.MainActivity" />
+        </activity>
+        <activity
             android:name=".activities.BarcodeCaptureActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity android:name=".wantedPoster.activity.WantedPosterTreeActivity" />
