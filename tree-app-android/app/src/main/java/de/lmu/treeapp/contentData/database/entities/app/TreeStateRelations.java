@@ -16,9 +16,6 @@ public class TreeStateRelations {
     public TreeState treeState;
 
     @Relation(parentColumn = "id", entityColumn = "treeId")
-    public List<GameStateTakePictureImage> takePictureImages;
-
-    @Relation(parentColumn = "id", entityColumn = "treeId")
     public List<GameStateInputString> treeInputStrings;
 
     @Relation(parentColumn = "id", entityColumn = "treeId")
@@ -26,7 +23,6 @@ public class TreeStateRelations {
 
     public TreeStateRelations(TreeState treeState) {
         this.treeState = treeState;
-        this.takePictureImages = new ArrayList<>();
         this.treeInputStrings = new ArrayList<>();
         this.treeDescriptions = new ArrayList<>();
     }

@@ -6,7 +6,7 @@ import androidx.room.TypeConverters;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.database.typeconversion.TypeConversion;
 
-public abstract class AbstractGameState {
+public abstract class AbstractGameState implements IGameState {
 
     // Use id as primary key, as you may want to save multiple states for the same game.
     @PrimaryKey(autoGenerate = true)
@@ -29,4 +29,45 @@ public abstract class AbstractGameState {
         this.treeId = treeId;
         this.gameCategory = gameCategory;
     }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public int getGameId() {
+        return gameId;
+    }
+
+    @Override
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
+    }
+
+    @Override
+    public int getTreeId() {
+        return treeId;
+    }
+
+    @Override
+    public void setTreeId(int treeId) {
+        this.treeId = treeId;
+    }
+
+    @Override
+    public Tree.GameCategories getCategory() {
+        return gameCategory;
+    }
+
+    @Override
+    public void setCategory(Tree.GameCategories gameCategory) {
+        this.gameCategory = gameCategory;
+    }
+
 }
