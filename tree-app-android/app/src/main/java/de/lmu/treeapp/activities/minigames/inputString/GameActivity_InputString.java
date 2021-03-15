@@ -84,7 +84,7 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
             DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory,
                     gameContent.getId(), parentTree);
             saveGameState().subscribe();
-            showTreeProfile(false);
+            showTreeProfile(true);
         }
     }
 
