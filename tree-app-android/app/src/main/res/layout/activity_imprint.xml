@@ -298,39 +298,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/copyright_title" />
 
-            <TextView
-                android:id="@+id/privacy_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/freude"
-                android:text="@string/imprint_privacy_title"
-                android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/copyright_text" />
-
-            <TextView
-                android:id="@+id/privacy_text"
-                android:layout_width="match_parent"
-                android:layout_height="92dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/hind_medium"
-                android:justificationMode="inter_word"
-                android:text="@string/imprint_privacy_text"
-                android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/privacy_title"
-                app:layout_constraintBottom_toBottomOf="parent" />
-
         </LinearLayout>
 
     </ScrollView>
