@@ -95,12 +95,12 @@ public class DrawingViewDefault extends View {
 
         // draws checkpoints if crossed
         if (showfirstStaticCheckpoint) {
-            canvas.drawCircle((int) (this.getWidth() / 2 * 1.10), ((float) checkpointThreshold * (float) 1.10), checkpointThreshold, circlePaint);
+            canvas.drawCircle((int) (this.getWidth() / 2 * 1.10), ((float) checkpointThreshold * (float) 1.10), checkpointThreshold+currentStrokeWidth, circlePaint);
         }
         if (checkpointsAppeared != null) {
             for (int i = 0; i < checkpointsAppeared.length; i++) {
                 if (checkpointsAppeared[i]) {
-                    canvas.drawCircle(checkpoints[i].x, checkpoints[i].y, checkpointThreshold, circlePaint);
+                    canvas.drawCircle(checkpoints[i].x, checkpoints[i].y, checkpointThreshold+currentStrokeWidth, circlePaint);
                 }
             }
         }
