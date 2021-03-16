@@ -79,6 +79,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
     private TextView timeView;
     private EditText editName;
     private String name;
+    private boolean done = false;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -248,6 +249,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
                 isTimerRunning = false;
                 popup.setButtonSecondary(true);
                 popup.setButtonSecondaryText(getString(R.string.button_repeat));
+                done = true;
                 popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.button_done), getString(R.string.popup_puzzle_won_text, time));
             }
         }
@@ -291,10 +293,12 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
         if (maxIndices.length == 1) {
             popup.setButtonSecondary(true);
             popup.setButtonSecondaryText(getString(R.string.button_repeat));
+            done = true;
             popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.button_done), getString(R.string.game_mode_player_won, mpNames[maxIndices[0]]));
         } else {
             popup.setButtonSecondary(true);
             popup.setButtonSecondaryText(getString(R.string.button_repeat));
+            done = true;
             popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.button_done), getString(R.string.game_mode_draw));
         }
     }
@@ -354,5 +358,18 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
                 startGame(multiPlayerMode, difficultyHard);
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (done) onSuccess();
+        else super.onBackPressed();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        if (done) onSuccess();
+        else super.onSupportNavigateUp();
+        return true;
     }
 }

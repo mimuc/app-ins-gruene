@@ -33,6 +33,7 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
     private TextInputEditText inputField;
     protected Popup popup;
     protected GameStateInputString gameStateInputString;
+    private boolean done = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,7 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
 
             sendButton.setOnClickListener(view -> {
                 if (checkAnswer(Objects.requireNonNull(inputField.getText()).toString())) {
+                    done = true;
                     popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), inputField.getText().toString());
                 } else {
                     onFail();
@@ -172,5 +174,22 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
         set.constrainWidth(childView.getId(), size);
         // place image view behind text field:
         set.setTranslationZ(childView.getId(), -1);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (done) {
+            saveGameState().subscribe();
+            onSuccess();
+        } else super.onBackPressed();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        if (done) {
+            saveGameState().subscribe();
+            onSuccess();
+        } else super.onSupportNavigateUp();
+        return true;
     }
 }

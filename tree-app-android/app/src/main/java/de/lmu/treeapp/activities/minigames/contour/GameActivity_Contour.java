@@ -45,6 +45,8 @@ public class GameActivity_Contour extends GameActivity_Base implements PopupInte
     GameContourRelations contourGame;
     Popup popup;
 
+    private boolean done = false;
+
     /**
      * Constructor
      */
@@ -69,6 +71,7 @@ public class GameActivity_Contour extends GameActivity_Base implements PopupInte
                     && drawingView.isCrossedAllCheckpoints()
                     && drawingView.isAppearedAllCheckpoints()) {
                 // you are here? Game is finished :)
+                done = true;
                 popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished));
 
             } else if (drawingView.isFalseCheckpoint()) {
@@ -177,13 +180,24 @@ public class GameActivity_Contour extends GameActivity_Base implements PopupInte
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
         if (type == PopupType.POSITIVE_ANIMATION) {
-            DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree);
-            showGameSelection();
+            onSuccess();
         } else if (type == PopupType.NEGATIVE) {
             backToGame();
         } else {
-            DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree);
-            showGameSelection();
+            onSuccess();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (done) onSuccess();
+        else super.onBackPressed();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        if (done) onSuccess();
+        else super.onSupportNavigateUp();
+        return true;
     }
 }
