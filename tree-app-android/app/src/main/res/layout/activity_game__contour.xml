@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightBlue"
+    android:outlineProvider="paddedBounds"
     tools:context="de.lmu.treeapp.activities.minigames.contour.GameActivity_Contour">
 
     <TextView
@@ -74,6 +75,7 @@
             android:adjustViewBounds="true"
             android:background="@drawable/rounded_corner_icons"
             android:contentDescription="@string/button_repeat"
+            android:outlineProvider="none"
             android:padding="10dp"
             android:scaleType="fitCenter"
             android:tint="@color/design_default_color_on_secondary"
