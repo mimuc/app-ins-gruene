@@ -180,7 +180,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
 
         btnBack.setOnClickListener(v -> {
             popupGameover.dismiss();
-            if (gameSuccess()) {
+            if (isDone(gameSuccess())) {
                 onSuccess();
             } else {
                 onBackPressed();
@@ -189,7 +189,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
 
         btnRetry.setOnClickListener(v -> {
             popupGameover.dismiss();
-            if (gameSuccess()) {
+            if (isDone(gameSuccess())) {
                 DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree).subscribe();
             }
             resetGame();
@@ -544,7 +544,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
         starImageView5.setImageResource(ids.get(4));
 
 
-        if (curScoreLeaf >= goalLeaf && curScoreFruit >= goalFruit) {
+        if (isDone(gameSuccess())) {
             tvEndTitle.setText(R.string.popup_win_title_done);
             btnBack.setText(getResources().getString(R.string.button_done));
             squirrelBar.setImageResource(R.drawable.ic_mascott_true_only_bar);
@@ -661,18 +661,4 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
         squirrelTail.animate().rotationBy(-10).setDuration(400);
 
     }
-
-    @Override
-    public void onBackPressed() {
-        if (gameSuccess()) onSuccess();
-        else super.onBackPressed();
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        if (gameSuccess()) onSuccess();
-        else super.onSupportNavigateUp();
-        return true;
-    }
-
 }
