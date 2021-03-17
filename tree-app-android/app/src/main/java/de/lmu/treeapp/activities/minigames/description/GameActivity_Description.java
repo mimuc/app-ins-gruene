@@ -51,7 +51,6 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
     GameStateDescription gameStateDescription;
     private GameDescriptionRelations descriptionGame;
     MaterialButton addButton;
-    private boolean done = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,7 +123,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
         sendButton.setOnClickListener(view -> {
             boolean isCorrect = checkCorrectness();
             if (isCorrect) {
-                done = true;
+                isDone(true);
                 popup.setButtonSecondary(true);
                 popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), correctString);
             } else {
@@ -206,22 +205,5 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
     @Override
     protected Completable saveGameState() {
         return DataManager.getInstance(getApplicationContext()).updateGameState(gameStateDescription, GameStateDescriptionDao.class);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (done) {
-            saveGameState().subscribe();
-            onSuccess();
-        } else super.onBackPressed();
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        if (done) {
-            saveGameState().subscribe();
-            onSuccess();
-        } else super.onSupportNavigateUp();
-        return true;
     }
 }

@@ -54,7 +54,7 @@ public class GameActivity_DragDrop extends GameActivity_Base implements PopupInt
 
         Button sendButton = findViewById(R.id.game_dragdrop_sendButton);
         sendButton.setOnClickListener(view -> {
-            if (dragDropHelper.checkGameState()) {
+            if (isDone(dragDropHelper.checkGameState())) {
                 popup.setButtonAcceptText(getResources().getString(R.string.popup_btn_finished));
                 popup.show(PopupType.POSITIVE_ANIMATION);
             } else {
@@ -76,18 +76,5 @@ public class GameActivity_DragDrop extends GameActivity_Base implements PopupInt
         if (type == PopupType.POSITIVE_ANIMATION || type == PopupType.POSITIVE) {
             onSuccess();
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (dragDropHelper.checkGameState()) onSuccess();
-        else super.onBackPressed();
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        if (dragDropHelper.checkGameState()) onSuccess();
-        else super.onSupportNavigateUp();
-        return true;
     }
 }

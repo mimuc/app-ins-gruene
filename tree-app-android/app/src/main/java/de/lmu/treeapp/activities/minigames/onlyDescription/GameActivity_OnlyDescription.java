@@ -44,7 +44,6 @@ public class GameActivity_OnlyDescription extends GameActivity_Base implements P
     RecyclerAdapter adapter;
     Popup popup;
     Popup popupDone;
-    private boolean done = false;
 
 
     @Override
@@ -86,7 +85,7 @@ public class GameActivity_OnlyDescription extends GameActivity_Base implements P
                     R.id.game_onlyDescription_content2);
         });
         doneButton.setOnClickListener(view -> {
-            done = true;
+            isDone(true);
             popupDone = new Popup(this, treeId);
             popupDone.setWinTitle(getString(R.string.popup_win_title_done));
             if (gameId == 502) {
@@ -233,19 +232,6 @@ public class GameActivity_OnlyDescription extends GameActivity_Base implements P
         if (action == PopupAction.SECONDARY || type == PopupType.POSITIVE_ANIMATION) {
             onSuccess();
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (done) onSuccess();
-        else super.onBackPressed();
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        if (done) onSuccess();
-        else super.onSupportNavigateUp();
-        return true;
     }
 }
 

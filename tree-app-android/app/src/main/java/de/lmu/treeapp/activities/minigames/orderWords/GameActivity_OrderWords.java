@@ -102,7 +102,7 @@ public class GameActivity_OrderWords extends GameActivity_Base implements Recycl
 
         Button sendButton = findViewById(R.id.game_orderWords_sendButton);
         sendButton.setOnClickListener(view -> {
-            boolean isCorrect = checkCorrectness();
+            boolean isCorrect = isDone(checkCorrectness());
             if (isCorrect) {
                 popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), correctString);
             } else {
@@ -179,19 +179,5 @@ public class GameActivity_OrderWords extends GameActivity_Base implements Recycl
         if (type != PopupType.NEGATIVE && type != PopupType.NEGATIVE_ANIMATION) {
             onSuccess();
         }
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        if (checkCorrectness()) onSuccess();
-        else super.onBackPressed();
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        if (checkCorrectness()) onSuccess();
-        else super.onSupportNavigateUp();
-        return true;
     }
 }

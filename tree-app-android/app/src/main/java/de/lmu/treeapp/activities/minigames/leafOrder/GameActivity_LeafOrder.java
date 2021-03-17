@@ -57,7 +57,7 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
         Button sendButton = findViewById(R.id.game_leaforder_sendButton);
 
         sendButton.setOnClickListener(view -> {
-            if (dragDropHelper.checkGameState()) {
+            if (isDone(dragDropHelper.checkGameState())) {
                 popup.setButtonAcceptText(getResources().getString(R.string.popup_btn_finished));
                 popup.show(PopupType.POSITIVE_ANIMATION);
             } else {
@@ -126,18 +126,5 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
             }
         });
         animation.start();
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (dragDropHelper.checkGameState()) onSuccess();
-        else super.onBackPressed();
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        if (dragDropHelper.checkGameState()) onSuccess();
-        else super.onSupportNavigateUp();
-        return true;
     }
 }

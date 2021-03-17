@@ -279,7 +279,7 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
     }
 
     public void checkGameOver() {
-        if (isGameOver()) {
+        if (isDone(isGameOver())) {
             isTimerRunning = false;
             popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_puzzle_won_text, time));
         }
@@ -334,19 +334,6 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
                 }
             });
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (isGameOver()) onSuccess();
-        else super.onBackPressed();
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        if (isGameOver()) onSuccess();
-        else super.onSupportNavigateUp();
-        return true;
     }
 }
 

@@ -28,6 +28,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     protected Tree.GameCategories parentCategory;
     protected GameStateScore gameStateScore;
     protected String specialGameName;
+    protected boolean done;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,15 +60,25 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     // Remove the current activity from the stack to switch to the previous one
     @Override
     public boolean onSupportNavigateUp() {
-        this.showGameSelection();
+        if (done) onSuccess();
+        else {
+            this.showGameSelection();
+        }
         return true;
     }
 
     // Android hardware back button is pressed
     @Override
     public void onBackPressed() {
-        this.showGameSelection();
-        super.onBackPressed();
+        if (done) onSuccess();
+        else {
+            this.showGameSelection();
+            super.onBackPressed();
+        }
+    }
+
+    protected boolean isDone(boolean done) {
+        return this.done = done;
     }
 
     // Save the game process and go back to the game selection activity
