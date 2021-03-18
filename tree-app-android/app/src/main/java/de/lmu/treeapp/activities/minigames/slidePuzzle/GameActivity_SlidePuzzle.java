@@ -56,7 +56,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         popup = new Popup(this);
         popup.setWinTitle(getString(R.string.slidepuzzle_wonderful));
         doneButton.setOnClickListener(e -> {
-            isDone(true);
+            setDone(true);
             popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_puzzle_won_text, time));
 
         });

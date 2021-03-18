@@ -279,13 +279,14 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
     }
 
     public void checkGameOver() {
-        if (isDone(isGameOver())) {
+        if (isDone()) {
             isTimerRunning = false;
             popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_puzzle_won_text, time));
         }
     }
 
-    private boolean isGameOver() {
+    @Override
+    protected boolean isDone() {
         if (pieces != null) {
             for (PuzzlePiece piece : pieces) {
                 if (piece.canMove) {

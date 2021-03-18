@@ -70,7 +70,7 @@ public class GameActivity_Contour extends GameActivity_Base implements PopupInte
                     && drawingView.isCrossedAllCheckpoints()
                     && drawingView.isAppearedAllCheckpoints()) {
                 // you are here? Game is finished :)
-                isDone(true);
+                setDone(true);
                 popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished));
 
             } else if (drawingView.isFalseCheckpoint()) {

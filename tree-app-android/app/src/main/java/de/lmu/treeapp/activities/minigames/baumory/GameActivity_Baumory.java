@@ -246,7 +246,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
             Glide.with(this).load(R.drawable.forest_border_card).into(new BackgroundTarget(secondCardButton));
             if ((finishedCards.size() >= maxMatches) && !multiPlayerMode) {
                 isTimerRunning = false;
-                isDone(true);
+                setDone(true);
                 popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.button_done), getString(R.string.popup_puzzle_won_text, time));
             }
         }
@@ -287,7 +287,7 @@ public class GameActivity_Baumory extends GameActivity_Base implements Baumory_C
             }
             maxIndices = maxIndicesList.toArray(new Integer[0]);
         }
-        isDone(true);
+        setDone(true);
         if (maxIndices.length == 1) {
             popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.button_done), getString(R.string.game_mode_player_won, mpNames[maxIndices[0]]));
         } else {

@@ -54,7 +54,8 @@ public class GameActivity_DragDrop extends GameActivity_Base implements PopupInt
 
         Button sendButton = findViewById(R.id.game_dragdrop_sendButton);
         sendButton.setOnClickListener(view -> {
-            if (isDone(dragDropHelper.checkGameState())) {
+            if (dragDropHelper.checkGameState()) {
+                setDone(dragDropHelper.checkGameState());
                 popup.setButtonAcceptText(getResources().getString(R.string.popup_btn_finished));
                 popup.show(PopupType.POSITIVE_ANIMATION);
             } else {

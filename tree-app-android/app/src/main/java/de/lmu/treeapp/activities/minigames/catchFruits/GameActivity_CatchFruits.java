@@ -180,7 +180,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
 
         btnBack.setOnClickListener(v -> {
             popupGameover.dismiss();
-            if (isDone(gameSuccess())) {
+            if (isDone()) {
                 onSuccess();
             } else {
                 onBackPressed();
@@ -189,7 +189,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
 
         btnRetry.setOnClickListener(v -> {
             popupGameover.dismiss();
-            if (isDone(gameSuccess())) {
+            if (isDone()) {
                 DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree).subscribe();
             }
             resetGame();
@@ -544,7 +544,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
         starImageView5.setImageResource(ids.get(4));
 
 
-        if (isDone(gameSuccess())) {
+        if (isDone()) {
             tvEndTitle.setText(R.string.popup_win_title_done);
             btnBack.setText(getResources().getString(R.string.button_done));
             squirrelBar.setImageResource(R.drawable.ic_mascott_true_only_bar);
@@ -639,7 +639,8 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
     /***
      * Check if the user has won the minigame
      * **/
-    private boolean gameSuccess() {
+    @Override
+    protected boolean isDone() {
         return curScoreLeaf >= goalLeaf && curScoreFruit >= goalFruit;
     }
 

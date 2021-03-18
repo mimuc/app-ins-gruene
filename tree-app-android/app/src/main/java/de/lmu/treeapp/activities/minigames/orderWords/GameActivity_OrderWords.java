@@ -102,8 +102,7 @@ public class GameActivity_OrderWords extends GameActivity_Base implements Recycl
 
         Button sendButton = findViewById(R.id.game_orderWords_sendButton);
         sendButton.setOnClickListener(view -> {
-            boolean isCorrect = isDone(checkCorrectness());
-            if (isCorrect) {
+            if (isDone()) {
                 popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), correctString);
             } else {
                 popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_try_again_short));
@@ -116,7 +115,8 @@ public class GameActivity_OrderWords extends GameActivity_Base implements Recycl
         return R.layout.activity_game__order_words;
     }
 
-    private boolean checkCorrectness() {
+    @Override
+    protected boolean isDone() {
 
         ArrayList<OrderWordsElement> dataToCheck = rcAdapterSolution.getItems();
 
