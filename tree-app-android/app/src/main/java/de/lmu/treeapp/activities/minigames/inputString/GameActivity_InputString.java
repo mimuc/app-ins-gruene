@@ -84,7 +84,7 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
                 if (checkAnswer(Objects.requireNonNull(inputField.getText()).toString())) {
                     popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), inputField.getText().toString());
                 } else {
-                    popup.showWithButtonText(PopupType.NEGATIVE, getString(R.string.popup_neutral_ok), getString(R.string.game_contour_try_to_hit_circles));
+                    popup.showWithButtonText(PopupType.NEGATIVE, getString(R.string.popup_neutral_ok), getString(R.string.popup_no_swearwords));
 
                     inputField.setText("");
                 }
