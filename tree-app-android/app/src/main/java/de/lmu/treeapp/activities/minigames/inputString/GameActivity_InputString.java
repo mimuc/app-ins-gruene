@@ -94,14 +94,13 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
 
     private boolean checkAnswer(String toString) {
         for(String word : toString.split(" ")) {
-            // Check for each word if it is in the list of swearwords
-            if (swearwords.contains(word)) {
-                System.out.println("SWEARWORD " + word);
+            // Check for each word of the input if it is in the list of swearwords
+            if (swearwords.contains(word.toLowerCase())) {
+                // there is a swearword
                 return false;
             }
         }
-        System.out.println("NO SWEARWORD");
-
+        // no swearword
         return true;
     }
 
@@ -203,10 +202,6 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
         set.constrainWidth(childView.getId(), size);
         // place image view behind text field:
         set.setTranslationZ(childView.getId(), -1);
-    }
-
-    public boolean noSwearwords(ArrayList<String> swearwords, String word) {
-        return true;
     }
 
     public ArrayList<String> readSwearwordsfromFile(String fileName, Context context) {
