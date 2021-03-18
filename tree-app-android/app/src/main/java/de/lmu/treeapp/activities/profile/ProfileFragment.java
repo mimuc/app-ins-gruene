@@ -1,6 +1,7 @@
 package de.lmu.treeapp.activities.profile;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +10,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.ActionMenuView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 
 import java.util.List;
 import java.util.Random;
@@ -175,18 +179,33 @@ public class ProfileFragment extends Fragment {
 
             }
         });
-        presentMaterialTapTargetSequence();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        Boolean profile_show = preferences.getBoolean("profile_show", false);
+        if (profile_show == false) {
+            presentMaterialTapTargetSequence();
+        }
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("profile_show", true);
+        editor.apply();
         return view;
     }
 
     public void presentMaterialTapTargetSequence() {
-        new MaterialTapTargetSequence()
-                .addPrompt(new CustomTapTargetPromptBuilder(getActivity())
-                        .setTarget(R.id.profile_add)
-                        .setSecondaryText(R.string.profile_add_text))
-                .addPrompt(new CustomTapTargetPromptBuilder(getActivity())
-                        .setTarget(R.id.profile_edit)
-                        .setSecondaryText(R.string.profile_edit_text)).show();
+        final Toolbar tb = getActivity().findViewById(R.id.profile_app_bar);
+        final View child = tb.getChildAt(1);
+        if (child instanceof ActionMenuView) {
+            final ActionMenuView actionMenuView = ((ActionMenuView) child);
+            new MaterialTapTargetSequence()
+                    .addPrompt(new CustomTapTargetPromptBuilder(getActivity())
+                            .setTarget(R.id.profile_add)
+                            .setSecondaryText(R.string.profile_add_text))
+                    .addPrompt(new CustomTapTargetPromptBuilder(getActivity())
+                            .setTarget(R.id.profile_edit)
+                            .setSecondaryText(R.string.profile_edit_text))
+                    .addPrompt(new CustomTapTargetPromptBuilder(getActivity())
+                            .setTarget(actionMenuView.getChildAt(actionMenuView.getChildCount() - 1))
+                            .setSecondaryText(R.string.profile_about)).show();
+        }
     }
 
 }
