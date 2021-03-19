@@ -2,6 +2,7 @@ package de.lmu.treeapp.activities.minigames.inputString;
 
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -49,8 +50,8 @@ import io.reactivex.rxjava3.core.Completable;
 public class GameActivity_InputString extends GameActivity_Base implements PopupInterface {
 
     private TextInputEditText inputField;
-    ArrayList<String> swearwords;
-    ArrayList<String> words;
+    ArrayList<String> swearwords = new ArrayList<>();
+    ArrayList<String> words = new ArrayList<>();
 
     protected Popup popup;
     protected GameStateInputString gameStateInputString;
@@ -66,7 +67,7 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
         TextInputLayout textInputLayout = findViewById(R.id.textInputLayout);
 
         swearwords = readSwearwordsfromFile("swearwords.txt", this);
-        System.out.println(swearwords);
+
         popup = new Popup(this, treeId);
         popup.setButtonSecondary(true);
 
@@ -96,16 +97,24 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
     }
 
     private boolean checkAnswer(String toString) {
-        // Check for each word of the input if it is in the list of swearwords
-        for(String word : toString.split(" ")) {
-            for(String profane : swearwords) {
-                if (word.toLowerCase().startsWith(profane)) {
-                    // there is a swearword
-                    return false;
+        // add words from the input string into an array "words"
+        words.addAll(Arrays.asList(toString.split(" ")));
+
+        // for API >= 24
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return words.stream().noneMatch(textWord -> swearwords.stream().anyMatch(textWord::contains));
+        } else {
+            // for API < 24
+            // Check for each word of the input if it is in the list of swearwords
+            for (String word : toString.split(" ")) {
+                for (String profane : swearwords) {
+                    if (word.toLowerCase().startsWith(profane)) {
+                        // there is a swearword
+                        return false;
+                    }
                 }
             }
         }
-
         // no swearword
         return true;
     }
