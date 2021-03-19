@@ -33,8 +33,6 @@ public class Imprint extends AppCompatActivity {
         TextView disclaimer_text = findViewById(R.id.disclaimer_text);
         TextView copyright_title = findViewById(R.id.copyright_title);
         TextView copyright_text = findViewById(R.id.copyright_text);
-        TextView privacy_title = findViewById(R.id.privacy_title);
-        TextView privacy_text = findViewById(R.id.privacy_text);
     }
 
     // Remove the current activity from the stack to switch to the previous one
