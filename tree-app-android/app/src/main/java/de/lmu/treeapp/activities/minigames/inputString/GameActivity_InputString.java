@@ -98,7 +98,7 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
 
     private boolean checkAnswer(String toString) {
         // add words from the input string into an array "words"
-        words.addAll(Arrays.asList(toString.split(" ")));
+        words.addAll(Arrays.asList(toString.toLowerCase().split(" ")));
 
         // for API >= 24
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
