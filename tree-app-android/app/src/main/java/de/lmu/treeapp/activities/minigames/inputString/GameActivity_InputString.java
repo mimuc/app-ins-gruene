@@ -30,6 +30,7 @@ import java.util.Random;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
@@ -49,6 +50,8 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
 
     private TextInputEditText inputField;
     ArrayList<String> swearwords;
+    ArrayList<String> words;
+
     protected Popup popup;
     protected GameStateInputString gameStateInputString;
 
@@ -93,13 +96,16 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
     }
 
     private boolean checkAnswer(String toString) {
+        // Check for each word of the input if it is in the list of swearwords
         for(String word : toString.split(" ")) {
-            // Check for each word of the input if it is in the list of swearwords
-            if (swearwords.contains(word.toLowerCase())) {
-                // there is a swearword
-                return false;
+            for(String profane : swearwords) {
+                if (word.toLowerCase().startsWith(profane)) {
+                    // there is a swearword
+                    return false;
+                }
             }
         }
+
         // no swearword
         return true;
     }
