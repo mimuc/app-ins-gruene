@@ -18,7 +18,7 @@ import java.util.Arrays;
  */
 public class DrawingViewDefault extends View {
 
-    // paint variables for drawing //
+    // paint variables for drawing
     private final ArrayList<Paint> paintPenList = new ArrayList<>();
     public ArrayList<Path> pathPenList = new ArrayList<>();
     public Paint currentPaint = new Paint();
