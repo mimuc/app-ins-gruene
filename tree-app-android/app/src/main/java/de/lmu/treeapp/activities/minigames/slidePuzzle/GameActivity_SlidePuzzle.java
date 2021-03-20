@@ -23,7 +23,7 @@ import de.lmu.treeapp.popup.PopupInterface;
 import de.lmu.treeapp.popup.PopupType;
 
 public class GameActivity_SlidePuzzle extends GameActivity_Base implements PopupInterface, Runnable {
-    DragDropGrid grid;
+    DragDropGrid grid, gridFalse;
     int dimension = 3;
     Popup popup;
     private TextView timeText;
@@ -49,6 +49,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         Button helpButton = findViewById(R.id.helpImageButton);
         Button continueButton = findViewById(R.id.continueButton);
         doneButton = findViewById(R.id.doneButton);
+        Button falseTilesButton = findViewById(R.id.falseTilesButton);
         imgView = findViewById(R.id.doneImage);
         CardView helpView = findViewById(R.id.finishedImageView);
         helpView.setVisibility(View.GONE);
@@ -59,6 +60,9 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
             popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_puzzle_won_text, time));
 
         });
+
+        falseTilesButton.setOnClickListener(e -> gridFalse.markFalseTiles(grid.getFalseTiles()));
+
         helpButton.setOnClickListener(e -> {
             helpView.setVisibility(View.VISIBLE);
         });
@@ -94,7 +98,9 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         timeText = findViewById(R.id.time_TextView);
         startTimer();
         grid = (DragDropGrid) findViewById(R.id.grid);
-        grid.setImage(img, dimension);
+        grid.setImage(img, dimension, true);
+        gridFalse = findViewById(R.id.gridFalse);
+        gridFalse.setImage(img, dimension, false);
         grid.setOnCompleteCallback(() -> {
             isTimerRunning = false;
             doneButton.setVisibility(View.VISIBLE);

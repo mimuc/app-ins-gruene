@@ -1,5 +1,7 @@
 package de.lmu.treeapp.activities.minigames.slidePuzzle;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -7,6 +9,7 @@ public class MoveCalculator {
     
     private int dimensions;
     private List<Tile> tiles;
+    private List<Integer> falseTiles = new ArrayList<>();
     static final int INVALID = -1;
     static final int LEFT = 0;
     static final int TOP = 1;
@@ -57,13 +60,14 @@ public class MoveCalculator {
 
     private boolean isCompleted(){
         int num = dimensions * dimensions;
+        falseTiles.clear();
         for (int i = 0; i < num; i++){
             Tile tile = tiles.get(i);
             if(tile.pos != i){
-                return false;
+                falseTiles.add(i);
             }
         }
-        return true;
+        return falseTiles.size() <= 0;
     }
 
     public Tile getModel(int index){
@@ -124,6 +128,21 @@ public class MoveCalculator {
             return BOTTOM;
 
         return INVALID;
+    }
+
+    List<Integer> getFalseTiles(){
+        int num = dimensions * dimensions;
+        List<Integer> testtile = new ArrayList<>();
+        falseTiles.clear();
+        for (int i = 1; i < num; i++){
+            Tile tile = tiles.get(i);
+            if(tile.pos != i){
+                falseTiles.add(tile.pos);
+                testtile.add(i);
+            }
+        }
+        Log.d("i list:", String.valueOf(testtile));
+        return falseTiles;
     }
 }
 

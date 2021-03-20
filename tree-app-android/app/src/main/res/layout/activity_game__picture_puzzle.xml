@@ -18,6 +18,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/falseTilesButton"
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/red"
+        android:text="!"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/slidePuzzleLayout"
+        app:layout_constraintEnd_toStartOf="@+id/helpImageButton" />
+
+    <Button
         android:id="@+id/helpImageButton"
         android:layout_width="45dp"
         android:layout_height="50dp"
@@ -58,16 +72,24 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.42000002">
 
-        <de.lmu.treeapp.activities.minigames.slidePuzzle.DragDropGrid
-            android:id="@+id/grid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context="de.lmu.treeapp.activities.minigames.slidePuzzle.MainActivity"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="110dp">
+            <de.lmu.treeapp.activities.minigames.slidePuzzle.DragDropGrid
+                android:id="@+id/grid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:context="de.lmu.treeapp.activities.minigames.slidePuzzle.MainActivity"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="110dp" />
 
-        </de.lmu.treeapp.activities.minigames.slidePuzzle.DragDropGrid>
+            <de.lmu.treeapp.activities.minigames.slidePuzzle.DragDropGrid
+                android:id="@+id/gridFalse"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:context="de.lmu.treeapp.activities.minigames.slidePuzzle.MainActivity"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="110dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout

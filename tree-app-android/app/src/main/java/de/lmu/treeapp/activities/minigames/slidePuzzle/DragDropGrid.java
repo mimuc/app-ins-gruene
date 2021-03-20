@@ -2,6 +2,7 @@ package de.lmu.treeapp.activities.minigames.slidePuzzle;
 
 import android.content.Context;
 import android.graphics.Matrix;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
@@ -16,6 +17,11 @@ import android.widget.ImageView;
 
 import androidx.customview.widget.ViewDragHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import de.lmu.treeapp.R;
+
 public class DragDropGrid extends RelativeLayout {
     private ViewDragHelper viewDragHelper;
     private MoveCalculator calculator;
@@ -25,6 +31,8 @@ public class DragDropGrid extends RelativeLayout {
     private int mWidth;
     private int mItemWidth;
     private int mItemHeight;
+    private boolean isImg;
+    private List<ImageView> tiles = new ArrayList<>();
     private OnCompleteCallback mOnCompleteCallback;
 
     public DragDropGrid(Context context) {
@@ -164,9 +172,10 @@ public class DragDropGrid extends RelativeLayout {
         }
     }
 
-    public void setImage(int drawableId, int squareRootNum){
+    public void setImage(int drawableId, int squareRootNum, boolean isImg){
         this.dimensions = squareRootNum;
         this.mDrawableId = drawableId;
+        this.isImg = isImg;
         if(mWidth != 0 && mHeight != 0){
             createChildren();
         }
@@ -175,14 +184,16 @@ public class DragDropGrid extends RelativeLayout {
     private void createChildren(){
         removeAllViews();
         calculator.setSquareRootNum(dimensions);
+        Bitmap bitmap = null;
+        if(isImg){
+            DisplayMetrics dm = getResources().getDisplayMetrics();
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inDensity = dm.densityDpi;
 
-        DisplayMetrics dm = getResources().getDisplayMetrics();
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inDensity = dm.densityDpi;
-
-        Bitmap resource = BitmapFactory.decodeResource(getResources(), mDrawableId, options);
-        Bitmap bitmap = zoomImg(resource, mWidth, mHeight);
-        resource.recycle();
+            Bitmap resource = BitmapFactory.decodeResource(getResources(), mDrawableId, options);
+            bitmap = zoomImg(resource, mWidth, mHeight);
+            resource.recycle();
+        }
 
         mItemWidth = mWidth / dimensions;
 
@@ -192,17 +203,26 @@ public class DragDropGrid extends RelativeLayout {
         for (int i = 0; i < dimensions; i++){
             for (int j = 0; j < dimensions; j++){
                 ImageView iv = new ImageView(getContext());
-                iv.setScaleType(ImageView.ScaleType.FIT_XY);
                 LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 lp.leftMargin = j * mItemWidth;
                 lp.topMargin = i * mItemHeight;
                 iv.setLayoutParams(lp);
-                Bitmap b = Bitmap.createBitmap(bitmap, lp.leftMargin, lp.topMargin, mItemWidth, mItemHeight);
-                iv.setImageBitmap(b);
+                if(isImg){
+                    iv.setScaleType(ImageView.ScaleType.FIT_XY);
+                    Bitmap b = Bitmap.createBitmap(bitmap, lp.leftMargin, lp.topMargin, mItemWidth, mItemHeight);
+                    iv.setImageBitmap(b);
+
+                }else{
+                    iv.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                    iv.setBackgroundResource(R.drawable.circle_border_red);
+                    iv.setVisibility(INVISIBLE);
+                }
+                tiles.add(iv);
                 addView(iv);
             }
         }
-        randomOrder();
+        if(isImg)randomOrder();
+        else this.setVisibility(GONE);
     }
 
     public Bitmap zoomImg(Bitmap bm, int newWidth ,int newHeight){
@@ -228,6 +248,28 @@ public class DragDropGrid extends RelativeLayout {
             calculator.swapValueWithInvisibleModel(neighborPosition);
         }
         invisibleView.setVisibility(INVISIBLE);
+    }
+
+    public void markFalseTiles(List<Integer> falseTiles){
+        Log.d("Border | false tiles:", String.valueOf(falseTiles));
+        this.setVisibility(VISIBLE);
+        for (int tileId: falseTiles) {
+            Log.d("Border:", String.valueOf(tileId));
+            tiles.get(tileId).setVisibility(VISIBLE);
+        }
+
+        final Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            // Do something after 5s = 5000ms
+            for (ImageView tile: tiles) {
+                tile.setVisibility(INVISIBLE);
+            }
+            this.setVisibility(GONE);
+        }, 2000);
+    }
+
+    List<Integer> getFalseTiles(){
+        return calculator.getFalseTiles();
     }
 
     public void setOnCompleteCallback(OnCompleteCallback onCompleteCallback){
