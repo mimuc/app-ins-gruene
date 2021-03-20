@@ -26,11 +26,11 @@ import de.lmu.treeapp.popup.PopupInterface;
 import de.lmu.treeapp.popup.PopupType;
 
 public class GameActivity_LeafOrder extends GameActivity_Base implements PopupInterface {
-    protected Popup popupWin;
-    protected Popup popupLoose;
+    protected Popup popup;
     private GameDragDropRelations leafOrderGame;
     private ConstraintLayout container;
     protected DragDropHelper dragDropHelper;
+    private ImageView backgroundBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,15 +38,15 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
         leafOrderGame = (GameDragDropRelations) gameContent;
         container = findViewById(R.id.cl_ast);
 
-        ImageView backgroundBox = findViewById(R.id.game_leaforder_background);
+        backgroundBox = findViewById(R.id.game_leaforder_background);
         int backgroundImage = getResources().getIdentifier(leafOrderGame.getImageResource(), "drawable", getPackageName());
         Glide.with(this).load(backgroundImage).dontTransform().into(backgroundBox);
+        backgroundBox.setImageResource(backgroundImage);
 
-        popupWin = new Popup(this, treeId);
-        popupLoose = new Popup(this);
+        popup = new Popup(this, treeId);
 
         container.post(() -> {
-            dragDropHelper = new DragDropHelper(leafOrderGame, container, false);
+            dragDropHelper = new DragDropHelper(leafOrderGame, container, backgroundBox, false);
 
             for (GameDragDropItem item : leafOrderGame.getItems()) {
                 ImageView iv = setImageView(item);
@@ -58,9 +58,12 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
 
         sendButton.setOnClickListener(view -> {
             if (dragDropHelper.checkGameState()) {
-                onSuccess();
+                setDone(dragDropHelper.checkGameState());
+                popup.setButtonAcceptText(getResources().getString(R.string.popup_btn_finished));
+                popup.show(PopupType.POSITIVE_ANIMATION);
             } else {
-                onFail();
+                popup.setLooseTitle(getString(R.string.popup_negative_title_close));
+                popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_try_again_short));
                 dragDropHelper.reset();
             }
 
@@ -75,27 +78,8 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
         if (type == PopupType.POSITIVE_ANIMATION && action == PopupAction.ACCEPT) {
-            super.onSuccess();
+            onSuccess();
         }
-        if (action == PopupAction.SECONDARY) {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    protected void onSuccess() {
-        popupWin.show(PopupType.POSITIVE_ANIMATION);
-        for (GameDragDropZone zone : leafOrderGame.getZones()) {
-            zone.validMatch = false;
-        }
-    }
-
-    @Override
-    protected void onFail() {
-        popupLoose.setButtonSecondary(true);
-        popupLoose.setButtonAcceptText(getResources().getString(R.string.button_repeat));
-        popupLoose.setButtonSecondaryText(getString(R.string.button_back));
-        popupLoose.show(PopupType.NEGATIVE_ANIMATION);
     }
 
     private ImageView setImageView(GameDragDropItem item) {
@@ -117,8 +101,13 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
     private void animateItem(ImageView iv, GameDragDropItem item) {
         float x = ThreadLocalRandom.current().nextFloat();
         dragDropHelper.setItemPosition(iv, item, x, 0.0f);
-        int bottomOfScreen = getResources().getDisplayMetrics()
-                .heightPixels - 770;
+        float scale;
+        if (backgroundBox.getDrawable().getIntrinsicHeight() > backgroundBox.getDrawable().getIntrinsicWidth()) { // some constant to set icon size dependent on image height / width dependent of image
+            scale = container.getHeight() / 1500f;
+        } else {
+            scale = container.getWidth() / 1200f;
+        }
+        float bottomOfScreen = container.getHeight() - item.h * scale;
         ObjectAnimator animation = ObjectAnimator.ofFloat(iv, "translationY", bottomOfScreen);
         animation.setDuration(2000);
         animation.addListener(new AnimatorListenerAdapter() {
@@ -138,19 +127,5 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
             }
         });
         animation.start();
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        if (dragDropHelper.checkGameState()) super.onSuccess();
-        else super.onBackPressed();
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        if (dragDropHelper.checkGameState()) super.onSuccess();
-        else finish();
-        return true;
     }
 }

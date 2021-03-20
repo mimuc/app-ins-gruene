@@ -19,4 +19,10 @@
     <item
         android:id="@+id/open_imprint"
         android:title="@string/overview_fragment_btn_imprint" />
+    <item
+        android:id="@+id/open_privacy"
+        android:title="@string/datenschutz" />
+    <item
+        android:id="@+id/open_about"
+        android:title="@string/about_us" />
 </menu>

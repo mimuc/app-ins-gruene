@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.math.MathUtils;
@@ -37,13 +38,13 @@ public class DragDropHelper {
 
 
     public DragDropHelper(GameDragDropRelations dragDropRelations,
-                          ConstraintLayout container,
+                          ConstraintLayout container, ImageView backgroundBox,
                           boolean game) {
-        this(dragDropRelations, container, ColorUtils.setAlphaComponent(container.getResources().getColor(android.R.color.white), 153), game);
+        this(dragDropRelations, container, backgroundBox, ColorUtils.setAlphaComponent(container.getResources().getColor(android.R.color.white), 153), game);
     }
 
     public DragDropHelper(GameDragDropRelations dragDropRelations,
-                          ConstraintLayout container,
+                          ConstraintLayout container, ImageView backgroundBox,
                           int color1, boolean game) {
         gameDragDrop = dragDropRelations;
         this.container = container;
@@ -52,18 +53,73 @@ public class DragDropHelper {
 
         container.setOnDragListener(new LayoutDragListener());
 
-        scale = container.getHeight() / 1500f; // some constant to set icon size dependent on view height
+        //constrain imageView to actual image
+        // get actual height and width of image
+        final float actualHeight, actualWidth;
+        final float imageViewHeight = backgroundBox.getHeight(), imageViewWidth = backgroundBox.getWidth();
+        final float bitmapHeight = backgroundBox.getDrawable().getIntrinsicHeight(), bitmapWidth = backgroundBox.getDrawable().getIntrinsicWidth();
+        if (imageViewHeight * bitmapWidth <= imageViewWidth * bitmapHeight) {
+            actualWidth = bitmapWidth * imageViewHeight / bitmapHeight;
+            actualHeight = imageViewHeight;
+        } else {
+            actualHeight = bitmapHeight * imageViewWidth / bitmapWidth;
+            actualWidth = imageViewWidth;
+        }
+
+        //set new constraints to ImageView
+        ConstraintSet set = new ConstraintSet();
+        set.clone(container);
+        set.clear(container.getId());
+
+        //guidelineTop
+        int guideLineTop = 101;
+        set.create(guideLineTop, ConstraintSet.HORIZONTAL_GUIDELINE);
+        float top = ((imageViewHeight - actualHeight) / 2) / imageViewHeight;
+        set.setGuidelinePercent(guideLineTop, top);
+
+        //guideLineBottom
+        int guideLineBottom = 102;
+        set.create(guideLineBottom, ConstraintSet.HORIZONTAL_GUIDELINE);
+        float bottom = (imageViewHeight - (imageViewHeight - actualHeight) / 2) / imageViewHeight;
+        set.setGuidelinePercent(guideLineBottom, bottom);
+
+        //guidelineLeft
+        int guideLineLeft = 103;
+        set.create(guideLineLeft, ConstraintSet.VERTICAL_GUIDELINE);
+        float left = ((imageViewWidth - actualWidth) / 2) / imageViewWidth;
+        set.setGuidelinePercent(guideLineLeft, left);
+
+        //guidelineRight
+        int guideLineRight = 104;
+        set.create(guideLineRight, ConstraintSet.VERTICAL_GUIDELINE);
+        float right = (imageViewWidth - (imageViewWidth - actualWidth) / 2) / imageViewWidth;
+        set.setGuidelinePercent(guideLineRight, right);
+
+        //constrain ImageView to guidelines
+        set.connect(backgroundBox.getId(), ConstraintSet.START, guideLineLeft, ConstraintSet.END, 0);
+        set.connect(backgroundBox.getId(), ConstraintSet.END, guideLineRight, ConstraintSet.START, 0);
+        set.connect(backgroundBox.getId(), ConstraintSet.BOTTOM, guideLineBottom, ConstraintSet.TOP, 0);
+        set.connect(backgroundBox.getId(), ConstraintSet.TOP, guideLineTop, ConstraintSet.BOTTOM, 0);
+
+        //apply new constraints to constraintlayout
+        set.applyTo(container);
+
+        if (actualHeight > actualWidth) { // some constant to set icon/dropzone size dependent on image height / width dependent of image
+            scale = container.getHeight() / 1500f;
+        } else {
+            scale = container.getWidth() / 1200f;
+        }
 
         // Load zones visually before the items.
         for (GameDragDropZone zone : gameDragDrop.getZones()) {
             ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
             lp.width = (int) (zone.w * scale);
             lp.height = (int) (zone.h * scale);
-            lp.topToTop = lp.leftToLeft = lp.rightToRight = lp.bottomToBottom = container.getId();
+            lp.topToTop = lp.leftToLeft = lp.rightToRight = lp.bottomToBottom = backgroundBox.getId();
             lp.horizontalBias = zone.x;
             lp.verticalBias = zone.y;
 
-            LinearLayout ll = new LinearLayout(container.getContext());
+            LinearLayout ll = new LinearLayout(backgroundBox.getContext());
             ll.setTag(zone);
             ll.setLayoutParams(lp);
             Drawable unwrappedDrawable = AppCompatResources.getDrawable(container.getContext(), R.drawable.round_neutral);

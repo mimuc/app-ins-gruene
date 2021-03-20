@@ -28,6 +28,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     protected Tree.GameCategories parentCategory;
     protected GameStateScore gameStateScore;
     protected String specialGameName;
+    protected boolean isDone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,14 +60,29 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     // Remove the current activity from the stack to switch to the previous one
     @Override
     public boolean onSupportNavigateUp() {
-        finish();
+        if (isDone()) onSuccess();
+        else {
+            this.showGameSelection();
+        }
         return true;
     }
 
     // Android hardware back button is pressed
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if (isDone()) onSuccess();
+        else {
+            this.showGameSelection();
+            super.onBackPressed();
+        }
+    }
+
+    protected boolean isDone() {
+        return isDone;
+    }
+
+    protected void setDone(boolean isDone) {
+        this.isDone = isDone;
     }
 
     // Save the game process and go back to the game selection activity
@@ -96,18 +112,23 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         finish();
     }
 
-    public void showTreeProfile() {
+    public void showTreeProfile(Boolean toSelection) {
         Intent intent = new Intent(getApplicationContext(), WantedPosterTreeActivity.class);
         intent.putExtra("TreeId", treeId);
         intent.putExtra("TabId", 0);
+        intent.putExtra("Category", parentCategory);
+        intent.putExtra("ReturnToGames", toSelection);
         startActivity(intent);
         finish();
     }
-    public void showTreeProfileCrafting() {
+
+    public void showTreeProfileCrafting(Boolean toSelection) {
         Intent intent = new Intent(getApplicationContext(), WantedPosterTreeActivity.class);
         intent.putExtra("TreeId", treeId);
         intent.putExtra("TabId", 0);
         intent.putExtra("Crafting", true);
+        intent.putExtra("Category", parentCategory);
+        intent.putExtra("ReturnToGames", toSelection);
         startActivity(intent);
         finish();
     }

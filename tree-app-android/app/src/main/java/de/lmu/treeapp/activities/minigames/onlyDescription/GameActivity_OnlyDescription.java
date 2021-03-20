@@ -85,6 +85,7 @@ public class GameActivity_OnlyDescription extends GameActivity_Base implements P
                     R.id.game_onlyDescription_content2);
         });
         doneButton.setOnClickListener(view -> {
+            setDone(true);
             popupDone = new Popup(this, treeId);
             popupDone.setWinTitle(getString(R.string.popup_win_title_done));
             if (gameId == 502) {
@@ -229,7 +230,7 @@ public class GameActivity_OnlyDescription extends GameActivity_Base implements P
             finish();
         }
         if (action == PopupAction.SECONDARY || type == PopupType.POSITIVE_ANIMATION) {
-            super.onSuccess();
+            onSuccess();
         }
     }
 }

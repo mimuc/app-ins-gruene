@@ -46,8 +46,6 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
 
         popup = new Popup(this, treeId);
         popup.setButtonSecondary(true);
-        popup.setButtonAcceptText(getString(R.string.popup_btn_finished));
-        popup.setButtonSecondaryText(getString(R.string.popup_btn_wiki));
 
         getGameState().observeOn(AndroidSchedulers.mainThread()).subscribe(() -> {
             GameInputStringRelations inputStringGame = (GameInputStringRelations) gameContent;
@@ -64,7 +62,8 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
 
             sendButton.setOnClickListener(view -> {
                 if (checkAnswer(Objects.requireNonNull(inputField.getText()).toString())) {
-                    popup.show(PopupType.NEUTRAL);
+                    setDone(true);
+                    popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), inputField.getText().toString());
                 } else {
                     onFail();
                 }
@@ -86,7 +85,7 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
             DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory,
                     gameContent.getId(), parentTree);
             saveGameState().subscribe();
-            showTreeProfile();
+            showTreeProfile(true);
         }
     }
 

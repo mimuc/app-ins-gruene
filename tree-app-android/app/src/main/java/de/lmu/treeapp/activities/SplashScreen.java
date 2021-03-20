@@ -9,8 +9,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.concurrent.TimeUnit;
+
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.contentData.DataManager;
+import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.exceptions.UndeliverableException;
 import io.reactivex.rxjava3.plugins.RxJavaPlugins;
 
@@ -40,7 +43,12 @@ public class SplashScreen extends AppCompatActivity {
         });
 
         // Load all data on splash screen
-        DataManager.getInstanceAsync(getApplicationContext()).subscribe(dataManager -> {
+        Single.zip(
+                // Set minimum delay, but handle DataManager simultaneously
+                Single.timer(2, TimeUnit.SECONDS),
+                DataManager.getInstanceAsync(getApplicationContext()),
+                (time, dataManager) -> dataManager
+        ).subscribe(dataManager -> {
             Intent intent = new Intent(SplashScreen.this, MainActivity.class);
             startActivity(intent);
             finish();
