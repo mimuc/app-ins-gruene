@@ -167,7 +167,7 @@ public class GameActivity_Contour extends GameActivity_Base implements PopupInte
             drawingView.setClear(true);
             drawingView.setTouchable(true);
             drawingView.invalidate();
-        }, 2500);
+        }, 2000);
 
     }
 
