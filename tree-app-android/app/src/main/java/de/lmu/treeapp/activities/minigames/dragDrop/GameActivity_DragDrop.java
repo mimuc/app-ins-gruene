@@ -55,9 +55,12 @@ public class GameActivity_DragDrop extends GameActivity_Base implements PopupInt
         Button sendButton = findViewById(R.id.game_dragdrop_sendButton);
         sendButton.setOnClickListener(view -> {
             if (dragDropHelper.checkGameState()) {
-                onSuccess();
+                setDone(dragDropHelper.checkGameState());
+                popup.setButtonAcceptText(getResources().getString(R.string.popup_btn_finished));
+                popup.show(PopupType.POSITIVE_ANIMATION);
             } else {
-                onFail();
+                popup.setLooseTitle(getString(R.string.popup_negative_title_close));
+                popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_try_again_short));
                 dragDropHelper.reset();
             }
         });
@@ -72,35 +75,7 @@ public class GameActivity_DragDrop extends GameActivity_Base implements PopupInt
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
         if (type == PopupType.POSITIVE_ANIMATION || type == PopupType.POSITIVE) {
-            super.onSuccess();
+            onSuccess();
         }
-    }
-
-    @Override
-    protected void onSuccess() {
-        popup.setButtonAcceptText(getResources().getString(R.string.popup_btn_finished));
-        popup.show(PopupType.POSITIVE_ANIMATION);
-        for (GameDragDropZone zone : dragDropGame.getZones()) {
-            zone.validMatch = false;
-        }
-    }
-
-    @Override
-    protected void onFail() {
-        popup.setLooseTitle(getString(R.string.popup_negative_title_close));
-        popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_try_again_short));
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (dragDropHelper.checkGameState()) super.onSuccess();
-        else super.onBackPressed();
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        if (dragDropHelper.checkGameState()) super.onSuccess();
-        else super.onSupportNavigateUp();
-        return true;
     }
 }
