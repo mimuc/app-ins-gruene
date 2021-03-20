@@ -123,6 +123,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
         sendButton.setOnClickListener(view -> {
             boolean isCorrect = checkCorrectness();
             if (isCorrect) {
+                setDone(true);
                 popup.setButtonSecondary(true);
                 popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), correctString);
             } else {
