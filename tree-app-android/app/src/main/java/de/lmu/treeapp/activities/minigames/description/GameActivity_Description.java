@@ -197,7 +197,6 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
     protected Completable getGameState() {
         return DataManager.getInstance(getApplicationContext()).getOrCreateGameStateSingle(treeId, gameId, parentCategory, GameStateDescriptionDao.class).flatMapCompletable(s -> {
             gameStateDescription = s;
-            parentTree.appData.treeDescriptions.add(gameStateDescription);
             return Completable.complete();
         });
     }
