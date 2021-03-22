@@ -112,19 +112,19 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
             }
         }
 
-        if (gameStateScore == null) getGameState().subscribe();
-
-        // show instruction screen only for first round
-        if (instructions) {
-            catchFruitFragment = new CatchFruits_StartScreen();
-            Bundle b = new Bundle();
-            b.putString("treeName", parentTree.getName());
-            catchFruitFragment.setArguments(b);
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_frame, catchFruitFragment).commit();
-        } else {
-            startGame();
-        }
+        getGameState().subscribe(() -> {
+            // show instruction screen only for first round
+            if (instructions) {
+                catchFruitFragment = new CatchFruits_StartScreen();
+                Bundle b = new Bundle();
+                b.putString("treeName", parentTree.getName());
+                catchFruitFragment.setArguments(b);
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_frame, catchFruitFragment).commit();
+            } else {
+                startGame();
+            }
+        });
     }
 
     @Override
@@ -180,7 +180,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
 
         btnBack.setOnClickListener(v -> {
             popupGameover.dismiss();
-            if (gameSuccess()) {
+            if (isDone()) {
                 onSuccess();
             } else {
                 onBackPressed();
@@ -189,7 +189,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
 
         btnRetry.setOnClickListener(v -> {
             popupGameover.dismiss();
-            if (gameSuccess()) {
+            if (isDone()) {
                 DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree).subscribe();
             }
             resetGame();
@@ -208,8 +208,11 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
     }
 
 
-    /*** Generate a new ImageButton with the image of a fruit or a leaf
-     * @param drawableID String***/
+    /**
+     * Generate a new ImageButton with the image of a fruit or a leaf
+     *
+     * @param drawableID String
+     */
     private ImageButton generateItem(String drawableID) {
         int imageId = getResources().getIdentifier(drawableID, "drawable", getPackageName());
         ImageButton imageButton = new ImageButton(GameActivity_CatchFruits.this);
@@ -233,7 +236,9 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
         return imageButton;
     }
 
-    /*** Animates an item to fall to the bottom of the screen ***/
+    /**
+     * Animates an item to fall to the bottom of the screen
+     */
     private void animateItem(final ImageButton card, final GameCatchFruitsItem fruitObject) {
         float bottomOfScreen = getResources().getDisplayMetrics()
                 .heightPixels - imageSize;
@@ -321,13 +326,17 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
     }
 
 
-    /*** Destroys an item when it is not needed anymore ***/
+    /**
+     * Destroys an item when it is not needed anymore
+     */
     private void destroyItem(ImageButton item) {
         constraintlayout.removeView(item);
     }
 
 
-    /*** generate a certain amount of leafs, fruits and hearts***/
+    /**
+     * Generate a certain amount of leafs, fruits and hearts
+     */
     private void generateAllFallingItems(int amount) {
         //create Fruit/Leaf and fire Fall-animation
         for (int i = 0; i < amount; i++) {
@@ -353,7 +362,9 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
     }
 
 
-    /****Automize the falling of the fruits***/
+    /**
+     * Automize the falling of the fruits
+     */
     private void automizeFallingFruits() {
         fRun = new Runnable() {
             int intervalCounter = 0;
@@ -389,7 +400,9 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
         fHandler.post(fRun);
     }
 
-    /***A Timer updates the Progressbar every Millisecond & checks wether a correct object fell out of screen***/
+    /**
+     * A Timer updates the Progressbar every Millisecond & checks wether a correct object fell out of screen
+     */
     private void startTimer() {
 
         tRun = new Runnable() {
@@ -408,7 +421,9 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
         tHandler.post(tRun);
     }
 
-    /***If user clicks wrong fruit/leaf Live will be subtracted by a few seconds**/
+    /**
+     * If user clicks wrong fruit/leaf Live will be subtracted by a few seconds
+     */
     private void subtractLive(boolean falseFruit) {
         int loss = subtractLive;
         if (falseFruit) {
@@ -423,7 +438,9 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
 
     }
 
-    /***If user clicks correct fruit/leaf Live will be increased by a few seconds**/
+    /**
+     * If user clicks correct fruit/leaf Live will be increased by a few seconds
+     */
     private void addLive() {
         fullbar += subtractLive;
         createStateAnim(heart.getX() + heart.getWidth() + 50, livebar.getY() - 30, "+" + subtractLiveFail / 1000, R.color.forest, -50);
@@ -470,7 +487,9 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
         return randomPosition + (extra / 2);
     }
 
-    /***Setup the correct Leaf and Fruit as Objects -> later use in automization**/
+    /**
+     * Setup the correct Leaf and Fruit as Objects -> later use in automization
+     */
     private void setupCorrectItems() {
         for (GameCatchFruitsItem obj : catchFruitsObjects) {
             if (obj.treeId == treeId) {
@@ -479,7 +498,9 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
         }
     }
 
-    /***Creates a textview which shows the score done or live lost as small animation**/
+    /**
+     * Creates a textview which shows the score done or live lost as small animation
+     */
     private void createStateAnim(float x, float y, String scoreTxt, int tintColor, int goalY) {
         TextView tvState = new TextView(this);
         tvState.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -509,7 +530,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
 
     /**
      * Initialize gameover-screen
-     **/
+     */
     private void gameover() {
         //stop handler
         fHandler.removeCallbacks(fRun);
@@ -520,7 +541,9 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
         prepareEndView();
     }
 
-    /***Creates Popup with content depending on scoring**/
+    /**
+     * Creates Popup with content depending on scoring
+     */
     private void prepareEndView() {
         if ((this).isFinishing()) return; //else App crashes -> due to the dialog
 
@@ -544,7 +567,7 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
         starImageView5.setImageResource(ids.get(4));
 
 
-        if (curScoreLeaf >= goalLeaf && curScoreFruit >= goalFruit) {
+        if (isDone()) {
             tvEndTitle.setText(R.string.popup_win_title_done);
             btnBack.setText(getResources().getString(R.string.button_done));
             squirrelBar.setImageResource(R.drawable.ic_mascott_true_only_bar);
@@ -636,10 +659,11 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
 
     }
 
-    /***
+    /**
      * Check if the user has won the minigame
-     * **/
-    private boolean gameSuccess() {
+     **/
+    @Override
+    protected boolean isDone() {
         return curScoreLeaf >= goalLeaf && curScoreFruit >= goalFruit;
     }
 
@@ -661,18 +685,4 @@ public class GameActivity_CatchFruits extends GameActivity_Base {
         squirrelTail.animate().rotationBy(-10).setDuration(400);
 
     }
-
-    @Override
-    public void onBackPressed() {
-        if (gameSuccess()) onSuccess();
-        else super.onBackPressed();
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        if (gameSuccess()) onSuccess();
-        else super.onSupportNavigateUp();
-        return true;
-    }
-
 }

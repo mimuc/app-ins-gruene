@@ -58,9 +58,12 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
 
         sendButton.setOnClickListener(view -> {
             if (dragDropHelper.checkGameState()) {
-                onSuccess();
+                setDone(dragDropHelper.checkGameState());
+                popup.setButtonAcceptText(getResources().getString(R.string.popup_btn_finished));
+                popup.show(PopupType.POSITIVE_ANIMATION);
             } else {
-                onFail();
+                popup.setLooseTitle(getString(R.string.popup_negative_title_close));
+                popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_try_again_short));
                 dragDropHelper.reset();
             }
 
@@ -75,23 +78,8 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
         if (type == PopupType.POSITIVE_ANIMATION && action == PopupAction.ACCEPT) {
-            super.onSuccess();
+            onSuccess();
         }
-    }
-
-    @Override
-    protected void onSuccess() {
-        popup.setButtonAcceptText(getResources().getString(R.string.popup_btn_finished));
-        popup.show(PopupType.POSITIVE_ANIMATION);
-        for (GameDragDropZone zone : leafOrderGame.getZones()) {
-            zone.validMatch = false;
-        }
-    }
-
-    @Override
-    protected void onFail() {
-        popup.setLooseTitle(getString(R.string.popup_negative_title_close));
-        popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_try_again_short));
     }
 
     private ImageView setImageView(GameDragDropItem item) {
@@ -139,19 +127,5 @@ public class GameActivity_LeafOrder extends GameActivity_Base implements PopupIn
             }
         });
         animation.start();
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        if (dragDropHelper.checkGameState()) super.onSuccess();
-        else super.onBackPressed();
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        if (dragDropHelper.checkGameState()) super.onSuccess();
-        else super.onSupportNavigateUp();
-        return true;
     }
 }

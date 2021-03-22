@@ -62,6 +62,7 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
 
             sendButton.setOnClickListener(view -> {
                 if (checkAnswer(Objects.requireNonNull(inputField.getText()).toString())) {
+                    setDone(true);
                     popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), inputField.getText().toString());
                 } else {
                     onFail();
@@ -97,7 +98,6 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
     protected Completable getGameState() {
         return DataManager.getInstance(getApplicationContext()).getOrCreateGameStateSingle(treeId, gameId, parentCategory, GameStateInputStringDao.class).flatMapCompletable(s -> {
             gameStateInputString = s;
-            parentTree.appData.treeInputStrings.add(gameStateInputString);
             return Completable.complete();
         });
     }
