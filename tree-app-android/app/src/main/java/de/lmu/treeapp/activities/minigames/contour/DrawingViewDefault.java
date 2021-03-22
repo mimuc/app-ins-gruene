@@ -25,6 +25,7 @@ public class DrawingViewDefault extends View {
     public Path currentPath = new Path();
     public int currentColor;
     public float currentStrokeWidth;
+    public float checkpointCrossedThreshold;
     public Paint circlePaint = new Paint();
 
     // contains all checkpoints
@@ -59,6 +60,7 @@ public class DrawingViewDefault extends View {
         // sets drawing values
         this.currentColor = Color.rgb(3, 130, 21);
         this.currentStrokeWidth = screenWidth * 0.02f;
+        this.checkpointCrossedThreshold = this.currentStrokeWidth;
 
         //set various things for the checkpoints
         this.circlePaint.setAntiAlias(true);
@@ -95,12 +97,12 @@ public class DrawingViewDefault extends View {
 
         // draws checkpoints if crossed
         if (showfirstStaticCheckpoint) {
-            canvas.drawCircle((int) (this.getWidth() / 2 * 1.10), ((float) checkpointThreshold * (float) 1.10), checkpointThreshold, circlePaint);
+            canvas.drawCircle((int) (this.getWidth() / 2 * 1.10), ((float) checkpointThreshold * (float) 1.10), checkpointThreshold+checkpointCrossedThreshold, circlePaint);
         }
         if (checkpointsAppeared != null) {
             for (int i = 0; i < checkpointsAppeared.length; i++) {
                 if (checkpointsAppeared[i]) {
-                    canvas.drawCircle(checkpoints[i].x, checkpoints[i].y, checkpointThreshold, circlePaint);
+                    canvas.drawCircle(checkpoints[i].x, checkpoints[i].y, checkpointThreshold+checkpointCrossedThreshold, circlePaint);
                 }
             }
         }
