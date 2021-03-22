@@ -96,8 +96,8 @@ public class GameselectionRecyclerViewAdapter extends RecyclerView.Adapter<Games
             return;
         }
         if (tree.appData.isGameCompleted(category, game.getId())) {
-            Glide.with(context).load(R.drawable.overlay_disabled).into(holder.gameIcon);
             holder.gameStatusView.setVisibility(View.VISIBLE);
+            holder.gameIcon.setAlpha(.6f);
         }
 
         Glide.with(context).load(gameIcon(game.getType())).into(new BackgroundTarget(holder.gameIcon));
