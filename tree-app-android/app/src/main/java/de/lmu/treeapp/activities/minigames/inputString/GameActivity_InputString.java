@@ -60,7 +60,7 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
             createBackground(constraintLayout, set, image, textInputLayout);
 
             sendButton.setOnClickListener(view -> {
-                if (checkAnswer(Objects.requireNonNull(inputField.getText()).toString())) {
+                if (checkIfInputEmpty(Objects.requireNonNull(inputField.getText()).toString())) {
                     setDone(true);
                     popup.setButtonSecondary(true);
                     popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), inputField.getText().toString());
@@ -72,9 +72,6 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
         });
     }
 
-    private boolean checkAnswer(String toString) {
-        return toString.matches(".*[a-z].*");
-    }
 
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {

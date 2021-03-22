@@ -79,7 +79,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
         builder.setPositiveButton(R.string.ok, (dialog, which) -> {
             dialog.dismiss();
             String m_Text = input.getText().toString();
-            if (checkInput(m_Text)) {
+            if (checkIfInputEmpty(m_Text)) {
                 rcAdapter.add(rcAdapter.getItemCount(), new DescriptionElement(m_Text, true,
                         GameActivity_Description.this, true));
                 if (rcAdapter.getItemCount() > 20) {
@@ -135,9 +135,6 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
         });
     }
 
-    private boolean checkInput(String m_text) {
-        return m_text.matches(".*[a-z].*");
-    }
 
     @Override
     protected int getLayoutId() {
