@@ -102,7 +102,7 @@ public class GameActivity_Contour extends GameActivity_Base implements PopupInte
     public void setCheckpoints(int width, int height) {
 
         //Sets width of checkpoint circle in regard of screensize
-        drawingView.setCheckpointThreshold((int) (width * 0.06));
+        drawingView.setCheckpointThreshold((int) (width * 0.05));
 
         //Drawing view is only left half
         int halfThreshold = width / 2;
@@ -167,7 +167,7 @@ public class GameActivity_Contour extends GameActivity_Base implements PopupInte
             drawingView.setClear(true);
             drawingView.setTouchable(true);
             drawingView.invalidate();
-        }, 2500);
+        }, 2000);
 
     }
 
