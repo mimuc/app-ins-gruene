@@ -11,7 +11,7 @@
         android:layout_width="360dp"
         android:layout_height="42dp"
         android:layout_marginTop="40dp"
-        android:text="Repariere das Bild indem du die verschiedenen Puzzlestücke verschiebst."
+        android:text="@string/game_picture_puzzle_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,13 +21,13 @@
         android:id="@+id/falseTilesButton"
         android:layout_width="45dp"
         android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="@color/red"
-        android:text="!"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textSize="36sp"
+        app:icon="@drawable/ic_cross_circle"
+        app:iconGravity="top"
         app:layout_constraintBottom_toTopOf="@+id/slidePuzzleLayout"
         app:layout_constraintEnd_toStartOf="@+id/helpImageButton" />
 
@@ -44,7 +44,7 @@
         android:id="@+id/time_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zeit"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/selection_frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
         android:id="@+id/doneButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fertig"
+        android:text="@string/button_done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -81,14 +81,14 @@
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="110dp" />
 
-            <de.lmu.treeapp.activities.minigames.slidePuzzle.DragDropGrid
-                android:id="@+id/gridFalse"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                tools:context="de.lmu.treeapp.activities.minigames.slidePuzzle.MainActivity"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="110dp" />
+        <de.lmu.treeapp.activities.minigames.slidePuzzle.DragDropGrid
+            android:id="@+id/gridFalse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="de.lmu.treeapp.activities.minigames.slidePuzzle.MainActivity"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="110dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -126,7 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="So sieht das fertige Bild aus"
+                android:text="@string/game_picture_puzzle_hint"
                 android:textColor="@color/darkForest"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -149,7 +149,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="32dp"
-                android:text="Weiter"
+                android:text="@string/button_next"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"

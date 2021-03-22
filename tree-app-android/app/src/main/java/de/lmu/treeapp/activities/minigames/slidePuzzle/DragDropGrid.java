@@ -1,6 +1,7 @@
 package de.lmu.treeapp.activities.minigames.slidePuzzle;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.os.Handler;
 import android.util.AttributeSet;
@@ -9,7 +10,6 @@ import android.widget.RelativeLayout;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -59,7 +59,7 @@ public class DragDropGrid extends RelativeLayout {
                 mHeight = getHeight();
                 mWidth = getWidth();
                 getViewTreeObserver().removeOnPreDrawListener(this);
-                if(mDrawableId != 0 && dimensions != 0){
+                if (mDrawableId != 0 && dimensions != 0) {
                     createChildren();
                 }
                 return false;
@@ -83,17 +83,17 @@ public class DragDropGrid extends RelativeLayout {
                 int leftEdge = selfLeft - mItemWidth;
                 int rightEdge = selfLeft + mItemWidth;
                 int direction = calculator.getScrollDirection(index);
-                switch (direction){
+                switch (direction) {
                     case MoveCalculator.LEFT:
-                        if(left <= leftEdge)
+                        if (left <= leftEdge)
                             return leftEdge;
-                        else if(left >= selfLeft)
+                        else if (left >= selfLeft)
                             return selfLeft;
                         else
                             return left;
 
                     case MoveCalculator.RIGHT:
-                        if(left >= rightEdge)
+                        if (left >= rightEdge)
                             return rightEdge;
                         else if (left <= selfLeft)
                             return selfLeft;
@@ -114,17 +114,17 @@ public class DragDropGrid extends RelativeLayout {
                 int topEdge = selfTop - mItemHeight;
                 int bottomEdge = selfTop + mItemHeight;
                 int direction = calculator.getScrollDirection(index);
-                //Log.d(TAG, "top " + top + " index " + index + " direction " + direction);
-                switch (direction){
+
+                switch (direction) {
                     case MoveCalculator.TOP:
-                        if(top <= topEdge)
+                        if (top <= topEdge)
                             return topEdge;
                         else if (top >= selfTop)
                             return selfTop;
                         else
                             return top;
                     case MoveCalculator.BOTTOM:
-                        if(top >= bottomEdge)
+                        if (top >= bottomEdge)
                             return bottomEdge;
                         else if (top <= selfTop)
                             return selfTop;
@@ -139,14 +139,14 @@ public class DragDropGrid extends RelativeLayout {
             public void onViewReleased(View releasedChild, float xvel, float yvel) {
                 int index = indexOfChild(releasedChild);
                 boolean isCompleted = calculator.swapValueWithInvisibleModel(index);
-                Tile item =  calculator.getModel(index);
+                Tile item = calculator.getModel(index);
                 viewDragHelper.settleCapturedViewAt(item.x * mItemWidth, item.y * mItemHeight);
                 View invisibleView = getChildAt(0);
                 ViewGroup.LayoutParams layoutParams = invisibleView.getLayoutParams();
                 invisibleView.setLayoutParams(releasedChild.getLayoutParams());
                 releasedChild.setLayoutParams(layoutParams);
                 invalidate();
-                if(isCompleted){
+                if (isCompleted) {
                     invisibleView.setVisibility(VISIBLE);
                     mOnCompleteCallback.onComplete();
                 }
@@ -155,7 +155,7 @@ public class DragDropGrid extends RelativeLayout {
     }
 
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent event){
+    public boolean onInterceptTouchEvent(MotionEvent event) {
         return viewDragHelper.shouldInterceptTouchEvent(event);
     }
 
@@ -167,25 +167,25 @@ public class DragDropGrid extends RelativeLayout {
 
     @Override
     public void computeScroll() {
-        if(viewDragHelper.continueSettling(true)) {
+        if (viewDragHelper.continueSettling(true)) {
             invalidate();
         }
     }
 
-    public void setImage(int drawableId, int squareRootNum, boolean isImg){
+    public void setImage(int drawableId, int squareRootNum, boolean isImg) {
         this.dimensions = squareRootNum;
         this.mDrawableId = drawableId;
         this.isImg = isImg;
-        if(mWidth != 0 && mHeight != 0){
+        if (mWidth != 0 && mHeight != 0) {
             createChildren();
         }
     }
 
-    private void createChildren(){
+    private void createChildren() {
         removeAllViews();
         calculator.setSquareRootNum(dimensions);
         Bitmap bitmap = null;
-        if(isImg){
+        if (isImg) {
             DisplayMetrics dm = getResources().getDisplayMetrics();
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inDensity = dm.densityDpi;
@@ -200,32 +200,36 @@ public class DragDropGrid extends RelativeLayout {
         mItemHeight = mHeight / dimensions;
 
 
-        for (int i = 0; i < dimensions; i++){
-            for (int j = 0; j < dimensions; j++){
+        for (int i = 0; i < dimensions; i++) {
+            for (int j = 0; j < dimensions; j++) {
                 ImageView iv = new ImageView(getContext());
                 LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 lp.leftMargin = j * mItemWidth;
                 lp.topMargin = i * mItemHeight;
                 iv.setLayoutParams(lp);
-                if(isImg){
+                if (isImg) {
                     iv.setScaleType(ImageView.ScaleType.FIT_XY);
                     Bitmap b = Bitmap.createBitmap(bitmap, lp.leftMargin, lp.topMargin, mItemWidth, mItemHeight);
                     iv.setImageBitmap(b);
 
-                }else{
+                } else {
+                    int padding_in_dp = 5;
+                    final float scale = getResources().getDisplayMetrics().density;
+                    int padding_in_px = (int) (padding_in_dp * scale + 0.5f);
+                    iv.setPadding(padding_in_px,padding_in_px,padding_in_px,padding_in_px);
+                    iv.setImageResource(R.drawable.border_red);
                     iv.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                    iv.setBackgroundResource(R.drawable.circle_border_red);
                     iv.setVisibility(INVISIBLE);
                 }
                 tiles.add(iv);
                 addView(iv);
             }
         }
-        if(isImg)randomOrder();
+        if (isImg) randomOrder();
         else this.setVisibility(GONE);
     }
 
-    public Bitmap zoomImg(Bitmap bm, int newWidth ,int newHeight){
+    public Bitmap zoomImg(Bitmap bm, int newWidth, int newHeight) {
         int width = bm.getWidth();
         int height = bm.getHeight();
         float scaleWidth = ((float) newWidth) / width;
@@ -235,11 +239,11 @@ public class DragDropGrid extends RelativeLayout {
         return Bitmap.createBitmap(bm, 0, 0, width, height, matrix, true);
     }
 
-    public void randomOrder(){
+    public void randomOrder() {
         int num = dimensions * dimensions * 8;
         View invisibleView = getChildAt(0);
         View neighbor;
-        for (int i = 0; i < num; i ++){
+        for (int i = 0; i < num; i++) {
             int neighborPosition = calculator.findNeighborIndexOfInvisibleModel();
             ViewGroup.LayoutParams invisibleLp = invisibleView.getLayoutParams();
             neighbor = getChildAt(neighborPosition);
@@ -250,33 +254,48 @@ public class DragDropGrid extends RelativeLayout {
         invisibleView.setVisibility(INVISIBLE);
     }
 
-    public void markFalseTiles(List<Integer> falseTiles){
-        Log.d("Border | false tiles:", String.valueOf(falseTiles));
+    public void markFalseTiles(List<Integer> falseTiles) {
         this.setVisibility(VISIBLE);
-        for (int tileId: falseTiles) {
-            Log.d("Border:", String.valueOf(tileId));
+        for (int tileId : falseTiles) {
             tiles.get(tileId).setVisibility(VISIBLE);
         }
 
         final Handler handler = new Handler();
         handler.postDelayed(() -> {
             // Do something after 5s = 5000ms
-            for (ImageView tile: tiles) {
+            for (ImageView tile : tiles) {
                 tile.setVisibility(INVISIBLE);
             }
             this.setVisibility(GONE);
         }, 2000);
     }
 
-    List<Integer> getFalseTiles(){
+    public void markFalseTilesOpacity(){
+        List<Integer> falseTiles = calculator.getFalseTiles();
+
+        for (int tileId: falseTiles) {
+            int color = Color.parseColor("#59FF1717"); //The color u want
+            tiles.get(tileId).setColorFilter(color);
+        }
+
+        final Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            // Do something after 5s = 5000ms
+            for (int tileId: falseTiles) {
+                tiles.get(tileId).clearColorFilter();
+            }
+        }, 2000);
+    }
+
+    List<Integer> getFalseTiles() {
         return calculator.getFalseTiles();
     }
 
-    public void setOnCompleteCallback(OnCompleteCallback onCompleteCallback){
+    public void setOnCompleteCallback(OnCompleteCallback onCompleteCallback) {
         mOnCompleteCallback = onCompleteCallback;
     }
 
-    public interface OnCompleteCallback{
+    public interface OnCompleteCallback {
         void onComplete();
     }
 }

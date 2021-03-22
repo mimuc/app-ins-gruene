@@ -62,6 +62,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         });
 
         falseTilesButton.setOnClickListener(e -> gridFalse.markFalseTiles(grid.getFalseTiles()));
+        //falseTilesButton.setOnClickListener(e -> grid.markFalseTilesOpacity());
 
         helpButton.setOnClickListener(e -> {
             helpView.setVisibility(View.VISIBLE);
@@ -97,7 +98,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
 
         timeText = findViewById(R.id.time_TextView);
         startTimer();
-        grid = (DragDropGrid) findViewById(R.id.grid);
+        grid = findViewById(R.id.grid);
         grid.setImage(img, dimension, true);
         gridFalse = findViewById(R.id.gridFalse);
         gridFalse.setImage(img, dimension, false);

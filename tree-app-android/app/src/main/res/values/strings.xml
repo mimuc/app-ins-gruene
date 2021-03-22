@@ -236,4 +236,6 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="creation">Entstehung</string>
     <string name="goal">Ziel</string>
     <string name="powered_by">Ermöglicht durch</string>
+    <string name="game_picture_puzzle_hint">So sieht das fertige Bild aus</string>
+    <string name="game_picture_puzzle_description">Repariere das Bild indem du die verschiedenen Puzzlestücke verschiebst.</string>
 </resources>
