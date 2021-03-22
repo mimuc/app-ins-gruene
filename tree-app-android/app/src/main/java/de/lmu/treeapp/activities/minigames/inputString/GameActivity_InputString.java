@@ -73,7 +73,6 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
     }
 
     private boolean checkAnswer(String toString) {
-
         return toString.matches(".*[a-z].*");
     }
 

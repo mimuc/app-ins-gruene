@@ -79,12 +79,15 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
         builder.setPositiveButton(R.string.ok, (dialog, which) -> {
             dialog.dismiss();
             String m_Text = input.getText().toString();
-            rcAdapter.add(rcAdapter.getItemCount(), new DescriptionElement(m_Text, true,
-                    GameActivity_Description.this, true));
-            if (rcAdapter.getItemCount() > 20) {
-                // allow max 20 items
-                addButton.setVisibility(View.INVISIBLE);
+            if (checkInput(m_Text)) {
+                rcAdapter.add(rcAdapter.getItemCount(), new DescriptionElement(m_Text, true,
+                        GameActivity_Description.this, true));
+                if (rcAdapter.getItemCount() > 20) {
+                    // allow max 20 items
+                    addButton.setVisibility(View.INVISIBLE);
+                }
             }
+
 
         });
         builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.cancel());
@@ -130,6 +133,10 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
                 popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_loose_title));
             }
         });
+    }
+
+    private boolean checkInput(String m_text) {
+        return m_text.matches(".*[a-z].*");
     }
 
     @Override
