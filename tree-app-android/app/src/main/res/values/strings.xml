@@ -192,6 +192,9 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="profile_heading">Steckbrief</string>
     <string name="profile_text">Hier findest du mehr Informationen zu diesem Baum!</string>
     <string name="wanted_poster_text">Klicke oder wische, um mehr über %1$s zu erfahren.</string>
+    <string name="profile_edit_text">Hier kannst du dein Profil bearbeiten!</string>
+    <string name="profile_add_text">Hier kannst du ein Profil für deine Freunde hinzufügen!</string>
+    <string name="profile_about">Hier erfährst du mehr über die App!</string>
 
     <!-- Wanted poster-->
     <string name="wanted_poster_description">Klicke doch mal auf die Lupen, um mehr zu erfahren!</string>

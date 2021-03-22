@@ -98,7 +98,6 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
     protected Completable getGameState() {
         return DataManager.getInstance(getApplicationContext()).getOrCreateGameStateSingle(treeId, gameId, parentCategory, GameStateInputStringDao.class).flatMapCompletable(s -> {
             gameStateInputString = s;
-            parentTree.appData.treeInputStrings.add(gameStateInputString);
             return Completable.complete();
         });
     }

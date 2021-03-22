@@ -134,8 +134,8 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
         Integer cameraActiveId = getApplicationContext().getResources().getIdentifier(
                 "sb_icon_cameraclicked", "drawable", getApplicationContext().getPackageName());
 
-        myStuffView.setMyStuff(this, tree.getId(),
-                tree.appData.treeInputStrings, tree.appData.treeDescriptions, imageStrings);
+        myStuffView.setMyStuff(this, tree.getId(), imageStrings);
+
         treeDetailInfoView.setTreeDetailInfo(this, wantedPosterTextList.wantedPosters
                 , wantedPosterImageList.wantedPosterImages, buttonActiveId, buttonInactiveId);
         heightInfoView.setHeightInfo(this, wantedPosterTextList.wantedPosters,
@@ -265,7 +265,6 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
             view.setVisibility(visibility);
         }
     }
-
 
     public void presentMaterialTapTargetSequence() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
