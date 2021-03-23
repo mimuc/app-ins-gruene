@@ -58,7 +58,7 @@
         style="@style/AppTheme.Button"
         android:elevation="4dp"
         android:fontFamily="@font/freude"
-        android:text="@string/game_input_string_send_button_placeholder_text"
+        android:text="@string/game_send_button_placeholder_text"
         android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
         android:textSize="@dimen/buttons"
         app:layout_constraintBottom_toBottomOf="parent"

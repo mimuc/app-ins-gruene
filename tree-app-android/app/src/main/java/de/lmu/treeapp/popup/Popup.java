@@ -102,7 +102,7 @@ public class Popup {
         //Texts are imported from strings.xml, go there for title changes
         this.winTitle = context.getString(R.string.popup_win_title);
         this.neutralTitle = context.getString(R.string.popup_neutral_title);
-        this.looseTitle = context.getString(R.string.popup_loose_title);
+        this.looseTitle = context.getString(R.string.popup_loose_title_short);
         this.btnAcceptText = context.getString(R.string.popup_btn_continue);
         this.btnSecondaryText = context.getString(R.string.button_repeat);
 

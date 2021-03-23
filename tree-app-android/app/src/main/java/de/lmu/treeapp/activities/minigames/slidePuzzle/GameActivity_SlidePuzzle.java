@@ -48,7 +48,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         setContentView(R.layout.activity_game__picture_puzzle);
         Button helpButton = findViewById(R.id.helpImageButton);
         Button continueButton = findViewById(R.id.continueButton);
-        doneButton = findViewById(R.id.doneButton);
+        doneButton = findViewById(R.id.game_picture_puzzle_sendButton);
         imgView = findViewById(R.id.doneImage);
         CardView helpView = findViewById(R.id.finishedImageView);
         helpView.setVisibility(View.GONE);
