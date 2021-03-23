@@ -75,14 +75,14 @@
                 android:id="@+id/edit_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:hint="@string/game_edit_text_name"
-                android:textSize="@dimen/heading3"
+                android:textSize="@dimen/heading1"
                 app:layout_constraintBottom_toTopOf="@+id/next_button"
                 app:layout_constraintStart_toStartOf="@+id/name_other_player"
+                app:layout_constraintEnd_toEndOf="@id/name_other_player"
                 app:layout_constraintTop_toBottomOf="@+id/name_other_player" />
 
             <Button

@@ -172,6 +172,7 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="slidepuzzle_win">Du hast das Puzzle gelöst.</string>
     <string name="blossom_male">Männliche Blüte</string>
     <string name="blossom_female">Weibliche Blüte</string>
+    <string name="slidepuzzle_time">Zeit</string>
 
     <!-- Tutorial -->
     <string name="overview_heading">Waldübersicht</string>
