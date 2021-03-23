@@ -45,7 +45,6 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
         TextInputLayout textInputLayout = findViewById(R.id.textInputLayout);
 
         popup = new Popup(this, treeId);
-        popup.setButtonSecondary(true);
 
         getGameState().observeOn(AndroidSchedulers.mainThread()).subscribe(() -> {
             GameInputStringRelations inputStringGame = (GameInputStringRelations) gameContent;
@@ -61,22 +60,22 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
             createBackground(constraintLayout, set, image, textInputLayout);
 
             sendButton.setOnClickListener(view -> {
-                if (checkAnswer(Objects.requireNonNull(inputField.getText()).toString())) {
+                if (checkIfInputEmpty(Objects.requireNonNull(inputField.getText()).toString())) {
                     setDone(true);
+                    popup.setButtonSecondary(true);
                     popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), inputField.getText().toString());
                 } else {
-                    onFail();
+                    popup.setLooseTitle(getString(R.string.popup_negative_title_close));
+                    popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_enter_something));
                 }
             });
         });
     }
 
-    private boolean checkAnswer(String toString) {
-        return true;
-    }
 
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
+        if (!isDone()) return;
         if (action == PopupAction.ACCEPT) {
             saveGameState().subscribe();
             onSuccess();
