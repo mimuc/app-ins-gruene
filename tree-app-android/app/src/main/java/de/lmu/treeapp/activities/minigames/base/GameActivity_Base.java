@@ -91,6 +91,11 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         showGameSelection();
     }
 
+    public boolean checkIfInputEmpty(String m_text) {
+        return m_text.matches(".*[a-z].*");
+    }
+
+
     // Save the game process and display the next quiz game in this category
     protected void onQuizSuccess(ArrayList<Integer> quizIDs) {
         if (quizIDs == null || quizIDs.isEmpty()) return;
