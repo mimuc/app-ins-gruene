@@ -79,12 +79,15 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
         builder.setPositiveButton(R.string.ok, (dialog, which) -> {
             dialog.dismiss();
             String m_Text = input.getText().toString();
-            rcAdapter.add(rcAdapter.getItemCount(), new DescriptionElement(m_Text, true,
-                    GameActivity_Description.this, true));
-            if (rcAdapter.getItemCount() > 20) {
-                // allow max 20 items
-                addButton.setVisibility(View.INVISIBLE);
+            if (checkIfInputEmpty(m_Text)) {
+                rcAdapter.add(rcAdapter.getItemCount(), new DescriptionElement(m_Text, true,
+                        GameActivity_Description.this, true));
+                if (rcAdapter.getItemCount() > 20) {
+                    // allow max 20 items
+                    addButton.setVisibility(View.INVISIBLE);
+                }
             }
+
 
         });
         builder.setNegativeButton(R.string.cancel, (dialog, which) -> dialog.cancel());
@@ -123,6 +126,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
         sendButton.setOnClickListener(view -> {
             boolean isCorrect = checkCorrectness();
             if (isCorrect) {
+                setDone(true);
                 popup.setButtonSecondary(true);
                 popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), correctString);
             } else {
@@ -130,6 +134,7 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
             }
         });
     }
+
 
     @Override
     protected int getLayoutId() {
@@ -196,7 +201,6 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
     protected Completable getGameState() {
         return DataManager.getInstance(getApplicationContext()).getOrCreateGameStateSingle(treeId, gameId, parentCategory, GameStateDescriptionDao.class).flatMapCompletable(s -> {
             gameStateDescription = s;
-            parentTree.appData.treeDescriptions.add(gameStateDescription);
             return Completable.complete();
         });
     }

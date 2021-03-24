@@ -52,7 +52,6 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
     private TextInputEditText inputField;
     ArrayList<String> swearwords = new ArrayList<>();
     ArrayList<String> words = new ArrayList<>();
-
     protected Popup popup;
     protected GameStateInputString gameStateInputString;
 
@@ -69,7 +68,6 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
         swearwords = readSwearwordsfromFile("swearwords.txt", this);
 
         popup = new Popup(this, treeId);
-        popup.setButtonSecondary(true);
 
         getGameState().observeOn(AndroidSchedulers.mainThread()).subscribe(() -> {
             GameInputStringRelations inputStringGame = (GameInputStringRelations) gameContent;
@@ -85,12 +83,13 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
             createBackground(constraintLayout, set, image, textInputLayout);
 
             sendButton.setOnClickListener(view -> {
-                if (checkAnswer(Objects.requireNonNull(inputField.getText()).toString())) {
+                if (checkIfInputEmpty(Objects.requireNonNull(inputField.getText()).toString())) {
+                    setDone(true);
+                    popup.setButtonSecondary(true);
                     popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), inputField.getText().toString());
                 } else {
-                    popup.showWithButtonText(PopupType.NEGATIVE, getString(R.string.popup_neutral_ok), getString(R.string.popup_no_swearwords));
-
-                    inputField.setText("");
+                    popup.setLooseTitle(getString(R.string.popup_negative_title_close));
+                    popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_enter_something));
                 }
             });
         });
@@ -121,6 +120,7 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
 
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
+        if (!isDone()) return;
         if (action == PopupAction.ACCEPT) {
             saveGameState().subscribe();
             onSuccess();
@@ -142,7 +142,6 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
     protected Completable getGameState() {
         return DataManager.getInstance(getApplicationContext()).getOrCreateGameStateSingle(treeId, gameId, parentCategory, GameStateInputStringDao.class).flatMapCompletable(s -> {
             gameStateInputString = s;
-            parentTree.appData.treeInputStrings.add(gameStateInputString);
             return Completable.complete();
         });
     }

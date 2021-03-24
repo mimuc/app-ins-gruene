@@ -28,6 +28,7 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     protected Tree.GameCategories parentCategory;
     protected GameStateScore gameStateScore;
     protected String specialGameName;
+    protected boolean isDone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,15 +60,29 @@ public abstract class GameActivity_Base extends AppCompatActivity {
     // Remove the current activity from the stack to switch to the previous one
     @Override
     public boolean onSupportNavigateUp() {
-        this.showGameSelection();
+        if (isDone()) onSuccess();
+        else {
+            this.showGameSelection();
+        }
         return true;
     }
 
     // Android hardware back button is pressed
     @Override
     public void onBackPressed() {
-        this.showGameSelection();
-        super.onBackPressed();
+        if (isDone()) onSuccess();
+        else {
+            this.showGameSelection();
+            super.onBackPressed();
+        }
+    }
+
+    protected boolean isDone() {
+        return isDone;
+    }
+
+    protected void setDone(boolean isDone) {
+        this.isDone = isDone;
     }
 
     // Save the game process and go back to the game selection activity
@@ -75,6 +90,11 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree).subscribe();
         showGameSelection();
     }
+
+    public boolean checkIfInputEmpty(String m_text) {
+        return m_text.matches(".*[a-z].*");
+    }
+
 
     // Save the game process and display the next quiz game in this category
     protected void onQuizSuccess(ArrayList<Integer> quizIDs) {

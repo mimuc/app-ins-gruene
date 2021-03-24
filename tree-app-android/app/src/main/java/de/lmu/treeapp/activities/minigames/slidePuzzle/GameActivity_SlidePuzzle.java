@@ -56,6 +56,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         popup = new Popup(this);
         popup.setWinTitle(getString(R.string.slidepuzzle_wonderful));
         doneButton.setOnClickListener(e -> {
+            setDone(true);
             popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_puzzle_won_text, time));
 
         });
@@ -93,7 +94,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
 
         timeText = findViewById(R.id.time_TextView);
         startTimer();
-        grid = (DragDropGrid) findViewById(R.id.grid);
+        grid = findViewById(R.id.grid);
         grid.setImage(img, dimension);
         grid.setOnCompleteCallback(() -> {
             isTimerRunning = false;
