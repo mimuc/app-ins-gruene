@@ -114,6 +114,7 @@
     <string name="popup_close_app_title">Möchtest du die App wirklich beenden?</string>
     <string name="popup_close_app_accept">Ja</string>
     <string name="popup_no_swearwords">Bitte keine Schimpfwörter benutzen!</string>
+    <string name="popup_negative_title_swearwords">Vorsicht!</string>
 
     <string name="button_next">Weiter</string>
     <string name="button_back">Zurück</string>
