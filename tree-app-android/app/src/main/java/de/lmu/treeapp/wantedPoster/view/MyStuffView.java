@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.util.Pair;
 
 import com.bumptech.glide.Glide;
 
@@ -24,11 +25,14 @@ import java.util.List;
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentData.DataManager;
+import de.lmu.treeapp.contentData.database.daos.app.GameStateDescriptionDao;
+import de.lmu.treeapp.contentData.database.daos.app.GameStateInputStringDao;
 import de.lmu.treeapp.contentData.database.daos.app.GameStateTakePictureDao;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateDescription;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateInputString;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureImage;
 import de.lmu.treeapp.contentData.database.entities.app.GameStateTakePictureRelations;
+import io.reactivex.rxjava3.core.Single;
 
 public class MyStuffView extends LinearLayout {
 
@@ -116,10 +120,7 @@ public class MyStuffView extends LinearLayout {
         super.onDraw(canvas);
     }
 
-    public void setMyStuff(Context context, int treeId,
-                           List<GameStateInputString> treeInputStrings,
-                           List<GameStateDescription> treeDescriptions,
-                           List<String> imageStrings) {
+    public void setMyStuff(Context context, int treeId, List<String> imageStrings) {
         pageTitle.setText(R.string.wanted_poster_my_stuff);
 
         cameraInactiveId = context.getApplicationContext().getResources().getIdentifier(
@@ -135,14 +136,19 @@ public class MyStuffView extends LinearLayout {
         craftingActiveId = context.getApplicationContext().getResources().getIdentifier(
                 "sb_icon_craftingclicked", "drawable", context.getApplicationContext().getPackageName());
 
-        writingButton.setOnClickListener(view -> {
+        // Run simultaneously to save time
+        Single.zip(
+                DataManager.getInstance(getContext()).getGameStateList(treeId, GameStateInputStringDao.class),
+                DataManager.getInstance(getContext()).getGameStateList(treeId, GameStateDescriptionDao.class),
+                Pair::new
+        ).subscribe(pair -> writingButton.setOnClickListener(view -> {
             cameraButton.setBackgroundResource(cameraInactiveId);
             writingButton.setBackgroundResource(writingActiveId);
             craftingButton.setBackgroundResource(craftingInactiveId);
             setVisibility(View.GONE, craftingLayout, lockedLayout, layouts[0], layouts[1], layouts[2], layouts[3]);
             setVisibility(View.VISIBLE, ideasLayout);
-            if (treeInputStrings.size() != 0) {
-                for (GameStateInputString inputString : treeInputStrings) {
+            if (pair.first.size() > 0) {
+                for (GameStateInputString inputString : pair.first) {
                     if (inputString.treeId == treeId) {
                         // context is required because otherwise the string is only displayed as an integer
                         String rhymeDesc = context.getResources().getString(R.string.wanted_poster_rhyme_cloud)
@@ -150,7 +156,9 @@ public class MyStuffView extends LinearLayout {
                         textCloud1.setText(rhymeDesc);
                     }
                 }
-                for (GameStateDescription treeDescription : treeDescriptions) {
+            }
+            if (pair.second.size() > 0) {
+                for (GameStateDescription treeDescription : pair.second) {
                     if (treeDescription.treeId == treeId) {
                         String treeDesc = context.getResources().getString(R.string.wanted_poster_tree_description)
                                 + treeDescription.description;
@@ -158,8 +166,8 @@ public class MyStuffView extends LinearLayout {
                     }
                 }
             }
+        }));
 
-        });
         textCloud1.setMovementMethod(new ScrollingMovementMethod());
         textCloud2.setMovementMethod(new ScrollingMovementMethod());
 

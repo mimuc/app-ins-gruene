@@ -48,7 +48,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         setContentView(R.layout.activity_game__picture_puzzle);
         Button helpButton = findViewById(R.id.helpImageButton);
         Button continueButton = findViewById(R.id.continueButton);
-        doneButton = findViewById(R.id.doneButton);
+        doneButton = findViewById(R.id.game_picture_puzzle_sendButton);
         Button falseTilesButton = findViewById(R.id.falseTilesButton);
         imgView = findViewById(R.id.doneImage);
         CardView helpView = findViewById(R.id.finishedImageView);
@@ -56,13 +56,15 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         doneButton.setVisibility(View.GONE);
         popup = new Popup(this);
         popup.setWinTitle(getString(R.string.slidepuzzle_wonderful));
-        doneButton.setOnClickListener(e -> popup.showWithButtonText(PopupType.POSITIVE_ANIMATION,
-                getString(R.string.popup_btn_finished), getString(R.string.popup_puzzle_won_text, time)));
+        doneButton.setOnClickListener(e -> {
+            setDone(true);
+            popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_puzzle_won_text, time));
 
         falseTilesButton.setOnClickListener(e -> gridFalse.markFalseTiles(grid.getFalseTiles()));
 
         helpButton.setOnClickListener(e -> helpView.setVisibility(View.VISIBLE));
         continueButton.setOnClickListener(e -> helpView.setVisibility(View.GONE));
+
         int treeId = parentTree.getId();
         if (ArrayUtils.contains(mwTrees, treeId)) {
             int imgM = selectImage(BlossomType.male);
@@ -91,6 +93,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
 
         timeText = findViewById(R.id.time_TextView);
         startTimer();
+
         grid = findViewById(R.id.grid);
         grid.setImage(img, dimension, true);
         gridFalse = findViewById(R.id.gridFalse);

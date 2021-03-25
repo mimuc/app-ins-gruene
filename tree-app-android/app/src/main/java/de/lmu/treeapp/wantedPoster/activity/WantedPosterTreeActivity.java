@@ -134,8 +134,8 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
         Integer cameraActiveId = getApplicationContext().getResources().getIdentifier(
                 "sb_icon_cameraclicked", "drawable", getApplicationContext().getPackageName());
 
-        myStuffView.setMyStuff(this, tree.getId(),
-                tree.appData.treeInputStrings, tree.appData.treeDescriptions, imageStrings);
+        myStuffView.setMyStuff(this, tree.getId(), imageStrings);
+
         treeDetailInfoView.setTreeDetailInfo(this, wantedPosterTextList.wantedPosters
                 , wantedPosterImageList.wantedPosterImages, buttonActiveId, buttonInactiveId);
         heightInfoView.setHeightInfo(this, wantedPosterTextList.wantedPosters,
@@ -266,7 +266,6 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
         }
     }
 
-
     public void presentMaterialTapTargetSequence() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean name = preferences.getBoolean("poster", false);
@@ -276,6 +275,7 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
             new MaterialTapTargetSequence()
                     .addPrompt(new CustomTapTargetPromptBuilder(WantedPosterTreeActivity.this)
                             .setTarget(target)
+                            .setIcon(R.drawable.card_wanted_circle_icon)
                             .setSecondaryText(getString(R.string.wanted_poster_text, treeName)))
                     .show();
         }
