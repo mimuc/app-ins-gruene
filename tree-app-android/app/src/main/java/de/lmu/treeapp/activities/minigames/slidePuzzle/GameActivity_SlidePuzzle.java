@@ -56,20 +56,13 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         doneButton.setVisibility(View.GONE);
         popup = new Popup(this);
         popup.setWinTitle(getString(R.string.slidepuzzle_wonderful));
-        doneButton.setOnClickListener(e -> {
-            popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_puzzle_won_text, time));
-
-        });
+        doneButton.setOnClickListener(e -> popup.showWithButtonText(PopupType.POSITIVE_ANIMATION,
+                getString(R.string.popup_btn_finished), getString(R.string.popup_puzzle_won_text, time)));
 
         falseTilesButton.setOnClickListener(e -> gridFalse.markFalseTiles(grid.getFalseTiles()));
-        //falseTilesButton.setOnClickListener(e -> grid.markFalseTilesOpacity());
 
-        helpButton.setOnClickListener(e -> {
-            helpView.setVisibility(View.VISIBLE);
-        });
-        continueButton.setOnClickListener(e -> {
-            helpView.setVisibility(View.GONE);
-        });
+        helpButton.setOnClickListener(e -> helpView.setVisibility(View.VISIBLE));
+        continueButton.setOnClickListener(e -> helpView.setVisibility(View.GONE));
         int treeId = parentTree.getId();
         if (ArrayUtils.contains(mwTrees, treeId)) {
             int imgM = selectImage(BlossomType.male);
@@ -155,9 +148,6 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
     private int selectImage(BlossomType type) {
         int img;
         switch (parentTree.getId()) {
-            case 0:
-                img = R.drawable.sb_bluete_foto_ahorn;
-                break;
             case 1:
                 if (type == BlossomType.male) {
                     img = R.drawable.sb_bluete_foto_buche_m;
