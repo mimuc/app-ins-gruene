@@ -90,6 +90,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textView_title_Score"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -138,26 +139,28 @@
         android:singleLine="false"
         android:textAlignment="center"
         android:textColor="@color/forest"
-        android:textSize="24sp"
+        android:textSize="@dimen/heading1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/leafScore_container"
         app:layout_constraintTop_toBottomOf="@+id/mascot_wrapper" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/leafScore_container"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fruitScore_container"
         app:layout_constraintTop_toBottomOf="@id/textView_title_Score">
 
         <ImageView
             android:id="@+id/end_leaf_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:src="@drawable/ic_leaf"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -169,6 +172,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/freude"
+            android:textSize="@dimen/heading2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/end_leaf_check_icon"
             app:layout_constraintStart_toEndOf="@+id/end_leaf_icon"
@@ -176,8 +180,8 @@
 
         <ImageView
             android:id="@+id/end_leaf_check_icon"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
             android:padding="6dp"
             android:src="@drawable/ic_completed"
             android:visibility="gone"
@@ -190,17 +194,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fruitScore_container"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/highscore_container"
         app:layout_constraintTop_toBottomOf="@id/leafScore_container">
 
         <ImageView
             android:id="@+id/end_fruit_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:src="@drawable/ic_fruit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -212,6 +218,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/freude"
+            android:textSize="@dimen/heading2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/end_fruit_check_icon"
             app:layout_constraintStart_toEndOf="@+id/end_fruit_icon"
@@ -219,8 +226,8 @@
 
         <ImageView
             android:id="@+id/end_fruit_check_icon"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
             android:padding="6dp"
             android:src="@drawable/ic_completed"
             android:visibility="gone"
@@ -241,6 +248,7 @@
         android:backgroundTint="@color/asphalt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttons"
         app:layout_constraintTop_toBottomOf="@+id/fruitScore_container">
 
         <TextView
@@ -250,7 +258,7 @@
             android:layout_marginTop="12dp"
             android:fontFamily="@font/freude"
             android:textColor="@color/darkLight"
-            android:textSize="24sp"
+            android:textSize="@dimen/heading1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -262,20 +270,21 @@
             android:text="@string/game_your_score"
             android:textAlignment="center"
             android:textColor="@color/darkLight"
-            android:textSize="12sp"
+            android:textSize="@dimen/heading3"
             app:layout_constraintBottom_toTopOf="@+id/textView_userScore"
             app:layout_constraintEnd_toEndOf="@+id/textView_userScore"
             app:layout_constraintStart_toStartOf="@+id/textView_userScore" />
 
         <TextView
             android:id="@+id/textView_userScore"
-            android:layout_width="100dp"
-            android:layout_height="45dp"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_35sdp"
             android:background="@drawable/card_wanted_circle_icon"
             android:backgroundTint="@color/forest"
             android:fontFamily="@font/freude"
             android:gravity="center"
             android:textAlignment="center"
+            android:textSize="@dimen/heading2"
             android:textColor="@color/darkLight"
             app:layout_constraintBottom_toBottomOf="@+id/textView_highscore"
             app:layout_constraintEnd_toStartOf="@+id/textView_highscore"
@@ -289,7 +298,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/game_your_highscore"
             android:textColor="@color/darkLight"
-            android:textSize="12sp"
+            android:textSize="@dimen/heading3"
             app:layout_constraintBottom_toTopOf="@+id/textView_highscore"
             app:layout_constraintEnd_toEndOf="@+id/textView_highscore"
             app:layout_constraintStart_toStartOf="@+id/textView_highscore"
@@ -297,46 +306,62 @@
 
         <TextView
             android:id="@+id/textView_highscore"
-            android:layout_width="100dp"
-            android:layout_height="45dp"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/card_wanted_circle_icon"
             android:backgroundTint="@android:color/holo_orange_light"
             android:fontFamily="@font/freude"
             android:gravity="center"
             android:textAlignment="center"
+            android:textSize="@dimen/heading2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView_userScore"
             app:layout_constraintTop_toBottomOf="@+id/textViewHighscoreLabel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/btn_catchfruits_back"
-        style="@style/AppTheme.Button"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttons"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="20dp"
-        android:text="@string/button_back"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_catchfruits_retry"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/highscore_container" />
-
-    <Button
-        android:id="@+id/btn_catchfruits_retry"
-        style="@style/AppTheme.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-
-        android:text="@string/button_repeat"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_catchfruits_back"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_catchfruits_back"
-        app:layout_constraintTop_toTopOf="@+id/btn_catchfruits_back" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/highscore_container">
 
+        <Button
+            android:id="@+id/btn_catchfruits_back"
+            style="@style/AppTheme.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:fontFamily="@font/freude"
+            android:stateListAnimator="@null"
+            android:text="@string/button_back"
+            android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+            android:textSize="@dimen/buttons"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_catchfruits_retry"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_catchfruits_retry"
+            style="@style/AppTheme.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:fontFamily="@font/freude"
+            android:stateListAnimator="@null"
+            android:text="@string/button_repeat"
+            android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+            android:textSize="@dimen/buttons"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_catchfruits_back"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
