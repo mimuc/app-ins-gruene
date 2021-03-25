@@ -44,28 +44,35 @@
         app:layout_constraintTop_toBottomOf="@+id/guideline_top">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/tree_guideline_top"
+            android:id="@+id/tree_guideline_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.2" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/textbox_guideline"
+            android:id="@+id/tree_guideline_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tree_guideline_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.4" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineInsideView3"
+            android:id="@+id/tree_guideline_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.6" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineInsideView4"
+            android:id="@+id/tree_guideline_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -100,7 +107,7 @@
             android:padding="12dp"
             android:scaleType="fitCenter"
             app:layout_constrainedHeight="true"
-            app:layout_constraintBottom_toTopOf="@id/guidelineInsideView4"
+            app:layout_constraintBottom_toTopOf="@id/tree_guideline_5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/detail_single_tree_text"
@@ -110,12 +117,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:elevation="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/textbox_guideline"
+            app:layout_constraintBottom_toTopOf="@+id/tree_guideline_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="20dp"
             app:layout_constraintHorizontal_bias="0.257"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/detail_single_tree_image"
             app:layout_constraintWidth_percent="0.29">
 
 
@@ -161,11 +167,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:elevation="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/textbox_guideline"
+            app:layout_constraintBottom_toTopOf="@+id/tree_guideline_3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tree_guideline_top"
+            app:layout_constraintTop_toBottomOf="@+id/tree_guideline_1"
             app:layout_constraintWidth_percent="0.29">
 
             <ImageButton
@@ -175,7 +181,7 @@
                 android:background="@drawable/ic_button_background"
                 android:contentDescription="@string/detail_single_tree_leaf_button_content_description"
                 android:elevation="4dp"
-                android:padding="15dp"
+                android:padding="16dp"
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
@@ -190,6 +196,7 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_centerInParent="true"
                 android:elevation="4dp"
                 android:indeterminate="false"
                 android:max="100"
@@ -208,13 +215,12 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="20dp"
             android:elevation="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineInsideView3"
+            app:layout_constraintBottom_toTopOf="@+id/tree_guideline_4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textbox_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tree_guideline_3"
             app:layout_constraintWidth_percent="0.29">
 
             <ImageButton
@@ -224,7 +230,7 @@
                 android:background="@drawable/ic_button_background"
                 android:contentDescription="@string/detail_single_tree_fruit_button_content_description"
                 android:elevation="4dp"
-                android:padding="20dp"
+                android:padding="16dp"
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
@@ -259,21 +265,22 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:elevation="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineInsideView4"
+            app:layout_constraintBottom_toTopOf="@+id/tree_guideline_5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guidelineInsideView3"
+            app:layout_constraintTop_toBottomOf="@+id/tree_guideline_4"
             app:layout_constraintWidth_percent="0.29">
 
             <ImageButton
                 android:id="@+id/detail_single_tree_trunkButton"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_centerInParent="true"
                 android:background="@drawable/ic_button_background"
                 android:contentDescription="@string/detail_single_tree_trunk_button_content_description"
                 android:elevation="4dp"
-                android:padding="18dp"
+                android:padding="16dp"
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
@@ -307,18 +314,20 @@
 
         <Button
             android:id="@+id/detail_single_tree_profileButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            style="@style/AppTheme.Button"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:elevation="4dp"
             android:fontFamily="@font/freude"
-            android:paddingTop="8dp"
-            android:paddingBottom="4dp"
-            android:stateListAnimator="@null"
+            android:padding="8dp"
+            style="@style/AppTheme.Button"
             android:text="@string/detail_single_tree_profile_button_text"
             android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
             android:textSize="@dimen/buttons"
-            app:layout_constraintTop_toBottomOf="@id/guidelineInsideView4"
+            app:layout_constraintTop_toBottomOf="@id/tree_guideline_5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
