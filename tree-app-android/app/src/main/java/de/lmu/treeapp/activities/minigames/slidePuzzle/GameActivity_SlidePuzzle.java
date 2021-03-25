@@ -59,6 +59,7 @@ public class GameActivity_SlidePuzzle extends GameActivity_Base implements Popup
         doneButton.setOnClickListener(e -> {
             setDone(true);
             popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_puzzle_won_text, time));
+        });
 
         falseTilesButton.setOnClickListener(e -> gridFalse.markFalseTiles(grid.getFalseTiles()));
 
