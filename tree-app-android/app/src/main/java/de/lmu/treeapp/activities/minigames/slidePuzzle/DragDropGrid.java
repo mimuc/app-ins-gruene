@@ -160,6 +160,10 @@ public class DragDropGrid extends RelativeLayout {
         }
     }
 
+    /**
+     * @param isImg Defining wether the grid contains the puzzle-image (isImg = true)
+     *              or displaying false tiles (isImg = false)
+     **/
     public void setImage(int drawableId, int squareRootNum, boolean isImg) {
         this.dimensions = squareRootNum;
         this.mDrawableId = drawableId;
@@ -186,8 +190,7 @@ public class DragDropGrid extends RelativeLayout {
         mItemWidth = mWidth / dimensions;
 
         mItemHeight = mHeight / dimensions;
-
-
+        
         for (int i = 0; i < dimensions; i++) {
             for (int j = 0; j < dimensions; j++) {
                 ImageView iv = new ImageView(getContext());
@@ -199,7 +202,6 @@ public class DragDropGrid extends RelativeLayout {
                     iv.setScaleType(ImageView.ScaleType.FIT_XY);
                     Bitmap b = Bitmap.createBitmap(bitmap, lp.leftMargin, lp.topMargin, mItemWidth, mItemHeight);
                     iv.setImageBitmap(b);
-
                 } else { // the grid marking false tiles
                     int padding_in_dp = 10;
                     final float scale = getResources().getDisplayMetrics().density;
@@ -242,6 +244,10 @@ public class DragDropGrid extends RelativeLayout {
         invisibleView.setVisibility(INVISIBLE);
     }
 
+    /**
+     * Marks all incorrect tiles with an icon.
+     * @param falseTiles List containing ids of false tiles
+     * **/
     public void markFalseTiles(List<Integer> falseTiles) {
         this.setVisibility(VISIBLE);
         for (int tileId : falseTiles) {
