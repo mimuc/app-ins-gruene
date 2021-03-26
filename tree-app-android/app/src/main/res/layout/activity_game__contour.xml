@@ -24,7 +24,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@drawable/white_background"
         app:layout_constraintBottom_toTopOf="@id/game_contour_sendButton"
@@ -51,6 +51,7 @@
             android:id="@+id/game_contourGame_background"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/custom_background_gradient"
             android:contentDescription="TODO"
             android:src="@drawable/ic_ahorn_blatt"
@@ -59,50 +60,58 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_buttons"
             app:layout_constraintVertical_bias="0.6"
             app:layout_constraintWidth_max="wrap"
             app:layout_constraintWidth_percent="0.9" />
 
-        <ImageButton
-            android:id="@+id/button1"
-            style="@style/Theme.Design"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/edit_buttons"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="12dp"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:background="@drawable/rounded_corner_icons"
-            android:contentDescription="@string/button_repeat"
-            android:outlineProvider="none"
-            android:padding="10dp"
-            android:scaleType="fitCenter"
-            android:tint="@color/design_default_color_on_secondary"
             app:layout_constraintBottom_toTopOf="@+id/game_contourGame_background"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_pencil" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/button2"
-            style="@style/Theme.Design"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="4dp"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:background="@drawable/rounded_corner_icons"
-            android:contentDescription="@string/button_repeat"
-            android:padding="10dp"
-            android:scaleType="fitCenter"
-            android:tint="@color/design_default_color_on_secondary"
-            app:layout_constraintBottom_toTopOf="@+id/game_contourGame_background"
-            app:layout_constraintEnd_toStartOf="@+id/button1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_eraser"
-            app:strokeWidth="0dp" />
+            <ImageButton
+                android:id="@+id/button1"
+                style="@style/Theme.Design"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@drawable/rounded_corner_icons"
+                android:contentDescription="@string/button_repeat"
+                android:outlineProvider="none"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/design_default_color_on_secondary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_pencil" />
+
+            <ImageButton
+                android:id="@+id/button2"
+                style="@style/Theme.Design"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@drawable/rounded_corner_icons"
+                android:contentDescription="@string/button_repeat"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:tint="@color/design_default_color_on_secondary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_eraser"
+                app:strokeWidth="0dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
