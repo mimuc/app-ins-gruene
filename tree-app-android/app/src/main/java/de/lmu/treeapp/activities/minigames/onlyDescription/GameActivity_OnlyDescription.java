@@ -64,25 +64,54 @@ public class GameActivity_OnlyDescription extends GameActivity_Base implements P
 
         Button nextButton1 = findViewById(R.id.game_onlyDescription_nextButton1);
         Button nextButton2 = findViewById(R.id.game_onlyDescription_nextButton2);
+        Button nextButton3 = findViewById(R.id.game_onlyDescription_nextButton3);
         Button prevButton1 = findViewById(R.id.game_onlyDescription_prevButton1);
         Button prevButton2 = findViewById(R.id.game_onlyDescription_prevButton2);
+        Button prevButton3 = findViewById(R.id.game_onlyDescription_prevButton3);
         Button doneButton = findViewById(R.id.game_onlyDescription_doneButton);
 
         setOnlyDescriptionRecycler(sList.subList(0, 1), R.id.game_onlyDescription_content);
         nextButton1.setOnClickListener(view -> {
             viewFlipper.showNext();
-            setOnlyDescriptionRecycler(sList.subList(1, sList.size() - 1),
-                    R.id.game_onlyDescription_content2);
+            if (gameId == 501) {
+                setOnlyDescriptionRecycler(sList.subList(1, sList.size() - 3),
+                        R.id.game_onlyDescription_content2);
+            } else {
+                setOnlyDescriptionRecycler(sList.subList(1, sList.size() - 1),
+                        R.id.game_onlyDescription_content2);
+            }
         });
         nextButton2.setOnClickListener(view -> {
             viewFlipper.showNext();
+            if (gameId == 501) {
+                setOnlyDescriptionRecycler(sList.subList(sList.size() - 3, sList.size() - 1),
+                        R.id.game_onlyDescription_content3);
+            } else {
+                viewFlipper.showNext();
+                setOnlyDescriptionRecycler(sList.subList(sList.size() - 1, sList.size()),
+                        R.id.game_onlyDescription_content4);
+            }
+        });
+        nextButton3.setOnClickListener(view -> {
+            viewFlipper.showNext();
             setOnlyDescriptionRecycler(sList.subList(sList.size() - 1, sList.size()),
-                    R.id.game_onlyDescription_content3);
+                    R.id.game_onlyDescription_content4);
         });
         prevButton1.setOnClickListener(view -> {
             viewFlipper.showPrevious();
-            setOnlyDescriptionRecycler(sList.subList(1, sList.size() - 1),
-                    R.id.game_onlyDescription_content2);
+            setOnlyDescriptionRecycler(sList.subList(0, 1),
+                    R.id.game_onlyDescription_content);
+        });
+        prevButton2.setOnClickListener(view -> {
+            viewFlipper.showPrevious();
+            if (gameId == 501) {
+                setOnlyDescriptionRecycler(sList.subList(1, sList.size() - 3),
+                        R.id.game_onlyDescription_content2);
+            } else {
+                viewFlipper.showPrevious();
+                setOnlyDescriptionRecycler(sList.subList(0, 1),
+                        R.id.game_onlyDescription_content);
+            }
         });
         doneButton.setOnClickListener(view -> {
             setDone(true);
@@ -97,10 +126,15 @@ public class GameActivity_OnlyDescription extends GameActivity_Base implements P
                 popupDone.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished));
             }
         });
-        prevButton2.setOnClickListener(view -> {
+        prevButton3.setOnClickListener(view -> {
             viewFlipper.showPrevious();
-            setOnlyDescriptionRecycler(sList.subList(1, sList.size() - 1),
-                    R.id.game_onlyDescription_content2);
+            if (gameId == 501) {
+                setOnlyDescriptionRecycler(sList.subList(sList.size() - 3, sList.size() - 1),
+                        R.id.game_onlyDescription_content3);
+            } else {
+                setOnlyDescriptionRecycler(sList.subList(1, sList.size() - 1),
+                        R.id.game_onlyDescription_content3);
+            }
         });
 
         // Popup with game description
