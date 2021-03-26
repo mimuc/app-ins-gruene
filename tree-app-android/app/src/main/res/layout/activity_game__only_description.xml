@@ -141,6 +141,63 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginHorizontal="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/game_onlyDescription_nextButton3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/game_onlyDescription_nextButton3"
+                style="@style/AppTheme.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:elevation="4dp"
+                android:fontFamily="@font/freude"
+                android:padding="8dp"
+                android:text="@string/button_next"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+                android:textSize="@dimen/buttons"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/game_onlyDescription_prevButton2"
+                app:layout_constraintWidth_percent="0.4" />
+
+            <Button
+                android:id="@+id/game_onlyDescription_prevButton2"
+                style="@style/AppTheme.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:elevation="4dp"
+                android:fontFamily="@font/freude"
+                android:padding="8dp"
+                android:text="@string/button_back"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+                android:textSize="@dimen/buttons"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/game_onlyDescription_nextButton3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.4" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/game_onlyDescription_content4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="16dp"
                 app:layout_constraintBottom_toTopOf="@+id/game_onlyDescription_doneButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -163,11 +220,11 @@
                 android:textSize="@dimen/buttons"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/game_onlyDescription_prevButton2"
+                app:layout_constraintStart_toEndOf="@id/game_onlyDescription_prevButton3"
                 app:layout_constraintWidth_percent="0.4" />
 
             <Button
-                android:id="@+id/game_onlyDescription_prevButton2"
+                android:id="@+id/game_onlyDescription_prevButton3"
                 style="@style/AppTheme.OutlinedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
