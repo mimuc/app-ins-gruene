@@ -197,11 +197,11 @@ public class ProfileFragment extends Fragment {
             final ActionMenuView actionMenuView = ((ActionMenuView) child);
             new MaterialTapTargetSequence()
                     .addPrompt(new CustomTapTargetPromptBuilder(getActivity())
-                            .setTarget(R.id.profile_add)
-                            .setSecondaryText(R.string.profile_add_text))
-                    .addPrompt(new CustomTapTargetPromptBuilder(getActivity())
                             .setTarget(R.id.profile_edit)
                             .setSecondaryText(R.string.profile_edit_text))
+                    .addPrompt(new CustomTapTargetPromptBuilder(getActivity())
+                            .setTarget(R.id.profile_add)
+                            .setSecondaryText(R.string.profile_add_text))
                     .addPrompt(new CustomTapTargetPromptBuilder(getActivity())
                             .setTarget(actionMenuView.getChildAt(actionMenuView.getChildCount() - 1))
                             .setSecondaryText(R.string.profile_about)).show();
