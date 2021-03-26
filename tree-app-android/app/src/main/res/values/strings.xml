@@ -242,6 +242,20 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="about_us">Über uns</string>
     <string name="privacy_declaration">Datenschutzerklärung</string>
     <string name="creation">Entstehung</string>
-    <string name="goal">Ziel</string>
+    <string name="goal">Über die App</string>
     <string name="powered_by">Ermöglicht durch</string>
+    <string name="about_intention_text">Der digitale Baumlehrpfad „App ins Grüne“ soll Kindern (und Erwachsenen) die heimischen Bäume auf spielerische Art näherbringen. Im Vordergrund steht dabei das Smartphone als Begleiter in der Natur: Viele Minispiele in der App erfordern die Interaktion mit der Umgebung, z.B. das Fotografieren der Blätter der Bäume. In den jeweiligen Steckbriefen können die Fotos zu jeder Zeit noch einmal betrachtet werden. Mit der Möglichkeit, eine eigene Sammlung zusammenzustellen, wollen wir nicht nur interaktives Lernen fördern, sondern auch einen Mehrwert bieten, denn die eigenen Fotos sind doch etwas Besonderes.</string>
+    <string name="about_text">Wie unsere heimischen Bäume war auch „App ins Grüne“ am Anfang ein kleiner Sprössling – gepflanzt von BISA „Biodiversität im Schulalltag“. Thomas Gerl, Lehrer und Mitglied bei BISA und des Lehrstuhls Didaktik der Biologie an der LMU brachte den Sprössling im Sommersemester 2019 zu einem interdisziplinären Workshop an der LMU, bei dem sich Studenten der kleinen Pflanze annahmen. Hier wurden zum Beispiel das Konzept der App und einiger Minispiele entwickelt und erste Illustrationen von den Bäumen, Blättern, Früchten und Baumstämmen angefertigt. Daraus entstand ein erster Prototyp!</string>
+    <string name="about_text2">Und es ging noch weiter! Im folgenden Jahr haben sich 3 Studenten aus dem Workshop bereit erklärt, sich um den jungen Baum zu kümmern. „App ins Grüne“ entwickelte sich langsam, aber stetig zu einer ersten Version der App, die bereits viele Features wie die Spielesammlung oder die Steckbriefe zu den Baumarten enthielt. Und auch ein Eichhörnchen fand den Weg in unsere App und wurde zum Maskottchen. Thomas Gerl stand dabei für Fragen und Verbesserungsvorschläge immer zur Seite.</string>
+    <string name="about_text3">Nun war unser Sprössling inzwischen schon recht groß geworden, aber noch keine ausgewachsene Pflanze. Im Wintersemester 2020/21 entstand an der LMU ein Gruppenpraktikum, bei dem auch neue Studenten hinzukamen und das Projekt fortführten. Mit einer Teamgröße von 13 Studenten und einer agilen Entwicklungsweise machte die App nun große Sprünge: Vorhandene Spiele wurden überarbeitet und neue entwickelt, ein Nutzerprofil wurde eingebaut und die Steckbriefe bekamen ein völlig neues Aussehen mit vielen Interaktionsmöglichkeiten.</string>
+    <string name="about_text4">Mit viel Engagement und Liebe zum Detail wurde aus dem Sprössling ein ausgewachsener Baum – „App ins Grüne“. An dieser Stelle wollen wir uns herzlich für die tatkräftige Unterstützung bei Thomas Gerl bedanken.</string>
+    <string name="about_subtitle_devs">Technische Umsetzung:</string>
+    <string name="about_subtitle_devs2">Projektkoordination</string>
+    <string name="about_subtitle_devs3">Entwicklung</string>
+    <string name="about_subtitle_devs4">Design</string>
+    <string name="about_subtitle_devs5">Texte</string>
+    <string name="about_text_devs2">Lisa Görtz</string>
+    <string name="about_text_devs3">Alexander Zwermann \nAugust Oberhauser \nBenedikt Strodl \nCarmen Golling \nCoco Rogers \nDaniel Steidl \nDavid Klein \nDominik Runge \nHanna Daxer \nJulia Pühl \nLisa Görtz \nMagdalena Benkard \nSophia Münch \nSvenja König \nStefan Körner \nYannick Weiss</string>
+    <string name="about_text_devs4">Cara Emberger \nCarmen Golling \nFabienne Daniela Lengweiler \nJulian Lorenz \nMaya Czupor</string>
+    <string name="about_text_devs5">Florentine Helmle \nLisa Görtz \nMarie Irmer \nThomas Gerl</string>
 </resources>
