@@ -114,12 +114,12 @@ public class DetailSingleTreeFragment extends Fragment {
     }
 
     private void setProgressColor(float progress, ProgressBar progressBar) {
-        int[] progressColors = Objects.requireNonNull(getContext()).getResources().getIntArray(R.array.progressColors);
+        int[] progressColors = requireContext().getResources().getIntArray(R.array.progressColors);
         progressBar.setProgressTintList(ColorStateList.valueOf(progressColors[(int) (progress / (101f / progressColors.length))]));
     }
 
     private void setupImageResources() {
-        int imageTreeId = Objects.requireNonNull(getContext()).getResources().getIdentifier(tree.getTreeImage(TreeComponent.TREE).imageResource, "drawable", getContext().getPackageName());
+        int imageTreeId = requireContext().getResources().getIdentifier(tree.getTreeImage(TreeComponent.TREE).imageResource, "drawable", getContext().getPackageName());
         int imageLeafId = getContext().getResources().getIdentifier(tree.getTreeImage(TreeComponent.LEAF).imageResource, "drawable", getContext().getPackageName());
         int imageFruitId = getContext().getResources().getIdentifier(tree.getTreeImage(TreeComponent.FRUIT).imageResource, "drawable", getContext().getPackageName());
         int imageTrunkId = getContext().getResources().getIdentifier(tree.getTreeImage(TreeComponent.TRUNK).imageResource, "drawable", getContext().getPackageName());

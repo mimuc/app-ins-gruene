@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="progressColors">
-        <item name="progress1_8" type="color">@color/progress1_8</item>
-        <item name="progress2_8" type="color">@color/progress2_8</item>
-        <item name="progress3_8" type="color">@color/progress3_8</item>
-        <item name="progress4_8" type="color">@color/progress4_8</item>
-        <item name="progress5_8" type="color">@color/progress5_8</item>
-        <item name="progress6_8" type="color">@color/progress6_8</item>
-        <item name="progress7_8" type="color">@color/progress7_8</item>
-        <item name="progress8_8" type="color">@color/progress8_8</item>
+        <item name="progress1_8" type="color">@color/progress_color1_8</item>
+        <item name="progress2_8" type="color">@color/progress_color2_8</item>
+        <item name="progress3_8" type="color">@color/progress_color3_8</item>
+        <item name="progress4_8" type="color">@color/progress_color4_8</item>
+        <item name="progress5_8" type="color">@color/progress_color5_8</item>
+        <item name="progress6_8" type="color">@color/progress_color6_8</item>
+        <item name="progress7_8" type="color">@color/progress_color7_8</item>
+        <item name="progress8_8" type="color">@color/progress_color8_8</item>
     </array>
 </resources>
