@@ -53,6 +53,12 @@ We recommend one of the following tools:
 ./gradlew clean test
 ```
 
+Detect lint issues:
+
+```
+./gradlew lint
+```
+
 ## How to Tag and Release the project
 
  We release our Build and APK with [Gradle release plugin](https://github.com/researchgate/gradle-release).
