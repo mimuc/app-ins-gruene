@@ -67,7 +67,7 @@ Detect lint issues:
  Release call for specific version, where `releaseVersion` is the current release version and `newVersion` will be the next version:
  
 ```
-  ./gradlew clean release -Prelease.useAutomaticVersion=true -Prelease.releaseVersion=0.1.0-alpha.0 -Prelease.newVersion=0.1.1-SNAPSHOT
+  ./gradlew clean release -Prelease.useAutomaticVersion=true -Prelease.releaseVersion=0.1.0-alpha.1 -Prelease.newVersion=0.1.1-SNAPSHOT
 ```
 
  Release Call for Standard Version Increase is:
