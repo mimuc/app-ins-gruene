@@ -60,7 +60,7 @@ public class TreeSelectionFragment extends Fragment {
 
         final Observer<Integer> indexObserver = newIndex -> pager.setCurrentItem(newIndex, false);
         viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
-        viewModel.getCurrentPagerIndex().observe(this, indexObserver);
+        viewModel.getCurrentPagerIndex().observe(getViewLifecycleOwner(), indexObserver);
     }
 
 
