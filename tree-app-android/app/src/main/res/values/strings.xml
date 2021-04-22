@@ -125,26 +125,10 @@
     <string name="imprint_imprint_title">IMPRESSUM</string>
     <string name="imprint_imprint_text">Informationen gemäß § 5 Telemediengesetz und § 55 Rundfunkstaatsvertrag. Die Ludwig-Maximilians-Universität München ist eine Körperschaft des öffentlichen Rechts. Sie wird durch den Präsidenten Prof. Dr. Bernd Huber gesetzlich vertreten.</string>
     <string name="imprint_publisher_title">Herausgeber</string>
-    <string name="imprint_publisher_text">
-        Ludwig-Maximilians-Universität München
-        Geschwister-Scholl-Platz 1
-        80539 München
-        Telefon: +49 (0) 89 / 2180 - 0
-        Kontakt: Poststelle@Verwaltung.Uni-Muenchen.de
-        Vertretungsberechtigter: Vorname Nachname</string>
-    <string name="imprint_authority_title">Zuständige Aufsichtsbehörde</string>
-    <string name="imprint_authority_text">Bayerisches Staatsministerium für Wissenschaft und Kunst
-        Salvatorstraße 2
-        80327 München
-        Webauftritt: https://www.km.bayern.de/index_wm.html</string>
-    <string name="imprint_tax_id_title">Umsatzsteuer-Identifikationsnummer der LMU</string>
-    <string name="imprint_tax_id_text">Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE811205325</string>
+    <string name="imprint_publisher_text">Prof. Dr. Heinrich Hußmann \nLudwig-Maximilians-Universität München \nInstitut für Informatik \n
+        \nProf. Birgit J. Neuhaus \nLudwig-Maximilians-Universität München \nFakultät für Biologie \nLehrstuhl für Didaktik der Biologie</string>
     <string name="imprint_tec_implementation_title">Verantwortlich für die technische Umsetzung</string>
-    <string name="imprint_tec_implementation_text">Malin Eiband, Yannick Weiss, Lisa Görtz, Cara Emberger</string>
-    <string name="imprint_text_title">Texte</string>
-    <string name="imprint_text_text">Thomas Gerl, Marie, Lisa Görtz</string>
-    <string name="imprint_graphics_title">Grafiken</string>
-    <string name="imprint_graphics_text">Cara Emberger, Maya Czupor, Fabienne Lengweiler</string>
+    <string name="imprint_tec_implementation_text">Studierende der LMU. Mehr Informationen unter \"Über uns\".</string>
     <string name="imprint_disclaimer_title">Freistellungserklärung</string>
     <string name="imprint_disclaimer_text">Die Angaben wurden nach bestem Wissen erstellt, Fehler können jedoch nicht mit letzter Sicherheit ausgeschlossen werden. Rechtlich verbindlich sind ausschließlich die Festlegungen in den einschlägigen Rechtsgrundlagen (Gesetze, Verordnungen, Satzungen).
 Eine Gewähr für die jederzeitige Aktualität, Richtigkeit, Vollständigkeit und Verfügbarkeit der bereitgestellten Informationen können wir nicht übernehmen.
@@ -153,8 +137,14 @@ Der Haftungsausschluss gilt nicht für Informationen, die in den Anwendungsberei
     <string name="imprint_copyright_title">Copyright / Urheberrecht</string>
     <string name="imprint_copyright_text">© Ludwig-Maximilians-Universität München - alle Rechte vorbehalten.
 Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie dürfen nur zum privaten und sonstigen eigenen Gebrauch im Rahmen des §53 Urheberrechtsgesetz (UrhG) verwendet werden. Eine anderweitige Verwendung ist nur nach vorheriger Genehmigung gestattet.</string>
-    <string name="imprint_privacy_title">Datenschutzerklärung</string>
-    <string name="imprint_privacy_text">Rechtsgrundlagen der Datenverarbeitung, Empfänger der personenbezogenen Daten, Rechte der betroffenen Person, Widerrufsrecht bei Einwilligung, Erhebung von Daten</string>
+
+    <!-- Privacy-->
+    <string name="privacy_title">Datenschutzerklärung</string>
+    <string name="privacy_access_title">Zugriffsrechte</string>
+    <string name="privacy_access_text">Es werden Zugriffrechte der Kamera des Smartphones benötigt, um im Rahmen der Minispiele Fotos von den Bäumen machen zu können. Die App ist aus diesem Grund ohne Kamera-Zugriff nur bedingt spielbar. \nDie App ist ohne Internetverwendung nutzbar, eine Internetverbindung wird nur für den Download der App benötigt. Bei bestehender Internetverbindung können jedoch von BISA (Biodiversität im Schulalltag) bereitgestellte Videos zu den jeweiligen Bäumen abgespielt werden – dabei handelt es sich jedoch nur um ein ergänzendes Zusatzangebot.
+    </string>
+    <string name="privacy_data_title">Persönliche Daten</string>
+    <string name="privacy_data_text">Es werden keine personenbezogene Daten erhoben. Freiwillig angegebene Daten (z.B. im Nutzerprofil) oder im Rahmen der Minispiele erstellte Fotos werden lokal auf dem Smartphone des Nutzers gespeichert und in keiner Form weiterverarbeitet. Diese Daten sind so lange auf dem eigenen Smartphone gespeichert, bis die Daten der App manuell entfernt werden oder die App deinstalliert wird.</string>
 
     <!-- Splash Screen -->
     <string name="splash_screen_image_appinsgruene">image_appinsgruene</string>
@@ -244,7 +234,7 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="creation">Entstehung</string>
     <string name="goal">Über die App</string>
     <string name="powered_by">Ermöglicht durch</string>
-    <string name="about_intention_text">Der digitale Baumlehrpfad „App ins Grüne“ soll Kindern (und Erwachsenen) die heimischen Bäume auf spielerische Art näherbringen. Im Vordergrund steht dabei das Smartphone als Begleiter in der Natur: Viele Minispiele in der App erfordern die Interaktion mit der Umgebung, z.B. das Fotografieren der Blätter der Bäume. In den jeweiligen Steckbriefen können die Fotos zu jeder Zeit noch einmal betrachtet werden. Mit der Möglichkeit, eine eigene Sammlung zusammenzustellen, wollen wir nicht nur interaktives Lernen fördern, sondern auch einen Mehrwert bieten, denn die eigenen Fotos sind doch etwas Besonderes.</string>
+    <string name="about_intention_text">Der digitale Baumlehrpfad „App ins Grüne“ soll Kindern (und Erwachsenen) die heimischen Bäume auf spielerische Art näherbringen. Im Vordergrund steht dabei das Smartphone als Begleiter in der Natur: Viele Minispiele in der App erfordern die Interaktion mit der Umgebung, z.B. das Fotografieren der Blätter der Bäume. In den jeweiligen Steckbriefen können die Fotos zu jeder Zeit noch einmal betrachtet werden. Mit der Möglichkeit, eine eigene Sammlung zusammenzustellen, wollen wir nicht nur interaktives Lernen fördern, sondern auch einen Mehrwert bieten, denn die eigenen Fotos sind doch etwas Besonderes!</string>
     <string name="about_text">Wie unsere heimischen Bäume war auch „App ins Grüne“ am Anfang ein kleiner Sprössling – gepflanzt von BISA „Biodiversität im Schulalltag“. Thomas Gerl, Lehrer und Mitglied bei BISA und des Lehrstuhls Didaktik der Biologie an der LMU brachte den Sprössling im Sommersemester 2019 zu einem interdisziplinären Workshop an der LMU, bei dem sich Studenten der kleinen Pflanze annahmen. Hier wurden zum Beispiel das Konzept der App und einiger Minispiele entwickelt und erste Illustrationen von den Bäumen, Blättern, Früchten und Baumstämmen angefertigt. Daraus entstand ein erster Prototyp!</string>
     <string name="about_text2">Und es ging noch weiter! Im folgenden Jahr haben sich 3 Studenten aus dem Workshop bereit erklärt, sich um den jungen Baum zu kümmern. „App ins Grüne“ entwickelte sich langsam, aber stetig zu einer ersten Version der App, die bereits viele Features wie die Spielesammlung oder die Steckbriefe zu den Baumarten enthielt. Und auch ein Eichhörnchen fand den Weg in unsere App und wurde zum Maskottchen. Thomas Gerl stand dabei für Fragen und Verbesserungsvorschläge immer zur Seite.</string>
     <string name="about_text3">Nun war unser Sprössling inzwischen schon recht groß geworden, aber noch keine ausgewachsene Pflanze. Im Wintersemester 2020/21 entstand an der LMU ein Gruppenpraktikum, bei dem auch neue Studenten hinzukamen und das Projekt fortführten. Mit einer Teamgröße von 13 Studenten und einer agilen Entwicklungsweise machte die App nun große Sprünge: Vorhandene Spiele wurden überarbeitet und neue entwickelt, ein Nutzerprofil wurde eingebaut und die Steckbriefe bekamen ein völlig neues Aussehen mit vielen Interaktionsmöglichkeiten.</string>
@@ -256,6 +246,6 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="about_subtitle_devs5">Texte</string>
     <string name="about_text_devs2">Lisa Görtz</string>
     <string name="about_text_devs3">Alexander Zwermann \nAugust Oberhauser \nBenedikt Strodl \nCarmen Golling \nCoco Rogers \nDaniel Steidl \nDavid Klein \nDominik Runge \nHanna Daxer \nJulia Pühl \nLisa Görtz \nMagdalena Benkard \nSophia Münch \nSvenja König \nStefan Körner \nYannick Weiss</string>
-    <string name="about_text_devs4">Cara Emberger \nCarmen Golling \nFabienne Daniela Lengweiler \nJulian Lorenz \nMaya Czupor</string>
+    <string name="about_text_devs4">Cara Emberger \nCarmen Golling \nFabienne Daniela Lengweiler \nFlorentine Helmle \nJulian Lorenz \nMaya Czupor \nThomas Gerl \nThomas Puls</string>
     <string name="about_text_devs5">Florentine Helmle \nLisa Görtz \nMarie Irmer \nThomas Gerl</string>
 </resources>
