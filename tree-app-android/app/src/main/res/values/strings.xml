@@ -123,17 +123,16 @@
 
     <!-- Imprint-->
     <string name="imprint_imprint_title">IMPRESSUM</string>
-    <string name="imprint_imprint_text">Informationen gemäß § 5 Telemediengesetz und § 55 Rundfunkstaatsvertrag. Die Ludwig-Maximilians-Universität München ist eine Körperschaft des öffentlichen Rechts. Sie wird durch den Präsidenten Prof. Dr. Bernd Huber gesetzlich vertreten.</string>
+    <string name="imprint_imprint_text">Informationen gemäß § 5 Telemediengesetz: </string>
     <string name="imprint_publisher_title">Herausgeber</string>
     <string name="imprint_publisher_text">Prof. Dr. Heinrich Hußmann \nLudwig-Maximilians-Universität München \nInstitut für Informatik \n
         \nProf. Birgit J. Neuhaus \nLudwig-Maximilians-Universität München \nFakultät für Biologie \nLehrstuhl für Didaktik der Biologie \nKontakt: Didaktik.Biologie@lrz.uni-muenchen.de</string>
     <string name="imprint_tec_implementation_title">Verantwortlich für die technische Umsetzung</string>
     <string name="imprint_tec_implementation_text">Studierende der LMU. Mehr Informationen unter \"Über uns\".</string>
     <string name="imprint_disclaimer_title">Freistellungserklärung</string>
-    <string name="imprint_disclaimer_text">Die Angaben wurden nach bestem Wissen erstellt, Fehler können jedoch nicht mit letzter Sicherheit ausgeschlossen werden. Rechtlich verbindlich sind ausschließlich die Festlegungen in den einschlägigen Rechtsgrundlagen (Gesetze, Verordnungen, Satzungen).
-Eine Gewähr für die jederzeitige Aktualität, Richtigkeit, Vollständigkeit und Verfügbarkeit der bereitgestellten Informationen können wir nicht übernehmen.
-Wir haften nicht für Schäden, die durch die Nutzung dieses Appangebots entstehen. Dieser Haftungsausschluss gilt nicht, soweit die Vorschriften des § 839 BGB (Haftung bei Amtspflichtverletzung) einschlägig sind. Für etwaige Schäden, die beim Aufrufen oder Herunterladen von Daten durch Schadsoftware oder der Installation oder Nutzung von Software verursacht werden, wird nicht gehaftet.
-Der Haftungsausschluss gilt nicht für Informationen, die in den Anwendungsbereich der Verordnung (EU) 2016/679 des Europäischen Parlaments und des Rates vom 27. April 2016 (Datenschutz-Grundverordnung) fallen. Für diese Informationen wird die Richtigkeit und Aktualität gewährleistet.</string>
+    <string name="imprint_disclaimer_text">Die Angaben wurden nach bestem Wissen erstellt, Fehler können jedoch nicht mit letzter Sicherheit ausgeschlossen werden. Eine Gewähr für die jederzeitige Aktualität, Richtigkeit, Vollständigkeit und Verfügbarkeit der bereitgestellten Informationen können wir nicht übernehmen.
+Wir haften nicht für Schäden, die durch die Nutzung dieses Appangebots entstehen. Für etwaige Schäden, die beim Aufrufen oder Herunterladen von Daten durch Schadsoftware oder der Installation oder Nutzung von Software verursacht werden, wird nicht gehaftet.
+</string>
     <string name="imprint_copyright_title">Copyright / Urheberrecht</string>
     <string name="imprint_copyright_text">© Ludwig-Maximilians-Universität München - alle Rechte vorbehalten.
 Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie dürfen nur zum privaten und sonstigen eigenen Gebrauch im Rahmen des §53 Urheberrechtsgesetz (UrhG) verwendet werden. Eine anderweitige Verwendung ist nur nach vorheriger Genehmigung gestattet.</string>
