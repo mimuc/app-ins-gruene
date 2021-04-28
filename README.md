@@ -53,13 +53,21 @@ We recommend one of the following tools:
 ./gradlew clean test
 ```
 
+Detect lint issues:
+
+```
+./gradlew lint
+```
+
 ## How to Tag and Release the project
 
+### Release in Git
+
  We release our Build and APK with [Gradle release plugin](https://github.com/researchgate/gradle-release).
- Release Call for specific Version is:
+ Release call for specific version, where `releaseVersion` is the current release version and `newVersion` will be the next version:
  
 ```
-  ./gradlew clean release -Prelease.useAutomaticVersion=true -Prelease.releaseVersion=1.0.0 -Prelease.newVersion=1.1.0-SNAPSHOT
+  ./gradlew clean release -Prelease.useAutomaticVersion=true -Prelease.releaseVersion=0.1.0-alpha.1 -Prelease.newVersion=0.1.1-SNAPSHOT
 ```
 
  Release Call for Standard Version Increase is:
@@ -71,6 +79,14 @@ If you just want to build an unsigned APK File, call:
 ```
   ./gradlew clean assemble
 ```
+
+### Release in Playstore
+
+Read the following docs:
+- [Publish your app](https://developer.android.com/studio/publish)
+- [Prepare for release](https://developer.android.com/studio/publish/preparing)
+- [Core app quality](https://developer.android.com/docs/quality-guidelines/core-app-quality)
+- [Launch checklist](https://developer.android.com/distribute/best-practices/launch/launch-checklist)
 
 ## Authors
 

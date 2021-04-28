@@ -1,10 +1,11 @@
 <resources>
     <!-- Common -->
+    <string name="app_name">Tree App</string>
     <string name="ahorn_tree">Ahorn</string>
     <string name="ok">OK</string>
     <string name="cancel">Abbrechen</string>
-    <string name="leaf_icon">Leaf Icon</string>
-    <string name="heart_icon">Heart Icon</string>
+    <string name="leaf_icon" translatable="false">Leaf Icon</string>
+    <string name="heart_icon" translatable="false">Heart Icon</string>
     <string name="please_select">Bitte auswählen</string>
 
     <!-- Bottom Bar -->
@@ -131,9 +132,16 @@
     <string name="imprint_tec_implementation_text">Studierende der LMU. Mehr Informationen unter \"Über uns\".</string>
     <string name="imprint_disclaimer_title">Freistellungserklärung</string>
     <string name="imprint_disclaimer_text">Die Angaben wurden nach bestem Wissen erstellt, Fehler können jedoch nicht mit letzter Sicherheit ausgeschlossen werden. Rechtlich verbindlich sind ausschließlich die Festlegungen in den einschlägigen Rechtsgrundlagen (Gesetze, Verordnungen, Satzungen).
-Eine Gewähr für die jederzeitige Aktualität, Richtigkeit, Vollständigkeit und Verfügbarkeit der bereitgestellten Informationen können wir nicht übernehmen.
-Wir haften nicht für Schäden, die durch die Nutzung dieses Appangebots entstehen. Dieser Haftungsausschluss gilt nicht, soweit die Vorschriften des § 839 BGB (Haftung bei Amtspflichtverletzung) einschlägig sind. Für etwaige Schäden, die beim Aufrufen oder Herunterladen von Daten durch Schadsoftware oder der Installation oder Nutzung von Software verursacht werden, wird nicht gehaftet.
-Der Haftungsausschluss gilt nicht für Informationen, die in den Anwendungsbereich der Verordnung (EU) 2016/679 des Europäischen Parlaments und des Rates vom 27. April 2016 (Datenschutz-Grundverordnung) fallen. Für diese Informationen wird die Richtigkeit und Aktualität gewährleistet.</string>
+        Eine Gewähr für die jederzeitige Aktualität, Richtigkeit, Vollständigkeit und Verfügbarkeit der bereitgestellten
+        Informationen können wir nicht übernehmen.
+        Wir haften nicht für Schäden, die durch die Nutzung dieses Appangebots entstehen. Dieser Haftungsausschluss gilt
+        nicht, soweit die Vorschriften des § 839 BGB (Haftung bei Amtspflichtverletzung) einschlägig sind. Für etwaige
+        Schäden, die beim Aufrufen oder Herunterladen von Daten durch Schadsoftware oder der Installation oder Nutzung
+        von Software verursacht werden, wird nicht gehaftet.
+        Der Haftungsausschluss gilt nicht für Informationen, die in den Anwendungsbereich der Verordnung (EU) 2016/679
+        des Europäischen Parlaments und des Rates vom 27. April 2016 (Datenschutz-Grundverordnung) fallen. Für diese
+        Informationen wird die Richtigkeit und Aktualität gewährleistet.
+    </string>
     <string name="imprint_copyright_title">Copyright / Urheberrecht</string>
     <string name="imprint_copyright_text">© Ludwig-Maximilians-Universität München - alle Rechte vorbehalten.
 Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie dürfen nur zum privaten und sonstigen eigenen Gebrauch im Rahmen des §53 Urheberrechtsgesetz (UrhG) verwendet werden. Eine anderweitige Verwendung ist nur nach vorheriger Genehmigung gestattet.</string>
@@ -147,8 +155,8 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="privacy_data_text">Es werden keine personenbezogene Daten erhoben. Freiwillig angegebene Daten (z.B. im Nutzerprofil) oder im Rahmen der Minispiele erstellte Fotos werden lokal auf dem Smartphone des Nutzers gespeichert und in keiner Form weiterverarbeitet. Diese Daten sind so lange auf dem eigenen Smartphone gespeichert, bis die Daten der App manuell entfernt werden oder die App deinstalliert wird.</string>
 
     <!-- Splash Screen -->
-    <string name="splash_screen_image_appinsgruene">image_appinsgruene</string>
-    <string name="splash_screen_image_logos">image_logos</string>
+    <string name="splash_screen_image_appinsgruene" translatable="false">image_appinsgruene</string>
+    <string name="splash_screen_image_logos" translatable="false">image_logos</string>
     <string name="splash_screen_text">entstanden in Zusammenarbeit mit:</string>
 
     <string name="button_multiplayer_mode_description">Mulitplayer Modus</string>
