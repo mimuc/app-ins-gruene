@@ -1,10 +1,11 @@
 <resources>
     <!-- Common -->
+    <string name="app_name">Tree App</string>
     <string name="ahorn_tree">Ahorn</string>
     <string name="ok">OK</string>
     <string name="cancel">Abbrechen</string>
-    <string name="leaf_icon">Leaf Icon</string>
-    <string name="heart_icon">Heart Icon</string>
+    <string name="leaf_icon" translatable="false">Leaf Icon</string>
+    <string name="heart_icon" translatable="false">Heart Icon</string>
     <string name="please_select">Bitte auswählen</string>
 
     <!-- Bottom Bar -->
@@ -50,6 +51,7 @@
     <string name="game_difficulty_hard">Ich mag eine Herausforderung</string>
 
     <string name="game_description_placeholder">Spiel-Beschreibung</string>
+    <string name="game_send_button_placeholder_text">Fertig!</string>
     <string name="game_score_comparison">%1$d / %2$d</string>
     <string name="game_new_highscore">Neuer Highscore!</string>
     <string name="game_no_highscore">Kein neuer Highscore!</string>
@@ -78,16 +80,17 @@
     <string name="game_description_input_hint">Dein eigenes Wort</string>
 
     <string name="game_input_string_input_text_field_hint_text">Antwort</string>
-    <string name="game_input_string_send_button_placeholder_text">Fertig!</string>
 
     <string name="game_orderWords_instructions">Tippe nacheinander auf die Wörter:</string>
     <string name="game_orderWords_solution_description">So, hier stimmt es wieder:</string>
 
-    <string name="game_puzzle_instructions">Ziehe die Puzzleteile an die richtigen Stellen um das Bild zu vervollständigen.</string>
+    <string name="game_puzzle_instructions">Ziehe die Puzzleteile an die richtigen Stellen, um das Bild zu vervollständigen.</string>
+
+    <string name="game_description_sliding_puzzle">Repariere das Bild, indem du die verschiedenen Puzzlestücke verschiebst.</string>
+    <string name="game_sliding_puzzle_help">So sieht das fertige Bild aus:</string>
 
     <string name="game_take_picture_example">Beispielbild</string>
     <string name="game_take_picture_own_foto">Vorschau deines Fotos</string>
-    <string name="game_take_picture_send_button_placeholder_text">Fertig!</string>
 
     <!-- Popup -->
     <string name="popup_quiz_positive_title">Richtig!</string>
@@ -103,6 +106,7 @@
     <string name="popup_neutral_ok">Ok!</string>
     <string name="popup_win_title">Gewonnen!</string>
     <string name="popup_win_title_done">"Geschafft!"</string>
+    <string name="popup_loose_title_short">Oh nein…</string>
     <string name="popup_loose_title">Oh nein… denke daran, dass du nur Begriffe auswählst, die du fühlen kannst. Sehen ist nicht fühlen. </string>
     <string name="popup_loose_title_not_sufficient">Leider hat es nicht gereicht.</string>
     <string name="popup_try_again">Probier\'s doch noch einmal... einen Versuch hast du übrig!</string>
@@ -147,18 +151,30 @@
     <string name="imprint_graphics_text">Cara Emberger, Maya Czupor, Fabienne Lengweiler</string>
     <string name="imprint_disclaimer_title">Freistellungserklärung</string>
     <string name="imprint_disclaimer_text">Die Angaben wurden nach bestem Wissen erstellt, Fehler können jedoch nicht mit letzter Sicherheit ausgeschlossen werden. Rechtlich verbindlich sind ausschließlich die Festlegungen in den einschlägigen Rechtsgrundlagen (Gesetze, Verordnungen, Satzungen).
-Eine Gewähr für die jederzeitige Aktualität, Richtigkeit, Vollständigkeit und Verfügbarkeit der bereitgestellten Informationen können wir nicht übernehmen.
-Wir haften nicht für Schäden, die durch die Nutzung dieses Appangebots entstehen. Dieser Haftungsausschluss gilt nicht, soweit die Vorschriften des § 839 BGB (Haftung bei Amtspflichtverletzung) einschlägig sind. Für etwaige Schäden, die beim Aufrufen oder Herunterladen von Daten durch Schadsoftware oder der Installation oder Nutzung von Software verursacht werden, wird nicht gehaftet.
-Der Haftungsausschluss gilt nicht für Informationen, die in den Anwendungsbereich der Verordnung (EU) 2016/679 des Europäischen Parlaments und des Rates vom 27. April 2016 (Datenschutz-Grundverordnung) fallen. Für diese Informationen wird die Richtigkeit und Aktualität gewährleistet.</string>
+        Eine Gewähr für die jederzeitige Aktualität, Richtigkeit, Vollständigkeit und Verfügbarkeit der bereitgestellten
+        Informationen können wir nicht übernehmen.
+        Wir haften nicht für Schäden, die durch die Nutzung dieses Appangebots entstehen. Dieser Haftungsausschluss gilt
+        nicht, soweit die Vorschriften des § 839 BGB (Haftung bei Amtspflichtverletzung) einschlägig sind. Für etwaige
+        Schäden, die beim Aufrufen oder Herunterladen von Daten durch Schadsoftware oder der Installation oder Nutzung
+        von Software verursacht werden, wird nicht gehaftet.
+        Der Haftungsausschluss gilt nicht für Informationen, die in den Anwendungsbereich der Verordnung (EU) 2016/679
+        des Europäischen Parlaments und des Rates vom 27. April 2016 (Datenschutz-Grundverordnung) fallen. Für diese
+        Informationen wird die Richtigkeit und Aktualität gewährleistet.
+    </string>
     <string name="imprint_copyright_title">Copyright / Urheberrecht</string>
     <string name="imprint_copyright_text">© Ludwig-Maximilians-Universität München - alle Rechte vorbehalten.
-Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie dürfen nur zum privaten und sonstigen eigenen Gebrauch im Rahmen des §53 Urheberrechtsgesetz (UrhG) verwendet werden. Eine anderweitige Verwendung ist nur nach vorheriger Genehmigung gestattet.</string>
+        Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie dürfen nur zum privaten und
+        sonstigen eigenen Gebrauch im Rahmen des §53 Urheberrechtsgesetz (UrhG) verwendet werden. Eine anderweitige
+        Verwendung ist nur nach vorheriger Genehmigung gestattet.
+    </string>
     <string name="imprint_privacy_title">Datenschutzerklärung</string>
-    <string name="imprint_privacy_text">Rechtsgrundlagen der Datenverarbeitung, Empfänger der personenbezogenen Daten, Rechte der betroffenen Person, Widerrufsrecht bei Einwilligung, Erhebung von Daten</string>
+    <string name="imprint_privacy_text">Rechtsgrundlagen der Datenverarbeitung, Empfänger der personenbezogenen Daten,
+        Rechte der betroffenen Person, Widerrufsrecht bei Einwilligung, Erhebung von Daten
+    </string>
 
     <!-- Splash Screen -->
-    <string name="splash_screen_image_appinsgruene">image_appinsgruene</string>
-    <string name="splash_screen_image_logos">image_logos</string>
+    <string name="splash_screen_image_appinsgruene" translatable="false">image_appinsgruene</string>
+    <string name="splash_screen_image_logos" translatable="false">image_logos</string>
     <string name="splash_screen_text">entstanden in Zusammenarbeit mit:</string>
 
     <string name="button_multiplayer_mode_description">Mulitplayer Modus</string>
@@ -173,6 +189,7 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="slidepuzzle_win">Du hast das Puzzle gelöst.</string>
     <string name="blossom_male">Männliche Blüte</string>
     <string name="blossom_female">Weibliche Blüte</string>
+    <string name="slidepuzzle_time">Zeit</string>
 
     <!-- Tutorial -->
     <string name="overview_heading">Waldübersicht</string>

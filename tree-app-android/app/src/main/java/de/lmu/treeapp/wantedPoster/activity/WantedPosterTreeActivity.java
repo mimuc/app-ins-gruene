@@ -275,6 +275,7 @@ public class WantedPosterTreeActivity extends AppCompatActivity implements
             new MaterialTapTargetSequence()
                     .addPrompt(new CustomTapTargetPromptBuilder(WantedPosterTreeActivity.this)
                             .setTarget(target)
+                            .setIcon(R.drawable.card_wanted_circle_icon)
                             .setSecondaryText(getString(R.string.wanted_poster_text, treeName)))
                     .show();
         }

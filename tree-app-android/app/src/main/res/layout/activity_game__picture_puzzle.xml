@@ -8,66 +8,105 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="360dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="40dp"
-        android:text="Repariere das Bild indem du die verschiedenen Puzzlestücke verschiebst."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/game_description_sliding_puzzle"
+        android:textAlignment="center"
+        android:textSize="@dimen/heading2"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/helpImageButton"
-        android:layout_width="45dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
-        app:icon="@drawable/ic_question"
-        app:layout_constraintBottom_toTopOf="@+id/slidePuzzleLayout"
-        app:layout_constraintEnd_toEndOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/time_TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Zeit"
-        app:layout_constraintBottom_toBottomOf="@+id/selection_frame"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slidePuzzleLayout" />
-
-    <Button
-        android:id="@+id/doneButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fertig"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slidePuzzleLayout" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/slidePuzzleLayout"
-        android:layout_width="360dp"
-        android:layout_height="360dp"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toTopOf="@id/game_picture_puzzle_sendButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.42000002">
+        app:layout_constraintTop_toBottomOf="@id/textView">
 
-        <de.lmu.treeapp.activities.minigames.slidePuzzle.DragDropGrid
-            android:id="@+id/grid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context="de.lmu.treeapp.activities.minigames.slidePuzzle.MainActivity"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="110dp">
 
-        </de.lmu.treeapp.activities.minigames.slidePuzzle.DragDropGrid>
+        <Button
+            android:id="@+id/falseTilesButton"
+            android:layout_width="45dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/red"
+            app:icon="@drawable/ic_cross_circle"
+            app:iconGravity="top"
+            app:layout_constraintBottom_toTopOf="@+id/slidePuzzleLayout"
+            app:layout_constraintEnd_toStartOf="@+id/helpImageButton" />
+
+        <Button
+            android:id="@+id/helpImageButton"
+            android:layout_width="45dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            app:icon="@drawable/ic_question"
+            app:layout_constraintBottom_toTopOf="@+id/slidePuzzleLayout"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/time_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/slidepuzzle_time"
+            app:layout_constraintBottom_toBottomOf="@id/helpImageButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/helpImageButton" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/slidePuzzleLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#FFFFFF"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/time_TextView">
+
+            <de.lmu.treeapp.activities.minigames.slidePuzzle.DragDropGrid
+                android:id="@+id/grid"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                tools:context="de.lmu.treeapp.activities.minigames.slidePuzzle.MainActivity"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="0dp"
+                app:layout_constraintDimensionRatio="W,1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteY="110dp" />
+
+            <de.lmu.treeapp.activities.minigames.slidePuzzle.DragDropGrid
+                android:id="@+id/gridFalse"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                tools:context="de.lmu.treeapp.activities.minigames.slidePuzzle.MainActivity"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="0dp"
+                app:layout_constraintDimensionRatio="W,1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteY="110dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
@@ -83,14 +122,14 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="32dp"
-        app:cardCornerRadius="30dp"
+        android:translationZ="8dp"
+        app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:visibility="invisible">
@@ -104,36 +143,65 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="So sieht das fertige Bild aus"
+                android:text="@string/game_sliding_puzzle_help"
                 android:textColor="@color/darkForest"
+                android:textSize="@dimen/heading2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/doneImage"
-                android:layout_width="334dp"
-                android:layout_height="318dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
                 app:layout_constraintBottom_toTopOf="@+id/continueButton"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3"
                 app:srcCompat="@drawable/sb_bluete_foto_ahorn" />
 
             <Button
                 android:id="@+id/continueButton"
-                android:layout_width="wrap_content"
+                style="@style/AppTheme.Button"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
-                android:text="Weiter"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:elevation="4dp"
+                android:fontFamily="@font/freude"
+                android:padding="8dp"
+                android:text="@string/button_next"
+                android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+                android:textSize="@dimen/buttons"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.6" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/game_picture_puzzle_sendButton"
+        style="@style/AppTheme.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="4dp"
+        android:fontFamily="@font/freude"
+        android:padding="8dp"
+        android:text="@string/game_send_button_placeholder_text"
+        android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
+        android:textSize="@dimen/buttons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
