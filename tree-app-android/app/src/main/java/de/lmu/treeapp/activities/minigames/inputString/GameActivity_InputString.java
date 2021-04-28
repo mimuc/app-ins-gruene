@@ -1,26 +1,14 @@
 package de.lmu.treeapp.activities.minigames.inputString;
 
 
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
-
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Random;
-import java.io.BufferedReader;
-import java.util.ArrayList;
-
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentData.DataManager;
@@ -31,15 +19,17 @@ import de.lmu.treeapp.popup.Popup;
 import de.lmu.treeapp.popup.PopupAction;
 import de.lmu.treeapp.popup.PopupInterface;
 import de.lmu.treeapp.popup.PopupType;
+import de.lmu.treeapp.utils.language.ProfanityFilter;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Completable;
+
+import java.util.Objects;
+import java.util.Random;
 
 
 public class GameActivity_InputString extends GameActivity_Base implements PopupInterface {
 
     private TextInputEditText inputField;
-    ArrayList<String> swearwords = new ArrayList<>();
-    ArrayList<String> words = new ArrayList<>();
     protected Popup popup;
     protected GameStateInputString gameStateInputString;
 
@@ -52,8 +42,6 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
 
         inputField = findViewById(R.id.game_inputString_inputField);
         TextInputLayout textInputLayout = findViewById(R.id.textInputLayout);
-
-        swearwords = readSwearwordsfromFile("swearwords.txt", this);
 
         popup = new Popup(this, treeId);
 
@@ -71,8 +59,8 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
             createBackground(constraintLayout, set, image, textInputLayout);
 
             sendButton.setOnClickListener(view -> {
-                Boolean isNotEmpty = checkIfInputEmpty(Objects.requireNonNull(inputField.getText()).toString());
-                Boolean isNotProfane = checkProfanity(Objects.requireNonNull(inputField.getText()).toString());
+                Boolean isNotEmpty = !isInputEmpty(Objects.requireNonNull(inputField.getText()).toString());
+                Boolean isNotProfane = ProfanityFilter.getInstance(this).checkProfanity(Objects.requireNonNull(inputField.getText()).toString());
 
                 if (isNotEmpty && isNotProfane) {
                     setDone(true);
@@ -91,28 +79,6 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
         });
     }
 
-    private boolean checkProfanity(String toString) {
-        // add words from the input string into an array "words"
-        words.addAll(Arrays.asList(toString.toLowerCase().split(" ")));
-
-        // for API >= 24
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return words.stream().noneMatch(textWord -> swearwords.stream().anyMatch(textWord::contains));
-        } else {
-            // for API < 24
-            // Check for each word of the input if it is in the list of swearwords
-            for (String word : toString.split(" ")) {
-                for (String profane : swearwords) {
-                    if (word.toLowerCase().startsWith(profane)) {
-                        // there is a swearword
-                        return false;
-                    }
-                }
-            }
-        }
-        // no swearword
-        return true;
-    }
 
     @Override
     public void onPopupAction(PopupType type, PopupAction action) {
@@ -213,20 +179,4 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
         // place image view behind text field:
         set.setTranslationZ(childView.getId(), -1);
     }
-
-    public ArrayList<String> readSwearwordsfromFile(String fileName, Context context) {
-        ArrayList<String> swearwords = new ArrayList<>();
-        BufferedReader bufferedReader;
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(context.getResources().getAssets().open(fileName)));
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                swearwords.add(line);
-            }
-        } catch (Exception e) {
-            e.getMessage();
-        }
-        return swearwords;
-    }
-
 }
