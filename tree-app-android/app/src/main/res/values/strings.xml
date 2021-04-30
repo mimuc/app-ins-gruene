@@ -134,8 +134,11 @@
 Wir haften nicht für Schäden, die durch die Nutzung dieses Appangebots entstehen. Für etwaige Schäden, die beim Aufrufen oder Herunterladen von Daten durch Schadsoftware oder der Installation oder Nutzung von Software verursacht werden, wird nicht gehaftet.
 </string>
     <string name="imprint_copyright_title">Copyright / Urheberrecht</string>
-    <string name="imprint_copyright_text">© Ludwig-Maximilians-Universität München - alle Rechte vorbehalten.
-Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie dürfen nur zum privaten und sonstigen eigenen Gebrauch im Rahmen des §53 Urheberrechtsgesetz (UrhG) verwendet werden. Eine anderweitige Verwendung ist nur nach vorheriger Genehmigung gestattet.</string>
+    <string name="imprint_copyright_text">Alter Text: \n © Ludwig-Maximilians-Universität München - alle Rechte vorbehalten.
+Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie dürfen nur zum privaten und sonstigen eigenen Gebrauch im Rahmen des §53 Urheberrechtsgesetz (UrhG) verwendet werden. Eine anderweitige Verwendung ist nur nach vorheriger Genehmigung gestattet. \n
+    \nNeuer Text:\nSoweit die Inhalte dieser App nicht von den Entwicklern erstellt wurden, werden die Urheberrechte Dritter beachtet. Diese werden im Folgenden genannt (oder so ähnlich): \n
+    \nHier kommen die Links für die Illus rein:\n
+    \nSollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen. </string>
 
     <!-- Privacy-->
     <string name="menu_privacy">Datenschutz</string>
