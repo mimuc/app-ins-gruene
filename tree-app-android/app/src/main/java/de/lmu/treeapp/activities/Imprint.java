@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import de.lmu.treeapp.R;
 
-
 public class Imprint extends AppCompatActivity {
 
     @Override

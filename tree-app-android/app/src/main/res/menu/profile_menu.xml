@@ -2,8 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-
     <item
         android:id="@+id/profile_edit"
         android:icon="@drawable/ic_baseline_edit"
@@ -20,11 +18,11 @@
 
     <item
         android:id="@+id/open_imprint"
-        android:title="@string/overview_fragment_btn_imprint" />
+        android:title="@string/menu_imprint" />
     <item
         android:id="@+id/open_privacy"
-        android:title="@string/datenschutz" />
+        android:title="@string/menu_privacy" />
     <item
         android:id="@+id/open_about"
-        android:title="@string/about_us" />
+        android:title="@string/menu_about_us" />
 </menu>

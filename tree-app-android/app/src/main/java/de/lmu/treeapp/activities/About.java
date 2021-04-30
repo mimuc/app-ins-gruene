@@ -10,7 +10,6 @@ import org.w3c.dom.Text;
 
 import de.lmu.treeapp.R;
 
-
 public class About extends AppCompatActivity {
 
     @Override
