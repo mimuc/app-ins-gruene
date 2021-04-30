@@ -139,6 +139,8 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     \nNeuer Text:\nSoweit die Inhalte dieser App nicht von den Entwicklern erstellt wurden, werden die Urheberrechte Dritter beachtet. Diese werden im Folgenden genannt (oder so ähnlich): \n
     \nHier kommen die Links für die Illus rein:\n
     \nSollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen. </string>
+    <string name="imprint_links_title">Haftung für Links</string>
+    <string name="imprint_links_text">Die App enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Daher können wir für diese auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</string>
 
     <!-- Privacy-->
     <string name="menu_privacy">Datenschutz</string>
