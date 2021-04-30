@@ -1,10 +1,11 @@
 <resources>
     <!-- Common -->
+    <string name="app_name">Tree App</string>
     <string name="ahorn_tree">Ahorn</string>
     <string name="ok">OK</string>
     <string name="cancel">Abbrechen</string>
-    <string name="leaf_icon">Leaf Icon</string>
-    <string name="heart_icon">Heart Icon</string>
+    <string name="leaf_icon" translatable="false">Leaf Icon</string>
+    <string name="heart_icon" translatable="false">Heart Icon</string>
     <string name="please_select">Bitte auswählen</string>
 
     <!-- Bottom Bar -->
@@ -152,8 +153,8 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="privacy_data_text">Es werden keine personenbezogene Daten erhoben. Freiwillig angegebene Daten (z.B. im Nutzerprofil) oder im Rahmen der Minispiele erstellte Fotos werden lokal auf dem Smartphone des Nutzers gespeichert und in keiner Form weiterverarbeitet. Diese Daten sind so lange auf dem eigenen Smartphone gespeichert, bis die Daten der App manuell entfernt werden oder die App deinstalliert wird.</string>
 
     <!-- Splash Screen -->
-    <string name="splash_screen_image_appinsgruene">image_appinsgruene</string>
-    <string name="splash_screen_image_logos">image_logos</string>
+    <string name="splash_screen_image_appinsgruene" translatable="false">image_appinsgruene</string>
+    <string name="splash_screen_image_logos" translatable="false">image_logos</string>
     <string name="splash_screen_text">entstanden in Zusammenarbeit mit:</string>
 
     <string name="button_multiplayer_mode_description">Mulitplayer Modus</string>

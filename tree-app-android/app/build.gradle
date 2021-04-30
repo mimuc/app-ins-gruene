@@ -19,21 +19,22 @@ android {
         applicationId "de.lmu.treeapp"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode System.getenv("BUILD_NUMBER") as Integer ?: 9999
+        versionCode System.getenv("BUILD_NUMBER") as Integer ?: 11
         versionName version
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            shrinkResources false // resourceIds depend on db ids
             testCoverageEnabled true
             applicationIdSuffix '.debug'
-            resValue "string", "app_name", "App ins Grüne"
         }
         release {
-            testCoverageEnabled true
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            resValue "string", "app_name", "Tree App"
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            shrinkResources false // resourceIds depend on db ids
         }
     }
     buildFeatures {
@@ -42,6 +43,9 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions{
+        disable 'MissingTranslation'
     }
 }
 
