@@ -201,9 +201,8 @@
                         <ImageView
                             android:id="@+id/profile_location_flag"
                             android:layout_width="match_parent"
-                            android:layout_height="65sp"
-                            android:layout_marginHorizontal="20dp"
-                            android:scaleType="fitCenter"
+                            android:layout_height="65dp"
+                            android:scaleType="fitStart"
                             app:srcCompat="@drawable/ic_flag_bavaria" />
 
                         <TextView
@@ -211,7 +210,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Neustadt"
-                            android:textAlignment="center" />
+                            app:layout_gravity="fill_horizontal" />
 
                     </LinearLayout>
                     <ImageView
