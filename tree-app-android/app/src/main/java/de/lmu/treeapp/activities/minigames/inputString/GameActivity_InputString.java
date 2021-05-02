@@ -5,16 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
-
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.util.Objects;
-import java.util.Random;
-
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentData.DataManager;
@@ -25,8 +19,13 @@ import de.lmu.treeapp.popup.Popup;
 import de.lmu.treeapp.popup.PopupAction;
 import de.lmu.treeapp.popup.PopupInterface;
 import de.lmu.treeapp.popup.PopupType;
+import de.lmu.treeapp.utils.language.ProfanityFilter;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Completable;
+
+import java.util.Objects;
+import java.util.Random;
+
 
 public class GameActivity_InputString extends GameActivity_Base implements PopupInterface {
 
@@ -60,13 +59,21 @@ public class GameActivity_InputString extends GameActivity_Base implements Popup
             createBackground(constraintLayout, set, image, textInputLayout);
 
             sendButton.setOnClickListener(view -> {
-                if (checkIfInputEmpty(Objects.requireNonNull(inputField.getText()).toString())) {
+                Boolean isNotEmpty = !isInputEmpty(Objects.requireNonNull(inputField.getText()).toString());
+                Boolean isNotProfane = ProfanityFilter.getInstance(this).checkProfanity(Objects.requireNonNull(inputField.getText()).toString());
+
+                if (isNotEmpty && isNotProfane) {
                     setDone(true);
                     popup.setButtonSecondary(true);
                     popup.showWithButtonText(PopupType.POSITIVE_ANIMATION, getString(R.string.popup_btn_finished), getString(R.string.popup_btn_wiki), inputField.getText().toString());
                 } else {
-                    popup.setLooseTitle(getString(R.string.popup_negative_title_close));
-                    popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_enter_something));
+                    if (!isNotEmpty) {
+                        popup.setLooseTitle(getString(R.string.popup_negative_title_close));
+                        popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_enter_something));
+                    } else {
+                        popup.setLooseTitle(getString(R.string.popup_negative_title_swearwords));
+                        popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_no_swearwords));
+                    }
                 }
             });
         });
