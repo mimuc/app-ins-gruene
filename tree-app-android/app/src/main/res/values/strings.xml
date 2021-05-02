@@ -117,6 +117,9 @@
     <string name="popup_only_description_foto_text">Wenn du direkt hier ein Foto machen willst, klick auf Foto. Dann landet dein Bild auch im Steckbrief!</string>
     <string name="popup_close_app_title">Möchtest du die App wirklich beenden?</string>
     <string name="popup_close_app_accept">Ja</string>
+    <string name="popup_no_swearwords">Bitte keine Schimpfwörter benutzen!</string>
+    <string name="popup_negative_title_swearwords">Vorsicht!</string>
+
     <string name="button_next">Weiter</string>
     <string name="button_back">Zurück</string>
     <string name="button_repeat">Nochmal</string>
