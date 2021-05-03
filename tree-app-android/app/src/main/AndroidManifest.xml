@@ -164,6 +164,9 @@
                 android:value="activities.MainActivity" />
         </activity>
         <activity
+            android:name=".activities.LicenseActivity"
+            android:parentActivityName="activities.MainActivity"></activity>
+        <activity
             android:name=".activities.BarcodeCaptureActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
         <activity android:name=".wantedPoster.activity.WantedPosterTreeActivity" />
