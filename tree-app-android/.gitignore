@@ -88,6 +88,11 @@ lint/tmp/
 # Android Profiling
 *.hprof
 
+# R plugin
+.idea/rSettings.xml
+.idea/rGraphicsSettings.xml
+.idea/rpackages.xml
+
 # OS generated files
 .DS_Store
 .fuse_hidden*
