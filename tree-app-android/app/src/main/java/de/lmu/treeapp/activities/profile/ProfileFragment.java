@@ -6,21 +6,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.widget.ActionMenuView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
-
-import java.util.List;
-import java.util.Random;
-
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.activities.MainActivity;
 import de.lmu.treeapp.contentClasses.UserProfileCategory;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.contentData.database.daos.content.UserProfileDao;
@@ -29,6 +22,9 @@ import de.lmu.treeapp.contentData.database.entities.content.UserProfileOption;
 import de.lmu.treeapp.tutorial.CustomTapTargetPromptBuilder;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence;
+
+import java.util.List;
+import java.util.Random;
 
 public class ProfileFragment extends Fragment {
 
@@ -65,15 +61,12 @@ public class ProfileFragment extends Fragment {
 
         View view = DataBindingUtil.inflate(LayoutInflater.from(requireContext()), R.layout.fragment_profile, container, false).getRoot();
 
-        TextView treeTextView = view.findViewById(R.id.profileSlide_tree_text);
         ImageView treeImgView = view.findViewById(R.id.profileSlide_tree_Img);
         TextView userNameView = view.findViewById(R.id.profileSlide_name);
         TextView ageTextView = view.findViewById(R.id.profileSlide_age);
         TextView locationTextView = view.findViewById(R.id.profileSlide_location);
         ImageView locationFlagView = view.findViewById(R.id.profile_location_flag);
-        TextView leafTextView = view.findViewById(R.id.profileSlide_leaf_text);
         ImageView leafImgView = view.findViewById(R.id.profileSlide_leaf_Img);
-        TextView seasonTextView = view.findViewById(R.id.profileSlide_season_text);
         ImageView seasonImgView = view.findViewById(R.id.profileSlide_season_Img);
         TextView profileBubbleText = view.findViewById(R.id.profile_bubbleText);
         ImageView avatarImg = view.findViewById(R.id.profile_avatar_img);
@@ -90,27 +83,6 @@ public class ProfileFragment extends Fragment {
                 profileBubbleText.setText(context.getString(R.string.profile_bubble_text, this.userProfileState.name));
                 userNameView.setText(this.userProfileState.name.substring(0, 1).toUpperCase() + this.userProfileState.name.substring(1).toLowerCase());
                 ageTextView.setText(this.userProfileState.age);
-
-                if(this.userProfileState.tree != -1){
-                    treeTextView.setText(this.userProfileState.tree);
-                }
-                else{
-                    treeTextView.setText("Ahorn");
-                }
-
-                if(this.userProfileState.leaf != -1){
-                    leafTextView.setText(this.userProfileState.leaf);
-                }
-                else{
-                    treeTextView.setText("Ahornblatt");
-                }
-
-                if(this.userProfileState.season != -1){
-                    seasonTextView.setText(this.userProfileState.season);
-                }
-                else{
-                    treeTextView.setText("Winter");
-                }
 
                 int defaultAvatar = R.drawable.ic_singleplayer_squirrel;
                 if (this.userProfileState.avatar != null) {
