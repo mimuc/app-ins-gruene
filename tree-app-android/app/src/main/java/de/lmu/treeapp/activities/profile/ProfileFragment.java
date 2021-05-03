@@ -6,21 +6,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.widget.ActionMenuView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
-
-import java.util.List;
-import java.util.Random;
-
 import de.lmu.treeapp.R;
-import de.lmu.treeapp.activities.MainActivity;
 import de.lmu.treeapp.contentClasses.UserProfileCategory;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.contentData.database.daos.content.UserProfileDao;
@@ -29,6 +22,9 @@ import de.lmu.treeapp.contentData.database.entities.content.UserProfileOption;
 import de.lmu.treeapp.tutorial.CustomTapTargetPromptBuilder;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence;
+
+import java.util.List;
+import java.util.Random;
 
 public class ProfileFragment extends Fragment {
 

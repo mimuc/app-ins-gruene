@@ -91,8 +91,8 @@ public abstract class GameActivity_Base extends AppCompatActivity {
         showGameSelection();
     }
 
-    public boolean checkIfInputEmpty(String m_text) {
-        return m_text.matches(".*[a-z].*");
+    public boolean isInputEmpty(String m_text) {
+        return !m_text.matches("[\\s\\S]*(?i)[a-z][\\s\\S]*");
     }
 
 

@@ -161,7 +161,6 @@
 
                     <ImageView
                         android:id="@+id/profileSlide_leaf_Img"
-                        android:paddingStart="15dp"
                         android:layout_width="0dp"
                         android:layout_height="80sp"
                         android:scaleType="fitCenter"
@@ -213,16 +212,15 @@
                             app:layout_gravity="fill_horizontal" />
 
                     </LinearLayout>
+
                     <ImageView
                         android:id="@+id/profileSlide_season_Img"
                         android:layout_width="0dp"
                         android:layout_height="80sp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/ic_forest_navigation_bw"
-                        android:paddingStart="15dp"
                         app:layout_columnWeight="1"
                         app:layout_gravity="fill_horizontal" />
-
 
                 </androidx.gridlayout.widget.GridLayout>
 

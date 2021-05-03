@@ -10,20 +10,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.google.android.flexbox.AlignItems;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import com.google.android.flexbox.JustifyContent;
 import com.google.android.material.button.MaterialButton;
-
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentData.DataManager;
@@ -35,7 +28,13 @@ import de.lmu.treeapp.popup.Popup;
 import de.lmu.treeapp.popup.PopupAction;
 import de.lmu.treeapp.popup.PopupInterface;
 import de.lmu.treeapp.popup.PopupType;
+import de.lmu.treeapp.utils.language.ProfanityFilter;
 import io.reactivex.rxjava3.core.Completable;
+
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Objects;
 
 import static com.google.android.flexbox.FlexWrap.WRAP;
 import static de.lmu.treeapp.utils.language.LanguageUtils.getTreeGenitiveGerman;
@@ -79,12 +78,24 @@ public class GameActivity_Description extends GameActivity_Base implements Recyc
         builder.setPositiveButton(R.string.ok, (dialog, which) -> {
             dialog.dismiss();
             String m_Text = input.getText().toString();
-            if (checkIfInputEmpty(m_Text)) {
+
+            Boolean isNotEmpty = !isInputEmpty(Objects.requireNonNull(m_Text));
+            Boolean isNotProfane = ProfanityFilter.getInstance(this).checkProfanity(m_Text);
+
+            if (isNotEmpty && isNotProfane) {
                 rcAdapter.add(rcAdapter.getItemCount(), new DescriptionElement(m_Text, true,
                         GameActivity_Description.this, true));
                 if (rcAdapter.getItemCount() > 20) {
                     // allow max 20 items
                     addButton.setVisibility(View.INVISIBLE);
+                }
+            } else {
+                if (!isNotEmpty) {
+                    popup.setLooseTitle(getString(R.string.popup_negative_title_close));
+                    popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_enter_something));
+                } else {
+                    popup.setLooseTitle(getString(R.string.popup_negative_title_swearwords));
+                    popup.showWithButtonText(PopupType.NEGATIVE_ANIMATION, getString(R.string.popup_neutral_ok), getString(R.string.popup_no_swearwords));
                 }
             }
 
