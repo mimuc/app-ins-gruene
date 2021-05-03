@@ -49,8 +49,8 @@ public class GameActivity_Puzzle extends GameActivity_Base implements PopupInter
 
         ViewFlipper viewFlipper = findViewById(R.id.viewFlipperPuzzle);
         // set the animation type to ViewFlipper
-        viewFlipper.setInAnimation(this, R.anim.fragment_fade_enter);
-        viewFlipper.setOutAnimation(this, R.anim.fragment_fade_exit);
+        viewFlipper.setInAnimation(this, R.anim.fade_in);
+        viewFlipper.setOutAnimation(this, R.anim.fade_out);
 
         ImageButton btnEasy = findViewById(R.id.btn_easy);
         ImageButton btnMedium = findViewById(R.id.btn_medium);

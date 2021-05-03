@@ -56,8 +56,8 @@ public class GameActivity_OnlyDescription extends GameActivity_Base implements P
 
         ViewFlipper viewFlipper = findViewById(R.id.viewFlipperOnlyDescription);
         // set the animation type to ViewFlipper
-        viewFlipper.setInAnimation(this, R.anim.fragment_fade_enter);
-        viewFlipper.setOutAnimation(this, R.anim.fragment_fade_exit);
+        viewFlipper.setInAnimation(this, R.anim.fade_in);
+        viewFlipper.setOutAnimation(this, R.anim.fade_out);
 
         // set images according to tree and game as background
         setOnlyDescriptionBackground();
