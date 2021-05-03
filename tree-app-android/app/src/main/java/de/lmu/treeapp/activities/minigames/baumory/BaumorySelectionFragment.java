@@ -46,8 +46,8 @@ public class BaumorySelectionFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_baumory_selection, container, false);
         viewFlipper = rootView.findViewById(R.id.viewFlipperBaumorySelection);
         // set the animation type to ViewFlipper
-        viewFlipper.setInAnimation(getActivity(), R.anim.fragment_fade_enter);
-        viewFlipper.setOutAnimation(getActivity(), R.anim.fragment_fade_exit);
+        viewFlipper.setInAnimation(getActivity(), R.anim.fade_in);
+        viewFlipper.setOutAnimation(getActivity(), R.anim.fade_out);
         ImageButton multiPlayerButton = rootView.findViewById(R.id.btn_multiplayer);
         ImageButton singlePlayerButton = rootView.findViewById(R.id.btn_singleplayer);
         ImageButton easyButton = rootView.findViewById(R.id.btn_easy);
