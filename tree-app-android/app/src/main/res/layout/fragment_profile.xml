@@ -222,7 +222,6 @@
                         app:layout_columnWeight="1"
                         app:layout_gravity="fill_horizontal" />
 
-
                 </androidx.gridlayout.widget.GridLayout>
 
             </ScrollView>
