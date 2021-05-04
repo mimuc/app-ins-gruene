@@ -570,6 +570,18 @@ libraries:
       licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
       url: http://www.snakeyaml.org
   custom:
+    - artifact:
+      name: Our List of Bad Words
+      copyrightHolder: LDNOOBW & Contributors
+      license: Creative Commons Attribution 4.0 International
+      licenseUrl: https://creativecommons.org/licenses/by/4.0/
+      url: https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words
+    - artifact:
+      name: BanBuilder
+      copyrightHolder: Alison Gianotto
+      license: GNU Affero General Public License
+      licenseUrl: https://www.gnu.org/licenses/agpl-3.0.en.html
+      url: https://github.com/snipe/banbuilder
 
 media:
   nameResource: license_media
@@ -581,6 +593,18 @@ media:
       license: Font Awesome Free License
       licenseUrl: https://fontawesome.com/license/free
       url: https://github.com/FortAwesome/Font-Awesome
+    - artifact:
+      name: Flaggen und Wappen der Länder der Bundesrepublik Deutschland
+      copyrightHolder:
+      license: Public Domain
+      licenseUrl: https://en.wikipedia.org/wiki/Public_domain
+      url: https://de.wikipedia.org/wiki/Flaggen_und_Wappen_der_L%C3%A4nder_der_Bundesrepublik_Deutschland
+    - artifact:
+      name: Flagge Deutschlands
+      copyrightHolder:
+      license: Public Domain
+      licenseUrl: https://en.wikipedia.org/wiki/Public_domain
+      url: https://de.wikipedia.org/wiki/Flagge_Deutschlands#/media/Datei:Flag_of_Germany.svg
     - artifact:
       name: Ahorn Mountain Illustration
       copyrightHolder: macrovector - www.freepik.com
