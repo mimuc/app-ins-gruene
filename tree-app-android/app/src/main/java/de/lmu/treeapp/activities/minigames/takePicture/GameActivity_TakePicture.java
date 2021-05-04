@@ -1,5 +1,6 @@
 package de.lmu.treeapp.activities.minigames.takePicture;
 
+import android.Manifest;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,17 +11,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.Date;
-
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.activities.minigames.takePicture.adapter.TakePictureRecyclerViewAdapter;
@@ -35,9 +29,14 @@ import de.lmu.treeapp.popup.Popup;
 import de.lmu.treeapp.popup.PopupAction;
 import de.lmu.treeapp.popup.PopupInterface;
 import de.lmu.treeapp.popup.PopupType;
+import de.lmu.treeapp.utils.permission.PermissionRequest;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 
 
 public class GameActivity_TakePicture extends GameActivity_Base implements PopupInterface, View.OnClickListener {
@@ -55,12 +54,17 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         popup = new Popup(this, treeId);
         popup.setButtonSecondary(true);
         popup.setButtonAcceptText(getString(R.string.popup_btn_finished));
         popup.setButtonSecondaryText(getString(R.string.popup_btn_wiki));
+
+        PermissionRequest takePicturePermissionRequest = new PermissionRequest(this, Manifest.permission.CAMERA, isGranted -> {
+            if (isGranted) {
+                dispatchTakePictureIntent();
+            }
+        }, getString(R.string.permission_rationale_camera));
 
         takePictureGame = (GameTakePictureRelations) gameContent;
         sendButton = findViewById(R.id.game_takePicture_sendButton);
@@ -69,12 +73,13 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
         viewPager = findViewById(R.id.image_view_pager);
         viewPager.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         sendButton.setEnabled(false);
-        previewPicture.setOnClickListener(view -> dispatchTakePictureIntent());
+        previewPicture.setOnClickListener(view ->
+                takePicturePermissionRequest.requestPermission());
 
         sendButton.setOnClickListener(view -> popup.show(PopupType.NEUTRAL));
 
         imageExample.setOnClickListener(view -> {
-            dispatchTakePictureIntent();
+            takePicturePermissionRequest.requestPermission();
         });
 
         getGameState().subscribe();
@@ -167,7 +172,7 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
             // Set success without going back to overview
             DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree);
             saveGameState().subscribe();
-            if(getIntent().getExtras().getInt("GameId") == 303){
+            if (getIntent().getExtras().getInt("GameId") == 303) {
                 showTreeProfileCrafting(true);
                 return;
             }

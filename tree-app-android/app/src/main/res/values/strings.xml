@@ -105,6 +105,7 @@
     <string name="popup_neutral_ok">Ok!</string>
     <string name="popup_win_title">Gewonnen!</string>
     <string name="popup_win_title_done">"Geschafft!"</string>
+    <string name="popup_grant">"Erlauben"</string>
     <string name="popup_loose_title_short">Oh nein…</string>
     <string name="popup_loose_title">Oh nein… denke daran, dass du nur Begriffe auswählst, die du fühlen kannst. Sehen ist nicht fühlen. </string>
     <string name="popup_loose_title_not_sufficient">Leider hat es nicht gereicht.</string>
@@ -232,6 +233,11 @@
     <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
     <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
     <string name="main_activity_qr_code_no_tree_found_text">Kein Baum mit diesem QR-Code:</string>
+
+    <string name="permission">"Berechtigung"</string>
+    <string name="permission_denied_default">"Du kannst das Feature leider nicht nutzen, da die benötigte Berechtigung nicht gegeben wurde. In den System-Einstellungen unter 'Apps' kannst du dies ändern."</string>
+    <string name="permission_rationale_default">"Die App benötigt die Berechtigung, um das Feature nutzen zu können."</string>
+    <string name="permission_rationale_camera">"Um Bilder für deinen Steckbrief zu machen, braucht die App die Erlaubnis deine Kamera zu benutzen."</string>
 
     <!-- Profile -->
     <string name="profile_thats_me">Das bin ich</string>
