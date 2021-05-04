@@ -129,13 +129,13 @@
     <string name="imprint_imprint_title">Impressum</string>
     <string name="imprint_imprint_text">Informationen gemäß § 5 Telemediengesetz: </string>
     <string name="imprint_publisher_title">Herausgeber</string>
-    <string name="imprint_publisher_text">Prof. Birgit J. Neuhaus \nLudwig-Maximilians-Universität München \nFakultät für Biologie \nLehrstuhl für Didaktik der Biologie \nKontakt: didaktik.biologie@lrz.uni-muenchen.de \n
+    <string name="imprint_publisher_text">Prof. Birgit J. Neuhaus \nLudwig-Maximilians-Universität München \nFakultät für Biologie \nLehrstuhl für Didaktik der Biologie \nWinzererstr. 45/II, 80797 München \nKontakt: didaktik.biologie@lrz.uni-muenchen.de \n
     \nProf. Dr. Heinrich Hußmann \nLudwig-Maximilians-Universität München \nInstitut für Informatik</string>
     <string name="imprint_tec_implementation_title">Verantwortlich für die technische Umsetzung</string>
     <string name="imprint_tec_implementation_text">Studierende der LMU. Mehr Informationen unter \"Über uns\".</string>
     <string name="imprint_disclaimer_title">Freistellungserklärung</string>
     <string name="imprint_disclaimer_text">Die Angaben wurden nach bestem Wissen erstellt, Fehler können jedoch nicht mit letzter Sicherheit ausgeschlossen werden. Eine Gewähr für die jederzeitige Aktualität, Richtigkeit, Vollständigkeit und Verfügbarkeit der bereitgestellten Informationen können wir nicht übernehmen.
-Wir haften nicht für Schäden, die durch die Nutzung dieses Appangebots entstehen. Für etwaige Schäden, die beim Aufrufen oder Herunterladen von Daten durch Schadsoftware oder der Installation oder Nutzung von Software verursacht werden, wird nicht gehaftet.
+    Wir haften nicht für Schäden, die durch die Nutzung dieses Appangebots entstehen. Für etwaige Schäden, die beim Aufrufen oder Herunterladen von Daten durch Schadsoftware oder der Installation oder Nutzung von Software verursacht werden, wird nicht gehaftet.
 </string>
     <string name="imprint_copyright_title">Copyright / Urheberrecht</string>
     <string name="imprint_copyright_text">Die Inhalte dieser App unterliegen dem Urheberrecht der Beitragenden. Die Lizenzverträge zur Einräumung von Nutzungsrechten gegenüber den Urheberrechten Dritter können im Menüpunkt \"Lizenzen\" eingesehen werden. Sofern nicht anders angegeben unterstehen sämtliche Inhalte der MIT-Lizenz.\n
