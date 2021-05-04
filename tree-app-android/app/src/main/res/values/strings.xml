@@ -138,10 +138,7 @@
 Wir haften nicht für Schäden, die durch die Nutzung dieses Appangebots entstehen. Für etwaige Schäden, die beim Aufrufen oder Herunterladen von Daten durch Schadsoftware oder der Installation oder Nutzung von Software verursacht werden, wird nicht gehaftet.
 </string>
     <string name="imprint_copyright_title">Copyright / Urheberrecht</string>
-    <string name="imprint_copyright_text">Alter Text: \n © Ludwig-Maximilians-Universität München - alle Rechte vorbehalten.
-Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie dürfen nur zum privaten und sonstigen eigenen Gebrauch im Rahmen des §53 Urheberrechtsgesetz (UrhG) verwendet werden. Eine anderweitige Verwendung ist nur nach vorheriger Genehmigung gestattet. \n
-    \nNeuer Text:\nSoweit die Inhalte dieser App nicht von den Entwicklern erstellt wurden, werden die Urheberrechte Dritter beachtet. Diese werden im Folgenden genannt (oder so ähnlich): \n
-    \nHier kommen die Links für die Illus rein:\n
+    <string name="imprint_copyright_text">Die Inhalte dieser App unterliegen dem Urheberrecht der Beitragenden. Die Lizenzverträge zur Einräumung von Nutzungsrechten gegenüber den Urheberrechten Dritter können im Menüpunkt \"Lizenzen\" eingesehen werden. Sofern nicht anders angegeben unterstehen sämtliche Inhalte der MIT-Lizenz.\n
     \nSollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen. </string>
     <string name="imprint_links_title">Haftung für Links</string>
     <string name="imprint_links_text">Die App enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Daher können wir für diese auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</string>
@@ -150,8 +147,7 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="menu_privacy">Datenschutz</string>
     <string name="privacy_title">Datenschutzerklärung</string>
     <string name="privacy_access_title">Zugriffsrechte</string>
-    <string name="privacy_access_text">Es werden Zugriffrechte der Kamera des Smartphones benötigt, um im Rahmen der Minispiele Fotos von den Bäumen machen zu können. Die App ist aus diesem Grund ohne Kamera-Zugriff nur bedingt spielbar. \nDie App ist ohne Internetverwendung nutzbar, eine Internetverbindung wird nur für den Download der App benötigt. Bei bestehender Internetverbindung können von BISA (Biodiversität im Schulalltag) bereitgestellte Videos in den Steckbriefen der jeweiligen Bäumen abgespielt werden – dabei handelt es sich jedoch nur um ein ergänzendes Zusatzangebot.
-    </string>
+    <string name="privacy_access_text">Es werden Zugriffrechte der Kamera des Smartphones benötigt, um im Rahmen der Minispiele Fotos von den Bäumen machen zu können. Die App ist aus diesem Grund ohne Kamera-Zugriff nur bedingt spielbar. \nDie App ist ohne Internetverwendung nutzbar, eine Internetverbindung wird nur für den Download der App benötigt. Bei bestehender Internetverbindung können von BISA (Biodiversität im Schulalltag) bereitgestellte Videos in den Steckbriefen der jeweiligen Bäumen abgespielt werden – dabei handelt es sich jedoch nur um ein ergänzendes Zusatzangebot.</string>
     <string name="privacy_data_title">Persönliche Daten</string>
     <string name="privacy_data_text">Es werden keine personenbezogene Daten erhoben. Freiwillig angegebene Daten (z.B. im Nutzerprofil) oder im Rahmen der Minispiele erstellte Fotos werden lokal auf dem Smartphone des Nutzers gespeichert und in keiner Form weiterverarbeitet. Diese Daten sind so lange auf dem eigenen Smartphone gespeichert, bis die Daten der App manuell entfernt werden oder die App deinstalliert wird.</string>
 
