@@ -126,7 +126,7 @@ public class Popup {
         this.leafImageViews[3] = popupWindow.findViewById(R.id.imageViewStar4);
         this.leafImageViews[4] = popupWindow.findViewById(R.id.imageViewStar5);
 
-        //Invisible at instanciation
+        //Invisible at instantiation
         for (ImageView leafImageView : leafImageViews) {
             leafImageView.setVisibility(View.INVISIBLE);
         }

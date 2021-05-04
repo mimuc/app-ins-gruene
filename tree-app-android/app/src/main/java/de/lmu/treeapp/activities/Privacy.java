@@ -7,16 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import de.lmu.treeapp.R;
 
-
 public class Privacy extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle(R.string.menu_privacy);
         setContentView(R.layout.activity_privacy);
-
-        TextView privacy_maintitle = findViewById(R.id.privacy_maintitle);
-        TextView privacy_maintext = findViewById(R.id.privacy_maintext);
     }
 
     // Remove the current activity from the stack to switch to the previous one
