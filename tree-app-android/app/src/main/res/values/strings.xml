@@ -180,6 +180,7 @@ Texte, Bilder, Grafiken sowie die Gestaltung unterliegen dem Urheberrecht. Sie d
     <string name="licenses_title">Lizenzen</string>
     <string name="license_libraries">Bibliotheken</string>
     <string name="license_media">Medien</string>
+    <string name="license_fonts">Schriftarten</string>
 
     <!-- Splash Screen -->
     <string name="splash_screen_image_appinsgruene" translatable="false">image_appinsgruene</string>

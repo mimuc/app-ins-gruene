@@ -9,4 +9,6 @@ public class LicenseRoot {
     public LicenseSection libraries;
     @JsonProperty
     public LicenseSection media;
+    @JsonProperty
+    public LicenseSection fonts;
 }

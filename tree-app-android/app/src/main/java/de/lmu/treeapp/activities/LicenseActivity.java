@@ -38,6 +38,7 @@ public class LicenseActivity extends AppCompatActivity implements LicenseRecycle
         } else {
             addLicenseSection(licenseRoot.libraries);
             addLicenseSection(licenseRoot.media);
+            addLicenseSection(licenseRoot.fonts);
         }
 
         RecyclerView recyclerView = findViewById(R.id.libraries);

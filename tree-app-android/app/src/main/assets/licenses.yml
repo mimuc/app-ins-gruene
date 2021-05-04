@@ -576,6 +576,12 @@ media:
   generated:
   custom:
     - artifact:
+      name: Parts of Minigame Icons
+      copyrightHolder: Font Awesome
+      license: Font Awesome Free License
+      licenseUrl: https://fontawesome.com/license/free
+      url: https://github.com/FortAwesome/Font-Awesome
+    - artifact:
       name: Ahorn Mountain Illustration
       copyrightHolder: macrovector - www.freepik.com
       license: Freepik License
@@ -816,3 +822,12 @@ media:
       licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
       url: https://www.freepik.com/free-vector/children-toys-set_9649206.htm#page=1&query=funny%20car&position=3
 
+fonts:
+  nameResource: license_fonts
+  generated:
+    - artifact:
+      name: Freude
+      copyrightHolder: Typejockeys
+      license: Typejockeys End User License, Agreement for Digital Media Embedding
+      licenseUrl: https://www.typejockeys.com/wp-content/uploads/2017/03/Typejockeys-EULA-embed.pdf
+      url: https://typejockeys.com/font/freude
