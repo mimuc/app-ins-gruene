@@ -1,571 +1,578 @@
-generated:
-  - artifact: androidx.activity:activity:+
-    name: activity
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx/releases/activity#1.2.2
-  - artifact: androidx.annotation:annotation-experimental:+
-    name: annotation-experimental
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx/releases/annotation#1.1.0-rc01
-  - artifact: androidx.annotation:annotation:+
-    name: annotation
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.appcompat:appcompat-resources:+
-    name: appcompat-resources
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx
-  - artifact: androidx.appcompat:appcompat:+
-    name: appcompat
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx
-  - artifact: androidx.arch.core:core-common:+
-    name: core-common
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/topic/libraries/architecture/index.html
-  - artifact: androidx.arch.core:core-runtime:+
-    name: core-runtime
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/topic/libraries/architecture/index.html
-  - artifact: androidx.asynclayoutinflater:asynclayoutinflater:+
-    name: asynclayoutinflater
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.cardview:cardview:+
-    name: cardview
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.collection:collection:+
-    name: collection
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.constraintlayout:constraintlayout-solver:+
-    name: constraintlayout-solver
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://tools.android.com
-  - artifact: androidx.constraintlayout:constraintlayout:+
-    name: constraintlayout
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://tools.android.com
-  - artifact: androidx.coordinatorlayout:coordinatorlayout:+
-    name: coordinatorlayout
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx
-  - artifact: androidx.core:core:+
-    name: core
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx
-  - artifact: androidx.cursoradapter:cursoradapter:+
-    name: cursoradapter
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.customview:customview:+
-    name: customview
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx
-  - artifact: androidx.databinding:databinding-adapters:+
-    name: databinding-adapters
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-  - artifact: androidx.databinding:databinding-common:+
-    name: databinding-common
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/studio
-  - artifact: androidx.databinding:databinding-runtime:+
-    name: databinding-runtime
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-  - artifact: androidx.databinding:viewbinding:+
-    name: viewbinding
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-  - artifact: androidx.documentfile:documentfile:+
-    name: documentfile
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.drawerlayout:drawerlayout:+
-    name: drawerlayout
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx
-  - artifact: androidx.dynamicanimation:dynamicanimation:+
-    name: dynamicanimation
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.exifinterface:exifinterface:+
-    name: exifinterface
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.fragment:fragment:+
-    name: fragment
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx/releases/fragment#1.3.3
-  - artifact: androidx.gridlayout:gridlayout:+
-    name: gridlayout
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.interpolator:interpolator:+
-    name: interpolator
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.legacy:legacy-support-core-ui:+
-    name: legacy-support-core-ui
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.legacy:legacy-support-core-utils:+
-    name: legacy-support-core-utils
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.legacy:legacy-support-v4:+
-    name: legacy-support-v4
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.lifecycle:lifecycle-common:+
-    name: lifecycle-common
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/topic/libraries/architecture/index.html
-  - artifact: androidx.lifecycle:lifecycle-extensions:+
-    name: lifecycle-extensions
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/topic/libraries/architecture/index.html
-  - artifact: androidx.lifecycle:lifecycle-livedata-core:+
-    name: lifecycle-livedata-core
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx/releases/lifecycle#2.3.1
-  - artifact: androidx.lifecycle:lifecycle-livedata:+
-    name: lifecycle-livedata
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/topic/libraries/architecture/index.html
-  - artifact: androidx.lifecycle:lifecycle-process:+
-    name: lifecycle-process
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/topic/libraries/architecture/index.html
-  - artifact: androidx.lifecycle:lifecycle-runtime:+
-    name: lifecycle-runtime
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/topic/libraries/architecture/index.html
-  - artifact: androidx.lifecycle:lifecycle-service:+
-    name: lifecycle-service
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/topic/libraries/architecture/index.html
-  - artifact: androidx.lifecycle:lifecycle-viewmodel-savedstate:+
-    name: lifecycle-viewmodel-savedstate
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx/releases/lifecycle#2.3.1
-  - artifact: androidx.lifecycle:lifecycle-viewmodel:+
-    name: lifecycle-viewmodel
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx/releases/lifecycle#2.3.1
-  - artifact: androidx.loader:loader:+
-    name: loader
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.localbroadcastmanager:localbroadcastmanager:+
-    name: localbroadcastmanager
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.media:media:+
-    name: media
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.navigation:navigation-common:+
-    name: navigation-common
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/topic/libraries/architecture/index.html
-  - artifact: androidx.navigation:navigation-fragment:+
-    name: navigation-fragment
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/topic/libraries/architecture/index.html
-  - artifact: androidx.navigation:navigation-runtime:+
-    name: navigation-runtime
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/topic/libraries/architecture/index.html
-  - artifact: androidx.navigation:navigation-ui:+
-    name: navigation-ui
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/topic/libraries/architecture/index.html
-  - artifact: androidx.preference:preference:+
-    name: preference
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx
-  - artifact: androidx.print:print:+
-    name: print
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.recyclerview:recyclerview:+
-    name: recyclerview
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx
-  - artifact: androidx.room:room-common:+
-    name: room-common
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx/releases/room#2.4.0-alpha01
-  - artifact: androidx.room:room-runtime:+
-    name: room-runtime
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx/releases/room#2.4.0-alpha01
-  - artifact: androidx.room:room-rxjava3:+
-    name: room-rxjava3
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx/releases/room#2.4.0-alpha01
-  - artifact: androidx.savedstate:savedstate:+
-    name: savedstate
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx/releases/savedstate#1.1.0
-  - artifact: androidx.slidingpanelayout:slidingpanelayout:+
-    name: slidingpanelayout
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.sqlite:sqlite-framework:+
-    name: sqlite-framework
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/topic/libraries/architecture/index.html
-  - artifact: androidx.sqlite:sqlite:+
-    name: sqlite
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/topic/libraries/architecture/index.html
-  - artifact: androidx.swiperefreshlayout:swiperefreshlayout:+
-    name: swiperefreshlayout
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.tracing:tracing:+
-    name: tracing
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx/releases/tracing#1.0.0
-  - artifact: androidx.transition:transition:+
-    name: transition
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx
-  - artifact: androidx.vectordrawable:vectordrawable-animated:+
-    name: vectordrawable-animated
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx
-  - artifact: androidx.vectordrawable:vectordrawable:+
-    name: vectordrawable
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx
-  - artifact: androidx.versionedparcelable:versionedparcelable:+
-    name: versionedparcelable
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: androidx.viewpager2:viewpager2:+
-    name: viewpager2
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://developer.android.com/jetpack/androidx
-  - artifact: androidx.viewpager:viewpager:+
-    name: viewpager
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://developer.android.com/tools/extras/support-library.html
-  - artifact: com.afollestad:viewpagerdots:+
-    name: viewpagerdots
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: #LICENSE#
-  - artifact: com.github.bumptech.glide:annotations:+
-    name: annotations
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: Simplified BSD License
-    licenseUrl: http://www.opensource.org/licenses/bsd-license
-    url: https://github.com/bumptech/glide
-  - artifact: com.github.bumptech.glide:disklrucache:+
-    name: disklrucache
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: Simplified BSD License
-    licenseUrl: http://www.opensource.org/licenses/bsd-license
-    url: https://github.com/bumptech/glide
-  - artifact: com.github.bumptech.glide:gifdecoder:+
-    name: gifdecoder
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: Simplified BSD License
-    licenseUrl: http://www.opensource.org/licenses/bsd-license
-    url: https://github.com/bumptech/glide
-  - artifact: com.github.bumptech.glide:glide:+
-    name: glide
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: Simplified BSD License
-    licenseUrl: http://www.opensource.org/licenses/bsd-license
-    url: https://github.com/bumptech/glide
-  - artifact: com.google.android.gms:play-services-base:+
-    name: play-services-base
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: Android Software Development Kit License
-    licenseUrl: https://developer.android.com/studio/terms.html
-  - artifact: com.google.android.gms:play-services-basement:+
-    name: play-services-basement
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: Android Software Development Kit License
-    licenseUrl: https://developer.android.com/studio/terms.html
-  - artifact: com.google.android.gms:play-services-clearcut:+
-    name: play-services-clearcut
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: Android Software Development Kit License
-    licenseUrl: https://developer.android.com/studio/terms.html
-  - artifact: com.google.android.gms:play-services-flags:+
-    name: play-services-flags
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: Android Software Development Kit License
-    licenseUrl: https://developer.android.com/studio/terms.html
-  - artifact: com.google.android.gms:play-services-phenotype:+
-    name: play-services-phenotype
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: Android Software Development Kit License
-    licenseUrl: https://developer.android.com/studio/terms.html
-  - artifact: com.google.android.gms:play-services-tasks:+
-    name: play-services-tasks
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: Android Software Development Kit License
-    licenseUrl: https://developer.android.com/studio/terms.html
-  - artifact: com.google.android.gms:play-services-vision-common:+
-    name: play-services-vision-common
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: Android Software Development Kit License
-    licenseUrl: https://developer.android.com/studio/terms.html
-  - artifact: com.google.android.gms:play-services-vision:+
-    name: play-services-vision
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: Android Software Development Kit License
-    licenseUrl: https://developer.android.com/studio/terms.html
-  - artifact: com.google.android.material:material:+
-    name: material
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://github.com/material-components/material-components-android
-  - artifact: com.google.android:flexbox:+
-    name: flexbox
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://github.com/google/flexbox-layout
-  - artifact: com.intuit.sdp:sdp-android:+
-    name: sdp-android
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The MIT License (MIT)
-    licenseUrl: https://github.com/intuit/sdp/blob/master/LICENSE
-    url: https://github.com/intuit/sdp
-  - artifact: com.intuit.ssp:ssp-android:+
-    name: ssp-android
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The MIT License (MIT)
-    licenseUrl: https://github.com/intuit/ssp/blob/master/LICENSE
-    url: https://github.com/intuit/ssp
-  - artifact: com.makeramen:roundedimageview:+
-    name: roundedimageview
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://github.com/vinc3m1/RoundedImageView
-  - artifact: com.pierfrancescosoffritti.androidyoutubeplayer:core:+
-    name: core
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: #LICENSE#
-  - artifact: com.yarolegovich:discrete-scrollview:+
-    name: discrete-scrollview
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: #LICENSE#
-  - artifact: io.reactivex.rxjava3:rxandroid:+
-    name: rxandroid
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://github.com/ReactiveX/RxAndroid
-  - artifact: io.reactivex.rxjava3:rxjava:+
-    name: rxjava
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://github.com/ReactiveX/RxJava
-  - artifact: me.samlss:bloom:+
-    name: bloom
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: #LICENSE#
-  - artifact: org.jetbrains.kotlin:kotlin-stdlib-common:+
-    name: kotlin-stdlib-common
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://kotlinlang.org/
-  - artifact: org.jetbrains.kotlin:kotlin-stdlib-jdk7:+
-    name: kotlin-stdlib-jdk7
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://kotlinlang.org/
-  - artifact: org.jetbrains.kotlin:kotlin-stdlib:+
-    name: kotlin-stdlib
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://kotlinlang.org/
-  - artifact: org.jetbrains:annotations:+
-    name: annotations
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://www.jetbrains.org
-  - artifact: org.reactivestreams:reactive-streams:+
-    name: reactive-streams
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: CC0
-    licenseUrl: http://creativecommons.org/publicdomain/zero/1.0/
-    url: http://www.reactive-streams.org/
-  - artifact: uk.co.samuelwall:material-tap-target-prompt:+
-    name: material-tap-target-prompt
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://github.com/sjwall/MaterialTapTargetPrompt
-  - artifact: com.fasterxml.jackson.core:jackson-annotations:+
-    name: jackson-annotations
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://github.com/FasterXML/jackson
-  - artifact: com.fasterxml.jackson.core:jackson-core:+
-    name: jackson-core
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: https://github.com/FasterXML/jackson-core
-  - artifact: com.fasterxml.jackson.core:jackson-databind:+
-    name: jackson-databind
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: The Apache Software License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://github.com/FasterXML/jackson
-  - artifact: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:+
-    name: jackson-dataformat-yaml
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: #LICENSE#
-    url: https://github.com/FasterXML/jackson-dataformats-text
-  - artifact: org.yaml:snakeyaml:+
-    name: snakeyaml
-    copyrightHolder: #COPYRIGHT_HOLDER#
-    license: Apache License, Version 2.0
-    licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
-    url: http://www.snakeyaml.org
+libraries:
+  nameResource: license_libraries
+  generated:
+    - artifact: androidx.activity:activity:+
+      name: activity
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx/releases/activity#1.2.2
+    - artifact: androidx.annotation:annotation-experimental:+
+      name: annotation-experimental
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx/releases/annotation#1.1.0-rc01
+    - artifact: androidx.annotation:annotation:+
+      name: annotation
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.appcompat:appcompat-resources:+
+      name: appcompat-resources
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx
+    - artifact: androidx.appcompat:appcompat:+
+      name: appcompat
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx
+    - artifact: androidx.arch.core:core-common:+
+      name: core-common
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/topic/libraries/architecture/index.html
+    - artifact: androidx.arch.core:core-runtime:+
+      name: core-runtime
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/topic/libraries/architecture/index.html
+    - artifact: androidx.asynclayoutinflater:asynclayoutinflater:+
+      name: asynclayoutinflater
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.cardview:cardview:+
+      name: cardview
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.collection:collection:+
+      name: collection
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.constraintlayout:constraintlayout-solver:+
+      name: constraintlayout-solver
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://tools.android.com
+    - artifact: androidx.constraintlayout:constraintlayout:+
+      name: constraintlayout
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://tools.android.com
+    - artifact: androidx.coordinatorlayout:coordinatorlayout:+
+      name: coordinatorlayout
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx
+    - artifact: androidx.core:core:+
+      name: core
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx
+    - artifact: androidx.cursoradapter:cursoradapter:+
+      name: cursoradapter
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.customview:customview:+
+      name: customview
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx
+    - artifact: androidx.databinding:databinding-adapters:+
+      name: databinding-adapters
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+    - artifact: androidx.databinding:databinding-common:+
+      name: databinding-common
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/studio
+    - artifact: androidx.databinding:databinding-runtime:+
+      name: databinding-runtime
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+    - artifact: androidx.databinding:viewbinding:+
+      name: viewbinding
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+    - artifact: androidx.documentfile:documentfile:+
+      name: documentfile
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.drawerlayout:drawerlayout:+
+      name: drawerlayout
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx
+    - artifact: androidx.dynamicanimation:dynamicanimation:+
+      name: dynamicanimation
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.exifinterface:exifinterface:+
+      name: exifinterface
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.fragment:fragment:+
+      name: fragment
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx/releases/fragment#1.3.3
+    - artifact: androidx.gridlayout:gridlayout:+
+      name: gridlayout
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.interpolator:interpolator:+
+      name: interpolator
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.legacy:legacy-support-core-ui:+
+      name: legacy-support-core-ui
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.legacy:legacy-support-core-utils:+
+      name: legacy-support-core-utils
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.legacy:legacy-support-v4:+
+      name: legacy-support-v4
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.lifecycle:lifecycle-common:+
+      name: lifecycle-common
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/topic/libraries/architecture/index.html
+    - artifact: androidx.lifecycle:lifecycle-extensions:+
+      name: lifecycle-extensions
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/topic/libraries/architecture/index.html
+    - artifact: androidx.lifecycle:lifecycle-livedata-core:+
+      name: lifecycle-livedata-core
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx/releases/lifecycle#2.3.1
+    - artifact: androidx.lifecycle:lifecycle-livedata:+
+      name: lifecycle-livedata
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/topic/libraries/architecture/index.html
+    - artifact: androidx.lifecycle:lifecycle-process:+
+      name: lifecycle-process
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/topic/libraries/architecture/index.html
+    - artifact: androidx.lifecycle:lifecycle-runtime:+
+      name: lifecycle-runtime
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/topic/libraries/architecture/index.html
+    - artifact: androidx.lifecycle:lifecycle-service:+
+      name: lifecycle-service
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/topic/libraries/architecture/index.html
+    - artifact: androidx.lifecycle:lifecycle-viewmodel-savedstate:+
+      name: lifecycle-viewmodel-savedstate
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx/releases/lifecycle#2.3.1
+    - artifact: androidx.lifecycle:lifecycle-viewmodel:+
+      name: lifecycle-viewmodel
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx/releases/lifecycle#2.3.1
+    - artifact: androidx.loader:loader:+
+      name: loader
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.localbroadcastmanager:localbroadcastmanager:+
+      name: localbroadcastmanager
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.media:media:+
+      name: media
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.navigation:navigation-common:+
+      name: navigation-common
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/topic/libraries/architecture/index.html
+    - artifact: androidx.navigation:navigation-fragment:+
+      name: navigation-fragment
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/topic/libraries/architecture/index.html
+    - artifact: androidx.navigation:navigation-runtime:+
+      name: navigation-runtime
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/topic/libraries/architecture/index.html
+    - artifact: androidx.navigation:navigation-ui:+
+      name: navigation-ui
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/topic/libraries/architecture/index.html
+    - artifact: androidx.preference:preference:+
+      name: preference
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx
+    - artifact: androidx.print:print:+
+      name: print
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.recyclerview:recyclerview:+
+      name: recyclerview
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx
+    - artifact: androidx.room:room-common:+
+      name: room-common
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx/releases/room#2.4.0-alpha01
+    - artifact: androidx.room:room-runtime:+
+      name: room-runtime
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx/releases/room#2.4.0-alpha01
+    - artifact: androidx.room:room-rxjava3:+
+      name: room-rxjava3
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx/releases/room#2.4.0-alpha01
+    - artifact: androidx.savedstate:savedstate:+
+      name: savedstate
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx/releases/savedstate#1.1.0
+    - artifact: androidx.slidingpanelayout:slidingpanelayout:+
+      name: slidingpanelayout
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.sqlite:sqlite-framework:+
+      name: sqlite-framework
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/topic/libraries/architecture/index.html
+    - artifact: androidx.sqlite:sqlite:+
+      name: sqlite
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/topic/libraries/architecture/index.html
+    - artifact: androidx.swiperefreshlayout:swiperefreshlayout:+
+      name: swiperefreshlayout
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.tracing:tracing:+
+      name: tracing
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx/releases/tracing#1.0.0
+    - artifact: androidx.transition:transition:+
+      name: transition
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx
+    - artifact: androidx.vectordrawable:vectordrawable-animated:+
+      name: vectordrawable-animated
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx
+    - artifact: androidx.vectordrawable:vectordrawable:+
+      name: vectordrawable
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx
+    - artifact: androidx.versionedparcelable:versionedparcelable:+
+      name: versionedparcelable
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: androidx.viewpager2:viewpager2:+
+      name: viewpager2
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://developer.android.com/jetpack/androidx
+    - artifact: androidx.viewpager:viewpager:+
+      name: viewpager
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://developer.android.com/tools/extras/support-library.html
+    - artifact: com.afollestad:viewpagerdots:+
+      name: viewpagerdots
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: #LICENSE#
+    - artifact: com.github.bumptech.glide:annotations:+
+      name: annotations
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: Simplified BSD License
+      licenseUrl: http://www.opensource.org/licenses/bsd-license
+      url: https://github.com/bumptech/glide
+    - artifact: com.github.bumptech.glide:disklrucache:+
+      name: disklrucache
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: Simplified BSD License
+      licenseUrl: http://www.opensource.org/licenses/bsd-license
+      url: https://github.com/bumptech/glide
+    - artifact: com.github.bumptech.glide:gifdecoder:+
+      name: gifdecoder
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: Simplified BSD License
+      licenseUrl: http://www.opensource.org/licenses/bsd-license
+      url: https://github.com/bumptech/glide
+    - artifact: com.github.bumptech.glide:glide:+
+      name: glide
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: Simplified BSD License
+      licenseUrl: http://www.opensource.org/licenses/bsd-license
+      url: https://github.com/bumptech/glide
+    - artifact: com.google.android.gms:play-services-base:+
+      name: play-services-base
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: Android Software Development Kit License
+      licenseUrl: https://developer.android.com/studio/terms.html
+    - artifact: com.google.android.gms:play-services-basement:+
+      name: play-services-basement
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: Android Software Development Kit License
+      licenseUrl: https://developer.android.com/studio/terms.html
+    - artifact: com.google.android.gms:play-services-clearcut:+
+      name: play-services-clearcut
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: Android Software Development Kit License
+      licenseUrl: https://developer.android.com/studio/terms.html
+    - artifact: com.google.android.gms:play-services-flags:+
+      name: play-services-flags
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: Android Software Development Kit License
+      licenseUrl: https://developer.android.com/studio/terms.html
+    - artifact: com.google.android.gms:play-services-phenotype:+
+      name: play-services-phenotype
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: Android Software Development Kit License
+      licenseUrl: https://developer.android.com/studio/terms.html
+    - artifact: com.google.android.gms:play-services-tasks:+
+      name: play-services-tasks
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: Android Software Development Kit License
+      licenseUrl: https://developer.android.com/studio/terms.html
+    - artifact: com.google.android.gms:play-services-vision-common:+
+      name: play-services-vision-common
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: Android Software Development Kit License
+      licenseUrl: https://developer.android.com/studio/terms.html
+    - artifact: com.google.android.gms:play-services-vision:+
+      name: play-services-vision
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: Android Software Development Kit License
+      licenseUrl: https://developer.android.com/studio/terms.html
+    - artifact: com.google.android.material:material:+
+      name: material
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://github.com/material-components/material-components-android
+    - artifact: com.google.android:flexbox:+
+      name: flexbox
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://github.com/google/flexbox-layout
+    - artifact: com.intuit.sdp:sdp-android:+
+      name: sdp-android
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The MIT License (MIT)
+      licenseUrl: https://github.com/intuit/sdp/blob/master/LICENSE
+      url: https://github.com/intuit/sdp
+    - artifact: com.intuit.ssp:ssp-android:+
+      name: ssp-android
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The MIT License (MIT)
+      licenseUrl: https://github.com/intuit/ssp/blob/master/LICENSE
+      url: https://github.com/intuit/ssp
+    - artifact: com.makeramen:roundedimageview:+
+      name: roundedimageview
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://github.com/vinc3m1/RoundedImageView
+    - artifact: com.pierfrancescosoffritti.androidyoutubeplayer:core:+
+      name: core
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: #LICENSE#
+    - artifact: com.yarolegovich:discrete-scrollview:+
+      name: discrete-scrollview
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: #LICENSE#
+    - artifact: io.reactivex.rxjava3:rxandroid:+
+      name: rxandroid
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://github.com/ReactiveX/RxAndroid
+    - artifact: io.reactivex.rxjava3:rxjava:+
+      name: rxjava
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://github.com/ReactiveX/RxJava
+    - artifact: me.samlss:bloom:+
+      name: bloom
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: #LICENSE#
+    - artifact: org.jetbrains.kotlin:kotlin-stdlib-common:+
+      name: kotlin-stdlib-common
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://kotlinlang.org/
+    - artifact: org.jetbrains.kotlin:kotlin-stdlib-jdk7:+
+      name: kotlin-stdlib-jdk7
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://kotlinlang.org/
+    - artifact: org.jetbrains.kotlin:kotlin-stdlib:+
+      name: kotlin-stdlib
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://kotlinlang.org/
+    - artifact: org.jetbrains:annotations:+
+      name: annotations
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://www.jetbrains.org
+    - artifact: org.reactivestreams:reactive-streams:+
+      name: reactive-streams
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: CC0
+      licenseUrl: http://creativecommons.org/publicdomain/zero/1.0/
+      url: http://www.reactive-streams.org/
+    - artifact: uk.co.samuelwall:material-tap-target-prompt:+
+      name: material-tap-target-prompt
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://github.com/sjwall/MaterialTapTargetPrompt
+    - artifact: com.fasterxml.jackson.core:jackson-annotations:+
+      name: jackson-annotations
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://github.com/FasterXML/jackson
+    - artifact: com.fasterxml.jackson.core:jackson-core:+
+      name: jackson-core
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: https://github.com/FasterXML/jackson-core
+    - artifact: com.fasterxml.jackson.core:jackson-databind:+
+      name: jackson-databind
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: The Apache Software License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://github.com/FasterXML/jackson
+    - artifact: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:+
+      name: jackson-dataformat-yaml
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: #LICENSE#
+      url: https://github.com/FasterXML/jackson-dataformats-text
+    - artifact: org.yaml:snakeyaml:+
+      name: snakeyaml
+      copyrightHolder: #COPYRIGHT_HOLDER#
+      license: Apache License, Version 2.0
+      licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+      url: http://www.snakeyaml.org
 
-custom:
+  custom:
+
+media:
+  nameResource: license_media
+  generated:
+  custom:

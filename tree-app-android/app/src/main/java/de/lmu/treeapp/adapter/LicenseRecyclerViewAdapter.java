@@ -13,28 +13,42 @@ import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import de.lmu.treeapp.R;
+import de.lmu.treeapp.adapter.grouped.AbstractListItem;
+import de.lmu.treeapp.adapter.grouped.AbstractViewHolder;
+import de.lmu.treeapp.adapter.grouped.HeaderViewHolder;
 import de.lmu.treeapp.licenses.LicenseInfo;
 
 import java.util.List;
 
-public class LicenseRecyclerViewAdapter extends RecyclerView.Adapter<LicenseRecyclerViewAdapter.ViewHolder> {
+public class LicenseRecyclerViewAdapter extends RecyclerView.Adapter<AbstractViewHolder> {
 
-    private final List<LicenseInfo> localDataSet;
+    private final List<AbstractListItem> localDataSet;
+    private final Context context;
     private ItemClickListener mClickListener;
-    private Context context;
+
+    public static class LicenseListItem extends AbstractListItem {
+        public LicenseListItem(LicenseInfo info) {
+            this.obj = info;
+        }
+
+        @Override
+        public int getType() {
+            return AbstractListItem.TYPE_ELEMENT;
+        }
+    }
 
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ElementViewHolder extends AbstractViewHolder implements View.OnClickListener {
         private final ImageView icon;
         private final TextView name;
         private final TextView copyrightHolder;
         private final TextView license;
         private final TextView url;
 
-        public ViewHolder(View view) {
+        public ElementViewHolder(View view) {
             super(view);
             itemView.setOnClickListener(this);
 
@@ -46,13 +60,21 @@ public class LicenseRecyclerViewAdapter extends RecyclerView.Adapter<LicenseRecy
         }
 
         @Override
+        public int getType() {
+            return AbstractListItem.TYPE_ELEMENT;
+        }
+
+        @Override
         public void onClick(View view) {
             if (mClickListener != null) {
                 int adapterPosition = getAdapterPosition();
-                LicenseInfo licenseInfo = localDataSet.get(adapterPosition);
-                if (licenseInfo.url != null) {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(licenseInfo.url));
-                    context.startActivity(browserIntent);
+                AbstractListItem abstractListItem = localDataSet.get(adapterPosition);
+                if (abstractListItem.getType() == AbstractListItem.TYPE_ELEMENT) {
+                    LicenseInfo licenseInfo = (LicenseInfo) abstractListItem.obj;
+                    if (licenseInfo.url != null) {
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(licenseInfo.url));
+                        context.startActivity(browserIntent);
+                    }
                 }
                 mClickListener.onItemClick(view, adapterPosition);
             }
@@ -65,59 +87,77 @@ public class LicenseRecyclerViewAdapter extends RecyclerView.Adapter<LicenseRecy
      * @param dataSet String[] containing the data to populate views to be used
      *                by RecyclerView.
      */
-    public LicenseRecyclerViewAdapter(List<LicenseInfo> dataSet, Context context) {
+    public LicenseRecyclerViewAdapter(List<AbstractListItem> dataSet, Context context) {
         localDataSet = dataSet;
         this.context = context;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public AbstractViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
-        View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.license_info_item, viewGroup, false);
-        return new ViewHolder(view);
+        if (viewType == AbstractListItem.TYPE_ELEMENT) {
+            View view = LayoutInflater.from(viewGroup.getContext())
+                    .inflate(R.layout.license_info_item, viewGroup, false);
+            return new ElementViewHolder(view);
+        } else {
+            View view = LayoutInflater.from(viewGroup.getContext())
+                    .inflate(R.layout.recyclerview_header_item, viewGroup, false);
+            return new HeaderViewHolder(view);
+        }
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        LicenseInfo licenseInfo = localDataSet.get(position);
-        viewHolder.name.setText(licenseInfo.name);
-        if (licenseInfo.url != null) {
-            if (licenseInfo.url.contains("github.com")) {
-                Glide.with(context).load(R.drawable.ic_baseline_github).into(viewHolder.icon);
-                if (licenseInfo.copyrightHolder == null) {
-                    licenseInfo.copyrightHolder = licenseInfo.url.split("/")[3];
+    public void onBindViewHolder(AbstractViewHolder viewHolder, final int position) {
+        if (viewHolder.getType() == AbstractListItem.TYPE_ELEMENT) {
+            ElementViewHolder elementViewHolder = (ElementViewHolder) viewHolder;
+            LicenseInfo licenseInfo = (LicenseInfo) localDataSet.get(position).obj;
+            elementViewHolder.name.setText(licenseInfo.name);
+            if (licenseInfo.url != null) {
+                if (licenseInfo.url.contains("github.com")) {
+                    Glide.with(context).load(R.drawable.ic_baseline_github).into(elementViewHolder.icon);
+                    if (licenseInfo.copyrightHolder == null) {
+                        licenseInfo.copyrightHolder = licenseInfo.url.split("/")[3];
+                    }
+                } else if (licenseInfo.url.contains("kotlin")) {
+                    Glide.with(context).load(R.drawable.ic_kotlin).into(elementViewHolder.icon);
+                } else if (licenseInfo.url.contains("android.com")) {
+                    Glide.with(context).load(R.drawable.ic_baseline_android).into(elementViewHolder.icon);
+                } else if (licenseInfo.url.contains("jetbrains")) {
+                    Glide.with(context).load(R.drawable.ic_jetbrains).into(elementViewHolder.icon);
+                } else {
+                    elementViewHolder.icon.setImageDrawable(null);
                 }
-            } else if (licenseInfo.url.contains("kotlin")) {
-                Glide.with(context).load(R.drawable.ic_kotlin).into(viewHolder.icon);
-            } else if (licenseInfo.url.contains("android.com")) {
-                Glide.with(context).load(R.drawable.ic_baseline_android).into(viewHolder.icon);
-            } else if (licenseInfo.url.contains("jetbrains")) {
-                Glide.with(context).load(R.drawable.ic_jetbrains).into(viewHolder.icon);
-            } else {
-                viewHolder.icon.setImageDrawable(null);
             }
-        }
-        if (licenseInfo.copyrightHolder != null) {
-            viewHolder.copyrightHolder.setVisibility(View.VISIBLE);
-            viewHolder.copyrightHolder.setText("By: " + licenseInfo.copyrightHolder);
+            if (licenseInfo.copyrightHolder != null) {
+                elementViewHolder.copyrightHolder.setVisibility(View.VISIBLE);
+                elementViewHolder.copyrightHolder.setText("By: " + licenseInfo.copyrightHolder);
+            } else {
+                elementViewHolder.copyrightHolder.setVisibility(View.GONE);
+            }
+            if (licenseInfo.url != null) {
+                elementViewHolder.url.setText(licenseInfo.url);
+            }
+            if (licenseInfo.license != null) {
+                if (licenseInfo.licenseUrl != null) {
+                    String licenseText = "<a href=\"" + licenseInfo.licenseUrl + "\">" + licenseInfo.license + "</a>";
+                    elementViewHolder.license.setText(HtmlCompat.fromHtml(licenseText, HtmlCompat.FROM_HTML_MODE_LEGACY));
+                    elementViewHolder.license.setMovementMethod(LinkMovementMethod.getInstance());
+                } else {
+                    elementViewHolder.license.setText(licenseInfo.license);
+                }
+            }
         } else {
-            viewHolder.copyrightHolder.setVisibility(View.GONE);
+            HeaderViewHolder headerViewHolder = (HeaderViewHolder) viewHolder;
+            String title = (String) localDataSet.get(position).obj;
+            headerViewHolder.title.setText(title);
         }
-        if (licenseInfo.url != null) {
-            viewHolder.url.setText(licenseInfo.url);
-        }
-        if (licenseInfo.license != null) {
-            if (licenseInfo.licenseUrl != null) {
-                String licenseText = "<a href=\"" + licenseInfo.licenseUrl + "\">" + licenseInfo.license + "</a>";
-                viewHolder.license.setText(HtmlCompat.fromHtml(licenseText, HtmlCompat.FROM_HTML_MODE_LEGACY));
-                viewHolder.license.setMovementMethod(LinkMovementMethod.getInstance());
-            } else {
-                viewHolder.license.setText(licenseInfo.license);
-            }
-        }
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return localDataSet.get(position).getType();
     }
 
     // Return the size of your dataset (invoked by the layout manager)

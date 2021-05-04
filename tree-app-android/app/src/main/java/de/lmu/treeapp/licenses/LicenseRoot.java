@@ -6,6 +6,7 @@ import java.util.List;
 
 public class LicenseRoot {
     @JsonProperty
-    public List<LicenseInfo> generated;
-    public List<LicenseInfo> custom;
+    public LicenseSection libraries;
+    @JsonProperty
+    public LicenseSection media;
 }
