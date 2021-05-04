@@ -569,10 +569,250 @@ libraries:
       license: Apache License, Version 2.0
       licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
       url: http://www.snakeyaml.org
-
   custom:
 
 media:
   nameResource: license_media
   generated:
   custom:
+    - artifact:
+      name: Ahorn Mountain Illustration
+      copyrightHolder: macrovector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/mountain-hiking-climbing-skiing-equipment-icons-flat-set-isolated-vector-illustration_1159258.htm#page=1&query=mountains%20icon&position=33
+    - artifact:
+      name: "[Tree]/Cloud/Weather Illustration"
+      copyrightHolder: macrovector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/weather-forecast-symbols-color-icons-set-sun-cloud-rain-snow-isolated-vector-illustration_1158405.htm#page=1&query=weather%20illustration&position=15
+    - artifact:
+      name: Buche Deutschland-Karte
+      copyrightHolder: aranjuezmedina - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/germany-representative-elements-collection_1155271.htm#page=1&query=germany&position=0
+    - artifact:
+      name: Eberesche Vogel
+      copyrightHolder: freepik - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/flat-flying-bird-background_1631458.htm#page=1&query=flying%20bird&position=3
+    - artifact:
+      name: Eiche Gardening Tool
+      copyrightHolder: macrovector_official - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/seedling-flat-icons-set_4368661.htm#page=1&query=gardening&position=3
+    - artifact:
+      name: Fichte Holz
+      copyrightHolder: macrovector_official - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/sawmill-timber-icon-set_4430105.htm#page=1&query=wood%20pile%20icon&position=3
+    - artifact:
+      name: Linde Park
+      copyrightHolder: macrovector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/park-landscape-flat_1538935.htm#page=2&query=park+vector&position=39
+    - artifact:
+      name: Linde Restaurant
+      copyrightHolder: pch.vector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/cartoon-shop-set_5585204.htm#page=1&query=restaurant%20vector&position=26
+    - artifact:
+      name: Tanne Geschenke
+      copyrightHolder: freepik - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/christmas-trees-pack_755817.htm#page=4&query=christmas+tree+vector&position=12
+    - artifact:
+      name: Kiefer Europakarte
+      copyrightHolder: freepik - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/flat-european-map-with-blue-background_1115055.htm#page=1&query=europe%20map&position=2
+    - artifact:
+      name: Kiefer Wasser
+      copyrightHolder: pch.vector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/water-splashes-flat-icon-set_9177056.htm#page=1&query=water%20drop%20vector&position=0
+    - artifact:
+      name: Maple syrup
+      copyrightHolder: vextok - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/logo-maple-syrup-bottle-cartoon-cruet-sweet-maple-nectar-with-cap-souvenir-glass-bottle_3332293.htm#page=1&query=maple%20syrup&position=0
+    - artifact:
+      name: Steinzeitmensch
+      copyrightHolder: macrovector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/isometric-primitive-people-caveman-flowchart-composition-with-images-related-stone-age-humanity-tools-weapons-illustration_6868288.htm#page=1&query=primitive%20man&position=46
+    - artifact:
+      name: Gummistiefel
+      copyrightHolder: pch.vector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/gardening-tools-illustration-set_4445049.htm#page=1&query=boot%20vector&position=22
+    - artifact:
+      name: Herbstlaub
+      copyrightHolder: klyaksun - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/vector-seamless-with-autumn-maple-leaves_1308046.htm#page=1&query=autumn%20leaves%20vector&position=0
+    - artifact:
+      name: Holzblock
+      copyrightHolder: pch.vector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/various-wood-logs-trunks_9177044.htm#page=1&query=wood%20vector&position=7
+    - artifact:
+      name: Vogelbeere
+      copyrightHolder: katemangostar - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/mountain-ash-twig-with-berries-snow_1371555.htm#page=1&query=rowan%20berry&position=2
+    - artifact:
+      name: Stärke
+      copyrightHolder: macrovector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/brawny-caucasian-arm_3949298.htm#page=1&query=strength&position=0
+    - artifact:
+      name: Elixier
+      copyrightHolder: pch.vector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/elixir-bottles-set_9174576.htm#page=1&query=vial&position=6
+    - artifact:
+      name: Vanille
+      copyrightHolder: katemangostar - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/spices-icon-set_1295305.htm#page=1&query=vanilla%20illustration&position=0
+    - artifact:
+      name: Strawberry
+      copyrightHolder: rawpixel.com - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/hand-drawn-strawberry-fruit-illustration_2582459.htm#page=1&query=strawberry&position=0
+    - artifact:
+      name: Cinderella
+      copyrightHolder: freepik - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/illustration-with-princess-cinderella-theme_7133821.htm#page=1&query=cinderella&position=1
+    - artifact:
+      name: Ast
+      copyrightHolder: brgfx - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/different-shapes-branches_2291250.htm#page=1&query=different%20shapes%20branches&position=0
+    - artifact:
+      name: Baumhaus
+      copyrightHolder: macrovector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/tree-houses-green-foliage-illustration_6822653.htm#page=1&query=tree%20house&position=0
+    - artifact:
+      name: Dancing
+      copyrightHolder: macrovector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/dancing-styles-flat-icons-set-partner-dance-waltz-performer-tango-woman-man_10600593.htm#page=1&query=dance&position=23
+    - artifact:
+      name: Tea
+      copyrightHolder: macrovector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/colored-realistic-tea-brewing-sequence-composition-with-four-steps-instructions-vector-illustration_7201335.htm#page=1&query=tea%20illustration&position=22
+    - artifact:
+      name: Reh
+      copyrightHolder: freepik - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/flat-autumn-forest-animals-collection_5112782.htm#page=1&query=deer&position=49
+    - artifact:
+      name: Tanne
+      copyrightHolder: freepik - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/great-geometric-fir-trees-green-tones_964169.htm#page=1&query=fir&position=10
+    - artifact:
+      name: Pflaster
+      copyrightHolder: pch.vector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/various-adhesive-medical-plasters-flat-icon-set_9650908.htm#page=1&query=plaster&position=0
+    - artifact:
+      name: Kaugummi
+      copyrightHolder: macrovector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/set-realistic-chewing-gum-various-shape-color-packaging-without-isolated_6869532.htm#page=1&query=bubble%20gum&position=1
+    - artifact:
+      name: Blüte - Kamera Icon
+      copyrightHolder: freepik - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/photography-icons-free_712422.htm#page=1&query=picture%20icon&position=3
+    - artifact:
+      name: Blüte - Calendar
+      copyrightHolder: macrovector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/colorful-realistic-paper-notes-collection_4016974.htm#page=1&query=calendar%20torn&position=2
+    - artifact:
+      name: Blüte - Blüten im Kalender
+      copyrightHolder: Sapann-Design - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/different-colored-icons_958545.htm#page=1&query=flower%20icon&position=2
+    - artifact:
+      name: Blüte - Fliege
+      copyrightHolder: tartila - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/cartoon-bugs-baby-insect-funny-happy-bug-cute-ladybug_10722677.htm#page=1&query=insect&position=2
+    - artifact:
+      name: Blüte - Taschentücher
+      copyrightHolder: macrovector_official - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/flower-fur-dust-lactose-allergy-icon-flat-set_4378004.htm#query=allergy&position=10
+    - artifact:
+      name: Blüte - Fisch
+      copyrightHolder: freepik - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/set-six-fish_2091508.htm#page=1&query=fish&position=9
+    - artifact:
+      name: Fichte Zapfen
+      copyrightHolder: Vecteezy
+      license: Vecteezy License
+      licenseUrl: https://www.vecteezy.com/licensing-agreement
+      url: https://www.vecteezy.com/vector-art/145580-pine-cones-icons-vector
+    - artifact:
+      name: Wind
+      copyrightHolder: macrovector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/wind-icons-nature-wave-flowing-cool-weather-climate-motion-vector-illustration_11054219.htm#page=1&query=windy&position=1
+    - artifact:
+      name: Biene mit Nektar
+      copyrightHolder: coolvector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/cute-hand-drawn-bee-with-honey-jar_4630834.htm#page=1&query=bee&position=3
+    - artifact:
+      name: Auto
+      copyrightHolder: pch.vector - www.freepik.com
+      license: Freepik License
+      licenseUrl: https://www.freepikcompany.com/legal#nav-freepik
+      url: https://www.freepik.com/free-vector/children-toys-set_9649206.htm#page=1&query=funny%20car&position=3
+

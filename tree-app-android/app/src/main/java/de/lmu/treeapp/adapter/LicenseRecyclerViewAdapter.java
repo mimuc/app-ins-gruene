@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import de.lmu.treeapp.adapter.grouped.AbstractViewHolder;
 import de.lmu.treeapp.adapter.grouped.HeaderViewHolder;
 import de.lmu.treeapp.licenses.LicenseInfo;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 public class LicenseRecyclerViewAdapter extends RecyclerView.Adapter<AbstractViewHolder> {
@@ -115,29 +118,48 @@ public class LicenseRecyclerViewAdapter extends RecyclerView.Adapter<AbstractVie
             LicenseInfo licenseInfo = (LicenseInfo) localDataSet.get(position).obj;
             elementViewHolder.name.setText(licenseInfo.name);
             if (licenseInfo.url != null) {
-                if (licenseInfo.url.contains("github.com")) {
-                    Glide.with(context).load(R.drawable.ic_baseline_github).into(elementViewHolder.icon);
-                    if (licenseInfo.copyrightHolder == null) {
-                        licenseInfo.copyrightHolder = licenseInfo.url.split("/")[3];
+                try {
+                    URI uri = new URI(licenseInfo.url);
+                    String domain = uri.getHost();
+                    if (domain.contains("github.com")) {
+                        Glide.with(context).load(R.drawable.ic_baseline_github).into(elementViewHolder.icon);
+                        if (licenseInfo.copyrightHolder == null) {
+                            // Use Github user name as holder name
+                            licenseInfo.copyrightHolder = licenseInfo.url.split("/")[3];
+                        }
+                    } else {
+                        if (licenseInfo.copyrightHolder == null) {
+                            // Use domain as holder name
+                            licenseInfo.copyrightHolder = domain;
+                        }
+                        if (domain.contains("kotlin")) {
+                            Glide.with(context).load(R.drawable.ic_kotlin).into(elementViewHolder.icon);
+                        } else if (domain.contains("android.com")) {
+                            Glide.with(context).load(R.drawable.ic_baseline_android).into(elementViewHolder.icon);
+                        } else if (domain.contains("jetbrains")) {
+                            Glide.with(context).load(R.drawable.ic_jetbrains).into(elementViewHolder.icon);
+                        } else if (domain.contains("freepik")) {
+                            Glide.with(context).load(R.drawable.ic_freepik_company).into(elementViewHolder.icon);
+                        } else {
+                            elementViewHolder.icon.setImageDrawable(null);
+                        }
                     }
-                } else if (licenseInfo.url.contains("kotlin")) {
-                    Glide.with(context).load(R.drawable.ic_kotlin).into(elementViewHolder.icon);
-                } else if (licenseInfo.url.contains("android.com")) {
-                    Glide.with(context).load(R.drawable.ic_baseline_android).into(elementViewHolder.icon);
-                } else if (licenseInfo.url.contains("jetbrains")) {
-                    Glide.with(context).load(R.drawable.ic_jetbrains).into(elementViewHolder.icon);
-                } else {
-                    elementViewHolder.icon.setImageDrawable(null);
+                } catch (URISyntaxException e) {
+                    Log.w("URISyntaxException", e.getMessage());
                 }
             }
             if (licenseInfo.copyrightHolder != null) {
                 elementViewHolder.copyrightHolder.setVisibility(View.VISIBLE);
                 elementViewHolder.copyrightHolder.setText("By: " + licenseInfo.copyrightHolder);
+                if (licenseInfo.url != null) {
+                    elementViewHolder.url.setVisibility(View.GONE);
+                }
             } else {
                 elementViewHolder.copyrightHolder.setVisibility(View.GONE);
-            }
-            if (licenseInfo.url != null) {
-                elementViewHolder.url.setText(licenseInfo.url);
+                if (licenseInfo.url != null) {
+                    elementViewHolder.url.setVisibility(View.VISIBLE);
+                    elementViewHolder.url.setText(licenseInfo.url);
+                }
             }
             if (licenseInfo.license != null) {
                 if (licenseInfo.licenseUrl != null) {

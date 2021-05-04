@@ -1,6 +1,7 @@
 package de.lmu.treeapp.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,8 +33,12 @@ public class LicenseActivity extends AppCompatActivity implements LicenseRecycle
         setContentView(R.layout.activity_license);
 
         LicenseRoot licenseRoot = readYaml("licenses.yml");
-        addLicenseSection(licenseRoot.libraries);
-        addLicenseSection(licenseRoot.media);
+        if (licenseRoot == null) {
+            Log.e("license", "License file (licenses.yml) missing, wrong formatted or empty, please fix!");
+        } else {
+            addLicenseSection(licenseRoot.libraries);
+            addLicenseSection(licenseRoot.media);
+        }
 
         RecyclerView recyclerView = findViewById(R.id.libraries);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -47,17 +52,19 @@ public class LicenseActivity extends AppCompatActivity implements LicenseRecycle
     }
 
     private void addLicenseSection(LicenseSection section) {
-        if (section.nameResource != null) {
-            licensesAdapterList.add(new HeaderListItem(getString(getResources().getIdentifier(section.nameResource, "string", getPackageName()))));
-        }
-        if (section.generated != null) {
-            for (LicenseInfo licenseInfo : section.generated) {
-                licensesAdapterList.add(new LicenseRecyclerViewAdapter.LicenseListItem(licenseInfo));
+        if (section != null) {
+            if (section.nameResource != null) {
+                licensesAdapterList.add(new HeaderListItem(getString(getResources().getIdentifier(section.nameResource, "string", getPackageName()))));
             }
-        }
-        if (section.custom != null) {
-            for (LicenseInfo licenseInfo : section.custom) {
-                licensesAdapterList.add(new LicenseRecyclerViewAdapter.LicenseListItem(licenseInfo));
+            if (section.generated != null) {
+                for (LicenseInfo licenseInfo : section.generated) {
+                    licensesAdapterList.add(new LicenseRecyclerViewAdapter.LicenseListItem(licenseInfo));
+                }
+            }
+            if (section.custom != null) {
+                for (LicenseInfo licenseInfo : section.custom) {
+                    licensesAdapterList.add(new LicenseRecyclerViewAdapter.LicenseListItem(licenseInfo));
+                }
             }
         }
     }
