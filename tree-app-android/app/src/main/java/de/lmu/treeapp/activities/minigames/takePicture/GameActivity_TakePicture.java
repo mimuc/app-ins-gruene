@@ -63,8 +63,6 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
         PermissionRequest takePicturePermissionRequest = new PermissionRequest(this, Manifest.permission.CAMERA, isGranted -> {
             if (isGranted) {
                 dispatchTakePictureIntent();
-            } else {
-                // Do nothing
             }
         }, getString(R.string.permission_rationale_camera));
 
