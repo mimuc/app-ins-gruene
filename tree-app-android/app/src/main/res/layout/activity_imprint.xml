@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +14,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
             <TextView
                 android:id="@+id/imprint_title"
                 android:layout_width="match_parent"
@@ -24,6 +22,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="24dp"
                 android:text="@string/imprint_imprint_title"
+                android:textAllCaps="true"
                 android:textColor="@color/asphalt"
                 android:textSize="@dimen/heading1"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -78,69 +77,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/publisher_title" />
 
-
-            <TextView
-                android:id="@+id/authority_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/freude"
-                android:text="@string/imprint_authority_title"
-                android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/publisher_text" />
-
-            <TextView
-                android:id="@+id/authority_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/hind_medium"
-                android:text="@string/imprint_authority_text"
-                android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/authority_title" />
-
-            <TextView
-                android:id="@+id/tax_id_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/freude"
-                android:text="@string/imprint_tax_id_title"
-                android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/authority_text" />
-
-            <TextView
-                android:id="@+id/tax_id_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/hind_medium"
-                android:text="@string/imprint_tax_id_text"
-                android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tax_id_title" />
-
             <TextView
                 android:id="@+id/tec_implementation_title"
                 android:layout_width="match_parent"
@@ -155,7 +91,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tax_id_text" />
+                app:layout_constraintTop_toBottomOf="@+id/publisher_text" />
 
             <TextView
                 android:id="@+id/tec_implementation_text"
@@ -173,68 +109,6 @@
                 app:layout_constraintTop_toBottomOf="@id/tec_implementation_title" />
 
             <TextView
-                android:id="@+id/text_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/freude"
-                android:text="@string/imprint_text_title"
-                android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tec_implementation_text" />
-
-            <TextView
-                android:id="@+id/text_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/hind_medium"
-                android:text="@string/imprint_text_text"
-                android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_title" />
-
-            <TextView
-                android:id="@+id/graphics_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/freude"
-                android:text="@string/imprint_graphics_title"
-                android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_text" />
-
-            <TextView
-                android:id="@+id/graphics_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/hind_medium"
-                android:text="@string/imprint_graphics_text"
-                android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/graphics_title" />
-
-            <TextView
                 android:id="@+id/disclaimer_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -248,7 +122,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/graphics_text" />
+                app:layout_constraintTop_toBottomOf="@id/tec_implementation_text" />
 
             <TextView
                 android:id="@+id/disclaimer_text"
@@ -291,6 +165,38 @@
                 android:justificationMode="inter_word"
                 android:fontFamily="@font/hind_medium"
                 android:text="@string/imprint_copyright_text"
+                android:textColor="@color/asphalt"
+                android:textSize="@dimen/text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/copyright_title" />
+
+            <TextView
+                android:id="@+id/links_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/freude"
+                android:text="@string/imprint_links_title"
+                android:textColor="@color/asphalt"
+                android:textSize="@dimen/heading2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/disclaimer_text" />
+
+            <TextView
+                android:id="@+id/links_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/hind_medium"
+                android:text="@string/imprint_links_text"
                 android:textColor="@color/asphalt"
                 android:textSize="@dimen/text"
                 app:layout_constraintEnd_toEndOf="parent"
