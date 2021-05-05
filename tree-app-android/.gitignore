@@ -93,6 +93,9 @@ lint/tmp/
 .idea/rGraphicsSettings.xml
 .idea/rpackages.xml
 
+# License Tools Plugin
+/app/licenses*.yml
+
 # OS generated files
 .DS_Store
 .fuse_hidden*
