@@ -17,15 +17,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
+import de.lmu.treeapp.R;
 
 import java.util.List;
-
-import de.lmu.treeapp.R;
 
 /**
  * Displays every popup that is used within the app.
@@ -92,11 +90,15 @@ public class Popup {
      * @param treeId  The treeId.
      */
     public <T extends Context & PopupInterface> Popup(T context, int treeId) {
+        this(context, context, treeId);
+    }
+
+    public <T extends Context & PopupInterface> Popup(Context context, PopupInterface listener, int treeId) {
 
         //Create popup objects
         this.popupWindow = new Dialog(context);
         this.popupWindow.setContentView(R.layout.popup_universal);
-        this.listener = context;
+        this.listener = listener;
         this.context = context;
 
         //Texts are imported from strings.xml, go there for title changes
@@ -306,7 +308,7 @@ public class Popup {
         show(type, message, null);
     }
 
-    public void showWithButtonText(PopupType type, String buttonTextPositive, String buttonTextWantedPoster,String message) {
+    public void showWithButtonText(PopupType type, String buttonTextPositive, String buttonTextWantedPoster, String message) {
         setButtonAcceptText(buttonTextPositive);
         setButtonSecondaryText(buttonTextWantedPoster);
         show(type, message, null);
@@ -580,7 +582,7 @@ public class Popup {
     /**
      * simple positive animation
      */
-    private void squirrelAnimationPositiveLight(){
+    private void squirrelAnimationPositiveLight() {
         Handler handlerB = new Handler(Looper.getMainLooper());
         handlerB.postDelayed(() -> {
             // bar animation
@@ -596,7 +598,7 @@ public class Popup {
     /**
      * simple negative animation
      */
-    private void squirrelAnimationNegativeLight(){
+    private void squirrelAnimationNegativeLight() {
         //1. close eyes
         new Handler(Looper.getMainLooper()).postDelayed(() -> this.squirrel.setImageResource(R.drawable.ic_mascott_false_only_squirrel_eyeclosed), 80);
         Handler handlerB = new Handler(Looper.getMainLooper());
