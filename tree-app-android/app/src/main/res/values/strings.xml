@@ -173,6 +173,13 @@
     <string name="about_text_devs4">Cara Emberger \nCarmen Golling \nFabienne Daniela Lengweiler \nFlorentine Helmle \nJulian Lorenz \nMaya Czupor \nThomas Gerl \nThomas Puls</string>
     <string name="about_text_devs5">Florentine Helmle \nLisa Görtz \nMarie Irmer \nThomas Gerl</string>
 
+    <!-- Licenses -->
+    <string name="menu_licenses">Lizenzen</string>
+    <string name="licenses_title">Lizenzen</string>
+    <string name="license_libraries">Bibliotheken</string>
+    <string name="license_media">Medien</string>
+    <string name="license_fonts">Schriftarten</string>
+
     <!-- Splash Screen -->
     <string name="splash_screen_image_appinsgruene" translatable="false">image_appinsgruene</string>
     <string name="splash_screen_image_logos" translatable="false">image_logos</string>
