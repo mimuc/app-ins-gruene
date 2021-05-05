@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -18,15 +16,11 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
 import com.afollestad.viewpagerdots.DotsIndicator;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.About;
 import de.lmu.treeapp.activities.Imprint;
+import de.lmu.treeapp.activities.LicenseActivity;
 import de.lmu.treeapp.activities.Privacy;
 import de.lmu.treeapp.adapter.ProfileSlidePagerAdapter;
 import de.lmu.treeapp.contentData.database.AppDatabase;
@@ -35,6 +29,9 @@ import de.lmu.treeapp.service.MainActivityViewModel;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfileSliderFragment extends Fragment {
 
@@ -112,6 +109,11 @@ public class ProfileSliderFragment extends Fragment {
                             .replace(R.id.profile_slider_fragment, profileEditFragment)
                             .addToBackStack(null)
                             .commit();
+                case R.id.open_licenses:
+                    this.context = getContext();
+                    Intent intent_licenses = new Intent(context, LicenseActivity.class);
+                    context.startActivity(intent_licenses);
+                    return true;
                 default:
                     return super.onOptionsItemSelected(item);
             }
@@ -212,7 +214,4 @@ public class ProfileSliderFragment extends Fragment {
             setupViewPager(userId);
         }
     }
-
-
-
 }
