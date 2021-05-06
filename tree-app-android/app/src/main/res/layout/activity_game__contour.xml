@@ -124,7 +124,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:elevation="4dp"
-        android:fontFamily="@font/freude"
         android:padding="8dp"
         android:text="@string/game_send_button_placeholder_text"
         android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
