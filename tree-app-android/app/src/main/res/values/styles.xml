@@ -17,7 +17,7 @@
         <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
         <item name="android:navigationBarColor">?attr/colorSurface</item>
         <item name="android:textSize">18dp</item>
-        <item name="android:fontFamily">@font/freude</item>
+        <item name="android:fontFamily">@font/main</item>
         <item name="android:windowAnimationStyle">@null</item>
 
         <!-- deprecated: prefer MDC "on" attrs or use defaults -->
