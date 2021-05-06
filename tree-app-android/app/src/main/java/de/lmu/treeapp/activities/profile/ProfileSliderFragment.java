@@ -109,6 +109,7 @@ public class ProfileSliderFragment extends Fragment {
                             .replace(R.id.profile_slider_fragment, profileEditFragment)
                             .addToBackStack(null)
                             .commit();
+                    return true;
                 case R.id.open_licenses:
                     this.context = getContext();
                     Intent intent_licenses = new Intent(context, LicenseActivity.class);
