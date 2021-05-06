@@ -444,7 +444,7 @@ public class Popup {
                             leafImageViews[4].setVisibility(View.GONE);
                         }
                     });
-        }, 1870);
+        }, 1500);
     }
 
     /**
@@ -562,7 +562,6 @@ public class Popup {
         Handler handlerB = new Handler(Looper.getMainLooper());
         handlerB.postDelayed(() -> {
             tear.animate().translationY(800).setDuration(1000);
-            Handler handlerB1 = new Handler(Looper.getMainLooper());
         }, 381);
 
         // 4. Open eye again

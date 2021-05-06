@@ -114,12 +114,15 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/mascot_wrapper"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:paddingHorizontal="40dp"
                 android:paddingTop="36dp"
+                app:layout_constraintWidth_max="300dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/popup_title"
                 app:layout_constraintTop_toTopOf="parent">
                 <!-- Consider extra views, e.g. in Choose Answer, if wrong answer is selected multiple times -->
