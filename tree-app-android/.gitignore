@@ -96,6 +96,9 @@ lint/tmp/
 # License Tools Plugin
 /app/licenses*.yml
 
+# Licensed / Third party assets / resources
+/app/src/main/res/font/freude.*
+
 # OS generated files
 .DS_Store
 .fuse_hidden*
