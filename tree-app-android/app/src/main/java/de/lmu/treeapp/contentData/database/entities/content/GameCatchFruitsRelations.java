@@ -5,7 +5,7 @@ import androidx.room.Relation;
 import java.util.List;
 
 /**
- * The persistent database for the CatchFruits (Baumfangspiel) Minigame with its related attributes.
+ * The persistent database for the CatchFruits Minigame with its related attributes.
  */
 public class GameCatchFruitsRelations extends GameRelations {
 
