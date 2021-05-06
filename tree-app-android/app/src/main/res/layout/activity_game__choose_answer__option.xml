@@ -38,7 +38,6 @@
         style="@style/AppTheme.OutlinedButton"
         android:elevation="4dp"
         android:stateListAnimator="@null"
-        android:fontFamily="@font/freude"
         android:text="@string/game_choose_answer_option_button_placeholder_text"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"
