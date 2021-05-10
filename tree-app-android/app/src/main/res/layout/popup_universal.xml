@@ -60,55 +60,50 @@
                     android:id="@+id/imageViewStar1"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="4dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.081"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="parent"
                     app:srcCompat="@drawable/ic_ahorn_frucht" />
 
                 <ImageView
                     android:id="@+id/imageViewStar2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="4dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.281"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="parent"
                     app:srcCompat="@drawable/ic_ahorn_frucht" />
 
                 <ImageView
                     android:id="@+id/imageViewStar3"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="4dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.454"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="parent"
                     app:srcCompat="@drawable/ic_ahorn_frucht" />
 
                 <ImageView
                     android:id="@+id/imageViewStar4"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="4dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.66"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="parent"
                     app:srcCompat="@drawable/ic_ahorn_frucht" />
 
                 <ImageView
                     android:id="@+id/imageViewStar5"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="4dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.896"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="parent"
                     app:srcCompat="@drawable/ic_ahorn_frucht" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

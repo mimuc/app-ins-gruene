@@ -11,8 +11,11 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.Window;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,6 +27,7 @@ import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import de.lmu.treeapp.R;
 
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Displays every popup that is used within the app.
@@ -93,7 +97,7 @@ public class Popup {
         this(context, context, treeId);
     }
 
-    public <T extends Context & PopupInterface> Popup(Context context, PopupInterface listener, int treeId) {
+    public Popup(Context context, PopupInterface listener, int treeId) {
 
         //Create popup objects
         this.popupWindow = new Dialog(context);
@@ -241,7 +245,21 @@ public class Popup {
             // Strong positive squirrel animation
             (new Handler(Looper.getMainLooper())).postDelayed(this::squirrelAnimationPositive, 600);
             // Leaves animation
-            leafAnimation();
+            View popupContainer = popupWindow.findViewById(R.id.popupContainer);
+            if (ViewCompat.isLaidOut(popupContainer)) {
+                leafAnimation();
+            } else {
+                // Wait for laying out / building the view, to be able to measure heights and widths
+                ViewTreeObserver.OnGlobalLayoutListener layoutListener;
+                layoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        leafAnimation();
+                        popupContainer.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    }
+                };
+                popupContainer.getViewTreeObserver().addOnGlobalLayoutListener(layoutListener);
+            }
         } else if (type == PopupType.NEGATIVE_ANIMATION) {
             popupTitle.setText(looseTitle);
             this.squirrelBar.setImageResource(R.drawable.ic_mascott_false_squirrel_bar);
@@ -380,70 +398,42 @@ public class Popup {
      * Leaf animation.
      */
     private void leafAnimation() {
+        View popupContainer = popupWindow.findViewById(R.id.popupContainer);
 
-        // Set correct start position
-        for (ImageView leafImageView : leafImageViews) {
-            leafImageView.setTranslationY(-140);
-        }
+        int heightStartOverflow = 30;
+        int heightOverflow = 400;
+        int popupWindowHeight = popupContainer.getHeight() + leafImageViews[0].getHeight();
 
-        // Make them visible
+        int minDuration = 3000;
+        int durationOverflow = 1000;
+
+        int minRotation = 0;
+        int rotationOverflow = 360;
+
+        Interpolator interpolator = new AccelerateInterpolator();
+
+        // Set random start position and make them visible
         for (ImageView leafImageView : leafImageViews) {
             leafImageView.setVisibility(View.VISIBLE);
+            leafImageView.setTranslationY(ThreadLocalRandom.current().nextInt(-heightStartOverflow, 0));
+            leafImageView.setRotation(ThreadLocalRandom.current().nextInt(-rotationOverflow, rotationOverflow));
         }
 
         Handler handler = new Handler(Looper.getMainLooper());
         handler.postDelayed(() -> {
-            leafImageViews[0].animate()
-                    .translationY(2000)
-                    .setDuration(3600)
-                    .rotationBy(-45)
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            leafImageViews[0].setVisibility(View.GONE);
-                        }
-                    });
-
-            leafImageViews[1].animate()
-                    .translationY(2000)
-                    .setDuration(4600)
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            leafImageViews[1].setVisibility(View.GONE);
-                        }
-                    });
-
-            leafImageViews[2].animate()
-                    .translationY(2000)
-                    .setDuration(3300)
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            leafImageViews[2].setVisibility(View.GONE);
-                        }
-                    });
-
-            leafImageViews[3].animate()
-                    .translationY(2000)
-                    .setDuration(3000)
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            leafImageViews[3].setVisibility(View.GONE);
-                        }
-                    });
-
-            leafImageViews[4].animate()
-                    .translationY(2000)
-                    .setDuration(4600)
-                    .rotationBy(55)
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            leafImageViews[4].setVisibility(View.GONE);
-                        }
-                    });
+            for (ImageView leafImageView : leafImageViews) {
+                leafImageView.animate()
+                        .setInterpolator(interpolator)
+                        .translationY(popupWindowHeight + ThreadLocalRandom.current().nextInt(heightOverflow))
+                        .setDuration(minDuration + ThreadLocalRandom.current().nextInt(durationOverflow))
+                        .rotationBy(minRotation + ThreadLocalRandom.current().nextInt(-rotationOverflow, rotationOverflow))
+                        .setListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                leafImageView.setVisibility(View.GONE);
+                            }
+                        });
+            }
         }, 1500);
     }
 
@@ -455,12 +445,14 @@ public class Popup {
         // EYES
         squirrel.setImageResource(R.drawable.ic_mascott_true_only_squirrel_eyeclosed);
 
+        FastOutSlowInInterpolator fastOutSlowInInterpolator = new FastOutSlowInInterpolator();
+
         // 1. SQUIRREL: jump
         ObjectAnimator jump = ObjectAnimator.ofPropertyValuesHolder(
                 squirrel,
                 PropertyValuesHolder.ofFloat("translationY", -90f));
         jump.setDuration(215);
-        jump.setInterpolator(new FastOutSlowInInterpolator());
+        jump.setInterpolator(fastOutSlowInInterpolator);
         jump.setRepeatCount(5);
         jump.setRepeatMode(ObjectAnimator.REVERSE);
 
@@ -470,7 +462,7 @@ public class Popup {
                 PropertyValuesHolder.ofFloat("rotation", -2f),
                 PropertyValuesHolder.ofFloat("translationY", -100f));
         jumpT.setDuration(215);
-        jumpT.setInterpolator(new FastOutSlowInInterpolator());
+        jumpT.setInterpolator(fastOutSlowInInterpolator);
         jumpT.setRepeatCount(5);
         jumpT.setRepeatMode(ObjectAnimator.REVERSE);
         jumpT.setStartDelay(17);
@@ -481,7 +473,7 @@ public class Popup {
                 PropertyValuesHolder.ofFloat("rotation", 2f),
                 PropertyValuesHolder.ofFloat("translationY", -100f));
         jumpB.setDuration(215);
-        jumpB.setInterpolator(new FastOutSlowInInterpolator());
+        jumpB.setInterpolator(fastOutSlowInInterpolator);
         jumpB.setRepeatCount(5);
         jumpB.setRepeatMode(ObjectAnimator.REVERSE);
         jumpB.setStartDelay(17);
