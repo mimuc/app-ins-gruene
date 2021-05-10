@@ -174,7 +174,6 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:elevation="4dp"
-        android:fontFamily="@font/freude"
         android:padding="8dp"
         android:text="@string/game_btn_start"
         android:textAppearance="@style/TextAppearance.Compat.Notification.Title.Media"

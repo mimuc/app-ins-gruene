@@ -17,14 +17,11 @@
         <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
         <item name="android:navigationBarColor">?attr/colorSurface</item>
         <item name="android:textSize">18dp</item>
-        <item name="android:fontFamily">@font/freude</item>
+        <item name="android:fontFamily">@font/main</item>
         <item name="android:windowAnimationStyle">@null</item>
 
         <!-- deprecated: prefer MDC "on" attrs or use defaults -->
         <item name="colorControlHighlight">@color/colorPrimaryRipple</item>
-
-        <item name="textAppearanceHeadline6">@style/TextAppearance.App.Headline6</item>
-        <item name="textAppearanceSubtitle1">@style/TextAppearance.App.Subtitle1</item>
     </style>
 
     <!-- Background of Actionbar -->
@@ -89,16 +86,5 @@
     <style name="Rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">16dp</item>
-    </style>
-
-    <!-- TextAppearance -->
-    <style name="TextAppearance.App.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="fontFamily">@font/freude</item>
-        <item name="android:fontFamily">@font/freude</item>
-    </style>
-
-    <style name="TextAppearance.App.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
-        <item name="fontFamily">@font/freude</item>
-        <item name="android:fontFamily">@font/freude</item>
     </style>
 </resources>

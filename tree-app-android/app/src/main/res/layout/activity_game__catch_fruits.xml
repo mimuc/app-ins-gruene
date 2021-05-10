@@ -176,7 +176,6 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:fontFamily="@font/freude"
         android:textColor="@color/asphalt"
         android:textSize="18sp"
         android:textStyle="bold"
