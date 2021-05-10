@@ -24,7 +24,6 @@
                 android:id="@+id/heading_puzzle_difficulty_select"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/freude"
                 android:scaleType="fitCenter"
                 android:text="@string/game_difficulty_select_text"
                 android:textAlignment="center"

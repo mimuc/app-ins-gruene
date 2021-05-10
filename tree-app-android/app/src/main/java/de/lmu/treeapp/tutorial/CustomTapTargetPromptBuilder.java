@@ -3,9 +3,8 @@ package de.lmu.treeapp.tutorial;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Build;
-
 import androidx.annotation.NonNull;
-
+import androidx.core.content.res.ResourcesCompat;
 import de.lmu.treeapp.R;
 import uk.co.samuelwall.materialtaptargetprompt.ActivityResourceFinder;
 import uk.co.samuelwall.materialtaptargetprompt.extras.PromptOptions;
@@ -20,7 +19,7 @@ public class CustomTapTargetPromptBuilder extends PromptOptions<CustomTapTargetP
         super(resourceFinder);
         Typeface font = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            font = resourceFinder.getResources().getFont(R.font.freude);
+            font = ResourcesCompat.getFont(resourceFinder.getContext(), R.font.main);
         }
         this.setMaxTextWidth(R.dimen.max_text_width)
                 .setCaptureTouchEventOnFocal(true)

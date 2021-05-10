@@ -855,3 +855,15 @@ fonts:
       license: Typejockeys End User License, Agreement for Digital Media Embedding
       licenseUrl: https://www.typejockeys.com/wp-content/uploads/2017/03/Typejockeys-EULA-embed.pdf
       url: https://typejockeys.com/font/freude
+    - artifact:
+      name: Fredoka One
+      copyrightHolder: Milena Brandao
+      license: Open Font License
+      licenseUrl: https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+      url: https://fonts.google.com/specimen/Fredoka+One
+    - artifact:
+      name: Hind
+      copyrightHolder: Indian Type Foundry
+      license: Open Font License
+      licenseUrl: https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+      url: https://fonts.google.com/specimen/Hind

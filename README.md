@@ -92,6 +92,11 @@ Read the following docs:
 - [Core app quality](https://developer.android.com/docs/quality-guidelines/core-app-quality)
 - [Launch checklist](https://developer.android.com/distribute/best-practices/launch/launch-checklist)
 
+Replace the resources used in the release:
+- Add the "Freude"-Font to `app/src/main/res/font`.
+- Change the path in `app/src/main/res/font/main.xml` accordingly.
+- Untrack the file changes: `git update-index --assume-unchanged app/src/main/res/font/main.xml`.
+
 ## Authors
 
 ***
