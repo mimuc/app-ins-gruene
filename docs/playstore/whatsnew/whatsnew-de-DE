@@ -1,0 +1,8 @@
+0.1.0-beta.0 - 2021-05-11
+- Filtern von obszönen Wörtern für ausgewählte Minigames
+- Anpassung / Hinzufügen der Sektionen Impressum, Datenschutz und Über
+- Fehler behoben, um Kamera-Berechtiung abzufragen
+- Verbessertes Layout für Popups
+- Umbenneung von "Baumfangspiel" zu "Schnapp sie dir!"
+- Handhabung von Schrift-Lizenzen
+- Aktualisierung der Tag-Versionierung von "tree-app-android-x.x.x" auf "x.x.x"
