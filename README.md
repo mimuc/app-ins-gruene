@@ -1,3 +1,4 @@
+# App Ins Grüne
 ![Flyer_AppInsGruene](https://user-images.githubusercontent.com/18674912/117980915-bb7af180-b334-11eb-9fa0-0e376b4a9583.jpg)  
 
 # Table of Contents
@@ -81,7 +82,7 @@ Detect lint issues:
 ## Deployment and Release
 Read the docs for [Deployment](docs/playstore/Deployment.md).
 
-## Authors
+# Authors
 'App Ins Grüne' was created by computer science and art students in various courses at the Ludwig-Maximilians-University of Munich. However, it is not an official product of the LMU. The app was developed in cooperation with BISA [Biodiversität im Schulalltag](https://www.bisa100.de/) and the Institute for Biology Education of the LMU.     
 
 With a lot of commitment and attention to detail, a learning app was created that uses numerous mini-games to convey knowledge about the local tree species.  
@@ -95,7 +96,7 @@ Development:
 - Winter semester 2020/21: Practical Course [Development of Media Systems III](https://www.medien.ifi.lmu.de/lehre/ws2021/pem3/)
 ***
 
-## Notes
+# Notes
 - Built with [Gradle](https://gradle.org/) 
 - Versioning with [Git](http://git.org/)
 - Documentation written in [Markdown](https://guides.github.com/features/mastering-markdown/)
