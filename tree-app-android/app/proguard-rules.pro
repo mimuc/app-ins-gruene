@@ -27,3 +27,8 @@
     public <init>(...);
 }
 -dontwarn androidx.room.paging.**
+
+# YAML / JSON converter
+-keepclassmembers class * {
+    @com.fasterxml.jackson.annotation.JsonProperty *;
+}
