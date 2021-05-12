@@ -9,7 +9,7 @@ See deployment for notes on how to deploy the project on a live system.
 
 ### What do you need to run the project?
 
-- [Android Studio](https://developer.android.com/studio)
+- [Android Studio](https://developer.android.com/studio) or [IntelliJ (Ultimate)](https://www.jetbrains.com/idea/download)
 - [Git](https://git-scm.com/)
 
 ### How to get the project?
@@ -20,17 +20,17 @@ cd path/to/your/directory
 ```
 - Clone the project: 
 ```
-git clone https://gitlab.lrz.de/lmu-design-workshop/tree-app-android.git
+git clone https://github.com/lmu-informatics/app-ins-gruene.git
 ```
 - Now you are able to open the project in Android Studio.
 
 ### How to contribute?
 
-- Create an [issue](https://gitlab.com/gitlab-org/gitlab/-/issues), so we can discuss and monitor the topic.
-- You can check and manage the state of your issues in the [Issue-Board](https://gitlab.lrz.de/lmu-design-workshop/tree-app-android/-/boards). 
+- Create an [issue](https://github.com/lmu-informatics/app-ins-gruene/issues), so we can discuss and monitor the topic.
+- You can check and manage the state of your issues in the [Issue-Board](https://github.com/lmu-informatics/app-ins-gruene/projects). 
 - Use the branch `master` as basis for a new branch `git checkout 123-my-issue`, where `123` is the issue number. Don't forget to update your master before checkout with `git pull origin master`.
 - Make your changes, consider formatting them with your IDE (e.g. `Ctrl+Alt+L` in IntelliJ / AndroidStudio).
-- Commit your changes, consider [cross-linking](https://docs.gitlab.com/ee/user/project/issues/crosslinking_issues.html) the resolved issue with `(closes #123)` in your commit message.
+- Commit your changes, consider [cross-linking](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue) the resolved issue with `(closes #123)` in your commit message.
 - Create a Merge-Request for your branch (also consider a cross-link to an existing issue).
 
 You may want to use the Version-Control-System (VCS) [of IntelliJ](https://www.jetbrains.com/help/idea/version-control-integration.html), to easier track and compare your changes.
@@ -40,10 +40,6 @@ You may want to use the Version-Control-System (VCS) [of IntelliJ](https://www.j
 The prepopulated database is stored in `tree-app-android/app/src/main/assets/databases/content.db`. You can access and edit it with every database tool for SQLite.
 
 We recommend one of the following tools:
-- [Database Navigator](https://plugins.jetbrains.com/plugin/1800-database-navigator): **Android Studio** → Settings (`Ctrl + Alt + S`) → Plugins → Marketplace → Database Navigator
-   - Menu Bar → DB Navigator → Database Browser
-   - Create new SQLite connection to the above database path _(if necessary)_
-   - Schemas → main → Tables → _double click on your table_ → `No Filter` _(if necessary)_
 - [Database Tools and SQL](https://www.jetbrains.com/help/idea/relational-databases.html): **IntelliJ Ultimate** → Settings (`Ctrl + Alt + S`) → Plugins → Marketplace → Database Tools and SQL _(see also the [documentation](https://www.jetbrains.com/help/idea/accessing-android-sqllite-databases-from-product.html))_
 - [Database Inspector](https://developer.android.com/studio/inspect/database) _(only for debugging)_: **Android Studio** → Menu Bar → View → Tool Windows → Database Inspector
 
@@ -63,48 +59,9 @@ Detect lint issues:
 ./gradlew lint
 ```
 
-## How to Tag and Release the project
+### Deployment & Release
 
-### Release in Git
-
- We release our Build and APK with [Gradle release plugin](https://github.com/researchgate/gradle-release).
- Release call for specific version, where `releaseVersion` is the current release version and `newVersion` will be the next version:
- 
-```
-  ./gradlew clean release -Prelease.useAutomaticVersion=true -Prelease.releaseVersion=0.1.0-alpha.1 -Prelease.newVersion=0.1.1-SNAPSHOT
-```
-
- Release Call for Standard Version Increase is:
-```
-  ./gradlew clean release
-```
-
-If you just want to build an unsigned APK File, call:
-```
-  ./gradlew clean assemble
-```
-
-### Release in Playstore
-
-#### Manual
-
-Read the following docs:
-- [Publish your app](https://developer.android.com/studio/publish)
-- [Prepare for release](https://developer.android.com/studio/publish/preparing)
-- [Core app quality](https://developer.android.com/docs/quality-guidelines/core-app-quality)
-- [Launch checklist](https://developer.android.com/distribute/best-practices/launch/launch-checklist)
-
-Replace the resources used in the release:
-- Add the "Freude"-Font to `app/src/main/res/font`.
-- Change the path in `app/src/main/res/font/main.xml` accordingly.
-- Untrack the file changes: `git update-index --assume-unchanged app/src/main/res/font/main.xml`.
-
-#### GitHub Actions
-
-Once you upload the Tag in Git, the App will automatically released in the Playstore via [GitHub Actions](.github/workflows/android-release.yml).
-For updating the SECRETS read the docs of [r0adkll/sign-android-release](https://github.com/r0adkll/sign-android-release) and [r0adkll/upload-google-play](https://github.com/r0adkll/upload-google-play).
-
-We store licensed resources for the release [separately and encrypted](https://docs.github.com/en/actions/reference/encrypted-secrets#limits-for-secrets) in the docs folder.
+Read the docs for [Deployment](docs/playstore/Deployment.md).
 
 ## Authors
 
@@ -118,4 +75,4 @@ We store licensed resources for the release [separately and encrypted](https://d
 
 - Built with [Gradle](https://gradle.org/) 
 - Versioning with [Git](http://git.org/)
-- Documentation written in [Markdown](https://about.gitlab.com/handbook/product/technical-writing/markdown-guide/)
+- Documentation written in [Markdown](https://guides.github.com/features/mastering-markdown/)
