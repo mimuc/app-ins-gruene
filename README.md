@@ -1,7 +1,7 @@
 ![Flyer_AppInsGruene](https://user-images.githubusercontent.com/18674912/117980915-bb7af180-b334-11eb-9fa0-0e376b4a9583.jpg)  
 
 # Table of Contents
-- [About the app](#about-the-app)
+- [About the App](#about-the-App)
   - [Core Functions](#core-Functions)
 - [Instructions](#instructions)
   - [Getting Started](#getting-started)
@@ -9,13 +9,13 @@
     - [How to get the project](#how-to-get-the-project)
     - [How to contribute](#how-to-contribute)
     - [How to access the database](#how-to-access-the-database)
-    - [Update licenses and dependencies](#update-licenses-and-dependencies)
-  - [How to Run Tests](#how-to-run-tests)
+    - [Update Licenses and Dependencies](#update-Licenses-and-Dependencies)
+  - [How to run tests](#how-to-run-tests)
   - [Deployment and Release](#deployment-and-release)
 - [Authors](#authors)
 - [Notes](#notes)
 
-# About the app  
+# About the App  
 'App Ins Grüne' is a digital educational trail about native trees in Germany. It is intended to bring children (and adults) closer to native trees in a playful way. The focus is on the smartphone as a companion in nature: many mini-games in the app require interaction with the environment, e.g. photographing the leaves of the trees. The photos are collected in profiles for each tree and can be viewed again at any time.  
 After downloading the app, it does not need a connection while on the move. In the profiles, however, videos provided by BISA [Biodiversität im Schulalltag](https://www.bisa100.de/) can be viewed with an existing internet connection. All games can be played multiple times.  
 
@@ -65,7 +65,7 @@ We recommend one of the following tools:
 - [Database Tools and SQL](https://www.jetbrains.com/help/idea/relational-databases.html): **IntelliJ Ultimate** → Settings (`Ctrl + Alt + S`) → Plugins → Marketplace → Database Tools and SQL _(see also the [documentation](https://www.jetbrains.com/help/idea/accessing-android-sqllite-databases-from-product.html))_
 - [Database Inspector](https://developer.android.com/studio/inspect/database) _(only for debugging)_: **Android Studio** → Menu Bar → View → Tool Windows → Database Inspector
 
-### Update licenses and dependencies
+### Update Licenses and Dependencies
 We use the [License Tools Plugin for Android](https://github.com/cookpad/LicenseToolsPlugin) to maintain the dependencies. Copy the file `app/src/main/assets/licenses.yml` to `app` and exexute `./gradlew checkLicenses`. Copy the missing licenses to the `generated` list. Add custom dependencies to the `custom` list.
 
 ## How to run tests
