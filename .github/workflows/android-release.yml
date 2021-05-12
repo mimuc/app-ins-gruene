@@ -1,5 +1,6 @@
 name: CI
 on:
+  workflow_dispatch:
   push:
     tags:
       - '*'
@@ -9,7 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build
+      - name: Replace licensed resources (font)
+        run: >
+          rm tree-app-android/app/src/main/res/font/fredoka_one_regular.ttf &&
+          gpg --quiet --batch --yes --passphrase="${{ secrets.SECRET_ASSETS }}"
+          --output tree-app-android/app/src/main/res/font/fredoka_one_regular.otf --decrypt docs/assets/freude.otf.gpg
+      - name: Build App
         run: sh gradlew build
         working-directory: tree-app-android
       - name: Assemble Release Bundle

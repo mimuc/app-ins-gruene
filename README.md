@@ -86,6 +86,8 @@ If you just want to build an unsigned APK File, call:
 
 ### Release in Playstore
 
+#### Manual
+
 Read the following docs:
 - [Publish your app](https://developer.android.com/studio/publish)
 - [Prepare for release](https://developer.android.com/studio/publish/preparing)
@@ -97,11 +99,18 @@ Replace the resources used in the release:
 - Change the path in `app/src/main/res/font/main.xml` accordingly.
 - Untrack the file changes: `git update-index --assume-unchanged app/src/main/res/font/main.xml`.
 
+#### GitHub Actions
+
+Once you upload the Tag in Git, the App will automatically released in the Playstore via [GitHub Actions](.github/workflows/android-release.yml).
+For updating the SECRETS read the docs of [r0adkll/sign-android-release](https://github.com/r0adkll/sign-android-release) and [r0adkll/upload-google-play](https://github.com/r0adkll/upload-google-play).
+
+We store licensed resources for the release [separately and encrypted](https://docs.github.com/en/actions/reference/encrypted-secrets#limits-for-secrets) in the docs folder.
+
 ## Authors
 
 ***
 - SoSe19: Practical Course [Design Workshop II](http://www.medien.ifi.lmu.de/lehre/ss19/dw2/)
-- SoSe20: [Lisa Görtz](lisagoertz95@gmx.de) and Cara Emberger
+- SoSe20: [Lisa Görtz](mailto:lisagoertz95@gmx.de) and Cara Emberger
 - WiSe20: Practical Course [Development of Media Systems III](https://www.medien.ifi.lmu.de/lehre/ws2021/pem3/)
 ***
 
