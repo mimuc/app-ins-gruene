@@ -1,3 +1,5 @@
+This license applies only to the content, which is not listed on the [external licenses](tree-app-android/app/src/main/assets/licenses.yml).
+
 # MIT License
 
 Copyright (c) 2019-2021 Contributors of 'App ins Grüne'
