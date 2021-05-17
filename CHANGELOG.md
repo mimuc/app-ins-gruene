@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.1.0-alpha.3] - 2021-05-18
+- Adapt font in Popups for wrong answers
+- Fix camera crashes, when taking picture
+- Fix Licenses not visible
+
 ## [0.1.0-alpha.2] - 2021-05-11
 - Profanity filter for selected minigames
 - Adapt / add imprint, privacy policy, about sections 
@@ -18,7 +23,8 @@
 ## [0.1.0-alpha.0] - 2021-04-05
 - Internal test release
 
-[unreleased]: https://github.com/lmu-informatics/tree-app-android/compare/0.1.0-alpha.2...master
+[unreleased]: https://github.com/lmu-informatics/tree-app-android/compare/0.1.0-alpha.3...master
+[0.1.0-alpha.3]: https://github.com/lmu-informatics/tree-app-android/compare/0.1.0-alpha.2...0.1.0-alpha.3
 [0.1.0-alpha.2]: https://github.com/lmu-informatics/tree-app-android/compare/0.1.0-alpha.1...0.1.0-alpha.2
 [0.1.0-alpha.1]: https://github.com/lmu-informatics/tree-app-android/compare/0.1.0-alpha.0...0.1.0-alpha.1
 [0.1.0-alpha.0]: https://github.com/lmu-informatics/tree-app-android/compare/0.0.7...0.1.0-alpha.0

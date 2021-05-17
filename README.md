@@ -1,6 +1,18 @@
 # App Ins Grüne
 ![Flyer_AppInsGruene](https://user-images.githubusercontent.com/18674912/117980915-bb7af180-b334-11eb-9fa0-0e376b4a9583.jpg)  
 
+<!--
+[<img src="https://f-droid.org/badge/get-it-on.png"
+      alt="Get it on F-Droid"
+      height="80">](https://f-droid.org/repository/browse/?fdid=de.lmu.treeapp)
+-->
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
+alt="Download from Google Play"
+height="80">](https://play.google.com/store/apps/details?id=de.lmu.treeapp)
+[<img src=".github/assets/direct-apk-download.png"
+alt="Direct apk download"
+height="80">](https://github.com/lmu-informatics/app-ins-gruene/releases/latest)
+
 # Table of Contents
 - [About the App](#about-the-App)
   - [Core Functions](#core-Functions)

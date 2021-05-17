@@ -2,16 +2,19 @@
 
 ## Tag and Release in Git
 
+First of all increase the app `versionCode` in `build.gradle` (app).
+
 We release our Build and APK with [Gradle release plugin](https://github.com/researchgate/gradle-release).
+
+Release Call for Standard Version Increase is (use this in default release process with GitHub Actions):
+```
+  ./gradlew clean release -Prelease.releaseVersion=0.1.0-alpha.1
+```
+
 Release call for specific version, where `releaseVersion` is the current release version and `newVersion` will be the next version:
 
 ```
-  ./gradlew clean release -Prelease.useAutomaticVersion=true -Prelease.releaseVersion=0.1.0-alpha.1
-```
-
-Release Call for Standard Version Increase is:
-```
-  ./gradlew clean release
+  ./gradlew clean release -Prelease.useAutomaticVersion=true -Prelease.releaseVersion=0.1.0-alpha.1 -Prelease.newVersion=0.1.1-SNAPSHOT
 ```
 
 If you just want to build an unsigned APK File, call:
