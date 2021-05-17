@@ -33,8 +33,7 @@ public class TreeSelectionFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tree_selection, container, false);
         this.findViewsById(view);
         this.setupViewPager();
@@ -67,7 +66,7 @@ public class TreeSelectionFragment extends Fragment {
     private List<DetailSingleTreeFragment> getDetailSingleTreeFragments(List<Tree> trees) {
         List<DetailSingleTreeFragment> detailSingleTreeFragments = new ArrayList<>();
         for (Tree tree : trees) {
-            detailSingleTreeFragments.add(new DetailSingleTreeFragment(tree));
+            detailSingleTreeFragments.add(DetailSingleTreeFragment.newInstance(tree));
         }
 
         return detailSingleTreeFragments;

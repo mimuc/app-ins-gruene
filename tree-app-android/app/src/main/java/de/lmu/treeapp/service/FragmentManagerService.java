@@ -62,11 +62,6 @@ public class FragmentManagerService implements Serializable {
         }
     }
 
-    // Show overview and reset the isImprint variable to show columns of overview correctly
-    public void showOverview(Fragment[] fragmentsToShow) {
-        showFragment(fragmentsToShow[0]);
-    }
-
     /**
      * Activate and show a fragment.
      *
@@ -92,13 +87,11 @@ public class FragmentManagerService implements Serializable {
      * @param overviewFragment      The fragment of the trees-overview.
      * @param treeSelectionFragment The fragment of the trees-detail.
      * @param profileFragment       The fragment of profile.
-     * @return
      */
     public BottomNavigationView.OnNavigationItemSelectedListener getOnNavigationItemSelectedListener(
             final Fragment overviewFragment,
             final Fragment treeSelectionFragment,
             final Fragment profileFragment
-
     ) {
         return item -> {
             switch (item.getItemId()) {

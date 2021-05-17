@@ -10,15 +10,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.profile.ProfileSliderFragment;
 import de.lmu.treeapp.contentClasses.trees.Tree;
@@ -41,9 +38,9 @@ public class MainActivity extends AppCompatActivity implements PopupInterface {
 
     private DataManager dm; // The Singleton holding all the data of the CMS and Database
     private final FragmentManagerService fragmentManager = FragmentManagerService.getInstance(getSupportFragmentManager()); // The FragmentManager we need to register and launch fragments
-    private final Fragment treeSelectionFragment = new TreeSelectionFragment(); // The Trees-Detail-Fragment (The one were we can see the trees in big and click on games or the profile)
-    private final Fragment profileFragment = new ProfileSliderFragment(); // The Profile-Fragment
-    private final Fragment overviewFragment = new OverviewFragment(fragmentManager, treeSelectionFragment); // The Trees-Overview-Fragment (The one which all the trees in small squares on one screen)
+    private Fragment treeSelectionFragment; // The Trees-Detail-Fragment (The one where we can see the trees in big and click on games or the profile)
+    private Fragment profileFragment; // The Profile-Fragment
+    private Fragment overviewFragment; // The Trees-Overview-Fragment (The one which all the trees in small squares on one screen)
     private BottomNavigationView bottomNavigationView;  // The NavigationBar on the bottom
     public static Context mainContext;
     private Popup popupLeave;
@@ -56,6 +53,11 @@ public class MainActivity extends AppCompatActivity implements PopupInterface {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.treeSelectionFragment = new TreeSelectionFragment();
+        this.profileFragment = new ProfileSliderFragment();
+        this.overviewFragment = OverviewFragment.newInstance();
+
         this.setStatusBarTextColor();
         this.hideActionBar();
         this.findViewsById();
@@ -189,9 +191,9 @@ public class MainActivity extends AppCompatActivity implements PopupInterface {
     @Override
     public void onBackPressed() {
         //Check if last View
-        if (fragmentManager.getCurrentActiveFragment() == bottomNavigationFragments[0]) {
+        if (fragmentManager.getCurrentActiveFragment() == overviewFragment) {
             showLeavePopup();
-        } else fragmentManager.showOverview(bottomNavigationFragments);
+        } else fragmentManager.showFragment(overviewFragment);
     }
 
 
@@ -213,14 +215,14 @@ public class MainActivity extends AppCompatActivity implements PopupInterface {
                         .setTarget(R.id.action_tree_selection)
                         .setPrimaryText(R.string.single_view_heading)
                         .setSecondaryText(R.string.single_view_text))
-                  .addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
+                .addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
                         .setTarget(R.id.action_profile)
                         .setPrimaryText(R.string.profile_button_heading)
                         .setSecondaryText(R.string.profile_button_text)).show();
-                /**.addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
-                        .setTarget(b)
-                        .setFocalRadius(R.dimen._60sdp)
-                        .setSecondaryText(R.string.tree_text))**/
+        /**.addPrompt(new CustomTapTargetPromptBuilder(MainActivity.this)
+         .setTarget(b)
+         .setFocalRadius(R.dimen._60sdp)
+         .setSecondaryText(R.string.tree_text))**/
     }
 
     @Override

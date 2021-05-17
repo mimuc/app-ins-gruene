@@ -8,25 +8,21 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import de.lmu.treeapp.R;
+import de.lmu.treeapp.contentClasses.trees.Tree;
+import de.lmu.treeapp.contentClasses.trees.TreeComponent;
+import de.lmu.treeapp.fragments.TreeSelectionFragment;
+import de.lmu.treeapp.service.MainActivityViewModel;
 
 import java.util.List;
 import java.util.Objects;
 
-import de.lmu.treeapp.R;
-import de.lmu.treeapp.contentClasses.trees.Tree;
-import de.lmu.treeapp.contentClasses.trees.TreeComponent;
-import de.lmu.treeapp.service.MainActivityViewModel;
-
 public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRecyclerViewAdapter.ViewHolder> {
     private final List<Tree> treeValues;
     private final de.lmu.treeapp.service.FragmentManagerService fragmentManager;
-    private final Fragment selectedTreeFragment;
     private Activity currentActivity;
     private final MainActivityViewModel viewModel;
     public static ImageButton firstTree;
@@ -59,10 +55,9 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public OverviewRecyclerViewAdapter(List<Tree> treeData, de.lmu.treeapp.service.FragmentManagerService fragmentManager, Fragment selectedTreeFragment, MainActivityViewModel viewModel) {
+    public OverviewRecyclerViewAdapter(List<Tree> treeData, de.lmu.treeapp.service.FragmentManagerService fragmentManager, MainActivityViewModel viewModel) {
         this.treeValues = treeData;
         this.fragmentManager = fragmentManager;
-        this.selectedTreeFragment = selectedTreeFragment;
         this.viewModel = viewModel;
     }
 
@@ -102,7 +97,7 @@ public class OverviewRecyclerViewAdapter extends RecyclerView.Adapter<OverviewRe
         Glide.with(context).load(imageTreeId).into(holder.treeImage);
         holder.treeImage.setOnClickListener(arg0 -> {
             viewModel.setCurrentPagerIndex(position);
-            fragmentManager.showFragment(selectedTreeFragment);
+            fragmentManager.showFragment(new TreeSelectionFragment());
             ((BottomNavigationView) Objects.requireNonNull(currentActivity).findViewById(R.id.bottom_navigation)).setSelectedItemId(R.id.action_tree_selection);
         });
     }

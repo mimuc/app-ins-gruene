@@ -1,12 +1,12 @@
 package de.lmu.treeapp.contentClasses.trees;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import de.lmu.treeapp.contentData.database.entities.app.TreeStateRelations;
 import de.lmu.treeapp.contentData.database.entities.content.TreeImage;
 import de.lmu.treeapp.contentData.database.entities.content.TreeRelations;
 import de.lmu.treeapp.contentData.database.entities.content.Tree_x_Game;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Tree {
     public String qrCode; // TODO maybe can be generated, else add to persistent.db
