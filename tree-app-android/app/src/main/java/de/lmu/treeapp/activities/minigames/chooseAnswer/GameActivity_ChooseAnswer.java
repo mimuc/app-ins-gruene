@@ -1,19 +1,15 @@
 package de.lmu.treeapp.activities.minigames.chooseAnswer;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
-
 import com.bumptech.glide.Glide;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.minigames.base.GameActivity_Base;
 import de.lmu.treeapp.contentClasses.minigames.MediaType;
@@ -24,6 +20,9 @@ import de.lmu.treeapp.popup.Popup;
 import de.lmu.treeapp.popup.PopupAction;
 import de.lmu.treeapp.popup.PopupInterface;
 import de.lmu.treeapp.popup.PopupType;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameActivity_ChooseAnswer extends GameActivity_Base implements
         ChooseAnswer_Options_RecyclerViewAdapter.OptionClickInterface, PopupInterface {
@@ -120,6 +119,8 @@ public class GameActivity_ChooseAnswer extends GameActivity_Base implements
                 List<View> views = new ArrayList<>();
                 if (option.optionType == MediaType.TEXT) {
                     TextView textView = new TextView(this);
+                    Typeface typeface = ResourcesCompat.getFont(this, R.font.main);
+                    textView.setTypeface(typeface, Typeface.ITALIC);
                     textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                     textView.setText(resultText);
                     views.add(textView);
