@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,7 +43,6 @@ import java.util.Date;
 
 public class GameActivity_TakePicture extends GameActivity_Base implements PopupInterface, View.OnClickListener {
 
-    protected static final int REQUEST_TAKE_PHOTO = 1;
     protected String currentPhotoPath;
     protected Popup popup;
     protected TakePictureRecyclerViewAdapter takePictureRecyclerViewAdapter;
@@ -105,6 +106,24 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
         return R.layout.activity_game__take_picture;
     }
 
+    ActivityResultLauncher<Intent> mCameraResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+        if (result.getResultCode() == RESULT_OK) {
+            setPreviewPicture();
+            if (currentPhotoPath != null) {
+                GameStateTakePictureImage gameStateTakePictureImage = new GameStateTakePictureImage(gameStateTakePictureRelations.getId(), currentPhotoPath, new Date(), specialGameName);
+                AppDatabase.getInstance(getApplicationContext()).gameStateTakePictureImageDao().insertOne(gameStateTakePictureImage).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                        .flatMapCompletable(s -> {
+                            GameStateTakePicture gsTakePicture = gameStateTakePictureRelations.gameState;
+                            gameStateTakePictureImage.id = s.intValue();
+                            takePictureRecyclerViewAdapter.add(gameStateTakePictureImage);
+                            gsTakePicture.selectedImageId = s.intValue();
+                            // Don't save yet the selected image as the user may not want it as default
+                            return Completable.complete();
+                        }).subscribe();
+            }
+        }
+    });
+
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
@@ -122,7 +141,7 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
             if (photoFile != null) {
                 Uri photoURI = FileProvider.getUriForFile(this, "de.lmu.treeapp.fileprovider", photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+                mCameraResultLauncher.launch(takePictureIntent);
             }
         }
     }
@@ -144,26 +163,6 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
-            setPreviewPicture();
-            if (currentPhotoPath != null) {
-                GameStateTakePictureImage gameStateTakePictureImage = new GameStateTakePictureImage(gameStateTakePictureRelations.getId(), currentPhotoPath, new Date(), specialGameName);
-                AppDatabase.getInstance(getApplicationContext()).gameStateTakePictureImageDao().insertOne(gameStateTakePictureImage).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                        .flatMapCompletable(s -> {
-                            GameStateTakePicture gsTakePicture = gameStateTakePictureRelations.gameState;
-                            gameStateTakePictureImage.id = s.intValue();
-                            takePictureRecyclerViewAdapter.add(gameStateTakePictureImage);
-                            gsTakePicture.selectedImageId = s.intValue();
-                            // Don't save yet the selected image as the user may not want it as default
-                            return Completable.complete();
-                        }).subscribe();
-            }
-        }
-    }
-
-    @Override
     public void onPopupAction(PopupType type, PopupAction action) {
         if (action == PopupAction.ACCEPT) {
             saveGameState().subscribe();
@@ -172,6 +171,7 @@ public class GameActivity_TakePicture extends GameActivity_Base implements Popup
             // Set success without going back to overview
             DataManager.getInstance(getApplicationContext()).setGameCompleted(parentCategory, gameContent.getId(), parentTree);
             saveGameState().subscribe();
+            // TODO replace with dynamic property
             if (getIntent().getExtras().getInt("GameId") == 303) {
                 showTreeProfileCrafting(true);
                 return;
