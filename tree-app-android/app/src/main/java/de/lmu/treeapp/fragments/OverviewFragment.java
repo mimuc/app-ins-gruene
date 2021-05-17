@@ -9,16 +9,13 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.List;
-
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.MainActivity;
 import de.lmu.treeapp.adapter.OverviewRecyclerViewAdapter;
@@ -27,16 +24,22 @@ import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.service.FragmentManagerService;
 import de.lmu.treeapp.service.MainActivityViewModel;
 
+import java.util.List;
+
 public class OverviewFragment extends Fragment {
 
-    private final FragmentManagerService fragmentManager;
-    private final Fragment selectedTreeFragment;
+    private FragmentManagerService fragmentManager;
     private RecyclerView overviewRecyclerView;
     private MainActivityViewModel viewModel;
 
-    public OverviewFragment(FragmentManagerService fragmentManager, Fragment selectedTreeFragment) {
-        this.fragmentManager = fragmentManager;
-        this.selectedTreeFragment = selectedTreeFragment;
+    public static OverviewFragment newInstance() {
+        return new OverviewFragment();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        fragmentManager = FragmentManagerService.getInstance(getParentFragmentManager());
     }
 
     @Override
@@ -68,7 +71,7 @@ public class OverviewFragment extends Fragment {
 
     private void updateOverviewRecyclerView() {
         List<Tree> trees = DataManager.getInstance(getContext()).trees;
-        RecyclerView.Adapter recyclerViewAdapter = new OverviewRecyclerViewAdapter(trees, fragmentManager, selectedTreeFragment, viewModel);
+        RecyclerView.Adapter recyclerViewAdapter = new OverviewRecyclerViewAdapter(trees, fragmentManager, viewModel);
         ((OverviewRecyclerViewAdapter) recyclerViewAdapter).setActivity(this.getActivity());
         overviewRecyclerView.setAdapter(recyclerViewAdapter);
         overviewRecyclerView

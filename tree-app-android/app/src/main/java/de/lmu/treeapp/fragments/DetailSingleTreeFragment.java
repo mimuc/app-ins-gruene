@@ -1,37 +1,30 @@
 package de.lmu.treeapp.fragments;
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.bumptech.glide.Glide;
-
-import java.util.Objects;
-
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.activities.GameSelectionActivity;
-import de.lmu.treeapp.wantedPoster.activity.WantedPosterTreeActivity;
 import de.lmu.treeapp.contentClasses.trees.Tree;
 import de.lmu.treeapp.contentClasses.trees.TreeComponent;
 import de.lmu.treeapp.contentData.DataManager;
 import de.lmu.treeapp.tutorial.CustomTapTargetPromptBuilder;
+import de.lmu.treeapp.wantedPoster.activity.WantedPosterTreeActivity;
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence;
 
 public class DetailSingleTreeFragment extends Fragment {
+
+    public static String TREE_KEY = "tree";
 
     private TextView treeName;
     private ImageView treeImage;
@@ -47,8 +40,23 @@ public class DetailSingleTreeFragment extends Fragment {
     private ProgressBar otherProgressBar;
     private Tree tree;
 
-    DetailSingleTreeFragment(Tree tree) {
-        this.tree = tree;
+    public static DetailSingleTreeFragment newInstance(Tree tree) {
+        DetailSingleTreeFragment detailSingleTreeFragment = new DetailSingleTreeFragment();
+
+        Bundle args = new Bundle();
+        args.putInt(TREE_KEY, tree.getId());
+        detailSingleTreeFragment.setArguments(args);
+
+        return detailSingleTreeFragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Bundle args = this.getArguments();
+        int treeId = args.getInt(TREE_KEY);
+        this.tree = DataManager.getInstance(getContext()).getTree(treeId);
     }
 
     @Nullable
