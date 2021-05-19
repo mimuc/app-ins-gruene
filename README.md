@@ -29,11 +29,11 @@ height="80">](https://github.com/lmu-informatics/app-ins-gruene/releases/latest)
 - [Notes](#notes)
 
 # About the App  
-'App Ins Grüne' is a digital educational trail about native trees in Germany. It is intended to bring children (and adults) closer to native trees in a playful way. The focus is on the smartphone as a companion in nature: many mini-games in the app require interaction with the environment, e.g. photographing the leaves of the trees. The photos are collected in profiles for each tree and can be viewed again at any time.  
-After downloading the app, it does not need a connection while on the move. In the profiles, however, videos provided by BISA [Biodiversität im Schulalltag](https://www.bisa100.de/) can be viewed with an existing internet connection. All games can be played multiple times.  
+'App Ins Grüne' is a digital educational trail about native trees in Germany. It is intended to bring children (and adults) closer to native trees in a playful way. The focus is on the smartphone as a companion in nature: many minigames in the app require interaction with the environment, e.g. photographing the leaves of the trees. The photos are collected in profiles for each tree and can be viewed again at any time.  
+After downloading the app, it does not need a connection while on the move. In the profiles, however, videos provided by BISA [(Biodiversität im Schulalltag)](https://www.bisa100.de/) can be viewed with an existing internet connection. All games can be played multiple times.  
 
 ## Core Functions
-- Mini-games on 10 different native tree species
+- Minigames on 10 different native tree species
 - Multiplayer mode for some games available
 - Profiles for each tree for further information
 - A collection of photos and creative contributions created by oneself
@@ -95,9 +95,9 @@ Detect lint issues:
 Read the docs for [Deployment](docs/playstore/Deployment.md).
 
 # Authors
-'App Ins Grüne' was created by computer science and art students in various courses at the Ludwig-Maximilians-University of Munich. However, it is not an official product of the LMU. The app was developed in cooperation with BISA [Biodiversität im Schulalltag](https://www.bisa100.de/) and the Institute for Biology Education of the LMU.     
+'App Ins Grüne' was created by computer science and art students in various courses at the Ludwig-Maximilians-University of Munich. However, it is not an official product of the LMU. The app was developed in cooperation with BISA [(Biodiversität im Schulalltag)](https://www.bisa100.de/) and the Institute for Biology Education of the LMU.     
 
-With a lot of commitment and attention to detail, a learning app was created that uses numerous mini-games to convey knowledge about the local tree species.  
+With a lot of commitment and attention to detail, a learning app was created that uses numerous minigames to convey knowledge about the local tree species.  
 
 Since the development of the app will not be continued by us students, everyone is welcome to further develop on this project, to improve the app and to fix bugs. The source code is subject to the MIT license.  
 
