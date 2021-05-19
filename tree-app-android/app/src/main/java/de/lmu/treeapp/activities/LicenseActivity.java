@@ -84,4 +84,11 @@ public class LicenseActivity extends AppCompatActivity implements LicenseRecycle
     public void onItemClick(View view, int position) {
 
     }
+
+    // Remove the current activity from the stack to switch to the previous one
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
 }
