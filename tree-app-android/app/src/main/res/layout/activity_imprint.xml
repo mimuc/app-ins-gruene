@@ -12,192 +12,127 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="24dp">
 
             <TextView
                 android:id="@+id/imprint_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/imprint_imprint_title"
                 android:textAllCaps="true"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="@dimen/heading1" />
 
             <TextView
                 android:id="@+id/imprint_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:fontFamily="@font/hind_medium"
                 android:justificationMode="inter_word"
                 android:text="@string/imprint_imprint_text"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imprint_title" />
+                android:textSize="@dimen/text" />
 
             <TextView
                 android:id="@+id/publisher_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/imprint_publisher_title"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imprint_text" />
+                android:textSize="@dimen/heading2" />
 
             <TextView
                 android:id="@+id/publisher_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:fontFamily="@font/hind_medium"
                 android:text="@string/imprint_publisher_text"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/publisher_title" />
+                android:textSize="@dimen/text" />
 
             <TextView
                 android:id="@+id/tec_implementation_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/imprint_tec_implementation_title"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/publisher_text" />
+                android:textSize="@dimen/heading2" />
 
             <TextView
                 android:id="@+id/tec_implementation_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:fontFamily="@font/hind_medium"
                 android:text="@string/imprint_tec_implementation_text"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tec_implementation_title" />
+                android:textSize="@dimen/text" />
 
             <TextView
                 android:id="@+id/disclaimer_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/imprint_disclaimer_title"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tec_implementation_text" />
+                android:textSize="@dimen/heading2" />
 
             <TextView
                 android:id="@+id/disclaimer_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:justificationMode="inter_word"
                 android:fontFamily="@font/hind_medium"
                 android:text="@string/imprint_disclaimer_text"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/disclaimer_title" />
+                android:textSize="@dimen/text" />
 
             <TextView
                 android:id="@+id/copyright_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/imprint_copyright_title"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/disclaimer_text" />
+                android:textSize="@dimen/heading2" />
 
             <TextView
                 android:id="@+id/copyright_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:justificationMode="inter_word"
                 android:fontFamily="@font/hind_medium"
                 android:text="@string/imprint_copyright_text"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/copyright_title" />
+                android:textSize="@dimen/text" />
 
             <TextView
                 android:id="@+id/links_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/imprint_links_title"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/disclaimer_text" />
+                android:textSize="@dimen/heading2" />
 
             <TextView
                 android:id="@+id/links_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:justificationMode="inter_word"
                 android:fontFamily="@font/hind_medium"
                 android:text="@string/imprint_links_text"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/copyright_title" />
+                android:textSize="@dimen/text" />
 
         </LinearLayout>
 

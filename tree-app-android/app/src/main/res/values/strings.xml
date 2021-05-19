@@ -130,14 +130,13 @@
     <string name="imprint_imprint_title">Impressum</string>
     <string name="imprint_imprint_text">Informationen gemäß § 5 Telemediengesetz: </string>
     <string name="imprint_publisher_title">Herausgeber</string>
-    <string name="imprint_publisher_text">Prof. Birgit J. Neuhaus \nLudwig-Maximilians-Universität München \nFakultät für Biologie \nLehrstuhl für Didaktik der Biologie \nWinzererstr. 45/II, 80797 München \nKontakt: didaktik.biologie@lrz.uni-muenchen.de \n
+    <string name="imprint_publisher_text">Prof. Birgit J. Neuhaus \nLudwig-Maximilians-Universität München \nDidaktik der Biologie \nWinzererstr. 45/II, 80797 München \nE-Mail: didaktik.biologie@lrz.uni-muenchen.de \n
     \nProf. Dr. Heinrich Hußmann \nLudwig-Maximilians-Universität München \nInstitut für Informatik</string>
     <string name="imprint_tec_implementation_title">Verantwortlich für die technische Umsetzung</string>
     <string name="imprint_tec_implementation_text">Studierende der LMU. Mehr Informationen unter \"Über uns\".</string>
     <string name="imprint_disclaimer_title">Freistellungserklärung</string>
     <string name="imprint_disclaimer_text">Die Angaben wurden nach bestem Wissen erstellt, Fehler können jedoch nicht mit letzter Sicherheit ausgeschlossen werden. Eine Gewähr für die jederzeitige Aktualität, Richtigkeit, Vollständigkeit und Verfügbarkeit der bereitgestellten Informationen können wir nicht übernehmen.
-    Wir haften nicht für Schäden, die durch die Nutzung dieses Appangebots entstehen. Für etwaige Schäden, die beim Aufrufen oder Herunterladen von Daten durch Schadsoftware oder der Installation oder Nutzung von Software verursacht werden, wird nicht gehaftet.
-</string>
+    Wir haften nicht für Schäden, die durch die Nutzung dieses Appangebots entstehen. Für etwaige Schäden, die beim Aufrufen oder Herunterladen von Daten durch Schadsoftware oder der Installation oder Nutzung von Software verursacht werden, wird nicht gehaftet.</string>
     <string name="imprint_copyright_title">Copyright / Urheberrecht</string>
     <string name="imprint_copyright_text">Die Inhalte dieser App unterliegen dem Urheberrecht der Beitragenden. Die Lizenzverträge zur Einräumung von Nutzungsrechten gegenüber den Urheberrechten Dritter können im Menüpunkt \"Lizenzen\" eingesehen werden. Sofern nicht anders angegeben unterstehen sämtliche Inhalte der MIT-Lizenz.\n
     \nSollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen. </string>
@@ -147,6 +146,8 @@
     <!-- Privacy-->
     <string name="menu_privacy">Datenschutz</string>
     <string name="privacy_title">Datenschutzerklärung</string>
+    <string name="privacy_data_protection_officer_title">Kontaktdaten des Datenschutzbeauftragten</string>
+    <string name="privacy_data_protection_officer_text">Ludwig-Maximilians-Universität München \nDidaktik der Biologie \nWinzererstr. 45/II, 80797 München \nE-Mail: didaktik.biologie@lrz.uni-muenchen.de</string>
     <string name="privacy_access_title">Zugriffsrechte</string>
     <string name="privacy_access_text">Es werden Zugriffrechte der Kamera des Smartphones benötigt, um im Rahmen der Minispiele Fotos von den Bäumen machen zu können. Die App ist aus diesem Grund ohne Kamera-Zugriff nur bedingt spielbar. \nDie App ist ohne Internetverwendung nutzbar, eine Internetverbindung wird nur für den Download der App benötigt. Bei bestehender Internetverbindung können von BISA (Biodiversität im Schulalltag) bereitgestellte Videos in den Steckbriefen der jeweiligen Bäumen abgespielt werden – dabei handelt es sich jedoch nur um ein ergänzendes Zusatzangebot.</string>
     <string name="privacy_data_title">Persönliche Daten</string>
@@ -172,6 +173,9 @@
     <string name="about_text_devs3">Alexander Zwermann \nAugust Oberhauser \nBenedikt Strodl \nCarmen Golling \nCoco Rogers \nDaniel Steidl \nDavid Klein \nDominik Runge \nHanna Daxer \nJulia Pühl \nLisa Görtz \nMagdalena Benkard \nSophia Münch \nSvenja König \nStefan Körner \nYannick Weiss</string>
     <string name="about_text_devs4">Cara Emberger \nCarmen Golling \nFabienne Daniela Lengweiler \nFlorentine Helmle \nJulian Lorenz \nMaya Czupor \nThomas Gerl \nThomas Puls</string>
     <string name="about_text_devs5">Florentine Helmle \nLisa Görtz \nMarie Irmer \nThomas Gerl</string>
+    <string name="about_open_source_subtitle">Open Source</string>
+    <string name="about_open_source_text">Ihr könnt den Quelltext der App einsehen und selbst verwenden. Außerdem freuen wir uns über Verbesserungen und Beiträge auf GitHub: https://github.com/lmu-informatics/app-ins-gruene</string>
+    <string name="open_source_link">https://github.com/lmu-informatics/app-ins-gruene</string>
 
     <!-- Licenses -->
     <string name="menu_licenses">Lizenzen</string>
