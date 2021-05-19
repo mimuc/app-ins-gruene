@@ -3,19 +3,15 @@ package de.lmu.treeapp.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.concurrent.TimeUnit;
-
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.contentData.DataManager;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.exceptions.UndeliverableException;
 import io.reactivex.rxjava3.plugins.RxJavaPlugins;
+
+import java.util.concurrent.TimeUnit;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -26,9 +22,11 @@ public class SplashScreen extends AppCompatActivity {
         actionBar.hide();
         setContentView(R.layout.activity_splash_screen);
 
+        /*
         ImageView image_appinsgruene = findViewById(R.id.image_appinsgruene);
         ImageView image_logos = findViewById(R.id.image_logos);
         TextView splash_screen_text = findViewById(R.id.splash_screen_text);
+        */
 
         RxJavaPlugins.setErrorHandler(e -> {
             if (e instanceof UndeliverableException) {
@@ -52,6 +50,6 @@ public class SplashScreen extends AppCompatActivity {
             Intent intent = new Intent(SplashScreen.this, MainActivity.class);
             startActivity(intent);
             finish();
-        });
+        }).dispose();
     }
 }
