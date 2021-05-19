@@ -12,340 +12,257 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="24dp">
 
             <TextView
                 android:id="@+id/about_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/about_us_title"
                 android:textAllCaps="true"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="@dimen/heading1" />
 
             <TextView
                 android:id="@+id/about_subtitle_creation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/creation"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/about_title" />
+                android:textSize="@dimen/heading2" />
 
             <TextView
                 android:id="@+id/about_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:fontFamily="@font/hind_medium"
                 android:justificationMode="inter_word"
                 android:text="@string/about_text"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_subtitle_creation" />
+                android:textSize="@dimen/text" />
 
             <ImageView
                 android:id="@+id/about_image"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
                 android:adjustViewBounds="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/about_text"
                 app:srcCompat="@drawable/ic_ahorn_baum" />
 
             <TextView
                 android:id="@+id/about_text2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginTop="12dp"
                 android:fontFamily="@font/hind_medium"
                 android:justificationMode="inter_word"
                 android:text="@string/about_text2"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_image"/>
+                android:textSize="@dimen/text" />
 
             <ImageView
                 android:id="@+id/about_image2"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
                 android:adjustViewBounds="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/about_text2"
                 app:srcCompat="@drawable/ic_ahorn_baum" />
 
             <TextView
                 android:id="@+id/about_text3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginTop="12dp"
                 android:fontFamily="@font/hind_medium"
                 android:justificationMode="inter_word"
                 android:text="@string/about_text3"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_image2"/>
+                android:textSize="@dimen/text" />
 
             <ImageView
                 android:id="@+id/about_image3"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
                 android:adjustViewBounds="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/about_text3"
                 app:srcCompat="@drawable/ic_ahorn_baum" />
 
             <TextView
                 android:id="@+id/about_text4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginTop="12dp"
                 android:fontFamily="@font/hind_medium"
                 android:text="@string/about_text4"
                 android:textColor="@color/asphalt"
                 android:textSize="@dimen/text"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_image3"/>
+                app:layout_constraintTop_toBottomOf="@id/about_image3" />
 
             <TextView
                 android:id="@+id/about_subtitle_intention"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/goal"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_text4" />
+                android:textSize="@dimen/heading2" />
 
             <TextView
                 android:id="@+id/about_intention_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:fontFamily="@font/hind_medium"
                 android:justificationMode="inter_word"
                 android:text="@string/about_intention_text"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_subtitle_intention" />
+                android:textSize="@dimen/text" />
 
             <TextView
                 android:id="@+id/about_subtitle_logos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/powered_by"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_intention_text" />
+                android:textSize="@dimen/heading2" />
 
             <ImageView
                 android:id="@+id/about_logos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/ic_logos"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_subtitle_logos"/>
+                app:srcCompat="@drawable/ic_logos" />
 
             <TextView
                 android:id="@+id/about_subtitle_devs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/about_subtitle_devs"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_logos" />
+                android:textSize="@dimen/heading2" />
 
             <TextView
                 android:id="@+id/about_subtitle_devs2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/about_subtitle_devs2"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_subtitle_devs" />
+                android:textSize="@dimen/heading3" />
+
             <TextView
                 android:id="@+id/about_text_devs2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:text="@string/about_text_devs2"
                 android:fontFamily="@font/hind_medium"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_subtitle_devs2" />
+                android:textSize="@dimen/text" />
 
             <TextView
                 android:id="@+id/about_subtitle_devs3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/about_subtitle_devs3"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_text_devs2" />
+                android:textSize="@dimen/heading3" />
 
             <TextView
                 android:id="@+id/about_text_devs3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:text="@string/about_text_devs3"
                 android:fontFamily="@font/hind_medium"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_subtitle_devs3" />
+                android:textSize="@dimen/text" />
 
             <TextView
                 android:id="@+id/about_subtitle_devs4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/about_subtitle_devs4"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_text_devs3" />
+                android:textSize="@dimen/heading3" />
 
             <TextView
                 android:id="@+id/about_text_devs4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:text="@string/about_text_devs4"
                 android:fontFamily="@font/hind_medium"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_subtitle_devs4" />
+                android:textSize="@dimen/text" />
 
             <TextView
                 android:id="@+id/about_subtitle_devs5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/about_subtitle_devs5"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/heading3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_text_devs4" />
+                android:textSize="@dimen/heading3" />
+
             <TextView
                 android:id="@+id/about_text_devs5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:text="@string/about_text_devs5"
                 android:fontFamily="@font/hind_medium"
                 android:textColor="@color/asphalt"
-                android:textSize="@dimen/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/about_subtitle_devs5" />
+                android:textSize="@dimen/text" />
 
+            <TextView
+                android:id="@+id/about_open_source_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/about_open_source_subtitle"
+                android:textColor="@color/asphalt"
+                android:textSize="@dimen/heading2" />
+
+            <LinearLayout
+                android:id="@+id/open_source_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/about_open_source_image"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/ic_baseline_github" />
+
+                <TextView
+                    android:id="@+id/about_open_source_text"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="@string/about_open_source_text"
+                    android:fontFamily="@font/hind_medium"
+                    android:textColor="@color/asphalt"
+                    android:textSize="@dimen/text" />
+            </LinearLayout>
 
         </LinearLayout>
 
