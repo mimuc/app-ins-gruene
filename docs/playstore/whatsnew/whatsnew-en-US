@@ -1,4 +1,4 @@
-0.1.0-alpha.3 - 2021-05-18
-- Adapt font in Popups for wrong answers
-- Fix camera crashes, when taking picture
-- Fix Licenses not visible
+0.1.0-beta.0 - 2021-05-19
+- Fix navigate up on Licenses page
+- Add Open Source Section in About page
+- Minor improvements in Profile page

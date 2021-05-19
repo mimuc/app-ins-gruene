@@ -1,4 +1,4 @@
-0.1.0-alpha.3 - 2021-05-18
-- Anpassung des Schriftart des Popups bei falscher Antwort
-- Fehler behoben, wenn Kamera abstürtzt bei Aufnahme eines Fotos
-- Fehler behoben, dass Lizenzen nicht angezeigt werden
+0.1.0-beta.0 - 2021-05-19
+- Fehler behoben, um in der Lizenz-Seite zurück zu navigieren
+- Hinzufügen einer Open Source Sektion in der "Über uns"-Seite
+- Kleinere Verbesserungen auf der Profil-Seite
