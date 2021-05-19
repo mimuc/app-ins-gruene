@@ -260,8 +260,6 @@
     <string name="profile_favSeason">Meine liebste Jahreszeit:</string>
     <string name="profile_nickname">Mein Name:</string>
     <string name="profile_name_default_val">Sag ich nicht</string>
-    <string name="profile_name_default_val_2">Max</string>
-    <string name="profile_name_default_val_3">Erika</string>
     <string name="profile_age_default_val">Immer ein Jahr mehr als du!</string>
     <string name="profile_location">Hier wohne ich:</string>
     <string name="profile_location_default_val">Deutschland</string>

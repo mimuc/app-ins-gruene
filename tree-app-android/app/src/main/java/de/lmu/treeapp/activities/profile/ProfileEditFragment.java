@@ -206,11 +206,11 @@ public class ProfileEditFragment extends Fragment {
                     case R.id.profile_save:
                         userProfileState.name = inputName.getText().toString();
                         if (userProfileState.name.isEmpty()) {
-                            userProfileState.name = getResources().getString(R.string.profile_name_default_val);
+                            userProfileState.name = null;
                         }
                         userProfileState.age = inputAge.getText().toString();
                         if (userProfileState.age.isEmpty()) {
-                            userProfileState.age = getResources().getString(R.string.profile_age_default_val);
+                            userProfileState.age = null;
                         }
                         userProfileState.location = (locationItems.get(dropDownLocExposed.getPosition())).position;
                         userProfileState.tree = (treeItems.get(dropDownTreeExposed.getPosition())).position;

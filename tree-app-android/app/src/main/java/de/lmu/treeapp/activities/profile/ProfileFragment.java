@@ -24,7 +24,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence;
 
 import java.util.List;
-import java.util.Random;
 
 public class ProfileFragment extends Fragment {
 
@@ -79,10 +78,9 @@ public class ProfileFragment extends Fragment {
             // Check if context is still available on reinitialization
             if (context == null) return;
 
-            if (this.userProfileState.name != null && this.userProfileState.age != null) {
+            if (this.userProfileState.name != null) {
                 profileBubbleText.setText(context.getString(R.string.profile_bubble_text, this.userProfileState.name));
                 userNameView.setText(this.userProfileState.name.substring(0, 1).toUpperCase() + this.userProfileState.name.substring(1).toLowerCase());
-                ageTextView.setText(this.userProfileState.age);
 
                 int defaultAvatar = R.drawable.ic_singleplayer_squirrel;
                 if (this.userProfileState.avatar != null) {
@@ -139,21 +137,18 @@ public class ProfileFragment extends Fragment {
 
             } else {
                 profileBubbleText.setText(R.string.profile_welcome);
-                Random rand = new Random();
-                int rngName = rand.nextInt(2);
-                int rngAge = rand.nextInt(8) + 4;
-                if (rngName == 0) {
-                    userNameView.setText(R.string.profile_name_default_val_2);
-                } else {
-                    userNameView.setText(R.string.profile_name_default_val_3);
-                }
-                ageTextView.setText(String.valueOf(rngAge));
+                userNameView.setText(R.string.profile_name_default_val);
+            }
 
+            if(this.userProfileState.age != null)  {
+                ageTextView.setText(this.userProfileState.age);
+            } else {
+                ageTextView.setText(R.string.profile_age_default_val);
             }
         });
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        Boolean profile_show = preferences.getBoolean("profile_show", false);
-        if (profile_show == false) {
+        boolean profile_show = preferences.getBoolean("profile_show", false);
+        if (!profile_show) {
             presentMaterialTapTargetSequence();
         }
         SharedPreferences.Editor editor = preferences.edit();
