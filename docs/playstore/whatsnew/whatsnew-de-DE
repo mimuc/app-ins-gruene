@@ -1,4 +1,5 @@
-0.1.0-beta.0 - 2021-05-19
+0.1.0-beta.1 - 2021-05-19
+- Behalte verschleierte Quelldateien und Zeilennummern für Debugging
 - Fehler behoben, um in der Lizenz-Seite zurück zu navigieren
 - Hinzufügen einer Open Source Sektion in der "Über uns"-Seite
 - Kleinere Verbesserungen auf der Profil-Seite

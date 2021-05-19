@@ -1,6 +1,7 @@
 # Changelog
 
 ## [Unreleased]
+- Keep obfuscated source files and lines for debugging
 
 ## [0.1.0-beta.0] - 2021-05-19
 - Fix navigate up on Licenses page
