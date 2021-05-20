@@ -1,10 +1,13 @@
 package de.lmu.treeapp.activities;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import de.lmu.treeapp.BuildConfig;
 import de.lmu.treeapp.R;
 import de.lmu.treeapp.contentData.DataManager;
 import io.reactivex.rxjava3.core.Single;
@@ -18,6 +21,10 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Uncomment to determine compatibility issues
+        //enableCompatibilityLog();
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         setContentView(R.layout.activity_splash_screen);
@@ -51,5 +58,26 @@ public class SplashScreen extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+    }
+
+    private void enableCompatibilityLog() {
+        // See: https://stackoverflow.com/a/57772287/5164462
+        if (BuildConfig.BUILD_TYPE.contentEquals("debug")) {
+            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy
+                    .Builder()
+                    .detectAll()             // Checks for all violations
+                    .penaltyLog()            // Output violations via logging
+                    .build()
+            );
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                StrictMode.setVmPolicy(new StrictMode.VmPolicy
+                        .Builder()
+                        .detectNonSdkApiUsage()  // Detect private API usage
+                        .penaltyLog()            // Output violations via logging
+                        .build()
+                );
+            }
+        }
     }
 }
