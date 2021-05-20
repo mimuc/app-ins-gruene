@@ -1,6 +1,7 @@
 # Changelog
 
 ## [Unreleased]
+- Upgrade Gradle dependencies
 - Keep obfuscated source files and lines for debugging
 
 ## [0.1.0-beta.0] - 2021-05-19

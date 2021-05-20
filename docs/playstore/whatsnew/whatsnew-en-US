@@ -1,5 +1,6 @@
-0.1.0-beta.1 - 2021-05-19
-- Keep obfuscated source files and lines for debugging
+0.1.0-beta.2 - 2021-05-20
 - Fix navigate up on Licenses page
 - Add Open Source Section in About page
 - Minor improvements in Profile page
+- Upgrade Gradle dependencies
+- Keep obfuscated source files and lines for debugging
