@@ -1,5 +1,5 @@
 # App Ins Grüne
-![Flyer_AppInsGruene](https://user-images.githubusercontent.com/18674912/117980915-bb7af180-b334-11eb-9fa0-0e376b4a9583.jpg)  
+![Flyer_AppInsGruene_GitHub](https://user-images.githubusercontent.com/18674912/119205995-30b79680-ba9a-11eb-82f5-3b022ff5d3dc.jpg)
 
 <!--
 [<img src="https://f-droid.org/badge/get-it-on.png"
