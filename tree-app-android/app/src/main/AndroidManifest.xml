@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="de.lmu.treeapp">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Since API level 30, there have been changes in the package visibility.
     Link: https://developer.android.com/about/versions/11/privacy/package-visibility -->
@@ -136,7 +135,8 @@
         <activity
             android:name=".activities.SplashScreen"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
