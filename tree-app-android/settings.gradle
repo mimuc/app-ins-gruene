@@ -1,1 +1,18 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        jcenter() //https://developer.android.com/build/jcenter-migration
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() //https://developer.android.com/build/jcenter-migration
+    }
+}
+rootProject.name = "Tree App Android"
 include ':app'
