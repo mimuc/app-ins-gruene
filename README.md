@@ -103,9 +103,9 @@ Since the development of the app will not be continued by us students, everyone 
 
 ***
 Development:  
-- Summer semester 2019: Practical Course [Design Workshop II](http://www.medien.ifi.lmu.de/lehre/ss19/dw2/)
-- 2019-2020: Further development by a group of three students of the Design Workshop II
-- Winter semester 2020/21: Practical Course [Development of Media Systems III](https://www.medien.ifi.lmu.de/lehre/ws2021/pem3/)
+- Summer semester 2019: Practical Course "Design Workshop II" at LMU Munich.
+- 2019-2020: Further development by a group of three students.
+- Winter semester 2020/21: Practical Course Development of "Media Systems III" at LMU Munich.
 ***
 
 # Notes
